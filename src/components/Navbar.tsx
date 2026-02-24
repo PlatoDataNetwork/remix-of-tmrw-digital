@@ -5,8 +5,11 @@ import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
+  { label: "Vision", href: "#vision" },
+  { label: "Web3 AI", href: "#web3ai" },
   { label: "Services", href: "#services" },
   { label: "RWAs", href: "#rwas" },
+  { label: "Team", href: "#team" },
   { label: "News", href: "#news" },
   { label: "Contact", href: "#contact" },
 ];
