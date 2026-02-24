@@ -24,8 +24,8 @@ const visionCards = [
   {
     icon: TrendingUp,
     title: "Public Market Access",
-    stat: "Q1 2026 Launch",
-    description: "RTO transaction targeting TSX Venture Exchange listing Q1 2026 with experienced management team.",
+    stat: "Q2 2026 Launch",
+    description: "RTO transaction targeting TSX Venture Exchange listing Q2 2026 with experienced management team.",
   },
 ];
 
