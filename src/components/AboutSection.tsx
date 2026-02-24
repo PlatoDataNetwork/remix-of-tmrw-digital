@@ -56,9 +56,9 @@ const AboutSection = () => {
             </p>
             <div className="mt-10 grid grid-cols-3 gap-8">
               {[
-                { number: "20+", label: "Years Experience" },
-                { number: "150+", label: "Clients Served" },
-                { number: "$2B+", label: "Capital Raised" },
+                { number: "100+", label: "Years Experience" },
+                { number: "70K+", label: "Enterprise Engagements" },
+                { number: "$2B+", label: "Value Created" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-2xl md:text-3xl font-semibold text-foreground">{stat.number}</p>
