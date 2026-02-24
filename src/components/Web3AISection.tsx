@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const innovations = [
   {
     icon: Bot,
-    title: "AI-Powered Automation",
+    title: "AI Super Cloud",
     slug: "ai-automation",
     stat: "60% Cost Reduction",
     description: "Advanced automation for compliance, AML/KYC, transaction scoring, and real-time reporting.",
