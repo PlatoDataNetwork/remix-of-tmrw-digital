@@ -49,15 +49,18 @@ const RWASection = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group relative bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-1 h-full"
+                className="group relative bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
               >
                 <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center mb-6 group-hover:bg-foreground/10 transition-colors">
                   <sector.icon className="h-5 w-5 text-foreground" />
                 </div>
                 <h3 className="text-lg font-medium text-foreground mb-3">{sector.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed font-light">
+                <p className="text-sm text-muted-foreground leading-relaxed font-light mb-6">
                   {sector.description}
                 </p>
+                <span className="mt-auto self-end text-xs uppercase tracking-[0.15em] text-muted-foreground group-hover:text-foreground transition-colors">
+                  Learn More →
+                </span>
               </motion.div>
             </Link>
           ))}
