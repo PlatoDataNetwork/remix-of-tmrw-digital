@@ -42,17 +42,17 @@ const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Philosophy</p>
-            <h3 className="text-2xl md:text-3xl font-light leading-tight text-foreground mb-6">
-              Acceleration Through
+            <h3 className="text-3xl md:text-5xl font-light leading-tight text-foreground mb-6">
+              Where Intelligence Meets
               <br />
-              Strategic Partnerships
+              the New Economy.
             </h3>
             <div className="w-16 h-px bg-foreground/20 mb-8" />
             <p className="text-muted-foreground leading-relaxed text-base lg:text-lg font-light">
-              The Tomorrow Company principals utilize extensive data intelligence, social media, and Web3 AI
-              expertise to create a well-informed, loyal, and supportive shareholder
-              base coordinated with successful navigation through both private and public
-              financing activities.
+              The convergence of AI, Web3, and blockchain is redefining how capital moves,
+              how value is measured, and how trust is established. We believe tomorrow's
+              markets will be built on transparency, decentralization, and intelligent
+              infrastructure — and we're positioning our partners to lead that shift.
             </p>
             <div className="mt-10 grid grid-cols-3 gap-8">
               {[
