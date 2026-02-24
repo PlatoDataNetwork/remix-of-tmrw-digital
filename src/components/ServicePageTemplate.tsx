@@ -60,22 +60,16 @@ const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
           >
             {data.subtitle}
           </motion.p>
-          <div className="flex items-center gap-4 md:gap-6 mb-8">
-            <motion.div
-              {...fadeUp}
-              transition={{ duration: 0.6 }}
-              className="shrink-0"
-            >
-              <Icon className="h-[2.25rem] w-[2.25rem] md:h-[3.75rem] md:w-[3.75rem] lg:h-[4.5rem] lg:w-[4.5rem] text-foreground" />
-            </motion.div>
-            <motion.h1
-              {...fadeUp}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground"
-            >
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex items-center gap-4 mb-8"
+          >
+            <Icon className="h-[1.875rem] w-[1.875rem] md:h-[2.25rem] md:w-[2.25rem] text-foreground" />
+            <h1 className="text-3xl md:text-4xl font-light text-foreground">
               {data.title}
-            </motion.h1>
-          </div>
+            </h1>
+          </motion.div>
 
           <motion.p
             {...fadeUp}
@@ -88,7 +82,7 @@ const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
       </section>
 
       {/* Overview + Capabilities */}
-      <section className="py-14 lg:py-20 bg-background relative overflow-hidden">
+      <section className="pt-10 pb-14 lg:pt-14 lg:pb-20 bg-background relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
           <div className="absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full bg-[hsl(250,70%,50%,0.05)] blur-[120px]" />
         </div>
@@ -129,7 +123,7 @@ const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
       </section>
 
       {/* Benefits */}
-      <section className="py-24 lg:py-32 bg-secondary/30 relative overflow-hidden">
+      <section className="pt-14 pb-24 lg:pt-20 lg:pb-32 bg-secondary/30 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
           <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(250,80%,60%,0.06)] blur-[120px]" />
         </div>
@@ -147,7 +141,7 @@ const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
                 key={i}
                 {...fadeUp}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="bg-card border border-border rounded-2xl p-8 hover:border-[hsl(250,80%,60%,0.4)] transition-all duration-300"
+                className="bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all duration-300"
               >
                 <h3 className="text-lg font-medium text-foreground mb-3">{benefit.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-light">
