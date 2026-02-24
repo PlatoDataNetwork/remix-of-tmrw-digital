@@ -25,8 +25,8 @@ const services = [
   },
   {
     icon: BarChart3,
-    title: "Market Intelligence",
-    description: "Data-driven insights to position your company for maximum visibility and investor interest.",
+    title: "Cyber Defense",
+    description: "Advanced threat detection, blockchain security audits, and proactive defense strategies to protect digital assets and infrastructure.",
   },
   {
     icon: Globe,
