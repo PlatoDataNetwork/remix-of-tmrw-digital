@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import heroBg from "@/assets/hero-bg.png";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')`,
-          }}
+        <img
+          src={heroBg}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-[hsl(var(--hero-overlay))]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background" />
       </div>
 
       {/* Content */}
@@ -22,7 +22,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xs md:text-sm uppercase tracking-[0.3em] text-muted-foreground mb-6"
+          className="text-xs md:text-sm uppercase tracking-[0.3em] text-foreground/60 mb-6"
         >
           Capital Markets · Investor Relations · Strategic Advisory
         </motion.p>
@@ -42,7 +42,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light"
+          className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed font-light"
         >
           RCA Financial Partners provides capital markets and investor relations advice
           to small and micro-cap public and pre-IPO management teams at the critical
@@ -63,7 +63,7 @@ const HeroSection = () => {
           </a>
           <a
             href="#contact"
-            className="inline-flex h-12 px-8 items-center justify-center rounded-full border border-foreground/20 text-foreground text-sm font-medium hover:bg-foreground/5 transition-colors"
+            className="inline-flex h-12 px-8 items-center justify-center rounded-full border border-foreground/30 text-foreground text-sm font-medium hover:bg-foreground/10 transition-colors"
           >
             Contact Us
           </a>
@@ -81,7 +81,7 @@ const HeroSection = () => {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <ArrowDown className="h-5 w-5 text-muted-foreground" />
+          <ArrowDown className="h-5 w-5 text-foreground/50" />
         </motion.div>
       </motion.div>
     </section>
