@@ -25,8 +25,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <span className="text-lg lg:text-xl font-semibold tracking-tight text-white">
-              The <span className="font-light">Tomorrow Company</span>
+            <span className="text-lg lg:text-xl font-bold tracking-tight animated-gradient-text">
+              The Tomorrow Company
             </span>
           </a>
 
