@@ -4,7 +4,7 @@ import RWASectorTemplate, { SectorPageData } from "@/components/RWASectorTemplat
 const data: SectorPageData = {
   icon: Gem,
   title: "Rare Earth Minerals",
-  subtitle: "RWA Tokenization · Rare Earth Sector",
+  subtitle: "RWA Tokenization · Rare Earth",
   heroDescription: "Tokenizing critical mineral resources essential for advanced technology, defense systems, and clean energy applications—democratizing access to strategically vital assets.",
   overview: "Rare earth elements and critical minerals underpin modern technology—from smartphones and electric vehicles to missile guidance systems and wind turbines. Yet investment access has been extremely limited due to supply chain opacity and geopolitical concentration. Tokenization opens this strategically vital sector to a broader investor base while creating transparent, auditable supply chains that enhance national security and economic resilience.",
   stats: [

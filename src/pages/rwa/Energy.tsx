@@ -4,7 +4,7 @@ import RWASectorTemplate, { SectorPageData } from "@/components/RWASectorTemplat
 const data: SectorPageData = {
   icon: Flame,
   title: "Energy",
-  subtitle: "RWA Tokenization · Energy Sector",
+  subtitle: "RWA Tokenization · Energy",
   heroDescription: "Tokenizing oil, gas, renewable energy, and next-generation energy infrastructure to unlock liquidity, broaden investor access, and accelerate the global energy transition.",
   overview: "The energy sector represents one of the largest asset classes globally, yet access has historically been limited to institutional investors and sovereign entities. Tokenization transforms energy assets—from solar farms and wind installations to oil reserves and LNG terminals—into fractional, tradeable digital securities. This democratizes participation while providing asset owners with new capital formation tools and enhanced liquidity for traditionally illiquid holdings.",
   stats: [

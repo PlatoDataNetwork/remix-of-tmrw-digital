@@ -4,7 +4,7 @@ import RWASectorTemplate, { SectorPageData } from "@/components/RWASectorTemplat
 const data: SectorPageData = {
   icon: Mountain,
   title: "Metals",
-  subtitle: "RWA Tokenization · Metals Sector",
+  subtitle: "RWA Tokenization · Metals",
   heroDescription: "Tokenizing precious and industrial metals—from gold and silver to copper and lithium—bringing transparency, fractional access, and liquidity to the metals supply chain.",
   overview: "Metals have served as stores of value and industrial inputs for millennia. Today, tokenization bridges physical metal assets with digital Web3 markets, enabling fractional ownership of vaulted gold, silver reserves, copper mines, and lithium deposits. Blockchain verification ensures provenance and purity while smart contracts automate custody, settlement, and dividend distribution across the metals value chain.",
   stats: [

@@ -4,7 +4,7 @@ import RWASectorTemplate, { SectorPageData } from "@/components/RWASectorTemplat
 const data: SectorPageData = {
   icon: BarChart3,
   title: "Commodities",
-  subtitle: "RWA Tokenization · Commodities Sector",
+  subtitle: "RWA Tokenization · Commodities",
   heroDescription: "Tokenizing agricultural, energy, and material commodities—creating transparent, accessible, and efficient markets for institutional and retail investors alike.",
   overview: "Commodity markets form the backbone of the global economy, yet participation has been dominated by futures exchanges and specialized trading desks. Tokenization creates a direct bridge between physical commodity assets and digital investors, enabling fractional ownership of grain silos, coffee plantations, cotton inventories, and timber forests. Smart contracts handle settlement, custody verification, and yield distribution, bringing 21st-century efficiency to centuries-old markets.",
   stats: [
