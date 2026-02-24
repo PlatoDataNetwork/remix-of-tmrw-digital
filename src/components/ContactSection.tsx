@@ -33,11 +33,11 @@ const ContactSection = () => {
               Let's Start a Conversation
             </h2>
             <p className="text-muted-foreground leading-relaxed font-light mb-10">
-              Whether you're exploring capital markets strategies or seeking investor relations expertise,
+              Whether you're exploring Web3 AI strategies or seeking real world assets expertise,
               we're here to help navigate your path forward.
             </p>
             <div className="space-y-4 text-sm text-muted-foreground">
-              <p>info@rcafinancialpartners.com</p>
+              <p>info@thetomorrowcompany.com</p>
               <p>New York, NY</p>
             </div>
           </motion.div>

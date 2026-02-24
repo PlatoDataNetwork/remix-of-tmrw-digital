@@ -29,7 +29,7 @@ const AboutSection = () => {
             </h2>
             <div className="w-16 h-px bg-foreground/20 mb-8" />
             <p className="text-muted-foreground leading-relaxed text-base lg:text-lg font-light">
-              RCA Financial Partners provides capital markets and investor relations advice
+              The Tomorrow Company provides Web3 AI and real world assets intelligence
               to small and micro-cap public and pre-IPO management teams at the critical
               inflection point where proven results require prudent financing for success.
             </p>
@@ -49,8 +49,8 @@ const AboutSection = () => {
             </h3>
             <div className="w-16 h-px bg-foreground/20 mb-8" />
             <p className="text-muted-foreground leading-relaxed text-base lg:text-lg font-light">
-              RCA principals utilize extensive investor relations, social media, and capital
-              markets expertise to create a well-informed, loyal, and supportive shareholder
+              The Tomorrow Company principals utilize extensive data intelligence, social media, and Web3 AI
+              expertise to create a well-informed, loyal, and supportive shareholder
               base coordinated with successful navigation through both private and public
               financing activities.
             </p>

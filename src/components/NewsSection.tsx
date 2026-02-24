@@ -6,7 +6,7 @@ const articles = [
   {
     date: "Feb 2026",
     category: "Market Insight",
-    title: "The Future of RWA Tokenization in Capital Markets",
+    title: "The Future of RWA Tokenization in Web3 Markets",
     excerpt: "How real-world asset tokenization is reshaping investor access to previously illiquid markets.",
   },
   {

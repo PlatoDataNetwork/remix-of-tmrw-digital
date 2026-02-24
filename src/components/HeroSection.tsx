@@ -31,7 +31,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 mb-6"
         >
-          Capital Markets · Investor Relations · Strategic Advisory
+          Web3 AI · Real World Assets · Data Intelligence
         </motion.p>
 
         <motion.h1
@@ -51,7 +51,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed font-light"
         >
-          RCA Financial Partners provides capital markets and investor relations advice
+          The Tomorrow Company provides Web3 AI and real world assets intelligence
           to small and micro-cap public and pre-IPO management teams at the critical
           inflection point where proven results require prudent financing for success.
         </motion.p>

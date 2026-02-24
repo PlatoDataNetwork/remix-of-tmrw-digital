@@ -26,7 +26,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
             <span className="text-lg lg:text-xl font-semibold tracking-tight text-white">
-              RCA <span className="font-light">Financial Partners</span>
+              The <span className="font-light">Tomorrow Company</span>
             </span>
           </a>
 

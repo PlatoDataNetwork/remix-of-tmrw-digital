@@ -5,10 +5,10 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-10 mb-16">
           <div className="md:col-span-2">
             <p className="text-lg font-semibold text-foreground mb-2">
-              RCA <span className="font-light">Financial Partners</span>
+              The <span className="font-light">Tomorrow Company</span>
             </p>
             <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-sm">
-              Capital markets and investor relations advisory for public and pre-IPO management teams.
+              Web3 AI and real world assets intelligence for public and pre-IPO management teams.
             </p>
           </div>
           <div>
@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} RCA Financial Partners. All rights reserved.
+            © {new Date().getFullYear()} The Tomorrow Company. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
