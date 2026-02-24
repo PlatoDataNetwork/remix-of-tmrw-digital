@@ -31,9 +31,9 @@ const RWASection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Real World Assets</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Real World Assets (RWAs)</p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground mb-6">
-            Investing in the Real World
+            Investing in the Real World of Asset Tokenization
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light">
             Bridging traditional assets with modern capital markets through tokenization,
