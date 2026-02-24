@@ -253,7 +253,7 @@ html {
   );
   background-size: 400% 400%;
   background-position: 0% 50%;
-  animation: gradient-shift 4s ease infinite;
+  animation: gradient-shift 8s ease infinite;
   mix-blend-mode: screen;
   opacity: 0.6;
   pointer-events: none;
@@ -273,7 +273,7 @@ html {
   );
   background-size: 400% 400%;
   background-position: 0% 50%;
-  animation: gradient-shift 4s ease infinite;
+  animation: gradient-shift 8s ease infinite;
   mix-blend-mode: color;
   opacity: 0.85;
 }
@@ -303,7 +303,7 @@ html {
   );
   background-size: 400% 400%;
   background-position: 0% 50%;
-  animation: gradient-shift 4s ease infinite;
+  animation: gradient-shift 8s ease infinite;
   mix-blend-mode: color;
   pointer-events: none;
 }
@@ -324,5 +324,5 @@ html {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 4s ease infinite;
+  animation: gradient-shift 8s ease infinite;
 }
