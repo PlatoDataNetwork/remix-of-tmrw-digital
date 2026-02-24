@@ -37,7 +37,7 @@ const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-28 bg-background overflow-hidden">
+      <section className="relative pt-32 pb-10 lg:pt-44 lg:pb-14 bg-background overflow-hidden">
         <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
           <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-[hsl(250,80%,60%,0.08)] blur-[150px]" />
           <div className="absolute bottom-0 right-1/3 w-[400px] h-[400px] rounded-full bg-[hsl(280,80%,60%,0.06)] blur-[120px]" />
@@ -90,7 +90,7 @@ const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
       </section>
 
       {/* Overview + Capabilities */}
-      <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
+      <section className="py-14 lg:py-20 bg-background relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
           <div className="absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full bg-[hsl(250,70%,50%,0.05)] blur-[120px]" />
         </div>
