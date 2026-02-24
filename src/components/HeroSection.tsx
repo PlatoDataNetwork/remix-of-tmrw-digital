@@ -31,7 +31,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 mb-6"
         >
-          Web3 AI · Real World Assets · Data Intelligence
+          Real World Assets · Web3 AI · Vertical Intelligence
         </motion.p>
 
         <motion.h1
