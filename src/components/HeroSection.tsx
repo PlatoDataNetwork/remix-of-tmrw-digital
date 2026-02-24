@@ -6,7 +6,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-[110vh] flex items-end justify-center overflow-hidden pb-20 bg-[hsl(220,20%,4%)]">
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 animated-gradient-hero-bg">
         <img
           src={heroBg}
           alt=""
