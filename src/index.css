@@ -241,17 +241,18 @@ html {
   inset: 0;
   background: linear-gradient(
     270deg,
-    hsl(330, 100%, 55%, 0.3),
-    hsl(0, 90%, 55%, 0.25),
-    hsl(50, 95%, 55%, 0.25),
-    hsl(120, 100%, 50%, 0.25),
-    hsl(220, 100%, 55%, 0.3),
-    hsl(275, 85%, 55%, 0.3),
-    hsl(330, 100%, 55%, 0.3)
+    hsl(330, 100%, 55%),
+    hsl(0, 90%, 55%),
+    hsl(50, 95%, 55%),
+    hsl(120, 100%, 50%),
+    hsl(220, 100%, 55%),
+    hsl(275, 85%, 55%),
+    hsl(330, 100%, 55%)
   );
   background-size: 500% 500%;
   animation: gradient-shift 30s ease infinite;
-  mix-blend-mode: color;
+  mix-blend-mode: overlay;
+  opacity: 0.8;
   pointer-events: none;
   z-index: 1;
 }
