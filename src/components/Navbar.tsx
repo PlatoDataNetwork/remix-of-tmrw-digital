@@ -7,7 +7,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   
   { label: "Web3 AI", href: "#web3ai" },
-  { label: "Services", href: "#services" },
+  
   { label: "RWAs", href: "#rwas" },
   { label: "Team", href: "#team" },
   { label: "News", href: "#news" },
