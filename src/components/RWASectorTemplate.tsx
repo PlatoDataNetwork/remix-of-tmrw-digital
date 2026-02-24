@@ -54,13 +54,9 @@ const RWASectorTemplate = ({ data }: { data: SectorPageData }) => {
             </Link>
           </motion.div>
 
-          <div className="flex items-start gap-6 mb-8">
-            <motion.div
-              {...fadeUp}
-              transition={{ duration: 0.6 }}
-              className="h-16 w-16 rounded-2xl bg-secondary flex items-center justify-center shrink-0"
-            >
-              <Icon className="h-8 w-8 text-foreground" />
+          <div className="flex items-center gap-4 mb-8">
+            <motion.div {...fadeUp} transition={{ duration: 0.6 }}>
+              <Icon className="h-[2.25rem] w-[2.25rem] md:h-[3.75rem] md:w-[3.75rem] lg:h-[4.5rem] lg:w-[4.5rem] text-foreground" />
             </motion.div>
             <div>
               <motion.p
@@ -171,15 +167,13 @@ const RWASectorTemplate = ({ data }: { data: SectorPageData }) => {
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all duration-300"
               >
-                <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center mb-6">
-                  {i % 3 === 0 ? (
-                    <TrendingUp className="h-5 w-5 text-foreground" />
+                {i % 3 === 0 ? (
+                    <TrendingUp className="h-8 w-8 text-foreground" />
                   ) : i % 3 === 1 ? (
-                    <Shield className="h-5 w-5 text-foreground" />
+                    <Shield className="h-8 w-8 text-foreground" />
                   ) : (
-                    <Globe className="h-5 w-5 text-foreground" />
+                    <Globe className="h-8 w-8 text-foreground" />
                   )}
-                </div>
                 <h3 className="text-lg font-medium text-foreground mb-3">{useCase.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-light">
                   {useCase.description}
