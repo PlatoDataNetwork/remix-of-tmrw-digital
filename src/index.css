@@ -341,22 +341,3 @@ html {
   83% { color: hsl(220, 100%, 55%); }
 }
 
-/* Animated gradient Learn More on hover */
-.group:hover .group-hover\:animated-gradient-text {
-  background: linear-gradient(
-    270deg,
-    hsl(275, 85%, 55%),
-    hsl(330, 100%, 55%),
-    hsl(0, 90%, 55%),
-    hsl(50, 95%, 55%),
-    hsl(120, 100%, 50%),
-    hsl(220, 100%, 55%),
-    hsl(275, 85%, 55%)
-  );
-  background-size: 400% 400%;
-  background-position: 0% 50%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 8s ease infinite;
-}
