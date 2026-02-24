@@ -51,8 +51,8 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed font-light"
         >
-          We accelerate growth for emerging public and pre-IPO companies by building trust
-          through Web3 infrastructure, digital asset strategy, and vertical intelligence.
+          The Tomorrow Company is a Diversified Web3 Infrastructure and Digital Asset Holding
+          Company Building the Infrastructure for Tomorrow's Digital Economy.
         </motion.p>
 
         <motion.div
