@@ -10,7 +10,7 @@ const HeroSection = () => {
         <img
           src={heroBg}
           alt=""
-          className="absolute inset-0 w-full h-full object-contain object-center scale-100 dark:scale-110"
+          className="absolute inset-0 w-full h-full object-contain object-center translate-y-8 dark:translate-y-8 scale-100 dark:scale-110"
         />
         <div className="absolute inset-0 bg-[hsl(var(--hero-overlay))]" />
         <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%,0.4)] via-[hsl(220,20%,4%,0.2)] to-background" />
