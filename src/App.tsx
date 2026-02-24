@@ -19,6 +19,12 @@ import DataIntelligenceService from "./pages/services/DataIntelligence";
 import AIAnalyticsService from "./pages/services/AIAnalytics";
 import CyberDefenseService from "./pages/services/CyberDefense";
 import DigitalStrategyService from "./pages/services/DigitalStrategy";
+import AIAutomation from "./pages/web3ai/AIAutomation";
+import TokenEcosystem from "./pages/web3ai/TokenEcosystem";
+import CrossBorderSettlements from "./pages/web3ai/CrossBorderSettlements";
+import RWAInfrastructure from "./pages/web3ai/RWAInfrastructure";
+import VerticalIntelligence from "./pages/web3ai/VerticalIntelligence";
+import CommunityDriven from "./pages/web3ai/CommunityDriven";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,6 +52,12 @@ const App = () => (
           <Route path="/services/ai-analytics" element={<AIAnalyticsService />} />
           <Route path="/services/cyber-defense" element={<CyberDefenseService />} />
           <Route path="/services/digital-strategy" element={<DigitalStrategyService />} />
+          <Route path="/web3ai/ai-automation" element={<AIAutomation />} />
+          <Route path="/web3ai/token-ecosystem" element={<TokenEcosystem />} />
+          <Route path="/web3ai/cross-border-settlements" element={<CrossBorderSettlements />} />
+          <Route path="/web3ai/rwa-infrastructure" element={<RWAInfrastructure />} />
+          <Route path="/web3ai/vertical-intelligence" element={<VerticalIntelligence />} />
+          <Route path="/web3ai/community-driven" element={<CommunityDriven />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
