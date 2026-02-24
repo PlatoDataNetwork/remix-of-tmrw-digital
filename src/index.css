@@ -231,7 +231,15 @@ html {
   100% { background-position: 0% 50%; }
 }
 
-.animated-gradient-bg {
+.animated-gradient-icon {
+  position: relative;
+}
+
+.animated-gradient-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
   background: linear-gradient(
     270deg,
     hsl(0, 85%, 60%),
@@ -245,6 +253,8 @@ html {
   );
   background-size: 300% 300%;
   animation: gradient-shift 6s ease infinite;
+  mix-blend-mode: color;
+  pointer-events: none;
 }
 
 .animated-gradient-text {
