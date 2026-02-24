@@ -8,11 +8,8 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Team", href: "#team" },
   { label: "Web3 AI", href: "#web3ai" },
-  
   { label: "RWAs", href: "#rwas" },
   { label: "News", href: "#news" },
-  
-  { label: "Contact", href: "#contact" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -30,7 +27,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 relative animated-gradient-icon">
+            <div className="h-8 w-8 relative animated-gradient-icon overflow-hidden">
               <img src={logoIcon} alt="Tomorrow logo" className="h-full w-full object-contain" />
             </div>
             <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
