@@ -7,8 +7,13 @@ const AboutSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-32 lg:py-40 bg-background" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="about" className="relative py-32 lg:py-40 bg-background overflow-hidden" ref={ref}>
+      {/* Colorful theme gradient */}
+      <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
+        <div className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-[hsl(250,80%,60%,0.08)] blur-[100px]" />
+        <div className="absolute bottom-0 -left-20 w-[300px] h-[300px] rounded-full bg-[hsl(200,90%,50%,0.06)] blur-[80px]" />
+      </div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Left */}
           <motion.div

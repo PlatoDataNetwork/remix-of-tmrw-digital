@@ -1,45 +1,55 @@
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+type Theme = "light" | "dark" | "colorful";
 
 const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(true);
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
     const root = document.documentElement;
-    if (isDark) {
+    root.classList.remove("dark", "colorful");
+    if (theme === "dark") {
       root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
+    } else if (theme === "colorful") {
+      root.classList.add("colorful");
     }
-  }, [isDark]);
+  }, [theme]);
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
   }, []);
 
+  const cycleTheme = () => {
+    setTheme((prev) => {
+      if (prev === "dark") return "light";
+      if (prev === "light") return "colorful";
+      return "dark";
+    });
+  };
+
+  const icon = theme === "dark" ? Moon : theme === "light" ? Sun : Sparkles;
+  const Icon = icon;
+
   return (
     <button
-      onClick={() => setIsDark(!isDark)}
-      className="relative p-2 rounded-full bg-secondary/50 hover:bg-secondary transition-colors"
+      onClick={cycleTheme}
+      className="relative p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
       aria-label="Toggle theme"
     >
-      <motion.div
-        initial={false}
-        animate={{ rotate: isDark ? 0 : 180, scale: isDark ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="absolute inset-0 flex items-center justify-center"
-      >
-        <Moon className="h-4 w-4 text-foreground" />
-      </motion.div>
-      <motion.div
-        initial={false}
-        animate={{ rotate: isDark ? -180 : 0, scale: isDark ? 0 : 1 }}
-        transition={{ duration: 0.3 }}
-        className="flex items-center justify-center"
-      >
-        <Sun className="h-4 w-4 text-foreground" />
-      </motion.div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={theme}
+          initial={{ rotate: -90, scale: 0, opacity: 0 }}
+          animate={{ rotate: 0, scale: 1, opacity: 1 }}
+          exit={{ rotate: 90, scale: 0, opacity: 0 }}
+          transition={{ duration: 0.25 }}
+          className="flex items-center justify-center"
+        >
+          <Icon className={`h-4 w-4 ${theme === "colorful" ? "text-purple-400" : "text-white"}`} />
+        </motion.div>
+      </AnimatePresence>
     </button>
   );
 };

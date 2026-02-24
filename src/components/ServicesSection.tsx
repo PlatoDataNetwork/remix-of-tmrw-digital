@@ -40,8 +40,13 @@ const ServicesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="py-32 lg:py-40 bg-card" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="services" className="relative py-32 lg:py-40 bg-card overflow-hidden" ref={ref}>
+      {/* Colorful theme gradient */}
+      <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[hsl(250,80%,60%,0.06)] blur-[120px]" />
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-[hsl(330,80%,55%,0.05)] blur-[80px]" />
+      </div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
