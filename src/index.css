@@ -231,6 +231,22 @@ html {
   100% { background-position: 0% 50%; }
 }
 
+.animated-gradient-bg {
+  background: linear-gradient(
+    270deg,
+    hsl(0, 85%, 60%),
+    hsl(30, 90%, 55%),
+    hsl(50, 90%, 55%),
+    hsl(130, 70%, 50%),
+    hsl(210, 85%, 55%),
+    hsl(270, 75%, 60%),
+    hsl(330, 80%, 55%),
+    hsl(0, 85%, 60%)
+  );
+  background-size: 300% 300%;
+  animation: gradient-shift 6s ease infinite;
+}
+
 .animated-gradient-text {
   background: linear-gradient(
     270deg,

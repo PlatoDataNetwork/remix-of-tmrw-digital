@@ -30,7 +30,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <img src={logoIcon} alt="Tomorrow logo" className="h-8 w-8 rounded-full object-cover" />
+            <div className="h-9 w-9 rounded-full p-[2px] animated-gradient-bg">
+              <img src={logoIcon} alt="Tomorrow logo" className="h-full w-full rounded-full object-cover" />
+            </div>
             <span className="text-lg lg:text-xl font-bold tracking-tight animated-gradient-text">
               The Tomorrow Company
             </span>
