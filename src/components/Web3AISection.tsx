@@ -1,41 +1,48 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Bot, Coins, Zap, BarChart3, Users, Database } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const innovations = [
   {
     icon: Bot,
     title: "AI-Powered Automation",
+    slug: "ai-automation",
     stat: "60% Cost Reduction",
     description: "Advanced automation for compliance, AML/KYC, transaction scoring, and real-time reporting.",
   },
   {
     icon: Coins,
     title: "Token Ecosystem",
+    slug: "token-ecosystem",
     stat: "Dual Revenue",
     description: "Proprietary token driving rewards, incentives, and cross-border transactions across the network.",
   },
   {
     icon: Zap,
     title: "Cross-Border Settlements",
+    slug: "cross-border-settlements",
     stat: "<1 Min Settlement",
     description: "Solana-based stablecoin infrastructure enabling near-instant settlements with zero FX friction.",
   },
   {
     icon: Database,
     title: "RWA Infrastructure",
+    slug: "rwa-infrastructure",
     stat: "Compliant Exchange",
     description: "Blockchain-verified tokenization of real-world assets including carbon credits, commodities, and digital securities.",
   },
   {
     icon: BarChart3,
     title: "Vertical Intelligence",
+    slug: "vertical-intelligence",
     stat: "Real-Time Analytics",
     description: "Industry-specific AI models delivering actionable insights across carbon markets, compliance, and financial operations.",
   },
   {
     icon: Users,
     title: "Community Driven",
+    slug: "community-driven",
     stat: "Global Network",
     description: "Decentralized governance and network effects driving adoption through incentivized participation and stakeholder alignment.",
   },
@@ -76,14 +83,22 @@ const Web3AISection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group relative bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-1"
+              className="group relative bg-card border border-border rounded-2xl p-8 hover:bg-[hsl(250,80%,60%,0.12)] hover:border-[hsl(250,80%,60%,0.4)] hover:shadow-[0_0_30px_-10px_hsl(250,80%,60%,0.25)] transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
-              <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center mb-4 group-hover:bg-foreground/10 transition-colors">
+              <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center mb-4 group-hover:bg-[hsl(250,80%,60%,0.2)] transition-colors">
                 <item.icon className="h-5 w-5 text-foreground" />
               </div>
               <span className="text-xs font-semibold uppercase tracking-wider text-primary mb-2 block">{item.stat}</span>
               <h3 className="text-lg font-medium text-foreground mb-3">{item.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-light">{item.description}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed font-light flex-1">{item.description}</p>
+              <div className="mt-6 flex justify-end">
+                <Link
+                  to={`/web3ai/${item.slug}`}
+                  className="learn-more-link text-xs uppercase tracking-[0.15em] text-muted-foreground group-hover:text-[hsl(250,80%,70%)] transition-colors duration-300"
+                >
+                  Learn More →
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>
