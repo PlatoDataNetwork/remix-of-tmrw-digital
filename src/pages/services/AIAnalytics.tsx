@@ -3,7 +3,7 @@ import ServicePageTemplate, { ServicePageData } from "@/components/ServicePageTe
 
 const data: ServicePageData = {
   icon: Cpu,
-  title: "AI-Powered Analytics",
+  title: "AI Super Cloud",
   subtitle: "Service",
   heroDescription: "Leveraging cutting-edge artificial intelligence to identify and engage with high-value investors, optimize portfolios, and drive strategic growth.",
   overview: "Our AI-Powered Analytics service goes beyond traditional business intelligence by deploying deep learning models, natural language processing, and reinforcement learning across your operational stack. We specialize in investor identification, portfolio optimization, and market prediction — delivering intelligence that transforms raw data into strategic advantage. Our models continuously learn and adapt, ensuring your analytics stay ahead of market dynamics.",

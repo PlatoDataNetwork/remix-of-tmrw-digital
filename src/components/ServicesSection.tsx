@@ -24,7 +24,7 @@ const services = [
   },
   {
     icon: Cpu,
-    title: "AI-Powered Analytics",
+    title: "AI Super Cloud",
     slug: "ai-analytics",
     description: "Leveraging cutting-edge artificial intelligence to identify and engage with high-value investors.",
   },
