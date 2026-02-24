@@ -83,7 +83,7 @@ const RWASectorTemplate = ({ data }: { data: SectorPageData }) => {
       </section>
 
       {/* Overview */}
-      <section className="pt-10 pb-24 lg:pt-14 lg:pb-32 bg-background relative overflow-hidden">
+      <section className="pt-10 pb-14 lg:pt-14 lg:pb-20 bg-background relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
           <div className="absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full bg-[hsl(160,70%,50%,0.05)] blur-[120px]" />
         </div>
@@ -124,7 +124,7 @@ const RWASectorTemplate = ({ data }: { data: SectorPageData }) => {
       </section>
 
       {/* Use Cases */}
-      <section className="py-24 lg:py-32 bg-secondary/30 relative overflow-hidden">
+      <section className="pt-14 pb-24 lg:pt-20 lg:pb-32 bg-secondary/30 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
           <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(220,80%,60%,0.06)] blur-[120px]" />
         </div>
