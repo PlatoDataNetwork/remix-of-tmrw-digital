@@ -74,9 +74,7 @@ const ServicesSection = () => {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="group relative bg-card border border-border rounded-2xl p-8 hover:border-border/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
-              <div className="h-8 w-8 mb-4 animated-gradient-card-icon">
-                <service.icon className="h-full w-full" />
-              </div>
+              <service.icon className="h-8 w-8 text-foreground mb-4" />
               <h3 className="text-lg font-medium text-foreground mb-3">{service.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed font-light flex-1">
                 {service.description}

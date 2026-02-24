@@ -327,17 +327,4 @@ html {
   animation: gradient-shift 8s ease infinite;
 }
 
-/* Animated gradient card icons - synced with header */
-.animated-gradient-card-icon svg {
-  animation: icon-color-shift 8s ease infinite;
-}
-
-@keyframes icon-color-shift {
-  0%, 100% { color: hsl(275, 85%, 55%); stroke: hsl(275, 85%, 55%); }
-  16% { color: hsl(330, 100%, 55%); stroke: hsl(330, 100%, 55%); }
-  33% { color: hsl(0, 90%, 55%); stroke: hsl(0, 90%, 55%); }
-  50% { color: hsl(50, 95%, 55%); stroke: hsl(50, 95%, 55%); }
-  66% { color: hsl(120, 100%, 50%); stroke: hsl(120, 100%, 50%); }
-  83% { color: hsl(220, 100%, 55%); stroke: hsl(220, 100%, 55%); }
-}
 
