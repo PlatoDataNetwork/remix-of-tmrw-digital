@@ -29,9 +29,7 @@ const AboutSection = () => {
             </h2>
             <div className="w-16 h-px bg-foreground/20 mb-8" />
             <p className="text-muted-foreground leading-relaxed text-base lg:text-lg font-light">
-              The Tomorrow Company provides Web3 AI and real world assets intelligence
-              to small and micro-cap public and pre-IPO management teams at the critical
-              inflection point where proven results require prudent financing for success.
+              The Tomorrow Company is a Diversified Web3 Infrastructure and Digital Asset Holding Company Building the Infrastructure for Tomorrow's Digital Economy.
             </p>
           </motion.div>
 
