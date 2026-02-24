@@ -12,7 +12,7 @@ const navLinks = [
   { label: "RWAs", href: "#rwas" },
   { label: "Team", href: "#team" },
   { label: "News", href: "#news" },
-  { label: "Investors", href: "#investors" },
+  
   { label: "Contact", href: "#contact" },
 ];
 
@@ -32,7 +32,7 @@ const Navbar = () => {
           <a href="/" className="flex items-center gap-2">
             <img src={logoIcon} alt="Tomorrow logo" className="h-8 w-8 rounded-full object-cover" />
             <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
-              tomorrow
+              The Tomorrow Company
             </span>
           </a>
 
@@ -53,10 +53,10 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <ThemeToggle />
             <a
-              href="#contact"
+              href="#investors"
               className="hidden md:inline-flex h-9 px-5 items-center justify-center rounded-full bg-white text-[hsl(220,20%,4%)] text-sm font-medium hover:opacity-90 transition-opacity"
             >
-              Get in Touch
+              Investors
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -90,11 +90,11 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#contact"
+                href="#investors"
                 onClick={() => setMobileOpen(false)}
                 className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-white text-[hsl(220,20%,4%)] text-sm font-medium mt-2"
               >
-                Get in Touch
+                Investors
               </a>
             </div>
           </motion.div>
