@@ -33,7 +33,7 @@ const Navbar = () => {
             <div className="h-8 w-8 relative animated-gradient-icon">
               <img src={logoIcon} alt="Tomorrow logo" className="h-full w-full object-contain" />
             </div>
-            <span className="text-lg lg:text-xl font-bold tracking-tight animated-gradient-text">
+            <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
               The Tomorrow Company
             </span>
           </a>
