@@ -51,9 +51,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed font-light"
         >
-          The Tomorrow Company provides Web3 AI and real world assets intelligence
-          to small and micro-cap public and pre-IPO management teams at the critical
-          inflection point where proven results require prudent financing for success.
+          The Tomorrow Company is a Diversified Web3 Infrastructure and Digital Asset Holding Company Building the Infrastructure for Tomorrow's Digital Economy.
         </motion.p>
 
         <motion.div
