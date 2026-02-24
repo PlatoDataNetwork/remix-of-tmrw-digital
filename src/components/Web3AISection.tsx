@@ -85,9 +85,7 @@ const Web3AISection = () => {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="group relative bg-card border border-border rounded-2xl p-8 hover:bg-[hsl(250,80%,60%,0.12)] hover:border-[hsl(250,80%,60%,0.4)] hover:shadow-[0_0_30px_-10px_hsl(250,80%,60%,0.25)] transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
-              <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center mb-4 group-hover:bg-[hsl(250,80%,60%,0.2)] transition-colors">
-                <item.icon className="h-5 w-5 text-foreground" />
-              </div>
+              <item.icon className="h-8 w-8 text-foreground mb-4" />
               <span className="text-xs font-semibold uppercase tracking-wider text-primary mb-2 block">{item.stat}</span>
               <h3 className="text-lg font-medium text-foreground mb-3">{item.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed font-light flex-1">{item.description}</p>
