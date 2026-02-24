@@ -38,7 +38,7 @@ const RWASectorTemplate = ({ data }: { data: SectorPageData }) => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-28 bg-background overflow-hidden">
+      <section className="relative pt-32 pb-10 lg:pt-44 lg:pb-14 bg-background overflow-hidden">
         <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
           <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-[hsl(200,90%,50%,0.08)] blur-[150px]" />
           <div className="absolute bottom-0 right-1/3 w-[400px] h-[400px] rounded-full bg-[hsl(280,80%,60%,0.06)] blur-[120px]" />
@@ -54,27 +54,23 @@ const RWASectorTemplate = ({ data }: { data: SectorPageData }) => {
             </Link>
           </motion.div>
 
-          <div className="flex items-center gap-4 mb-8">
-            <motion.div {...fadeUp} transition={{ duration: 0.6 }}>
-              <Icon className="h-[2.25rem] w-[2.25rem] md:h-[3.75rem] md:w-[3.75rem] lg:h-[4.5rem] lg:w-[4.5rem] text-foreground" />
-            </motion.div>
-            <div>
-              <motion.p
-                {...fadeUp}
-                transition={{ duration: 0.6, delay: 0.05 }}
-                className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3"
-              >
-                {data.subtitle}
-              </motion.p>
-              <motion.h1
-                {...fadeUp}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground"
-              >
-                {data.title}
-              </motion.h1>
-            </div>
-          </div>
+          <motion.p
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3"
+          >
+            {data.subtitle}
+          </motion.p>
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex items-center gap-4 mb-8"
+          >
+            <Icon className="h-[2.25rem] w-[2.25rem] md:h-[3.75rem] md:w-[3.75rem] lg:h-[4.5rem] lg:w-[4.5rem] text-foreground" />
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground">
+              {data.title}
+            </h1>
+          </motion.div>
 
           <motion.p
             {...fadeUp}
@@ -87,7 +83,7 @@ const RWASectorTemplate = ({ data }: { data: SectorPageData }) => {
       </section>
 
       {/* Overview */}
-      <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
+      <section className="pt-10 pb-24 lg:pt-14 lg:pb-32 bg-background relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
           <div className="absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full bg-[hsl(160,70%,50%,0.05)] blur-[120px]" />
         </div>
