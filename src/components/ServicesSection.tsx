@@ -72,7 +72,7 @@ const ServicesSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group relative bg-card border border-border rounded-2xl p-8 hover:bg-[hsl(250,80%,60%,0.12)] hover:border-[hsl(250,80%,60%,0.4)] hover:shadow-[0_0_30px_-10px_hsl(250,80%,60%,0.25)] transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              className="group relative bg-card border border-border rounded-2xl p-8 hover:border-border/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
               <div className="h-8 w-8 mb-4 animated-gradient-card-icon">
                 <service.icon className="h-full w-full" />
@@ -84,7 +84,7 @@ const ServicesSection = () => {
               <div className="mt-6 flex justify-end">
                 <Link
                   to={`/services/${service.slug}`}
-                  className="learn-more-link text-xs uppercase tracking-[0.15em] text-muted-foreground group-hover:animated-gradient-text transition-colors duration-300"
+                  className="learn-more-link text-xs uppercase tracking-[0.15em] animated-gradient-text transition-colors duration-300"
                 >
                   Learn More →
                 </Link>
