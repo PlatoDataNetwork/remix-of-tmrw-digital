@@ -60,7 +60,7 @@ const Web3AISection = () => {
         >
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Web3 AI</p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground mb-6">
-            Digital Transformation Through Web3 AI & Blockchain
+            Digital Transformation Through Web3 AI & Tokenization
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-light">
             TMRW brings deep expertise in AI-driven automation and blockchain infrastructure to transform how data is created, stored and distributed — creating unprecedented efficiency, transparency, and shareholder value.
