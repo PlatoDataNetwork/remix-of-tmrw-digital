@@ -39,7 +39,7 @@ const NewsSection = () => {
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">News</p>
             <h2 className="text-3xl md:text-5xl font-light text-foreground">
-              Latest <span className="font-semibold">Insights</span>
+              Latest Insights
             </h2>
           </div>
         </motion.div>

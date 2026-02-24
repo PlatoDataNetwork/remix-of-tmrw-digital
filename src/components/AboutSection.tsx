@@ -18,9 +18,9 @@ const AboutSection = () => {
           >
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">About</p>
             <h2 className="text-3xl md:text-5xl font-light leading-tight text-foreground mb-8">
-              Built on <span className="font-semibold">Experience.</span>
+              Built on Experience.
               <br />
-              Driven by <span className="font-semibold">Results.</span>
+              Driven by Results.
             </h2>
             <div className="w-16 h-px bg-foreground/20 mb-8" />
             <p className="text-muted-foreground leading-relaxed text-base lg:text-lg font-light">
@@ -40,7 +40,7 @@ const AboutSection = () => {
             <h3 className="text-2xl md:text-3xl font-light leading-tight text-foreground mb-6">
               Acceleration Through
               <br />
-              <span className="font-semibold">Strategic Partnerships</span>
+              Strategic Partnerships
             </h3>
             <div className="w-16 h-px bg-foreground/20 mb-8" />
             <p className="text-muted-foreground leading-relaxed text-base lg:text-lg font-light">
