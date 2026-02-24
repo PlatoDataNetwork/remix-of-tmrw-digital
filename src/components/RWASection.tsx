@@ -58,7 +58,7 @@ const RWASection = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed font-light mb-6">
                   {sector.description}
                 </p>
-                <span className="mt-auto self-end text-xs uppercase tracking-[0.15em] text-muted-foreground group-hover:text-foreground transition-colors">
+                <span className="learn-more-link mt-auto self-end text-xs uppercase tracking-[0.15em] text-muted-foreground group-hover:text-foreground transition-colors">
                   Learn More →
                 </span>
               </motion.div>
