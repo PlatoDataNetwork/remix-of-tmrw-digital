@@ -227,7 +227,9 @@ html {
 /* Animated gradient text */
 @keyframes gradient-shift {
   0% { background-position: 0% 50%; }
+  25% { background-position: 50% 50%; }
   50% { background-position: 100% 50%; }
+  75% { background-position: 50% 50%; }
   100% { background-position: 0% 50%; }
 }
 
@@ -241,16 +243,17 @@ html {
   inset: 0;
   background: linear-gradient(
     270deg,
+    hsl(275, 85%, 55%),
     hsl(330, 100%, 55%),
     hsl(0, 90%, 55%),
     hsl(50, 95%, 55%),
     hsl(120, 100%, 50%),
     hsl(220, 100%, 55%),
-    hsl(275, 85%, 55%),
-    hsl(330, 100%, 55%)
+    hsl(275, 85%, 55%)
   );
-  background-size: 500% 500%;
-  animation: gradient-shift 30s ease infinite;
+  background-size: 400% 400%;
+  background-position: 0% 50%;
+  animation: gradient-shift 4s ease infinite;
   mix-blend-mode: overlay;
   opacity: 0.8;
   pointer-events: none;
@@ -272,16 +275,17 @@ html {
   inset: 0;
   background: linear-gradient(
     270deg,
+    hsl(275, 85%, 55%),
     hsl(330, 100%, 55%),
     hsl(0, 90%, 55%),
     hsl(50, 95%, 55%),
     hsl(120, 100%, 50%),
     hsl(220, 100%, 55%),
-    hsl(275, 85%, 55%),
-    hsl(330, 100%, 55%)
+    hsl(275, 85%, 55%)
   );
-  background-size: 500% 500%;
-  animation: gradient-shift 30s ease infinite;
+  background-size: 400% 400%;
+  background-position: 0% 50%;
+  animation: gradient-shift 4s ease infinite;
   mix-blend-mode: color;
   pointer-events: none;
 }
@@ -289,17 +293,18 @@ html {
 .animated-gradient-text {
   background: linear-gradient(
     270deg,
+    hsl(275, 85%, 55%),
     hsl(330, 100%, 55%),
     hsl(0, 90%, 55%),
     hsl(50, 95%, 55%),
     hsl(120, 100%, 50%),
     hsl(220, 100%, 55%),
-    hsl(275, 85%, 55%),
-    hsl(330, 100%, 55%)
+    hsl(275, 85%, 55%)
   );
-  background-size: 500% 500%;
+  background-size: 400% 400%;
+  background-position: 0% 50%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 30s ease infinite;
+  animation: gradient-shift 4s ease infinite;
 }
