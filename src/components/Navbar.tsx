@@ -11,6 +11,7 @@ const navLinks = [
   { label: "RWAs", href: "#rwas" },
   { label: "Team", href: "#team" },
   { label: "News", href: "#news" },
+  { label: "Investors", href: "#investors" },
   { label: "Contact", href: "#contact" },
 ];
 
