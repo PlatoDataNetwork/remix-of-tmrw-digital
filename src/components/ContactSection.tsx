@@ -25,7 +25,7 @@ const ContactSection = () => {
           >
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Contact</p>
             <h2 className="text-3xl md:text-5xl font-light text-foreground mb-6">
-              Let's Start a <span className="font-semibold">Conversation</span>
+              Let's Start a Conversation
             </h2>
             <p className="text-muted-foreground leading-relaxed font-light mb-10">
               Whether you're exploring capital markets strategies or seeking investor relations expertise,
