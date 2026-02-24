@@ -53,30 +53,28 @@ const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
             </Link>
           </motion.div>
 
-          <div className="flex items-start gap-6 mb-8">
+          <motion.p
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3"
+          >
+            {data.subtitle}
+          </motion.p>
+          <div className="flex items-center gap-4 md:gap-6 mb-8">
             <motion.div
               {...fadeUp}
               transition={{ duration: 0.6 }}
-              className="h-[2.25rem] w-[2.25rem] md:h-[3.75rem] md:w-[3.75rem] lg:h-[4.5rem] lg:w-[4.5rem] rounded-2xl bg-[hsl(250,80%,60%,0.15)] flex items-center justify-center shrink-0"
+              className="shrink-0"
             >
               <Icon className="h-[2.25rem] w-[2.25rem] md:h-[3.75rem] md:w-[3.75rem] lg:h-[4.5rem] lg:w-[4.5rem] text-foreground" />
             </motion.div>
-            <div>
-              <motion.p
-                {...fadeUp}
-                transition={{ duration: 0.6, delay: 0.05 }}
-                className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3"
-              >
-                {data.subtitle}
-              </motion.p>
-              <motion.h1
-                {...fadeUp}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground"
-              >
-                {data.title}
-              </motion.h1>
-            </div>
+            <motion.h1
+              {...fadeUp}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground"
+            >
+              {data.title}
+            </motion.h1>
           </div>
 
           <motion.p
