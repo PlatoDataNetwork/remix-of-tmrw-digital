@@ -57,9 +57,9 @@ const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
             <motion.div
               {...fadeUp}
               transition={{ duration: 0.6 }}
-              className="h-16 w-16 rounded-2xl bg-[hsl(250,80%,60%,0.15)] flex items-center justify-center shrink-0"
+              className="h-[2.25rem] w-[2.25rem] md:h-[3.75rem] md:w-[3.75rem] lg:h-[4.5rem] lg:w-[4.5rem] rounded-2xl bg-[hsl(250,80%,60%,0.15)] flex items-center justify-center shrink-0"
             >
-              <Icon className="h-8 w-8 text-foreground" />
+              <Icon className="h-[2.25rem] w-[2.25rem] md:h-[3.75rem] md:w-[3.75rem] lg:h-[4.5rem] lg:w-[4.5rem] text-foreground" />
             </motion.div>
             <div>
               <motion.p
