@@ -4,7 +4,7 @@ import heroBg from "@/assets/hero-bg.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[110vh] flex items-end justify-center overflow-hidden pb-20">
+    <section className="relative min-h-[110vh] flex items-end justify-center overflow-hidden pb-20 bg-[hsl(220,20%,4%)]">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -13,7 +13,7 @@ const HeroSection = () => {
           className="absolute inset-0 w-full h-full object-contain object-center translate-y-8 dark:translate-y-8 scale-100 dark:scale-110"
         />
         <div className="absolute inset-0 bg-[hsl(var(--hero-overlay))]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%,0.4)] via-[hsl(220,20%,4%,0.2)] to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%,0.4)] via-[hsl(220,20%,4%,0.2)] to-[hsl(220,20%,4%)]" />
       </div>
 
       {/* Content */}
