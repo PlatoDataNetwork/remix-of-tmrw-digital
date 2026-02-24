@@ -26,7 +26,7 @@ const services = [
   {
     icon: BarChart3,
     title: "Cyber Defense",
-    description: "Advanced threat detection, blockchain security audits, and proactive defense strategies to protect digital assets and infrastructure.",
+    description: "Advanced threat detection and blockchain security audits to protect digital assets.",
   },
   {
     icon: Globe,
