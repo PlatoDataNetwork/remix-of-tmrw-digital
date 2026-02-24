@@ -6,13 +6,13 @@ import logoIcon from "@/assets/logo-icon.jpeg";
 
 const navLinks = [
   { label: "About", href: "#about" },
-  
+  { label: "Team", href: "#team" },
   { label: "Web3 AI", href: "#web3ai" },
   
   { label: "RWAs", href: "#rwas" },
   { label: "News", href: "#news" },
-  { label: "Team", href: "#team" },
   
+  { label: "Contact", href: "#contact" },
   { label: "Contact", href: "#contact" },
 ];
 
