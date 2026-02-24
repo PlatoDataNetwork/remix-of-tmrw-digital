@@ -4,13 +4,13 @@ import heroBg from "@/assets/hero-bg.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-end justify-center overflow-hidden pb-24">
+    <section className="relative min-h-[110vh] flex items-end justify-center overflow-hidden pb-20">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
           src={heroBg}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover object-bottom"
+          className="absolute inset-0 w-full h-full object-contain object-center"
         />
         <div className="absolute inset-0 bg-[hsl(var(--hero-overlay))]" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background" />
@@ -35,7 +35,7 @@ const HeroSection = () => {
         >
           Accelerating Growth
           <br />
-          <span className="font-semibold">Through Trust.</span>
+          Through Trust.
         </motion.h1>
 
         <motion.p
