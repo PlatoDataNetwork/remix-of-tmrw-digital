@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import logoIcon from "@/assets/logo-icon.jpeg";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -29,8 +30,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <span className="text-lg lg:text-xl font-bold tracking-tight animated-gradient-text">
-              The Tomorrow Company
+            <img src={logoIcon} alt="Tomorrow logo" className="h-8 w-8 rounded-full object-cover" />
+            <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
+              tomorrow
             </span>
           </a>
 
