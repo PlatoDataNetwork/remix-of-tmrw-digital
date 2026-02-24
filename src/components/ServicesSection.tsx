@@ -61,8 +61,13 @@ const ServicesSection = () => {
         >
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Services</p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground mb-6">
-            What We Deliver
+            Comprehensive Solutions for
+            <br />
+            the Digital Economy
           </h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-light">
+            From Web3 infrastructure and AI analytics to cyber defense and digital strategy — we deliver end-to-end capabilities that drive growth, security, and competitive advantage.
+          </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
