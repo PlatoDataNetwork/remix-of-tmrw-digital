@@ -12,12 +12,11 @@ const HeroSection = () => {
           alt=""
           className="absolute inset-0 w-full h-full object-contain object-center translate-y-8 dark:translate-y-8 scale-100 dark:scale-110"
         />
-        {/* Animated Gradient Overlay */}
-        <div className="absolute inset-0 animated-gradient-hero-bg opacity-100" />
-        
-        {/* Dark Overlays */}
-        <div className="absolute inset-0 bg-[hsl(var(--hero-overlay))]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%,0.4)] via-[hsl(220,20%,4%,0.2)] to-[hsl(220,20%,4%)]" />
+        {/* Animated Gradient Overlay - tints the image */}
+        <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
+        {/* Dark Overlays - on top for contrast */}
+        <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.25)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%,0.3)] via-transparent to-[hsl(220,20%,4%)]" />
       </div>
 
       {/* Colorful theme gradient orbs */}
