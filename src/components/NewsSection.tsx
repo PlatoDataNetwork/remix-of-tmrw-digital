@@ -28,8 +28,13 @@ const NewsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="news" className="py-32 lg:py-40 bg-background" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="news" className="relative py-32 lg:py-40 bg-background overflow-hidden" ref={ref}>
+      {/* Colorful theme gradient */}
+      <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
+        <div className="absolute top-1/3 right-0 w-[400px] h-[400px] rounded-full bg-[hsl(330,80%,55%,0.06)] blur-[100px]" />
+        <div className="absolute bottom-1/4 left-0 w-[350px] h-[350px] rounded-full bg-[hsl(200,90%,50%,0.05)] blur-[80px]" />
+      </div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

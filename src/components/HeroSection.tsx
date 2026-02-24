@@ -16,6 +16,13 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%,0.4)] via-[hsl(220,20%,4%,0.2)] to-[hsl(220,20%,4%)]" />
       </div>
 
+      {/* Colorful theme gradient orbs */}
+      <div className="absolute inset-0 pointer-events-none colorful-gradient-hero opacity-0">
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(250,80%,60%,0.15)] blur-[120px]" />
+        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-[hsl(200,90%,50%,0.1)] blur-[100px]" />
+        <div className="absolute bottom-1/4 left-1/2 w-[600px] h-[600px] rounded-full bg-[hsl(330,80%,55%,0.08)] blur-[140px]" />
+      </div>
+
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <motion.p
