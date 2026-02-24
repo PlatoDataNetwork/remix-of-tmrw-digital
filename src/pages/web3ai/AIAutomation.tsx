@@ -3,7 +3,7 @@ import ServicePageTemplate, { ServicePageData } from "@/components/ServicePageTe
 
 const data: ServicePageData = {
   icon: Bot,
-  title: "AI-Powered Automation",
+  title: "AI Super Cloud",
   subtitle: "Web3 AI",
   heroDescription: "Advanced automation for compliance, AML/KYC, transaction scoring, and real-time reporting — reducing operational costs by up to 60%.",
   overview: "TMRW's AI-Powered Automation service deploys intelligent agents across compliance workflows, transaction monitoring, and regulatory reporting. Our models are trained on millions of financial transactions to detect anomalies, score risk, and automate manual processes that traditionally require large teams. From KYC onboarding to real-time AML screening, we deliver enterprise-grade automation that scales with your operations.",
