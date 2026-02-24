@@ -37,8 +37,8 @@ const RWASection = () => {
             Investing in the Real World of Asset Tokenization
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Bridging traditional assets with modern capital markets through tokenization,
-            strategic advisory, and institutional-grade access.
+            Bridging traditional assets with modern Web3 AI markets through tokenization,
+            data intelligence, and institutional-grade access.
           </p>
         </motion.div>
 

@@ -5,18 +5,18 @@ import { TrendingUp, Users, Shield, Cpu, BarChart3, Globe } from "lucide-react";
 const services = [
   {
     icon: TrendingUp,
-    title: "Capital Markets Advisory",
-    description: "Strategic guidance through public and private financing activities for optimal capital structure.",
+    title: "Web3 AI",
+    description: "Strategic guidance through Web3 and AI-powered solutions for optimal digital transformation.",
   },
   {
     icon: Users,
-    title: "Investor Relations",
-    description: "Building and maintaining a well-informed, loyal shareholder base through targeted engagement.",
+    title: "Real World Assets",
+    description: "Tokenizing and managing real world assets for broader investor accessibility and liquidity.",
   },
   {
     icon: Shield,
-    title: "Strategic Partnerships",
-    description: "Cultivating meaningful relationships that accelerate growth and create lasting value.",
+    title: "Data Intelligence",
+    description: "Harnessing data-driven insights to identify opportunities and drive strategic decision-making.",
   },
   {
     icon: Cpu,
@@ -31,7 +31,7 @@ const services = [
   {
     icon: Globe,
     title: "Digital Strategy",
-    description: "Comprehensive social media and digital outreach programs tailored to the capital markets.",
+    description: "Comprehensive social media and digital outreach programs tailored to Web3 and RWA markets.",
   },
 ];
 
