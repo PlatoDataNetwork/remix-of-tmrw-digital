@@ -11,7 +11,7 @@ import RareEarth from "./pages/rwa/RareEarth";
 import Infrastructure from "./pages/rwa/Infrastructure";
 import RealEstate from "./pages/rwa/RealEstate";
 import Commodities from "./pages/rwa/Commodities";
-import TokenizationPage from "./pages/rwa/Tokenization";
+import CarbonCredits from "./pages/rwa/CarbonCredits";
 import SovereignWealth from "./pages/rwa/SovereignWealth";
 import NotFound from "./pages/NotFound";
 
@@ -32,7 +32,7 @@ const App = () => (
           <Route path="/rwas/infrastructure" element={<Infrastructure />} />
           <Route path="/rwas/real-estate" element={<RealEstate />} />
           <Route path="/rwas/commodities" element={<Commodities />} />
-          <Route path="/rwas/tokenization" element={<TokenizationPage />} />
+          <Route path="/rwas/carbon-credits" element={<CarbonCredits />} />
           <Route path="/rwas/sovereign-wealth" element={<SovereignWealth />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
