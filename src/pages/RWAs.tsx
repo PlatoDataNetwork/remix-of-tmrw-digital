@@ -2,16 +2,16 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Flame, Mountain, Gem, Building2, Home, BarChart3, Coins, Landmark } from "lucide-react";
+import { Flame, Mountain, Gem, Building2, Home, BarChart3, Leaf, Landmark } from "lucide-react";
 
 const sectors = [
+  { icon: Leaf, title: "Carbon Credits", description: "Tokenized verified carbon credits and environmental assets bringing transparency and liquidity to global climate finance." },
+  { icon: BarChart3, title: "Commodities", description: "Agricultural, energy, and material commodities structured for institutional and retail participation." },
   { icon: Flame, title: "Energy", description: "Oil, gas, renewables, and next-generation energy infrastructure investments driving the global transition." },
+  { icon: Building2, title: "Infrastructure", description: "Large-scale public and private infrastructure projects delivering long-term, stable returns." },
   { icon: Mountain, title: "Metals", description: "Precious and industrial metals exploration, production, and supply chain investment opportunities." },
   { icon: Gem, title: "Rare Earth Minerals", description: "Critical mineral resources essential for advanced technology, defense, and clean energy applications." },
-  { icon: Building2, title: "Infrastructure", description: "Large-scale public and private infrastructure projects delivering long-term, stable returns." },
   { icon: Home, title: "Real Estate", description: "Commercial and residential real estate assets tokenized for broader investor accessibility." },
-  { icon: BarChart3, title: "Commodities", description: "Agricultural, energy, and material commodities structured for institutional and retail participation." },
-  { icon: Coins, title: "Tokenization", description: "Blockchain-enabled fractional ownership bringing liquidity to traditionally illiquid asset classes." },
   { icon: Landmark, title: "Sovereign Wealth", description: "Strategic partnerships with sovereign wealth funds and government-backed investment vehicles." },
 ];
 
