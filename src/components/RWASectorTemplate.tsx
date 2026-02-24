@@ -66,8 +66,8 @@ const RWASectorTemplate = ({ data }: { data: SectorPageData }) => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex items-center gap-4 mb-8"
           >
-            <Icon className="h-[2.25rem] w-[2.25rem] md:h-[3.75rem] md:w-[3.75rem] lg:h-[4.5rem] lg:w-[4.5rem] text-foreground" />
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground">
+            <Icon className="h-[1.875rem] w-[1.875rem] md:h-[2.25rem] md:w-[2.25rem] text-foreground" />
+            <h1 className="text-3xl md:text-4xl font-light text-foreground">
               {data.title}
             </h1>
           </motion.div>
