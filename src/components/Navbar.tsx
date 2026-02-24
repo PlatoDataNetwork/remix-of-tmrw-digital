@@ -19,13 +19,13 @@ const Navbar = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/50"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[hsl(220,20%,4%,0.9)] border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <span className="text-lg lg:text-xl font-semibold tracking-tight text-foreground">
+            <span className="text-lg lg:text-xl font-semibold tracking-tight text-white">
               RCA <span className="font-light">Financial Partners</span>
             </span>
           </a>
@@ -36,7 +36,7 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="text-sm font-medium text-white/60 hover:text-white transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -48,13 +48,13 @@ const Navbar = () => {
             <ThemeToggle />
             <a
               href="#contact"
-              className="hidden md:inline-flex h-9 px-5 items-center justify-center rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
+              className="hidden md:inline-flex h-9 px-5 items-center justify-center rounded-full bg-white text-[hsl(220,20%,4%)] text-sm font-medium hover:opacity-90 transition-opacity"
             >
               Get in Touch
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 text-foreground"
+              className="md:hidden p-2 text-white"
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -70,7 +70,7 @@ const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-b border-border"
+            className="md:hidden overflow-hidden bg-[hsl(220,20%,4%,0.95)] backdrop-blur-xl border-b border-white/10"
           >
             <div className="px-6 py-6 space-y-4">
               {navLinks.map((link) => (
@@ -78,7 +78,7 @@ const Navbar = () => {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block text-lg font-medium text-foreground hover:text-muted-foreground transition-colors"
+                  className="block text-lg font-medium text-white hover:text-white/60 transition-colors"
                 >
                   {link.label}
                 </a>
@@ -86,7 +86,7 @@ const Navbar = () => {
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-foreground text-background text-sm font-medium mt-2"
+                className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-white text-[hsl(220,20%,4%)] text-sm font-medium mt-2"
               >
                 Get in Touch
               </a>
