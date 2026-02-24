@@ -4,7 +4,7 @@ import RWASectorTemplate, { SectorPageData } from "@/components/RWASectorTemplat
 const data: SectorPageData = {
   icon: Building2,
   title: "Infrastructure",
-  subtitle: "RWA Tokenization · Infrastructure Sector",
+  subtitle: "RWA Tokenization · Infrastructure",
   heroDescription: "Tokenizing large-scale public and private infrastructure projects—from highways and airports to data centers and utilities—delivering stable, long-term returns through digital securities.",
   overview: "Infrastructure assets generate predictable, inflation-linked cash flows over decades, making them highly attractive to investors seeking stability. However, the scale of these investments has traditionally excluded all but the largest institutions. Tokenization breaks down billion-dollar infrastructure projects into accessible digital units, enabling retail and mid-market investors to participate in toll roads, airports, water systems, and digital infrastructure alongside institutional capital.",
   stats: [

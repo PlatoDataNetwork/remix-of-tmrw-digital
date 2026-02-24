@@ -4,7 +4,7 @@ import RWASectorTemplate, { SectorPageData } from "@/components/RWASectorTemplat
 const data: SectorPageData = {
   icon: Home,
   title: "Real Estate",
-  subtitle: "RWA Tokenization · Real Estate Sector",
+  subtitle: "RWA Tokenization · Real Estate",
   heroDescription: "Tokenizing commercial and residential real estate assets worldwide, enabling fractional ownership, enhanced liquidity, and borderless investment in the world's largest asset class.",
   overview: "Real estate is the world's most valuable asset class, yet it remains one of the least liquid. Tokenization transforms physical properties—office towers, residential complexes, retail centers, and hospitality assets—into tradeable digital securities. Investors can own fractions of premium properties across global markets, receive automated rental distributions, and trade positions on secondary markets, all while maintaining the fundamental value proposition of real estate ownership.",
   stats: [

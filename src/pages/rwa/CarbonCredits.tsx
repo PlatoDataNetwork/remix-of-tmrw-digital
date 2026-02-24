@@ -4,7 +4,7 @@ import RWASectorTemplate, { SectorPageData } from "@/components/RWASectorTemplat
 const data: SectorPageData = {
   icon: Leaf,
   title: "Carbon Credits",
-  subtitle: "RWA Tokenization · Carbon Credits Sector",
+  subtitle: "RWA Tokenization · Carbon Credits",
   heroDescription: "Tokenizing verified carbon credits and environmental assets—bringing transparency, liquidity, and accessibility to global carbon markets and climate finance.",
   overview: "Carbon markets are critical to the global fight against climate change, yet they have long been plagued by opacity, fragmentation, and limited accessibility. Tokenization transforms verified carbon credits into transparent, tradeable digital assets on blockchain networks. This enables fractional ownership, real-time price discovery, and automated retirement tracking—empowering institutions, corporations, and individuals to participate in climate action with confidence and efficiency.",
   stats: [
