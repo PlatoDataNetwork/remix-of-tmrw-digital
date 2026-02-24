@@ -31,7 +31,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
             <img src={logoIcon} alt="Tomorrow logo" className="h-8 w-8 rounded-full object-cover" />
-            <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
+            <span className="text-lg lg:text-xl font-bold tracking-tight animated-gradient-text">
               The Tomorrow Company
             </span>
           </a>
