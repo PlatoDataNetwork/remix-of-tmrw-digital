@@ -89,25 +89,6 @@ const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="bg-secondary/50 border-y border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {data.stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                {...fadeUp}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center"
-              >
-                <p className="text-2xl md:text-3xl font-semibold text-foreground mb-1">{stat.value}</p>
-                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Overview + Capabilities */}
       <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
