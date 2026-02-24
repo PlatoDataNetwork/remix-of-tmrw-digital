@@ -52,7 +52,7 @@ const AboutSection = () => {
               The convergence of AI, Web3, and blockchain is redefining how capital moves,
               how value is measured, and how trust is established. We believe tomorrow's
               markets will be built on transparency, decentralization, and intelligent
-              infrastructure — and we're positioning our partners to lead that shift.
+              infrastructure — and we're positioning ourselves to take the lead and drive excellence across this emerging sector.
             </p>
             <div className="mt-10 grid grid-cols-3 gap-8">
               {[
