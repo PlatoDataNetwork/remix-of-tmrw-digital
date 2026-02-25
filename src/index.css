@@ -278,6 +278,22 @@ html {
   opacity: 0.85;
 }
 
+.animated-gradient-icon-bright {
+  background: linear-gradient(
+    270deg,
+    hsl(275, 100%, 65%),
+    hsl(330, 100%, 60%),
+    hsl(0, 100%, 60%),
+    hsl(50, 100%, 60%),
+    hsl(120, 100%, 55%),
+    hsl(220, 100%, 65%),
+    hsl(275, 100%, 65%)
+  );
+  background-size: 400% 400%;
+  background-position: 0% 50%;
+  animation: gradient-shift 8s ease infinite;
+}
+
 .animated-gradient-icon {
   position: relative;
   overflow: hidden;
