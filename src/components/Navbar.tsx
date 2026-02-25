@@ -27,9 +27,19 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 relative animated-gradient-icon overflow-hidden">
-              <img src={platoIcon} alt="Tomorrow logo" className="h-full w-full object-contain mix-blend-screen" />
-            </div>
+            <div
+              className="h-8 w-8 relative animated-gradient-icon"
+              style={{
+                WebkitMaskImage: `url(${platoIcon})`,
+                maskImage: `url(${platoIcon})`,
+                WebkitMaskSize: 'contain',
+                maskSize: 'contain',
+                WebkitMaskRepeat: 'no-repeat',
+                maskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'center',
+                maskPosition: 'center',
+              }}
+            />
             <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
               The Tomorrow Company
             </span>
