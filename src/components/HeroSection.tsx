@@ -42,18 +42,18 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16 text-left">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-base md:text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed font-light mb-8"
+          className="text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed font-light mb-8"
         >
           The Tomorrow Company is a Diversified Web3 Infrastructure and Digital Asset Holding
           Company Building the Infrastructure for Tomorrow's Digital Economy.
         </motion.p>
 
-        <div className="relative h-[120px] md:h-[200px] lg:h-[260px] mb-6 flex items-center justify-start">
+        <div className="relative h-[100px] md:h-[160px] lg:h-[200px] mb-6 flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.h1
               key={currentIndex}
@@ -61,7 +61,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.6 }}
-              className="text-[2.5rem] md:text-[4rem] lg:text-[5.5rem] font-light leading-[1.15] tracking-tight text-white absolute"
+              className="text-4xl md:text-5xl lg:text-7xl font-light leading-[1.1] tracking-tight text-white absolute"
             >
               {heroMessages[currentIndex].line1}
               <br />
@@ -83,17 +83,17 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="mt-12 flex flex-col sm:flex-row gap-4 justify-start"
+          className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
             href="#about"
-            className="inline-flex h-14 px-10 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-base font-medium hover:opacity-90 transition-opacity"
+            className="inline-flex h-12 px-8 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium hover:opacity-90 transition-opacity"
           >
             Learn More
           </a>
           <a
             href="#contact"
-            className="inline-flex h-14 px-10 items-center justify-center rounded-full border border-white/30 text-white text-base font-medium hover:bg-white/10 transition-colors"
+            className="inline-flex h-12 px-8 items-center justify-center rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white/10 transition-colors"
           >
             Contact Us
           </a>
