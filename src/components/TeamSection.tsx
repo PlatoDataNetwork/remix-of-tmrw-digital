@@ -50,12 +50,15 @@ const TeamSection = () => {
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light">
             Proven executives with track record in fintech, AI, blockchain, and public markets.
           </p>
-          <div className="mt-10 max-w-4xl mx-auto rounded-2xl overflow-hidden">
+          <div className="mt-10 max-w-4xl mx-auto rounded-2xl overflow-hidden relative">
             <img 
               src={teamAstronauts} 
               alt="Futuristic astronauts representing forward-thinking leadership" 
               className="w-full h-auto object-cover rounded-2xl"
               loading="lazy"
+            />
+            <div 
+              className="absolute inset-0 rounded-2xl animated-gradient-icon-bright mix-blend-color opacity-70"
             />
           </div>
         </motion.div>
