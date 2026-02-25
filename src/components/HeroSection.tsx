@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import heroBg from "@/assets/hero-bg.png";
 
 const heroMessages = [
-  { line1: "Accelerating Growth", line2: "Through Trust." },
+  { line1: "Accelerating Growth", line2: "Through Trust and Time." },
   { line1: "Secure Network Protocol", line2: "For the Next Web." },
 ];
 
