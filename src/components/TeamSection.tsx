@@ -47,8 +47,8 @@ const TeamSection = () => {
           <h2 className="text-3xl md:text-5xl font-light text-foreground mb-6">
             Experienced Leadership
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Proven executives with track record in fintech, AI, blockchain, and public markets.
+          <p className="text-base md:text-lg text-muted-foreground max-w-none mx-auto font-light whitespace-nowrap">
+            Proven executives with track record in Fintech, AI, Blockchain, Gaming and Public Markets.
           </p>
           <div className="mt-10 max-w-4xl mx-auto rounded-2xl overflow-hidden relative">
             <img 
