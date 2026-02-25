@@ -61,7 +61,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.6 }}
-              className="text-[2.8rem] md:text-[4rem] lg:text-[6rem] font-extralight leading-[1.05] tracking-tight text-white absolute"
+              className="text-[2.5rem] md:text-[3.6rem] lg:text-[5.4rem] font-extralight leading-[1.05] tracking-tight text-white absolute"
             >
               {heroMessages[currentIndex].line1}
               <br />
