@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { User } from "lucide-react";
+import teamAstronauts from "@/assets/team-astronauts.jpeg";
 
 const teamMembers = [
   {
@@ -49,6 +50,14 @@ const TeamSection = () => {
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light">
             Proven executives with track record in fintech, AI, blockchain, and public markets.
           </p>
+          <div className="mt-10 max-w-4xl mx-auto rounded-2xl overflow-hidden">
+            <img 
+              src={teamAstronauts} 
+              alt="Futuristic astronauts representing forward-thinking leadership" 
+              className="w-full h-auto object-cover rounded-2xl"
+              loading="lazy"
+            />
+          </div>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
