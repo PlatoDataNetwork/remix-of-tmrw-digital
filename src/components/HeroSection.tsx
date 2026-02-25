@@ -6,7 +6,10 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen md:min-h-[110vh] flex items-center justify-center overflow-hidden bg-[hsl(220,20%,4%)]">
       {/* Background Image - desktop only */}
-      <div className="absolute inset-0 hidden md:block">
+      <div
+        className="absolute inset-0 hidden md:block"
+        style={{ mask: 'radial-gradient(ellipse 60% 55% at center 55%, black 30%, transparent 80%)', WebkitMask: 'radial-gradient(ellipse 60% 55% at center 55%, black 30%, transparent 80%)' }}
+      >
         <img
           src={heroBg}
           alt=""
@@ -14,9 +17,6 @@ const HeroSection = () => {
         />
         {/* Animated Gradient Overlay - tints the image */}
         <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
-        {/* Dark Overlays - on top for contrast */}
-        <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.25)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%,0.3)] via-transparent to-[hsl(220,20%,4%)]" />
       </div>
 
       {/* Colorful theme gradient orbs */}
