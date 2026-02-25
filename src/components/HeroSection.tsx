@@ -108,6 +108,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="relative w-full max-w-xs mx-auto mb-4"
+          style={{ mask: 'radial-gradient(ellipse 70% 60% at center, black 40%, transparent 100%)', WebkitMask: 'radial-gradient(ellipse 70% 60% at center, black 40%, transparent 100%)' }}
         >
           <img
             src={heroBg}
@@ -115,8 +116,6 @@ const HeroSection = () => {
             className="w-full h-auto object-contain"
           />
           <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
-          <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.25)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%,0.3)] via-transparent to-[hsl(220,20%,4%)]" />
         </motion.div>
 
         {/* Description below image */}
