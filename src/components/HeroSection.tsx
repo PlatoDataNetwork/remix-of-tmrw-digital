@@ -43,7 +43,7 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
-        <div className="relative h-[110px] md:h-[160px] lg:h-[200px] mb-8 flex items-center justify-center">
+        <div className="relative h-[110px] md:h-[160px] lg:h-[200px] mb-2 flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.h1
               key={currentIndex}
