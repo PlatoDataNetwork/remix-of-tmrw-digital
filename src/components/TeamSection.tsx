@@ -1,34 +1,27 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import teamJustin from "@/assets/team-justin.png";
-import teamPaul from "@/assets/team-paul.png";
-import teamBryan from "@/assets/team-bryan.png";
-import teamZach from "@/assets/team-zach.png";
+import { User } from "lucide-react";
 
 const teamMembers = [
   {
     name: "Justin Hartzman",
     role: "Chairman",
     bio: "Serial Entrepreneur and Capital Market Veteran. Co-founded CoinSmart and WonderFi (recently acquired by Robinhood). Over a decade scaling fintech companies and executing go-public strategies.",
-    image: teamJustin,
   },
   {
     name: "Paul Thomson",
     role: "CEO",
     bio: "Founder of Carbon Distributed Technologies. Independent Director at eXeBlock Technology. Former CCO at Numus Capital. Deep expertise in corporate governance, compliance, and capital markets.",
-    image: teamPaul,
   },
   {
     name: "Bryan Feinberg",
     role: "COO / CTO",
     bio: "CEO of Zephyr Technology Ventures and Plato AI. Licensed Investment Banker (Series 7, 63, 79). Led startup from zero to $130M revenue and TASE public listing. Expert in AI, blockchain, and big data.",
-    image: teamBryan,
   },
   {
     name: "Zach Goldenberg",
     role: "Advisor",
     bio: "Strategic advisor with deep expertise in capital markets, investor relations, and public company growth strategies.",
-    image: teamZach,
   },
 ];
 
@@ -67,12 +60,8 @@ const TeamSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-1 text-center"
             >
-              <div className="relative h-20 w-20 rounded-full mx-auto mb-6 overflow-hidden border-2 border-border group-hover:border-foreground/20 transition-colors">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
+              <div className="h-16 w-16 rounded-full bg-secondary flex items-center justify-center mx-auto mb-6 group-hover:bg-foreground/10 transition-colors">
+                <User className="h-7 w-7 text-foreground" />
               </div>
               <h3 className="text-lg font-medium text-foreground mb-1">{member.name}</h3>
               <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-4">{member.role}</p>
