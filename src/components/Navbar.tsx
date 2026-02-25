@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
-import logoIcon from "@/assets/logo-icon.jpeg";
+import platoIcon from "@/assets/plato-icon.png";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -28,7 +28,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
             <div className="h-8 w-8 relative animated-gradient-icon overflow-hidden">
-              <img src={logoIcon} alt="Tomorrow logo" className="h-full w-full object-contain" />
+              <img src={platoIcon} alt="Tomorrow logo" className="h-full w-full object-contain" />
             </div>
             <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
               The Tomorrow Company
