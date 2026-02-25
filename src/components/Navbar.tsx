@@ -28,7 +28,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
             <div className="h-8 w-8 relative animated-gradient-icon overflow-hidden">
-              <img src={platoIcon} alt="Tomorrow logo" className="h-full w-full object-contain" />
+              <img src={platoIcon} alt="Tomorrow logo" className="h-full w-full object-contain mix-blend-screen" />
             </div>
             <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
               The Tomorrow Company
