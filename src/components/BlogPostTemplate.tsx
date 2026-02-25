@@ -3,6 +3,7 @@ import { ArrowLeft, Calendar, Tag, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import blogHero from "@/assets/blog-hero.jpeg";
 
 export interface BlogPostData {
   date: string;
@@ -78,8 +79,23 @@ const BlogPostTemplate = ({ data }: { data: BlogPostData }) => {
         </div>
       </section>
 
-      {/* Divider */}
+      {/* Hero Image */}
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        <motion.div
+          {...fadeUp}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="relative rounded-2xl overflow-hidden animated-gradient-icon"
+        >
+          <img
+            src={data.heroImage || blogHero}
+            alt={data.title}
+            className="w-full h-[300px] md:h-[420px] object-cover"
+          />
+        </motion.div>
+      </div>
+
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-6 lg:px-8 mt-10">
         <div className="border-t border-border" />
       </div>
 
