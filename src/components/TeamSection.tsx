@@ -31,7 +31,7 @@ const TeamSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section id="team" className="relative py-32 lg:py-40 bg-background overflow-hidden" ref={ref}>
+    <section id="team" className="relative py-16 lg:py-24 bg-background overflow-hidden" ref={ref}>
       <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
         <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] rounded-full bg-[hsl(260,80%,60%,0.06)] blur-[120px]" />
       </div>

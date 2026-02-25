@@ -40,7 +40,7 @@ const InvestorsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="investors" className="relative py-32 lg:py-40 bg-background overflow-hidden" ref={ref}>
+    <section id="investors" className="relative py-16 lg:py-24 bg-background overflow-hidden" ref={ref}>
       {/* Background gradient */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-0 w-[400px] h-[400px] rounded-full bg-[hsl(var(--primary)/0.05)] blur-[120px]" />
