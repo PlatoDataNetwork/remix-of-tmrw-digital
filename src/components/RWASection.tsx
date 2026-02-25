@@ -19,7 +19,7 @@ const RWASection = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section id="rwas" className="relative py-32 lg:py-40 bg-background overflow-hidden" ref={ref}>
+    <section id="rwas" className="relative py-16 lg:py-24 bg-background overflow-hidden" ref={ref}>
       {/* Colorful theme gradient */}
       <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
         <div className="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-[hsl(200,90%,50%,0.07)] blur-[120px]" />

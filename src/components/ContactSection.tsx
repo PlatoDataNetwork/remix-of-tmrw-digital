@@ -15,7 +15,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="relative py-32 lg:py-40 bg-card overflow-hidden" ref={ref}>
+    <section id="contact" className="relative py-16 lg:py-24 bg-card overflow-hidden" ref={ref}>
       {/* Colorful theme gradient */}
       <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(250,80%,60%,0.08)] blur-[120px]" />

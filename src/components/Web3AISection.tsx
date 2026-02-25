@@ -53,7 +53,7 @@ const Web3AISection = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section id="web3ai" className="relative py-32 lg:py-40 bg-background overflow-hidden" ref={ref}>
+    <section id="web3ai" className="relative py-16 lg:py-24 bg-background overflow-hidden" ref={ref}>
       <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
         <div className="absolute top-0 left-1/2 w-[600px] h-[600px] rounded-full bg-[hsl(220,90%,50%,0.06)] blur-[140px]" />
       </div>

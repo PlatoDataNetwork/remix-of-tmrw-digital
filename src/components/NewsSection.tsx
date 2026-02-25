@@ -28,7 +28,7 @@ const NewsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="news" className="relative py-32 lg:py-40 bg-background overflow-hidden" ref={ref}>
+    <section id="news" className="relative py-16 lg:py-24 bg-background overflow-hidden" ref={ref}>
       {/* Colorful theme gradient */}
       <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
         <div className="absolute top-1/3 right-0 w-[400px] h-[400px] rounded-full bg-[hsl(330,80%,55%,0.06)] blur-[100px]" />
