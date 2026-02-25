@@ -42,18 +42,18 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-left">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl lg:text-2xl text-white/70 max-w-4xl leading-relaxed font-light mb-10"
+          className="text-lg md:text-xl lg:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed font-light mb-10"
         >
           The Tomorrow Company is a Diversified Web3 Infrastructure and Digital Asset
           Holding Company Building the Infrastructure for Tomorrow's Digital Economy.
         </motion.p>
 
-        <div className="relative h-[140px] md:h-[220px] lg:h-[280px] mb-8 flex items-center justify-start">
+        <div className="relative h-[130px] md:h-[200px] lg:h-[260px] mb-8 flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.h1
               key={currentIndex}
@@ -61,7 +61,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.6 }}
-              className="text-5xl md:text-7xl lg:text-[6.5rem] font-extralight leading-[1.05] tracking-tight text-white absolute"
+              className="text-[2.8rem] md:text-[4rem] lg:text-[6rem] font-extralight leading-[1.05] tracking-tight text-white absolute"
             >
               {heroMessages[currentIndex].line1}
               <br />
@@ -83,7 +83,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="mt-14 flex flex-col sm:flex-row gap-6 justify-start"
+          className="mt-14 flex flex-col sm:flex-row gap-6 justify-center"
         >
           <a
             href="#about"
