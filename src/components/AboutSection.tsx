@@ -14,7 +14,7 @@ const AboutSection = () => {
         <div className="absolute bottom-0 -left-20 w-[300px] h-[300px] rounded-full bg-[hsl(200,90%,50%,0.06)] blur-[80px]" />
       </div>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 gap-24">
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
