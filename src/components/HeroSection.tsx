@@ -64,7 +64,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-sm md:text-base uppercase tracking-[0.4em] text-white/50"
+          className="text-base md:text-lg uppercase tracking-[0.4em] text-white/50"
         >
           RWA's · Web3 AI · Cyber · Data · Compliance
         </motion.p>
