@@ -53,7 +53,7 @@ const HeroSection = () => {
           Holding Company Building the Infrastructure for Tomorrow's Digital Economy.
         </motion.p>
 
-        <div className="relative h-[130px] md:h-[200px] lg:h-[260px] mb-8 flex items-center justify-center">
+        <div className="relative h-[110px] md:h-[160px] lg:h-[200px] mb-8 flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.h1
               key={currentIndex}
@@ -61,7 +61,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.6 }}
-              className="text-[2.5rem] md:text-[3.6rem] lg:text-[5.4rem] font-extralight leading-[1.05] tracking-tight text-white absolute"
+              className="text-[2.2rem] md:text-[3rem] lg:text-[4.5rem] font-extralight leading-[1.1] tracking-tight text-white absolute whitespace-nowrap"
             >
               {heroMessages[currentIndex].line1}
               <br />
