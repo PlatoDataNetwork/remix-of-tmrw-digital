@@ -28,7 +28,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
             <div
-              className="h-8 w-8 relative animated-gradient-icon"
+              className="h-8 w-8 animated-gradient-hero-overlay"
               style={{
                 WebkitMaskImage: `url(${platoIcon})`,
                 maskImage: `url(${platoIcon})`,
@@ -38,6 +38,7 @@ const Navbar = () => {
                 maskRepeat: 'no-repeat',
                 WebkitMaskPosition: 'center',
                 maskPosition: 'center',
+                opacity: 1,
               }}
             />
             <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
