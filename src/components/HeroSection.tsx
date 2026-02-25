@@ -80,13 +80,13 @@ const HeroSection = () => {
       </div>
 
       {/* Mobile Content - stacked layout */}
-      <div className="relative z-10 w-full px-6 text-center flex flex-col items-center md:hidden pt-24 pb-20">
+      <div className="relative z-10 w-full px-6 text-center flex flex-col items-center md:hidden pt-20 pb-16">
         {/* Hero heading at top */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl font-light leading-[1.05] tracking-tight text-white mb-2"
+          className="text-4xl font-light leading-[1.05] tracking-tight text-white mb-1"
         >
           Accelerating Growth
           <br />
@@ -97,7 +97,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xs uppercase tracking-[0.3em] text-white/60 mb-8"
+          className="text-xs uppercase tracking-[0.3em] text-white/60 mb-4"
         >
           Real World Assets · Web3 AI · Vertical Intelligence
         </motion.p>
@@ -107,15 +107,15 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="relative w-full max-w-sm mx-auto mb-8"
+          className="relative w-full max-w-xs mx-auto mb-4"
         >
           <img
             src={heroBg}
             alt=""
             className="w-full h-auto object-contain"
           />
-          <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay rounded-2xl" />
-          <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.15)] rounded-2xl" />
+          <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
+          <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.15)]" />
         </motion.div>
 
         {/* Description below image */}
@@ -123,7 +123,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-sm text-white/70 max-w-sm mx-auto leading-relaxed font-light mb-8"
+          className="text-sm text-white/70 max-w-sm mx-auto leading-relaxed font-light mb-6"
         >
           The Tomorrow Company is a Diversified Web3 Infrastructure and Digital Asset Holding
           Company Building the Infrastructure for Tomorrow's Digital Economy.
