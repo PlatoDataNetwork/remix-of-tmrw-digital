@@ -32,16 +32,17 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 mb-6"
+          className="text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed font-light mb-8"
         >
-          Real World Assets · Web3 AI · Vertical Intelligence
+          The Tomorrow Company is a Diversified Web3 Infrastructure and Digital Asset Holding
+          Company Building the Infrastructure for Tomorrow's Digital Economy.
         </motion.p>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl md:text-6xl lg:text-8xl font-light leading-[1.05] tracking-tight text-white mb-8"
+          className="text-4xl md:text-6xl lg:text-8xl font-light leading-[1.05] tracking-tight text-white mb-6"
         >
           Accelerating Growth
           <br />
@@ -52,10 +53,9 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed font-light"
+          className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60"
         >
-          The Tomorrow Company is a Diversified Web3 Infrastructure and Digital Asset Holding
-          Company Building the Infrastructure for Tomorrow's Digital Economy.
+          Real World Assets · Web3 AI · Vertical Intelligence
         </motion.p>
 
         <motion.div
