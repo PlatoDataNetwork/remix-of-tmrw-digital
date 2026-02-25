@@ -114,8 +114,8 @@ const HeroSection = () => {
             alt=""
             className="w-full h-auto object-contain"
           />
-          <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
-          <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.15)]" />
+          <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(250,60%,30%,0.25)] via-[hsl(220,50%,25%,0.15)] to-[hsl(220,20%,4%,0.3)]" />
         </motion.div>
 
         {/* Description below image */}
