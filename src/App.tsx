@@ -26,6 +26,9 @@ import CrossBorderSettlements from "./pages/web3ai/CrossBorderSettlements";
 import RWAInfrastructure from "./pages/web3ai/RWAInfrastructure";
 import VerticalIntelligence from "./pages/web3ai/VerticalIntelligence";
 import CommunityDriven from "./pages/web3ai/CommunityDriven";
+import RWATokenization from "./pages/blog/RWATokenization";
+import AIInvestorEngagement from "./pages/blog/AIInvestorEngagement";
+import PreIPOMarkets from "./pages/blog/PreIPOMarkets";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -60,6 +63,9 @@ const App = () => (
           <Route path="/web3ai/rwa-infrastructure" element={<RWAInfrastructure />} />
           <Route path="/web3ai/vertical-intelligence" element={<VerticalIntelligence />} />
           <Route path="/web3ai/community-driven" element={<CommunityDriven />} />
+          <Route path="/blog/rwa-tokenization" element={<RWATokenization />} />
+          <Route path="/blog/ai-investor-engagement" element={<AIInvestorEngagement />} />
+          <Route path="/blog/pre-ipo-markets" element={<PreIPOMarkets />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

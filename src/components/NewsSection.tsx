@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const articles = [
   {
@@ -8,18 +9,21 @@ const articles = [
     category: "Market Insight",
     title: "The Future of RWA Tokenization in Web3 Markets",
     excerpt: "How real-world asset tokenization is reshaping investor access to previously illiquid markets.",
+    slug: "/blog/rwa-tokenization",
   },
   {
     date: "Jan 2026",
     category: "Industry",
     title: "AI-Driven Investor Engagement: A New Paradigm",
     excerpt: "Leveraging machine learning to identify, target, and engage institutional investors at scale.",
+    slug: "/blog/ai-investor-engagement",
   },
   {
     date: "Dec 2025",
     category: "Advisory",
     title: "Navigating Pre-IPO Markets in a Volatile Landscape",
     excerpt: "Strategic considerations for management teams preparing for public market transitions.",
+    slug: "/blog/pre-ipo-markets",
   },
 ];
 
@@ -51,8 +55,8 @@ const NewsSection = () => {
 
         <div className="space-y-0 divide-y divide-border">
           {articles.map((article, i) => (
+            <Link to={article.slug} key={article.title}>
             <motion.article
-              key={article.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.15 }}
@@ -70,6 +74,7 @@ const NewsSection = () => {
               </div>
               <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors shrink-0 hidden md:block" />
             </motion.article>
+            </Link>
           ))}
         </div>
       </div>
