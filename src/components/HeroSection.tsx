@@ -66,7 +66,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-base md:text-lg uppercase tracking-[0.4em] text-white/50"
         >
-          RWA's · Web3 AI · Cyber · Data · Compliance
+          RWA's · Web3AI · Cyber · Data · Compliance
         </motion.p>
 
         <motion.p

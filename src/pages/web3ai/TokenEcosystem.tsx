@@ -4,7 +4,7 @@ import ServicePageTemplate, { ServicePageData } from "@/components/ServicePageTe
 const data: ServicePageData = {
   icon: Coins,
   title: "Token Ecosystem",
-  subtitle: "Web3 AI",
+  subtitle: "Web3AI",
   heroDescription: "Proprietary token driving rewards, incentives, and cross-border transactions across the network — enabling dual revenue streams for participants.",
   overview: "The TMRW Token Ecosystem is designed to align incentives across all network participants through a carefully engineered tokenomics model. Our dual-token architecture supports both utility and governance functions, enabling seamless cross-border payments, staking rewards, and decentralized decision-making. The ecosystem creates sustainable value through transaction fees, staking yields, and ecosystem fund allocations.",
   capabilities: [

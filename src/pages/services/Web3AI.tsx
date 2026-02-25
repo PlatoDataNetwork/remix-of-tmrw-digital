@@ -3,10 +3,10 @@ import ServicePageTemplate, { ServicePageData } from "@/components/ServicePageTe
 
 const data: ServicePageData = {
   icon: TrendingUp,
-  title: "Web3 AI",
+  title: "Web3AI",
   subtitle: "Service",
   heroDescription: "Strategic guidance through Web3 and AI-powered solutions for optimal digital transformation. We bridge the gap between traditional systems and decentralized innovation.",
-  overview: "TMRW's Web3 AI service combines blockchain infrastructure with artificial intelligence to create next-generation digital solutions. Our team of experts helps organizations navigate the complexities of decentralized technologies while leveraging AI to automate processes, enhance decision-making, and unlock new revenue streams. From smart contract development to AI-driven market analysis, we provide end-to-end support for your digital transformation journey.",
+  overview: "TMRW's Web3AI service combines blockchain infrastructure with artificial intelligence to create next-generation digital solutions. Our team of experts helps organizations navigate the complexities of decentralized technologies while leveraging AI to automate processes, enhance decision-making, and unlock new revenue streams. From smart contract development to AI-driven market analysis, we provide end-to-end support for your digital transformation journey.",
   capabilities: [
     { title: "Smart Contract Development", description: "Custom smart contract architecture and deployment across multiple blockchain networks." },
     { title: "AI Integration", description: "Seamless integration of machine learning models into Web3 applications for enhanced automation." },
