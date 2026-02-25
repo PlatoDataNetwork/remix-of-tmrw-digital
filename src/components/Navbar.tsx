@@ -28,7 +28,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
             <div
-              className="h-8 w-8 animated-gradient-hero-overlay"
+              className="h-8 w-8 animated-gradient-icon-bright"
               style={{
                 WebkitMaskImage: `url(${platoIcon})`,
                 maskImage: `url(${platoIcon})`,
