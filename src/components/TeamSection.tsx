@@ -1,8 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { User } from "lucide-react";
 import teamAstronauts from "@/assets/team-astronauts.jpeg";
-
+import astronautIcon from "@/assets/astronaut-icon.png";
 const teamMembers = [
   {
     name: "Justin Hartzman",
@@ -22,7 +21,7 @@ const teamMembers = [
   {
     name: "Zach Goldenberg",
     role: "Advisor",
-    bio: "Strategic advisor with deep expertise in capital markets, investor relations, and public company growth strategies.",
+    bio: "Principal of Liberty Venture Partners. Corporate securities lawyer with a proven track record structuring financing and go-public transactions on Canadian public markets (TSXV, CSE, CBOE Canada). Holds a JD/HBA from Western Law and Ivey Business School. ICD.D designate and TSX Venture Exchange Advisory Committee member.",
   },
 ];
 
@@ -72,8 +71,8 @@ const TeamSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-1 text-center"
             >
-              <div className="h-16 w-16 rounded-full bg-secondary flex items-center justify-center mx-auto mb-6 group-hover:bg-foreground/10 transition-colors">
-                <User className="h-7 w-7 text-foreground" />
+              <div className="h-16 w-16 rounded-full overflow-hidden mx-auto mb-6 animated-gradient-icon">
+                <img src={astronautIcon} alt="Team member avatar" className="h-full w-full object-cover" />
               </div>
               <h3 className="text-lg font-medium text-foreground mb-1">{member.name}</h3>
               <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-4">{member.role}</p>
