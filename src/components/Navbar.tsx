@@ -64,7 +64,7 @@ const Navbar = () => {
             <ThemeToggle />
             <a
               href="#investors"
-              className="hidden md:inline-flex h-9 px-5 items-center justify-center rounded-full bg-white text-[hsl(220,20%,4%)] text-sm font-medium hover:opacity-90 transition-opacity"
+              className="hidden md:inline-flex h-9 px-5 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium hover:opacity-90 transition-opacity"
             >
               Investors
             </a>
@@ -102,7 +102,7 @@ const Navbar = () => {
               <a
                 href="#investors"
                 onClick={() => setMobileOpen(false)}
-                className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-white text-[hsl(220,20%,4%)] text-sm font-medium mt-2"
+                className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium mt-2"
               >
                 Investors
               </a>
