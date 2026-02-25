@@ -1,8 +1,23 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { useState, useEffect } from "react";
 import heroBg from "@/assets/hero-bg.png";
 
+const heroMessages = [
+  { line1: "Accelerating Growth", line2: "Through Trust." },
+  { line1: "Secure Network Protocol", line2: "For the Next Web." },
+];
+
 const HeroSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % heroMessages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-[110vh] flex items-center justify-center overflow-hidden bg-[hsl(220,20%,4%)]">
       {/* Background Image */}
@@ -38,16 +53,22 @@ const HeroSection = () => {
           Company Building the Infrastructure for Tomorrow's Digital Economy.
         </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl md:text-6xl lg:text-8xl font-light leading-[1.05] tracking-tight text-white mb-6"
-        >
-          Accelerating Growth
-          <br />
-          Through Trust.
-        </motion.h1>
+        <div className="relative h-[120px] md:h-[180px] lg:h-[240px] mb-6 flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={currentIndex}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-6xl lg:text-8xl font-light leading-[1.05] tracking-tight text-white absolute"
+            >
+              {heroMessages[currentIndex].line1}
+              <br />
+              {heroMessages[currentIndex].line2}
+            </motion.h1>
+          </AnimatePresence>
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
