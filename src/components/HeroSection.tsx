@@ -43,16 +43,6 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl lg:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed font-light mb-10"
-        >
-          The Tomorrow Company is a Diversified Web3 Infrastructure and Digital Asset
-          Holding Company Building the Infrastructure for Tomorrow's Digital Economy.
-        </motion.p>
-
         <div className="relative h-[110px] md:h-[160px] lg:h-[200px] mb-8 flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.h1
@@ -77,6 +67,16 @@ const HeroSection = () => {
           className="text-sm md:text-base uppercase tracking-[0.4em] text-white/50"
         >
           Real World Assets · Web3 AI · Vertical Intelligence
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="text-lg md:text-xl lg:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed font-light mt-8"
+        >
+          The Tomorrow Company is a Diversified Web3 Infrastructure and Digital Asset
+          Holding Company Building the Infrastructure for Tomorrow's Digital Economy.
         </motion.p>
 
         <motion.div
