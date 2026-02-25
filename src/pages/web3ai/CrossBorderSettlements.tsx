@@ -4,7 +4,7 @@ import ServicePageTemplate, { ServicePageData } from "@/components/ServicePageTe
 const data: ServicePageData = {
   icon: Zap,
   title: "Cross-Border Settlements",
-  subtitle: "Web3 AI",
+  subtitle: "Web3AI",
   heroDescription: "Solana-based stablecoin infrastructure enabling near-instant settlements with zero FX friction across global markets.",
   overview: "TMRW's Cross-Border Settlement infrastructure leverages Solana's high-throughput blockchain and stablecoin rails to eliminate the friction, delays, and costs associated with traditional international payments. Our solution processes settlements in under one minute, compared to 2-5 business days through conventional banking channels. By removing intermediary banks and FX conversion overhead, we deliver cost savings of up to 90% on international transfers.",
   capabilities: [

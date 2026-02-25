@@ -4,7 +4,7 @@ import ServicePageTemplate, { ServicePageData } from "@/components/ServicePageTe
 const data: ServicePageData = {
   icon: BarChart3,
   title: "Vertical Intelligence",
-  subtitle: "Web3 AI",
+  subtitle: "Web3AI",
   heroDescription: "Industry-specific AI models delivering actionable insights across carbon markets, compliance, and financial operations in real-time.",
   overview: "TMRW's Vertical Intelligence service deploys purpose-built AI models tailored to specific industry verticals. Unlike generic analytics platforms, our models are trained on domain-specific datasets and fine-tuned for the unique dynamics of carbon markets, regulatory compliance, financial operations, and emerging digital asset sectors. Each model delivers actionable signals, risk assessments, and strategic recommendations calibrated to its vertical's specific requirements and market structure.",
   capabilities: [

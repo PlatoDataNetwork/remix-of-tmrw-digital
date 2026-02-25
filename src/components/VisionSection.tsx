@@ -5,7 +5,7 @@ import { Globe, Coins, ShieldCheck, TrendingUp } from "lucide-react";
 const visionCards = [
   {
     icon: Globe,
-    title: "Web3 AI Platform",
+    title: "Web3AI Platform",
     stat: "13M+ Visitors",
     description: "Next-generation decentralized browser and AI / Web3 Dev Tools across 160+ countries and 35 languages. Web3 secured access through an Immersive UI / UX.",
   },

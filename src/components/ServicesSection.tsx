@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const services = [
   {
     icon: TrendingUp,
-    title: "Web3 AI",
+    title: "Web3AI",
     slug: "web3-ai",
     description: "Strategic guidance through Web3 and AI-powered solutions for optimal digital transformation.",
   },

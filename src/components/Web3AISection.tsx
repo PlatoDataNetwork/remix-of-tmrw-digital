@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Bot, Coins, Zap, BarChart3, Users, Database } from "lucide-react";
 import { Link } from "react-router-dom";
+import blogHero from "@/assets/blog-hero.jpeg";
 
 const innovations = [
   {
@@ -65,15 +66,18 @@ const Web3AISection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Web3 AI</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Web3AI</p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground mb-6">
             Digital Transformation Through
             <br />
-            Web3 AI & Tokenization
+            Web3AI & Tokenization
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-light">
             TMRW brings deep expertise in AI-driven automation and blockchain infrastructure to transform how data is created, stored and distributed — creating unprecedented efficiency, transparency, and shareholder value.
           </p>
+          <div className="mt-10 max-w-4xl mx-auto rounded-2xl overflow-hidden animated-gradient-icon">
+            <img src={blogHero} alt="Web3AI visualization" className="w-full h-[260px] md:h-[380px] object-cover" />
+          </div>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

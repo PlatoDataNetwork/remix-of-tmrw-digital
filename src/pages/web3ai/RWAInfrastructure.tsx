@@ -4,7 +4,7 @@ import ServicePageTemplate, { ServicePageData } from "@/components/ServicePageTe
 const data: ServicePageData = {
   icon: Database,
   title: "RWA Infrastructure",
-  subtitle: "Web3 AI",
+  subtitle: "Web3AI",
   heroDescription: "Blockchain-verified tokenization of real-world assets including carbon credits, commodities, and digital securities on a compliant exchange.",
   overview: "TMRW's RWA Infrastructure provides the complete technology stack for bringing real-world assets on-chain. From asset origination and legal structuring to token issuance and secondary trading, our platform handles every stage of the tokenization lifecycle. Built on compliant exchange infrastructure, we enable institutions and issuers to create, distribute, and trade tokenized assets within a regulated framework that satisfies both traditional finance and Web3 requirements.",
   capabilities: [

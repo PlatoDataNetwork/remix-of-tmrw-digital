@@ -4,7 +4,7 @@ import ServicePageTemplate, { ServicePageData } from "@/components/ServicePageTe
 const data: ServicePageData = {
   icon: Users,
   title: "Community Driven",
-  subtitle: "Web3 AI",
+  subtitle: "Web3AI",
   heroDescription: "Decentralized governance and network effects driving adoption through incentivized participation and stakeholder alignment across a global network.",
   overview: "TMRW's Community Driven model places stakeholders at the center of network growth and governance. Through decentralized decision-making, incentivized participation, and transparent treasury management, we create self-sustaining ecosystems where every participant benefits from network expansion. Our governance framework ensures that token holders, users, and contributors all have a voice in shaping the platform's future while being rewarded for their contributions to the network's success.",
   capabilities: [
