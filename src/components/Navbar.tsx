@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Team", href: "/#team" },
   { label: "Web3AI", href: "/#web3ai" },
   { label: "RWAs", href: "/#rwas" },
-  { label: "News", href: "/#news" },
+  { label: "Intel", href: "/#news" },
   { label: "Contact", href: "/#contact" },
 ];
 
