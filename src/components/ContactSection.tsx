@@ -37,8 +37,8 @@ const ContactSection = () => {
               we're here to help navigate your path forward.
             </p>
             <div className="space-y-4 text-sm text-muted-foreground">
-              <p>info@thetomorrowcompany.com</p>
-              <p>New York, NY</p>
+              <p>bf@tmrw-digital.com</p>
+              <p className="inline-flex items-center gap-1">Made with <svg className="h-5 w-5 inline-block" viewBox="0 0 512 512" fill="#EF4444"><path d="M256 32l-32 96-80-48 32 96-96 16 80 64-48 80 96-32 48 176 48-176 96 32-48-80 80-64-96-16 32-96-80 48z"/></svg> in Canada.</p>
             </div>
           </motion.div>
 
