@@ -35,6 +35,7 @@ const AIInvestorEngagement = lazy(() => import("./pages/blog/AIInvestorEngagemen
 const PreIPOMarkets = lazy(() => import("./pages/blog/PreIPOMarkets"));
 const InvestorDisclaimer = lazy(() => import("./pages/InvestorDisclaimer"));
 const InvestorPresentation = lazy(() => import("./pages/InvestorPresentation"));
+const Legal = lazy(() => import("./pages/Legal"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -75,6 +76,7 @@ const App = () => (
             <Route path="/blog/rwa-tokenization" element={<RWATokenization />} />
             <Route path="/blog/ai-investor-engagement" element={<AIInvestorEngagement />} />
             <Route path="/blog/pre-ipo-markets" element={<PreIPOMarkets />} />
+            <Route path="/legal" element={<Legal />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
