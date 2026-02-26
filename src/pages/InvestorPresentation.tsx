@@ -58,6 +58,13 @@ const platoTools = [
   "SecureStake: Solana staking protocol",
 ];
 
+const platoTraction = [
+  "13M+ organic visitors across 160+ countries",
+  "70,000+ enterprise users on platform",
+  "$1.4M revenue generated to date",
+  "35 languages with global multilingual support",
+];
+
 const metrics = [
   { value: "13M+", label: "Organic Visitors", sub: "Across 160+ countries" },
   { value: "70,000+", label: "Enterprises", sub: "Active platform users" },
@@ -215,7 +222,7 @@ const InvestorPresentation = () => {
       {/* Carbon Credits */}
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionTitle label="Pillar 1" title="Carbon Credits Infrastructure" subtitle="CUT Carbon Distributed Technologies provides transparent, blockchain-verified carbon offsetting solutions." />
+          <SectionTitle label="Pillar 1 — Carbon Distributed Technologies AG" title="Carbon Credits Infrastructure" subtitle="Transparent, blockchain-verified carbon offsetting solutions powering enterprise ESG compliance." />
           <div className="grid md:grid-cols-3 gap-6">
             {[{ title: "Asset Base", items: carbonAssets }, { title: "Technology", items: carbonTech }, { title: "Market Position", items: carbonMarket }].map(col => (
               <div key={col.title} className="bg-card border border-border rounded-2xl p-6">
@@ -232,22 +239,16 @@ const InvestorPresentation = () => {
       {/* Web3 AI Platform */}
       <section className="py-16 lg:py-24 bg-card/50">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionTitle label="Pillar 2" title="Web3 AI Platform" />
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-card border border-border rounded-2xl p-8">
-              <h3 className="text-lg font-medium text-foreground mb-2">Plato Web3 Browser</h3>
-              <p className="text-sm text-muted-foreground mb-4 font-light">Next-generation decentralized access portal</p>
-              <ul className="space-y-2 text-sm text-muted-foreground font-light">
-                {platoBrowser.map(item => <li key={item} className="flex items-start gap-2"><span className="animated-gradient-text">•</span>{item}</li>)}
-              </ul>
-            </div>
-            <div className="bg-card border border-border rounded-2xl p-8">
-              <h3 className="text-lg font-medium text-foreground mb-2">AI Development Tools</h3>
-              <p className="text-sm text-muted-foreground mb-4 font-light">Comprehensive Web3 AI toolkit</p>
-              <ul className="space-y-2 text-sm text-muted-foreground font-light">
-                {platoTools.map(item => <li key={item} className="flex items-start gap-2"><span className="animated-gradient-text">•</span>{item}</li>)}
-              </ul>
-            </div>
+          <SectionTitle label="Pillar 2 — Plato Technologies Inc." title="Web3 AI Platform" subtitle="Full-stack Web3 browser and AI development tools powering decentralized infrastructure at scale." />
+          <div className="grid md:grid-cols-3 gap-6">
+            {[{ title: "Web3 Browser", items: platoBrowser }, { title: "AI Development Tools", items: platoTools }, { title: "Market Traction", items: platoTraction }].map(col => (
+              <div key={col.title} className="bg-card border border-border rounded-2xl p-6">
+                <h3 className="text-base font-medium text-foreground mb-4">{col.title}</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground font-light">
+                  {col.items.map(item => <li key={item} className="flex items-start gap-2"><span className="animated-gradient-text">•</span>{item}</li>)}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
