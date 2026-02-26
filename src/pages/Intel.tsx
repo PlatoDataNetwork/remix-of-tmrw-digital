@@ -121,7 +121,7 @@ const Intel = () => {
               Latest Insights
             </h1>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl font-light">
-              Deep dives into tokenization, Web3AI markets, and the future of real-world asset investment.
+              Deep dives into tokenization, Web3AI markets, and the future of real-world assets.
             </p>
           </motion.div>
 
