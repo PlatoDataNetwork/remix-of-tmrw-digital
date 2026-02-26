@@ -13,10 +13,10 @@ const stats = [
 ];
 
 const pillars = [
-  { icon: Leaf, title: "RWA Tokenization", desc: "Token Economy." },
+  { icon: Leaf, title: "RWA Tokenization", desc: "Transforming real-world assets into liquid digital instruments. Institutional-grade infrastructure for the tokenized economy." },
   { icon: Globe, title: "Web3 Browser", desc: "Decentralized access gateway with native blockchain support." },
-  { icon: Cpu, title: "AI Tools", desc: "CodeNexus, NexusWave Carbon, and AI-powered solutions." },
-  { icon: Coins, title: "Token Economy", desc: "CUT and Plato tokens powering the ecosystem." },
+  { icon: Cpu, title: "Web3 AI Tools", desc: "CodeNexus, NexusWave Carbon, and AI-powered intelligence engines. Purpose-built tooling for the decentralized frontier." },
+  { icon: Coins, title: "Token Economy", desc: "CUT and Plato tokens fueling a dual-asset ecosystem. Programmable value powering carbon, compute, and commerce." },
 ];
 
 const carbonAssets = [
