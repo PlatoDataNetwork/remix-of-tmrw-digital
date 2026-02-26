@@ -81,20 +81,9 @@ const ServicesSection = () => {
           <img
             src={dataCenterImg}
             alt="Data center infrastructure"
-            className="w-full h-[260px] md:h-[380px] object-cover"
+            className="w-full h-[260px] md:h-[380px] object-cover grayscale brightness-110"
           />
-          <motion.div
-            className="absolute inset-0 mix-blend-overlay"
-            animate={{
-              background: [
-                "linear-gradient(135deg, hsla(250,80%,60%,0.4), hsla(320,90%,50%,0.3), hsla(200,90%,50%,0.2))",
-                "linear-gradient(135deg, hsla(320,90%,50%,0.3), hsla(200,90%,50%,0.4), hsla(250,80%,60%,0.2))",
-                "linear-gradient(135deg, hsla(200,90%,50%,0.2), hsla(250,80%,60%,0.4), hsla(320,90%,50%,0.3))",
-                "linear-gradient(135deg, hsla(250,80%,60%,0.4), hsla(320,90%,50%,0.3), hsla(200,90%,50%,0.2))",
-              ],
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-          />
+          <div className="absolute inset-0 animated-gradient-datacenter-bg" />
           <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
         </motion.div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
