@@ -92,7 +92,7 @@ const InvestorsSection = () => {
           className="mt-16 text-center"
         >
           <a
-            href="#contact"
+            href="/investors"
             className="inline-flex h-12 px-8 items-center justify-center rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
           >
             Request Investor Access
