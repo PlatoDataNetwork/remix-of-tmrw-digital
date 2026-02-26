@@ -6,10 +6,10 @@ import platoIcon from "@/assets/plato-icon.png";
 
 const navLinks = [
   { label: "About", href: "/#about" },
-  { label: "Team", href: "/#team" },
   { label: "Web3AI", href: "/#web3ai" },
   { label: "RWAs", href: "/#rwas" },
   { label: "Intel", href: "/#news" },
+  { label: "Team", href: "/#team" },
   { label: "Contact", href: "/#contact" },
 ];
 
