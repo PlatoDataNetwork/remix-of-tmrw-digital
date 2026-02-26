@@ -13,10 +13,10 @@ const stats = [
 ];
 
 const pillars = [
-  { icon: Leaf, title: "RWA Tokenization", desc: "Transforming real-world assets into liquid digital instruments. Institutional-grade infrastructure for the tokenized economy." },
-  { icon: Globe, title: "Web3 Browser", desc: "Decentralized access gateway with native blockchain support." },
-  { icon: Cpu, title: "Web3 AI Tools", desc: "CodeNexus, NexusWave Carbon, and AI-powered intelligence engines. Purpose-built tooling for the decentralized frontier." },
-  { icon: Coins, title: "Token Economy", desc: "CUT and Plato tokens fueling a dual-asset ecosystem. Programmable value powering carbon, compute, and commerce." },
+  { icon: Building2, title: "Capital Markets", desc: "Public market strategy engineered for institutional access and global cross-listing expansion." },
+  { icon: Leaf, title: "RWA Tokenization", desc: "Digitizing real-world assets into liquid, tradable instruments on institutional-grade infrastructure." },
+  { icon: Cpu, title: "Web3 / AI Tech Stack", desc: "Decentralized intelligence tools bridging blockchain architecture with autonomous AI systems." },
+  { icon: Coins, title: "Token Economy", desc: "Dual-asset programmable value layer powering carbon, compute, and cross-border commerce." },
 ];
 
 const carbonAssets = [
@@ -196,8 +196,8 @@ const InvestorPresentation = () => {
       {/* Core Pillars */}
       <section className="py-16 lg:py-24 bg-card/50">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionTitle label="Core Business" title="Four Integrated Pillars" subtitle="Powering the Web3 AI ecosystem." />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <SectionTitle label="Core Business" title="Four Integrated Pillar Cards" subtitle="Powering TMRW's Web3 AI Ecosystem." />
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {pillars.map((p, i) => (
               <motion.div key={p.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="bg-card border border-border rounded-2xl p-6 hover:border-foreground/20 transition-all">
