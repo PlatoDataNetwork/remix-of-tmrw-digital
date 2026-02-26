@@ -45,6 +45,12 @@ const teamMembers = [
     bio: "Full-stack developer and DevOps engineer with advanced expertise in network architecture, system administration, and cloud-native infrastructure. Designs and deploys resilient, high-availability environments across hybrid and multi-cloud platforms. Skilled in end-to-end application delivery from backend APIs to frontend interfaces.",
     color: "gradient-cyan",
   },
+  {
+    name: "Aditya Walia",
+    role: "Country Manager, India",
+    bio: "International lawyer and strategic advisor with extensive experience at a Big Four consultancy practice. Specializes in government relations, public infrastructure policy, and cross-border regulatory frameworks. Brings deep expertise in navigating complex institutional landscapes to drive large-scale enterprise and sovereign partnerships across India.",
+    color: "gradient-orange",
+  },
 ];
 
 const TeamSection = () => {

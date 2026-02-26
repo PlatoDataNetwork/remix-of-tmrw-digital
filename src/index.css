@@ -386,6 +386,12 @@ html {
   animation: gradient-shift 8s ease infinite !important;
 }
 
+.gradient-orange::after {
+  background: linear-gradient(270deg, hsl(25, 100%, 50%), hsl(15, 95%, 55%), hsl(35, 90%, 50%), hsl(25, 100%, 50%)) !important;
+  background-size: 400% 400% !important;
+  animation: gradient-shift 8s ease infinite !important;
+}
+
 .animated-gradient-text {
   background: linear-gradient(
     270deg,
