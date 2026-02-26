@@ -260,6 +260,31 @@ html {
   z-index: 1;
 }
 
+.animated-gradient-cool-bg {
+  position: relative;
+}
+
+.animated-gradient-cool-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    270deg,
+    hsl(220, 100%, 55%),
+    hsl(275, 85%, 55%),
+    hsl(330, 100%, 55%),
+    hsl(275, 85%, 55%),
+    hsl(220, 100%, 55%)
+  );
+  background-size: 400% 400%;
+  background-position: 0% 50%;
+  animation: gradient-shift 8s ease infinite;
+  mix-blend-mode: screen;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .animated-gradient-hero-overlay {
   background: linear-gradient(
     270deg,
