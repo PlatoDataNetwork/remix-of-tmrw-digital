@@ -23,6 +23,11 @@ const teamMembers = [
     role: "Advisor",
     bio: "Principal at Liberty Venture Partners. Corporate securities lawyer with extensive experience structuring financing and go-public transactions on Canadian markets including TSXV, CSE and CBOE Canada. Holds JD/HBA from Western Law and Ivey Business School. ICD.D designate and TSXV Advisory Committee member.",
   },
+  {
+    name: "Josh Smith",
+    role: "Chief Security Officer",
+    bio: "Over 20 years of advanced deep-stack development specializing in cybersecurity and distributed systems. Full-stack architect delivering cross-chain, smart contract–backed solutions to enterprise and government clients. Proven expertise in securing complex infrastructure across Web3 and traditional environments.",
+  },
 ];
 
 const TeamSection = () => {
