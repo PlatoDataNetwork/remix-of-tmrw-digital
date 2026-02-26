@@ -155,8 +155,10 @@ const InvestorPresentation = () => {
 
       {/* Capital Market Strategy */}
       <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionTitle label="Strategy" title="Capital Market Strategy" subtitle="We are in the process of listing on the Canadian public market via a Reverse Takeover (RTO) on either the TSX, TSX.V or CSE. Our plans are to Cross List across several other Global Exchanges one year after listing." />
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Strategy</p>
+          <h2 className="text-2xl md:text-4xl font-light text-foreground mb-4">Capital Market Strategy</h2>
+          <p className="text-base text-muted-foreground max-w-3xl mx-auto font-light">We are in the process of listing on the Canadian public market via a Reverse Takeover (RTO) on either the TSX, TSX.V or CSE. Our plans are to Cross List across several other Global Exchanges one year after listing.</p>
         </div>
       </section>
 
