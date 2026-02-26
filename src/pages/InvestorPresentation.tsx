@@ -276,41 +276,6 @@ const InvestorPresentation = () => {
         </div>
       </section>
 
-      {/* Token Architecture */}
-      <section className="py-16 lg:py-24 bg-card/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionTitle label="Tokens" title="Token Architecture" subtitle="Dual-token ecosystem: CUT (carbon credits) + Plato (Web3 AI utility)" />
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-card border border-border rounded-2xl p-8">
-              <h3 className="text-lg font-medium text-foreground mb-1">CUT Token</h3>
-              <p className="text-sm text-muted-foreground mb-4 font-light">Carbon offset utility token</p>
-              <ul className="space-y-2 text-sm text-muted-foreground font-light">
-                {["Represents certified carbon offsets", "Blockchain-verified retirement", "300M+ tokens in treasury", "Last private sale: $0.10 USD", "Enterprise ESG compliance tool"].map(t => (
-                  <li key={t} className="flex items-start gap-2"><span className="text-muted-foreground/50 mt-0.5">•</span>{t}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-card border border-border rounded-2xl p-8">
-              <h3 className="text-lg font-medium text-foreground mb-1">Plato Token</h3>
-              <p className="text-sm text-muted-foreground mb-4 font-light">Web3 AI network utility</p>
-              <ul className="space-y-2 text-sm text-muted-foreground font-light">
-                {["Powers Plato Web3 Browser", "SecureStake staking rewards", "AI compute network incentives", "Solana ecosystem integration", "Platform transaction settlements"].map(t => (
-                  <li key={t} className="flex items-start gap-2"><span className="animated-gradient-text">•</span>{t}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="grid grid-cols-3 gap-6">
-            {[{ label: "Carbon", desc: "Transaction fees & enterprise solutions" }, { label: "Platform", desc: "Licensing & white-label development" }, { label: "Tokens", desc: "Distribution & staking services" }].map(r => (
-              <div key={r.label} className="text-center">
-                <p className="text-sm font-medium text-foreground">{r.label}</p>
-                <p className="text-xs text-muted-foreground mt-1">{r.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Offering */}
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-6">
