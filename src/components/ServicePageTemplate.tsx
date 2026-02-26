@@ -163,12 +163,12 @@ const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
             <p className="text-muted-foreground font-light mb-10 max-w-xl mx-auto">
               Connect with our team to explore how our {data.title.toLowerCase()} solutions can transform your operations.
             </p>
-            <a
-              href="mailto:bf@tmrw-digital.com?subject=TMRW"
+            <Link
+              to="/#contact"
               className="inline-flex items-center px-8 py-3 bg-foreground text-background rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
             >
               Get in Touch
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>
