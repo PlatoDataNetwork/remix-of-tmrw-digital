@@ -18,7 +18,7 @@ const teamMembers = [
   {
     name: "Bryan Feinberg",
     role: "COO / CTO",
-    bio: "Founder of Zephyr Technology Ventures, Platodata and AmplifiX. Licensed Investment Banker holding multiple certifications. Led a startup from inception to $130M in revenue and a TASE public listing. Recognized expert in AI, DLT, Blockchain, Regtech, Critical Infrastructure and Cyber Security.",
+    bio: "Founder of Zephyr Technology Ventures, Platodata and AmplifiX. Licensed Investment Banker holding multiple certifications. Led a startup from inception to $130M in revenue and a TASE public listing. Recognized expert in AI, DLT, Blockchain, Regtech, Critical Infrastructure and Cyber Security. Forward thinking developer.",
     color: "gradient-red",
   },
   {
