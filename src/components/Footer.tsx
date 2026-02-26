@@ -26,7 +26,10 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-sm">
-              Web3 AI and real world assets intelligence for public and pre-IPO management teams.
+              Pioneering the convergence of Web3, AI, and blockchain infrastructure.<br />
+              Building secure, scalable protocols for the next generation of digital assets.<br />
+              Transforming real world assets through intelligent tokenization and automation.<br />
+              Engineered for institutions. Designed for the future.
             </p>
           </div>
           <div>
