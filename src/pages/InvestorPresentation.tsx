@@ -222,7 +222,7 @@ const InvestorPresentation = () => {
       {/* Carbon Credits */}
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionTitle label="Pillar 1 — Carbon Distributed Technologies AG" title="Carbon Credits Infrastructure" subtitle="Transparent, blockchain-verified carbon offsetting solutions powering enterprise ESG compliance." />
+          <SectionTitle label="Carbon Distributed Technologies AG" title="Carbon Credits Infrastructure" subtitle="Transparent, blockchain-verified carbon offsetting solutions powering enterprise ESG compliance." />
           <div className="grid md:grid-cols-3 gap-6">
             {[{ title: "Asset Base", items: carbonAssets }, { title: "Technology", items: carbonTech }, { title: "Market Position", items: carbonMarket }].map(col => (
               <div key={col.title} className="bg-card border border-border rounded-2xl p-6">
@@ -239,7 +239,7 @@ const InvestorPresentation = () => {
       {/* Web3 AI Platform */}
       <section className="py-16 lg:py-24 bg-card/50">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionTitle label="Pillar 2 — Plato Technologies Inc." title="Web3 AI Platform" subtitle="Full-stack Web3 browser and AI development tools powering decentralized infrastructure at scale." />
+          <SectionTitle label="Plato Technologies Inc." title="Web3 AI Platform" subtitle="Full-stack Web3 browser and AI development tools powering decentralized infrastructure at scale." />
           <div className="grid md:grid-cols-3 gap-6">
             {[{ title: "Web3 Browser", items: platoBrowser }, { title: "AI Development Tools", items: platoTools }, { title: "Market Traction", items: platoTraction }].map(col => (
               <div key={col.title} className="bg-card border border-border rounded-2xl p-6">
