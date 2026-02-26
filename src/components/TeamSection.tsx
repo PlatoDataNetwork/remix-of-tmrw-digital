@@ -6,22 +6,22 @@ const teamMembers = [
   {
     name: "Justin Hartzman",
     role: "Chairman",
-    bio: "Serial Entrepreneur and Capital Market Veteran. Co-founded CoinSmart and WonderFi (recently acquired by Robinhood). Over a decade scaling fintech companies and executing go-public strategies.",
+    bio: "Serial entrepreneur and capital markets veteran. Co-founded CoinSmart, leading it to a public listing and subsequent sale to WonderFi, recently acquired by Robinhood. Board director at WonderFi. Over a decade of experience scaling fintech companies and executing successful go-public strategies across North America.",
   },
   {
     name: "Paul Thomson",
     role: "CEO",
-    bio: "Founder of Carbon Distributed Technologies. Independent Director at eXeBlock Technology. Former CCO at Numus Capital. Deep expertise in corporate governance, compliance, and capital markets.",
+    bio: "Founder of Carbon Distributed Technologies AG. Independent Director at eXeBlock Technology Inc. Former Chief Compliance Officer at Numus Capital Corp. Brings deep expertise in corporate governance, regulatory compliance, capital markets strategy, and blockchain-based environmental asset infrastructure globally.",
   },
   {
     name: "Bryan Feinberg",
     role: "COO / CTO",
-    bio: "CEO of Zephyr Technology Ventures and Plato AI. Licensed Investment Banker (Series 7, 63, 79). Led startup from zero to $130M revenue and TASE public listing. Expert in AI, blockchain, and big data.",
+    bio: "CEO of Zephyr Technology Ventures and Plato AI. Licensed Investment Banker holding Series 7, 63 and 79 certifications. Led a startup from inception to $130M in revenue and a TASE public listing. Recognized expert in artificial intelligence, blockchain infrastructure, and big data analytics platforms.",
   },
   {
     name: "Zach Goldenberg",
     role: "Advisor",
-    bio: "Principal of Liberty Venture Partners. Corporate securities lawyer with a proven track record structuring financing and go-public transactions on Canadian public markets (TSXV, CSE, CBOE Canada). Holds a JD/HBA from Western Law and Ivey Business School. ICD.D designate and TSX Venture Exchange Advisory Committee member.",
+    bio: "Principal at Liberty Venture Partners. Corporate securities lawyer with extensive experience structuring financing and go-public transactions on Canadian markets including TSXV, CSE and CBOE Canada. Holds JD/HBA from Western Law and Ivey Business School. ICD.D designate and TSXV Advisory Committee member.",
   },
 ];
 
@@ -62,21 +62,28 @@ const TeamSection = () => {
           </div>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Horizontal card layout — 2 per row */}
+        <div className="grid md:grid-cols-2 gap-5">
           {teamMembers.map((member, i) => (
             <motion.div
               key={member.name}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-1 text-center"
+              className="group bg-card border border-border rounded-2xl p-6 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-1 flex gap-5 items-start"
             >
-              <div className="h-16 w-16 rounded-full overflow-hidden mx-auto mb-6 animated-gradient-icon">
-                <img src={astronautIcon} alt="Team member avatar" className="h-full w-full object-cover" />
+              <div className="shrink-0">
+                <div className="h-14 w-14 rounded-full overflow-hidden animated-gradient-icon">
+                  <img src={astronautIcon} alt="Team member avatar" className="h-full w-full object-cover" />
+                </div>
               </div>
-              <h3 className="text-lg font-medium text-foreground mb-1">{member.name}</h3>
-              <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-4">{member.role}</p>
-              <p className="text-sm text-muted-foreground leading-relaxed font-light">{member.bio}</p>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-baseline gap-3 mb-2">
+                  <h3 className="text-base font-medium text-foreground">{member.name}</h3>
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-primary/70">{member.role}</span>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed font-light">{member.bio}</p>
+              </div>
             </motion.div>
           ))}
         </div>
