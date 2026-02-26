@@ -59,24 +59,6 @@ const VisionSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {visionCards.map((card, i) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center mb-4 group-hover:bg-foreground/10 transition-colors">
-                <card.icon className="h-5 w-5 text-foreground" />
-              </div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-primary mb-2 block">{card.stat}</span>
-              <h3 className="text-lg font-medium text-foreground mb-3">{card.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-light">{card.description}</p>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );
