@@ -44,7 +44,7 @@ JURISDICTIONAL RESTRICTIONS
 This Presentation may not be distributed in any jurisdiction where such distribution would be contrary to law. Persons in possession of this Presentation should inform themselves about and observe any such restrictions.
 
 GOVERNING LAW
-This disclaimer and any disputes arising from the use of this Presentation shall be governed by and construed in accordance with the laws of Canada and the Province of Ontario, without regard to conflict of law principles.
+This disclaimer and any disputes arising from the use of this Presentation shall be governed by and construed in accordance with the laws of Canada and the Province of British Columbia, without regard to conflict of law principles.
 
 By entering your email address and initials below, you acknowledge that you have read, understood, and agree to be bound by the terms and conditions set forth in this disclaimer, and that you meet the qualifications required to access this investment material.`;
 
