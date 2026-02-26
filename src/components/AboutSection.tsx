@@ -55,7 +55,7 @@ const AboutSection = () => {
             <h3 className="text-3xl md:text-5xl font-light leading-tight text-foreground mb-6">
               Where Intelligence Meets
               <br />
-              the New Economy.
+              Capital Markets Innovation.
             </h3>
             <div className="w-16 h-px bg-foreground/20 mb-8" />
             <p className="text-muted-foreground leading-relaxed text-base lg:text-lg font-light">
