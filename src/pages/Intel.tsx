@@ -125,7 +125,7 @@ const Intel = () => {
             </p>
           </motion.div>
 
-          <div className="space-y-0 divide-y divide-border">
+          <div className="space-y-0 divide-y divide-border/40">
             {articles.map((article, i) => (
               <Link to={article.slug} key={article.title}>
                 <motion.article
