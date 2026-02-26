@@ -159,7 +159,8 @@ const InvestorPresentation = () => {
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Strategy</p>
           <h2 className="text-2xl md:text-4xl font-light text-foreground mb-4">Capital Market Strategy</h2>
-          <p className="text-base text-muted-foreground max-w-3xl mx-auto font-light mb-10">We are in the process of listing on the Canadian public market via a Reverse Takeover (RTO) on either the TSX, TSX.V or CSE. Our plans are to Cross List across several other Global Exchanges one year after listing.</p>
+          <p className="text-base text-muted-foreground max-w-3xl mx-auto font-light">We are in the process of listing on the Canadian public market via a Reverse Takeover (RTO) on either the TSX, TSX.V or CSE.</p>
+          <p className="text-base text-muted-foreground max-w-3xl mx-auto font-light mb-10">Our plans are to Cross List across several other Global Exchanges one year after listing.</p>
           <div className="animated-gradient-hero-bg rounded-2xl overflow-hidden max-w-3xl mx-auto">
             <img src={stockExchangeImg} alt="Stock exchange trading floor" className="w-full h-auto object-cover" />
           </div>
