@@ -280,11 +280,11 @@ const InvestorPresentation = () => {
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <SectionTitle label="Offering" title="Current Offering" />
-          <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
-            {[{ value: "$6M CAD", label: "Pre-Money Valuation" }, { value: "$0.15 CAD", label: "Share Price" }, { value: "16.66%", label: "Available to Investors" }].map(o => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[{ value: "Pre RTO", label: "Seed Round" }, { value: "$6M CAD", label: "Pre-Money Valuation" }, { value: "$0.15 CAD", label: "Share Price" }, { value: "16.66%", label: "Available to Investors" }].map(o => (
               <div key={o.label} className="text-center bg-card border border-border rounded-2xl p-6">
-                <p className="text-xl md:text-2xl font-semibold animated-gradient-text">{o.value}</p>
-                <p className="text-xs text-muted-foreground mt-2">{o.label}</p>
+                <p className="text-2xl font-semibold animated-gradient-text mb-1">{o.value}</p>
+                <p className="text-sm font-medium text-foreground">{o.label}</p>
               </div>
             ))}
           </div>
