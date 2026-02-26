@@ -42,16 +42,19 @@ const VisionSection = () => {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0, x: -30 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="mb-20"
         >
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Vision</p>
-          <h2 className="text-3xl md:text-5xl font-light text-foreground mb-6">
-            Building the Infrastructure for Tomorrow's Digital Economy
+          <h2 className="text-3xl md:text-5xl font-light leading-tight text-foreground mb-6">
+            Building the Infrastructure for
+            <br />
+            Tomorrow's Digital Economy
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-light">
+          <div className="w-16 h-px bg-foreground/20 mb-8" />
+          <p className="text-base lg:text-lg text-muted-foreground max-w-2xl font-light leading-relaxed">
             Tomorrow Digital Inc. (DBA: The Tomorrow Company) consolidates Plato AI with Carbon Distributed Technologies, creating the Foundation for Tomorrow's Digital Economy.
           </p>
         </motion.div>
