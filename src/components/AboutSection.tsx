@@ -64,9 +64,11 @@ const AboutSection = () => {
               markets will be built on transparency, decentralization, and intelligent
               infrastructure. We have positioned ourselves to take the lead and drive excellence across this emerging sector.
             </p>
-            <div className="mt-10 grid grid-cols-3 gap-8">
+            <div className="mt-10 grid grid-cols-3 md:grid-cols-5 gap-8">
               {[
-                { number: "45", label: "Market Verticals" },
+                { number: "13M+", label: "Organic Visitors" },
+                { number: "70K+", label: "Enterprises" },
+                { number: "45", label: "Verticals" },
                 { number: "160", label: "Countries" },
                 { number: "35", label: "Languages" },
               ].map((stat) => (
