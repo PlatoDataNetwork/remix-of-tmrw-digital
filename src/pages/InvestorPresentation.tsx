@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { TrendingUp, Globe, Cpu, Coins, BarChart3, Users, Layers, Zap, Target, Building2, Leaf, Lock } from "lucide-react";
+import { TrendingUp, Globe, Cpu, Coins, BarChart3, Users, Layers, Zap, Target, Building2, Leaf, Lock, Shield, Briefcase } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import stockExchangeImg from "@/assets/stock-exchange.png";
 import lotusFlowerImg from "@/assets/lotus-flower.jpeg";
@@ -102,6 +102,15 @@ const team = [
   { name: "Amjad Khatri", role: "DevOps", bio: "Full-stack developer and DevOps engineer with deep expertise in AI-driven application architecture and modern UI/UX design. Specializes in building scalable cloud infrastructure, CI/CD pipelines, and intelligent automation workflows. Passionate about bridging cutting-edge AI capabilities with seamless user experiences." },
   { name: "Fahad Umar", role: "DevOps", bio: "Full-stack developer and DevOps engineer with advanced expertise in network architecture, system administration, and cloud-native infrastructure. Designs and deploys resilient, high-availability environments across hybrid and multi-cloud platforms. Skilled in end-to-end application delivery from backend APIs to frontend interfaces." },
   { name: "Aditya Walia", role: "Country Manager, India", bio: "International lawyer and strategic advisor with extensive experience at a Big Four consultancy practice. Specializes in government relations, public infrastructure policy, and cross-border regulatory frameworks. Brings deep expertise in navigating complex institutional landscapes to drive large-scale enterprise and sovereign partnerships across India." },
+];
+
+const investorHighlights = [
+  { icon: TrendingUp, title: "Institutional-Grade Returns", description: "Access diversified portfolios across real-world assets with risk-adjusted performance benchmarks." },
+  { icon: Shield, title: "Regulatory Compliance", description: "Fully compliant investment structures across multiple jurisdictions with transparent reporting." },
+  { icon: Globe, title: "Global Market Access", description: "Participate in cross-border opportunities spanning energy, infrastructure, and commodities." },
+  { icon: Users, title: "Strategic Partnerships", description: "Co-invest alongside sovereign wealth funds, family offices, and institutional allocators." },
+  { icon: BarChart3, title: "Data-Driven Insights", description: "AI-powered analytics and real-time reporting for informed investment decisions." },
+  { icon: Briefcase, title: "Tailored Mandates", description: "Custom investment mandates aligned with your risk appetite, sector focus, and ESG criteria." },
 ];
 
 const SectionTitle = ({ label, title, subtitle }: { label: string; title: string; subtitle?: string }) => (
@@ -366,6 +375,31 @@ const InvestorPresentation = () => {
                 <p className="text-sm animated-gradient-text font-medium mb-3">{t.role}</p>
                 <p className="text-sm text-muted-foreground font-light leading-relaxed">{t.bio}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partner With Confidence */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <SectionTitle label="Investors" title="Partner With Confidence" subtitle="We provide institutional and accredited investors with structured access to high-conviction opportunities across global real-world asset markets." />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {investorHighlights.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group relative bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center mb-6 group-hover:bg-foreground/10 transition-colors">
+                  <item.icon className="h-5 w-5 text-foreground" />
+                </div>
+                <h3 className="text-lg font-medium text-foreground mb-3">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed font-light">{item.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>
