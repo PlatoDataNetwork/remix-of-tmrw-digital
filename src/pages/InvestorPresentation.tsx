@@ -13,7 +13,7 @@ const stats = [
 ];
 
 const pillars = [
-  { icon: Leaf, title: "Carbon Credits", desc: "Blockchain-verified carbon offsetting infrastructure." },
+  { icon: Leaf, title: "RWA Tokenization", desc: "Token Economy." },
   { icon: Globe, title: "Web3 Browser", desc: "Decentralized access gateway with native blockchain support." },
   { icon: Cpu, title: "AI Tools", desc: "CodeNexus, NexusWave Carbon, and AI-powered solutions." },
   { icon: Coins, title: "Token Economy", desc: "CUT and Plato tokens powering the ecosystem." },
