@@ -131,8 +131,8 @@ const InvestorDisclaimer = () => {
           className="w-full max-w-3xl"
         >
           <div className="text-center mb-8">
-            <h1 className="text-2xl md:text-3xl font-light text-foreground mb-2">
-              Investor <span className="font-semibold">Disclaimer</span>
+            <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              Investor Disclaimer
             </h1>
             <p className="text-sm text-muted-foreground">
               Please read the following disclaimer in its entirety before proceeding.
