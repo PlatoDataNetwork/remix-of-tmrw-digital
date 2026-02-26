@@ -198,7 +198,7 @@ const InvestorPresentation = () => {
       {/* Core Pillars */}
       <section className="py-16 lg:py-24 bg-card/50">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionTitle label="Diversified but Interconnected Revenue Streams" title="Four Integrated Pillars" subtitle="Powering TMRW's Web3 AI Ecosystem." />
+          <SectionTitle label="Diversified yet Interconnected Revenue Streams" title="Six Integrated Pillars" subtitle="Powering TMRW's Web3 AI Ecosystem." />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {pillars.map((p, i) => (
               <motion.div key={p.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
