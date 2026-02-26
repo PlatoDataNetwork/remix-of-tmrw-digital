@@ -98,6 +98,10 @@ const team = [
   { name: "Paul Thomson", role: "CEO", bio: "Founder of Carbon Distributed Technologies AG. Independent Director at eXeBlock Technology Inc. Former Chief Compliance Officer at Numus Capital Corp. Brings deep expertise in corporate governance, regulatory compliance, capital markets strategy, and blockchain-based environmental asset infrastructure globally." },
   { name: "Bryan Feinberg", role: "COO / CTO", bio: "CEO of Zephyr Technology Ventures and Plato AI. Licensed Investment Banker holding Series 7, 63 and 79 certifications. Led a startup from inception to $130M in revenue and a TASE public listing. Recognized expert in artificial intelligence, blockchain infrastructure, and big data analytics platforms." },
   { name: "Zach Goldenberg", role: "Advisor", bio: "Principal at Liberty Venture Partners. Corporate securities lawyer with extensive experience structuring financing and go-public transactions on Canadian markets including TSXV, CSE and CBOE Canada. Holds JD/HBA from Western Law and Ivey Business School. ICD.D designate and TSXV Advisory Committee member." },
+  { name: "Josh Smith", role: "Chief Security Officer", bio: "Over 20 years of advanced deep-stack development specializing in cybersecurity and distributed systems. Full-stack architect delivering cross-chain, smart contract–backed solutions to enterprise and government clients. Proven expertise in securing complex infrastructure across Web3 and traditional environments." },
+  { name: "Amjad Khatri", role: "DevOps", bio: "Full-stack developer and DevOps engineer with deep expertise in AI-driven application architecture and modern UI/UX design. Specializes in building scalable cloud infrastructure, CI/CD pipelines, and intelligent automation workflows. Passionate about bridging cutting-edge AI capabilities with seamless user experiences." },
+  { name: "Fahad Umar", role: "DevOps", bio: "Full-stack developer and DevOps engineer with advanced expertise in network architecture, system administration, and cloud-native infrastructure. Designs and deploys resilient, high-availability environments across hybrid and multi-cloud platforms. Skilled in end-to-end application delivery from backend APIs to frontend interfaces." },
+  { name: "Aditya Walia", role: "Country Manager, India", bio: "International lawyer and strategic advisor with extensive experience at a Big Four consultancy practice. Specializes in government relations, public infrastructure policy, and cross-border regulatory frameworks. Brings deep expertise in navigating complex institutional landscapes to drive large-scale enterprise and sovereign partnerships across India." },
 ];
 
 const SectionTitle = ({ label, title, subtitle }: { label: string; title: string; subtitle?: string }) => (
@@ -360,20 +364,6 @@ const InvestorPresentation = () => {
           <p className="text-base text-muted-foreground mb-10 font-light">
             Be part of building the infrastructure for tomorrow's decentralized, intelligent internet.
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-            {[
-              { step: "1", title: "Pre-Money Valuation: $6M CAD", sub: "Up to 16.66% available to investors" },
-              { step: "2", title: "Share Price: $0.15 CAD", sub: "40M shares authorized, founders 9-month lockup" },
-              { step: "3", title: "TSX Listing Q1 2026", sub: "Symbol: TMRW on TSX Venture Exchange" },
-              { step: "4", title: "Plato Allocation Available", sub: "Strategic token allocation for investors" },
-            ].map(c => (
-              <div key={c.step} className="bg-card border border-border rounded-2xl p-5 text-left">
-                <span className="text-xs font-semibold animated-gradient-text">{c.step}</span>
-                <h3 className="text-sm font-medium text-foreground mt-2 mb-1">{c.title}</h3>
-                <p className="text-xs text-muted-foreground font-light">{c.sub}</p>
-              </div>
-            ))}
-          </div>
           <a
             href="/#contact"
             className="inline-flex h-12 px-8 items-center justify-center rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
