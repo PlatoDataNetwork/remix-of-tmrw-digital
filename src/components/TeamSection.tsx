@@ -28,6 +28,11 @@ const teamMembers = [
     role: "Chief Security Officer",
     bio: "Over 20 years of advanced deep-stack development specializing in cybersecurity and distributed systems. Full-stack architect delivering cross-chain, smart contract–backed solutions to enterprise and government clients. Proven expertise in securing complex infrastructure across Web3 and traditional environments.",
   },
+  {
+    name: "Amjad Khatri",
+    role: "DevOps",
+    bio: "Full-stack developer and DevOps engineer with deep expertise in AI-driven application architecture and modern UI/UX design. Specializes in building scalable cloud infrastructure, CI/CD pipelines, and intelligent automation workflows. Passionate about bridging cutting-edge AI capabilities with seamless user experiences.",
+  },
 ];
 
 const TeamSection = () => {
