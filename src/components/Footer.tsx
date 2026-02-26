@@ -26,10 +26,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-sm">
-              Pioneering the convergence of Web3, AI, and blockchain infrastructure.<br />
-              Building secure, scalable protocols for the next generation of digital assets.<br />
-              Transforming real world assets through intelligent tokenization and automation.<br />
-              Engineered for institutions. Designed for the future.
+              A diversified Web3 infrastructure and digital asset holding company building at the intersection of AI, blockchain, and capital markets. We architect secure protocols and tokenized asset frameworks for institutions navigating the next era of finance.
             </p>
           </div>
           <div>
