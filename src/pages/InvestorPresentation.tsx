@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, ArrowLeft, TrendingUp, Globe, Cpu, Coins, BarChart3, Users, Layers, Zap, Target, Building2, Leaf, Lock } from "lucide-react";
-import platoIcon from "@/assets/plato-icon.png";
+import { TrendingUp, Globe, Cpu, Coins, BarChart3, Users, Layers, Zap, Target, Building2, Leaf, Lock } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 const stats = [
   { value: "$200B+", label: "Web3/AI Market by 2030" },
@@ -108,39 +108,21 @@ const InvestorPresentation = () => {
     }
   }, [navigate]);
 
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.remove("dark", "colorful");
+    root.classList.add("colorful");
+    return () => {
+      root.classList.remove("dark", "colorful");
+      root.classList.add("colorful");
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Nav */}
-      <div className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
-            <div
-              className="h-7 w-7 animated-gradient-icon-bright"
-              style={{
-                WebkitMaskImage: `url(${platoIcon})`,
-                maskImage: `url(${platoIcon})`,
-                WebkitMaskSize: "contain",
-                maskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                maskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-                maskPosition: "center",
-              }}
-            />
-            <span className="text-base font-bold tracking-tight text-foreground">The Tomorrow Company</span>
-          </a>
-          <div className="flex items-center gap-4">
-            <div className="hidden sm:flex items-center gap-1.5 text-xs text-muted-foreground">
-              <Shield className="h-3.5 w-3.5" />
-              Confidential
-            </div>
-            <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
-              <ArrowLeft className="h-4 w-4" />
-              Back
-            </button>
-          </div>
-        </div>
-      </div>
+      <Navbar />
+
+      <div className="pt-20">
 
       {/* Hero */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
@@ -421,6 +403,7 @@ const InvestorPresentation = () => {
       {/* Footer */}
       <div className="border-t border-border py-6 text-center text-xs text-muted-foreground">
         <p>© {new Date().getFullYear()} The Tomorrow Company. Confidential — For Accredited Investors Only.</p>
+      </div>
       </div>
     </div>
   );
