@@ -7,31 +7,37 @@ const teamMembers = [
     name: "Justin Hartzman",
     role: "Chairman",
     bio: "Serial entrepreneur and capital markets veteran. Co-founded CoinSmart, leading it to a public listing and subsequent sale to WonderFi, recently acquired by Robinhood. Board director at WonderFi. Over a decade of experience scaling fintech companies and executing successful go-public strategies across North America.",
+    color: "gradient-purple",
   },
   {
     name: "Paul Thomson",
     role: "CEO",
     bio: "Founder of Carbon Distributed Technologies AG. Independent Director at eXeBlock Technology Inc. Former Chief Compliance Officer at Numus Capital Corp. Brings deep expertise in corporate governance, regulatory compliance, capital markets strategy, and blockchain-based environmental asset infrastructure globally.",
+    color: "gradient-blue",
   },
   {
     name: "Bryan Feinberg",
     role: "COO / CTO",
     bio: "CEO of Zephyr Technology Ventures and Plato AI. Licensed Investment Banker holding Series 7, 63 and 79 certifications. Led a startup from inception to $130M in revenue and a TASE public listing. Recognized expert in artificial intelligence, blockchain infrastructure, and big data analytics platforms.",
+    color: "gradient-red",
   },
   {
     name: "Zach Goldenberg",
     role: "Advisor",
     bio: "Principal at Liberty Venture Partners. Corporate securities lawyer with extensive experience structuring financing and go-public transactions on Canadian markets including TSXV, CSE and CBOE Canada. Holds JD/HBA from Western Law and Ivey Business School. ICD.D designate and TSXV Advisory Committee member.",
+    color: "gradient-gold",
   },
   {
     name: "Josh Smith",
     role: "Chief Security Officer",
     bio: "Over 20 years of advanced deep-stack development specializing in cybersecurity and distributed systems. Full-stack architect delivering cross-chain, smart contract–backed solutions to enterprise and government clients. Proven expertise in securing complex infrastructure across Web3 and traditional environments.",
+    color: "gradient-green",
   },
   {
     name: "Amjad Khatri",
     role: "DevOps",
     bio: "Full-stack developer and DevOps engineer with deep expertise in AI-driven application architecture and modern UI/UX design. Specializes in building scalable cloud infrastructure, CI/CD pipelines, and intelligent automation workflows. Passionate about bridging cutting-edge AI capabilities with seamless user experiences.",
+    color: "gradient-pink",
   },
 ];
 
@@ -83,7 +89,7 @@ const TeamSection = () => {
               className="group bg-card border border-border rounded-2xl p-6 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-1 flex gap-5 items-start"
             >
               <div className="shrink-0">
-                <div className="h-14 w-14 rounded-full overflow-hidden animated-gradient-icon">
+                <div className={`h-14 w-14 rounded-full overflow-hidden animated-gradient-icon ${member.color}`}>
                   <img src={astronautHeadshot} alt="Team member avatar" className="h-full w-full object-cover object-top" />
                 </div>
               </div>
