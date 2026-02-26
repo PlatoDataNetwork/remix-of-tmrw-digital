@@ -4,7 +4,7 @@ const data: BlogPostData = {
   date: "February 26, 2026",
   category: "Tokenization",
   readTime: "9 min read",
-  title: "Sovereign Wealth Funds & Tokenization: A Strategic Alliance",
+    title: "Sovereign Wealth Funds & Tokenization: A Strategic Alliance",
   subtitle: "How sovereign wealth funds are leveraging tokenized assets to diversify portfolios, enhance transparency, and pioneer new models of state-level investment.",
   sections: [
     {
