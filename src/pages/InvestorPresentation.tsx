@@ -72,8 +72,8 @@ const assetValues = [
 
 const roadmap = [
   { phase: "Q4 2025", title: "Transaction Close", desc: "Complete consolidation of CUT and Plato AI, establish unified management structure", tags: ["Legal Structure", "Asset Transfer", "Team Integration"] },
-  { phase: "Q1 2026", title: "RTO & TSX Listing", desc: "Execute reverse takeover, list Tomorrow Digital on TSX Venture Exchange", tags: ["RTO Completion", "Public Listing", "TMRW Symbol"] },
-  { phase: "Q2-Q4 2026", title: "Platform Expansion", desc: "Scale Web3 browser adoption, expand carbon credit partnerships, launch AI services", tags: ["User Acquisition", "Enterprise Sales", "Product Launch"] },
+  { phase: "Q2 2026", title: "RTO & TSX Listing", desc: "Execute reverse takeover, list Tomorrow Digital on TSX Venture Exchange", tags: ["RTO Completion", "Public Listing", "TMRW Symbol"] },
+  { phase: "Q3-Q4 2026", title: "Platform Expansion", desc: "Scale Web3 browser adoption, expand carbon credit partnerships, launch AI services", tags: ["User Acquisition", "Enterprise Sales", "Product Launch"] },
   { phase: "2027+", title: "Global Scale", desc: "International expansion, strategic partnerships, potential TSX graduation", tags: ["Global Reach", "M&A Opportunities", "Market Leadership"] },
 ];
 
@@ -162,7 +162,7 @@ const InvestorPresentation = () => {
           <h2 className="text-2xl md:text-4xl font-light text-foreground mb-4">Capital Market Strategy</h2>
           <p className="text-base text-muted-foreground max-w-3xl mx-auto font-light">We are in the process of listing on the Canadian public market via a Reverse Takeover in Q2 / 2026.</p>
           <p className="text-base text-muted-foreground max-w-3xl mx-auto font-light mb-10">Our plan is to cross list one year after listing.</p>
-          <div className="animated-gradient-vibrant-bg rounded-2xl overflow-hidden max-w-3xl mx-auto">
+          <div className="animated-gradient-capital-bg rounded-2xl overflow-hidden max-w-3xl mx-auto">
             <img src={stockExchangeImg} alt="Stock exchange trading floor" className="w-full h-auto object-cover" />
           </div>
         </div>

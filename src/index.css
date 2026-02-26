@@ -404,3 +404,29 @@ html {
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
+
+/* Capital market image - Electric blue, hot pink, purple only */
+.animated-gradient-capital-bg {
+  position: relative;
+}
+
+.animated-gradient-capital-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    270deg,
+    hsl(220, 100%, 55%),
+    hsl(330, 100%, 55%),
+    hsl(275, 85%, 55%),
+    hsl(330, 100%, 55%),
+    hsl(220, 100%, 55%)
+  );
+  background-size: 400% 400%;
+  background-position: 0% 50%;
+  animation: gradient-shift 8s ease infinite;
+  mix-blend-mode: color;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 1;
+}
