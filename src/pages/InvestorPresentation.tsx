@@ -144,9 +144,6 @@ const InvestorPresentation = () => {
               Facilitating listing on the Canadian public market via a Reverse Takeover (RTO) on TSX Venture Exchange.
             </p>
           </motion.div>
-          <div className="animated-gradient-cool-bg rounded-2xl overflow-hidden max-w-3xl mx-auto mb-12">
-            <img src={lotusFlowerImg} alt="Colorful lotus flower" className="w-full h-auto object-cover" />
-          </div>
           <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
             {stats.map((s, i) => (
               <motion.div key={s.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + i * 0.1 }}>
