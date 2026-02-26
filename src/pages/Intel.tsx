@@ -135,7 +135,7 @@ const Intel = () => {
                   className="group py-10 flex flex-col md:flex-row md:items-center gap-4 md:gap-8 cursor-pointer hover:bg-accent/30 -mx-6 px-6 transition-colors rounded-lg"
                 >
                   <div
-                    className="h-6 w-6 animated-gradient-icon-bright shrink-0"
+                    className="h-8 w-8 animated-gradient-icon-bright shrink-0"
                     style={{
                       WebkitMaskImage: `url(${platoIcon})`,
                       maskImage: `url(${platoIcon})`,
