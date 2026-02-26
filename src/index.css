@@ -349,51 +349,58 @@ html {
   pointer-events: none;
 }
 
-/* Individual team member color gradients */
+/* Justin - Violet & electric lime */
 .gradient-purple::after {
-  background: linear-gradient(270deg, hsl(275, 85%, 50%), hsl(45, 100%, 55%), hsl(275, 90%, 60%), hsl(45, 95%, 50%), hsl(275, 85%, 50%)) !important;
+  background: linear-gradient(270deg, hsl(270, 90%, 50%), hsl(80, 100%, 50%), hsl(270, 85%, 55%), hsl(80, 95%, 45%), hsl(270, 90%, 50%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
 
-.gradient-red::after {
-  background: linear-gradient(270deg, hsl(0, 90%, 50%), hsl(180, 90%, 45%), hsl(0, 95%, 55%), hsl(180, 85%, 50%), hsl(0, 90%, 50%)) !important;
-  background-size: 400% 400% !important;
-  animation: gradient-shift 8s ease infinite !important;
-}
-
+/* Paul - Ocean blue & coral */
 .gradient-blue::after {
-  background: linear-gradient(270deg, hsl(220, 100%, 55%), hsl(30, 100%, 55%), hsl(220, 95%, 60%), hsl(30, 95%, 50%), hsl(220, 100%, 55%)) !important;
+  background: linear-gradient(270deg, hsl(210, 100%, 50%), hsl(10, 95%, 60%), hsl(210, 95%, 55%), hsl(10, 90%, 55%), hsl(210, 100%, 50%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
 
-.gradient-green::after {
-  background: linear-gradient(270deg, hsl(120, 100%, 40%), hsl(330, 90%, 55%), hsl(120, 90%, 45%), hsl(330, 85%, 50%), hsl(120, 100%, 40%)) !important;
+/* Bryan - Crimson & teal */
+.gradient-red::after {
+  background: linear-gradient(270deg, hsl(350, 95%, 50%), hsl(170, 100%, 40%), hsl(350, 90%, 55%), hsl(170, 90%, 45%), hsl(350, 95%, 50%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
 
-.gradient-pink::after {
-  background: linear-gradient(270deg, hsl(330, 100%, 55%), hsl(160, 90%, 45%), hsl(330, 95%, 60%), hsl(160, 85%, 50%), hsl(330, 100%, 55%)) !important;
-  background-size: 400% 400% !important;
-  animation: gradient-shift 8s ease infinite !important;
-}
-
+/* Zach - Amber & indigo */
 .gradient-gold::after {
-  background: linear-gradient(270deg, hsl(45, 100%, 50%), hsl(220, 90%, 55%), hsl(45, 95%, 55%), hsl(220, 85%, 50%), hsl(45, 100%, 50%)) !important;
+  background: linear-gradient(270deg, hsl(40, 100%, 50%), hsl(245, 85%, 55%), hsl(40, 95%, 55%), hsl(245, 80%, 50%), hsl(40, 100%, 50%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
 
-.gradient-orange::after {
-  background: linear-gradient(270deg, hsl(25, 100%, 50%), hsl(200, 90%, 50%), hsl(25, 95%, 55%), hsl(200, 85%, 55%), hsl(25, 100%, 50%)) !important;
+/* Josh - Emerald & magenta */
+.gradient-green::after {
+  background: linear-gradient(270deg, hsl(145, 100%, 38%), hsl(310, 100%, 50%), hsl(145, 90%, 42%), hsl(310, 90%, 55%), hsl(145, 100%, 38%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
 
+/* Amjad - Hot pink & turquoise */
+.gradient-pink::after {
+  background: linear-gradient(270deg, hsl(325, 100%, 55%), hsl(175, 100%, 42%), hsl(325, 95%, 60%), hsl(175, 90%, 48%), hsl(325, 100%, 55%)) !important;
+  background-size: 400% 400% !important;
+  animation: gradient-shift 8s ease infinite !important;
+}
+
+/* Fahad - Electric cyan & burnt orange */
 .gradient-cyan::after {
-  background: linear-gradient(270deg, hsl(185, 100%, 45%), hsl(350, 90%, 55%), hsl(185, 95%, 50%), hsl(350, 85%, 50%), hsl(185, 100%, 45%)) !important;
+  background: linear-gradient(270deg, hsl(190, 100%, 48%), hsl(20, 100%, 50%), hsl(190, 95%, 52%), hsl(20, 95%, 55%), hsl(190, 100%, 48%)) !important;
+  background-size: 400% 400% !important;
+  animation: gradient-shift 8s ease infinite !important;
+}
+
+/* Aditya - Sunset orange & sapphire */
+.gradient-orange::after {
+  background: linear-gradient(270deg, hsl(30, 100%, 52%), hsl(230, 100%, 55%), hsl(30, 95%, 56%), hsl(230, 90%, 50%), hsl(30, 100%, 52%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
