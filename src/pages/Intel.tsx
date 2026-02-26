@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import platoIcon from "@/assets/plato-icon.png";
 
 const articles = [
   {
@@ -133,7 +134,19 @@ const Intel = () => {
                   transition={{ duration: 0.6, delay: i * 0.08 }}
                   className="group py-10 flex flex-col md:flex-row md:items-center gap-4 md:gap-8 cursor-pointer hover:bg-accent/30 -mx-6 px-6 transition-colors rounded-lg"
                 >
-                  <span className="text-lg md:text-xl font-medium text-muted-foreground shrink-0">{article.date}</span>
+                  <div
+                    className="h-6 w-6 animated-gradient-icon-bright shrink-0"
+                    style={{
+                      WebkitMaskImage: `url(${platoIcon})`,
+                      maskImage: `url(${platoIcon})`,
+                      WebkitMaskSize: 'contain',
+                      maskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      maskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskPosition: 'center',
+                    }}
+                  />
                   <div className="flex-1">
                     <h3 className="text-lg md:text-xl font-medium text-foreground group-hover:text-foreground/80 transition-colors mb-1">
                       {article.title}
