@@ -39,6 +39,12 @@ const teamMembers = [
     bio: "Full-stack developer and DevOps engineer with deep expertise in AI-driven application architecture and modern UI/UX design. Specializes in building scalable cloud infrastructure, CI/CD pipelines, and intelligent automation workflows. Passionate about bridging cutting-edge AI capabilities with seamless user experiences.",
     color: "gradient-pink",
   },
+  {
+    name: "Fahad Umar",
+    role: "DevOps",
+    bio: "Full-stack developer and DevOps engineer with advanced expertise in network architecture, system administration, and cloud-native infrastructure. Designs and deploys resilient, high-availability environments across hybrid and multi-cloud platforms. Skilled in end-to-end application delivery from backend APIs to frontend interfaces.",
+    color: "gradient-cyan",
+  },
 ];
 
 const TeamSection = () => {

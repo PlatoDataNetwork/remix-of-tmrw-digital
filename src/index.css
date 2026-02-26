@@ -434,3 +434,8 @@ html {
   z-index: 1;
 }
 
+.gradient-cyan::after {
+  background: linear-gradient(270deg, hsl(185, 100%, 45%), hsl(195, 95%, 50%), hsl(175, 90%, 45%), hsl(185, 100%, 45%)) !important;
+  background-size: 400% 400% !important;
+  animation: gradient-shift 8s ease infinite !important;
+}
