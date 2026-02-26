@@ -1,10 +1,10 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Shield, ChevronDown } from "lucide-react";
-import platoIcon from "@/assets/plato-icon.png";
+import { ChevronDown } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 const disclaimerText = `IMPORTANT LEGAL DISCLAIMER — PLEASE READ CAREFULLY
 
@@ -92,38 +92,23 @@ const InvestorDisclaimer = () => {
     navigate("/investors/presentation");
   };
 
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.remove("dark", "colorful");
+    root.classList.add("colorful");
+    return () => {
+      // Restore default on unmount
+      root.classList.remove("dark", "colorful");
+      root.classList.add("colorful");
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* Header */}
-      <div className="border-b border-border bg-card/50 backdrop-blur-xl">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
-            <div
-              className="h-7 w-7 animated-gradient-icon-bright"
-              style={{
-                WebkitMaskImage: `url(${platoIcon})`,
-                maskImage: `url(${platoIcon})`,
-                WebkitMaskSize: "contain",
-                maskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                maskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-                maskPosition: "center",
-              }}
-            />
-            <span className="text-base font-bold tracking-tight text-foreground">
-              The Tomorrow Company
-            </span>
-          </a>
-          <div className="flex items-center gap-2 text-muted-foreground text-xs">
-            <Shield className="h-4 w-4" />
-            <span>Confidential</span>
-          </div>
-        </div>
-      </div>
+      <Navbar />
 
       {/* Content */}
-      <div className="flex-1 flex items-center justify-center px-4 py-8">
+      <div className="flex-1 flex items-center justify-center px-4 py-8 pt-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
