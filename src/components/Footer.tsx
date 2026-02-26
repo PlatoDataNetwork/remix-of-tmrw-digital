@@ -87,8 +87,8 @@ const Footer = () => {
             © {new Date().getFullYear()} The Tomorrow Company. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
-            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a>
+            <a href="/legal#privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
+            <a href="/legal#terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
