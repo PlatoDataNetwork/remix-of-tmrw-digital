@@ -6,7 +6,7 @@ const teamMembers = [
   {
     name: "Justin Hartzman",
     role: "Chairman",
-    bio: "Serial entrepreneur and capital markets veteran. Co-founded CoinSmart, leading it to a public listing and subsequent sale to WonderFi, recently acquired by Robinhood. Board director at WonderFi. Over a decade of experience scaling fintech companies and executing successful go-public strategies across North America.",
+    bio: "Serial entrepreneur and capital markets veteran. Co-founded CoinSmart, leading it to a public listing and subsequent sale to WonderFi (TSX:WNDR) Over a decade of experience scaling fintech companies and executing successful go-public strategies across North America.",
     color: "gradient-purple",
   },
   {
