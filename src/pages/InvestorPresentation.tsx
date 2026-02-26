@@ -17,6 +17,8 @@ const pillars = [
   { icon: Leaf, title: "RWA Tokenization", desc: "Digitizing real-world assets into liquid, tradable instruments on institutional-grade infrastructure." },
   { icon: Cpu, title: "Web3 / AI Tech Stack", desc: "Decentralized intelligence tools bridging blockchain architecture with autonomous AI systems." },
   { icon: Coins, title: "Token Economy", desc: "Dual-asset programmable value layer powering carbon, compute, and cross-border commerce." },
+  { icon: Globe, title: "Global Footprint", desc: "Multi-jurisdictional presence spanning key financial hubs and emerging digital asset markets." },
+  { icon: Users, title: "Community Driven", desc: "Decentralized governance and grassroots engagement fueling organic growth and network effects." },
 ];
 
 const carbonAssets = [
@@ -196,8 +198,8 @@ const InvestorPresentation = () => {
       {/* Core Pillars */}
       <section className="py-16 lg:py-24 bg-card/50">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionTitle label="Core Business" title="Four Integrated Pillar Cards" subtitle="Powering TMRW's Web3 AI Ecosystem." />
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <SectionTitle label="Diversified but Interconnected Revenue Streams" title="Four Integrated Pillars" subtitle="Powering TMRW's Web3 AI Ecosystem." />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {pillars.map((p, i) => (
               <motion.div key={p.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="bg-card border border-border rounded-2xl p-6 hover:border-foreground/20 transition-all">
