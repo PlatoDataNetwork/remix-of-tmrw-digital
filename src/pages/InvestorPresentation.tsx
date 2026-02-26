@@ -9,7 +9,7 @@ import lotusFlowerImg from "@/assets/lotus-flower.jpeg";
 const stats = [
   { value: "$200B+", label: "Web3/AI Market by 2030" },
   { value: "13M+", label: "Organic Platform Visitors" },
-  { value: "Q1 2026", label: "Targeted TSX Listing" },
+  { value: "Q2 2026", label: "Targeted TSX Listing" },
 ];
 
 const pillars = [
@@ -133,7 +133,7 @@ const InvestorPresentation = () => {
         </div>
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold animated-gradient-text mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold animated-gradient-text mb-2">
               Tomorrow Digital RTO
             </h1>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto mb-4 font-light">
