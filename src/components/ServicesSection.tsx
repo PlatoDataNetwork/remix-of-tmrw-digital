@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { TrendingUp, Users, Shield, Cpu, BarChart3, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
+import dataCenterImg from "@/assets/data-center.jpeg";
 
 const services = [
   {
@@ -70,6 +71,32 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
+        {/* Data Center Image with Colorized Animation */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="relative mb-16 rounded-2xl overflow-hidden"
+        >
+          <img
+            src={dataCenterImg}
+            alt="Data center infrastructure"
+            className="w-full h-[300px] md:h-[400px] object-cover"
+          />
+          <motion.div
+            className="absolute inset-0 mix-blend-overlay"
+            animate={{
+              background: [
+                "linear-gradient(135deg, hsla(250,80%,60%,0.4), hsla(320,90%,50%,0.3), hsla(200,90%,50%,0.2))",
+                "linear-gradient(135deg, hsla(320,90%,50%,0.3), hsla(200,90%,50%,0.4), hsla(250,80%,60%,0.2))",
+                "linear-gradient(135deg, hsla(200,90%,50%,0.2), hsla(250,80%,60%,0.4), hsla(320,90%,50%,0.3))",
+                "linear-gradient(135deg, hsla(250,80%,60%,0.4), hsla(320,90%,50%,0.3), hsla(200,90%,50%,0.2))",
+              ],
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+        </motion.div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <motion.div
