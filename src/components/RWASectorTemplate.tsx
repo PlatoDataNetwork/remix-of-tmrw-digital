@@ -171,12 +171,12 @@ const RWASectorTemplate = ({ data }: { data: SectorPageData }) => {
             <p className="text-muted-foreground font-light mb-10 max-w-xl mx-auto">
               Connect with our team to explore tokenization opportunities in the {data.title.toLowerCase()} sector.
             </p>
-            <Link
-              to="/#contact"
+            <a
+              href="mailto:bf@tmrw-digital.com?subject=TMRW"
               className="inline-flex items-center px-8 py-3 bg-foreground text-background rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
             >
               Get in Touch
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>
