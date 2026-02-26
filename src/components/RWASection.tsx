@@ -34,14 +34,10 @@ const RWASection = () => {
         >
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Real World Assets</p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground mb-6">
-            The Real World of
-            <br />
-            Asset Tokenization.
+            The Real World of Asset Tokenization.
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Welcome to
-            <br />
-            the Next Big Thing.
+            Welcome to the Next Big Thing.
           </p>
         </motion.div>
 
