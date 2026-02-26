@@ -351,97 +351,49 @@ html {
 
 /* Individual team member color gradients */
 .gradient-purple::after {
-  background: linear-gradient(270deg, hsl(275, 85%, 45%), hsl(290, 90%, 60%), hsl(260, 80%, 50%), hsl(275, 85%, 45%)) !important;
+  background: linear-gradient(270deg, hsl(275, 85%, 50%), hsl(45, 100%, 55%), hsl(275, 90%, 60%), hsl(45, 95%, 50%), hsl(275, 85%, 50%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
 
 .gradient-red::after {
-  background: linear-gradient(270deg, hsl(0, 90%, 50%), hsl(15, 95%, 55%), hsl(345, 85%, 50%), hsl(0, 90%, 50%)) !important;
+  background: linear-gradient(270deg, hsl(0, 90%, 50%), hsl(180, 90%, 45%), hsl(0, 95%, 55%), hsl(180, 85%, 50%), hsl(0, 90%, 50%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
 
 .gradient-blue::after {
-  background: linear-gradient(270deg, hsl(220, 100%, 50%), hsl(200, 95%, 55%), hsl(240, 85%, 55%), hsl(220, 100%, 50%)) !important;
+  background: linear-gradient(270deg, hsl(220, 100%, 55%), hsl(30, 100%, 55%), hsl(220, 95%, 60%), hsl(30, 95%, 50%), hsl(220, 100%, 55%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
 
 .gradient-green::after {
-  background: linear-gradient(270deg, hsl(120, 100%, 40%), hsl(150, 90%, 45%), hsl(100, 85%, 45%), hsl(120, 100%, 40%)) !important;
+  background: linear-gradient(270deg, hsl(120, 100%, 40%), hsl(330, 90%, 55%), hsl(120, 90%, 45%), hsl(330, 85%, 50%), hsl(120, 100%, 40%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
 
 .gradient-pink::after {
-  background: linear-gradient(270deg, hsl(330, 100%, 50%), hsl(340, 95%, 55%), hsl(315, 90%, 50%), hsl(330, 100%, 50%)) !important;
+  background: linear-gradient(270deg, hsl(330, 100%, 55%), hsl(160, 90%, 45%), hsl(330, 95%, 60%), hsl(160, 85%, 50%), hsl(330, 100%, 55%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
 
 .gradient-gold::after {
-  background: linear-gradient(270deg, hsl(45, 100%, 50%), hsl(35, 95%, 55%), hsl(55, 90%, 45%), hsl(45, 100%, 50%)) !important;
+  background: linear-gradient(270deg, hsl(45, 100%, 50%), hsl(220, 90%, 55%), hsl(45, 95%, 55%), hsl(220, 85%, 50%), hsl(45, 100%, 50%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
 
 .gradient-orange::after {
-  background: linear-gradient(270deg, hsl(25, 100%, 50%), hsl(15, 95%, 55%), hsl(35, 90%, 50%), hsl(25, 100%, 50%)) !important;
+  background: linear-gradient(270deg, hsl(25, 100%, 50%), hsl(200, 90%, 50%), hsl(25, 95%, 55%), hsl(200, 85%, 55%), hsl(25, 100%, 50%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
 
-.animated-gradient-text {
-  background: linear-gradient(
-    270deg,
-    hsl(275, 85%, 55%),
-    hsl(330, 100%, 55%),
-    hsl(0, 90%, 55%),
-    hsl(50, 95%, 55%),
-    hsl(120, 100%, 50%),
-    hsl(220, 100%, 55%),
-    hsl(275, 85%, 55%)
-  );
-  background-size: 400% 400%;
-  background-position: 0% 50%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 8s ease infinite;
-  padding-bottom: 0.1em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
-.animated-gradient-vibrant-bg {
-  position: relative;
-}
-
-.animated-gradient-vibrant-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    270deg,
-    hsl(0, 90%, 55%),
-    hsl(330, 100%, 55%),
-    hsl(220, 100%, 55%),
-    hsl(275, 85%, 55%),
-    hsl(120, 100%, 50%),
-    hsl(0, 90%, 55%)
-  );
-  background-size: 400% 400%;
-  background-position: 0% 50%;
-  animation: gradient-shift 8s ease infinite;
-  mix-blend-mode: screen;
-  opacity: 0.6;
-  pointer-events: none;
-  z-index: 1;
-}
-
 .gradient-cyan::after {
-  background: linear-gradient(270deg, hsl(185, 100%, 45%), hsl(195, 95%, 50%), hsl(175, 90%, 45%), hsl(185, 100%, 45%)) !important;
+  background: linear-gradient(270deg, hsl(185, 100%, 45%), hsl(350, 90%, 55%), hsl(185, 95%, 50%), hsl(350, 85%, 50%), hsl(185, 100%, 45%)) !important;
   background-size: 400% 400% !important;
   animation: gradient-shift 8s ease infinite !important;
 }
