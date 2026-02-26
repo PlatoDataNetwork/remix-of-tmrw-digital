@@ -66,7 +66,7 @@ const web3Market = [
 const metrics = [
   { value: "13M+", label: "Organic Visitors", sub: "Across 160+ countries" },
   { value: "70,000+", label: "Enterprises", sub: "Active platform users" },
-  { value: "$1.4M", label: "Revenue", sub: "Via Plato platform" },
+  { value: "$2.4M", label: "Beta Revenue", sub: "Combined Entities" },
   { value: "35", label: "Languages", sub: "Global multilingual support" },
 ];
 
