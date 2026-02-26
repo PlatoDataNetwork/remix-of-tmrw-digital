@@ -131,11 +131,12 @@ const InvestorPresentation = () => {
         </div>
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-light text-foreground mb-6">
-              Tomorrow Digital <span className="font-semibold animated-gradient-text">RTO</span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold animated-gradient-text mb-6">
+              Tomorrow Digital RTO
             </h1>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto mb-4 font-light">
-              Consolidating Carbon Distributed Technologies and Plato AI into a diversified Web3 / AI Infrastructure and Digital Asset Company.
+              Consolidating Carbon Distributed Technologies and Plato AI into a
+              <br />diversified Web3 / AI Infrastructure and Digital Asset Company.
             </p>
             <p className="text-sm text-muted-foreground/70 mb-12">
               Facilitating listing on the Canadian public market via a Reverse Takeover (RTO) on TSX Venture Exchange.
