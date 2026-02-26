@@ -94,10 +94,10 @@ const whyAcquisition = [
 ];
 
 const team = [
-  { name: "Justin Hartzman", role: "Chairman", bio: "Co-founded CoinSmart, led to public listing and sale to WonderFi (recently acquired by Robinhood). Board director at WonderFi. Over a decade scaling fintech companies." },
-  { name: "Paul Thomson", role: "CEO", bio: "Founder of Carbon Distributed Technologies. Independent Director at eXeBlock Technology. Former CCO at Numus Capital. Deep expertise in corporate governance." },
-  { name: "Bryan Feinberg", role: "COO / CTO", bio: "CEO of Zephyr Technology Ventures and Plato AI. Licensed Investment Banker. Led startup from zero to $130M revenue and TASE public listing." },
-  { name: "Zach Goldenberg", role: "Advisor", bio: "Principal of Liberty Venture Partners. Corporate-securities lawyer. ICD.D designation, TSXV Advisory Committee member." },
+  { name: "Justin Hartzman", role: "Chairman", bio: "Serial entrepreneur and capital markets veteran. Co-founded CoinSmart, leading it to a public listing and subsequent sale to WonderFi, recently acquired by Robinhood. Board director at WonderFi. Over a decade of experience scaling fintech companies and executing successful go-public strategies across North America." },
+  { name: "Paul Thomson", role: "CEO", bio: "Founder of Carbon Distributed Technologies AG. Independent Director at eXeBlock Technology Inc. Former Chief Compliance Officer at Numus Capital Corp. Brings deep expertise in corporate governance, regulatory compliance, capital markets strategy, and blockchain-based environmental asset infrastructure globally." },
+  { name: "Bryan Feinberg", role: "COO / CTO", bio: "CEO of Zephyr Technology Ventures and Plato AI. Licensed Investment Banker holding Series 7, 63 and 79 certifications. Led a startup from inception to $130M in revenue and a TASE public listing. Recognized expert in artificial intelligence, blockchain infrastructure, and big data analytics platforms." },
+  { name: "Zach Goldenberg", role: "Advisor", bio: "Principal at Liberty Venture Partners. Corporate securities lawyer with extensive experience structuring financing and go-public transactions on Canadian markets including TSXV, CSE and CBOE Canada. Holds JD/HBA from Western Law and Ivey Business School. ICD.D designate and TSXV Advisory Committee member." },
 ];
 
 const SectionTitle = ({ label, title, subtitle }: { label: string; title: string; subtitle?: string }) => (
