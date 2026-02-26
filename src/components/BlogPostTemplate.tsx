@@ -38,11 +38,11 @@ const BlogPostTemplate = ({ data }: { data: BlogPostData }) => {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
           <motion.div {...fadeUp} transition={{ duration: 0.5 }}>
             <Link
-              to="/#news"
+              to="/intel"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
             >
               <ArrowLeft className="h-4 w-4" />
-              Back to News
+              Back to Intel
             </Link>
           </motion.div>
 

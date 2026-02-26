@@ -33,6 +33,15 @@ const CommunityDriven = lazy(() => import("./pages/web3ai/CommunityDriven"));
 const RWATokenization = lazy(() => import("./pages/blog/RWATokenization"));
 const AIInvestorEngagement = lazy(() => import("./pages/blog/AIInvestorEngagement"));
 const PreIPOMarkets = lazy(() => import("./pages/blog/PreIPOMarkets"));
+const CarbonCreditsTokenization = lazy(() => import("./pages/blog/CarbonCreditsTokenization"));
+const CommoditiesTokenization = lazy(() => import("./pages/blog/CommoditiesTokenization"));
+const EnergyTokenization = lazy(() => import("./pages/blog/EnergyTokenization"));
+const InfrastructureTokenization = lazy(() => import("./pages/blog/InfrastructureTokenization"));
+const MetalsTokenization = lazy(() => import("./pages/blog/MetalsTokenization"));
+const RareEarthTokenization = lazy(() => import("./pages/blog/RareEarthTokenization"));
+const RealEstateTokenization = lazy(() => import("./pages/blog/RealEstateTokenization"));
+const SovereignWealthTokenization = lazy(() => import("./pages/blog/SovereignWealthTokenization"));
+const Intel = lazy(() => import("./pages/Intel"));
 const InvestorDisclaimer = lazy(() => import("./pages/InvestorDisclaimer"));
 const InvestorPresentation = lazy(() => import("./pages/InvestorPresentation"));
 const Legal = lazy(() => import("./pages/Legal"));
@@ -76,6 +85,15 @@ const App = () => (
             <Route path="/blog/rwa-tokenization" element={<RWATokenization />} />
             <Route path="/blog/ai-investor-engagement" element={<AIInvestorEngagement />} />
             <Route path="/blog/pre-ipo-markets" element={<PreIPOMarkets />} />
+            <Route path="/blog/carbon-credits-tokenization" element={<CarbonCreditsTokenization />} />
+            <Route path="/blog/commodities-tokenization" element={<CommoditiesTokenization />} />
+            <Route path="/blog/energy-tokenization" element={<EnergyTokenization />} />
+            <Route path="/blog/infrastructure-tokenization" element={<InfrastructureTokenization />} />
+            <Route path="/blog/metals-tokenization" element={<MetalsTokenization />} />
+            <Route path="/blog/rare-earth-tokenization" element={<RareEarthTokenization />} />
+            <Route path="/blog/real-estate-tokenization" element={<RealEstateTokenization />} />
+            <Route path="/blog/sovereign-wealth-tokenization" element={<SovereignWealthTokenization />} />
+            <Route path="/intel" element={<Intel />} />
             <Route path="/legal" element={<Legal />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

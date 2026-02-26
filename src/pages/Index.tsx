@@ -6,7 +6,6 @@ import Web3AISection from "@/components/Web3AISection";
 import ServicesSection from "@/components/ServicesSection";
 import RWASection from "@/components/RWASection";
 import TeamSection from "@/components/TeamSection";
-import NewsSection from "@/components/NewsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -21,7 +20,6 @@ const Index = () => {
       <ServicesSection />
       <RWASection />
       <TeamSection />
-      <NewsSection />
       <ContactSection />
       <Footer />
     </div>
