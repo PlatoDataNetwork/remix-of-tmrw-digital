@@ -22,48 +22,48 @@ const pillars = [
 ];
 
 const carbonAssets = [
-  "500,000 tonnes ISO-certified credits",
-  "Valued at ~$5M USD",
-  "Option for 2.3M additional tonnes",
-  "300M+ CUT tokens in treasury",
+  "500,000 tonnes ISO-certified credits.",
+  "Valued at ~$5M USD.",
+  "Option for 2.3M additional tonnes.",
+  "300M+ CUT tokens in treasury.",
 ];
 
 const carbonTech = [
-  "Blockchain verification system",
-  "Retire App for token burning",
-  "Immutable audit trails",
-  "Smart contract automation",
+  "Blockchain verification system.",
+  "Retire App for token burning.",
+  "Immutable audit trails.",
+  "Smart contract automation.",
 ];
 
 const carbonMarket = [
-  "FMA regulated (Liechtenstein)",
-  "6M+ kg carbon offsets retired",
-  "Enterprise partnerships active",
-  "$50B market by 2030",
+  "FMA regulated (Liechtenstein).",
+  "6M+ kg carbon offsets retired.",
+  "Enterprise partnerships active.",
+  "$50B market by 2030.",
 ];
 
 const web3Assets = [
-  "Proprietary tokenization engine for multi-asset classes",
-  "Real-world asset (RWA) infrastructure and digital twins",
-  "AI-powered data analytics and predictive intelligence",
-  "Enterprise-grade publishing and content syndication platform",
-  "Regulatory compliance and KYC/AML automation framework",
+  "Proprietary tokenization engine for multi-asset classes.",
+  "Real-world asset (RWA) infrastructure and digital twins.",
+  "AI-powered data analytics and predictive intelligence.",
+  "Enterprise-grade publishing and content syndication platform.",
+  "Regulatory compliance and KYC/AML automation framework.",
 ];
 
 const web3Tech = [
-  "Full-stack blockchain development toolkit and dev tools",
-  "AI/ML model integration for on-chain and off-chain data",
-  "Modular UI/UX design system for decentralized applications",
-  "Cross-chain interoperability and smart contract orchestration",
-  "Automated compliance protocols and audit-trail technology",
+  "Full-stack blockchain development toolkit and dev tools.",
+  "AI/ML model integration for on-chain and off-chain data.",
+  "Modular UI/UX design system for decentralized applications.",
+  "Cross-chain interoperability and smart contract orchestration.",
+  "Automated compliance protocols and audit-trail technology.",
 ];
 
 const web3Market = [
-  "Scalable tokenization across commodities, carbon, and real estate",
-  "Innovation lab driving next-gen DeFi and RWA product R&D",
-  "Global syndication network spanning 160+ countries",
-  "Data-driven decision engine with real-time analytics dashboards",
-  "End-to-end platform from asset origination to secondary trading",
+  "Scalable tokenization across commodities, carbon, and real estate.",
+  "Innovation lab driving next-gen DeFi and RWA product R&D.",
+  "Global syndication network spanning 160+ countries.",
+  "Data-driven decision engine with real-time analytics dashboards.",
+  "End-to-end platform from asset origination to secondary trading.",
 ];
 
 const metrics = [
