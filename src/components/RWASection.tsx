@@ -32,13 +32,16 @@ const RWASection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Real World Assets (RWAs)</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Real World Assets</p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground mb-6">
-            Investing in the Real World of Asset Tokenization
+            The Real World of
+            <br />
+            Asset Tokenization.
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Bridging traditional assets with modern Web3AI markets through tokenization,
-            data intelligence, and institutional-grade access.
+            Welcome to
+            <br />
+            the Next Big Thing.
           </p>
         </motion.div>
 
@@ -56,7 +59,7 @@ const RWASection = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed font-light mb-6">
                   {sector.description}
                 </p>
-                <span className="learn-more-link mt-auto self-end text-xs uppercase tracking-[0.15em] animated-gradient-text">
+                <span className="learn-more-link mt-auto self-end text-xs uppercase tracking-[0.15em] animated-gradient-neon-text">
                   Learn More →
                 </span>
               </motion.div>
