@@ -133,10 +133,7 @@ const Intel = () => {
                   transition={{ duration: 0.6, delay: i * 0.08 }}
                   className="group py-10 flex flex-col md:flex-row md:items-center gap-4 md:gap-8 cursor-pointer hover:bg-accent/30 -mx-6 px-6 transition-colors rounded-lg"
                 >
-                  <div className="flex items-center gap-4 md:w-auto shrink-0">
-                    <span className="text-xs text-muted-foreground uppercase tracking-wider">{article.date}</span>
-                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">{article.subject}</span>
-                  </div>
+                  <span className="text-lg md:text-xl font-medium text-muted-foreground shrink-0">{article.date}</span>
                   <div className="flex-1">
                     <h3 className="text-lg md:text-xl font-medium text-foreground group-hover:text-foreground/80 transition-colors mb-1">
                       {article.title}
