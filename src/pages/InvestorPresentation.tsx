@@ -42,27 +42,28 @@ const carbonMarket = [
   "$50B market by 2030",
 ];
 
-const platoBrowser = [
-  "Native blockchain application support",
-  "Decentralized identity (DID) integration",
-  "Built-in token wallet functionality",
-  "AI-powered search capabilities",
-  "Smart contract compatibility",
+const web3Assets = [
+  "Proprietary tokenization engine for multi-asset classes",
+  "Real-world asset (RWA) infrastructure and digital twins",
+  "AI-powered data analytics and predictive intelligence",
+  "Enterprise-grade publishing and content syndication platform",
+  "Regulatory compliance and KYC/AML automation framework",
 ];
 
-const platoTools = [
-  "CodeNexus: AI code generation for Web3",
-  "NexusWave Carbon: Climate data intelligence",
-  "Plato Media: Web3 sync licensing",
-  "Plato RWA: Real-world asset tokenization",
-  "SecureStake: Solana staking protocol",
+const web3Tech = [
+  "Full-stack blockchain development toolkit and dev tools",
+  "AI/ML model integration for on-chain and off-chain data",
+  "Modular UI/UX design system for decentralized applications",
+  "Cross-chain interoperability and smart contract orchestration",
+  "Automated compliance protocols and audit-trail technology",
 ];
 
-const platoTraction = [
-  "13M+ organic visitors across 160+ countries",
-  "70,000+ enterprise users on platform",
-  "$1.4M revenue generated to date",
-  "35 languages with global multilingual support",
+const web3Market = [
+  "Scalable tokenization across commodities, carbon, and real estate",
+  "Innovation lab driving next-gen DeFi and RWA product R&D",
+  "Global syndication network spanning 160+ countries",
+  "Data-driven decision engine with real-time analytics dashboards",
+  "End-to-end platform from asset origination to secondary trading",
 ];
 
 const metrics = [
@@ -239,9 +240,9 @@ const InvestorPresentation = () => {
       {/* Web3 AI Platform */}
       <section className="py-16 lg:py-24 bg-card/50">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionTitle label="Plato Technologies Inc." title="Web3 AI Platform" subtitle="Full-stack Web3 browser and AI development tools powering decentralized infrastructure at scale." />
+          <SectionTitle label="Plato Technologies Inc." title="Web3 AI Infrastructure" subtitle="Proprietary blockchain development stack powering tokenization, data analytics, AI, compliance, and global syndication." />
           <div className="grid md:grid-cols-3 gap-6">
-            {[{ title: "Web3 Browser", items: platoBrowser }, { title: "AI Development Tools", items: platoTools }, { title: "Market Traction", items: platoTraction }].map(col => (
+            {[{ title: "Asset Base", items: web3Assets }, { title: "Technology", items: web3Tech }, { title: "Market Position", items: web3Market }].map(col => (
               <div key={col.title} className="bg-card border border-border rounded-2xl p-6">
                 <h3 className="text-base font-medium text-foreground mb-4">{col.title}</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground font-light">
