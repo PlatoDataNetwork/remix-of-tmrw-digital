@@ -344,7 +344,23 @@ const InvestorPresentation = () => {
         <div className="max-w-7xl mx-auto px-6">
           <SectionTitle label="Leadership" title="Leadership Team" subtitle="Experienced executives with proven track record in fintech, AI, and public markets" />
           <div className="grid sm:grid-cols-2 gap-6">
-            {team.map(t => (
+            {team.slice(0, 4).map(t => (
+              <div key={t.name} className="bg-card border border-border rounded-2xl p-6">
+                <h3 className="text-base font-medium text-foreground">{t.name}</h3>
+                <p className="text-sm animated-gradient-text font-medium mb-3">{t.role}</p>
+                <p className="text-sm text-muted-foreground font-light leading-relaxed">{t.bio}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 mb-12">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Operations</p>
+            <h2 className="text-2xl md:text-4xl font-light text-foreground mb-4">Operations Team</h2>
+            <p className="text-base text-muted-foreground max-w-2xl font-light">Hands-on builders driving infrastructure, security, and global delivery across the stack.</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            {team.slice(4).map(t => (
               <div key={t.name} className="bg-card border border-border rounded-2xl p-6">
                 <h3 className="text-base font-medium text-foreground">{t.name}</h3>
                 <p className="text-sm animated-gradient-text font-medium mb-3">{t.role}</p>
