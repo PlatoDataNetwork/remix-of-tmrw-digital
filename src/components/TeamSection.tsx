@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import teamAstronauts from "@/assets/team-astronauts.jpeg";
-import astronautIcon from "@/assets/astronaut-icon.png";
+import astronautHeadshot from "@/assets/astronaut-headshot.jpeg";
 const teamMembers = [
   {
     name: "Justin Hartzman",
@@ -74,7 +74,7 @@ const TeamSection = () => {
             >
               <div className="shrink-0">
                 <div className="h-14 w-14 rounded-full overflow-hidden animated-gradient-icon">
-                  <img src={astronautIcon} alt="Team member avatar" className="h-full w-full object-cover" />
+                  <img src={astronautHeadshot} alt="Team member avatar" className="h-full w-full object-cover object-top" />
                 </div>
               </div>
               <div className="flex-1 min-w-0">
