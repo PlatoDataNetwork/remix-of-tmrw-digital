@@ -90,6 +90,7 @@ const whyAcquisition = [
   { icon: Target, title: "Aligned Roadmap & Incentives", desc: "One cap table, unified product roadmap, consistent capital markets story." },
   { icon: Zap, title: "IP Ownership", desc: "AI models, risk engines, smart contracts live on Btab balance sheet." },
   { icon: Building2, title: "Capital Markets Story", desc: "Public market investors can clearly understand and price a unified, integrated platform." },
+  { icon: Globe, title: "Global Scalability", desc: "Unified entity accelerates international expansion, regulatory approvals, and cross-border operations." },
 ];
 
 const team = [
