@@ -1,12 +1,30 @@
+import platoIcon from "@/assets/plato-icon.png";
+
 const Footer = () => {
   return (
     <footer className="py-16 bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-10 mb-16">
           <div className="md:col-span-2">
-            <p className="text-lg font-semibold text-foreground mb-2">
-              The <span className="font-light">Tomorrow Company</span>
-            </p>
+            <a href="/" className="flex items-center gap-2 mb-2">
+              <div
+                className="h-8 w-8 animated-gradient-icon-bright"
+                style={{
+                  WebkitMaskImage: `url(${platoIcon})`,
+                  maskImage: `url(${platoIcon})`,
+                  WebkitMaskSize: 'contain',
+                  maskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  maskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskPosition: 'center',
+                  opacity: 1,
+                }}
+              />
+              <span className="text-lg font-bold tracking-tight text-foreground">
+                The Tomorrow Company
+              </span>
+            </a>
             <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-sm">
               Web3 AI and real world assets intelligence for public and pre-IPO management teams.
             </p>
@@ -14,7 +32,7 @@ const Footer = () => {
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Navigation</p>
             <div className="space-y-3">
-              {["About", "Services", "RWAs", "News", "Contact"].map((link) => (
+              {["About", "Services", "RWAs", "News"].map((link) => (
                 <a
                   key={link}
                   href={link === "RWAs" ? "/rwas" : `#${link.toLowerCase()}`}
@@ -28,13 +46,20 @@ const Footer = () => {
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Connect</p>
             <div className="space-y-3">
-              {["LinkedIn", "Twitter / X", "Email"].map((link) => (
+              {[
+                { label: "Contact", href: "#contact" },
+                { label: "LinkedIn", href: "#" },
+                { label: "Twitter / X", href: "#" },
+                { label: "Telegram", href: "#" },
+                { label: "Discord", href: "#" },
+                { label: "Email", href: "#" },
+              ].map((link) => (
                 <a
-                  key={link}
-                  href="#"
+                  key={link.label}
+                  href={link.href}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </div>
