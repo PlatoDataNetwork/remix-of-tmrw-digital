@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 const articles = [
   {
     date: "Feb 2026",
+    subject: "Web3",
     category: "Tokenization",
     title: "The Future of RWA Tokenization in Web3 Markets",
     excerpt: "How real-world asset tokenization is reshaping investor access to previously illiquid markets.",
@@ -15,6 +16,7 @@ const articles = [
   },
   {
     date: "Feb 2026",
+    subject: "Carbon Credits",
     category: "Tokenization",
     title: "Tokenized Carbon Credits: Building Trust in Climate Finance",
     excerpt: "How blockchain-verified carbon credits are transforming environmental markets and enabling transparent climate action.",
@@ -22,6 +24,7 @@ const articles = [
   },
   {
     date: "Feb 2026",
+    subject: "Commodities",
     category: "Tokenization",
     title: "Commodity Tokenization: Democratizing Access to Global Markets",
     excerpt: "From agricultural products to energy futures, tokenization is unlocking fractional access to commodity investments.",
@@ -29,6 +32,7 @@ const articles = [
   },
   {
     date: "Feb 2026",
+    subject: "Real Estate",
     category: "Tokenization",
     title: "Real Estate Tokenization: From Bricks to Blocks",
     excerpt: "Fractional real estate ownership is breaking barriers, enabling global investors to access premium property markets.",
@@ -36,6 +40,7 @@ const articles = [
   },
   {
     date: "Feb 2026",
+    subject: "Sovereign Wealth",
     category: "Tokenization",
     title: "Sovereign Wealth Funds & Tokenization: A Strategic Alliance",
     excerpt: "How sovereign wealth funds are leveraging tokenized assets to diversify portfolios and enhance transparency.",
@@ -43,6 +48,7 @@ const articles = [
   },
   {
     date: "Feb 2026",
+    subject: "Artificial Intelligence",
     category: "Tokenization",
     title: "AI-Driven Investor Engagement: A New Paradigm",
     excerpt: "Leveraging machine learning to identify, target, and engage institutional investors at scale.",
@@ -50,6 +56,7 @@ const articles = [
   },
   {
     date: "Feb 2026",
+    subject: "Energy",
     category: "Tokenization",
     title: "Energy Assets on Chain: Powering the Next Generation of Investment",
     excerpt: "Tokenized energy infrastructure is attracting institutional capital to renewables, oil, and gas assets worldwide.",
@@ -57,6 +64,7 @@ const articles = [
   },
   {
     date: "Feb 2026",
+    subject: "Infrastructure",
     category: "Tokenization",
     title: "Infrastructure Tokenization: Funding the World's Backbone",
     excerpt: "How tokenized infrastructure projects are delivering stable, long-term returns to a broader investor base.",
@@ -64,6 +72,7 @@ const articles = [
   },
   {
     date: "Feb 2026",
+    subject: "Markets",
     category: "Tokenization",
     title: "Navigating Pre-IPO Markets in a Volatile Landscape",
     excerpt: "Strategic considerations for management teams preparing for public market transitions.",
@@ -71,6 +80,7 @@ const articles = [
   },
   {
     date: "Feb 2026",
+    subject: "Metals",
     category: "Tokenization",
     title: "Precious & Industrial Metals: The Digital Gold Rush",
     excerpt: "Tokenized metals markets are enabling real-time trading and fractional ownership of gold, silver, and beyond.",
@@ -78,6 +88,7 @@ const articles = [
   },
   {
     date: "Feb 2026",
+    subject: "Rare Earth Minerals",
     category: "Tokenization",
     title: "Rare Earth Minerals: Securing Critical Supply Chains on Chain",
     excerpt: "Blockchain-powered rare earth investments are addressing supply chain risks in defense and clean energy sectors.",
@@ -122,8 +133,9 @@ const Intel = () => {
                   transition={{ duration: 0.6, delay: i * 0.08 }}
                   className="group py-10 flex flex-col md:flex-row md:items-center gap-4 md:gap-8 cursor-pointer hover:bg-accent/30 -mx-6 px-6 transition-colors rounded-lg"
                 >
-                  <div className="flex items-center gap-4 md:w-48 shrink-0">
+                  <div className="flex flex-wrap items-center gap-2 md:w-56 shrink-0">
                     <span className="text-xs text-muted-foreground uppercase tracking-wider">{article.date}</span>
+                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">{article.subject}</span>
                     <span className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground">{article.category}</span>
                   </div>
                   <div className="flex-1">
