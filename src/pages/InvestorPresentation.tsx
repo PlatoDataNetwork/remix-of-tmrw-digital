@@ -22,48 +22,45 @@ const pillars = [
 ];
 
 const carbonAssets = [
-  "500,000 tonnes ISO-certified credits.",
-  "Valued at ~$5M USD.",
-  "Option for 2.3M additional tonnes.",
-  "300M+ CUT tokens in treasury.",
+  "500,000 tonnes of ISO-certified carbon credits secured and verified on-chain.",
+  "Portfolio valued at approximately $5M USD with full blockchain transparency.",
+  "Option to acquire 2.3M additional tonnes, expanding capacity significantly.",
+  "300M+ CUT tokens held in corporate treasury for ecosystem development.",
 ];
 
 const carbonTech = [
-  "Blockchain verification system.",
-  "Retire App for token burning.",
-  "Immutable audit trails.",
-  "Smart contract automation.",
+  "Blockchain-based verification system ensuring tamper-proof audit trails.",
+  "Retire App enables permanent token burning for certified carbon offsets.",
+  "Immutable on-chain records providing full lifecycle transparency and trust.",
+  "Smart contract automation streamlining issuance, trading, and retirement.",
 ];
 
 const carbonMarket = [
-  "FMA regulated (Liechtenstein).",
-  "6M+ kg carbon offsets retired.",
-  "Enterprise partnerships active.",
-  "$50B market by 2030.",
+  "FMA regulated under Liechtenstein financial authority for EU compliance.",
+  "Over 6M kg of carbon offsets permanently retired across global markets.",
+  "Active enterprise partnerships driving recurring institutional demand.",
+  "Targeting a $50B voluntary carbon market projected by 2030.",
 ];
 
 const web3Assets = [
-  "Proprietary tokenization engine for multi-asset classes.",
-  "Real-world asset (RWA) infrastructure and digital twins.",
-  "AI-powered data analytics and predictive intelligence.",
-  "Enterprise-grade publishing and content syndication platform.",
-  "Regulatory compliance and KYC/AML automation framework.",
+  "Proprietary tokenization engine supporting multi-asset classes at scale.",
+  "Real-world asset infrastructure with digital twin capabilities built in.",
+  "AI-powered data analytics delivering predictive intelligence and insights.",
+  "Enterprise publishing and syndication platform for global content distribution.",
 ];
 
 const web3Tech = [
-  "Full-stack blockchain development toolkit and dev tools.",
-  "AI/ML model integration for on-chain and off-chain data.",
-  "Modular UI/UX design system for decentralized applications.",
-  "Cross-chain interoperability and smart contract orchestration.",
-  "Automated compliance protocols and audit-trail technology.",
+  "Full-stack blockchain development toolkit with integrated dev tools.",
+  "AI and ML model integration bridging on-chain and off-chain data layers.",
+  "Modular UI/UX design system purpose-built for decentralized applications.",
+  "Cross-chain interoperability with smart contract orchestration protocols.",
 ];
 
 const web3Market = [
-  "Scalable tokenization across commodities, carbon, and real estate.",
-  "Innovation lab driving next-gen DeFi and RWA product R&D.",
-  "Global syndication network spanning 160+ countries.",
-  "Data-driven decision engine with real-time analytics dashboards.",
-  "End-to-end platform from asset origination to secondary trading.",
+  "Scalable tokenization spanning commodities, carbon credits, and real estate.",
+  "Innovation lab driving next-generation DeFi and RWA product development.",
+  "Global syndication network with active reach across 160+ countries.",
+  "End-to-end platform from asset origination through to secondary trading.",
 ];
 
 const metrics = [
