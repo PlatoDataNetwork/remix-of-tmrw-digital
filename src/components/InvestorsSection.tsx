@@ -56,7 +56,7 @@ const InvestorsSection = () => {
         >
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Investors</p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground mb-6">
-            Partner With <span className="font-semibold">Confidence</span>
+            Partner With Confidence
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl font-light">
             We provide institutional and accredited investors with structured access to
