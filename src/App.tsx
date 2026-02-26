@@ -29,6 +29,8 @@ import CommunityDriven from "./pages/web3ai/CommunityDriven";
 import RWATokenization from "./pages/blog/RWATokenization";
 import AIInvestorEngagement from "./pages/blog/AIInvestorEngagement";
 import PreIPOMarkets from "./pages/blog/PreIPOMarkets";
+import InvestorDisclaimer from "./pages/InvestorDisclaimer";
+import InvestorPresentation from "./pages/InvestorPresentation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +44,8 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/investors" element={<InvestorDisclaimer />} />
+          <Route path="/investors/presentation" element={<InvestorPresentation />} />
           <Route path="/rwas" element={<RWAs />} />
           <Route path="/rwas/energy" element={<Energy />} />
           <Route path="/rwas/metals" element={<Metals />} />
