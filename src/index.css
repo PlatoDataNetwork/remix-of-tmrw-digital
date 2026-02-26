@@ -349,6 +349,43 @@ html {
   pointer-events: none;
 }
 
+/* Individual team member color gradients */
+.gradient-purple::after {
+  background: linear-gradient(270deg, hsl(275, 85%, 45%), hsl(290, 90%, 60%), hsl(260, 80%, 50%), hsl(275, 85%, 45%)) !important;
+  background-size: 400% 400% !important;
+  animation: gradient-shift 8s ease infinite !important;
+}
+
+.gradient-red::after {
+  background: linear-gradient(270deg, hsl(0, 90%, 50%), hsl(15, 95%, 55%), hsl(345, 85%, 50%), hsl(0, 90%, 50%)) !important;
+  background-size: 400% 400% !important;
+  animation: gradient-shift 8s ease infinite !important;
+}
+
+.gradient-blue::after {
+  background: linear-gradient(270deg, hsl(220, 100%, 50%), hsl(200, 95%, 55%), hsl(240, 85%, 55%), hsl(220, 100%, 50%)) !important;
+  background-size: 400% 400% !important;
+  animation: gradient-shift 8s ease infinite !important;
+}
+
+.gradient-green::after {
+  background: linear-gradient(270deg, hsl(120, 100%, 40%), hsl(150, 90%, 45%), hsl(100, 85%, 45%), hsl(120, 100%, 40%)) !important;
+  background-size: 400% 400% !important;
+  animation: gradient-shift 8s ease infinite !important;
+}
+
+.gradient-pink::after {
+  background: linear-gradient(270deg, hsl(330, 100%, 50%), hsl(340, 95%, 55%), hsl(315, 90%, 50%), hsl(330, 100%, 50%)) !important;
+  background-size: 400% 400% !important;
+  animation: gradient-shift 8s ease infinite !important;
+}
+
+.gradient-gold::after {
+  background: linear-gradient(270deg, hsl(45, 100%, 50%), hsl(35, 95%, 55%), hsl(55, 90%, 45%), hsl(45, 100%, 50%)) !important;
+  background-size: 400% 400% !important;
+  animation: gradient-shift 8s ease infinite !important;
+}
+
 .animated-gradient-text {
   background: linear-gradient(
     270deg,
