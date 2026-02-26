@@ -13,8 +13,8 @@ const stats = [
 ];
 
 const pillars = [
-  { icon: Building2, title: "Capital Markets", desc: "Public market strategy engineered for institutional access and global cross-listing expansion." },
-  { icon: Leaf, title: "RWA Tokenization", desc: "Digitizing real-world assets into liquid, tradable instruments on institutional-grade infrastructure." },
+  { icon: Building2, title: "Carbon Distributed Technologies AG", desc: "Swiss-domiciled carbon asset and blockchain infrastructure company powering tokenized environmental markets." },
+  { icon: Leaf, title: "Plato Technologies Inc.", desc: "AI-driven intelligence platform delivering autonomous analytics and decentralized data solutions." },
   { icon: Cpu, title: "Web3 / AI Tech Stack", desc: "Decentralized intelligence tools bridging blockchain architecture with autonomous AI systems." },
   { icon: Coins, title: "Token Economy", desc: "Dual-asset programmable value layer powering carbon, compute, and cross-border commerce." },
   { icon: Globe, title: "Global Footprint", desc: "Multi-jurisdictional presence spanning key financial hubs and emerging digital asset markets." },
