@@ -430,3 +430,21 @@ html {
   pointer-events: none;
   z-index: 1;
 }
+
+/* Neon gradient text animation - Blue, Pink, Green */
+.animated-gradient-neon-text {
+  background: linear-gradient(
+    270deg,
+    hsl(200, 100%, 55%),
+    hsl(330, 100%, 55%),
+    hsl(120, 100%, 50%),
+    hsl(330, 100%, 55%),
+    hsl(200, 100%, 55%)
+  );
+  background-size: 400% 400%;
+  background-position: 0% 50%;
+  animation: gradient-shift 8s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

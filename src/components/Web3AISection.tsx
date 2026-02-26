@@ -96,7 +96,7 @@ const Web3AISection = () => {
               <div className="mt-6 flex justify-end">
                 <Link
                   to={`/web3ai/${item.slug}`}
-                  className="learn-more-link text-xs uppercase tracking-[0.15em] animated-gradient-text transition-colors duration-300"
+                  className="learn-more-link text-xs uppercase tracking-[0.15em] animated-gradient-neon-text transition-colors duration-300"
                 >
                   Learn More →
                 </Link>

@@ -76,12 +76,12 @@ const ServicesSection = () => {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 1, delay: 0.3 }}
-          className="relative mb-16 rounded-2xl overflow-hidden"
+          className="relative mb-16 max-w-4xl mx-auto rounded-2xl overflow-hidden"
         >
           <img
             src={dataCenterImg}
             alt="Data center infrastructure"
-            className="w-full h-[300px] md:h-[400px] object-cover"
+            className="w-full h-[260px] md:h-[380px] object-cover"
           />
           <motion.div
             className="absolute inset-0 mix-blend-overlay"
@@ -114,7 +114,7 @@ const ServicesSection = () => {
               <div className="mt-6 flex justify-end">
                 <Link
                   to={`/services/${service.slug}`}
-                  className="learn-more-link text-xs uppercase tracking-[0.15em] animated-gradient-text transition-colors duration-300"
+                  className="learn-more-link text-xs uppercase tracking-[0.15em] animated-gradient-neon-text transition-colors duration-300"
                 >
                   Learn More →
                 </Link>
