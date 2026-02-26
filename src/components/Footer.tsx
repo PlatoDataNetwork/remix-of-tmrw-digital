@@ -28,6 +28,23 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-sm">
               A diversified Web3 infrastructure and digital asset holding company building at the intersection of AI, blockchain, and capital markets. We architect secure protocols and tokenized asset frameworks for institutions navigating the next era of finance.
             </p>
+            <p className="text-sm text-muted-foreground font-light mt-6 flex items-center gap-1.5">
+              Made with
+              <span
+                className="inline-block h-8 w-8 animated-gradient-icon-bright"
+                style={{
+                  WebkitMaskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/svg%3E")`,
+                  maskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/svg%3E")`,
+                  WebkitMaskSize: 'contain',
+                  maskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  maskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskPosition: 'center',
+                }}
+              />
+              in Canada
+            </p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Navigation</p>
