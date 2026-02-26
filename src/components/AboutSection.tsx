@@ -31,18 +31,6 @@ const AboutSection = () => {
             <p className="text-muted-foreground leading-relaxed text-base lg:text-lg font-light">
               With over two decades of proven expertise, our team has guided hundreds of companies through critical growth stages — delivering measurable outcomes backed by deep industry knowledge and strategic execution. We combine disciplined capital deployment with forward-thinking execution to unlock sustainable value across emerging and established markets alike.
             </p>
-            <div className="mt-10 grid grid-cols-3 gap-8">
-              {[
-                { number: "100+", label: "Years Experience" },
-                { number: "70K+", label: "Enterprise Engagements" },
-                { number: "$2B+", label: "Value Created" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-2xl md:text-3xl font-semibold text-foreground">{stat.number}</p>
-                  <p className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">{stat.label}</p>
-                </div>
-              ))}
-            </div>
           </motion.div>
 
           {/* Right - Philosophy */}
@@ -64,20 +52,6 @@ const AboutSection = () => {
               markets will be built on transparency, decentralization, and intelligent
               infrastructure. We have positioned ourselves to take the lead and drive excellence across this emerging sector.
             </p>
-            <div className="mt-10 grid grid-cols-3 md:grid-cols-5 gap-8">
-              {[
-                { number: "13M+", label: "Organic Visitors" },
-                { number: "70K+", label: "Enterprises" },
-                { number: "45", label: "Verticals" },
-                { number: "160", label: "Countries" },
-                { number: "35", label: "Languages" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-2xl md:text-3xl font-semibold text-foreground">{stat.number}</p>
-                  <p className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">{stat.label}</p>
-                </div>
-              ))}
-            </div>
           </motion.div>
         </div>
       </div>
