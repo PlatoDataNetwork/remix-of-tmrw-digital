@@ -86,7 +86,7 @@ const HeroSection = () => {
           className="mt-14 flex flex-col sm:flex-row gap-6 justify-center"
         >
           <a
-            href="#about"
+            href="#contact"
             className="inline-flex h-14 px-12 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-base font-medium hover:opacity-90 transition-opacity"
           >
             Learn More
