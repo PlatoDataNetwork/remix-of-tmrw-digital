@@ -39,7 +39,9 @@ const RWASection = () => {
             Welcome to the Next Big Thing.
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-light">
-            Bridging traditional assets with modern Web3AI markets through tokenization, data intelligence, and institutional-grade access.
+            Bridging traditional assets with modern Web3AI markets through tokenization,
+            <br />
+            data intelligence, and institutional-grade access.
           </p>
         </motion.div>
 
