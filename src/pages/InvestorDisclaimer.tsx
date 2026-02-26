@@ -52,8 +52,10 @@ const InvestorDisclaimer = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [initials, setInitials] = useState("");
+  const [name, setName] = useState("");
   const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
   const [error, setError] = useState("");
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = useCallback(() => {
@@ -73,6 +75,11 @@ const InvestorDisclaimer = () => {
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!name.trim() || name.trim().length < 2) {
+      setError("Please enter your full name.");
+      return;
+    }
+
     if (!emailRegex.test(email.trim())) {
       setError("Please enter a valid email address.");
       return;
@@ -84,13 +91,19 @@ const InvestorDisclaimer = () => {
     }
 
     sessionStorage.setItem("investor_access", JSON.stringify({
+      name: name.trim(),
       email: email.trim(),
       initials: initials.trim().toUpperCase(),
-      timestamp: Date.now(),
+      timestamp: new Date().toISOString(),
     }));
 
     navigate("/investors/presentation");
   };
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentDateTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -169,7 +182,19 @@ const InvestorDisclaimer = () => {
             </div>
 
             {/* Form inputs */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground">Full Name</label>
+                <Input
+                  type="text"
+                  placeholder="John Doe"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  disabled={!hasScrolledToBottom}
+                  className="bg-card disabled:opacity-40"
+                />
+              </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground">Email Address</label>
                 <Input
@@ -195,6 +220,13 @@ const InvestorDisclaimer = () => {
                   className="bg-card disabled:opacity-40 uppercase"
                 />
               </div>
+            </div>
+
+            {/* Date/Time stamp */}
+            <div className="flex justify-center">
+              <span className="text-xs text-muted-foreground bg-secondary px-3 py-1.5 rounded-full border border-border">
+                Date &amp; Time: {currentDateTime.toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" })} — {currentDateTime.toLocaleTimeString("en-CA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
+              </span>
             </div>
 
             {error && (
