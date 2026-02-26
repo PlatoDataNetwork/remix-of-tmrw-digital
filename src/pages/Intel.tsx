@@ -14,20 +14,6 @@ const articles = [
     slug: "/blog/rwa-tokenization",
   },
   {
-    date: "Jan 2026",
-    category: "Industry",
-    title: "AI-Driven Investor Engagement: A New Paradigm",
-    excerpt: "Leveraging machine learning to identify, target, and engage institutional investors at scale.",
-    slug: "/blog/ai-investor-engagement",
-  },
-  {
-    date: "Dec 2025",
-    category: "Advisory",
-    title: "Navigating Pre-IPO Markets in a Volatile Landscape",
-    excerpt: "Strategic considerations for management teams preparing for public market transitions.",
-    slug: "/blog/pre-ipo-markets",
-  },
-  {
     date: "Feb 2026",
     category: "Carbon Credits",
     title: "Tokenized Carbon Credits: Building Trust in Climate Finance",
@@ -40,6 +26,27 @@ const articles = [
     title: "Commodity Tokenization: Democratizing Access to Global Markets",
     excerpt: "From agricultural products to energy futures, tokenization is unlocking fractional access to commodity investments.",
     slug: "/blog/commodities-tokenization",
+  },
+  {
+    date: "Nov 2025",
+    category: "Real Estate",
+    title: "Real Estate Tokenization: From Bricks to Blocks",
+    excerpt: "Fractional real estate ownership is breaking barriers, enabling global investors to access premium property markets.",
+    slug: "/blog/real-estate-tokenization",
+  },
+  {
+    date: "Nov 2025",
+    category: "Sovereign Wealth",
+    title: "Sovereign Wealth Funds & Tokenization: A Strategic Alliance",
+    excerpt: "How sovereign wealth funds are leveraging tokenized assets to diversify portfolios and enhance transparency.",
+    slug: "/blog/sovereign-wealth-tokenization",
+  },
+  {
+    date: "Jan 2026",
+    category: "Industry",
+    title: "AI-Driven Investor Engagement: A New Paradigm",
+    excerpt: "Leveraging machine learning to identify, target, and engage institutional investors at scale.",
+    slug: "/blog/ai-investor-engagement",
   },
   {
     date: "Jan 2026",
@@ -57,6 +64,13 @@ const articles = [
   },
   {
     date: "Dec 2025",
+    category: "Advisory",
+    title: "Navigating Pre-IPO Markets in a Volatile Landscape",
+    excerpt: "Strategic considerations for management teams preparing for public market transitions.",
+    slug: "/blog/pre-ipo-markets",
+  },
+  {
+    date: "Dec 2025",
     category: "Metals",
     title: "Precious & Industrial Metals: The Digital Gold Rush",
     excerpt: "Tokenized metals markets are enabling real-time trading and fractional ownership of gold, silver, and beyond.",
@@ -68,20 +82,6 @@ const articles = [
     title: "Rare Earth Minerals: Securing Critical Supply Chains on Chain",
     excerpt: "Blockchain-powered rare earth investments are addressing supply chain risks in defense and clean energy sectors.",
     slug: "/blog/rare-earth-tokenization",
-  },
-  {
-    date: "Nov 2025",
-    category: "Real Estate",
-    title: "Real Estate Tokenization: From Bricks to Blocks",
-    excerpt: "Fractional real estate ownership is breaking barriers, enabling global investors to access premium property markets.",
-    slug: "/blog/real-estate-tokenization",
-  },
-  {
-    date: "Nov 2025",
-    category: "Sovereign Wealth",
-    title: "Sovereign Wealth Funds & Tokenization: A Strategic Alliance",
-    excerpt: "How sovereign wealth funds are leveraging tokenized assets to diversify portfolios and enhance transparency.",
-    slug: "/blog/sovereign-wealth-tokenization",
   },
 ];
 
