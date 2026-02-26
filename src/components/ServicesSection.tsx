@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { TrendingUp, Users, Shield, Cpu, BarChart3, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
+import AnimatedImage from "./AnimatedImage";
 import dataCenterImg from "@/assets/data-center.jpeg";
 
 const services = [
@@ -78,10 +79,10 @@ const ServicesSection = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="relative mb-16 max-w-4xl mx-auto rounded-2xl overflow-hidden"
         >
-          <img
+          <AnimatedImage
             src={dataCenterImg}
             alt="Data center infrastructure"
-            className="w-full h-[260px] md:h-[380px] object-cover grayscale brightness-110"
+            className="w-full h-[260px] md:h-[380px] grayscale brightness-110"
           />
           <div className="absolute inset-0 animated-gradient-datacenter-bg" />
           <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
