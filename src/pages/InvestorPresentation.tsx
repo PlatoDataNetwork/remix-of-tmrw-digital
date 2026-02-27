@@ -358,6 +358,7 @@ const InvestorPresentation = () => {
             ))}
           </div>
 
+          {/* Operations Team - hidden for now, kept for future use
           <div className="mt-16 mb-12">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Operations</p>
             <h2 className="text-2xl md:text-4xl font-light text-foreground mb-4">Operations Team</h2>
@@ -373,6 +374,7 @@ const InvestorPresentation = () => {
               </div>
             ))}
           </div>
+          */}
         </div>
       </section>
 
