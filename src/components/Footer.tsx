@@ -51,6 +51,7 @@ const Footer = () => {
               </a>
             </div>
             <p className="text-lg text-muted-foreground font-light mt-4 leading-relaxed">
+              <a href="mailto:bf@amplifix.net" className="hover:text-foreground transition-colors">bf@amplifix.net</a><br />
               300-10991 Shellbridge Way<br />
               Richmond, BC V6X 3C6
             </p>
