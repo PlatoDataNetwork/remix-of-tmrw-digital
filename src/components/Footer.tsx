@@ -80,12 +80,11 @@ const Footer = () => {
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Connect</p>
             <div className="space-y-3">
               {[
-                { label: "Contact", href: "#contact" },
+              { label: "Contact", href: "#contact" },
                 { label: "LinkedIn", href: "#" },
                 { label: "Twitter / X", href: "#" },
                 { label: "Telegram", href: "#" },
                 { label: "Discord", href: "#" },
-                { label: "Email", href: "#" },
               ].map((link) => (
                 <a
                   key={link.label}
@@ -100,7 +99,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} The Tomorrow Company. All rights reserved.
+            © 2026 Tomorrow Digital Inc. All Rights Reserved.
           </p>
           <div className="flex gap-6">
             <Link to="/legal#privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
