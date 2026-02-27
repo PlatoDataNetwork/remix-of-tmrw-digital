@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { TrendingUp, Globe, Cpu, Coins, BarChart3, Users, Layers, Zap, Target, Building2, Leaf, Lock, Shield, Briefcase } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -410,12 +410,12 @@ const InvestorPresentation = () => {
           <p className="text-base text-muted-foreground mb-10 font-light">
             Be part of building the infrastructure for tomorrow's decentralized, intelligent internet.
           </p>
-          <a
-            href="/#contact"
+          <Link
+            to="/#contact"
             className="inline-flex h-12 px-8 items-center justify-center rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
           >
             Contact Us
-          </a>
+          </Link>
         </div>
       </section>
 

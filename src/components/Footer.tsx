@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import platoIcon from "@/assets/plato-icon.png";
 
 const Footer = () => {
@@ -6,7 +7,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-10 mb-16">
           <div className="md:col-span-2">
-            <a href="/" className="flex items-center gap-2 mb-2">
+            <Link to="/" className="flex items-center gap-2 mb-2">
               <div
                 className="h-8 w-8 animated-gradient-icon-bright"
                 style={{
@@ -24,7 +25,7 @@ const Footer = () => {
               <span className="text-lg font-bold tracking-tight text-foreground">
                 The Tomorrow Company
               </span>
-            </a>
+            </Link>
             <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-sm">
               A diversified Web3 infrastructure and digital asset holding company building at the intersection of AI, blockchain, and capital markets. We architect secure protocols and tokenized asset frameworks for institutions navigating the next era of finance.
             </p>
@@ -49,14 +50,29 @@ const Footer = () => {
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Navigation</p>
             <div className="space-y-3">
-              {["About", "Services", "RWAs", "News"].map((link) => (
-                <a
-                  key={link}
-                  href={link === "RWAs" ? "/rwas" : `#${link.toLowerCase()}`}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {link}
-                </a>
+              {[
+                { label: "About", href: "/#about" },
+                { label: "Services", href: "/#services" },
+                { label: "RWAs", href: "/rwas" },
+                { label: "News", href: "/#news" },
+              ].map((link) => (
+                link.href.startsWith("/#") ? (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                )
               ))}
             </div>
           </div>
@@ -87,8 +103,8 @@ const Footer = () => {
             © {new Date().getFullYear()} The Tomorrow Company. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="/legal#privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
-            <a href="/legal#terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a>
+            <Link to="/legal#privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link to="/legal#terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
