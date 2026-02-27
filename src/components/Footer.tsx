@@ -50,15 +50,15 @@ const Footer = () => {
                 <Mail size={20} />
               </a>
             </div>
-            <p className="text-sm text-muted-foreground font-light mt-4 leading-relaxed">
+            <p className="text-lg text-muted-foreground font-light mt-4 leading-relaxed">
               300-10991 Shellbridge Way<br />
               Richmond, BC V6X 3C6
             </p>
             <div className="mt-4 inline-flex items-center gap-2.5 px-4 py-3 rounded-xl border border-border">
               <span className="h-2.5 w-2.5 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-sm font-light text-foreground">AI Systems Online</span>
+              <span className="text-lg font-light text-foreground">AI Systems Online</span>
             </div>
-            <p className="text-sm text-muted-foreground font-light mt-6 flex items-center gap-1.5">
+            <p className="text-lg text-muted-foreground font-light mt-6 flex items-center gap-1.5">
               Made with
               <span
                 className="inline-block h-5 w-5 animated-gradient-icon-bright"
@@ -77,7 +77,7 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Navigation</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Navigation</p>
             <div className="space-y-3">
               {[
                 { label: "About", href: "/#about" },
@@ -89,7 +89,7 @@ const Footer = () => {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </a>
@@ -97,7 +97,7 @@ const Footer = () => {
                   <Link
                     key={link.label}
                     to={link.href}
-                    className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -106,7 +106,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Connect</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Connect</p>
             <div className="space-y-3">
               {[
               { label: "Contact", href: "#contact" },
@@ -118,7 +118,7 @@ const Footer = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link.label}
                 </a>
@@ -127,12 +127,12 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             © 2026 Tomorrow Digital Inc. All Rights Reserved.
           </p>
           <div className="flex gap-6">
-            <Link to="/legal#privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
-            <Link to="/legal#terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
+            <Link to="/legal#privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link to="/legal#terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
