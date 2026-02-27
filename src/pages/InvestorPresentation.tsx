@@ -178,7 +178,7 @@ const InvestorPresentation = () => {
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Strategy</p>
           <h2 className="text-2xl md:text-4xl font-light text-foreground mb-4">Capital Market Strategy</h2>
           <p className="text-base text-muted-foreground max-w-3xl mx-auto font-light">We are in the process of listing on the Canadian public market via a Reverse Takeover in Q2 / 2026.</p>
-          <p className="text-base text-muted-foreground max-w-3xl mx-auto font-light mb-10">Our plan is to cross list one year after listing.</p>
+          <p className="text-base text-muted-foreground max-w-3xl mx-auto font-light mb-10">This positions Tomorrow Digital for accelerated growth and global investor access from day one.</p>
           <div className="animated-gradient-capital-bg rounded-2xl overflow-hidden max-w-3xl mx-auto">
             <img src={lotusFlowerImg} alt="Colorful lotus flower" className="w-full h-auto object-cover" />
           </div>
