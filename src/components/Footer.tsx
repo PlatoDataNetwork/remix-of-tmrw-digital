@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Twitter, Linkedin, ExternalLink, Mail } from "lucide-react";
+import { Twitter, Linkedin, ExternalLink, Mail, Send, MessageCircle } from "lucide-react";
 import platoIcon from "@/assets/plato-icon.png";
 
 const Footer = () => {
@@ -33,6 +33,12 @@ const Footer = () => {
               </a>
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="LinkedIn">
                 <Linkedin size={20} />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Telegram">
+                <Send size={20} />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Discord">
+                <MessageCircle size={20} />
               </a>
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Website">
                 <ExternalLink size={20} />
