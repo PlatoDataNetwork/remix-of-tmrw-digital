@@ -23,7 +23,7 @@ const Footer = () => {
                   opacity: 1,
                 }}
               />
-              <span className="text-lg font-bold tracking-tight text-foreground">
+              <span className="text-lg lg:text-xl font-bold tracking-tight text-foreground">
                 The Tomorrow Company
               </span>
             </Link>
