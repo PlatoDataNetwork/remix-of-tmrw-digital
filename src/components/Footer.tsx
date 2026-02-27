@@ -50,7 +50,7 @@ const Footer = () => {
                 <Mail size={20} />
               </a>
             </div>
-            <p className="text-xs text-muted-foreground font-light mt-4 leading-relaxed">
+            <p className="text-sm text-muted-foreground font-light mt-4 leading-relaxed">
               300-10991 Shellbridge Way<br />
               Richmond, BC V6X 3C6
             </p>
