@@ -50,6 +50,10 @@ const Footer = () => {
                 <Mail size={20} />
               </a>
             </div>
+            <p className="text-xs text-muted-foreground font-light mt-4 leading-relaxed">
+              300-10991 Shellbridge Way<br />
+              Richmond, BC V6X 3C6
+            </p>
             <p className="text-sm text-muted-foreground font-light mt-6 flex items-center gap-1.5">
               Made with
               <span
