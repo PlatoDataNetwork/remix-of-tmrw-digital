@@ -133,9 +133,12 @@ const Footer = () => {
           <p className="text-lg text-muted-foreground">
             © 2026 Tomorrow Digital Inc. All Rights Reserved.
           </p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-6">
             <Link to="/legal#privacy" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link to="/legal#compliance" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Compliance</Link>
             <Link to="/legal#terms" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
+            <Link to="/legal#faq" className="text-lg text-muted-foreground hover:text-foreground transition-colors">FAQ</Link>
+            <Link to="/legal#data-processing" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Data Processing</Link>
           </div>
         </div>
       </div>

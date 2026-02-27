@@ -89,6 +89,107 @@ const Legal = () => {
             </p>
           </div>
         </section>
+
+        {/* Compliance */}
+        <section id="compliance" className="mb-20">
+          <h2 className="text-2xl font-light text-foreground mb-6">Compliance</h2>
+          <div className="space-y-4 text-sm text-muted-foreground font-light leading-relaxed">
+            <p><strong className="text-foreground font-medium">Effective Date:</strong> February 2025</p>
+            <p>
+              The Tomorrow Company is committed to maintaining the highest standards of regulatory compliance across all jurisdictions in which we operate. Our compliance framework is designed to meet applicable legal requirements and industry best practices.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">1. Regulatory Framework</h3>
+            <p>
+              We adhere to all applicable securities regulations, anti-money laundering (AML) laws, and know-your-customer (KYC) requirements in connection with our digital asset and tokenization services. Our operations are structured to comply with federal and provincial regulations in Canada and relevant international standards.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">2. Anti-Money Laundering (AML)</h3>
+            <p>
+              We maintain robust AML policies and procedures designed to detect, prevent, and report suspicious activity. All team members receive regular training on AML obligations and emerging risks in the digital asset space.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">3. Know Your Customer (KYC)</h3>
+            <p>
+              Prior to engaging in certain services, clients may be required to complete identity verification procedures. We use industry-standard identity verification tools and maintain records in accordance with applicable retention requirements.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">4. Sanctions Compliance</h3>
+            <p>
+              We screen all counterparties against applicable sanctions lists and do not engage in transactions with sanctioned individuals, entities, or jurisdictions.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">5. Reporting & Transparency</h3>
+            <p>
+              We are committed to transparency in our operations and will cooperate with regulatory authorities as required. Any compliance concerns can be reported to compliance@thetomorrowcompany.com.
+            </p>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section id="faq" className="mb-20">
+          <h2 className="text-2xl font-light text-foreground mb-6">Frequently Asked Questions</h2>
+          <div className="space-y-4 text-sm text-muted-foreground font-light leading-relaxed">
+            <h3 className="text-foreground font-medium text-base pt-4">What is The Tomorrow Company?</h3>
+            <p>
+              The Tomorrow Company is a digital strategy and technology firm specializing in Web3, AI, real-world asset tokenization, and advanced data intelligence solutions for institutional and enterprise clients.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">What are Real-World Assets (RWAs)?</h3>
+            <p>
+              Real-world assets are tangible or traditional financial assets—such as real estate, commodities, energy, infrastructure, and carbon credits—that are tokenized on blockchain networks to enable fractional ownership, enhanced liquidity, and transparent settlement.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">Is this an investment platform?</h3>
+            <p>
+              No. The Tomorrow Company provides advisory, technology, and strategic services. We do not offer investment products or financial advice. Please consult qualified financial professionals for investment decisions.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">How do I contact The Tomorrow Company?</h3>
+            <p>
+              You can reach us via email at bf@amplifix.net or through the contact section on our website.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">Where is The Tomorrow Company based?</h3>
+            <p>
+              Our headquarters are located at 300-10991 Shellbridge Way, Richmond, BC V6X 3C6, Canada.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">Do you operate internationally?</h3>
+            <p>
+              Yes. While headquartered in Canada, we serve clients and partners across multiple jurisdictions, adhering to all applicable local regulations.
+            </p>
+          </div>
+        </section>
+
+        {/* Data Processing */}
+        <section id="data-processing">
+          <h2 className="text-2xl font-light text-foreground mb-6">Data Processing</h2>
+          <div className="space-y-4 text-sm text-muted-foreground font-light leading-relaxed">
+            <p><strong className="text-foreground font-medium">Effective Date:</strong> February 2025</p>
+            <p>
+              This Data Processing Statement outlines how The Tomorrow Company processes personal data in connection with its services and operations. It supplements our Privacy Policy and provides additional detail on our data handling practices.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">1. Data Controller</h3>
+            <p>
+              Tomorrow Digital Inc., operating as The Tomorrow Company, acts as the data controller for personal information collected through our website and services. For inquiries, contact us at info@thetomorrowcompany.com.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">2. Categories of Data Processed</h3>
+            <p>
+              We process the following categories of personal data: identity data (name, email, company), technical data (IP address, browser type, device information), usage data (page views, interactions, session duration), and communication data (messages submitted via contact forms).
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">3. Legal Basis for Processing</h3>
+            <p>
+              We process personal data based on legitimate interest (improving our services and user experience), consent (where explicitly provided for marketing communications), contractual necessity (fulfilling service agreements), and legal obligation (compliance with applicable laws and regulations).
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">4. Data Retention</h3>
+            <p>
+              We retain personal data only for as long as necessary to fulfill the purposes for which it was collected, or as required by applicable law. Contact form submissions are retained for a maximum of 24 months unless a longer retention period is required for legal or business purposes.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">5. International Transfers</h3>
+            <p>
+              Where personal data is transferred outside of Canada, we ensure appropriate safeguards are in place, including standard contractual clauses and adherence to applicable data protection frameworks.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">6. Sub-Processors</h3>
+            <p>
+              We engage third-party service providers to assist with hosting, analytics, and communication services. All sub-processors are contractually bound to process data in accordance with our instructions and applicable data protection laws.
+            </p>
+            <h3 className="text-foreground font-medium text-base pt-4">7. Your Rights</h3>
+            <p>
+              You have the right to access, rectify, erase, restrict processing of, and port your personal data. To exercise any of these rights, contact us at info@thetomorrowcompany.com. We will respond to requests within 30 days.
+            </p>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
