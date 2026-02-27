@@ -180,7 +180,7 @@ const InvestorPresentation = () => {
           <p className="text-base text-muted-foreground max-w-3xl mx-auto font-light">We are in the process of listing on the Canadian public market via a Reverse Takeover in Q2 / 2026.</p>
           <p className="text-base text-muted-foreground max-w-3xl mx-auto font-light mb-10">Our plan is to cross list one year after listing.</p>
           <div className="animated-gradient-capital-bg rounded-2xl overflow-hidden max-w-3xl mx-auto">
-            <img src={stockExchangeImg} alt="Stock exchange trading floor" className="w-full h-auto object-cover" />
+            <img src={lotusFlowerImg} alt="Tomorrow Digital RTO" className="w-full h-auto object-cover" />
           </div>
         </div>
       </section>
