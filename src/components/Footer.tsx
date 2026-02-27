@@ -54,6 +54,10 @@ const Footer = () => {
               300-10991 Shellbridge Way<br />
               Richmond, BC V6X 3C6
             </p>
+            <div className="mt-4 inline-flex items-center gap-2.5 px-4 py-3 rounded-xl border border-border">
+              <span className="h-2.5 w-2.5 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-sm font-light text-foreground">AI Systems Online</span>
+            </div>
             <p className="text-sm text-muted-foreground font-light mt-6 flex items-center gap-1.5">
               Made with
               <span
