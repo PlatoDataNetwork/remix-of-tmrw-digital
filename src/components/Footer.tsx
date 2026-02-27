@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Twitter, Linkedin, ExternalLink, Mail, Send, MessageCircle } from "lucide-react";
+import { Twitter, Linkedin, ExternalLink, Mail, Send } from "lucide-react";
 import platoIcon from "@/assets/plato-icon.png";
 
 const Footer = () => {
@@ -37,8 +37,11 @@ const Footer = () => {
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Telegram">
                 <Send size={20} />
               </a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Reddit">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="14" r="8"/><circle cx="9" cy="13" r="1.25" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1.25" fill="currentColor" stroke="none"/><path d="M9.5 17c1 1 3.5 1 5 0"/><path d="M17.5 8.5l2-3"/><circle cx="20" cy="4.5" r="1.5"/><path d="M12 6V2"/><circle cx="12" cy="14" r="8"/></svg>
+              </a>
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Discord">
-                <MessageCircle size={20} />
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9.09 9a3 3 0 0 1 5.83 0"/><path d="M8.5 17h7"/><path d="M9 9v3a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V9"/><path d="M20.2 7.8l-2.6 12.4a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8L3.8 7.8"/><path d="M7 3l-1.8 4.8"/><path d="M17 3l1.8 4.8"/></svg>
               </a>
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Website">
                 <ExternalLink size={20} />
