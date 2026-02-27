@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Twitter, Linkedin, ExternalLink, Mail } from "lucide-react";
 import platoIcon from "@/assets/plato-icon.png";
 
 const Footer = () => {
@@ -26,9 +27,20 @@ const Footer = () => {
                 The Tomorrow Company
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-sm">
-              A diversified Web3 infrastructure and digital asset holding company building at the intersection of AI, blockchain, and capital markets. We architect secure protocols and tokenized asset frameworks for institutions navigating the next era of finance.
-            </p>
+            <div className="flex items-center gap-4 mt-4">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Twitter">
+                <Twitter size={20} />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="LinkedIn">
+                <Linkedin size={20} />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Website">
+                <ExternalLink size={20} />
+              </a>
+              <a href="mailto:bf@tmrw-digital.com" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Email">
+                <Mail size={20} />
+              </a>
+            </div>
             <p className="text-sm text-muted-foreground font-light mt-6 flex items-center gap-1.5">
               Made with
               <span
