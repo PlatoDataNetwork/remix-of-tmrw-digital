@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { TrendingUp, Shield, Globe, Users, BarChart3, Briefcase } from "lucide-react";
 
 const highlights = [
@@ -91,12 +92,12 @@ const InvestorsSection = () => {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="mt-16 text-center"
         >
-          <a
-            href="/investors"
+          <Link
+            to="/investors"
             className="inline-flex h-12 px-8 items-center justify-center rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
           >
             Request Investor Access
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
