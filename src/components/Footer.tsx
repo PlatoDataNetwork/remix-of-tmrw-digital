@@ -127,12 +127,12 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-lg text-muted-foreground">
             © 2026 Tomorrow Digital Inc. All Rights Reserved.
           </p>
           <div className="flex gap-6">
-            <Link to="/legal#privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
-            <Link to="/legal#terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
+            <Link to="/legal#privacy" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link to="/legal#terms" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
