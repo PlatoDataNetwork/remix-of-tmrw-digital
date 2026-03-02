@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { TrendingUp, Globe, Cpu, Coins, BarChart3, Users, Layers, Zap, Target, Building2, Leaf, Lock, Shield, Briefcase } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import stockExchangeImg from "@/assets/stock-exchange.png";
 import lotusFlowerImg from "@/assets/lotus-flower.jpeg";
 
@@ -421,10 +422,7 @@ const InvestorPresentation = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <div className="border-t border-border py-6 text-center text-xs text-muted-foreground">
-        <p>© {new Date().getFullYear()} The Tomorrow Company. Confidential — For Accredited Investors Only.</p>
-      </div>
+      <Footer />
       </div>
     </div>
   );
