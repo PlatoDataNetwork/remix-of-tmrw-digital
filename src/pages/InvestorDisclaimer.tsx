@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const disclaimerText = `IMPORTANT LEGAL DISCLAIMER — PLEASE READ CAREFULLY
 
@@ -247,6 +248,7 @@ const InvestorDisclaimer = () => {
           </form>
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 };
