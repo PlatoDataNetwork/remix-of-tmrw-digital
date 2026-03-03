@@ -18,6 +18,8 @@ const RealEstate = lazy(() => import("./pages/rwa/RealEstate"));
 const Commodities = lazy(() => import("./pages/rwa/Commodities"));
 const CarbonCredits = lazy(() => import("./pages/rwa/CarbonCredits"));
 const SovereignWealth = lazy(() => import("./pages/rwa/SovereignWealth"));
+const TaxCredits = lazy(() => import("./pages/rwa/TaxCredits"));
+const UtilitiesRWA = lazy(() => import("./pages/rwa/Utilities"));
 const Web3AIService = lazy(() => import("./pages/services/Web3AI"));
 const RealWorldAssetsService = lazy(() => import("./pages/services/RealWorldAssets"));
 const DataIntelligenceService = lazy(() => import("./pages/services/DataIntelligence"));
@@ -41,6 +43,8 @@ const MetalsTokenization = lazy(() => import("./pages/blog/MetalsTokenization"))
 const RareEarthTokenization = lazy(() => import("./pages/blog/RareEarthTokenization"));
 const RealEstateTokenization = lazy(() => import("./pages/blog/RealEstateTokenization"));
 const SovereignWealthTokenization = lazy(() => import("./pages/blog/SovereignWealthTokenization"));
+const TaxCreditsTokenization = lazy(() => import("./pages/blog/TaxCreditsTokenization"));
+const UtilitiesTokenization = lazy(() => import("./pages/blog/UtilitiesTokenization"));
 const Intel = lazy(() => import("./pages/Intel"));
 const InvestorDisclaimer = lazy(() => import("./pages/InvestorDisclaimer"));
 const InvestorPresentation = lazy(() => import("./pages/InvestorPresentation"));
@@ -70,6 +74,8 @@ const App = () => (
             <Route path="/rwas/commodities" element={<Commodities />} />
             <Route path="/rwas/carbon-credits" element={<CarbonCredits />} />
             <Route path="/rwas/sovereign-wealth" element={<SovereignWealth />} />
+            <Route path="/rwas/tax-credits" element={<TaxCredits />} />
+            <Route path="/rwas/utilities" element={<UtilitiesRWA />} />
             <Route path="/services/web3-ai" element={<Web3AIService />} />
             <Route path="/services/real-world-assets" element={<RealWorldAssetsService />} />
             <Route path="/services/data-intelligence" element={<DataIntelligenceService />} />
@@ -93,6 +99,8 @@ const App = () => (
             <Route path="/blog/rare-earth-tokenization" element={<RareEarthTokenization />} />
             <Route path="/blog/real-estate-tokenization" element={<RealEstateTokenization />} />
             <Route path="/blog/sovereign-wealth-tokenization" element={<SovereignWealthTokenization />} />
+            <Route path="/blog/tax-credits-tokenization" element={<TaxCreditsTokenization />} />
+            <Route path="/blog/utilities-tokenization" element={<UtilitiesTokenization />} />
             <Route path="/intel" element={<Intel />} />
             <Route path="/legal" element={<Legal />} />
             <Route path="*" element={<NotFound />} />

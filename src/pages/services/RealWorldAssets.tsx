@@ -24,7 +24,7 @@ const data: ServicePageData = {
   stats: [
     { label: "Assets Tokenized", value: "$2B+" },
     { label: "Countries", value: "160+" },
-    { label: "Asset Classes", value: "8" },
+    { label: "Asset Classes", value: "10" },
     { label: "Investors Served", value: "10K+" },
   ],
 };
