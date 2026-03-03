@@ -2,10 +2,11 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Flame, Mountain, Gem, Building2, Home, BarChart3, Leaf, Landmark, Receipt, Plug } from "lucide-react";
+import { Flame, Mountain, Gem, Building2, Home, BarChart3, Leaf, Landmark, Receipt, Plug, Crown, Coins } from "lucide-react";
 
 const sectors = [
   { icon: Leaf, title: "Carbon Credits", description: "Tokenized verified carbon credits and environmental assets bringing transparency and liquidity to global climate finance." },
+  { icon: Crown, title: "Collectables", description: "Tokenized fine art, luxury watches, rare wines, and vintage cars unlocking fractional ownership in alternative asset markets." },
   { icon: BarChart3, title: "Commodities", description: "Agricultural, energy, and material commodities structured for institutional and retail participation." },
   { icon: Flame, title: "Energy", description: "Oil, gas, renewables, and next-generation energy infrastructure investments driving the global transition." },
   { icon: Building2, title: "Infrastructure", description: "Large-scale public and private infrastructure projects delivering long-term, stable returns." },
@@ -13,6 +14,7 @@ const sectors = [
   { icon: Gem, title: "Rare Earth Minerals", description: "Critical mineral resources essential for advanced technology, defense, and clean energy applications." },
   { icon: Home, title: "Real Estate", description: "Commercial and residential real estate assets tokenized for broader investor accessibility." },
   { icon: Landmark, title: "Sovereign Wealth", description: "Strategic partnerships with sovereign wealth funds and government-backed investment vehicles." },
+  { icon: Coins, title: "Stablecoins", description: "Institutional-grade stablecoin infrastructure powering settlement, cross-border payments, and yield generation for tokenized assets." },
   { icon: Receipt, title: "Tax Credits", description: "Tokenized federal and state tax credits unlocking liquidity in renewable energy, housing, and R&D incentive programs." },
   { icon: Plug, title: "Utilities", description: "Tokenized utility infrastructure assets from power generation and water systems to telecommunications networks." },
 ];
