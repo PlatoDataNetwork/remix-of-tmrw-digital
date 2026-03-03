@@ -50,10 +50,10 @@ const Footer = () => {
                 <Mail size={20} />
               </a>
             </div>
-            <p className="text-lg text-muted-foreground font-light mt-4 leading-relaxed">
+            <p className="text-lg text-muted-foreground mt-4">
               <a href="mailto:bf@tmrw-digital.com" className="hover:text-foreground transition-colors">bf@tmrw-digital.com</a>
             </p>
-            <p className="text-lg text-muted-foreground font-light mt-2 leading-relaxed">
+            <p className="text-lg text-muted-foreground mt-2">
               300-10991 Shellbridge Way<br />
               Richmond, BC V6X 3C6
             </p>
