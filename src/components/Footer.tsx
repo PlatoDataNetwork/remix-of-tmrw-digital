@@ -80,13 +80,14 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Navigation</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Company</p>
             <div className="space-y-3">
               {[
                 { label: "About", href: "/#about" },
-                { label: "Services", href: "/#services" },
-                { label: "RWAs", href: "/rwas" },
-                { label: "News", href: "/#news" },
+                { label: "Mission", href: "/#vision" },
+                { label: "Methodology", href: "/#services" },
+                { label: "Showcase", href: "/rwas" },
+                { label: "Contact", href: "#contact" },
               ].map((link) => (
                 link.href.startsWith("/#") ? (
                   <a
@@ -96,7 +97,7 @@ const Footer = () => {
                   >
                     {link.label}
                   </a>
-                ) : (
+                ) : link.href.startsWith("/") ? (
                   <Link
                     key={link.label}
                     to={link.href}
@@ -104,6 +105,14 @@ const Footer = () => {
                   >
                     {link.label}
                   </Link>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </a>
                 )
               ))}
             </div>
