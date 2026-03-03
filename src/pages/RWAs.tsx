@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Flame, Mountain, Gem, Building2, Home, BarChart3, Leaf, Landmark } from "lucide-react";
+import { Flame, Mountain, Gem, Building2, Home, BarChart3, Leaf, Landmark, Receipt, Plug } from "lucide-react";
 
 const sectors = [
   { icon: Leaf, title: "Carbon Credits", description: "Tokenized verified carbon credits and environmental assets bringing transparency and liquidity to global climate finance." },
@@ -13,6 +13,8 @@ const sectors = [
   { icon: Gem, title: "Rare Earth Minerals", description: "Critical mineral resources essential for advanced technology, defense, and clean energy applications." },
   { icon: Home, title: "Real Estate", description: "Commercial and residential real estate assets tokenized for broader investor accessibility." },
   { icon: Landmark, title: "Sovereign Wealth", description: "Strategic partnerships with sovereign wealth funds and government-backed investment vehicles." },
+  { icon: Receipt, title: "Tax Credits", description: "Tokenized federal and state tax credits unlocking liquidity in renewable energy, housing, and R&D incentive programs." },
+  { icon: Plug, title: "Utilities", description: "Tokenized utility infrastructure assets from power generation and water systems to telecommunications networks." },
 ];
 
 const RWAs = () => {
