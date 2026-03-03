@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 
 // Lazy load secondary pages
 const RWAs = lazy(() => import("./pages/RWAs"));
+const Collectables = lazy(() => import("./pages/rwa/Collectables"));
 const Energy = lazy(() => import("./pages/rwa/Energy"));
 const Metals = lazy(() => import("./pages/rwa/Metals"));
 const RareEarth = lazy(() => import("./pages/rwa/RareEarth"));
@@ -19,6 +20,7 @@ const Commodities = lazy(() => import("./pages/rwa/Commodities"));
 const CarbonCredits = lazy(() => import("./pages/rwa/CarbonCredits"));
 const SovereignWealth = lazy(() => import("./pages/rwa/SovereignWealth"));
 const TaxCredits = lazy(() => import("./pages/rwa/TaxCredits"));
+const Stablecoins = lazy(() => import("./pages/rwa/Stablecoins"));
 const UtilitiesRWA = lazy(() => import("./pages/rwa/Utilities"));
 const Web3AIService = lazy(() => import("./pages/services/Web3AI"));
 const RealWorldAssetsService = lazy(() => import("./pages/services/RealWorldAssets"));
@@ -44,6 +46,8 @@ const RareEarthTokenization = lazy(() => import("./pages/blog/RareEarthTokenizat
 const RealEstateTokenization = lazy(() => import("./pages/blog/RealEstateTokenization"));
 const SovereignWealthTokenization = lazy(() => import("./pages/blog/SovereignWealthTokenization"));
 const TaxCreditsTokenization = lazy(() => import("./pages/blog/TaxCreditsTokenization"));
+const CollectablesTokenization = lazy(() => import("./pages/blog/CollectablesTokenization"));
+const StablecoinsTokenization = lazy(() => import("./pages/blog/StablecoinsTokenization"));
 const UtilitiesTokenization = lazy(() => import("./pages/blog/UtilitiesTokenization"));
 const Intel = lazy(() => import("./pages/Intel"));
 const InvestorDisclaimer = lazy(() => import("./pages/InvestorDisclaimer"));
@@ -66,6 +70,7 @@ const App = () => (
             <Route path="/investors" element={<InvestorDisclaimer />} />
             <Route path="/investors/presentation" element={<InvestorPresentation />} />
             <Route path="/rwas" element={<RWAs />} />
+            <Route path="/rwas/collectables" element={<Collectables />} />
             <Route path="/rwas/energy" element={<Energy />} />
             <Route path="/rwas/metals" element={<Metals />} />
             <Route path="/rwas/rare-earth" element={<RareEarth />} />
@@ -74,6 +79,7 @@ const App = () => (
             <Route path="/rwas/commodities" element={<Commodities />} />
             <Route path="/rwas/carbon-credits" element={<CarbonCredits />} />
             <Route path="/rwas/sovereign-wealth" element={<SovereignWealth />} />
+            <Route path="/rwas/stablecoins" element={<Stablecoins />} />
             <Route path="/rwas/tax-credits" element={<TaxCredits />} />
             <Route path="/rwas/utilities" element={<UtilitiesRWA />} />
             <Route path="/services/web3-ai" element={<Web3AIService />} />
@@ -100,6 +106,8 @@ const App = () => (
             <Route path="/blog/real-estate-tokenization" element={<RealEstateTokenization />} />
             <Route path="/blog/sovereign-wealth-tokenization" element={<SovereignWealthTokenization />} />
             <Route path="/blog/tax-credits-tokenization" element={<TaxCreditsTokenization />} />
+            <Route path="/blog/collectables-tokenization" element={<CollectablesTokenization />} />
+            <Route path="/blog/stablecoins-tokenization" element={<StablecoinsTokenization />} />
             <Route path="/blog/utilities-tokenization" element={<UtilitiesTokenization />} />
             <Route path="/intel" element={<Intel />} />
             <Route path="/legal" element={<Legal />} />
