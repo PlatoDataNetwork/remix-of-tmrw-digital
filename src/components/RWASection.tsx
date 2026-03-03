@@ -40,7 +40,7 @@ const RWASection = () => {
           <h2 className="text-3xl md:text-5xl font-light text-foreground mb-6">
             The Real World of Asset Tokenization.
             <br />
-            Welcome to the Next Big Thing.
+            Tomorrow's Next Big Thing.
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-light">
             Bridging traditional assets with modern Web3AI markets through tokenization,
