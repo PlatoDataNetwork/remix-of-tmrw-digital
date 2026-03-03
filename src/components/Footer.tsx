@@ -51,7 +51,7 @@ const Footer = () => {
               </a>
             </div>
             <p className="text-lg text-muted-foreground font-light mt-4 leading-relaxed">
-              e: <a href="mailto:bf@amplifix.net" className="hover:text-foreground transition-colors">bf@amplifix.net</a>
+              <a href="mailto:bf@tmrw-digital.com" className="hover:text-foreground transition-colors">bf@tmrw-digital.com</a>
             </p>
             <p className="text-lg text-muted-foreground font-light mt-2 leading-relaxed">
               300-10991 Shellbridge Way<br />
