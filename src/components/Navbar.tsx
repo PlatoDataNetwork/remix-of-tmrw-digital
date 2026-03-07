@@ -89,6 +89,7 @@ const Navbar = () => {
           {/* Right side */}
           <div className="flex items-center gap-3">
             <ThemeToggle />
+            <div className="gtranslate_wrapper" />
             <Link
               to="/investors"
               className="hidden md:inline-flex h-9 px-5 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium hover:opacity-90 transition-opacity"
