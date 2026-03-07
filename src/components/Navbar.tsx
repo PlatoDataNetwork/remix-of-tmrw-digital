@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -18,6 +18,29 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const gtranslateRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const slot = gtranslateRef.current;
+    const widget = document.getElementById("gtranslate-widget");
+    if (slot && widget) {
+      // Move the GTranslate widget into the navbar
+      widget.style.position = "static";
+      widget.style.top = "auto";
+      widget.style.left = "auto";
+      widget.style.zIndex = "auto";
+      slot.appendChild(widget);
+    }
+    return () => {
+      // Move it back to body on unmount
+      if (widget && document.body) {
+        widget.style.position = "fixed";
+        widget.style.top = "-9999px";
+        widget.style.left = "-9999px";
+        document.body.appendChild(widget);
+      }
+    };
+  }, []);
 
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("/#")) {
@@ -89,7 +112,7 @@ const Navbar = () => {
           {/* Right side */}
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <div className="gtranslate_wrapper" />
+            <div ref={gtranslateRef} className="gtranslate-navbar-slot" />
             <Link
               to="/investors"
               className="hidden md:inline-flex h-9 px-5 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium hover:opacity-90 transition-opacity"
