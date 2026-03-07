@@ -18,6 +18,29 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const gtranslateRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const slot = gtranslateRef.current;
+    const widget = document.getElementById("gtranslate-widget");
+    if (slot && widget) {
+      // Move the GTranslate widget into the navbar
+      widget.style.position = "static";
+      widget.style.top = "auto";
+      widget.style.left = "auto";
+      widget.style.zIndex = "auto";
+      slot.appendChild(widget);
+    }
+    return () => {
+      // Move it back to body on unmount
+      if (widget && document.body) {
+        widget.style.position = "fixed";
+        widget.style.top = "-9999px";
+        widget.style.left = "-9999px";
+        document.body.appendChild(widget);
+      }
+    };
+  }, []);
 
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("/#")) {
