@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import ChatNavbarIcon from "./ChatNavbarIcon";
+import { clearGoogleTranslateCookies } from "./LanguageHandler";
 import platoIcon from "@/assets/plato-icon.png";
 
 const navLinks = [
@@ -25,15 +26,26 @@ const Navbar = () => {
     const slot = gtranslateRef.current;
     const widget = document.getElementById("gtranslate-widget");
     if (slot && widget) {
-      // Move the GTranslate widget into the navbar
       widget.style.position = "static";
       widget.style.top = "auto";
       widget.style.left = "auto";
       widget.style.zIndex = "auto";
       slot.appendChild(widget);
     }
+
+    // Add listener to clean cookies before language switch
+    const handleLangChange = () => {
+      clearGoogleTranslateCookies();
+    };
+    const select = widget?.querySelector("select");
+    if (select) {
+      select.addEventListener("mousedown", handleLangChange);
+    }
+
     return () => {
-      // Move it back to body on unmount
+      if (select) {
+        select.removeEventListener("mousedown", handleLangChange);
+      }
       if (widget && document.body) {
         widget.style.position = "fixed";
         widget.style.top = "-9999px";
