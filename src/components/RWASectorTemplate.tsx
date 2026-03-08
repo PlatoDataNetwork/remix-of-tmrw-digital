@@ -82,6 +82,25 @@ const RWASectorTemplate = ({ data }: { data: SectorPageData }) => {
         </div>
       </section>
 
+      {/* Stats Bar */}
+      <section className="py-10 lg:py-14 bg-secondary/30 border-y border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            {data.stats.map((stat, i) => (
+              <motion.div
+                key={i}
+                {...fadeUp}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="text-center"
+              >
+                <p className="text-2xl md:text-3xl font-light text-foreground mb-1">{stat.value}</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Overview */}
       <section className="pt-10 pb-14 lg:pt-14 lg:pb-20 bg-background relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
