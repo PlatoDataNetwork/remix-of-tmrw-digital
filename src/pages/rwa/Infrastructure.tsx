@@ -9,7 +9,7 @@ const data: SectorPageData = {
   overview: "Infrastructure assets generate predictable, inflation-linked cash flows over decades, making them highly attractive to investors seeking stability. However, the scale of these investments has traditionally excluded all but the largest institutions. Tokenization breaks down billion-dollar infrastructure projects into accessible digital units, enabling retail and mid-market investors to participate in toll roads, airports, water systems, and digital infrastructure alongside institutional capital.",
   stats: [
     { value: "$130T", label: "Global Infrastructure" },
-    { value: "7.2%", label: "Avg. Annual Return" },
+    { value: "$94T", label: "Needed by 2040" },
     { value: "$15T", label: "Investment Gap by 2040" },
     { value: "25yr+", label: "Typical Asset Life" },
   ],
