@@ -160,8 +160,8 @@ const ChatWidget = () => {
   };
 
   const panelClasses = maximized
-    ? "fixed top-16 lg:top-20 right-0 z-[55] w-full sm:w-[480px] rounded-none sm:rounded-bl-2xl border-l border-b border-white/10 bg-[hsl(220,20%,6%)] backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden"
-    : "fixed bottom-6 right-6 z-[60] w-[360px] sm:w-[400px] h-[520px] rounded-2xl border border-white/10 bg-[hsl(220,20%,6%)] backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden";
+    ? "fixed top-16 lg:top-20 right-0 z-[55] w-full sm:w-[480px] rounded-none sm:rounded-bl-2xl border-l border-b border-white/10 bg-[hsl(220,20%,6%,0.85)] backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden"
+    : "fixed bottom-6 right-6 z-[60] w-[360px] sm:w-[400px] h-[520px] rounded-2xl border border-white/10 bg-[hsl(220,20%,6%,0.85)] backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden";
 
   const panelHeight = maximized ? "calc(100vh - 4rem)" : undefined;
   const panelHeightLg = maximized ? "calc(100vh - 5rem)" : undefined;
@@ -214,7 +214,7 @@ const ChatWidget = () => {
             )}
 
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-[hsl(220,20%,8%)]">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-[hsl(220,20%,8%,0.7)]">
               <div className="flex items-center gap-3">
                 <div
                   className="h-8 w-8 animated-gradient-icon-bright"
@@ -263,7 +263,7 @@ const ChatWidget = () => {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 scrollbar-thin bg-[hsl(220,20%,6%)]">
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 scrollbar-thin bg-transparent">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -300,7 +300,7 @@ const ChatWidget = () => {
             </div>
 
             {/* Input */}
-            <div className="px-4 py-3 border-t border-white/10 bg-[hsl(220,20%,8%)]">
+            <div className="px-4 py-3 border-t border-white/10 bg-[hsl(220,20%,8%,0.7)]">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
