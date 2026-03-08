@@ -210,7 +210,7 @@ const ChatWidget = ({ navbarMode = false }: { navbarMode?: boolean }) => {
               exit={{ scale: 0, opacity: 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
               onClick={() => setOpen(true)}
-              className="fixed bottom-6 right-6 z-[60] h-14 w-14 rounded-full shadow-lg shadow-primary/30 flex items-center justify-center hover:scale-105 transition-transform"
+              className="fixed bottom-6 right-6 z-[60] h-14 w-14 flex items-center justify-center hover:scale-105 transition-transform"
               aria-label="Open chat"
             >
               <div
