@@ -56,7 +56,7 @@ const ChatWidget = () => {
       {/* Chat Toggle Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="relative p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+        className="relative h-9 w-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
         aria-label="Open chat"
       >
         <AnimatePresence mode="wait">
