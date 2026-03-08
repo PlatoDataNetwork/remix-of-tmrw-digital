@@ -1,11 +1,11 @@
-import { Moon, Sun, Sparkles } from "lucide-react";
+import { Moon, Sun, Palette } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 type Theme = "light" | "dark" | "colorful";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState<Theme>("colorful");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
     const root = document.documentElement;
@@ -18,7 +18,7 @@ const ThemeToggle = () => {
   }, [theme]);
 
   useEffect(() => {
-    document.documentElement.classList.add("colorful");
+    document.documentElement.classList.add("dark");
   }, []);
 
   const cycleTheme = () => {
@@ -29,7 +29,7 @@ const ThemeToggle = () => {
     });
   };
 
-  const icon = theme === "dark" ? Moon : theme === "light" ? Sun : Sparkles;
+  const icon = theme === "dark" ? Moon : theme === "light" ? Sun : Palette;
   const Icon = icon;
 
   return (
