@@ -214,7 +214,7 @@ const ChatWidget = () => {
             )}
 
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-[hsl(220,20%,8%)]">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-[hsl(220,20%,8%,0.7)]">
               <div className="flex items-center gap-3">
                 <div
                   className="h-8 w-8 animated-gradient-icon-bright"
@@ -263,7 +263,7 @@ const ChatWidget = () => {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 scrollbar-thin bg-[hsl(220,20%,6%)]">
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 scrollbar-thin bg-transparent">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -300,7 +300,7 @@ const ChatWidget = () => {
             </div>
 
             {/* Input */}
-            <div className="px-4 py-3 border-t border-white/10 bg-[hsl(220,20%,8%)]">
+            <div className="px-4 py-3 border-t border-white/10 bg-[hsl(220,20%,8%,0.7)]">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
