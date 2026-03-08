@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import LoadingScreen from "./components/LoadingScreen";
 import ChatWidget from "./components/ChatWidget";
+import { ChatProvider } from "./components/ChatContext";
 import Index from "./pages/Index";
 
 // Lazy load secondary pages
@@ -64,58 +65,60 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop />
-        <Suspense fallback={<LoadingScreen />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/investors" element={<InvestorDisclaimer />} />
-            <Route path="/investors/presentation" element={<InvestorPresentation />} />
-            <Route path="/rwas" element={<RWAs />} />
-            <Route path="/rwas/collectables" element={<Collectables />} />
-            <Route path="/rwas/energy" element={<Energy />} />
-            <Route path="/rwas/metals" element={<Metals />} />
-            <Route path="/rwas/rare-earth" element={<RareEarth />} />
-            <Route path="/rwas/infrastructure" element={<Infrastructure />} />
-            <Route path="/rwas/real-estate" element={<RealEstate />} />
-            <Route path="/rwas/commodities" element={<Commodities />} />
-            <Route path="/rwas/carbon-credits" element={<CarbonCredits />} />
-            <Route path="/rwas/sovereign-wealth" element={<SovereignWealth />} />
-            <Route path="/rwas/stablecoins" element={<Stablecoins />} />
-            <Route path="/rwas/tax-credits" element={<TaxCredits />} />
-            <Route path="/rwas/utilities" element={<UtilitiesRWA />} />
-            <Route path="/services/web3-ai" element={<Web3AIService />} />
-            <Route path="/services/real-world-assets" element={<RealWorldAssetsService />} />
-            <Route path="/services/data-intelligence" element={<DataIntelligenceService />} />
-            <Route path="/services/ai-analytics" element={<AIAnalyticsService />} />
-            <Route path="/services/cyber-defense" element={<CyberDefenseService />} />
-            <Route path="/services/digital-strategy" element={<DigitalStrategyService />} />
-            <Route path="/web3ai/ai-automation" element={<AIAutomation />} />
-            <Route path="/web3ai/token-ecosystem" element={<TokenEcosystem />} />
-            <Route path="/web3ai/cross-border-settlements" element={<CrossBorderSettlements />} />
-            <Route path="/web3ai/rwa-infrastructure" element={<RWAInfrastructure />} />
-            <Route path="/web3ai/vertical-intelligence" element={<VerticalIntelligence />} />
-            <Route path="/web3ai/community-driven" element={<CommunityDriven />} />
-            <Route path="/blog/rwa-tokenization" element={<RWATokenization />} />
-            <Route path="/blog/ai-investor-engagement" element={<AIInvestorEngagement />} />
-            <Route path="/blog/pre-ipo-markets" element={<PreIPOMarkets />} />
-            <Route path="/blog/carbon-credits-tokenization" element={<CarbonCreditsTokenization />} />
-            <Route path="/blog/commodities-tokenization" element={<CommoditiesTokenization />} />
-            <Route path="/blog/energy-tokenization" element={<EnergyTokenization />} />
-            <Route path="/blog/infrastructure-tokenization" element={<InfrastructureTokenization />} />
-            <Route path="/blog/metals-tokenization" element={<MetalsTokenization />} />
-            <Route path="/blog/rare-earth-tokenization" element={<RareEarthTokenization />} />
-            <Route path="/blog/real-estate-tokenization" element={<RealEstateTokenization />} />
-            <Route path="/blog/sovereign-wealth-tokenization" element={<SovereignWealthTokenization />} />
-            <Route path="/blog/tax-credits-tokenization" element={<TaxCreditsTokenization />} />
-            <Route path="/blog/collectables-tokenization" element={<CollectablesTokenization />} />
-            <Route path="/blog/stablecoins-tokenization" element={<StablecoinsTokenization />} />
-            <Route path="/blog/utilities-tokenization" element={<UtilitiesTokenization />} />
-            <Route path="/intel" element={<Intel />} />
-            <Route path="/legal" element={<Legal />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-        <ChatWidget />
+        <ChatProvider>
+          <ScrollToTop />
+          <Suspense fallback={<LoadingScreen />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/investors" element={<InvestorDisclaimer />} />
+              <Route path="/investors/presentation" element={<InvestorPresentation />} />
+              <Route path="/rwas" element={<RWAs />} />
+              <Route path="/rwas/collectables" element={<Collectables />} />
+              <Route path="/rwas/energy" element={<Energy />} />
+              <Route path="/rwas/metals" element={<Metals />} />
+              <Route path="/rwas/rare-earth" element={<RareEarth />} />
+              <Route path="/rwas/infrastructure" element={<Infrastructure />} />
+              <Route path="/rwas/real-estate" element={<RealEstate />} />
+              <Route path="/rwas/commodities" element={<Commodities />} />
+              <Route path="/rwas/carbon-credits" element={<CarbonCredits />} />
+              <Route path="/rwas/sovereign-wealth" element={<SovereignWealth />} />
+              <Route path="/rwas/stablecoins" element={<Stablecoins />} />
+              <Route path="/rwas/tax-credits" element={<TaxCredits />} />
+              <Route path="/rwas/utilities" element={<UtilitiesRWA />} />
+              <Route path="/services/web3-ai" element={<Web3AIService />} />
+              <Route path="/services/real-world-assets" element={<RealWorldAssetsService />} />
+              <Route path="/services/data-intelligence" element={<DataIntelligenceService />} />
+              <Route path="/services/ai-analytics" element={<AIAnalyticsService />} />
+              <Route path="/services/cyber-defense" element={<CyberDefenseService />} />
+              <Route path="/services/digital-strategy" element={<DigitalStrategyService />} />
+              <Route path="/web3ai/ai-automation" element={<AIAutomation />} />
+              <Route path="/web3ai/token-ecosystem" element={<TokenEcosystem />} />
+              <Route path="/web3ai/cross-border-settlements" element={<CrossBorderSettlements />} />
+              <Route path="/web3ai/rwa-infrastructure" element={<RWAInfrastructure />} />
+              <Route path="/web3ai/vertical-intelligence" element={<VerticalIntelligence />} />
+              <Route path="/web3ai/community-driven" element={<CommunityDriven />} />
+              <Route path="/blog/rwa-tokenization" element={<RWATokenization />} />
+              <Route path="/blog/ai-investor-engagement" element={<AIInvestorEngagement />} />
+              <Route path="/blog/pre-ipo-markets" element={<PreIPOMarkets />} />
+              <Route path="/blog/carbon-credits-tokenization" element={<CarbonCreditsTokenization />} />
+              <Route path="/blog/commodities-tokenization" element={<CommoditiesTokenization />} />
+              <Route path="/blog/energy-tokenization" element={<EnergyTokenization />} />
+              <Route path="/blog/infrastructure-tokenization" element={<InfrastructureTokenization />} />
+              <Route path="/blog/metals-tokenization" element={<MetalsTokenization />} />
+              <Route path="/blog/rare-earth-tokenization" element={<RareEarthTokenization />} />
+              <Route path="/blog/real-estate-tokenization" element={<RealEstateTokenization />} />
+              <Route path="/blog/sovereign-wealth-tokenization" element={<SovereignWealthTokenization />} />
+              <Route path="/blog/tax-credits-tokenization" element={<TaxCreditsTokenization />} />
+              <Route path="/blog/collectables-tokenization" element={<CollectablesTokenization />} />
+              <Route path="/blog/stablecoins-tokenization" element={<StablecoinsTokenization />} />
+              <Route path="/blog/utilities-tokenization" element={<UtilitiesTokenization />} />
+              <Route path="/intel" element={<Intel />} />
+              <Route path="/legal" element={<Legal />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+          <ChatWidget />
+        </ChatProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
