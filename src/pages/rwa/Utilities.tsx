@@ -9,7 +9,7 @@ const data: SectorPageData = {
   overview: "Utility infrastructure represents one of the most stable and essential asset classes globally, generating predictable cash flows from electricity, water, gas, and telecommunications services. However, direct investment in utility assets has historically been limited to governments, sovereign funds, and large institutional players. Tokenization democratizes access to these inflation-protected, yield-generating assets by converting ownership stakes into digital tokens that can be fractionalized, traded, and managed with unprecedented transparency.",
   stats: [
     { value: "$5T+", label: "Global Utility Market Cap" },
-    { value: "6-8%", label: "Average Yield Range" },
+    { value: "2.8B", label: "People Lacking Access" },
     { value: "200+", label: "Countries with Utility Assets" },
     { value: "30yr+", label: "Average Asset Lifespan" },
   ],
