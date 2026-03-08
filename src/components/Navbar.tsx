@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import ChatNavbarIcon from "./ChatNavbarIcon";
+import { clearGoogleTranslateCookies } from "./LanguageHandler";
 import platoIcon from "@/assets/plato-icon.png";
 
 const navLinks = [
