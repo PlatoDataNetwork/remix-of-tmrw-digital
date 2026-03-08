@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Send } from "lucide-react";
+import { X, Send } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import platoIcon from "@/assets/plato-icon.png";
 
 interface Message {
   id: string;
@@ -70,7 +71,19 @@ const ChatWidget = () => {
             {open ? (
               <X className="h-4 w-4 text-white" />
             ) : (
-              <MessageCircle className="h-4 w-4 text-white" />
+              <div
+                className="h-4 w-4 animated-gradient-icon-bright"
+                style={{
+                  WebkitMaskImage: `url(${platoIcon})`,
+                  maskImage: `url(${platoIcon})`,
+                  WebkitMaskSize: 'contain',
+                  maskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  maskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskPosition: 'center',
+                }}
+              />
             )}
           </motion.div>
         </AnimatePresence>
