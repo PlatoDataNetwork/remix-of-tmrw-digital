@@ -5,7 +5,6 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import ChatWidget from "./ChatWidget";
 import platoIcon from "@/assets/plato-icon.png";
-import platoIcon from "@/assets/plato-icon.png";
 
 const navLinks = [
   { label: "About", href: "/#about" },
