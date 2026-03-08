@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import LoadingScreen from "./components/LoadingScreen";
 import ChatWidget from "./components/ChatWidget";
+import { ChatProvider } from "./components/ChatContext";
 import Index from "./pages/Index";
 
 // Lazy load secondary pages
