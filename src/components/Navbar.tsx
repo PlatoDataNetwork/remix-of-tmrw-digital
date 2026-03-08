@@ -112,6 +112,7 @@ const Navbar = () => {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
+            <ChatWidget />
             <ThemeToggle />
             <div ref={gtranslateRef} className="gtranslate-navbar-slot" />
             <Link
