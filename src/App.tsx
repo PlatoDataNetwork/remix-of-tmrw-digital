@@ -68,6 +68,7 @@ const App = () => (
       <BrowserRouter>
         <ChatProvider>
           <ScrollToTop />
+          <LanguageHandler />
           <Suspense fallback={<LoadingScreen />}>
             <Routes>
               <Route path="/" element={<Index />} />
