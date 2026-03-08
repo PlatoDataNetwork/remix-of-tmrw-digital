@@ -72,7 +72,7 @@ const ChatWidget = () => {
               <X className="h-4 w-4 text-white" />
             ) : (
               <div
-                className="h-[85%] w-[85%] animated-gradient-icon-bright"
+                className="h-4 w-4 animated-gradient-icon-bright"
                 style={{
                   WebkitMaskImage: `url(${platoIcon})`,
                   maskImage: `url(${platoIcon})`,
