@@ -13,7 +13,7 @@ interface Message {
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
-const ChatWidget = () => {
+const ChatWidget = ({ navbarMode = false }: { navbarMode?: boolean }) => {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -162,35 +162,74 @@ const ChatWidget = () => {
 
   return (
     <>
+      {/* Navbar icon */}
+      {navbarMode && (
+        <button
+          onClick={() => setOpen(!open)}
+          className="relative h-9 w-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+          aria-label="Open chat"
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={open ? "close" : "open"}
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="flex items-center justify-center"
+            >
+              {open ? (
+                <X className="h-4 w-4 text-white" />
+              ) : (
+                <div
+                  className="h-8 w-8 animated-gradient-icon-bright"
+                  style={{
+                    WebkitMaskImage: `url(${platoIcon})`,
+                    maskImage: `url(${platoIcon})`,
+                    WebkitMaskSize: "contain",
+                    maskSize: "contain",
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskPosition: "center",
+                    maskPosition: "center",
+                  }}
+                />
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </button>
+      )}
+
       {/* Floating Chat Button — bottom right */}
-      <AnimatePresence>
-        {!open && (
-          <motion.button
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-[60] h-14 w-14 rounded-full bg-gradient-to-br from-[hsl(var(--primary))] to-[hsl(220,90%,55%)] shadow-lg shadow-primary/30 flex items-center justify-center hover:scale-105 transition-transform"
-            aria-label="Open chat"
-          >
-            <div
-              className="h-8 w-8"
-              style={{
-                WebkitMaskImage: `url(${platoIcon})`,
-                maskImage: `url(${platoIcon})`,
-                WebkitMaskSize: "contain",
-                maskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                maskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-                maskPosition: "center",
-                backgroundColor: "white",
-              }}
-            />
-          </motion.button>
-        )}
-      </AnimatePresence>
+      {!navbarMode && (
+        <AnimatePresence>
+          {!open && (
+            <motion.button
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              onClick={() => setOpen(true)}
+              className="fixed bottom-6 right-6 z-[60] h-14 w-14 rounded-full shadow-lg shadow-primary/30 flex items-center justify-center hover:scale-105 transition-transform"
+              aria-label="Open chat"
+            >
+              <div
+                className="h-8 w-8 animated-gradient-icon-bright"
+                style={{
+                  WebkitMaskImage: `url(${platoIcon})`,
+                  maskImage: `url(${platoIcon})`,
+                  WebkitMaskSize: "contain",
+                  maskSize: "contain",
+                  WebkitMaskRepeat: "no-repeat",
+                  maskRepeat: "no-repeat",
+                  WebkitMaskPosition: "center",
+                  maskPosition: "center",
+                }}
+              />
+            </motion.button>
+          )}
+        </AnimatePresence>
+      )}
 
       {/* Chat Panel */}
       <AnimatePresence>
