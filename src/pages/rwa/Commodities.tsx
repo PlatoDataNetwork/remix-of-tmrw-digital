@@ -10,7 +10,7 @@ const data: SectorPageData = {
   stats: [
     { value: "$6.5T", label: "Global Commodities Trade" },
     { value: "120+", label: "Tradeable Commodities" },
-    { value: "5.8%", label: "Avg. Annual Return" },
+    { value: "$2.7T", label: "Annual Derivatives Volume" },
     { value: "3B+", label: "People Dependent" },
   ],
   tokenizationBenefits: [
