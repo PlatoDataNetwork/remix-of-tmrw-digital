@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { X, Send, Loader2 } from "lucide-react";
+import { X, Send, Loader2, Trash2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import platoIcon from "@/assets/plato-icon.png";
@@ -20,7 +20,7 @@ const ChatWidget = ({ navbarMode = false }: { navbarMode?: boolean }) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
-      content: "Welcome to The Tomorrow Company! 👋 I'm **PLATO**, your AI assistant. Ask me anything about our services, RWA sectors, Web3AI innovations, or team.",
+      content: "Welcome to The Tomorrow Company! 👋 I'm **Marvin**. Ask me anything about our services, RWA sectors, Web3AI innovations, or team.",
       role: "assistant",
       time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
     },
@@ -245,7 +245,7 @@ const ChatWidget = ({ navbarMode = false }: { navbarMode?: boolean }) => {
             <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-card">
               <div className="flex items-center gap-3">
                 <div
-                  className="h-6 w-6 animated-gradient-icon-bright"
+                  className="h-8 w-8 animated-gradient-icon-bright"
                   style={{
                     WebkitMaskImage: `url(${platoIcon})`,
                     maskImage: `url(${platoIcon})`,
@@ -257,18 +257,31 @@ const ChatWidget = ({ navbarMode = false }: { navbarMode?: boolean }) => {
                     maskPosition: "center",
                   }}
                 />
-                <div>
-                  <span className="text-sm font-semibold text-foreground">PLATO</span>
-                  <p className="text-[10px] text-muted-foreground">AI Assistant</p>
-                </div>
+                <span className="text-sm font-semibold text-foreground">Marvin</span>
                 <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
               </div>
-              <button
-                onClick={() => setOpen(false)}
-                className="p-1.5 rounded-full hover:bg-muted transition-colors"
-              >
-                <X className="h-4 w-4 text-muted-foreground" />
-              </button>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => {
+                    setMessages([{
+                      id: "welcome",
+                      content: "Welcome to The Tomorrow Company! 👋 I'm **Marvin**. Ask me anything about our services, RWA sectors, Web3AI innovations, or team.",
+                      role: "assistant",
+                      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+                    }]);
+                  }}
+                  className="p-1.5 rounded-full hover:bg-muted transition-colors"
+                  title="Clear chat"
+                >
+                  <Trash2 className="h-3.5 w-3.5 text-muted-foreground" />
+                </button>
+                <button
+                  onClick={() => setOpen(false)}
+                  className="p-1.5 rounded-full hover:bg-muted transition-colors"
+                >
+                  <X className="h-4 w-4 text-muted-foreground" />
+                </button>
+              </div>
             </div>
 
             {/* Messages */}
