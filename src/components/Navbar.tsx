@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
-import ChatWidget from "./ChatWidget";
+// ChatWidget moved to App.tsx for global floating position
 import platoIcon from "@/assets/plato-icon.png";
 
 const navLinks = [
@@ -112,7 +112,6 @@ const Navbar = () => {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <ChatWidget />
             <ThemeToggle />
             <div ref={gtranslateRef} className="gtranslate-navbar-slot" />
             <Link
