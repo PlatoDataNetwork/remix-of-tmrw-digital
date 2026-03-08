@@ -9,7 +9,7 @@ const data: SectorPageData = {
   overview: "Real estate is the world's most valuable asset class, yet it remains one of the least liquid. Tokenization transforms physical properties—office towers, residential complexes, retail centers, and hospitality assets—into tradeable digital securities. Investors can own fractions of premium properties across global markets, receive automated rental distributions, and trade positions on secondary markets, all while maintaining the fundamental value proposition of real estate ownership.",
   stats: [
     { value: "$326T", label: "Global Real Estate Value" },
-    { value: "9.5%", label: "Avg. Annual Return" },
+    { value: "280M+", label: "Commercial Properties" },
     { value: "$3.8T", label: "Annual Transaction Vol." },
     { value: "45%", label: "Of Global Wealth" },
   ],
