@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
-import { Twitter, Linkedin, ExternalLink, Mail, Send } from "lucide-react";
+import { useCurrentLanguage, langPath } from "@/hooks/useLanguage";
 import platoIcon from "@/assets/plato-icon.png";
 
 const Footer = () => {
+  const currentLang = useCurrentLanguage();
+  const lp = (path: string) => langPath(currentLang, path);
+
   return (
     <footer className="py-16 bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-5 gap-10 mb-16">
           <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-2">
+            <Link to={lp("/")} className="flex items-center gap-2 mb-2">
               <div
                 className="h-8 w-8 animated-gradient-icon-bright"
                 style={{
@@ -77,7 +80,7 @@ const Footer = () => {
                 ) : link.href.startsWith("/") ? (
                   <Link
                     key={link.label}
-                    to={link.href}
+                    to={lp(link.href)}
                     className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
@@ -108,7 +111,7 @@ const Footer = () => {
                 link.href.startsWith("/") ? (
                   <Link
                     key={link.label}
-                    to={link.href}
+                    to={lp(link.href)}
                     className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
@@ -151,11 +154,11 @@ const Footer = () => {
             © 2026 Tomorrow Digital Inc. All Rights Reserved.
           </p>
           <div className="flex flex-wrap gap-6">
-            <Link to="/legal#privacy" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
-            <Link to="/legal#compliance" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Compliance</Link>
-            <Link to="/legal#terms" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
-            <Link to="/legal#faq" className="text-lg text-muted-foreground hover:text-foreground transition-colors">FAQ</Link>
-            <Link to="/legal#data-processing" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Data Processing</Link>
+            <Link to={lp("/legal#privacy")} className="text-lg text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link to={lp("/legal#compliance")} className="text-lg text-muted-foreground hover:text-foreground transition-colors">Compliance</Link>
+            <Link to={lp("/legal#terms")} className="text-lg text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
+            <Link to={lp("/legal#faq")} className="text-lg text-muted-foreground hover:text-foreground transition-colors">FAQ</Link>
+            <Link to={lp("/legal#data-processing")} className="text-lg text-muted-foreground hover:text-foreground transition-colors">Data Processing</Link>
           </div>
         </div>
       </div>

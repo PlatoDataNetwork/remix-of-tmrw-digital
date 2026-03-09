@@ -1,14 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
-const SUPPORTED_LANGUAGES = [
-  "en","ar","bn","zh-CN","da","nl","et","fi","fr","de","el","iw","hi","hu",
-  "id","it","ja","km","ko","no","fa","pl","pt","pa","ro","ru","sl","es","sv",
-  "th","tr","uk","ur","vi"
-];
+import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath, getGoogTransLang } from "@/hooks/useLanguage";
 
 function clearGoogleTranslateCookies() {
-  // Clear googtrans cookie on all possible paths/domains
   const domains = [window.location.hostname, "." + window.location.hostname, ""];
   const paths = ["/", ""];
   for (const domain of domains) {
@@ -29,42 +23,98 @@ function setGoogleTranslateCookie(lang: string) {
   }
 }
 
-function triggerGTranslateChange(lang: string) {
-  // Try to programmatically change the GTranslate select dropdown
-  const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
-  if (select) {
-    select.value = lang;
-    select.dispatchEvent(new Event("change", { bubbles: true }));
-  }
-}
-
 const LanguageHandler = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const isProgrammatic = useRef(false);
+  const pathnameRef = useRef(location.pathname);
+  pathnameRef.current = location.pathname;
 
+  const urlLang = getUrlLanguage(location.pathname);
+
+  // Sync: URL → cookie → GTranslate widget
   useEffect(() => {
-    const pathParts = location.pathname.split("/").filter(Boolean);
-    const firstSegment = pathParts[0]?.toLowerCase();
-
-    // Check if the first path segment is a supported language code
-    const matchedLang = SUPPORTED_LANGUAGES.find(
-      (l) => l.toLowerCase() === firstSegment
-    );
-
-    if (matchedLang) {
-      // Set translation cookie and trigger translation
-      setGoogleTranslateCookie(matchedLang);
-
-      // Remove the language prefix from the URL and navigate
-      const remainingPath = "/" + pathParts.slice(1).join("/");
-      navigate(remainingPath || "/", { replace: true });
-
-      // Trigger GTranslate after a short delay to allow DOM update
-      setTimeout(() => {
-        triggerGTranslateChange(matchedLang);
-      }, 500);
+    if (urlLang && urlLang !== "en") {
+      // URL has language prefix - set cookie and trigger translation
+      setGoogleTranslateCookie(urlLang);
+      const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
+      if (select && select.value.toLowerCase() !== urlLang.toLowerCase()) {
+        isProgrammatic.current = true;
+        select.value = urlLang;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+        setTimeout(() => { isProgrammatic.current = false; }, 500);
+      }
+    } else if (location.pathname === "/" || location.pathname === "") {
+      // Root path - clear cookies, force English
+      clearGoogleTranslateCookies();
+      const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
+      if (select && select.value !== "en") {
+        isProgrammatic.current = true;
+        select.value = "en";
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+        setTimeout(() => { isProgrammatic.current = false; }, 500);
+      }
+    } else {
+      // Non-root, no prefix - check cookie for redirect
+      const cookieLang = getGoogTransLang();
+      if (cookieLang && cookieLang !== "en") {
+        const normalized = SUPPORTED_LANGUAGES.find(l => l.toLowerCase() === cookieLang.toLowerCase());
+        if (normalized) {
+          navigate(`/${normalized}${location.pathname}`, { replace: true });
+          return;
+        }
+      }
+      // No cookie or English
+      clearGoogleTranslateCookies();
+      const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
+      if (select && select.value !== "en") {
+        isProgrammatic.current = true;
+        select.value = "en";
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+        setTimeout(() => { isProgrammatic.current = false; }, 500);
+      }
     }
-  }, [location.pathname, navigate]);
+  }, [urlLang, location.pathname, navigate]);
+
+  // Listen: GTranslate dropdown change → update URL
+  useEffect(() => {
+    let currentSelect: HTMLSelectElement | null = null;
+
+    const handleChange = (e: Event) => {
+      if (isProgrammatic.current) return;
+      const select = e.target as HTMLSelectElement;
+      const newLang = select.value;
+
+      const basePath = getBasePath(pathnameRef.current);
+
+      if (newLang === "en") {
+        clearGoogleTranslateCookies();
+        navigate(basePath || "/", { replace: true });
+      } else {
+        const normalized = SUPPORTED_LANGUAGES.find(l => l.toLowerCase() === newLang.toLowerCase()) || newLang;
+        setGoogleTranslateCookie(normalized);
+        navigate(`/${normalized}${basePath === "/" ? "" : basePath}`, { replace: true });
+      }
+    };
+
+    const attach = () => {
+      const el = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
+      if (el && el !== currentSelect) {
+        if (currentSelect) currentSelect.removeEventListener("change", handleChange);
+        currentSelect = el;
+        currentSelect.addEventListener("change", handleChange);
+      }
+    };
+
+    attach();
+    const observer = new MutationObserver(attach);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      if (currentSelect) currentSelect.removeEventListener("change", handleChange);
+    };
+  }, [navigate]);
 
   return null;
 };

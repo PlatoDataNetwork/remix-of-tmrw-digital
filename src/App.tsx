@@ -1,14 +1,15 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, ReactNode } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet, useParams } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import LanguageHandler from "./components/LanguageHandler";
 import LoadingScreen from "./components/LoadingScreen";
 import ChatWidget from "./components/ChatWidget";
 import { ChatProvider } from "./components/ChatContext";
+import { SUPPORTED_LANGUAGES } from "./hooks/useLanguage";
 import Index from "./pages/Index";
 
 // Lazy load secondary pages
@@ -62,6 +63,66 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
+// Language layout validates lang param
+const LanguageLayout = () => {
+  const { lang } = useParams();
+  const isValid = SUPPORTED_LANGUAGES.some(l => l.toLowerCase() === lang?.toLowerCase());
+  if (!isValid) return <NotFound />;
+  return <Outlet />;
+};
+
+// Shared route definitions (without leading slash)
+function getRoutes() {
+  return [
+    <Route key="investors" path="investors" element={<InvestorDisclaimer />} />,
+    <Route key="investors-pres" path="investors/presentation" element={<InvestorPresentation />} />,
+    <Route key="rwas" path="rwas" element={<RWAs />} />,
+    <Route key="rwas-collectables" path="rwas/collectables" element={<Collectables />} />,
+    <Route key="rwas-energy" path="rwas/energy" element={<Energy />} />,
+    <Route key="rwas-metals" path="rwas/metals" element={<Metals />} />,
+    <Route key="rwas-rare-earth" path="rwas/rare-earth" element={<RareEarth />} />,
+    <Route key="rwas-infrastructure" path="rwas/infrastructure" element={<Infrastructure />} />,
+    <Route key="rwas-real-estate" path="rwas/real-estate" element={<RealEstate />} />,
+    <Route key="rwas-commodities" path="rwas/commodities" element={<Commodities />} />,
+    <Route key="rwas-carbon" path="rwas/carbon-credits" element={<CarbonCredits />} />,
+    <Route key="rwas-sovereign" path="rwas/sovereign-wealth" element={<SovereignWealth />} />,
+    <Route key="rwas-stablecoins" path="rwas/stablecoins" element={<Stablecoins />} />,
+    <Route key="rwas-tax" path="rwas/tax-credits" element={<TaxCredits />} />,
+    <Route key="rwas-utilities" path="rwas/utilities" element={<UtilitiesRWA />} />,
+    <Route key="svc-web3" path="services/web3-ai" element={<Web3AIService />} />,
+    <Route key="svc-rwa" path="services/real-world-assets" element={<RealWorldAssetsService />} />,
+    <Route key="svc-data" path="services/data-intelligence" element={<DataIntelligenceService />} />,
+    <Route key="svc-ai" path="services/ai-analytics" element={<AIAnalyticsService />} />,
+    <Route key="svc-cyber" path="services/cyber-defense" element={<CyberDefenseService />} />,
+    <Route key="svc-digital" path="services/digital-strategy" element={<DigitalStrategyService />} />,
+    <Route key="w3-ai" path="web3ai/ai-automation" element={<AIAutomation />} />,
+    <Route key="w3-token" path="web3ai/token-ecosystem" element={<TokenEcosystem />} />,
+    <Route key="w3-cross" path="web3ai/cross-border-settlements" element={<CrossBorderSettlements />} />,
+    <Route key="w3-rwa" path="web3ai/rwa-infrastructure" element={<RWAInfrastructure />} />,
+    <Route key="w3-vert" path="web3ai/vertical-intelligence" element={<VerticalIntelligence />} />,
+    <Route key="w3-comm" path="web3ai/community-driven" element={<CommunityDriven />} />,
+    <Route key="blog-rwa" path="blog/rwa-tokenization" element={<RWATokenization />} />,
+    <Route key="blog-ai" path="blog/ai-investor-engagement" element={<AIInvestorEngagement />} />,
+    <Route key="blog-ipo" path="blog/pre-ipo-markets" element={<PreIPOMarkets />} />,
+    <Route key="blog-carbon" path="blog/carbon-credits-tokenization" element={<CarbonCreditsTokenization />} />,
+    <Route key="blog-comm" path="blog/commodities-tokenization" element={<CommoditiesTokenization />} />,
+    <Route key="blog-energy" path="blog/energy-tokenization" element={<EnergyTokenization />} />,
+    <Route key="blog-infra" path="blog/infrastructure-tokenization" element={<InfrastructureTokenization />} />,
+    <Route key="blog-metals" path="blog/metals-tokenization" element={<MetalsTokenization />} />,
+    <Route key="blog-rare" path="blog/rare-earth-tokenization" element={<RareEarthTokenization />} />,
+    <Route key="blog-realestate" path="blog/real-estate-tokenization" element={<RealEstateTokenization />} />,
+    <Route key="blog-sovereign" path="blog/sovereign-wealth-tokenization" element={<SovereignWealthTokenization />} />,
+    <Route key="blog-tax" path="blog/tax-credits-tokenization" element={<TaxCreditsTokenization />} />,
+    <Route key="blog-collect" path="blog/collectables-tokenization" element={<CollectablesTokenization />} />,
+    <Route key="blog-stable" path="blog/stablecoins-tokenization" element={<StablecoinsTokenization />} />,
+    <Route key="blog-util" path="blog/utilities-tokenization" element={<UtilitiesTokenization />} />,
+    <Route key="intel" path="intel" element={<Intel />} />,
+    <Route key="showcase" path="showcase" element={<Showcase />} />,
+    <Route key="rto" path="rto" element={<RTO />} />,
+    <Route key="legal" path="legal" element={<Legal />} />,
+  ];
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -73,53 +134,19 @@ const App = () => (
           <LanguageHandler />
           <Suspense fallback={<LoadingScreen />}>
             <Routes>
+              {/* Default English routes */}
               <Route path="/" element={<Index />} />
-              <Route path="/investors" element={<InvestorDisclaimer />} />
-              <Route path="/investors/presentation" element={<InvestorPresentation />} />
-              <Route path="/rwas" element={<RWAs />} />
-              <Route path="/rwas/collectables" element={<Collectables />} />
-              <Route path="/rwas/energy" element={<Energy />} />
-              <Route path="/rwas/metals" element={<Metals />} />
-              <Route path="/rwas/rare-earth" element={<RareEarth />} />
-              <Route path="/rwas/infrastructure" element={<Infrastructure />} />
-              <Route path="/rwas/real-estate" element={<RealEstate />} />
-              <Route path="/rwas/commodities" element={<Commodities />} />
-              <Route path="/rwas/carbon-credits" element={<CarbonCredits />} />
-              <Route path="/rwas/sovereign-wealth" element={<SovereignWealth />} />
-              <Route path="/rwas/stablecoins" element={<Stablecoins />} />
-              <Route path="/rwas/tax-credits" element={<TaxCredits />} />
-              <Route path="/rwas/utilities" element={<UtilitiesRWA />} />
-              <Route path="/services/web3-ai" element={<Web3AIService />} />
-              <Route path="/services/real-world-assets" element={<RealWorldAssetsService />} />
-              <Route path="/services/data-intelligence" element={<DataIntelligenceService />} />
-              <Route path="/services/ai-analytics" element={<AIAnalyticsService />} />
-              <Route path="/services/cyber-defense" element={<CyberDefenseService />} />
-              <Route path="/services/digital-strategy" element={<DigitalStrategyService />} />
-              <Route path="/web3ai/ai-automation" element={<AIAutomation />} />
-              <Route path="/web3ai/token-ecosystem" element={<TokenEcosystem />} />
-              <Route path="/web3ai/cross-border-settlements" element={<CrossBorderSettlements />} />
-              <Route path="/web3ai/rwa-infrastructure" element={<RWAInfrastructure />} />
-              <Route path="/web3ai/vertical-intelligence" element={<VerticalIntelligence />} />
-              <Route path="/web3ai/community-driven" element={<CommunityDriven />} />
-              <Route path="/blog/rwa-tokenization" element={<RWATokenization />} />
-              <Route path="/blog/ai-investor-engagement" element={<AIInvestorEngagement />} />
-              <Route path="/blog/pre-ipo-markets" element={<PreIPOMarkets />} />
-              <Route path="/blog/carbon-credits-tokenization" element={<CarbonCreditsTokenization />} />
-              <Route path="/blog/commodities-tokenization" element={<CommoditiesTokenization />} />
-              <Route path="/blog/energy-tokenization" element={<EnergyTokenization />} />
-              <Route path="/blog/infrastructure-tokenization" element={<InfrastructureTokenization />} />
-              <Route path="/blog/metals-tokenization" element={<MetalsTokenization />} />
-              <Route path="/blog/rare-earth-tokenization" element={<RareEarthTokenization />} />
-              <Route path="/blog/real-estate-tokenization" element={<RealEstateTokenization />} />
-              <Route path="/blog/sovereign-wealth-tokenization" element={<SovereignWealthTokenization />} />
-              <Route path="/blog/tax-credits-tokenization" element={<TaxCreditsTokenization />} />
-              <Route path="/blog/collectables-tokenization" element={<CollectablesTokenization />} />
-              <Route path="/blog/stablecoins-tokenization" element={<StablecoinsTokenization />} />
-              <Route path="/blog/utilities-tokenization" element={<UtilitiesTokenization />} />
-              <Route path="/intel" element={<Intel />} />
-              <Route path="/showcase" element={<Showcase />} />
-              <Route path="/rto" element={<RTO />} />
-              <Route path="/legal" element={<Legal />} />
+              {getRoutes().map(r => (
+                <Route key={r.key} path={`/${r.props.path}`} element={r.props.element} />
+              ))}
+
+              {/* Language-prefixed routes */}
+              <Route path="/:lang" element={<LanguageLayout />}>
+                <Route index element={<Index />} />
+                {getRoutes()}
+                <Route path="*" element={<NotFound />} />
+              </Route>
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
