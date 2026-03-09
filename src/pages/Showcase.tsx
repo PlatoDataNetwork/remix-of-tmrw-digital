@@ -92,7 +92,7 @@ const Showcase = () => {
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border text-xs font-medium text-muted-foreground mb-6">
               <Sparkles className="h-3 w-3" /> Tomorrow Company Portfolio
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3">
               <span className="animated-gradient-neon-text">Multi-Platform</span>{" "}
               Ecosystem
             </h1>
@@ -176,7 +176,7 @@ const Showcase = () => {
                     <ExternalLink className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-1 transition-all duration-300" />
                   </div>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-xs text-muted-foreground leading-relaxed">
                     {item.description}
                   </p>
 
