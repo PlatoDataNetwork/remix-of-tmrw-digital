@@ -3,23 +3,29 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath, getGoogTransLang } from "@/hooks/useLanguage";
 
 function clearGoogleTranslateCookies() {
-  const domains = [window.location.hostname, "." + window.location.hostname, ""];
+  const hostname = window.location.hostname;
+  const expiry = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  // Clear every possible domain/path combination to remove ALL googtrans cookies
+  const domains = [hostname, "." + hostname, ""];
   const paths = ["/", ""];
   for (const domain of domains) {
     for (const path of paths) {
-      const domainPart = domain ? `;domain=${domain}` : "";
-      const pathPart = path ? `;path=${path}` : "";
-      document.cookie = `googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT${domainPart}${pathPart}`;
+      const d = domain ? `;domain=${domain}` : "";
+      const p = path ? `;path=${path}` : "";
+      document.cookie = `googtrans=;${expiry}${d}${p}`;
     }
   }
+  // Also try without any path/domain at all
+  document.cookie = `googtrans=;${expiry}`;
 }
 
 function setGoogleTranslateCookie(lang: string) {
+  // Always nuke ALL existing cookies first to prevent duplicates
   clearGoogleTranslateCookies();
   if (lang && lang !== "en") {
     const value = `/en/${lang}`;
+    // Only set ONE cookie on the current path
     document.cookie = `googtrans=${value};path=/`;
-    document.cookie = `googtrans=${value};path=/;domain=${window.location.hostname}`;
   }
 }
 
