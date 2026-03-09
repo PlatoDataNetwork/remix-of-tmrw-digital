@@ -168,7 +168,7 @@ const Showcase = () => {
                         <h3 className="text-base font-semibold text-foreground group-hover:text-foreground transition-colors">
                           {item.name}
                         </h3>
-                        <span className="text-sm font-medium text-muted-foreground/60">
+                        <span className="text-base font-medium text-foreground">
                           {categoryLabels[item.category]}
                         </span>
                       </div>
