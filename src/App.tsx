@@ -53,6 +53,7 @@ const TaxCreditsTokenization = lazy(() => import("./pages/blog/TaxCreditsTokeniz
 const CollectablesTokenization = lazy(() => import("./pages/blog/CollectablesTokenization"));
 const StablecoinsTokenization = lazy(() => import("./pages/blog/StablecoinsTokenization"));
 const UtilitiesTokenization = lazy(() => import("./pages/blog/UtilitiesTokenization"));
+const TMRWLaunch = lazy(() => import("./pages/blog/TMRWLaunch"));
 const Intel = lazy(() => import("./pages/Intel"));
 const InvestorDisclaimer = lazy(() => import("./pages/InvestorDisclaimer"));
 const InvestorPresentation = lazy(() => import("./pages/InvestorPresentation"));
