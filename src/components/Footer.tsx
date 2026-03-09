@@ -66,7 +66,6 @@ const Footer = () => {
                 { label: "About", href: "/#about" },
                 { label: "Mission", href: "/#vision" },
                 { label: "Methodology", href: "/#services" },
-                { label: "Showcase", href: "/showcase" },
                 { label: "Contact", href: "#contact" },
               ].map((link) => (
                 link.href.startsWith("/#") ? (
@@ -78,6 +77,36 @@ const Footer = () => {
                     {link.label}
                   </a>
                 ) : link.href.startsWith("/") ? (
+                  <Link
+                    key={link.label}
+                    to={lp(link.href)}
+                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                )
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Network</p>
+            <div className="space-y-3">
+              {[
+                { label: "Showcase", href: "/showcase" },
+                { label: "Intelligence", href: "/intel" },
+                { label: "TMRW Token", href: "#" },
+                { label: "CUT Token", href: "#" },
+                { label: "Security", href: "#" },
+              ].map((link) => (
+                link.href.startsWith("/") ? (
                   <Link
                     key={link.label}
                     to={lp(link.href)}
