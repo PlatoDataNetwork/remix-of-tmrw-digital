@@ -424,8 +424,8 @@ const RTO = () => {
       {/* Roadmap */}
       <section className="py-20 px-6 lg:px-8 border-t border-border">
         <div className="max-w-6xl mx-auto">
-          <SectionTitle sub="Strategic path from consolidation to public market debut Q1 2026.">
-            Roadmap to TSX Listing
+          <SectionTitle sub="Strategic path from consolidation to global execution across 2026.">
+            Roadmap
           </SectionTitle>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {roadmap.map((r) => (
