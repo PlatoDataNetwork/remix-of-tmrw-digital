@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -124,10 +124,8 @@ const Showcase = () => {
       {/* Grid */}
       <section className="px-6 pb-24">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            layout
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
-          >
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <AnimatePresence mode="popLayout">
             {filtered.map((item, i) => (
               <motion.a
                 key={item.name}
@@ -135,10 +133,10 @@ const Showcase = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 layout
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: i * 0.04 }}
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.25, delay: i * 0.02, ease: "easeOut" }}
                 className="group relative rounded-xl border border-border bg-card p-6 hover:border-[hsl(250,80%,60%,0.4)] transition-all duration-500 hover:shadow-[0_0_40px_-12px_hsl(250,80%,60%,0.2)] overflow-hidden"
               >
                 {/* Gradient line top */}
@@ -187,7 +185,8 @@ const Showcase = () => {
                 </div>
               </motion.a>
             ))}
-          </motion.div>
+            </AnimatePresence>
+          </div>
 
           {/* Count */}
           <motion.p
