@@ -5,6 +5,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import ChatNavbarIcon from "./ChatNavbarIcon";
 import { clearGoogleTranslateCookies } from "./LanguageHandler";
+import { useCurrentLanguage, langPath } from "@/hooks/useLanguage";
 import platoIcon from "@/assets/plato-icon.png";
 
 const navLinks = [
@@ -21,6 +22,9 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const gtranslateRef = useRef<HTMLDivElement>(null);
+  const currentLang = useCurrentLanguage();
+
+  const lp = useCallback((path: string) => langPath(currentLang, path), [currentLang]);
 
   useEffect(() => {
     const slot = gtranslateRef.current;
@@ -33,7 +37,6 @@ const Navbar = () => {
       slot.appendChild(widget);
     }
 
-    // Add listener to clean cookies before language switch
     const handleLangChange = () => {
       clearGoogleTranslateCookies();
     };
@@ -59,14 +62,16 @@ const Navbar = () => {
     if (href.startsWith("/#")) {
       e.preventDefault();
       const id = href.slice(2);
-      if (location.pathname === "/") {
+      const homePath = currentLang === "en" ? "/" : `/${currentLang}`;
+      const isHome = location.pathname === "/" || location.pathname === homePath || location.pathname === `${homePath}/`;
+      if (isHome) {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       } else {
-        navigate("/", { state: { scrollTo: id } });
+        navigate(homePath, { state: { scrollTo: id } });
       }
       setMobileOpen(false);
     }
-  }, [location.pathname, navigate]);
+  }, [location.pathname, navigate, currentLang]);
 
   return (
     <motion.nav
@@ -78,7 +83,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <Link to={lp("/")} className="flex items-center gap-2">
             <div
               className="h-8 w-8 animated-gradient-icon-bright"
               style={{
@@ -113,7 +118,7 @@ const Navbar = () => {
               ) : (
                 <Link
                   key={link.label}
-                  to={link.href}
+                  to={lp(link.href)}
                   className="text-sm font-medium text-white/60 hover:text-white transition-colors duration-200"
                 >
                   {link.label}
@@ -128,7 +133,7 @@ const Navbar = () => {
             <ThemeToggle />
             <div ref={gtranslateRef} className="gtranslate-navbar-slot" />
             <Link
-              to="/investors"
+              to={lp("/investors")}
               className="hidden md:inline-flex h-9 px-5 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium hover:opacity-90 transition-opacity"
             >
               Investors
@@ -167,7 +172,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     key={link.label}
-                    to={link.href}
+                    to={lp(link.href)}
                     onClick={() => setMobileOpen(false)}
                     className="block text-lg font-medium text-white hover:text-white/60 transition-colors"
                   >
@@ -176,7 +181,7 @@ const Navbar = () => {
                 )
               ))}
               <Link
-                to="/investors"
+                to={lp("/investors")}
                 onClick={() => setMobileOpen(false)}
                 className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium mt-2"
               >

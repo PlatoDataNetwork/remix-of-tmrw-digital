@@ -9,17 +9,26 @@
       gtag('js', new Date());
       gtag('config', 'G-RJT0J6Y6EZ');
     </script>
+    <!-- Clear googtrans cookies on pages without language prefix (before GTranslate loads) -->
+    <script>
+      (function(){
+        var langs = ["ar","bn","zh-cn","da","nl","et","fi","fr","de","el","iw","hi","hu","id","it","ja","km","ko","no","fa","pl","pt","pa","ro","ru","sl","es","sv","th","tr","uk","ur","vi"];
+        var parts = window.location.pathname.split('/').filter(Boolean);
+        var first = (parts[0] || '').toLowerCase();
+        if (langs.indexOf(first) === -1) {
+          document.cookie='googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+          document.cookie='googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain='+window.location.hostname;
+          document.cookie='googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=.'+window.location.hostname;
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
     <title>The Tomorrow Company</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <meta name="description" content="The Tomorrow Company - Web3 AI &amp; Real World Assets">
     <meta name="author" content="Lovable" />
 
-    <!-- TODO: Update og:title to match your application name -->
-    
-    
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://rcafp-heartbeat-home.lovable.app/og-image.png">
 
@@ -27,13 +36,6 @@
     <meta name="twitter:site" content="@taborcompany" />
     <meta name="twitter:image" content="https://rcafp-heartbeat-home.lovable.app/og-image.png">
     
-  
-  
-  
-  
-  
-  
-  
   <meta property="og:title" content="The Tomorrow Company">
   <meta name="twitter:title" content="The Tomorrow Company">
   <meta property="og:description" content="The Tomorrow Company - Web3 AI &amp; Real World Assets">
