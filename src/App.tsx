@@ -56,6 +56,7 @@ const Intel = lazy(() => import("./pages/Intel"));
 const InvestorDisclaimer = lazy(() => import("./pages/InvestorDisclaimer"));
 const InvestorPresentation = lazy(() => import("./pages/InvestorPresentation"));
 const Legal = lazy(() => import("./pages/Legal"));
+const Showcase = lazy(() => import("./pages/Showcase"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -115,6 +116,7 @@ const App = () => (
               <Route path="/blog/stablecoins-tokenization" element={<StablecoinsTokenization />} />
               <Route path="/blog/utilities-tokenization" element={<UtilitiesTokenization />} />
               <Route path="/intel" element={<Intel />} />
+              <Route path="/showcase" element={<Showcase />} />
               <Route path="/legal" element={<Legal />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
