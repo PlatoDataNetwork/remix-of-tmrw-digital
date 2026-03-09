@@ -92,7 +92,7 @@ const Showcase = () => {
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border text-xs font-medium text-muted-foreground mb-6">
               <Sparkles className="h-3 w-3" /> Tomorrow Company Portfolio
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3">
               <span className="animated-gradient-neon-text">Multi-Platform</span>{" "}
               Ecosystem
             </h1>
