@@ -132,7 +132,6 @@ const Footer = () => {
               {[
               { label: "RTO", href: "/rto" },
               { label: "Blog", href: "#" },
-              { label: "Intel", href: "/intel" },
               { label: "Whitepaper", href: "#" },
               { label: "Documentation", href: "#" },
               { label: "FAQ", href: "/legal#faq" },
