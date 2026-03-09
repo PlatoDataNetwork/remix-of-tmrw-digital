@@ -117,6 +117,7 @@ function getRoutes() {
     <Route key="blog-collect" path="blog/collectables-tokenization" element={<CollectablesTokenization />} />,
     <Route key="blog-stable" path="blog/stablecoins-tokenization" element={<StablecoinsTokenization />} />,
     <Route key="blog-util" path="blog/utilities-tokenization" element={<UtilitiesTokenization />} />,
+    <Route key="blog-tmrw" path="blog/tmrw-launch" element={<TMRWLaunch />} />,
     <Route key="intel" path="intel" element={<Intel />} />,
     <Route key="showcase" path="showcase" element={<Showcase />} />,
     <Route key="rto" path="rto" element={<RTO />} />,
