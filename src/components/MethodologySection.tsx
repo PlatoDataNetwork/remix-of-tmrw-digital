@@ -107,15 +107,11 @@ const MethodologySection = () => {
           className="mt-16 border-l-2 border-foreground/10 pl-8 max-w-2xl mx-auto"
         >
           <p className="text-base lg:text-lg text-muted-foreground font-light italic leading-relaxed mb-4">
-            "We're not building another fintech company. We're engineering the infrastructure layer that the next generation of capital markets will run on — where AI is native, assets are programmable, and trust is verifiable by default."
+            "We're not building another fintech company. We're engineering the infrastructure layer that the next generation of capital markets will run on — where AI is native, assets are programmable and trust is verified."
           </p>
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-px bg-foreground/20" />
-            <p className="text-sm font-medium text-foreground">
-              Justin Hartzman
-              <span className="text-muted-foreground font-light"> — Chairman</span>
-            </p>
-          </div>
+          <p className="text-base lg:text-lg font-medium text-foreground">
+            Justin Hartzman<span className="text-muted-foreground font-light">, Chairman</span>
+          </p>
         </motion.div>
       </div>
     </section>
