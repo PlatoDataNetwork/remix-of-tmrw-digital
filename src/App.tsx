@@ -116,6 +116,7 @@ const App = () => (
               <Route path="/blog/stablecoins-tokenization" element={<StablecoinsTokenization />} />
               <Route path="/blog/utilities-tokenization" element={<UtilitiesTokenization />} />
               <Route path="/intel" element={<Intel />} />
+              <Route path="/showcase" element={<Showcase />} />
               <Route path="/legal" element={<Legal />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
