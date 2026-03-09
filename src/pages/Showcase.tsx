@@ -92,9 +92,8 @@ const Showcase = () => {
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border text-xs font-medium text-muted-foreground mb-6">
               <Sparkles className="h-3 w-3" /> Tomorrow Company Portfolio
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3">
-              <span className="animated-gradient-neon-text">Multi-Platform</span>{" "}
-              Ecosystem
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3 text-foreground">
+              Multi-Platform Ecosystem
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Consolidating Carbon Distributed Technologies AG and Plato Web3 AI into a unified Web3 infrastructure powerhouse — streamlining operations in a diversified revenue / profit driven model.
