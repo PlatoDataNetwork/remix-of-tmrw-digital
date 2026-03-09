@@ -12,7 +12,6 @@ const navLinks = [
   { label: "Web3AI", href: "/#web3ai" },
   { label: "RWAs", href: "/#rwas" },
   { label: "Intelligence", href: "/intel" },
-  { label: "Showcase", href: "/showcase" },
   { label: "Team", href: "/#team" },
   { label: "Contact", href: "/#contact" },
 ];
