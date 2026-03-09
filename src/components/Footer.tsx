@@ -63,7 +63,7 @@ const Footer = () => {
                 { label: "About", href: "/#about" },
                 { label: "Mission", href: "/#vision" },
                 { label: "Methodology", href: "/#services" },
-                { label: "Showcase", href: "/rwas" },
+                { label: "Showcase", href: "/showcase" },
                 { label: "Contact", href: "#contact" },
               ].map((link) => (
                 link.href.startsWith("/#") ? (
