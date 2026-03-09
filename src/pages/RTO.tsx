@@ -432,7 +432,14 @@ const RTO = () => {
               <div key={r.phase} className="rounded-2xl border border-border p-6 bg-card">
                 <span className="text-sm font-bold text-primary">{r.phase}</span>
                 <h3 className="text-lg font-bold text-foreground mt-2 mb-2">{r.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{r.desc}</p>
+                <ul className="space-y-1.5 mb-4">
+                  {r.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
                 <div className="flex flex-wrap gap-2">
                   {r.tags.map((t) => (
                     <span key={t} className="text-xs px-2 py-1 rounded-full border border-border text-muted-foreground">{t}</span>
