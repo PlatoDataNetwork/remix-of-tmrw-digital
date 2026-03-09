@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="py-16 bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid md:grid-cols-5 gap-10 mb-16">
+        <div className="grid md:grid-cols-6 gap-10 mb-16">
           <div className="md:col-span-2">
             <Link to={lp("/")} className="flex items-center gap-2 mb-2">
               <div
@@ -66,7 +66,6 @@ const Footer = () => {
                 { label: "About", href: "/#about" },
                 { label: "Mission", href: "/#vision" },
                 { label: "Methodology", href: "/#services" },
-                { label: "Showcase", href: "/showcase" },
                 { label: "Contact", href: "#contact" },
               ].map((link) => (
                 link.href.startsWith("/#") ? (
@@ -98,12 +97,41 @@ const Footer = () => {
             </div>
           </div>
           <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Network</p>
+            <div className="space-y-3">
+              {[
+                { label: "Showcase", href: "/showcase" },
+                { label: "Intelligence", href: "/intel" },
+                { label: "TMRW Token", href: "#" },
+                { label: "CUT Token", href: "#" },
+                { label: "Security", href: "#" },
+              ].map((link) => (
+                link.href.startsWith("/") ? (
+                  <Link
+                    key={link.label}
+                    to={lp(link.href)}
+                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                )
+              ))}
+            </div>
+          </div>
+          <div>
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Resources</p>
             <div className="space-y-3">
               {[
               { label: "RTO", href: "/rto" },
               { label: "Blog", href: "#" },
-              { label: "Intel", href: "/intel" },
               { label: "Whitepaper", href: "#" },
               { label: "Documentation", href: "#" },
               { label: "FAQ", href: "/legal#faq" },
