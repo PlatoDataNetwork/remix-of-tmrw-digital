@@ -3,23 +3,29 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath, getGoogTransLang } from "@/hooks/useLanguage";
 
 function clearGoogleTranslateCookies() {
-  const domains = [window.location.hostname, "." + window.location.hostname, ""];
+  const hostname = window.location.hostname;
+  const expiry = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  // Clear every possible domain/path combination to remove ALL googtrans cookies
+  const domains = [hostname, "." + hostname, ""];
   const paths = ["/", ""];
   for (const domain of domains) {
     for (const path of paths) {
-      const domainPart = domain ? `;domain=${domain}` : "";
-      const pathPart = path ? `;path=${path}` : "";
-      document.cookie = `googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT${domainPart}${pathPart}`;
+      const d = domain ? `;domain=${domain}` : "";
+      const p = path ? `;path=${path}` : "";
+      document.cookie = `googtrans=;${expiry}${d}${p}`;
     }
   }
+  // Also try without any path/domain at all
+  document.cookie = `googtrans=;${expiry}`;
 }
 
 function setGoogleTranslateCookie(lang: string) {
+  // Always nuke ALL existing cookies first to prevent duplicates
   clearGoogleTranslateCookies();
   if (lang && lang !== "en") {
     const value = `/en/${lang}`;
+    // Only set ONE cookie on the current path
     document.cookie = `googtrans=${value};path=/`;
-    document.cookie = `googtrans=${value};path=/;domain=${window.location.hostname}`;
   }
 }
 
@@ -32,49 +38,31 @@ const LanguageHandler = () => {
 
   const urlLang = getUrlLanguage(location.pathname);
 
+  // Helper to sync dropdown to a language value
+  const syncDropdown = (lang: string) => {
+    const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
+    if (!select) return;
+    const currentVal = select.value?.toLowerCase();
+    if (currentVal !== lang.toLowerCase()) {
+      isProgrammatic.current = true;
+      select.value = lang;
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+      setTimeout(() => { isProgrammatic.current = false; }, 800);
+    }
+  };
+
   // Sync: URL → cookie → GTranslate widget
   useEffect(() => {
     if (urlLang && urlLang !== "en") {
-      // URL has language prefix - set cookie and trigger translation
+      // URL has a language prefix — set single cookie and sync dropdown
       setGoogleTranslateCookie(urlLang);
-      const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
-      if (select && select.value.toLowerCase() !== urlLang.toLowerCase()) {
-        isProgrammatic.current = true;
-        select.value = urlLang;
-        select.dispatchEvent(new Event("change", { bubbles: true }));
-        setTimeout(() => { isProgrammatic.current = false; }, 500);
-      }
-    } else if (location.pathname === "/" || location.pathname === "") {
-      // Root path - clear cookies, force English
-      clearGoogleTranslateCookies();
-      const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
-      if (select && select.value !== "en") {
-        isProgrammatic.current = true;
-        select.value = "en";
-        select.dispatchEvent(new Event("change", { bubbles: true }));
-        setTimeout(() => { isProgrammatic.current = false; }, 500);
-      }
+      syncDropdown(urlLang);
     } else {
-      // Non-root, no prefix - check cookie for redirect
-      const cookieLang = getGoogTransLang();
-      if (cookieLang && cookieLang !== "en") {
-        const normalized = SUPPORTED_LANGUAGES.find(l => l.toLowerCase() === cookieLang.toLowerCase());
-        if (normalized) {
-          navigate(`/${normalized}${location.pathname}`, { replace: true });
-          return;
-        }
-      }
-      // No cookie or English
+      // No language prefix (English or root) — clear all cookies, reset dropdown
       clearGoogleTranslateCookies();
-      const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
-      if (select && select.value !== "en") {
-        isProgrammatic.current = true;
-        select.value = "en";
-        select.dispatchEvent(new Event("change", { bubbles: true }));
-        setTimeout(() => { isProgrammatic.current = false; }, 500);
-      }
+      syncDropdown("en");
     }
-  }, [urlLang, location.pathname, navigate]);
+  }, [urlLang, location.pathname]);
 
   // Listen: GTranslate dropdown change → update URL
   useEffect(() => {
