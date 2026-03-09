@@ -36,6 +36,7 @@ const Index = () => {
       <HeroSection />
       <AboutSection />
       <VisionSection />
+      <MethodologySection />
       <Web3AISection />
       <ServicesSection />
       <RWASection />
