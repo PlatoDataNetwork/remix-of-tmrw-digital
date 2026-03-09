@@ -35,8 +35,8 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <AboutSection />
-      <VisionSection />
       <MethodologySection />
+      <VisionSection />
       <Web3AISection />
       <ServicesSection />
       <RWASection />
