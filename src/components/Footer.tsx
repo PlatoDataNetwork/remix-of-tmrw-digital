@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="py-16 bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-10 mb-16">
+        <div className="grid md:grid-cols-5 gap-10 mb-16">
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-2">
               <div
