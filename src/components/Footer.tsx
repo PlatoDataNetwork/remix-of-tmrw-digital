@@ -98,11 +98,12 @@ const Footer = () => {
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Resources</p>
             <div className="space-y-3">
               {[
-                { label: "Blog", href: "#" },
-                { label: "Intel", href: "/intel" },
-                { label: "Whitepaper", href: "#" },
-                { label: "Documentation", href: "#" },
-                { label: "FAQ", href: "/legal#faq" },
+              { label: "RTO", href: "/rto" },
+              { label: "Blog", href: "#" },
+              { label: "Intel", href: "/intel" },
+              { label: "Whitepaper", href: "#" },
+              { label: "Documentation", href: "#" },
+              { label: "FAQ", href: "/legal#faq" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
                   <Link
