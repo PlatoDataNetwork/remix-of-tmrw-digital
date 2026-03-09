@@ -181,7 +181,7 @@ const Showcase = () => {
                   </p>
 
                   <div className="mt-4 flex items-center gap-2">
-                    <span className={`text-xs font-semibold bg-gradient-to-r ${categoryColors[item.category]} bg-clip-text text-transparent`}>
+                    <span className={`text-sm font-semibold bg-gradient-to-r ${categoryColors[item.category]} bg-clip-text text-transparent`}>
                       Visit Showcase →
                     </span>
                   </div>
