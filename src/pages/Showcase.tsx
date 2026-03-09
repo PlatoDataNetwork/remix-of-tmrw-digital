@@ -185,7 +185,8 @@ const Showcase = () => {
                 </div>
               </motion.a>
             ))}
-          </motion.div>
+            </AnimatePresence>
+          </div>
 
           {/* Count */}
           <motion.p
