@@ -99,16 +99,23 @@ const MethodologySection = () => {
           ))}
         </div>
 
-        {/* Closing statement */}
+        {/* Chairman quote */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mt-16 text-center"
+          className="mt-16 border-l-2 border-foreground/10 pl-8 max-w-2xl mx-auto"
         >
-          <p className="text-sm text-muted-foreground font-light italic max-w-xl mx-auto leading-relaxed">
-            "We don't predict the future. We provision it — one protocol, one platform, one market at a time."
+          <p className="text-base lg:text-lg text-muted-foreground font-light italic leading-relaxed mb-4">
+            "We're not building another fintech company. We're engineering the infrastructure layer that the next generation of capital markets will run on — where AI is native, assets are programmable, and trust is verifiable by default."
           </p>
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-px bg-foreground/20" />
+            <p className="text-sm font-medium text-foreground">
+              Justin Hartzman
+              <span className="text-muted-foreground font-light"> — Chairman</span>
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
