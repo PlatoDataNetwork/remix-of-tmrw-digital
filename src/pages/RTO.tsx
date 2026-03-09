@@ -100,10 +100,10 @@ const platoTokenFeatures = [
 ];
 
 const roadmap = [
-  { phase: "Q1 2026", title: "RTO & TSX Listing", items: ["Execute Reverse Takeover on TSX Venture Exchange.", "Complete Seed Round financing.", "Announce Listing Vehicle and trading symbol."], tags: ["Execute RTO", "Complete Seed Round", "Announce Listing Vehicle"] },
-  { phase: "Q2 2026", title: "Platform Expansion", items: ["Scale Web3 browser adoption across key markets.", "Expand carbon credit enterprise partnerships.", "Launch AI-powered services and developer tools.", "Complete full regulatory audit."], tags: ["User Acquisition", "Enterprise Sales", "Product Launch", "Complete Regulatory Audit"] },
-  { phase: "Q3 2026", title: "Global Footprint", items: ["Expand into international markets across multiple continents.", "Establish strategic partnerships with institutional players.", "Pursue potential TSX graduation from Venture Exchange."], tags: ["Global Reach", "M&A Opportunities", "Market Leadership"] },
-  { phase: "Q4 2026", title: "Global Execution", items: ["Deploy full-scale global operations infrastructure.", "Onboard institutional investors and enterprise clients.", "Enable cross-border settlement capabilities.", "Monetize ecosystem through diversified revenue streams."], tags: ["Institutional Partnerships", "Revenue Scale", "Global Operations", "Ecosystem Growth"] },
+  { phase: "Q2 2026", title: "RTO & TSX Listing", items: ["Execute Reverse Takeover on TSX Venture Exchange.", "Complete Seed Round financing.", "Announce Listing Vehicle and trading symbol.", "Secure Board of Directors."], tags: ["Execute RTO", "Complete Seed Round", "Announce Listing Vehicle", "Secure Board"] },
+  { phase: "Q3 2026", title: "Platform Expansion", items: ["Scale Web3 browser adoption across key markets.", "Expand carbon credit enterprise partnerships.", "Launch AI-powered services and developer tools.", "Complete full regulatory audit."], tags: ["User Acquisition", "Enterprise Sales", "Product Launch", "Complete Regulatory Audit"] },
+  { phase: "Q4 2026", title: "Global Footprint", items: ["Expand into international markets across multiple continents.", "Establish strategic partnerships with institutional players.", "Pursue potential TSX graduation from Venture Exchange."], tags: ["Global Reach", "M&A Opportunities", "Market Leadership"] },
+  { phase: "Q1 2027", title: "Global Execution", items: ["Deploy full-scale global operations infrastructure.", "Onboard institutional investors and enterprise clients.", "Enable cross-border settlement capabilities.", "Monetize ecosystem through diversified revenue streams."], tags: ["Institutional Partnerships", "Revenue Scale", "Global Operations", "Ecosystem Growth"] },
 ];
 
 const whyAcquisition = [
