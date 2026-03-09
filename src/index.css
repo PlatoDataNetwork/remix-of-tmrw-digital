@@ -466,3 +466,41 @@ html {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Hide Google Translate overlay/popup/banner elements */
+/* Target by known class fragments, iframe, and attribute selectors */
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+[class*="VIpgJd"],
+#goog-gt-tt,
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+iframe[id="goog-gt-tt"],
+body > iframe[style*="z-index"]:not([src*="lovable"]):not([id="root"]) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+/* Also hide the Google Translate top banner that shifts the page */
+body {
+  top: 0 !important;
+}
+
+.skiptranslate {
+  display: none !important;
+}
+
+/* Keep our own gtranslate dropdown visible */
+.gtranslate_wrapper,
+.gtranslate_wrapper * {
+  display: revert !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
