@@ -15,10 +15,16 @@
         var langs = ["ar","bn","zh-cn","da","nl","et","fi","fr","de","el","iw","hi","hu","id","it","ja","km","ko","no","fa","pl","pt","pa","ro","ru","sl","es","sv","th","tr","uk","ur","vi"];
         var parts = window.location.pathname.split('/').filter(Boolean);
         var first = (parts[0] || '').toLowerCase();
-        if (langs.indexOf(first) === -1) {
-          document.cookie='googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
-          document.cookie='googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain='+window.location.hostname;
-          document.cookie='googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=.'+window.location.hostname;
+        var exp = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        var h = window.location.hostname;
+        // Always nuke all googtrans cookies first
+        document.cookie='googtrans=;'+exp+';path=/';
+        document.cookie='googtrans=;'+exp+';path=/;domain='+h;
+        document.cookie='googtrans=;'+exp+';path=/;domain=.'+h;
+        document.cookie='googtrans=;'+exp;
+        // If URL has a language prefix, set exactly ONE clean cookie
+        if (langs.indexOf(first) !== -1) {
+          document.cookie='googtrans=/en/'+first+';path=/';
         }
       })();
     </script>
