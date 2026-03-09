@@ -180,9 +180,9 @@ const Showcase = () => {
                     {item.description}
                   </p>
 
-                  <div className="mt-4 flex items-center gap-2 text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">
-                    <span className="animated-gradient-neon-text opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      Visit Platform →
+                  <div className="mt-4 flex items-center gap-2">
+                    <span className={`text-xs font-semibold bg-gradient-to-r ${categoryColors[item.category]} bg-clip-text text-transparent`}>
+                      Visit Showcase →
                     </span>
                   </div>
                 </div>
