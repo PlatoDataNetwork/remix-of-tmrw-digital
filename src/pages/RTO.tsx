@@ -100,9 +100,10 @@ const platoTokenFeatures = [
 ];
 
 const roadmap = [
-  { phase: "Q1 2026", title: "RTO & TSX Listing", desc: "Execute reverse takeover, list Tomorrow Digital on TSX Venture Exchange", tags: ["RTO Completion", "Public Listing", "TMRW Symbol"] },
-  { phase: "Q2 2026", title: "Platform Expansion", desc: "Scale Web3 browser adoption, expand carbon credit partnerships, launch AI services", tags: ["User Acquisition", "Enterprise Sales", "Product Launch"] },
-  { phase: "Q3 2026", title: "Global Scale", desc: "International expansion, strategic partnerships, potential TSX graduation", tags: ["Global Reach", "M&A Opportunities", "Market Leadership"] },
+  { phase: "Q1 2026", title: "RTO & TSX Listing", desc: "Execute Reverse Takeover, complete Seed Round, and announce Listing Vehicle on TSX Venture Exchange.", tags: ["Execute RTO", "Complete Seed Round", "Announce Listing Vehicle"] },
+  { phase: "Q2 2026", title: "Platform Expansion", desc: "Scale Web3 browser adoption, expand carbon credit partnerships, launch AI services, and complete regulatory audit.", tags: ["User Acquisition", "Enterprise Sales", "Product Launch", "Complete Regulatory Audit"] },
+  { phase: "Q3 2026", title: "Global Footprint", desc: "International expansion, strategic partnerships, and potential TSX graduation.", tags: ["Global Reach", "M&A Opportunities", "Market Leadership"] },
+  { phase: "Q4 2026", title: "Global Execution", desc: "Full-scale global operations, institutional onboarding, cross-border settlements, and ecosystem monetization.", tags: ["Institutional Partnerships", "Revenue Scale", "Global Operations", "Ecosystem Growth"] },
 ];
 
 const whyAcquisition = [
