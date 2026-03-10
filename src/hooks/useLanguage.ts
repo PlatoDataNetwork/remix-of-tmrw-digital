@@ -36,9 +36,17 @@ export function useCurrentLanguage(): string {
 }
 
 export function getGoogTransLang(): string | null {
-  const match = document.cookie.match(/googtrans=\/[^/]+\/([^;]+)/);
-  if (!match) return null;
-  // Cookie value is like /en/bn — extract the LAST segment (target language)
-  const parts = match[0].split("/").filter(Boolean);
-  return parts.length > 0 ? parts[parts.length - 1] : null;
+  const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/i);
+  if (!match?.[1]) return null;
+
+  const rawValue = decodeURIComponent(match[1]).trim();
+  if (!rawValue) return null;
+
+  // Supports values like /en/bn or /en|bn and always returns the target language (last segment)
+  const pipeSegments = rawValue.split("|").filter(Boolean);
+  const pipeTail = pipeSegments[pipeSegments.length - 1] || "";
+  const slashSegments = pipeTail.split("/").filter(Boolean);
+  const lang = (slashSegments[slashSegments.length - 1] || pipeTail || "").trim();
+
+  return lang || null;
 }
