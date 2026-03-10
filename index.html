@@ -17,14 +17,45 @@
         var first = (parts[0] || '').toLowerCase();
         var exp = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
         var h = window.location.hostname;
+
+        function nukeGoogTrans() {
+          document.cookie='googtrans=;'+exp+';path=/';
+          document.cookie='googtrans=;'+exp+';path=/;domain='+h;
+          document.cookie='googtrans=;'+exp+';path=/;domain=.'+h;
+          document.cookie='googtrans=;'+exp;
+          // Also try www variant
+          document.cookie='googtrans=;'+exp+';path=/;domain=.www.'+h;
+        }
+
         // Always nuke all googtrans cookies first
-        document.cookie='googtrans=;'+exp+';path=/';
-        document.cookie='googtrans=;'+exp+';path=/;domain='+h;
-        document.cookie='googtrans=;'+exp+';path=/;domain=.'+h;
-        document.cookie='googtrans=;'+exp;
-        // If URL has a language prefix, set exactly ONE clean cookie
-        if (langs.indexOf(first) !== -1) {
+        nukeGoogTrans();
+
+        var hasLangPrefix = langs.indexOf(first) !== -1;
+
+        if (hasLangPrefix) {
+          // URL has a language prefix — set exactly ONE clean cookie
           document.cookie='googtrans=/en/'+first+';path=/';
+        }
+
+        // After GTranslate loads (deferred), re-clear if no lang prefix
+        // This prevents GTranslate from using stale cookies
+        if (!hasLangPrefix) {
+          var observer = new MutationObserver(function(mutations) {
+            var select = document.querySelector('.gtranslate_wrapper select');
+            if (select) {
+              observer.disconnect();
+              // Clear any cookie GTranslate may have restored
+              nukeGoogTrans();
+              // Reset dropdown to English
+              if (select.value && select.value.toLowerCase() !== 'en') {
+                select.value = 'en';
+                select.dispatchEvent(new Event('change', { bubbles: true }));
+              }
+            }
+          });
+          observer.observe(document.body || document.documentElement, { childList: true, subtree: true });
+          // Safety timeout: stop observing after 10s
+          setTimeout(function(){ observer.disconnect(); }, 10000);
         }
       })();
     </script>
