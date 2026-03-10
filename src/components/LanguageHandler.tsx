@@ -57,6 +57,8 @@ const LanguageHandler = () => {
 
   // Helper to sync dropdown to a language value, with retries for when GTranslate isn't ready
   const syncDropdown = (lang: string, retries = 10) => {
+    const targetLang = normalizeLanguageValue(lang).toLowerCase();
+
     const trySync = (attempt: number) => {
       const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
       if (!select) {
@@ -65,16 +67,21 @@ const LanguageHandler = () => {
         }
         return;
       }
-      // Find the matching option (case-insensitive)
+      // Find the matching option (case-insensitive), supporting values like en|bn
       const options = Array.from(select.options);
-      const matchOption = options.find(o => o.value.toLowerCase() === lang.toLowerCase());
+      const matchOption = options.find(
+        (o) => normalizeLanguageValue(o.value).toLowerCase() === targetLang
+      );
       if (!matchOption) return;
 
-      if (select.value.toLowerCase() !== lang.toLowerCase()) {
+      const currentLang = normalizeLanguageValue(select.value).toLowerCase();
+      if (currentLang !== targetLang) {
         isProgrammatic.current = true;
         select.value = matchOption.value;
         select.dispatchEvent(new Event("change", { bubbles: true }));
-        setTimeout(() => { isProgrammatic.current = false; }, 800);
+        setTimeout(() => {
+          isProgrammatic.current = false;
+        }, 800);
       }
     };
     trySync(0);
