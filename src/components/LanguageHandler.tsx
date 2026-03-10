@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath, getGoogTransLang } from "@/hooks/useLanguage";
+import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath } from "@/hooks/useLanguage";
 
 function clearGoogleTranslateCookies() {
   const hostname = window.location.hostname;
@@ -29,6 +29,23 @@ function setGoogleTranslateCookie(lang: string) {
   }
 }
 
+function normalizeLanguageValue(value: string): string {
+  const raw = (value || "").trim();
+  if (!raw) return "";
+
+  if (raw.includes("|")) {
+    const parts = raw.split("|").filter(Boolean);
+    return (parts[parts.length - 1] || "").trim();
+  }
+
+  if (raw.includes("/")) {
+    const parts = raw.split("/").filter(Boolean);
+    return (parts[parts.length - 1] || "").trim();
+  }
+
+  return raw;
+}
+
 const LanguageHandler = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -40,6 +57,8 @@ const LanguageHandler = () => {
 
   // Helper to sync dropdown to a language value, with retries for when GTranslate isn't ready
   const syncDropdown = (lang: string, retries = 10) => {
+    const targetLang = normalizeLanguageValue(lang).toLowerCase();
+
     const trySync = (attempt: number) => {
       const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
       if (!select) {
@@ -48,16 +67,21 @@ const LanguageHandler = () => {
         }
         return;
       }
-      // Find the matching option (case-insensitive)
+      // Find the matching option (case-insensitive), supporting values like en|bn
       const options = Array.from(select.options);
-      const matchOption = options.find(o => o.value.toLowerCase() === lang.toLowerCase());
+      const matchOption = options.find(
+        (o) => normalizeLanguageValue(o.value).toLowerCase() === targetLang
+      );
       if (!matchOption) return;
 
-      if (select.value.toLowerCase() !== lang.toLowerCase()) {
+      const currentLang = normalizeLanguageValue(select.value).toLowerCase();
+      if (currentLang !== targetLang) {
         isProgrammatic.current = true;
         select.value = matchOption.value;
         select.dispatchEvent(new Event("change", { bubbles: true }));
-        setTimeout(() => { isProgrammatic.current = false; }, 800);
+        setTimeout(() => {
+          isProgrammatic.current = false;
+        }, 800);
       }
     };
     trySync(0);
@@ -83,15 +107,17 @@ const LanguageHandler = () => {
     const handleChange = (e: Event) => {
       if (isProgrammatic.current) return;
       const select = e.target as HTMLSelectElement;
-      const newLang = select.value;
+      const selectedLang = normalizeLanguageValue(select.value).toLowerCase();
+      if (!selectedLang) return;
 
       const basePath = getBasePath(pathnameRef.current);
 
-      if (newLang === "en") {
+      if (selectedLang === "en") {
         clearGoogleTranslateCookies();
         navigate(basePath || "/", { replace: true });
       } else {
-        const normalized = SUPPORTED_LANGUAGES.find(l => l.toLowerCase() === newLang.toLowerCase()) || newLang;
+        const normalized =
+          SUPPORTED_LANGUAGES.find((l) => l.toLowerCase() === selectedLang) || selectedLang;
         setGoogleTranslateCookie(normalized);
         navigate(`/${normalized}${basePath === "/" ? "" : basePath}`, { replace: true });
       }
