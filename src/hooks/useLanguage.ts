@@ -39,7 +39,12 @@ export function getGoogTransLang(): string | null {
   const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/i);
   if (!match?.[1]) return null;
 
-  const rawValue = decodeURIComponent(match[1]).trim();
+  let rawValue = match[1].trim();
+  try {
+    rawValue = decodeURIComponent(rawValue).trim();
+  } catch {
+    // keep raw value if decode fails
+  }
   if (!rawValue) return null;
 
   // Supports values like /en/bn or /en|bn and always returns the target language (last segment)
