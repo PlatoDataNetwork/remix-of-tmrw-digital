@@ -29,6 +29,23 @@ function setGoogleTranslateCookie(lang: string) {
   }
 }
 
+function normalizeLanguageValue(value: string): string {
+  const raw = (value || "").trim();
+  if (!raw) return "";
+
+  if (raw.includes("|")) {
+    const parts = raw.split("|").filter(Boolean);
+    return (parts[parts.length - 1] || "").trim();
+  }
+
+  if (raw.includes("/")) {
+    const parts = raw.split("/").filter(Boolean);
+    return (parts[parts.length - 1] || "").trim();
+  }
+
+  return raw;
+}
+
 const LanguageHandler = () => {
   const location = useLocation();
   const navigate = useNavigate();
