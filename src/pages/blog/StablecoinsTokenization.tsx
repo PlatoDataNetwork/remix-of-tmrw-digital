@@ -5,7 +5,7 @@ const data: BlogPostData = {
   title: "Stablecoins: The Settlement Layer for Tokenized Assets",
   date: "March 2, 2026",
   readTime: "7 min read",
-  heroImage: "/placeholder.svg",
+  
   subtitle: "With a market capitalization exceeding $170 billion and annual settlement volumes surpassing $7 trillion, stablecoins have emerged as the critical infrastructure layer connecting traditional finance with the on-chain economy. Their role in the tokenized RWA ecosystem is foundational and rapidly expanding.",
   sections: [
     {
