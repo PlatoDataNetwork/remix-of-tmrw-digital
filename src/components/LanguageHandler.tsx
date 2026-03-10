@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath, getGoogTransLang } from "@/hooks/useLanguage";
+import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath } from "@/hooks/useLanguage";
 
 function clearGoogleTranslateCookies() {
   const hostname = window.location.hostname;
