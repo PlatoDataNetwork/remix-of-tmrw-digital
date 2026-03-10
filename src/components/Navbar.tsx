@@ -98,7 +98,7 @@ const Navbar = () => {
                 opacity: 1,
               }}
             />
-            <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
+            <span className="notranslate text-lg lg:text-xl font-bold tracking-tight text-white" translate="no">
               The Tomorrow Company
             </span>
           </Link>
