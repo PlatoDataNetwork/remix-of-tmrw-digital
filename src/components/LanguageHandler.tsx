@@ -107,15 +107,17 @@ const LanguageHandler = () => {
     const handleChange = (e: Event) => {
       if (isProgrammatic.current) return;
       const select = e.target as HTMLSelectElement;
-      const newLang = select.value;
+      const selectedLang = normalizeLanguageValue(select.value).toLowerCase();
+      if (!selectedLang) return;
 
       const basePath = getBasePath(pathnameRef.current);
 
-      if (newLang === "en") {
+      if (selectedLang === "en") {
         clearGoogleTranslateCookies();
         navigate(basePath || "/", { replace: true });
       } else {
-        const normalized = SUPPORTED_LANGUAGES.find(l => l.toLowerCase() === newLang.toLowerCase()) || newLang;
+        const normalized =
+          SUPPORTED_LANGUAGES.find((l) => l.toLowerCase() === selectedLang) || selectedLang;
         setGoogleTranslateCookie(normalized);
         navigate(`/${normalized}${basePath === "/" ? "" : basePath}`, { replace: true });
       }
