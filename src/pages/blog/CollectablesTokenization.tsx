@@ -5,7 +5,7 @@ const data: BlogPostData = {
   title: "Tokenizing Collectables: Fine Art, Luxury Goods & Beyond",
   date: "March 2, 2026",
   readTime: "8 min read",
-  heroImage: "/placeholder.svg",
+  heroImage: "/assets/blog-hero-DpjoIrE7.jpeg",
   subtitle: "The global collectables market—valued at over $2 trillion—has long been the domain of ultra-high-net-worth individuals and specialized dealers. Tokenization is democratizing access to fine art, rare wines, luxury watches, and vintage automobiles, creating liquid markets for traditionally illiquid passion assets.",
   sections: [
     {

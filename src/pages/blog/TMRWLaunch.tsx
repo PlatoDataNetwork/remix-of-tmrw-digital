@@ -5,7 +5,7 @@ const data: BlogPostData = {
   title: "The Tomorrow Company Launches With a Bold Mandate to Build the Infrastructure Layer of the AI-Native Financial Era",
   date: "February 26, 2026",
   readTime: "6 min read",
-  heroImage: "/placeholder.svg",
+  heroImage: "/assets/blog-hero-DpjoIrE7.jpeg",
   subtitle: "The Tomorrow Company announces the completion of its strategic merger with Carbon Distributed Technologies AG and Plato Technologies Inc., forming an integrated Web3 infrastructure platform at the convergence of artificial intelligence, tokenized real-world assets, and programmable climate markets.",
   sections: [
     {
