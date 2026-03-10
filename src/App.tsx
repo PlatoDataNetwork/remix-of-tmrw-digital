@@ -60,6 +60,7 @@ const InvestorPresentation = lazy(() => import("./pages/InvestorPresentation"));
 const Legal = lazy(() => import("./pages/Legal"));
 const Showcase = lazy(() => import("./pages/Showcase"));
 const RTO = lazy(() => import("./pages/RTO"));
+const Whitepaper = lazy(() => import("./pages/Whitepaper"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
