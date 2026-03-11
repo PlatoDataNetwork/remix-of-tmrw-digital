@@ -633,8 +633,48 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="multi-chain" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Multi-Chain Deployments & Supply Integrity</h2>
         <div className="prose-section">
-          <p>W3AI intends native token representations on Solana, Ethereum, and BSC. Tokenomics must prevent multi-chain "supply duplication."</p>
-          <p><strong>Solana as Canonical Mint + Hub Chain</strong>, with Ethereum and BSC as spoke chains. A mature approach uses Wormhole Native Token Transfers (NTT), supporting hub-and-spoke supply management, burn-and-mint models, plus governance-configurable per-chain rate limits.</p>
+          <p>W3AI intends native token representations on Solana, Ethereum, and BSC. The multi-chain strategy is designed to maximize ecosystem reach while maintaining absolute supply integrity across all deployed networks. Tokenomics must prevent multi-chain "supply duplication" — a critical risk when tokens exist on multiple blockchains simultaneously.</p>
+        </div>
+      </section>
+
+      <section id="multi-hub-spoke" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Hub & Spoke Architecture</h2>
+        <div className="prose-section">
+          <p><strong>Solana serves as the Canonical Mint and Hub Chain.</strong> All 2,000,000,000 W3AI tokens are minted natively on Solana. Ethereum and BNB Smart Chain operate as spoke chains, receiving wrapped or bridged representations of the canonical supply. This hub-and-spoke model ensures a single source of truth for total supply, eliminates the risk of independent minting on secondary chains, and simplifies auditing and compliance reporting.</p>
+          <p>The architecture leverages Solana's high throughput and low transaction costs for primary token operations—staking, governance voting, and reward distribution—while maintaining presence on Ethereum and BSC for DeFi composability and exchange listing requirements.</p>
+        </div>
+      </section>
+
+      <section id="multi-wormhole" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Wormhole NTT Bridge</h2>
+        <div className="prose-section">
+          <p>Cross-chain transfers are powered by Wormhole Native Token Transfers (NTT), a protocol-level bridging framework that supports burn-and-mint models with governance-configurable per-chain rate limits. Unlike traditional lock-and-mint bridges, NTT burns tokens on the source chain and mints equivalent tokens on the destination chain, preserving total supply invariance at every step.</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Burn-and-mint model eliminates locked-token attack vectors common in bridge exploits.</li>
+            <li>Per-chain rate limits prevent catastrophic supply drainage in the event of a bridge compromise.</li>
+            <li>Governance-controlled parameters allow the DAO to adjust transfer limits, pause bridges, and whitelist new chains without contract redeployment.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="multi-supply-integrity" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Supply Integrity</h2>
+        <div className="prose-section">
+          <p>Supply integrity is enforced through a combination of on-chain invariants and off-chain monitoring. The total supply across all chains must equal the canonical 2,000,000,000 W3AI at all times. Any deviation triggers automated alerts and can invoke emergency governance procedures.</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Real-time cross-chain supply dashboards with public verification endpoints.</li>
+            <li>Automated reconciliation checks running every block on each deployed chain.</li>
+            <li>Third-party audit integration for periodic supply attestation reports.</li>
+            <li>Emergency pause functionality governed by multi-sig with time-lock safeguards.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="multi-chain-governance" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Cross-Chain Governance</h2>
+        <div className="prose-section">
+          <p>Governance participation is chain-agnostic. Token holders on Ethereum and BSC can vote on proposals without bridging back to Solana. Cross-chain message passing aggregates voting power from all chains into a unified governance result on the hub chain.</p>
+          <p>This ensures that the multi-chain deployment does not fragment governance participation or create asymmetric voting power between chains. All governance outcomes are executed on Solana and propagated to spoke chains via Wormhole messaging.</p>
         </div>
       </section>
 
