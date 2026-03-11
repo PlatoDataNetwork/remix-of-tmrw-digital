@@ -385,6 +385,145 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Token Utility */}
+      <section id="token-utility" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Token Utility, Monetization & Treasury</h2>
+        <div className="prose-section">
+          <p>This section covers token assumptions, monetization surfaces, and treasury mechanics.</p>
+        </div>
+      </section>
+
+      <section id="token-pillars" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Token Utility Pillars</h2>
+        <div className="prose-section">
+          <p>W3AI token utility is designed around four demand drivers:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li><strong>Browser-native access:</strong> Premium browser features and AI workflows.</li>
+            <li><strong>Open Gateway AI spend:</strong> Token-based credits fund inference and routing.</li>
+            <li><strong>Network incentives:</strong> Validators and application service operators are rewarded.</li>
+            <li><strong>Governance:</strong> Treasury policy, supported chains, fee parameters, and security thresholds.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="tokenomics" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Tokenomics Design</h2>
+        <div className="prose-section">
+          <p>W3AI is a monetized execution environment (the browser) backed by a decentralized service layer. Tokenomics satisfies three investor-grade requirements:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li><strong>Sustained Demand Drivers:</strong> Token needed for recurring consumption or privileged access.</li>
+            <li><strong>Credible Supply Integrity:</strong> Prevent "double supply" and bridge-driven inflation across chains.</li>
+            <li><strong>Transparent Revenue Routing:</strong> Token flows (fees, margins, rewards, burns) are explicit and auditable.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="supply-allocations" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Supply, Allocations & Lockups</h2>
+        <div className="prose-section">
+          <p><strong>Total Supply:</strong> Initial minting: 2,000,000,000 W3AI tokens (2B).</p>
+          <div className="overflow-x-auto mt-4">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted">
+                <tr>
+                  <th className="text-left px-4 py-3 font-semibold text-foreground">Allocation</th>
+                  <th className="text-right px-4 py-3 font-semibold text-foreground">Tokens</th>
+                  <th className="text-right px-4 py-3 font-semibold text-foreground">Share</th>
+                  <th className="text-left px-4 py-3 font-semibold text-foreground">Lock Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {[
+                  ["Private Round", "200,000,000", "10%", "No"],
+                  ["Private Pre-Sale", "200,000,000", "10%", "Yes"],
+                  ["Seed Round", "200,000,000", "10%", "Yes"],
+                  ["IDO / TGE", "200,000,000", "10%", "No"],
+                  ["Team & Advisors", "200,000,000", "10%", "Yes"],
+                  ["Rewards / Incentives", "50,000,000", "2.5%", "No"],
+                  ["Treasury / Foundation", "1,150,000,000", "52.5%", "Yes"],
+                ].map(([a, t, s, l]) => (
+                  <tr key={a} className="hover:bg-muted/50">
+                    <td className="px-4 py-2.5 text-foreground">{a}</td>
+                    <td className="px-4 py-2.5 text-right text-muted-foreground">{t}</td>
+                    <td className="px-4 py-2.5 text-right text-muted-foreground">{s}</td>
+                    <td className="px-4 py-2.5 text-muted-foreground">{l}</td>
+                  </tr>
+                ))}
+                <tr className="bg-muted/70 font-semibold">
+                  <td className="px-4 py-2.5 text-foreground">Total</td>
+                  <td className="px-4 py-2.5 text-right text-foreground">2,000,000,000</td>
+                  <td className="px-4 py-2.5 text-right text-foreground">100%</td>
+                  <td className="px-4 py-2.5">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-4 p-4 rounded-lg bg-muted/50 border border-border">
+            <p className="text-sm text-muted-foreground"><strong className="text-foreground">Treasury Takeaway:</strong> This is a treasury-heavy allocation (52.5%), which can be a strength if governance, reporting, and custody controls are executed at institutional quality.</p>
+          </div>
+          <h4 className="text-lg font-semibold text-foreground mt-6 mb-2">Lockups & Vesting</h4>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li><strong>Private Pre-Sale 1 (unlocked):</strong> Released prior to IDO / TGE; eligible for staking rewards while staked.</li>
+            <li><strong>Private Pre-Sale 2 & Seed Round (locked):</strong> Released across isochronic events over 6 months, beginning 30 days after IDO.</li>
+            <li><strong>IDO / TGE:</strong> Without vesting period; staking encouraged for platform access.</li>
+            <li><strong>Team & Advisors:</strong> Locked; vest over 12 months across 21 isochronic events starting 30 days after IDO.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="sale-rounds" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Sale Rounds & Pricing</h2>
+        <div className="prose-section">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted">
+                <tr>
+                  <th className="text-left px-4 py-3 font-semibold text-foreground">Round</th>
+                  <th className="text-right px-4 py-3 font-semibold text-foreground">Tokens</th>
+                  <th className="text-right px-4 py-3 font-semibold text-foreground">Share</th>
+                  <th className="text-right px-4 py-3 font-semibold text-foreground">Token Price</th>
+                  <th className="text-right px-4 py-3 font-semibold text-foreground">Raise</th>
+                  <th className="text-right px-4 py-3 font-semibold text-foreground">FDV</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {[
+                  ["Private Pre-Sale 1", "200,000,000", "10%", "$0.001875", "$375,500", "$3,750,000"],
+                  ["Private Pre-Sale 2", "200,000,000", "10%", "$0.003750", "$750,000", "$7,500,000"],
+                  ["Seed Round", "200,000,000", "10%", "$0.007500", "$1,000,000", "$15,000,000"],
+                  ["IDO / TGE", "200,000,000", "10%", "$0.015000", "$1,000,000", "$30,000,000"],
+                ].map(([r, t, s, p, ra, f]) => (
+                  <tr key={r} className="hover:bg-muted/50">
+                    <td className="px-4 py-2.5 text-foreground">{r}</td>
+                    <td className="px-4 py-2.5 text-right text-muted-foreground">{t}</td>
+                    <td className="px-4 py-2.5 text-right text-muted-foreground">{s}</td>
+                    <td className="px-4 py-2.5 text-right text-muted-foreground">{p}</td>
+                    <td className="px-4 py-2.5 text-right text-muted-foreground">{ra}</td>
+                    <td className="px-4 py-2.5 text-right text-muted-foreground">{f}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 text-sm text-muted-foreground italic">Disclosure: Round token amounts represent reserved allocations. Actual sold amount may be lower depending on round caps and demand.</p>
+        </div>
+      </section>
+
+      <section id="byok-gateway" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">BYOK vs Open Gateway</h2>
+        <div className="prose-section">
+          <p><strong>BYOK (Bring Your Own Key):</strong> User provides their own API key for their chosen LLM.</p>
+          <p><strong>Open Gateway:</strong> Token-billed usage with user-controlled caps, designed 30% margin.</p>
+        </div>
+      </section>
+
+      <section id="swaps-fee" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Swaps & Convenience Fee</h2>
+        <div className="prose-section">
+          <p>W3AI's plan includes in-browser swaps with a transparent convenience fee that accrues to treasury. If implemented using the Changelly Exchange API, Changelly's API extra fee shall not exceed 2% per transaction for API Partner referrals.</p>
+        </div>
+      </section>
+
       {/* Privacy */}
       <section id="privacy" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Privacy</h2>
