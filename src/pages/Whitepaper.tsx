@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react"; // rebuilt
+import { useState, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Lock, ChevronRight, ChevronDown, Menu, X, ArrowUp, Download } from "lucide-react";
+import { ChevronRight, ChevronDown, Menu, X, ArrowUp, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
