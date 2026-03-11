@@ -369,6 +369,9 @@ const ChatWidget = () => {
       </AnimatePresence>
     </>
   );
+
+  if (typeof document === "undefined") return null;
+  return createPortal(chatUi, document.body);
 };
 
 export default ChatWidget;
