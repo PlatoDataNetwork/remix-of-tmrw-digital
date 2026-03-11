@@ -19,6 +19,7 @@ interface Section {
 
 const sections: Section[] = [
   { id: "executive-summary", title: "Rise of the Machines" },
+  { id: "w3ai-protocol", title: "W3AI Protocol" },
   { id: "tmrw-browser", title: "W3AI TMRW Browser", children: [
     { id: "browser-architecture", title: "Architecture" },
     { id: "differentiation", title: "Differentiation" },
@@ -219,6 +220,16 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           <p><strong>Network thesis:</strong> A browser becomes a category-defining platform when it has its own decentralized backbone. W3AI is building Network infrastructure through a series of validator nodes on Solana, Ethereum, and BNB Smart Chain (BSC).</p>
           <p><strong>Why now:</strong> Crypto adoption is measured in hundreds of millions globally. Global crypto owners grew from 659 million (end of 2024) to 741 million in 2025. Active stablecoin addresses increased from 19.6 million to 30 million from Feb 2024 to Feb 2025. This is the user base that needs a safer, simpler "front door" into Web3.</p>
           <p><strong>Go-to-market focus:</strong> The project targets a six-month rollout with a measurable pre-listing objective: 25,000 Registry users via whitelisted wallets prior to listing. Post-launch, W3AI targets 3–5% share of the Web3 browser market within 12–18 months, modeled as 3M+ monthly users, benchmarked against Brave's reported 101M MAU.</p>
+        </div>
+      </section>
+
+      {/* W3AI Protocol */}
+      <section id="w3ai-protocol" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Protocol</h2>
+        <div className="prose-section">
+          <p>The W3AI Protocol is the decentralized infrastructure layer that powers every surface of the W3AI ecosystem—from browser-native AI inference to multi-chain token operations and validator economics. Built across Solana, Ethereum, and BNB Smart Chain, the protocol establishes a unified execution framework where identity, liquidity, governance, and security converge into a single composable stack. Rather than operating as a standalone blockchain, W3AI functions as a cross-chain coordination protocol that leverages existing network security while adding proprietary intelligence, custody, and compliance layers on top.</p>
+          <p>At its core, the W3AI Protocol introduces a novel architecture that binds AI agent permissions to on-chain wallet permissions—treating them as a single security domain. This means every AI-assisted action within the ecosystem, whether a swap recommendation, a governance vote, or a portfolio rebalance, must pass through the same cryptographic verification and user-consent framework that governs asset transfers. The result is a protocol where intelligence and capital move together under explicit user control, eliminating the trust gaps that plague conventional AI-integrated platforms.</p>
+          <p>The protocol's economic model is designed for long-term sustainability. Revenue flows from multiple surfaces—Open Gateway AI inference fees, in-browser swap convenience fees, validator yield, and premium feature access—all routed transparently through on-chain treasury mechanisms. With 52.5% of total token supply allocated to the treasury and governed by progressive decentralization, the W3AI Protocol is structured to fund development, incentivize participation, and maintain operational resilience across market cycles.</p>
         </div>
       </section>
 
