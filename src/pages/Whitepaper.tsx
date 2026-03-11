@@ -66,6 +66,11 @@ const sections: Section[] = [
     { id: "byok-gateway", title: "BYOK vs Open Gateway" },
     { id: "swaps-fee", title: "Swaps & Convenience Fee" },
   ]},
+  { id: "supported-networks", title: "Supported Networks", children: [
+    { id: "network-solana", title: "Solana" },
+    { id: "network-ethereum", title: "Ethereum" },
+    { id: "network-bsc", title: "BNB Smart Chain" },
+  ]},
   { id: "multi-chain", title: "Multi-Chain Deployments", children: [
     { id: "multi-hub-spoke", title: "Hub & Spoke Architecture" },
     { id: "multi-wormhole", title: "Wormhole NTT Bridge" },
