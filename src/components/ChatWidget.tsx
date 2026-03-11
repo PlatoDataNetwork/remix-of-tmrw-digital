@@ -170,34 +170,36 @@ const ChatWidget = () => {
 
   return (
     <>
-      {/* Floating Chat Button — bottom right */}
-      <AnimatePresence>
-        {!open && (
-          <motion.button
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-[60] relative h-9 w-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-            aria-label="Open chat"
-          >
-            <div
-              className="h-8 w-8 animated-gradient-icon-bright"
-              style={{
-                WebkitMaskImage: `url(${platoIcon})`,
-                maskImage: `url(${platoIcon})`,
-                WebkitMaskSize: "contain",
-                maskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                maskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-                maskPosition: "center",
-              }}
-            />
-          </motion.button>
-        )}
-      </AnimatePresence>
+      {/* Floating Chat Button — always visible, bottom right */}
+      <motion.button
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+        onClick={() => {
+          if (open) {
+            setOpen(false);
+            setMaximized(false);
+            return;
+          }
+          setOpen(true);
+        }}
+        className="fixed bottom-6 right-6 z-[70] h-9 w-9 flex items-center justify-center rounded-full bg-[hsl(220,20%,8%)] border border-white/10 hover:bg-[hsl(220,20%,12%)] transition-colors shadow-lg"
+        aria-label={open ? "Close chat" : "Open chat"}
+      >
+        <div
+          className="h-8 w-8 animated-gradient-icon-bright"
+          style={{
+            WebkitMaskImage: `url(${platoIcon})`,
+            maskImage: `url(${platoIcon})`,
+            WebkitMaskSize: "contain",
+            maskSize: "contain",
+            WebkitMaskRepeat: "no-repeat",
+            maskRepeat: "no-repeat",
+            WebkitMaskPosition: "center",
+            maskPosition: "center",
+          }}
+        />
+      </motion.button>
 
       {/* Chat Panel */}
       <AnimatePresence>
