@@ -83,7 +83,7 @@ const slides: Slide[] = [
           <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">The Tomorrow Company</p>
         </div>
         <div className="w-16 h-px bg-border" />
-        <p className="text-sm font-light text-muted-foreground/60 uppercase tracking-[0.3em]">Light Paper — 2025</p>
+        <p className="text-sm font-light text-muted-foreground/60 uppercase tracking-[0.3em]">Project Deck — 2026</p>
       </div>
     ),
   },
@@ -467,19 +467,32 @@ export default function Deck() {
 
   // Thumbnail strip
   const thumbnails = (
-    <div className="flex gap-2 overflow-x-auto py-4 px-1 scrollbar-thin">
+    <div className="flex gap-3 overflow-x-auto py-4 px-1 scrollbar-thin">
       {slides.map((s, i) => (
         <button
           key={s.id}
           onClick={() => setCurrent(i)}
           className={cn(
-            "shrink-0 w-20 h-12 rounded-lg border text-[6px] flex items-center justify-center transition-all",
+            "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all",
             i === current
-              ? "border-foreground/40 bg-card shadow-sm"
-              : "border-border bg-card/50 opacity-60 hover:opacity-100"
+              ? "border-foreground/40 shadow-md ring-1 ring-foreground/20"
+              : "border-border opacity-60 hover:opacity-100"
           )}
         >
-          {i + 1}
+          <div className="absolute inset-0 bg-background">
+            <div
+              className="origin-top-left pointer-events-none"
+              style={{
+                width: "1280px",
+                height: "720px",
+                transform: "scale(0.1)",
+              }}
+            >
+              <div className="w-full h-full p-8 md:p-16 flex flex-col">
+                {s.render()}
+              </div>
+            </div>
+          </div>
         </button>
       ))}
     </div>
