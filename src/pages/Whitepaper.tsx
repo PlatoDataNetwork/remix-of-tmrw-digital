@@ -3,6 +3,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Lock, ChevronRight, ChevronDown, Menu, X, ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const PASSWORD = "W3AI88";
 
@@ -108,7 +110,7 @@ function Sidebar({ activeId, onNavigate, open, onClose }: { activeId: string; on
     <>
       {open && <div className="fixed inset-0 z-30 bg-black/40 lg:hidden" onClick={onClose} />}
       <aside className={cn(
-        "fixed top-0 left-0 z-40 h-full w-72 border-r border-border bg-sidebar-background overflow-y-auto transition-transform duration-300 lg:translate-x-0 lg:static lg:z-0",
+        "fixed top-[64px] lg:top-[80px] left-0 z-40 h-[calc(100vh-64px)] lg:h-[calc(100vh-80px)] w-72 border-r border-border bg-sidebar-background overflow-y-auto transition-transform duration-300 lg:translate-x-0 lg:static lg:z-0",
         open ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="sticky top-0 bg-sidebar-background border-b border-border p-4 flex items-center justify-between">
@@ -620,13 +622,14 @@ export default function Whitepaper() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Navbar />
       {!unlocked && <PasswordGate onUnlock={() => setUnlocked(true)} />}
 
-      <div className={cn("flex min-h-screen", !unlocked && "blur-md pointer-events-none select-none")}>
+      <div className={cn("flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20", !unlocked && "blur-md pointer-events-none select-none")}>
         <Sidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 min-w-0">
           {/* Top bar */}
-          <div className="sticky top-0 z-20 bg-background/80 backdrop-blur-md border-b border-border px-4 py-3 flex items-center gap-3 lg:px-6">
+          <div className="sticky top-16 lg:top-20 z-20 bg-background/80 backdrop-blur-md border-b border-border px-4 py-3 flex items-center gap-3 lg:px-6">
             <button onClick={() => setSidebarOpen(true)} className="lg:hidden text-foreground">
               <Menu className="h-5 w-5" />
             </button>
@@ -635,6 +638,8 @@ export default function Whitepaper() {
           <WhitepaperContent onSectionVisible={setActiveId} />
         </main>
       </div>
+
+      <Footer />
 
       {/* Scroll to top */}
       {showScrollTop && unlocked && (
