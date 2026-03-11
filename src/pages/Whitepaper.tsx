@@ -643,16 +643,23 @@ export default function Whitepaper() {
       <Navbar />
 
       <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20 overflow-hidden">
-        <Sidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-        <main className="flex-1 min-w-0 transition-all duration-300">
-          {/* Top bar - mobile only */}
-          <div className="sticky top-16 lg:top-20 z-20 bg-background/80 backdrop-blur-md border-b border-border px-4 py-3 flex items-center gap-3 lg:hidden">
-            <button onClick={() => setSidebarOpen(o => !o)} className="text-foreground">
-              {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
-          </div>
+        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} />
+        <MobileDrawerSidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+        <main className="flex-1 min-w-0">
           <WhitepaperContent onSectionVisible={setActiveId} />
         </main>
+      </div>
+
+      {/* Fixed mobile nav trigger - vertical tab on left edge */}
+      <div className="fixed left-0 top-1/2 -translate-y-1/2 z-[70] lg:hidden">
+        <motion.button
+          onClick={() => setSidebarOpen(true)}
+          className="flex items-center justify-center w-7 h-14 rounded-r-lg bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm"
+          whileTap={{ scale: 0.9 }}
+          aria-label="Open table of contents"
+        >
+          <ChevronRight className="h-4 w-4" />
+        </motion.button>
       </div>
 
       <Footer />
