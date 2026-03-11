@@ -223,6 +223,16 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* W3AI Protocol */}
+      <section id="w3ai-protocol" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Protocol</h2>
+        <div className="prose-section">
+          <p>The W3AI Protocol is the decentralized infrastructure layer that powers every surface of the W3AI ecosystem—from browser-native AI inference to multi-chain token operations and validator economics. Built across Solana, Ethereum, and BNB Smart Chain, the protocol establishes a unified execution framework where identity, liquidity, governance, and security converge into a single composable stack. Rather than operating as a standalone blockchain, W3AI functions as a cross-chain coordination protocol that leverages existing network security while adding proprietary intelligence, custody, and compliance layers on top.</p>
+          <p>At its core, the W3AI Protocol introduces a novel architecture that binds AI agent permissions to on-chain wallet permissions—treating them as a single security domain. This means every AI-assisted action within the ecosystem, whether a swap recommendation, a governance vote, or a portfolio rebalance, must pass through the same cryptographic verification and user-consent framework that governs asset transfers. The result is a protocol where intelligence and capital move together under explicit user control, eliminating the trust gaps that plague conventional AI-integrated platforms.</p>
+          <p>The protocol's economic model is designed for long-term sustainability. Revenue flows from multiple surfaces—Open Gateway AI inference fees, in-browser swap convenience fees, validator yield, and premium feature access—all routed transparently through on-chain treasury mechanisms. With 52.5% of total token supply allocated to the treasury and governed by progressive decentralization, the W3AI Protocol is structured to fund development, incentivize participation, and maintain operational resilience across market cycles.</p>
+        </div>
+      </section>
+
       {/* TMRW Browser */}
       <section id="tmrw-browser" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">W3AI TMRW Browser</h2>
