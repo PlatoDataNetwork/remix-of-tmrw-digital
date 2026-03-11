@@ -17,7 +17,7 @@ interface Section {
 }
 
 const sections: Section[] = [
-  { id: "executive-summary", title: "Executive Summary" },
+  { id: "executive-summary", title: "Rise of the Machines" },
   { id: "tmrw-browser", title: "The W3AI TMRW Browser", children: [
     { id: "browser-architecture", title: "Browser Architecture & Firefox" },
     { id: "differentiation", title: "Differentiation vs Competitors" },
