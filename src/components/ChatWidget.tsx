@@ -179,7 +179,7 @@ const ChatWidget = () => {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-[60] h-9 w-9 flex items-center justify-center rounded-full bg-[hsl(220,20%,8%)] border border-white/10 hover:bg-[hsl(220,20%,12%)] hover:scale-105 transition-all shadow-lg"
+            className="fixed bottom-6 right-6 z-[60] h-14 w-14 flex items-center justify-center rounded-full bg-[hsl(220,20%,8%)] border-2 border-white/20 hover:bg-[hsl(220,20%,12%)] hover:scale-110 transition-all shadow-xl"
             aria-label="Open chat"
           >
             <div
