@@ -193,8 +193,7 @@ const Navbar = () => {
               className="fixed inset-y-0 right-0 z-[70] w-[80vw] max-w-sm bg-[hsl(220,20%,4%)] border-l border-white/10 flex flex-col"
             >
               {/* Drawer header */}
-              <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-                <span className="text-white text-lg font-semibold">Menu</span>
+              <div className="flex items-center justify-end px-4 py-3">
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="p-1.5 text-white/60 hover:text-white transition-colors"
@@ -204,7 +203,7 @@ const Navbar = () => {
               </div>
 
               {/* Nav links */}
-              <div className="px-6 py-6 space-y-1 flex-1 overflow-y-auto">
+              <div className="px-6 space-y-1 flex-1 overflow-y-auto">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.label}
