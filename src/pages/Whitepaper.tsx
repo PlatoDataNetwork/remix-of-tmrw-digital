@@ -114,6 +114,13 @@ const sections: Section[] = [
     { id: "infra-security", title: "Security & Custody" },
     { id: "infra-monitoring", title: "Monitoring & Operations" },
   ]},
+  { id: "privacy", title: "Privacy Policy", children: [
+    { id: "privacy-data-minimization", title: "Data Minimization" },
+    { id: "privacy-on-chain", title: "On-Chain Privacy" },
+    { id: "privacy-third-party", title: "Third-Party Data Sharing" },
+    { id: "privacy-user-rights", title: "User Rights & Control" },
+    { id: "identity-anti-sybil", title: "Identity & Anti-Sybil" },
+  ]},
   { id: "risks", title: "Risks & Disclosures" },
   { id: "appendix", title: "Appendix & References" },
   { id: "disclaimer", title: "Disclaimer" },
