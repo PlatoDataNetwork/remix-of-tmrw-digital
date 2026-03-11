@@ -589,7 +589,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Validator Yield */}
       <section id="validator-yield" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Validator Yield & Staking Economics</h2>
-        <p className="prose-section">Validator operations generate protocol-native rewards and must be managed with relentless operational discipline.</p>
+        <div className="prose-section">
+          <p>Validator operations generate protocol-native rewards and must be managed with relentless operational discipline.</p>
+        </div>
       </section>
 
       <section id="eth-validators" data-section>
