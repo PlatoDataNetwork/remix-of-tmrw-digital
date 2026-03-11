@@ -65,7 +65,7 @@ const sections: Section[] = [
     { id: "partner-surge", title: "Surge" },
     { id: "partner-g20", title: "G-20 Group" },
   ]},
-  { id: "foundations", title: "Foundations", children: [
+  { id: "foundations", title: "Governance", children: [
     { id: "foundation-governance", title: "Governance Framework" },
     { id: "foundation-treasury", title: "Treasury Management" },
     { id: "foundation-compliance", title: "Regulatory Compliance" },
@@ -623,9 +623,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* Foundations */}
+      {/* Governance */}
       <section id="foundations" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Foundations</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Governance</h2>
         <p className="prose-section">The W3AI Foundation provides the governance, treasury management, and regulatory framework required to operate a decentralized protocol at institutional quality. The foundation structure ensures long-term sustainability, transparent decision-making, and compliance across jurisdictions.</p>
       </section>
 
