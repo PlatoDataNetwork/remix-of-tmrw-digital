@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react"; // rebuilt
+import { useState, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Lock, ChevronRight, ChevronDown, Menu, X, ArrowUp, Download } from "lucide-react";
+import { ChevronRight, ChevronDown, Menu, X, ArrowUp, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -62,46 +62,6 @@ const sections: Section[] = [
   { id: "deck-link", title: "Project Deck" },
 ];
 
-// --- Password Gate ---
-function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
-  const [pw, setPw] = useState("");
-  const [error, setError] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (pw === PASSWORD) {
-      sessionStorage.setItem("wp_unlocked", "1");
-      onUnlock();
-    } else {
-      setError(true);
-      setTimeout(() => setError(false), 2000);
-    }
-  };
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm">
-      <form onSubmit={handleSubmit} className="w-full max-w-sm mx-4 p-8 rounded-xl border border-border bg-card shadow-2xl space-y-6">
-        <div className="flex flex-col items-center gap-3">
-          <div className="h-14 w-14 rounded-full bg-muted flex items-center justify-center">
-            <Lock className="h-6 w-6 text-muted-foreground" />
-          </div>
-          <h2 className="text-xl font-semibold text-foreground">Protected Document</h2>
-          <p className="text-sm text-muted-foreground text-center">Enter the password to access the W3AI Light Paper.</p>
-        </div>
-        <Input
-          type="password"
-          placeholder="Password"
-          value={pw}
-          onChange={e => { setPw(e.target.value); setError(false); }}
-          className={cn(error && "border-destructive ring-destructive")}
-          autoFocus
-        />
-        {error && <p className="text-sm text-destructive text-center">Incorrect password. Try again.</p>}
-        <Button type="submit" className="w-full">Unlock</Button>
-      </form>
-    </div>
-  );
-}
 
 // --- Sidebar Nav ---
 function Sidebar({ activeId, onNavigate, open, onClose }: { activeId: string; onNavigate: (id: string) => void; open: boolean; onClose: () => void }) {
@@ -625,7 +585,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 
 // --- Main Page ---
 export default function Whitepaper() {
-  const [unlocked, setUnlocked] = useState(() => sessionStorage.getItem("wp_unlocked") === "1");
+  const [unlocked, setUnlocked] = useState(true);
   const [activeId, setActiveId] = useState("executive-summary");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -644,9 +604,8 @@ export default function Whitepaper() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      {!unlocked && <PasswordGate onUnlock={() => setUnlocked(true)} />}
 
-      <div className={cn("flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20", !unlocked && "blur-md pointer-events-none select-none")}>
+      <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
         <Sidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 min-w-0">
           {/* Top bar - mobile only */}
