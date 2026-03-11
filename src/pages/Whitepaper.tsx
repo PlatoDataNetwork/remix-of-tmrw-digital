@@ -308,10 +308,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>W3AI is designed to be developer-friendly from the ground up. The browser exposes APIs and extension points that enable third-party developers to build plugins, integrate dApps, and extend browser functionality within a secure, sandboxed environment.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Extension SDK:</strong> A developer toolkit for building W3AI-native extensions with access to wallet state, transaction context, and AI assistant hooks</li>
-            <li><strong>Open-source components:</strong> Core browser modules published under permissive licenses to encourage community contributions and security audits</li>
-            <li><strong>Developer documentation:</strong> Comprehensive API references, integration guides, and example projects for rapid onboarding</li>
-            <li><strong>Hackathon ecosystem:</strong> Active participation in ETH Global, Solana hackathons, and BNB Chain builder programs to cultivate developer adoption</li>
+            <li><strong>Extension SDK:</strong> A developer toolkit for building W3AI-native extensions with access to wallet state, transaction context, and AI assistant hooks.</li>
+            <li><strong>Open-source components:</strong> Core browser modules published under permissive licenses to encourage community contributions and security audits.</li>
+            <li><strong>Developer documentation:</strong> Comprehensive API references, integration guides, and example projects for rapid onboarding.</li>
+            <li><strong>Hackathon ecosystem:</strong> Active participation in ETH Global, Solana hackathons, and BNB Chain builder programs to cultivate developer adoption.</li>
           </ul>
         </div>
       </section>
@@ -352,9 +352,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>W3AI's Registry and whitelisted-wallet objective is strengthened by integrating a privacy-forward credential layer through Dentity, emphasizing trust, identity verification, and digital credentials. W3AI leverages this to support:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Pre-sale / beta access controls (credentialed wallet allowlists)</li>
-            <li>Reduced bot/sybil influence in governance</li>
-            <li>Higher-trust partner campaigns and per-vertical onboarding</li>
+            <li>Pre-sale / beta access controls (credentialed wallet allowlists).</li>
+            <li>Reduced bot/sybil influence in governance.</li>
+            <li>Higher-trust partner campaigns and per-vertical onboarding.</li>
           </ul>
         </div>
       </section>
@@ -373,9 +373,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>Institutional participation requires bank-grade custody solutions. W3AI integrates MPC (Multi-Party Computation) and HSM (Hardware Security Module) custody infrastructure to provide institutional-grade key management without sacrificing user sovereignty.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Multi-signature authorization workflows for treasury and fund management</li>
-            <li>Insurance-backed custody partnerships for high-value asset classes</li>
-            <li>SOC 2 Type II compliant infrastructure and audit-ready reporting</li>
+            <li>Multi-signature authorization workflows for treasury and fund management.</li>
+            <li>Insurance-backed custody partnerships for high-value asset classes.</li>
+            <li>SOC 2 Type II compliant infrastructure and audit-ready reporting.</li>
           </ul>
         </div>
       </section>
@@ -385,9 +385,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>W3AI embeds compliance tooling directly into the browser experience, enabling institutions to interact with DeFi protocols, tokenized assets, and cross-chain bridges within a regulated framework.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Automated AML/KYC verification through credentialed wallet attestations</li>
-            <li>Travel Rule compliance for cross-border digital asset transfers</li>
-            <li>Real-time sanctions screening integrated at the transaction layer</li>
+            <li>Automated AML/KYC verification through credentialed wallet attestations.</li>
+            <li>Travel Rule compliance for cross-border digital asset transfers.</li>
+            <li>Real-time sanctions screening integrated at the transaction layer.</li>
           </ul>
         </div>
       </section>
@@ -397,9 +397,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>The browser serves as a discovery and management interface for tokenized real-world assets—real estate, commodities, carbon credits, infrastructure—bridging traditional finance with on-chain liquidity and fractional ownership.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Integrated RWA marketplace with verified asset originator profiles</li>
-            <li>Secondary market access with transparent pricing and settlement</li>
-            <li>ESG credential tokenization for sustainability reporting and verification</li>
+            <li>Integrated RWA marketplace with verified asset originator profiles.</li>
+            <li>Secondary market access with transparent pricing and settlement.</li>
+            <li>ESG credential tokenization for sustainability reporting and verification.</li>
           </ul>
         </div>
       </section>
@@ -409,9 +409,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>W3AI provides institutional-grade reporting capabilities that satisfy fiduciary and regulatory requirements for digital asset portfolios.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Portfolio-level analytics with on-chain and off-chain data aggregation</li>
-            <li>Tax lot tracking and cost basis reporting across multi-chain positions</li>
-            <li>Customizable audit trails and compliance export formats</li>
+            <li>Portfolio-level analytics with on-chain and off-chain data aggregation.</li>
+            <li>Tax lot tracking and cost basis reporting across multi-chain positions.</li>
+            <li>Customizable audit trails and compliance export formats.</li>
           </ul>
         </div>
       </section>
@@ -429,9 +429,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>Solana positions itself as a high-performance network enabling fast, secure, affordable transactions. W3AI's Solana strategy focuses on:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>DeFi-first execution:</strong> A Solana "Trading Space" merging research, route selection, swap simulation, and post-trade monitoring</li>
-            <li><strong>NFTs and communities as identity:</strong> Token-gated browsing modes and "community rooms" built around NFT membership</li>
-            <li><strong>Builder-native distribution:</strong> Hackathon sponsorships with 48,000+ developers and $600M+ in venture funding</li>
+            <li><strong>DeFi-first execution:</strong> A Solana "Trading Space" merging research, route selection, swap simulation, and post-trade monitoring.</li>
+            <li><strong>NFTs and communities as identity:</strong> Token-gated browsing modes and "community rooms" built around NFT membership.</li>
+            <li><strong>Builder-native distribution:</strong> Hackathon sponsorships with 48,000+ developers and $600M+ in venture funding.</li>
           </ul>
         </div>
       </section>
@@ -441,9 +441,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>Ethereum's core superpower is composable dApps. W3AI's Ethereum integrations emphasize:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Transaction clarity and contract literacy at the moment of signing</li>
-            <li>"Explain this transaction" assistance plus standardized warnings</li>
-            <li>Ecosystem-native developer relationships through ETH Global (95+ hackathons, 14,000+ projects)</li>
+            <li>Transaction clarity and contract literacy at the moment of signing.</li>
+            <li>"Explain this transaction" assistance plus standardized warnings.</li>
+            <li>Ecosystem-native developer relationships through ETH Global (95+ hackathons, 14,000+ projects).</li>
           </ul>
         </div>
       </section>
@@ -453,9 +453,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>BNB Chain emphasizes scale and mass adoption with daily active user figures (1.2M DAU on BSC, 2.7M on opBNB). W3AI's BSC strategy:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Retail-first simplicity:</strong> Optimized onboarding, reduced errors in swaps, bridging, and token discovery</li>
-            <li><strong>DEX-native behaviors:</strong> An "execution cockpit" optimized for high-volume habits</li>
-            <li><strong>Memecoins as community onboarding:</strong> Treated as a gateway vertical with safety overlay (risk banners, scam detection)</li>
+            <li><strong>Retail-first simplicity:</strong> Optimized onboarding, reduced errors in swaps, bridging, and token discovery.</li>
+            <li><strong>DEX-native behaviors:</strong> An "execution cockpit" optimized for high-volume habits.</li>
+            <li><strong>Memecoins as community onboarding:</strong> Treated as a gateway vertical with safety overlay (risk banners, scam detection).</li>
           </ul>
         </div>
       </section>
@@ -473,10 +473,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>W3AI token utility is designed around four demand drivers:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Browser-native access:</strong> Premium browser features and AI workflows</li>
-            <li><strong>Open Gateway AI spend:</strong> Token-based credits fund inference and routing</li>
-            <li><strong>Network incentives:</strong> Validators and application service operators are rewarded</li>
-            <li><strong>Governance:</strong> Treasury policy, supported chains, fee parameters, and security thresholds</li>
+            <li><strong>Browser-native access:</strong> Premium browser features and AI workflows.</li>
+            <li><strong>Open Gateway AI spend:</strong> Token-based credits fund inference and routing.</li>
+            <li><strong>Network incentives:</strong> Validators and application service operators are rewarded.</li>
+            <li><strong>Governance:</strong> Treasury policy, supported chains, fee parameters, and security thresholds.</li>
           </ul>
         </div>
       </section>
@@ -486,9 +486,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>W3AI is a monetized execution environment (the browser) backed by a decentralized service layer. Tokenomics satisfies three investor-grade requirements:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Sustained Demand Drivers:</strong> Token needed for recurring consumption or privileged access</li>
-            <li><strong>Credible Supply Integrity:</strong> Prevent "double supply" and bridge-driven inflation across chains</li>
-            <li><strong>Transparent Revenue Routing:</strong> Token flows (fees, margins, rewards, burns) are explicit and auditable</li>
+            <li><strong>Sustained Demand Drivers:</strong> Token needed for recurring consumption or privileged access.</li>
+            <li><strong>Credible Supply Integrity:</strong> Prevent "double supply" and bridge-driven inflation across chains.</li>
+            <li><strong>Transparent Revenue Routing:</strong> Token flows (fees, margins, rewards, burns) are explicit and auditable.</li>
           </ul>
         </div>
       </section>
@@ -538,10 +538,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           </div>
           <h4 className="text-lg font-semibold text-foreground mt-6 mb-2">Lockups & Vesting</h4>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Private Pre-Sale 1 (unlocked):</strong> Released prior to IDO / TGE; eligible for staking rewards while staked</li>
-            <li><strong>Private Pre-Sale 2 & Seed Round (locked):</strong> Released across isochronic events over 6 months, beginning 30 days after IDO</li>
-            <li><strong>IDO / TGE:</strong> Without vesting period; staking encouraged for platform access</li>
-            <li><strong>Team & Advisors:</strong> Locked; vest over 12 months across 21 isochronic events starting 30 days after IDO</li>
+            <li><strong>Private Pre-Sale 1 (unlocked):</strong> Released prior to IDO / TGE; eligible for staking rewards while staked.</li>
+            <li><strong>Private Pre-Sale 2 & Seed Round (locked):</strong> Released across isochronic events over 6 months, beginning 30 days after IDO.</li>
+            <li><strong>IDO / TGE:</strong> Without vesting period; staking encouraged for platform access.</li>
+            <li><strong>Team & Advisors:</strong> Locked; vest over 12 months across 21 isochronic events starting 30 days after IDO.</li>
           </ul>
         </div>
       </section>
@@ -644,9 +644,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           <p>Market making is a core product feature. DEX liquidity allocation is locked for no less than 12 months. LPs may receive additional token rewards pro rata and a 50% share of market-making rewards in USDC/USDT.</p>
           <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">Principles & Goals</h4>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Healthy Price Discovery:</strong> Minimize discontinuities between venues</li>
-            <li><strong>Reliable Liquidity:</strong> Competitive spreads and depth at core size bands</li>
-            <li><strong>Cross-Venue Coherence:</strong> Align conditions across DEX pools and CEX order books</li>
+            <li><strong>Healthy Price Discovery:</strong> Minimize discontinuities between venues.</li>
+            <li><strong>Reliable Liquidity:</strong> Competitive spreads and depth at core size bands.</li>
+            <li><strong>Cross-Venue Coherence:</strong> Align conditions across DEX pools and CEX order books.</li>
           </ul>
         </div>
       </section>
@@ -684,8 +684,8 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <h3 className="text-2xl font-bold text-foreground mb-4">Community Growth Objectives</h3>
         <div className="prose-section">
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Pre-listing:</strong> 25,000 Registry users via whitelisted wallets</li>
-            <li><strong>12–18 month:</strong> 3–5% of Web3 browser market (3M+ monthly users)</li>
+            <li><strong>Pre-listing:</strong> 25,000 Registry users via whitelisted wallets.</li>
+            <li><strong>12–18 month:</strong> 3–5% of Web3 browser market (3M+ monthly users).</li>
           </ul>
         </div>
       </section>
@@ -695,9 +695,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>W3AI's KOL engine is structured as "proof, not hype":</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Security KOLs who discuss wallet safety, transaction clarity, and AI-agent threat models</li>
-            <li>Chain-native creators with content mapping to each chain's daily reality</li>
-            <li>Builder KOLs in hackathon ecosystems</li>
+            <li>Security KOLs who discuss wallet safety, transaction clarity, and AI-agent threat models.</li>
+            <li>Chain-native creators with content mapping to each chain's daily reality.</li>
+            <li>Builder KOLs in hackathon ecosystems.</li>
           </ul>
           <p>Success metrics are tied to product behaviors: Registry sign-ups, wallet connections, first swap, daily active retention.</p>
         </div>
@@ -708,12 +708,12 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>Pre-sale marketing → TGE → listings/liquidity expansion, with partner-led distribution:</p>
           <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
-            <li><strong>Changelly:</strong> Instant exchange and on/off-ramp flows (2.7M community members)</li>
-            <li><strong>Hacken:</strong> "Verified-by-security" co-marketing with audits and monitoring</li>
-            <li><strong>Dentity:</strong> Trusted onboarding and privacy-preserving credentials</li>
-            <li><strong>Northern Trust:</strong> Institutional tokenization narrative alignment</li>
-            <li><strong>Surge:</strong> Discovery and execution gateway for tokenized launches</li>
-            <li><strong>G-20 Group:</strong> Professional liquidity and treasury management expertise</li>
+            <li><strong>Changelly:</strong> Instant exchange and on/off-ramp flows (2.7M community members).</li>
+            <li><strong>Hacken:</strong> "Verified-by-security" co-marketing with audits and monitoring.</li>
+            <li><strong>Dentity:</strong> Trusted onboarding and privacy-preserving credentials.</li>
+            <li><strong>Northern Trust:</strong> Institutional tokenization narrative alignment.</li>
+            <li><strong>Surge:</strong> Discovery and execution gateway for tokenized launches.</li>
+            <li><strong>G-20 Group:</strong> Professional liquidity and treasury management expertise.</li>
           </ul>
         </div>
       </section>
@@ -795,10 +795,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>With a treasury-heavy allocation (52.5% of total supply), institutional-quality custody, reporting, and governance controls are essential. The W3AI treasury operates under explicit mandates:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Custody:</strong> Multi-signature wallets with time-locked transactions and independent custodian oversight</li>
-            <li><strong>Reporting:</strong> Quarterly transparency reports covering treasury balances, disbursements, and yield generation</li>
-            <li><strong>Diversification:</strong> Treasury assets held across stablecoins, protocol-native tokens, and yield-bearing positions</li>
-            <li><strong>Runway management:</strong> Minimum 18-month operational runway maintained at all times</li>
+            <li><strong>Custody:</strong> Multi-signature wallets with time-locked transactions and independent custodian oversight.</li>
+            <li><strong>Reporting:</strong> Quarterly transparency reports covering treasury balances, disbursements, and yield generation.</li>
+            <li><strong>Diversification:</strong> Treasury assets held across stablecoins, protocol-native tokens, and yield-bearing positions.</li>
+            <li><strong>Runway management:</strong> Minimum 18-month operational runway maintained at all times.</li>
           </ul>
         </div>
       </section>
@@ -832,10 +832,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>Security is implemented at every layer: smart contract audits (Hacken), wallet-level security intelligence, browser sandboxing, and infrastructure-level protections. Key security measures include:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Smart contract security:</strong> Third-party audits, formal verification where applicable, and bug bounty programs</li>
-            <li><strong>Operational security:</strong> Hardware security modules (HSMs), multi-party computation (MPC) for key management</li>
-            <li><strong>Browser security:</strong> Isolated profiles, agent permission boundaries, transaction simulation before signing</li>
-            <li><strong>Incident response:</strong> Documented playbooks, 24/7 monitoring, and rapid response protocols</li>
+            <li><strong>Smart contract security:</strong> Third-party audits, formal verification where applicable, and bug bounty programs.</li>
+            <li><strong>Operational security:</strong> Hardware security modules (HSMs), multi-party computation (MPC) for key management.</li>
+            <li><strong>Browser security:</strong> Isolated profiles, agent permission boundaries, transaction simulation before signing.</li>
+            <li><strong>Incident response:</strong> Documented playbooks, 24/7 monitoring, and rapid response protocols.</li>
           </ul>
         </div>
       </section>
@@ -845,10 +845,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>Validator and infrastructure operations require relentless operational discipline. W3AI implements comprehensive monitoring across all network participants:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Validator health:</strong> Uptime monitoring, attestation performance, and slashing risk alerts</li>
-            <li><strong>Network metrics:</strong> Cross-chain bridge volumes, liquidity pool depths, and fee generation tracking</li>
-            <li><strong>Treasury dashboards:</strong> Real-time visibility into treasury composition, runway, and yield performance</li>
-            <li><strong>User-facing status:</strong> Public status pages for browser services, AI gateway availability, and network health</li>
+            <li><strong>Validator health:</strong> Uptime monitoring, attestation performance, and slashing risk alerts.</li>
+            <li><strong>Network metrics:</strong> Cross-chain bridge volumes, liquidity pool depths, and fee generation tracking.</li>
+            <li><strong>Treasury dashboards:</strong> Real-time visibility into treasury composition, runway, and yield performance.</li>
+            <li><strong>User-facing status:</strong> Public status pages for browser services, AI gateway availability, and network health.</li>
           </ul>
         </div>
       </section>
