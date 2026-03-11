@@ -59,6 +59,7 @@ const sections: Section[] = [
   { id: "risks", title: "Risks & Disclosures" },
   { id: "appendix", title: "Appendix & References" },
   { id: "disclaimer", title: "Disclaimer" },
+  { id: "deck-link", title: "Project Deck" },
 ];
 
 // --- Password Gate ---
@@ -125,7 +126,10 @@ function Sidebar({ activeId, onNavigate, open, onClose }: { activeId: string; on
             return (
               <div key={s.id}>
                 <button
-                  onClick={() => { if (s.children) toggle(s.id); else { onNavigate(s.id); onClose(); } }}
+                  onClick={() => {
+                    if (s.id === "deck-link") { window.location.href = "/deck"; return; }
+                    if (s.children) toggle(s.id); else { onNavigate(s.id); onClose(); }
+                  }}
                   className={cn(
                     "w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors",
                     isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"

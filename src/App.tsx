@@ -61,6 +61,7 @@ const Legal = lazy(() => import("./pages/Legal"));
 const Showcase = lazy(() => import("./pages/Showcase"));
 const RTO = lazy(() => import("./pages/RTO"));
 const Whitepaper = lazy(() => import("./pages/Whitepaper"));
+const Deck = lazy(() => import("./pages/Deck"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -124,6 +125,7 @@ function getRoutes() {
     <Route key="rto" path="rto" element={<RTO />} />,
     <Route key="legal" path="legal" element={<Legal />} />,
     <Route key="whitepaper" path="whitepaper" element={<Whitepaper />} />,
+    <Route key="deck" path="deck" element={<Deck />} />,
   ];
 }
 
