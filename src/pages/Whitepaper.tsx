@@ -66,6 +66,11 @@ const sections: Section[] = [
     { id: "byok-gateway", title: "BYOK vs Open Gateway" },
     { id: "swaps-fee", title: "Swaps & Convenience Fee" },
   ]},
+  { id: "supported-networks", title: "Supported Networks", children: [
+    { id: "network-solana", title: "Solana" },
+    { id: "network-ethereum", title: "Ethereum" },
+    { id: "network-bsc", title: "BNB Smart Chain" },
+  ]},
   { id: "multi-chain", title: "Multi-Chain Deployments", children: [
     { id: "multi-hub-spoke", title: "Hub & Spoke Architecture" },
     { id: "multi-wormhole", title: "Wormhole NTT Bridge" },
@@ -626,6 +631,53 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <h2 className="text-2xl font-bold text-foreground mb-4">Swaps & Convenience Fee</h2>
         <div className="prose-section">
           <p>W3AI's plan includes in-browser swaps with a transparent convenience fee that accrues to treasury. If implemented using the Changelly Exchange API, Changelly's API extra fee shall not exceed 2% per transaction for API Partner referrals.</p>
+        </div>
+      </section>
+
+      {/* Supported Networks */}
+      <section id="supported-networks" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Supported Networks</h2>
+        <div className="prose-section">
+          <p>W3AI is built as a multi-chain protocol with native presence across three foundational blockchain ecosystems. Each network was selected for its unique strengths in performance, composability, and community reach — together providing comprehensive coverage of the Web3 landscape.</p>
+        </div>
+      </section>
+
+      <section id="network-solana" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Solana</h2>
+        <div className="prose-section">
+          <p>Solana serves as W3AI's canonical mint chain and primary hub. With sub-second finality, transaction costs under $0.01, and throughput exceeding 4,000 TPS, Solana provides the performance foundation for W3AI's high-frequency operations including token staking, governance voting, AI gateway billing, and reward distribution.</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Canonical mint of all 2,000,000,000 W3AI tokens.</li>
+            <li>Primary chain for staking, governance, and treasury operations.</li>
+            <li>Hub chain for Wormhole NTT cross-chain transfers.</li>
+            <li>Ecosystem of 48,000+ developers and $600M+ in venture funding.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="network-ethereum" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Ethereum</h2>
+        <div className="prose-section">
+          <p>Ethereum provides W3AI with access to the largest DeFi ecosystem and the deepest institutional liquidity pools. As a spoke chain, Ethereum enables composability with leading protocols including Uniswap, Aave, and MakerDAO, while providing the credibility and listing infrastructure required for institutional adoption.</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Spoke chain receiving bridged W3AI tokens via Wormhole NTT.</li>
+            <li>Uniswap-style AMM pools for decentralized liquidity.</li>
+            <li>Validator node operations with 32 ETH staking requirement.</li>
+            <li>ETH Global hackathon ecosystem with 95+ events and 14,000+ projects.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="network-bsc" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">BNB Smart Chain</h2>
+        <div className="prose-section">
+          <p>BNB Smart Chain (BSC) extends W3AI's reach into the highest-volume retail trading ecosystem. With 1.2M daily active users on BSC and 2.7M on opBNB, the chain provides access to a massive user base optimized for high-frequency swaps, token discovery, and community-driven activity.</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Spoke chain with PancakeSwap Smart Router integration.</li>
+            <li>Retail-first onboarding with optimized swap and bridging flows.</li>
+            <li>Validator operations with 2,000 BNB minimum self-delegation.</li>
+            <li>Gateway vertical for memecoin communities with safety overlay.</li>
+          </ul>
         </div>
       </section>
 
