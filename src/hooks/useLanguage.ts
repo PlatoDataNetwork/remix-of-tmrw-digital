@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 
 export const SUPPORTED_LANGUAGES = [
   "en","ar","bn","zh-CN","da","nl","et","fi","fr","de","el","iw","hi","hu",
-  "id","it","ja","km","ko","no","fa","pl","pt","pa","ro","ru","sl","es","sv",
+  "id","it","ja","km","ko","ms","no","fa","pl","pt","pa","ro","ru","sl","es","sv",
   "th","tr","uk","ur","vi"
 ];
 
