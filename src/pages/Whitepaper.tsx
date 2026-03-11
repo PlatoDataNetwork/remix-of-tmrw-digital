@@ -730,7 +730,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="partner-changelly" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
           Changelly
-          <a href="https://changelly.com" target="_blank" rel="noopener noreferrer" className="animated-gradient-text"><Globe className="h-5 w-5" /></a>
+          <a href="https://changelly.com" target="_blank" rel="noopener noreferrer" className="partner-globe-link"><Globe className="h-5 w-5" /></a>
         </h2>
         <div className="prose-section">
           <p>Changelly provides instant exchange and on/off-ramp infrastructure with a 2.7M-member community. Within W3AI, Changelly's Exchange API powers in-browser swap execution with transparent convenience fees. The API's "extra fee" functionality enables W3AI to configure an additional commission layer that routes to the project treasury.</p>
@@ -741,7 +741,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="partner-hacken" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
           Hacken
-          <a href="https://hacken.io" target="_blank" rel="noopener noreferrer" className="animated-gradient-text"><Globe className="h-5 w-5" /></a>
+          <a href="https://hacken.io" target="_blank" rel="noopener noreferrer" className="partner-globe-link"><Globe className="h-5 w-5" /></a>
         </h2>
         <div className="prose-section">
           <p>Hacken delivers the security backbone for W3AI through smart contract audits, wallet audits, penetration testing, tokenomics audits, proof-of-reserves audits, and post-deployment monitoring. In W3AI, this translates to an "in-browser trust layer" providing risk flags, verified proofs, and standardized security context before users commit capital.</p>
@@ -752,7 +752,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="partner-dentity" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
           Dentity
-          <a href="https://dentity.com" target="_blank" rel="noopener noreferrer" className="animated-gradient-text"><Globe className="h-5 w-5" /></a>
+          <a href="https://dentity.com" target="_blank" rel="noopener noreferrer" className="partner-globe-link"><Globe className="h-5 w-5" /></a>
         </h2>
         <div className="prose-section">
           <p>Dentity provides the privacy-forward credential layer that strengthens W3AI's Registry and whitelisted-wallet objective. Dentity emphasizes trust, identity verification, and digital credentials while preserving user privacy.</p>
@@ -763,7 +763,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="partner-northern-trust" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
           Northern Trust
-          <a href="https://www.northerntrust.com" target="_blank" rel="noopener noreferrer" className="animated-gradient-text"><Globe className="h-5 w-5" /></a>
+          <a href="https://www.northerntrust.com" target="_blank" rel="noopener noreferrer" className="partner-globe-link"><Globe className="h-5 w-5" /></a>
         </h2>
         <div className="prose-section">
           <p>Northern Trust brings institutional credibility and tokenization expertise through its digital assets platform (Matrix Zenith) and participation in tokenizing ESG reporting credentials. W3AI translates this into product positioning: the browser becomes the interface where "tokenized everything"—RWAs, funds, ESG credentials—is discovered, verified, and managed.</p>
@@ -774,7 +774,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="partner-surge" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
           Surge
-          <a href="https://surge.lablab.ai" target="_blank" rel="noopener noreferrer" className="animated-gradient-text"><Globe className="h-5 w-5" /></a>
+          <a href="https://surge.lablab.ai" target="_blank" rel="noopener noreferrer" className="partner-globe-link"><Globe className="h-5 w-5" /></a>
         </h2>
         <div className="prose-section">
           <p>Surge operates as W3AI's discovery and execution gateway for tokenized launches. Within the W3AI ecosystem, Surge provides infrastructure for token distribution events, community-driven launches, and curated project discovery.</p>
@@ -785,7 +785,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="partner-g20" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
           G-20 Group
-          <a href="https://g20.group" target="_blank" rel="noopener noreferrer" className="animated-gradient-text"><Globe className="h-5 w-5" /></a>
+          <a href="https://g20.group" target="_blank" rel="noopener noreferrer" className="partner-globe-link"><Globe className="h-5 w-5" /></a>
         </h2>
         <div className="prose-section">
           <p>G-20 Group provides professional liquidity solutions and treasury management across exchange-traded and on-chain venues. Within W3AI, this maps to a multi-venue liquidity framework, risk-managed treasury yield, and market-depth stability programs tied to milestones.</p>
@@ -796,7 +796,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="partner-lablab" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
           LabLab
-          <a href="https://lablab.ai" target="_blank" rel="noopener noreferrer" className="animated-gradient-text"><Globe className="h-5 w-5" /></a>
+          <a href="https://lablab.ai" target="_blank" rel="noopener noreferrer" className="partner-globe-link"><Globe className="h-5 w-5" /></a>
         </h2>
         <div className="prose-section">
           <p>LabLab.ai is a global AI innovation community with over 251,000 members, 23,000+ teams, and 5,200+ prototypes built through free-to-attend AI hackathons. LabLab connects builders, developers, and entrepreneurs with state-of-the-art AI tools and mentorship to accelerate product development from concept to launch.</p>
