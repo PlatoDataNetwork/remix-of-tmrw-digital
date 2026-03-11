@@ -37,20 +37,13 @@ const sections: Section[] = [
     { id: "swap-execution", title: "DeFi Swap Execution" },
     { id: "security-intelligence", title: "Security Intelligence" },
   ]},
-  { id: "token-utility", title: "Token Utility & Monetization", children: [
+  { id: "token-utility", title: "Tokenomics", children: [
     { id: "token-pillars", title: "Token Utility Pillars" },
     { id: "tokenomics", title: "Tokenomics Design" },
     { id: "supply-allocations", title: "Supply & Allocations" },
     { id: "sale-rounds", title: "Sale Rounds & Pricing" },
     { id: "byok-gateway", title: "BYOK vs Open Gateway" },
     { id: "swaps-fee", title: "Swaps & Convenience Fee" },
-  ]},
-  { id: "privacy", title: "Privacy", children: [
-    { id: "privacy-data-minimization", title: "Data Minimization" },
-    { id: "privacy-on-chain", title: "On-Chain Privacy" },
-    { id: "privacy-third-party", title: "Third-Party Data Sharing" },
-    { id: "privacy-user-rights", title: "User Rights & Control" },
-    { id: "identity-anti-sybil", title: "Identity & Anti-Sybil" },
   ]},
   { id: "institutional-rails", title: "Institutional-Grade Rails", children: [
     { id: "rails-custody", title: "Custody & Asset Safeguarding" },
@@ -120,6 +113,13 @@ const sections: Section[] = [
     { id: "infra-network", title: "Network Architecture" },
     { id: "infra-security", title: "Security & Custody" },
     { id: "infra-monitoring", title: "Monitoring & Operations" },
+  ]},
+  { id: "privacy", title: "Privacy Policy", children: [
+    { id: "privacy-data-minimization", title: "Data Minimization" },
+    { id: "privacy-on-chain", title: "On-Chain Privacy" },
+    { id: "privacy-third-party", title: "Third-Party Data Sharing" },
+    { id: "privacy-user-rights", title: "User Rights & Control" },
+    { id: "identity-anti-sybil", title: "Identity & Anti-Sybil" },
   ]},
   { id: "risks", title: "Risks & Disclosures" },
   { id: "appendix", title: "Appendix & References" },
@@ -396,9 +396,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* Token Utility */}
+      {/* Tokenomics */}
       <section id="token-utility" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Token Utility, Monetization & Treasury</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Tokenomics</h2>
         <div className="prose-section">
           <p>This section covers token assumptions, monetization surfaces, and treasury mechanics.</p>
         </div>
@@ -532,55 +532,6 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <h2 className="text-2xl font-bold text-foreground mb-4">Swaps & Convenience Fee</h2>
         <div className="prose-section">
           <p>W3AI's plan includes in-browser swaps with a transparent convenience fee that accrues to treasury. If implemented using the Changelly Exchange API, Changelly's API extra fee shall not exceed 2% per transaction for API Partner referrals.</p>
-        </div>
-      </section>
-
-      {/* Privacy */}
-      <section id="privacy" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Privacy</h2>
-        <div className="prose-section">
-          <p>Privacy is a foundational principle of Web3 architecture. W3AI is committed to building privacy-preserving systems that protect user data, on-chain identity, and transactional confidentiality while maintaining compliance with applicable regulatory frameworks. The privacy framework is designed specifically for the Web3 environment, where traditional data collection models are replaced by cryptographic verification, zero-knowledge proofs, and user-sovereign data ownership.</p>
-        </div>
-      </section>
-
-      <section id="privacy-data-minimization" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Data Minimization</h2>
-        <div className="prose-section">
-          <p>W3AI adheres to a strict data minimization principle. The browser collects only the minimum information necessary to deliver core functionality. No browsing history, wallet balances, or transaction data is stored on centralized servers. All user activity remains local unless explicitly shared by the user.</p>
-        </div>
-      </section>
-
-      <section id="privacy-on-chain" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">On-Chain Privacy</h2>
-        <div className="prose-section">
-          <p>Wallet interactions, token swaps, and governance participation are conducted through privacy-preserving mechanisms. W3AI supports selective disclosure protocols, enabling users to prove eligibility (e.g., KYC status, token holdings) without revealing underlying personal data.</p>
-        </div>
-      </section>
-
-      <section id="privacy-third-party" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Third-Party Data Sharing</h2>
-        <div className="prose-section">
-          <p>W3AI does not sell, rent, or share user data with third parties for advertising or profiling purposes. Where integrations require data exchange (e.g., fiat on-ramps, KYC providers), users are informed and must provide explicit consent. All third-party processors are contractually bound to equivalent privacy standards.</p>
-        </div>
-      </section>
-
-      <section id="privacy-user-rights" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">User Rights & Control</h2>
-        <div className="prose-section">
-          <p>Users retain full control over their data at all times. This includes the right to export, delete, or restrict processing of any personally identifiable information. W3AI's architecture ensures that account deletion results in complete and irreversible data removal from all systems.</p>
-        </div>
-      </section>
-
-      {/* Identity */}
-      <section id="identity-anti-sybil" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Identity & Anti-Sybil Primitives</h2>
-        <div className="prose-section">
-          <p>W3AI's Registry and whitelisted-wallet objective is strengthened by integrating a privacy-forward credential layer through Dentity, emphasizing trust, identity verification, and digital credentials. W3AI leverages this to support:</p>
-          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Pre-sale / beta access controls (credentialed wallet allowlists).</li>
-            <li>Reduced bot/sybil influence in governance.</li>
-            <li>Higher-trust partner campaigns and per-vertical onboarding.</li>
-          </ul>
         </div>
       </section>
 
@@ -1222,6 +1173,55 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
             <li><strong>Network metrics:</strong> Cross-chain bridge volumes, liquidity pool depths, and fee generation tracking.</li>
             <li><strong>Treasury dashboards:</strong> Real-time visibility into treasury composition, runway, and yield performance.</li>
             <li><strong>User-facing status:</strong> Public status pages for browser services, AI gateway availability, and network health.</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Privacy Policy */}
+      <section id="privacy" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Privacy Policy</h2>
+        <div className="prose-section">
+          <p>Privacy is a foundational principle of Web3 architecture. W3AI is committed to building privacy-preserving systems that protect user data, on-chain identity, and transactional confidentiality while maintaining compliance with applicable regulatory frameworks. The privacy framework is designed specifically for the Web3 environment, where traditional data collection models are replaced by cryptographic verification, zero-knowledge proofs, and user-sovereign data ownership.</p>
+        </div>
+      </section>
+
+      <section id="privacy-data-minimization" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Data Minimization</h2>
+        <div className="prose-section">
+          <p>W3AI adheres to a strict data minimization principle. The browser collects only the minimum information necessary to deliver core functionality. No browsing history, wallet balances, or transaction data is stored on centralized servers. All user activity remains local unless explicitly shared by the user.</p>
+        </div>
+      </section>
+
+      <section id="privacy-on-chain" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">On-Chain Privacy</h2>
+        <div className="prose-section">
+          <p>Wallet interactions, token swaps, and governance participation are conducted through privacy-preserving mechanisms. W3AI supports selective disclosure protocols, enabling users to prove eligibility (e.g., KYC status, token holdings) without revealing underlying personal data.</p>
+        </div>
+      </section>
+
+      <section id="privacy-third-party" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Third-Party Data Sharing</h2>
+        <div className="prose-section">
+          <p>W3AI does not sell, rent, or share user data with third parties for advertising or profiling purposes. Where integrations require data exchange (e.g., fiat on-ramps, KYC providers), users are informed and must provide explicit consent. All third-party processors are contractually bound to equivalent privacy standards.</p>
+        </div>
+      </section>
+
+      <section id="privacy-user-rights" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">User Rights & Control</h2>
+        <div className="prose-section">
+          <p>Users retain full control over their data at all times. This includes the right to export, delete, or restrict processing of any personally identifiable information. W3AI's architecture ensures that account deletion results in complete and irreversible data removal from all systems.</p>
+        </div>
+      </section>
+
+      {/* Identity */}
+      <section id="identity-anti-sybil" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Identity & Anti-Sybil Primitives</h2>
+        <div className="prose-section">
+          <p>W3AI's Registry and whitelisted-wallet objective is strengthened by integrating a privacy-forward credential layer through Dentity, emphasizing trust, identity verification, and digital credentials. W3AI leverages this to support:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Pre-sale / beta access controls (credentialed wallet allowlists).</li>
+            <li>Reduced bot/sybil influence in governance.</li>
+            <li>Higher-trust partner campaigns and per-vertical onboarding.</li>
           </ul>
         </div>
       </section>
