@@ -124,7 +124,7 @@ function getRoutes() {
     <Route key="showcase" path="showcase" element={<Showcase />} />,
     <Route key="rto" path="rto" element={<RTO />} />,
     <Route key="legal" path="legal" element={<Legal />} />,
-    <Route key="whitepaper" path="w3ai/whitepaper" element={<Whitepaper />} />,
+    <Route key="whitepaper" path="whitepaper" element={<Whitepaper />} />,
     <Route key="deck" path="deck" element={<Deck />} />,
   ];
 }
