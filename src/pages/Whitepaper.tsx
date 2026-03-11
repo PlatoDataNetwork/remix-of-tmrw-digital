@@ -29,13 +29,27 @@ const sections: Section[] = [
     { id: "protocol-architecture", title: "Architecture" },
     { id: "protocol-economic-model", title: "Economic Model" },
   ]},
-  { id: "tmrw-browser", title: "W3AI TMRW Browser", children: [
+  { id: "tmrw-browser", title: "W3AI Browser", children: [
     { id: "browser-architecture", title: "Architecture" },
     { id: "differentiation", title: "Differentiation" },
     { id: "llm-layer", title: "LLM Layer" },
     { id: "developers", title: "Developers" },
     { id: "swap-execution", title: "DeFi Swap Execution" },
     { id: "security-intelligence", title: "Security Intelligence" },
+  ]},
+  { id: "w3ai-rwas", title: "W3AI RWAs", children: [
+    { id: "rwa-carbon-credits", title: "Carbon Credits" },
+    { id: "rwa-collectables", title: "Collectables" },
+    { id: "rwa-commodities", title: "Commodities" },
+    { id: "rwa-energy", title: "Energy" },
+    { id: "rwa-infrastructure", title: "Infrastructure" },
+    { id: "rwa-metals", title: "Metals" },
+    { id: "rwa-rare-earth", title: "Rare Earth Minerals" },
+    { id: "rwa-real-estate", title: "Real Estate" },
+    { id: "rwa-sovereign-wealth", title: "Sovereign Wealth" },
+    { id: "rwa-stablecoins", title: "Stablecoins" },
+    { id: "rwa-tax-credits", title: "Tax Credits" },
+    { id: "rwa-utilities", title: "Utilities" },
   ]},
   { id: "token-utility", title: "Tokenomics", children: [
     { id: "token-pillars", title: "Token Utility Pillars" },
