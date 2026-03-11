@@ -18,6 +18,7 @@ interface Section {
 }
 
 const sections: Section[] = [
+  { id: "w3ai-whitepaper", title: "W3AI Whitepaper" },
   { id: "executive-summary", title: "Rise of the Machines", children: [
     { id: "network-thesis", title: "Network Thesis" },
     { id: "why-now", title: "Why Now" },
