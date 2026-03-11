@@ -37,6 +37,14 @@ const sections: Section[] = [
     { id: "swap-execution", title: "DeFi Swap Execution" },
     { id: "security-intelligence", title: "Security Intelligence" },
   ]},
+  { id: "token-utility", title: "Token Utility & Monetization", children: [
+    { id: "token-pillars", title: "Token Utility Pillars" },
+    { id: "tokenomics", title: "Tokenomics Design" },
+    { id: "supply-allocations", title: "Supply & Allocations" },
+    { id: "sale-rounds", title: "Sale Rounds & Pricing" },
+    { id: "byok-gateway", title: "BYOK vs Open Gateway" },
+    { id: "swaps-fee", title: "Swaps & Convenience Fee" },
+  ]},
   { id: "privacy", title: "Privacy", children: [
     { id: "privacy-data-minimization", title: "Data Minimization" },
     { id: "privacy-on-chain", title: "On-Chain Privacy" },
@@ -59,14 +67,6 @@ const sections: Section[] = [
     { id: "solana-community", title: "Solana" },
     { id: "ethereum-community", title: "Ethereum" },
     { id: "bsc-community", title: "BSC" },
-  ]},
-  { id: "token-utility", title: "Token Utility & Monetization", children: [
-    { id: "token-pillars", title: "Token Utility Pillars" },
-    { id: "tokenomics", title: "Tokenomics Design" },
-    { id: "supply-allocations", title: "Supply & Allocations" },
-    { id: "sale-rounds", title: "Sale Rounds & Pricing" },
-    { id: "byok-gateway", title: "BYOK vs Open Gateway" },
-    { id: "swaps-fee", title: "Swaps & Convenience Fee" },
   ]},
   { id: "supported-networks", title: "Supported Networks", children: [
     { id: "network-solana", title: "Solana" },
