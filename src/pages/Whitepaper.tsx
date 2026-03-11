@@ -410,6 +410,98 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* W3AI RWAs */}
+      <section id="w3ai-rwas" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI RWAs</h2>
+        <div className="prose-section">
+          <p>The Real World of Asset Tokenization — Tomorrow's Next Big Thing. Bridging traditional assets with modern Web3AI markets through tokenization, data intelligence, and institutional-grade access.</p>
+        </div>
+      </section>
+
+      <section id="rwa-carbon-credits" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Carbon Credits</h2>
+        <div className="prose-section">
+          <p>Tokenized verified carbon credits and environmental assets bringing transparency and liquidity to global climate finance.</p>
+        </div>
+      </section>
+
+      <section id="rwa-collectables" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Collectables</h2>
+        <div className="prose-section">
+          <p>Tokenized fine art, luxury watches, rare wines, and vintage cars unlocking fractional ownership in alternative asset markets.</p>
+        </div>
+      </section>
+
+      <section id="rwa-commodities" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Commodities</h2>
+        <div className="prose-section">
+          <p>Agricultural, energy, and material commodities structured for institutional and retail participation.</p>
+        </div>
+      </section>
+
+      <section id="rwa-energy" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Energy</h2>
+        <div className="prose-section">
+          <p>Oil, gas, renewables, and next-generation energy infrastructure investments driving the global transition.</p>
+        </div>
+      </section>
+
+      <section id="rwa-infrastructure" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Infrastructure</h2>
+        <div className="prose-section">
+          <p>Large-scale public and private infrastructure projects delivering long-term, stable returns.</p>
+        </div>
+      </section>
+
+      <section id="rwa-metals" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Metals</h2>
+        <div className="prose-section">
+          <p>Precious and industrial metals exploration, production, and supply chain investment opportunities.</p>
+        </div>
+      </section>
+
+      <section id="rwa-rare-earth" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Rare Earth Minerals</h2>
+        <div className="prose-section">
+          <p>Critical mineral resources essential for advanced technology, defense, and clean energy applications.</p>
+        </div>
+      </section>
+
+      <section id="rwa-real-estate" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Real Estate</h2>
+        <div className="prose-section">
+          <p>Commercial and residential real estate assets tokenized for broader investor accessibility.</p>
+        </div>
+      </section>
+
+      <section id="rwa-sovereign-wealth" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Sovereign Wealth</h2>
+        <div className="prose-section">
+          <p>Strategic partnerships with sovereign wealth funds and government-backed investment vehicles.</p>
+        </div>
+      </section>
+
+      <section id="rwa-stablecoins" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Stablecoins</h2>
+        <div className="prose-section">
+          <p>Institutional-grade stablecoin infrastructure powering settlement, cross-border payments, and yield generation for tokenized assets.</p>
+        </div>
+      </section>
+
+      <section id="rwa-tax-credits" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Tax Credits</h2>
+        <div className="prose-section">
+          <p>Tokenized federal and state tax credits unlocking liquidity in renewable energy, housing, and R&D incentive programs.</p>
+        </div>
+      </section>
+
+      <section id="rwa-utilities" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Utilities</h2>
+        <div className="prose-section">
+          <p>Tokenized utility infrastructure assets from power generation and water systems to telecommunications networks.</p>
+        </div>
+      </section>
+
       {/* Tokenomics */}
       <section id="token-utility" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Tokenomics</h2>
