@@ -397,7 +397,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Community Integrations */}
       <section id="community-integrations" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Community Integrations Across Solana, Ethereum, and BSC</h2>
-        <p className="prose-section">W3AI's marketing strategy is authentic community integration. Each chain represents different user psychographics, product norms, and vertical strengths.</p>
+        <div className="prose-section">
+          <p>W3AI's marketing strategy is authentic community integration. Each chain represents different user psychographics, product norms, and vertical strengths.</p>
+        </div>
       </section>
 
       <section id="solana-community" data-section>
