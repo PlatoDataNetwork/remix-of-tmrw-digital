@@ -644,9 +644,8 @@ export default function Whitepaper() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      {!unlocked && <PasswordGate onUnlock={() => setUnlocked(true)} />}
 
-      <div className={cn("flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20", !unlocked && "blur-md pointer-events-none select-none")}>
+      <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
         <Sidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 min-w-0">
           {/* Top bar - mobile only */}
