@@ -85,7 +85,7 @@ const LanguageSelector = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -4 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-0 top-full mt-2 w-52 max-h-72 overflow-y-auto rounded-xl border border-white/10 bg-[hsl(220,20%,8%)] backdrop-blur-xl shadow-2xl z-[100]"
+            className="absolute right-0 top-full mt-2 w-52 max-h-72 overflow-y-auto rounded-xl border border-white/10 bg-[hsl(220,20%,8%)] backdrop-blur-xl shadow-2xl z-[100] notranslate"
           >
             <div className="py-1">
               {LANGUAGES.map((lang) => (
