@@ -37,20 +37,13 @@ const sections: Section[] = [
     { id: "swap-execution", title: "DeFi Swap Execution" },
     { id: "security-intelligence", title: "Security Intelligence" },
   ]},
-  { id: "token-utility", title: "Token Utility & Monetization", children: [
+  { id: "token-utility", title: "Tokenomics", children: [
     { id: "token-pillars", title: "Token Utility Pillars" },
     { id: "tokenomics", title: "Tokenomics Design" },
     { id: "supply-allocations", title: "Supply & Allocations" },
     { id: "sale-rounds", title: "Sale Rounds & Pricing" },
     { id: "byok-gateway", title: "BYOK vs Open Gateway" },
     { id: "swaps-fee", title: "Swaps & Convenience Fee" },
-  ]},
-  { id: "privacy", title: "Privacy", children: [
-    { id: "privacy-data-minimization", title: "Data Minimization" },
-    { id: "privacy-on-chain", title: "On-Chain Privacy" },
-    { id: "privacy-third-party", title: "Third-Party Data Sharing" },
-    { id: "privacy-user-rights", title: "User Rights & Control" },
-    { id: "identity-anti-sybil", title: "Identity & Anti-Sybil" },
   ]},
   { id: "institutional-rails", title: "Institutional-Grade Rails", children: [
     { id: "rails-custody", title: "Custody & Asset Safeguarding" },
