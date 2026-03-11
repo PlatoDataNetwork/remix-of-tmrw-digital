@@ -58,6 +58,7 @@ const sections: Section[] = [
   ]},
   { id: "risks", title: "Risks & Disclosures" },
   { id: "appendix", title: "Appendix & References" },
+  { id: "disclaimer", title: "Disclaimer" },
 ];
 
 // --- Password Gate ---
