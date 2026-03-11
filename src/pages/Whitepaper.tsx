@@ -210,7 +210,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 
       {/* Executive Summary */}
       <section id="executive-summary" data-section>
-        <h1 className="text-3xl font-bold text-foreground mb-6">Rise of the Machines</h1>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Rise of the Machines</h2>
         <div className="prose-section">
           <p>W3AI is building the Web3 AI gateway for the "Rise of the Machines" era—when browsers evolve from passive viewers into agentic, AI-native operating systems. Recent launches from Perplexity (Comet) and OpenAI (ChatGPT Atlas) confirm the browser is becoming the primary AI surface where context is captured and actions are executed.</p>
           <p>W3AI's wedge is Web3-native security + immersive UX. AI browsers create new convenience—and new risk. W3AI's product strategy is to treat AI agent permissions and wallet permissions as one coherent security domain: "assist, verify, then act—only with explicit user control."</p>
