@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Presentation } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -504,10 +504,6 @@ export default function Deck() {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <div className="pt-20 lg:pt-24 pb-16 px-4 md:px-8 max-w-6xl mx-auto">
-        <div className="flex items-center gap-3 mb-8">
-          <Presentation className="h-5 w-5 text-muted-foreground" />
-          <h1 className="text-2xl font-extralight tracking-tight text-foreground">Project Deck</h1>
-        </div>
         {slideContent}
         {thumbnails}
         <p className="text-xs text-muted-foreground/50 mt-4 text-center">
