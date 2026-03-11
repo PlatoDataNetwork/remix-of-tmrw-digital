@@ -7,13 +7,6 @@ import ChatNavbarIcon from "./ChatNavbarIcon";
 import LanguageSelector from "./LanguageSelector";
 import { useCurrentLanguage, langPath } from "@/hooks/useLanguage";
 import platoIcon from "@/assets/plato-icon.png";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerClose,
-} from "@/components/ui/drawer";
 
 const navLinks = [
   { label: "About", href: "/#about" },
@@ -41,6 +34,16 @@ const Navbar = () => {
       widget.style.zIndex = "-1";
     }
   }, []);
+
+  // Lock body scroll when drawer is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -166,67 +169,86 @@ const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Drawer */}
-      <Drawer open={mobileOpen} onOpenChange={setMobileOpen} direction="right">
-        <DrawerContent
-          className="h-full w-[85vw] max-w-sm ml-auto rounded-none border-l border-white/10 bg-[hsl(220,20%,4%)] fixed inset-y-0 right-0"
-          style={{ borderRadius: 0 }}
-        >
-          <DrawerHeader className="border-b border-white/10 px-6 py-5">
-            <div className="flex items-center justify-between">
-              <DrawerTitle className="text-white text-lg font-semibold">Menu</DrawerTitle>
-              <DrawerClose asChild>
-                <button className="p-1.5 text-white/60 hover:text-white transition-colors">
+      {/* Mobile Drawer Overlay + Panel */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
+              onClick={() => setMobileOpen(false)}
+            />
+
+            {/* Slide-in panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="fixed inset-y-0 right-0 z-[70] w-[80vw] max-w-sm bg-[hsl(220,20%,4%)] border-l border-white/10 flex flex-col"
+            >
+              {/* Drawer header */}
+              <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
+                <span className="text-white text-lg font-semibold">Menu</span>
+                <button
+                  onClick={() => setMobileOpen(false)}
+                  className="p-1.5 text-white/60 hover:text-white transition-colors"
+                >
                   <X className="h-5 w-5" />
                 </button>
-              </DrawerClose>
-            </div>
-          </DrawerHeader>
+              </div>
 
-          <div className="px-6 py-6 space-y-1 flex-1 overflow-y-auto">
-            {navLinks.map((link, i) => (
-              <motion.div
-                key={link.label}
-                initial={{ x: 30, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: i * 0.06, duration: 0.3, ease: "easeOut" }}
-              >
-                {link.href.startsWith("/#") ? (
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="block py-3 text-lg font-light text-white/80 hover:text-white transition-colors border-b border-white/5"
+              {/* Nav links */}
+              <div className="px-6 py-6 space-y-1 flex-1 overflow-y-auto">
+                {navLinks.map((link, i) => (
+                  <motion.div
+                    key={link.label}
+                    initial={{ x: 30, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.1 + i * 0.06, duration: 0.3, ease: "easeOut" }}
                   >
-                    {link.label}
-                  </a>
-                ) : (
+                    {link.href.startsWith("/#") ? (
+                      <a
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className="block py-3 text-lg font-light text-white/80 hover:text-white transition-colors border-b border-white/5"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={lp(link.href)}
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-3 text-lg font-light text-white/80 hover:text-white transition-colors border-b border-white/5"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </motion.div>
+                ))}
+
+                <motion.div
+                  initial={{ x: 30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.1 + navLinks.length * 0.06, duration: 0.3, ease: "easeOut" }}
+                >
                   <Link
-                    to={lp(link.href)}
+                    to={lp("/investors")}
                     onClick={() => setMobileOpen(false)}
-                    className="block py-3 text-lg font-light text-white/80 hover:text-white transition-colors border-b border-white/5"
+                    className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium mt-6"
                   >
-                    {link.label}
+                    Investors
                   </Link>
-                )}
-              </motion.div>
-            ))}
-
-            <motion.div
-              initial={{ x: 30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: navLinks.length * 0.06, duration: 0.3, ease: "easeOut" }}
-            >
-              <Link
-                to={lp("/investors")}
-                onClick={() => setMobileOpen(false)}
-                className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium mt-6"
-              >
-                Investors
-              </Link>
+                </motion.div>
+              </div>
             </motion.div>
-          </div>
-        </DrawerContent>
-      </Drawer>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 };
