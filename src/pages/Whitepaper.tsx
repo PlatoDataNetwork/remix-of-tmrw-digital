@@ -65,58 +65,98 @@ const sections: Section[] = [
 
 
 // --- Sidebar Nav ---
-function Sidebar({ activeId, onNavigate, open, onClose }: { activeId: string; onNavigate: (id: string) => void; open: boolean; onClose: () => void }) {
+// --- Desktop Sidebar ---
+function DesktopSidebar({ activeId, onNavigate }: { activeId: string; onNavigate: (id: string) => void }) {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
-
   const toggle = (id: string) => setExpanded(p => ({ ...p, [id]: !p[id] }));
 
   return (
-    <>
-      <aside className={cn(
-        "sticky top-[64px] h-[calc(100vh-64px)] w-72 border-r border-border bg-sidebar-background overflow-y-auto transition-all duration-300 shrink-0 z-10",
-        open ? "ml-0" : "-ml-72 lg:ml-0"
-      )}>
-        <nav className="p-3 space-y-0.5">
-          {sections.map(s => {
-            const isActive = activeId === s.id || s.children?.some(c => c.id === activeId);
-            const isOpen = expanded[s.id] ?? isActive;
-            return (
-              <div key={s.id}>
-                <button
-                  onClick={() => {
-                    if (s.id === "deck-link") { window.location.href = "/deck"; return; }
-                    if (s.children) toggle(s.id); else { onNavigate(s.id); onClose(); }
-                  }}
-                  className={cn(
-                    "w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors",
-                    isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
-                  )}
-                >
-                  {s.children ? (isOpen ? <ChevronDown className="h-3.5 w-3.5 shrink-0" /> : <ChevronRight className="h-3.5 w-3.5 shrink-0" />) : <span className="w-3.5" />}
-                  <span className="text-left">{s.title}</span>
-                </button>
-                {s.children && isOpen && (
-                  <div className="ml-6 mt-0.5 space-y-0.5 border-l border-border pl-3">
-                    {s.children.map(c => (
-                      <button
-                        key={c.id}
-                        onClick={() => { onNavigate(c.id); onClose(); }}
-                        className={cn(
-                          "w-full text-left px-3 py-1.5 rounded-md text-sm transition-colors",
-                          activeId === c.id ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : "text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent/50"
-                        )}
-                      >
-                        {c.title}
-                      </button>
-                    ))}
-                  </div>
-                )}
+    <aside className="hidden lg:block sticky top-[80px] h-[calc(100vh-80px)] w-72 border-r border-border bg-sidebar-background overflow-y-auto shrink-0 z-10">
+      <SidebarNav sections={sections} activeId={activeId} expanded={expanded} toggle={toggle} onNavigate={onNavigate} />
+    </aside>
+  );
+}
+
+// --- Mobile Drawer Sidebar ---
+function MobileDrawerSidebar({ activeId, onNavigate, open, onClose }: { activeId: string; onNavigate: (id: string) => void; open: boolean; onClose: () => void }) {
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const toggle = (id: string) => setExpanded(p => ({ ...p, [id]: !p[id] }));
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[80] bg-black/50 backdrop-blur-sm lg:hidden"
+            onClick={onClose}
+          />
+          <motion.aside
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ type: "spring", damping: 30, stiffness: 300 }}
+            className="fixed inset-y-0 left-0 z-[90] w-[75vw] max-w-xs bg-sidebar-background border-r border-border overflow-y-auto lg:hidden"
+          >
+            <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+              <span className="text-sm font-semibold text-foreground">Contents</span>
+              <button onClick={onClose} className="p-1 text-muted-foreground hover:text-foreground transition-colors">
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+            <SidebarNav sections={sections} activeId={activeId} expanded={expanded} toggle={toggle} onNavigate={(id) => { onNavigate(id); onClose(); }} />
+          </motion.aside>
+        </>
+      )}
+    </AnimatePresence>
+  );
+}
+
+// --- Shared Sidebar Nav Content ---
+function SidebarNav({ sections, activeId, expanded, toggle, onNavigate }: { sections: Section[]; activeId: string; expanded: Record<string, boolean>; toggle: (id: string) => void; onNavigate: (id: string) => void }) {
+  return (
+    <nav className="p-3 space-y-0.5">
+      {sections.map(s => {
+        const isActive = activeId === s.id || s.children?.some(c => c.id === activeId);
+        const isOpen = expanded[s.id] ?? isActive;
+        return (
+          <div key={s.id}>
+            <button
+              onClick={() => {
+                if (s.id === "deck-link") { window.location.href = "/deck"; return; }
+                if (s.children) toggle(s.id); else onNavigate(s.id);
+              }}
+              className={cn(
+                "w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
+              )}
+            >
+              {s.children ? (isOpen ? <ChevronDown className="h-3.5 w-3.5 shrink-0" /> : <ChevronRight className="h-3.5 w-3.5 shrink-0" />) : <span className="w-3.5" />}
+              <span className="text-left">{s.title}</span>
+            </button>
+            {s.children && isOpen && (
+              <div className="ml-6 mt-0.5 space-y-0.5 border-l border-border pl-3">
+                {s.children.map(c => (
+                  <button
+                    key={c.id}
+                    onClick={() => onNavigate(c.id)}
+                    className={cn(
+                      "w-full text-left px-3 py-1.5 rounded-md text-sm transition-colors",
+                      activeId === c.id ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : "text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent/50"
+                    )}
+                  >
+                    {c.title}
+                  </button>
+                ))}
               </div>
-            );
-          })}
-        </nav>
-      </aside>
-    </>
+            )}
+          </div>
+        );
+      })}
+    </nav>
   );
 }
 
