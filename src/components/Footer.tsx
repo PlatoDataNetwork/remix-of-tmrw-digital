@@ -102,7 +102,7 @@ const Footer = () => {
               {[
                 { label: "Showcase", href: "/showcase" },
                 { label: "Intelligence", href: "/intel" },
-                { label: "TMRW Token", href: "#" },
+                { label: "W3AI Token", href: "/whitepaper" },
                 { label: "CUT Token", href: "#" },
                 { label: "Security", href: "#" },
               ].map((link) => (
@@ -132,7 +132,7 @@ const Footer = () => {
               {[
               { label: "RTO", href: "/rto" },
               { label: "Blog", href: "#" },
-              { label: "Whitepaper", href: "/whitepaper" },
+              { label: "Community", href: "#" },
               { label: "Documentation", href: "#" },
               { label: "FAQ", href: "/legal#faq" },
               ].map((link) => (
