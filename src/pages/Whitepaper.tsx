@@ -19,11 +19,12 @@ interface Section {
 
 const sections: Section[] = [
   { id: "executive-summary", title: "Rise of the Machines" },
-  { id: "tmrw-browser", title: "The W3AI TMRW Browser", children: [
-    { id: "browser-architecture", title: "Browser Architecture & Firefox" },
-    { id: "differentiation", title: "Differentiation vs Competitors" },
-    { id: "llm-layer", title: "User-selectable LLM Layer" },
-    { id: "swap-execution", title: "Built-in Swap Execution" },
+  { id: "tmrw-browser", title: "W3AI TMRW Browser", children: [
+    { id: "browser-architecture", title: "Architecture" },
+    { id: "differentiation", title: "Differentiation" },
+    { id: "llm-layer", title: "LLM Layer" },
+    { id: "developers", title: "Developers" },
+    { id: "swap-execution", title: "DeFi Swap Execution" },
     { id: "security-intelligence", title: "Security Intelligence" },
   ]},
   { id: "privacy", title: "Privacy", children: [
