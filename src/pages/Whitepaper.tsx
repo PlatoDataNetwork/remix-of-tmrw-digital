@@ -229,7 +229,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* W3AI Protocol */}
       <section id="w3ai-protocol" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Protocol</h2>
-        <p className="prose-section">The W3AI Protocol is the decentralized infrastructure layer that powers every surface of the W3AI ecosystem—from browser-native AI inference to multi-chain token operations and validator economics. Built across Solana, Ethereum, and BNB Smart Chain, the protocol establishes a unified execution framework where identity, liquidity, governance, and security converge into a single composable stack. Rather than operating as a standalone blockchain, W3AI functions as a cross-chain coordination protocol that leverages existing network security while adding proprietary intelligence, custody, and compliance layers on top.</p>
+        <div className="prose-section">
+          <p>The W3AI Protocol is the decentralized infrastructure layer that powers every surface of the W3AI ecosystem—from browser-native AI inference to multi-chain token operations and validator economics. Built across Solana, Ethereum, and BNB Smart Chain, the protocol establishes a unified execution framework where identity, liquidity, governance, and security converge into a single composable stack. Rather than operating as a standalone blockchain, W3AI functions as a cross-chain coordination protocol that leverages existing network security while adding proprietary intelligence, custody, and compliance layers on top.</p>
+        </div>
       </section>
 
       <section id="protocol-architecture" data-section>
