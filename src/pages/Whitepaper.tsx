@@ -75,9 +75,6 @@ function Sidebar({ activeId, onNavigate, open, onClose }: { activeId: string; on
         "sticky top-[64px] h-[calc(100vh-64px)] w-72 border-r border-border bg-sidebar-background overflow-y-auto transition-all duration-300 shrink-0 z-10",
         open ? "ml-0" : "-ml-72 lg:ml-0"
       )}>
-        <div className="sticky top-0 bg-sidebar-background border-b border-border p-4 flex items-center justify-end">
-          <button onClick={onClose} className="lg:hidden text-sidebar-foreground"><X className="h-5 w-5" /></button>
-        </div>
         <nav className="p-3 space-y-0.5">
           {sections.map(s => {
             const isActive = activeId === s.id || s.children?.some(c => c.id === activeId);
