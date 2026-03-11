@@ -113,8 +113,7 @@ function Sidebar({ activeId, onNavigate, open, onClose }: { activeId: string; on
         "fixed top-[64px] lg:top-[64px] left-0 z-40 h-[calc(100vh-64px)] lg:h-[calc(100vh-64px)] w-72 border-r border-border bg-sidebar-background overflow-y-auto transition-transform duration-300 lg:translate-x-0 lg:sticky lg:z-0 shrink-0",
         open ? "translate-x-0" : "-translate-x-full"
       )}>
-        <div className="sticky top-0 bg-sidebar-background border-b border-border p-4 flex items-center justify-between">
-          <h3 className="text-sm font-bold text-sidebar-foreground tracking-wide uppercase">W3AI Light Paper</h3>
+        <div className="sticky top-0 bg-sidebar-background border-b border-border p-4 flex items-center justify-end">
           <button onClick={onClose} className="lg:hidden text-sidebar-foreground"><X className="h-5 w-5" /></button>
         </div>
         <nav className="p-3 space-y-0.5">
