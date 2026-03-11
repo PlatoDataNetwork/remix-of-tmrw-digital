@@ -526,3 +526,21 @@ body {
 .whitepaper-content > section[data-section]:has(> h3) {
   margin-top: 2rem;
 }
+
+/* Partner globe icon gradient */
+.partner-globe-link {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+
+.partner-globe-link:hover {
+  transform: scale(1.15);
+}
+
+.partner-globe-link svg {
+  stroke: url(#globe-gradient);
+}
+
+.partner-globe-link:hover svg {
+  filter: drop-shadow(0 0 6px hsl(var(--primary) / 0.5));
+}
