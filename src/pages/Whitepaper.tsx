@@ -27,7 +27,6 @@ const sections: Section[] = [
     { id: "security-intelligence", title: "Security Intelligence" },
   ]},
   { id: "privacy", title: "Privacy", children: [
-    { id: "privacy-policy", title: "Privacy Policy" },
     { id: "identity-anti-sybil", title: "Identity & Anti-Sybil" },
   ]},
   { id: "institutional-rails", title: "Institutional-Grade Rails", children: [
@@ -270,12 +269,8 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Privacy */}
       <section id="privacy" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Privacy</h2>
-        <p className="prose-section">Privacy is a foundational principle of Web3 architecture. W3AI is committed to building privacy-preserving systems that protect user data, on-chain identity, and transactional confidentiality while maintaining compliance with applicable regulatory frameworks.</p>
-      </section>
-
-      <section id="privacy-policy" data-section>
-        <h3 className="text-xl font-semibold text-foreground mb-3">Privacy Policy</h3>
         <div className="prose-section">
+          <p>Privacy is a foundational principle of Web3 architecture. W3AI is committed to building privacy-preserving systems that protect user data, on-chain identity, and transactional confidentiality while maintaining compliance with applicable regulatory frameworks.</p>
           <p>W3AI's privacy framework is designed specifically for the Web3 environment, where traditional data collection models are replaced by cryptographic verification, zero-knowledge proofs, and user-sovereign data ownership.</p>
           <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">Data Minimization</h4>
           <p>W3AI adheres to a strict data minimization principle. The browser collects only the minimum information necessary to deliver core functionality. No browsing history, wallet balances, or transaction data is stored on centralized servers. All user activity remains local unless explicitly shared by the user.</p>
