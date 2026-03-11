@@ -70,11 +70,6 @@ const sections: Section[] = [
     { id: "partner-surge", title: "Surge" },
     { id: "partner-g20", title: "G-20 Group" },
   ]},
-  { id: "foundations", title: "Governance", children: [
-    { id: "foundation-governance", title: "Governance Framework" },
-    { id: "foundation-treasury", title: "Treasury Management" },
-    { id: "foundation-compliance", title: "Regulatory Compliance" },
-  ]},
   { id: "infrastructure", title: "Infrastructure", children: [
     { id: "infra-network", title: "Network Architecture" },
     { id: "infra-security", title: "Security & Custody" },
