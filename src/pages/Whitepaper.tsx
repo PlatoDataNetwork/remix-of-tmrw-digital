@@ -415,90 +415,103 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <h2 className="text-2xl font-bold text-foreground mb-4">W3AI RWAs</h2>
         <div className="prose-section">
           <p>The Real World of Asset Tokenization — Tomorrow's Next Big Thing. Bridging traditional assets with modern Web3AI markets through tokenization, data intelligence, and institutional-grade access.</p>
+          <p>W3AI's RWA framework spans 12 core sectors, each representing a multi-billion-dollar opportunity to digitize traditionally illiquid assets into transparent, tradeable, and fractionally accessible digital securities on blockchain networks.</p>
         </div>
       </section>
 
       <section id="rwa-carbon-credits" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Carbon Credits</h2>
         <div className="prose-section">
-          <p>Tokenized verified carbon credits and environmental assets bringing transparency and liquidity to global climate finance.</p>
+          <p>Carbon markets are critical to the global fight against climate change, yet they have long been plagued by opacity, fragmentation, and limited accessibility. Tokenization transforms verified carbon credits into transparent, tradeable digital assets on blockchain networks. This enables fractional ownership, real-time price discovery, and automated retirement tracking—empowering institutions, corporations, and individuals to participate in climate action with confidence and efficiency.</p>
+          <p>Every token is backed by independently verified carbon offset projects with transparent monitoring, reporting, and verification (MRV). Blockchain-based retirement tracking ensures credits are permanently removed from circulation, preventing double-counting. Key verticals include forestry & REDD+ projects, renewable energy credits, blue carbon from coastal ecosystems, direct air capture technology, and diversified carbon credit funds spanning multiple vintages and standards.</p>
         </div>
       </section>
 
       <section id="rwa-collectables" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Collectables</h2>
         <div className="prose-section">
-          <p>Tokenized fine art, luxury watches, rare wines, and vintage cars unlocking fractional ownership in alternative asset markets.</p>
+          <p>The global collectables market—spanning fine art, rare wines, classic automobiles, sports memorabilia, and luxury goods—represents trillions in stored value largely inaccessible to everyday investors. Tokenization transforms these illiquid treasures into fractional digital assets, enabling transparent provenance tracking, instant settlement, and democratized access. Blockchain-verified authenticity and smart contract–governed ownership bring institutional rigor to passion-driven markets.</p>
+          <p>Immutable blockchain provenance records ensure every collectable's history, ownership chain, and authenticity are permanently verified. Physical assets are stored in insured, climate-controlled vaults with real-time digital verification. Use cases range from fractional ownership of blue-chip artworks from masters like Picasso and Warhol, to tokenized rare timepieces from Patek Philippe and Rolex, curated wine portfolios, classic car investments, and sports memorabilia with verified provenance.</p>
         </div>
       </section>
 
       <section id="rwa-commodities" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Commodities</h2>
         <div className="prose-section">
-          <p>Agricultural, energy, and material commodities structured for institutional and retail participation.</p>
+          <p>Commodity markets form the backbone of the global economy, yet participation has been dominated by futures exchanges and specialized trading desks. Tokenization creates a direct bridge between physical commodity assets and digital investors, enabling fractional ownership of grain silos, coffee plantations, cotton inventories, and timber forests. Smart contracts handle settlement, custody verification, and yield distribution, bringing 21st-century efficiency to centuries-old markets.</p>
+          <p>Every token represents verified, audited physical commodity inventories held in certified warehouses and storage facilities. Commodity-backed tokens provide natural inflation protection as physical goods appreciate with rising price levels. The tokenization framework supports agricultural futures, single-origin coffee and cocoa production, managed timber plantations combining carbon sequestration with harvest revenue, cotton inventories, sugar & ethanol facilities, and transferable water rights.</p>
         </div>
       </section>
 
       <section id="rwa-energy" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Energy</h2>
         <div className="prose-section">
-          <p>Oil, gas, renewables, and next-generation energy infrastructure investments driving the global transition.</p>
+          <p>The energy sector represents one of the largest asset classes globally, yet access has historically been limited to institutional investors and sovereign entities. Tokenization transforms energy assets—from solar farms and wind installations to oil reserves and LNG terminals—into fractional, tradeable digital securities. This democratizes participation while providing asset owners with new capital formation tools and enhanced liquidity for traditionally illiquid holdings.</p>
+          <p>Smart contracts automate revenue distribution from energy production, providing real-time visibility into yield generation. Geographic barriers are removed, allowing global investors to participate in projects across jurisdictions. Key verticals include utility-scale solar installations with automated revenue sharing, tokenized oil & gas royalty streams, wind energy credits, EV charging network ownership, LNG terminal access, and carbon credit portfolios linked to energy transition projects.</p>
         </div>
       </section>
 
       <section id="rwa-infrastructure" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Infrastructure</h2>
         <div className="prose-section">
-          <p>Large-scale public and private infrastructure projects delivering long-term, stable returns.</p>
+          <p>Infrastructure assets generate predictable, inflation-linked cash flows over decades, making them highly attractive to investors seeking stability. However, the scale of these investments has traditionally excluded all but the largest institutions. Tokenization breaks down billion-dollar infrastructure projects into accessible digital units, enabling retail and mid-market investors to participate in toll roads, airports, water systems, and digital infrastructure alongside institutional capital.</p>
+          <p>The global infrastructure market is valued at $130T with an estimated $15T investment gap by 2040. Tokenized infrastructure offers long-term portfolio stability with asset lives spanning 25-99 years and enables seamless participation in public-private partnerships. Use cases include toll road revenue streams, airport concessions, hyperscale data center equity, water utility stakes, port & logistics terminals, and 5G & fiber network infrastructure.</p>
         </div>
       </section>
 
       <section id="rwa-metals" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Metals</h2>
         <div className="prose-section">
-          <p>Precious and industrial metals exploration, production, and supply chain investment opportunities.</p>
+          <p>Metals have served as stores of value and industrial inputs for millennia. Today, tokenization bridges physical metal assets with digital Web3 markets, enabling fractional ownership of vaulted gold, silver reserves, copper mines, and lithium deposits. Blockchain verification ensures provenance and purity while smart contracts automate custody, settlement, and dividend distribution across the metals value chain.</p>
+          <p>The global metals market exceeds $12T with lithium demand growing at 35% annually. Blockchain-tracked chain of custody from mine to vault ensures authenticity and ethical sourcing compliance. Tokenized metals reflect live spot prices with instant settlement. Key offerings include gold-backed tokens representing allocated bars in audited vaults, silver mining royalties, copper supply contracts, lithium deposit rights critical to the EV battery supply chain, platinum group metals, and recycled metals supporting circular economies.</p>
         </div>
       </section>
 
       <section id="rwa-rare-earth" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Rare Earth Minerals</h2>
         <div className="prose-section">
-          <p>Critical mineral resources essential for advanced technology, defense, and clean energy applications.</p>
+          <p>Rare earth elements and critical minerals underpin modern technology—from smartphones and electric vehicles to missile guidance systems and wind turbines. Yet investment access has been extremely limited due to supply chain opacity and geopolitical concentration. Tokenization opens this strategically vital sector to a broader investor base while creating transparent, auditable supply chains that enhance national security and economic resilience.</p>
+          <p>The rare earth market is valued at $9.6B with 28% annual demand growth and 60% supply concentration risk. Blockchain-verified tracking from mine to end-use ensures ethical sourcing and regulatory compliance. Tokenized rare earth positions provide manufacturers and governments with new tools to hedge supply disruption risk. Verticals include neodymium reserves for EV and wind turbine magnets, lithium-ion supply chains, ethically sourced cobalt mining, graphite production for battery anodes, scandium alloys for aerospace, and diversified critical mineral funds.</p>
         </div>
       </section>
 
       <section id="rwa-real-estate" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Real Estate</h2>
         <div className="prose-section">
-          <p>Commercial and residential real estate assets tokenized for broader investor accessibility.</p>
+          <p>Real estate is the world's most valuable asset class at $326T, yet it remains one of the least liquid. Tokenization transforms physical properties—office towers, residential complexes, retail centers, and hospitality assets—into tradeable digital securities. Investors can own fractions of premium properties across global markets, receive automated rental distributions, and trade positions on secondary markets, all while maintaining the fundamental value proposition of real estate ownership.</p>
+          <p>Smart contracts handle rental income distribution automatically, reducing administrative overhead and ensuring timely investor payments. Entry barriers drop from six-figure minimums to as low as $100. The framework supports commercial office towers with long-term corporate leases, multi-family residential portfolios, hospitality assets with revenue-based returns, industrial & warehouse logistics, student housing near major universities, and mixed-use urban developments combining retail, residential, and commercial spaces.</p>
         </div>
       </section>
 
       <section id="rwa-sovereign-wealth" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Sovereign Wealth</h2>
         <div className="prose-section">
-          <p>Strategic partnerships with sovereign wealth funds and government-backed investment vehicles.</p>
+          <p>Sovereign wealth funds manage over $11.5 trillion in assets globally, representing the long-term savings and strategic reserves of nations. Tokenization offers these institutions unprecedented tools for portfolio diversification, co-investment structuring, and cross-border capital deployment. By digitizing sovereign holdings, governments gain real-time portfolio visibility, enhanced liquidity management, and the ability to democratize national wealth for citizen participation programs.</p>
+          <p>With 90+ active SWFs and investment horizons exceeding 50 years, tokenization enables national asset digitization—transforming sovereign holdings in natural resources, infrastructure, and real estate into transparent, auditable digital portfolios. Use cases include sovereign digital bonds with automated coupon payments, national resource fund royalties distributed to citizens, smart contract platforms for multi-sovereign co-investment in mega projects, citizen wealth distribution programs, strategic reserve management with real-time auditing, and development finance instruments for emerging markets.</p>
         </div>
       </section>
 
       <section id="rwa-stablecoins" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Stablecoins</h2>
         <div className="prose-section">
-          <p>Institutional-grade stablecoin infrastructure powering settlement, cross-border payments, and yield generation for tokenized assets.</p>
+          <p>Stablecoins represent the critical bridge between traditional finance and the on-chain economy. Backed by fiat reserves, government treasuries, or algorithmically managed collateral pools, they provide the price stability essential for tokenized asset settlement, cross-border payments, and yield generation. As the tokenized RWA ecosystem scales, stablecoins serve as the foundational settlement and liquidity layer enabling seamless capital flows across jurisdictions.</p>
+          <p>The stablecoin market cap exceeds $170B with over $7T in annual settlement volume reaching 190+ countries with 24/7 availability. Treasury-backed stablecoins pass through underlying yield from government bonds and money market instruments. Key verticals include treasury-backed coins collateralized by U.S. Treasury bills, cross-border settlement rails for international trade, native RWA payment infrastructure for dividend distributions, institutional yield vaults, multi-currency stables (EUR, GBP, emerging markets), and DeFi liquidity pools for tokenized assets.</p>
         </div>
       </section>
 
       <section id="rwa-tax-credits" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Tax Credits</h2>
         <div className="prose-section">
-          <p>Tokenized federal and state tax credits unlocking liquidity in renewable energy, housing, and R&D incentive programs.</p>
+          <p>Tax credits—including renewable energy investment tax credits (ITCs), production tax credits (PTCs), historic rehabilitation credits, and low-income housing tax credits (LIHTCs)—represent billions in annual government incentives. Yet accessing these credits has traditionally required complex syndication structures, long negotiation timelines, and significant minimum commitments. Tokenization transforms tax credits into transparent, tradeable digital assets, enabling fractional ownership, faster settlement, and programmatic compliance verification.</p>
+          <p>The annual US tax credit market exceeds $50B with tokenization delivering up to 40% efficiency gains. Smart contracts enforce eligibility requirements, recapture provisions, and holding period rules automatically, while reducing syndication timelines from months to days. Verticals include renewable energy ITCs from solar, wind, and battery storage projects, low-income housing (LIHTC) programs, historic rehabilitation credits, R&D tax credits, opportunity zone investments combining capital gains deferral with community impact, and carbon & clean energy production tax credits.</p>
         </div>
       </section>
 
       <section id="rwa-utilities" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Utilities</h2>
         <div className="prose-section">
-          <p>Tokenized utility infrastructure assets from power generation and water systems to telecommunications networks.</p>
+          <p>Utility infrastructure represents one of the most stable and essential asset classes globally, generating predictable cash flows from electricity, water, gas, and telecommunications services. However, direct investment in utility assets has historically been limited to governments, sovereign funds, and large institutional players. Tokenization democratizes access to these inflation-protected, yield-generating assets by converting ownership stakes into digital tokens that can be fractionalized, traded, and managed with unprecedented transparency.</p>
+          <p>The global utility market cap exceeds $5T with average asset lifespans of 30+ years. IoT-connected utility infrastructure feeds real-time usage and revenue data directly to token holders via smart contracts. Key verticals include power generation from solar, wind, and hydroelectric facilities, water treatment and desalination systems, fiber optic and 5G telecommunications networks, electric grid transmission and distribution assets, district heating & cooling systems, and waste management & recycling facilities generating revenue from tipping fees and recovered materials.</p>
         </div>
       </section>
 
