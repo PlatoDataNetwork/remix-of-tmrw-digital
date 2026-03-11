@@ -125,6 +125,7 @@ function getRoutes() {
     <Route key="rto" path="rto" element={<RTO />} />,
     <Route key="legal" path="legal" element={<Legal />} />,
     <Route key="whitepaper" path="whitepaper" element={<Whitepaper />} />,
+    <Route key="deck" path="deck" element={<Deck />} />,
   ];
 }
 
