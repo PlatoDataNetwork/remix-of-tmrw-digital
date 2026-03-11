@@ -252,11 +252,14 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           {/* Dark Overlays */}
           <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.25)]" />
           <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%,0.3)] via-transparent to-[hsl(220,20%,4%)]" />
-          {/* Content */}
-          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extralight leading-[1.1] tracking-tight text-white mb-3">
-              Accelerating Growth<br />Through Space & Time.
+          {/* Content - positioned higher */}
+          <div className="relative z-10 flex flex-col items-center justify-start h-full pt-16 md:pt-20 text-center px-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extralight leading-[1.1] tracking-tight text-white mb-2">
+              Secure Network Protocol<br />For The Next Web.
             </h2>
+            <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50 mb-4">
+              WHITEPAPER
+            </p>
             <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50">
               RWA's · Web3AI · Cyber · Data · Compliance
             </p>
