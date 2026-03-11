@@ -569,9 +569,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* Strategic Partners */}
+      {/* Network Partners */}
       <section id="strategic-partners" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Strategic Partners</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Network Partners</h2>
         <p className="prose-section">W3AI's partner ecosystem is designed to cover every critical surface of the product—from security and identity to liquidity and institutional credibility. Each partnership is structured around product integration, not brand association.</p>
       </section>
 
