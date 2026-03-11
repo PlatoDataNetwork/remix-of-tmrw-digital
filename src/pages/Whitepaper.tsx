@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import whitepaperHero from "@/assets/whitepaper-hero.png";
+import heroBg from "@/assets/hero-bg.png";
 
 const PASSWORD = "W3AI88";
 
