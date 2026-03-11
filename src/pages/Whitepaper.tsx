@@ -3,6 +3,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Lock, ChevronRight, ChevronDown, Menu, X, ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const PASSWORD = "W3AI88";
 
