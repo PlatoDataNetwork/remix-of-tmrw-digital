@@ -181,11 +181,6 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <div className="flex justify-center">
         <img src={heroBg} alt="W3AI Robot" className="w-full max-w-md h-auto object-contain" />
       </div>
-      {/* Disclaimer */}
-      <div className="p-5 rounded-lg border border-border bg-muted/50 text-sm text-muted-foreground leading-relaxed">
-        <p className="font-semibold text-foreground mb-2">Disclaimer</p>
-        This document is provided for informational purposes only and does not constitute financial, legal, tax, investment, or other advice. Nothing herein is an offer to sell, or the solicitation of an offer to buy, any token or other asset in any jurisdiction. Digital assets are risky and volatile; purchasers can lose all funds. Forward-looking statements reflect current intent and are not guarantees. CEX listings are subject to independent review and approval.
-      </div>
 
       {/* Executive Summary */}
       <section id="executive-summary" data-section>
