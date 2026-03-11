@@ -36,6 +36,10 @@ const sections: Section[] = [
     { id: "security-intelligence", title: "Security Intelligence" },
   ]},
   { id: "privacy", title: "Privacy", children: [
+    { id: "privacy-data-minimization", title: "Data Minimization" },
+    { id: "privacy-on-chain", title: "On-Chain Privacy" },
+    { id: "privacy-third-party", title: "Third-Party Data Sharing" },
+    { id: "privacy-user-rights", title: "User Rights & Control" },
     { id: "identity-anti-sybil", title: "Identity & Anti-Sybil" },
   ]},
   { id: "institutional-rails", title: "Institutional-Grade Rails", children: [
