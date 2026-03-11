@@ -26,8 +26,16 @@ const sections: Section[] = [
     { id: "swap-execution", title: "Built-in Swap Execution" },
     { id: "security-intelligence", title: "Security Intelligence" },
   ]},
-  { id: "identity-anti-sybil", title: "Identity & Anti-Sybil" },
-  { id: "institutional-rails", title: "Institutional-Grade Rails" },
+  { id: "privacy", title: "Privacy", children: [
+    { id: "privacy-policy", title: "Privacy Policy" },
+    { id: "identity-anti-sybil", title: "Identity & Anti-Sybil" },
+  ]},
+  { id: "institutional-rails", title: "Institutional-Grade Rails", children: [
+    { id: "rails-custody", title: "Custody & Asset Safeguarding" },
+    { id: "rails-compliance", title: "Compliance Infrastructure" },
+    { id: "rails-tokenization", title: "Tokenization & RWA Access" },
+    { id: "rails-reporting", title: "Institutional Reporting" },
+  ]},
   { id: "foundations", title: "Governance", children: [
     { id: "foundation-governance", title: "Governance Framework" },
     { id: "foundation-treasury", title: "Treasury Management" },
