@@ -5,6 +5,7 @@ import { Lock, ChevronRight, ChevronDown, Menu, X, ArrowUp } from "lucide-react"
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import heroBg from "@/assets/hero-bg.png";
 
 const PASSWORD = "W3AI88";
 
@@ -113,8 +114,7 @@ function Sidebar({ activeId, onNavigate, open, onClose }: { activeId: string; on
         "fixed top-[64px] lg:top-[64px] left-0 z-40 h-[calc(100vh-64px)] lg:h-[calc(100vh-64px)] w-72 border-r border-border bg-sidebar-background overflow-y-auto transition-transform duration-300 lg:translate-x-0 lg:sticky lg:z-0 shrink-0",
         open ? "translate-x-0" : "-translate-x-full"
       )}>
-        <div className="sticky top-0 bg-sidebar-background border-b border-border p-4 flex items-center justify-between">
-          <h3 className="text-sm font-bold text-sidebar-foreground tracking-wide uppercase">W3AI Light Paper</h3>
+        <div className="sticky top-0 bg-sidebar-background border-b border-border p-4 flex items-center justify-end">
           <button onClick={onClose} className="lg:hidden text-sidebar-foreground"><X className="h-5 w-5" /></button>
         </div>
         <nav className="p-3 space-y-0.5">
@@ -176,6 +176,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 space-y-16">
+      {/* Hero Robot Image */}
+      <div className="flex justify-center">
+        <img src={heroBg} alt="W3AI Robot" className="w-full max-w-md h-auto object-contain" />
+      </div>
       {/* Disclaimer */}
       <div className="p-5 rounded-lg border border-border bg-muted/50 text-sm text-muted-foreground leading-relaxed">
         <p className="font-semibold text-foreground mb-2">Disclaimer</p>
@@ -628,12 +632,11 @@ export default function Whitepaper() {
       <div className={cn("flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20", !unlocked && "blur-md pointer-events-none select-none")}>
         <Sidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 min-w-0">
-          {/* Top bar */}
-          <div className="sticky top-16 lg:top-20 z-20 bg-background/80 backdrop-blur-md border-b border-border px-4 py-3 flex items-center gap-3 lg:px-6">
-            <button onClick={() => setSidebarOpen(true)} className="lg:hidden text-foreground">
+          {/* Top bar - mobile only */}
+          <div className="sticky top-16 lg:top-20 z-20 bg-background/80 backdrop-blur-md border-b border-border px-4 py-3 flex items-center gap-3 lg:hidden">
+            <button onClick={() => setSidebarOpen(true)} className="text-foreground">
               <Menu className="h-5 w-5" />
             </button>
-            <h1 className="text-sm font-semibold text-foreground truncate">W3AI Network — Light Paper</h1>
           </div>
           <WhitepaperContent onSectionVisible={setActiveId} />
         </main>
