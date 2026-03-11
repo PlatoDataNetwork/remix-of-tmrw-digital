@@ -340,20 +340,40 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <h2 className="text-2xl font-bold text-foreground mb-4">Privacy</h2>
         <div className="prose-section">
           <p>Privacy is a foundational principle of Web3 architecture. W3AI is committed to building privacy-preserving systems that protect user data, on-chain identity, and transactional confidentiality while maintaining compliance with applicable regulatory frameworks. The privacy framework is designed specifically for the Web3 environment, where traditional data collection models are replaced by cryptographic verification, zero-knowledge proofs, and user-sovereign data ownership.</p>
-          <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">Data Minimization</h4>
+        </div>
+      </section>
+
+      <section id="privacy-data-minimization" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Data Minimization</h2>
+        <div className="prose-section">
           <p>W3AI adheres to a strict data minimization principle. The browser collects only the minimum information necessary to deliver core functionality. No browsing history, wallet balances, or transaction data is stored on centralized servers. All user activity remains local unless explicitly shared by the user.</p>
-          <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">On-Chain Privacy</h4>
+        </div>
+      </section>
+
+      <section id="privacy-on-chain" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">On-Chain Privacy</h2>
+        <div className="prose-section">
           <p>Wallet interactions, token swaps, and governance participation are conducted through privacy-preserving mechanisms. W3AI supports selective disclosure protocols, enabling users to prove eligibility (e.g., KYC status, token holdings) without revealing underlying personal data.</p>
-          <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">Third-Party Data Sharing</h4>
+        </div>
+      </section>
+
+      <section id="privacy-third-party" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Third-Party Data Sharing</h2>
+        <div className="prose-section">
           <p>W3AI does not sell, rent, or share user data with third parties for advertising or profiling purposes. Where integrations require data exchange (e.g., fiat on-ramps, KYC providers), users are informed and must provide explicit consent. All third-party processors are contractually bound to equivalent privacy standards.</p>
-          <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">User Rights & Control</h4>
+        </div>
+      </section>
+
+      <section id="privacy-user-rights" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">User Rights & Control</h2>
+        <div className="prose-section">
           <p>Users retain full control over their data at all times. This includes the right to export, delete, or restrict processing of any personally identifiable information. W3AI's architecture ensures that account deletion results in complete and irreversible data removal from all systems.</p>
         </div>
       </section>
 
       {/* Identity */}
       <section id="identity-anti-sybil" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Identity & Anti-Sybil Primitives</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Identity & Anti-Sybil Primitives</h2>
         <div className="prose-section">
           <p>W3AI's Registry and whitelisted-wallet objective is strengthened by integrating a privacy-forward credential layer through Dentity, emphasizing trust, identity verification, and digital credentials. W3AI leverages this to support:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
