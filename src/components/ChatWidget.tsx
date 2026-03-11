@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import { X, Send, Loader2, Trash2, Maximize2, Minimize2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
@@ -168,7 +169,7 @@ const ChatWidget = () => {
   const panelHeight = maximized ? "calc(100vh - 4rem)" : undefined;
   const panelHeightLg = maximized ? "calc(100vh - 5rem)" : undefined;
 
-  return (
+  const chatUi = (
     <>
       {/* Floating Chat Button — always visible, bottom right */}
       <motion.button
@@ -368,6 +369,9 @@ const ChatWidget = () => {
       </AnimatePresence>
     </>
   );
+
+  if (typeof document === "undefined") return null;
+  return createPortal(chatUi, document.body);
 };
 
 export default ChatWidget;
