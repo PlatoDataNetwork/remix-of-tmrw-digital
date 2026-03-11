@@ -83,7 +83,7 @@ const slides: Slide[] = [
           <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">The Tomorrow Company</p>
         </div>
         <div className="w-16 h-px bg-border" />
-        <p className="text-sm font-light text-muted-foreground/60 uppercase tracking-[0.3em]">Light Paper — 2025</p>
+        <p className="text-sm font-light text-muted-foreground/60 uppercase tracking-[0.3em]">Project Deck — 2026</p>
       </div>
     ),
   },
