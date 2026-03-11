@@ -58,6 +58,7 @@ const sections: Section[] = [
   ]},
   { id: "risks", title: "Risks & Disclosures" },
   { id: "appendix", title: "Appendix & References" },
+  { id: "disclaimer", title: "Disclaimer" },
 ];
 
 // --- Password Gate ---
@@ -179,11 +180,6 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Hero Robot Image */}
       <div className="flex justify-center">
         <img src={heroBg} alt="W3AI Robot" className="w-full max-w-md h-auto object-contain" />
-      </div>
-      {/* Disclaimer */}
-      <div className="p-5 rounded-lg border border-border bg-muted/50 text-sm text-muted-foreground leading-relaxed">
-        <p className="font-semibold text-foreground mb-2">Disclaimer</p>
-        This document is provided for informational purposes only and does not constitute financial, legal, tax, investment, or other advice. Nothing herein is an offer to sell, or the solicitation of an offer to buy, any token or other asset in any jurisdiction. Digital assets are risky and volatile; purchasers can lose all funds. Forward-looking statements reflect current intent and are not guarantees. CEX listings are subject to independent review and approval.
       </div>
 
       {/* Executive Summary */}
@@ -598,6 +594,22 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
             "[27] coinbase.com – Listings",
             "[28] g20.group",
           ].map((ref, i) => <p key={i}>{ref}</p>)}
+        </div>
+      </section>
+
+      {/* Disclaimer */}
+      <section id="disclaimer" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Disclaimer</h2>
+        <div className="prose-section">
+          <p>This document is provided for informational purposes only and does not constitute financial, legal, tax, investment, or other professional advice. Nothing contained herein is intended as, or shall be construed as, an offer to sell, or the solicitation of an offer to buy, any token, security, or other asset in any jurisdiction where such offer or solicitation would be unlawful.</p>
+          <p><strong>No Guarantees.</strong> Digital assets, including tokens referenced in this document, are inherently risky, speculative, and volatile. Purchasers may lose all or a substantial portion of their funds. Past performance is not indicative of future results, and no representation or warranty is made regarding future value, utility, or performance of any token or network feature described herein.</p>
+          <p><strong>Forward-Looking Statements.</strong> This document contains forward-looking statements that reflect the current intentions, expectations, and projections of the W3AI team. These statements are not guarantees of future performance and are subject to known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied.</p>
+          <p><strong>Regulatory Compliance.</strong> The regulatory landscape for digital assets and blockchain technology is evolving rapidly and varies by jurisdiction. It is the sole responsibility of each prospective participant to determine whether the acquisition, holding, or use of any token described herein is permissible under applicable laws and regulations in their jurisdiction.</p>
+          <p><strong>Exchange Listings.</strong> Any references to centralized exchange (CEX) or decentralized exchange (DEX) listings are subject to independent review, approval, and listing criteria established by the respective exchanges. W3AI makes no guarantee that any listing will occur or be maintained.</p>
+          <p><strong>Third-Party Services.</strong> This document may reference third-party platforms, protocols, tools, or service providers. W3AI does not endorse, guarantee, or assume responsibility for the accuracy, reliability, security, or performance of any third-party service. Users interact with third-party services at their own risk.</p>
+          <p><strong>No Fiduciary Relationship.</strong> Nothing in this document creates a fiduciary, advisory, or professional relationship between W3AI and any reader or participant. Recipients of this document should seek independent legal, financial, and tax advice before making any decisions related to digital asset purchases or participation in any network activity.</p>
+          <p><strong>Information Accuracy.</strong> While every effort has been made to ensure the accuracy and completeness of the information presented, W3AI does not warrant that the content is free from errors or omissions. Information is provided "as is" and may be updated, modified, or corrected without notice.</p>
+          <p><strong>Intellectual Property.</strong> All content, trademarks, logos, and intellectual property referenced in this document are the property of their respective owners. Unauthorized reproduction, distribution, or use of this document or any of its contents is strictly prohibited without prior written consent.</p>
         </div>
       </section>
 
