@@ -5,7 +5,7 @@ import { Lock, ChevronRight, ChevronDown, Menu, X, ArrowUp } from "lucide-react"
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import heroBg from "@/assets/hero-bg.png";
+import whitepaperHero from "@/assets/whitepaper-hero.png";
 
 const PASSWORD = "W3AI88";
 
@@ -178,8 +178,8 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 space-y-16">
       {/* Hero Robot Image */}
-      <div className="flex justify-center">
-        <img src={heroBg} alt="W3AI Robot" className="w-full max-w-md h-auto object-contain" />
+      <div className="relative rounded-2xl overflow-hidden animated-gradient-icon">
+        <img src={whitepaperHero} alt="W3AI Rise of the Machines" className="w-full h-[300px] md:h-[420px] object-cover" />
       </div>
 
       {/* Executive Summary */}
