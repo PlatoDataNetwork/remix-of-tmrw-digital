@@ -62,7 +62,7 @@ const sections: Section[] = [
     { id: "kol-strategy", title: "Social & KOL Strategy" },
     { id: "six-month-rollout", title: "Six-Month Rollout" },
   ]},
-  { id: "strategic-partners", title: "Strategic Partners", children: [
+  { id: "strategic-partners", title: "Network Partners", children: [
     { id: "partner-changelly", title: "Changelly" },
     { id: "partner-hacken", title: "Hacken" },
     { id: "partner-dentity", title: "Dentity" },
