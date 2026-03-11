@@ -224,9 +224,27 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           <p>W3AI is building the Web3 AI gateway for the "Rise of the Machines" era—when browsers evolve from passive viewers into agentic, AI-native operating systems. Recent launches from Perplexity (Comet) and OpenAI (ChatGPT Atlas) confirm the browser is becoming the primary AI surface where context is captured and actions are executed.</p>
           <p>W3AI's wedge is Web3-native security + immersive UX. AI browsers create new convenience—and new risk. W3AI's product strategy is to treat AI agent permissions and wallet permissions as one coherent security domain: "assist, verify, then act—only with explicit user control."</p>
           <p>The W3AI / TMRW Browser is a macOS desktop Web3 AI Browser built on Firefox with a sidekick mobile app. Firefox is a free, open-source browser using the Gecko rendering engine, designed to be extensible via add-ons and customization. Building on Firefox creates strategic differentiation in a market where many AI browsers trend toward Chromium-based stacks.</p>
-          <p><strong>Network thesis:</strong> A browser becomes a category-defining platform when it has its own decentralized backbone. W3AI is building Network infrastructure through a series of validator nodes on Solana, Ethereum, and BNB Smart Chain (BSC).</p>
-          <p><strong>Why now:</strong> Crypto adoption is measured in hundreds of millions globally. Global crypto owners grew from 659 million (end of 2024) to 741 million in 2025. Active stablecoin addresses increased from 19.6 million to 30 million from Feb 2024 to Feb 2025. This is the user base that needs a safer, simpler "front door" into Web3.</p>
-          <p><strong>Go-to-market focus:</strong> The project targets a six-month rollout with a measurable pre-listing objective: 25,000 Registry users via whitelisted wallets prior to listing. Post-launch, W3AI targets 3–5% share of the Web3 browser market within 12–18 months, modeled as 3M+ monthly users, benchmarked against Brave's reported 101M MAU.</p>
+        </div>
+      </section>
+
+      <section id="network-thesis" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Network Thesis</h2>
+        <div className="prose-section">
+          <p>A browser becomes a category-defining platform when it has its own decentralized backbone. W3AI is building Network infrastructure through a series of validator nodes on Solana, Ethereum, and BNB Smart Chain (BSC).</p>
+        </div>
+      </section>
+
+      <section id="why-now" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Why Now</h2>
+        <div className="prose-section">
+          <p>Crypto adoption is measured in hundreds of millions globally. Global crypto owners grew from 659 million (end of 2024) to 741 million in 2025. Active stablecoin addresses increased from 19.6 million to 30 million from Feb 2024 to Feb 2025. This is the user base that needs a safer, simpler "front door" into Web3.</p>
+        </div>
+      </section>
+
+      <section id="go-to-market" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Go To Market</h2>
+        <div className="prose-section">
+          <p>The project targets a six-month rollout with a measurable pre-listing objective: 25,000 Registry users via whitelisted wallets prior to listing. Post-launch, W3AI targets 3–5% share of the Web3 browser market within 12–18 months, modeled as 3M+ monthly users, benchmarked against Brave's reported 101M MAU.</p>
         </div>
       </section>
 
