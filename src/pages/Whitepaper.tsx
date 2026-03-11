@@ -789,7 +789,7 @@ export default function Whitepaper() {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
-      <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20 overflow-hidden">
+      <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
         <DesktopSidebar activeId={activeId} onNavigate={navigateTo} />
         <MobileDrawerSidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 min-w-0">
