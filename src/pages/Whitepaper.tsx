@@ -625,7 +625,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 
 // --- Main Page ---
 export default function Whitepaper() {
-  const [unlocked, setUnlocked] = useState(() => sessionStorage.getItem("wp_unlocked") === "1");
+  const [unlocked, setUnlocked] = useState(true);
   const [activeId, setActiveId] = useState("executive-summary");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
