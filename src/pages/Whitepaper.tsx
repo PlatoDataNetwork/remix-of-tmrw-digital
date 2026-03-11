@@ -569,6 +569,135 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Strategic Partners */}
+      <section id="strategic-partners" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Strategic Partners</h2>
+        <p className="prose-section">W3AI's partner ecosystem is designed to cover every critical surface of the product—from security and identity to liquidity and institutional credibility. Each partnership is structured around product integration, not brand association.</p>
+      </section>
+
+      <section id="partner-changelly" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Changelly</h3>
+        <div className="prose-section">
+          <p>Changelly provides instant exchange and on/off-ramp infrastructure with a 2.7M-member community. Within W3AI, Changelly's Exchange API powers in-browser swap execution with transparent convenience fees. The API's "extra fee" functionality enables W3AI to configure an additional commission layer that routes to the project treasury.</p>
+          <p>Changelly supports 500+ crypto assets across multiple blockchains, providing W3AI users with broad cross-chain swap coverage without leaving the browser environment.</p>
+        </div>
+      </section>
+
+      <section id="partner-hacken" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Hacken</h3>
+        <div className="prose-section">
+          <p>Hacken delivers the security backbone for W3AI through smart contract audits, wallet audits, penetration testing, tokenomics audits, proof-of-reserves audits, and post-deployment monitoring. In W3AI, this translates to an "in-browser trust layer" providing risk flags, verified proofs, and standardized security context before users commit capital.</p>
+          <p>The "Verified-by-security" co-marketing strategy positions W3AI as the browser that takes security seriously—not as an afterthought, but as a core product feature.</p>
+        </div>
+      </section>
+
+      <section id="partner-dentity" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Dentity</h3>
+        <div className="prose-section">
+          <p>Dentity provides the privacy-forward credential layer that strengthens W3AI's Registry and whitelisted-wallet objective. Dentity emphasizes trust, identity verification, and digital credentials while preserving user privacy.</p>
+          <p>W3AI leverages Dentity for pre-sale and beta access controls (credentialed wallet allowlists), reduced bot/sybil influence in governance, and higher-trust partner campaigns with per-vertical onboarding.</p>
+        </div>
+      </section>
+
+      <section id="partner-northern-trust" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Northern Trust</h3>
+        <div className="prose-section">
+          <p>Northern Trust brings institutional credibility and tokenization expertise through its digital assets platform (Matrix Zenith) and participation in tokenizing ESG reporting credentials. W3AI translates this into product positioning: the browser becomes the interface where "tokenized everything"—RWAs, funds, ESG credentials—is discovered, verified, and managed.</p>
+          <p>This partnership signals to institutional participants that W3AI is building for the convergence of traditional finance and decentralized infrastructure.</p>
+        </div>
+      </section>
+
+      <section id="partner-surge" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Surge</h3>
+        <div className="prose-section">
+          <p>Surge operates as W3AI's discovery and execution gateway for tokenized launches. Within the W3AI ecosystem, Surge provides infrastructure for token distribution events, community-driven launches, and curated project discovery.</p>
+          <p>The integration enables W3AI browser users to participate in vetted token launches directly from their browsing environment with built-in security checks and credential verification.</p>
+        </div>
+      </section>
+
+      <section id="partner-g20" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">G-20 Group</h3>
+        <div className="prose-section">
+          <p>G-20 Group provides professional liquidity solutions and treasury management across exchange-traded and on-chain venues. Within W3AI, this maps to a multi-venue liquidity framework, risk-managed treasury yield, and market-depth stability programs tied to milestones.</p>
+          <p>G-20 Group's expertise ensures that W3AI's market making operations meet institutional standards for reliability, transparency, and cross-venue coherence.</p>
+        </div>
+      </section>
+
+      {/* Foundations */}
+      <section id="foundations" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Foundations</h2>
+        <p className="prose-section">The W3AI Foundation provides the governance, treasury management, and regulatory framework required to operate a decentralized protocol at institutional quality. The foundation structure ensures long-term sustainability, transparent decision-making, and compliance across jurisdictions.</p>
+      </section>
+
+      <section id="foundation-governance" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Governance Framework</h3>
+        <div className="prose-section">
+          <p>W3AI governance is designed to evolve from core-team-led to community-led over time. Token holders participate in decisions covering treasury policy, supported chains, fee parameters, and security thresholds.</p>
+          <p>Governance proposals follow a structured lifecycle: discussion → formal proposal → voting → execution. Voting power is proportional to staked W3AI tokens, with safeguards against governance attacks including time-locks, quorum requirements, and multi-sig execution.</p>
+        </div>
+      </section>
+
+      <section id="foundation-treasury" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Treasury Management</h3>
+        <div className="prose-section">
+          <p>With a treasury-heavy allocation (52.5% of total supply), institutional-quality custody, reporting, and governance controls are essential. The W3AI treasury operates under explicit mandates:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li><strong>Custody:</strong> Multi-signature wallets with time-locked transactions and independent custodian oversight</li>
+            <li><strong>Reporting:</strong> Quarterly transparency reports covering treasury balances, disbursements, and yield generation</li>
+            <li><strong>Diversification:</strong> Treasury assets held across stablecoins, protocol-native tokens, and yield-bearing positions</li>
+            <li><strong>Runway management:</strong> Minimum 18-month operational runway maintained at all times</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="foundation-compliance" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Regulatory Compliance</h3>
+        <div className="prose-section">
+          <p>W3AI is designed to be capital-ready from day one. The regulatory framework includes jurisdiction-specific legal opinions, token classification analysis, and ongoing monitoring of regulatory developments across key markets.</p>
+          <p>The foundation maintains relationships with legal counsel in major jurisdictions and implements compliance controls including KYC/AML for applicable token sale rounds, sanctions screening, and geographic restrictions where required by law.</p>
+        </div>
+      </section>
+
+      {/* Infrastructure */}
+      <section id="infrastructure" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Infrastructure</h2>
+        <p className="prose-section">W3AI's infrastructure layer underpins every product surface—from browser AI inference to multi-chain validator operations. The architecture is designed for resilience, scalability, and operational transparency.</p>
+      </section>
+
+      <section id="infra-network" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Network Architecture</h3>
+        <div className="prose-section">
+          <p>W3AI's network infrastructure spans three blockchain ecosystems—Solana, Ethereum, and BNB Smart Chain—with Solana as the canonical mint and hub chain. The architecture uses Wormhole Native Token Transfers (NTT) for hub-and-spoke supply management with burn-and-mint models and governance-configurable per-chain rate limits.</p>
+          <p>Backend services are distributed across geo-redundant infrastructure with edge computing for latency-sensitive operations such as AI inference routing and real-time transaction simulation.</p>
+        </div>
+      </section>
+
+      <section id="infra-security" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Security & Custody</h3>
+        <div className="prose-section">
+          <p>Security is implemented at every layer: smart contract audits (Hacken), wallet-level security intelligence, browser sandboxing, and infrastructure-level protections. Key security measures include:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li><strong>Smart contract security:</strong> Third-party audits, formal verification where applicable, and bug bounty programs</li>
+            <li><strong>Operational security:</strong> Hardware security modules (HSMs), multi-party computation (MPC) for key management</li>
+            <li><strong>Browser security:</strong> Isolated profiles, agent permission boundaries, transaction simulation before signing</li>
+            <li><strong>Incident response:</strong> Documented playbooks, 24/7 monitoring, and rapid response protocols</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="infra-monitoring" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Monitoring & Operations</h3>
+        <div className="prose-section">
+          <p>Validator and infrastructure operations require relentless operational discipline. W3AI implements comprehensive monitoring across all network participants:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li><strong>Validator health:</strong> Uptime monitoring, attestation performance, and slashing risk alerts</li>
+            <li><strong>Network metrics:</strong> Cross-chain bridge volumes, liquidity pool depths, and fee generation tracking</li>
+            <li><strong>Treasury dashboards:</strong> Real-time visibility into treasury composition, runway, and yield performance</li>
+            <li><strong>User-facing status:</strong> Public status pages for browser services, AI gateway availability, and network health</li>
+          </ul>
+        </div>
+      </section>
+
       {/* Risks */}
       <section id="risks" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Risks, Security & Disclosures</h2>
