@@ -62,7 +62,7 @@ const sections: Section[] = [
     { id: "kol-strategy", title: "Social & KOL Strategy" },
     { id: "six-month-rollout", title: "Six-Month Rollout" },
   ]},
-  { id: "strategic-partners", title: "Strategic Partners", children: [
+  { id: "strategic-partners", title: "Network Partners", children: [
     { id: "partner-changelly", title: "Changelly" },
     { id: "partner-hacken", title: "Hacken" },
     { id: "partner-dentity", title: "Dentity" },
@@ -139,7 +139,7 @@ function SidebarNav({ sections, activeId, expanded, toggle, onNavigate }: { sect
     <nav className="p-3 space-y-0.5">
       {sections.map(s => {
         const isActive = activeId === s.id || s.children?.some(c => c.id === activeId);
-        const isOpen = expanded[s.id] ?? isActive;
+        const isOpen = expanded[s.id] ?? false;
         return (
           <div key={s.id}>
             <button
@@ -569,9 +569,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* Strategic Partners */}
+      {/* Network Partners */}
       <section id="strategic-partners" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Strategic Partners</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Network Partners</h2>
         <p className="prose-section">W3AI's partner ecosystem is designed to cover every critical surface of the product—from security and identity to liquidity and institutional credibility. Each partnership is structured around product integration, not brand association.</p>
       </section>
 
