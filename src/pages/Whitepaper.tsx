@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react"; // rebuilt
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Lock, ChevronRight, ChevronDown, Menu, X, ArrowUp } from "lucide-react";
+import { Lock, ChevronRight, ChevronDown, Menu, X, ArrowUp, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -613,6 +613,18 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Download White Paper */}
+      <div className="flex justify-center pt-8">
+        <Button
+          onClick={() => window.print()}
+          className="gap-2 px-8 py-3 text-base"
+          size="lg"
+        >
+          <Download className="h-5 w-5" />
+          Download White Paper
+        </Button>
+      </div>
+
       <div className="h-24" />
     </div>
   );
@@ -669,6 +681,52 @@ export default function Whitepaper() {
       <style>{`
         .prose-section p { color: hsl(var(--muted-foreground)); line-height: 1.75; margin-bottom: 1rem; }
         .prose-section strong { color: hsl(var(--foreground)); }
+
+        @media print {
+          /* Hide non-content elements */
+          nav, aside, footer, .lg\\:hidden, .fixed, button[class*="scroll"],
+          [class*="sticky"], [class*="backdrop-blur"], [class*="PasswordGate"] {
+            display: none !important;
+          }
+
+          /* Reset layout for single continuous page */
+          body, html {
+            background: white !important;
+            color: black !important;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
+
+          .min-h-screen { min-height: auto !important; }
+          .flex { display: block !important; }
+          .pt-16, .lg\\:pt-20, .pt-20 { padding-top: 0 !important; }
+          .blur-md { filter: none !important; }
+          .pointer-events-none { pointer-events: auto !important; }
+
+          /* Content styling for print */
+          main { width: 100% !important; }
+          .max-w-4xl { max-width: 100% !important; padding: 0 1cm !important; }
+          section { break-inside: avoid; page-break-inside: avoid; }
+          h1, h2, h3 { color: black !important; break-after: avoid; }
+          p, li { color: #333 !important; }
+          strong { color: black !important; }
+
+          /* Hide download button in print */
+          button:has(.lucide-download), [class*="Download"] { display: none !important; }
+
+          /* Image styling */
+          .animated-gradient-icon { border: none !important; }
+          img { max-height: 300px !important; }
+
+          /* Remove decorative elements */
+          .animated-gradient-icon::before,
+          .animated-gradient-icon::after { display: none !important; }
+
+          @page {
+            margin: 1.5cm;
+            size: A4;
+          }
+        }
       `}</style>
     </div>
   );
