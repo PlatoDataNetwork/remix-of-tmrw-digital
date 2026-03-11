@@ -262,14 +262,14 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="protocol-architecture" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Architecture</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
         <div className="prose-section">
           <p>At its core, the W3AI Protocol introduces a novel architecture that binds AI agent permissions to on-chain wallet permissions—treating them as a single security domain. This means every AI-assisted action within the ecosystem, whether a swap recommendation, a governance vote, or a portfolio rebalance, must pass through the same cryptographic verification and user-consent framework that governs asset transfers. The result is a protocol where intelligence and capital move together under explicit user control, eliminating the trust gaps that plague conventional AI-integrated platforms.</p>
         </div>
       </section>
 
       <section id="protocol-economic-model" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Economic Model</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Economic Model</h2>
         <div className="prose-section">
           <p>The protocol's economic model is designed for long-term sustainability. Revenue flows from multiple surfaces—Open Gateway AI inference fees, in-browser swap convenience fees, validator yield, and premium feature access—all routed transparently through on-chain treasury mechanisms. With 52.5% of total token supply allocated to the treasury and governed by progressive decentralization, the W3AI Protocol is structured to fund development, incentivize participation, and maintain operational resilience across market cycles.</p>
         </div>
@@ -284,14 +284,14 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="browser-architecture" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Architecture</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
         <div className="prose-section">
           <p>W3AI's macOS desktop browser is built on Firefox, leveraging a mature, open-source codebase that uses the Gecko engine and supports deep customization. In a market increasingly shaped by AI browsers and agentic assistants, platform choice matters because it influences extension models, sandbox boundaries, and security hardening approaches.</p>
         </div>
       </section>
 
       <section id="differentiation" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Differentiation</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Differentiation</h2>
         <div className="prose-section">
           <p>W3AI's differentiation must be expressed as workflow superiority and permission superiority—not merely a checklist.</p>
           <p><strong>Brave</strong> demonstrates large-scale demand for privacy-first browsing (100M+ MAU). W3AI must meet or exceed these privacy expectations while also solving Web3-specific safety problems (wallet connections, transaction clarity, contract risk, chain selection, and agent safety).</p>
@@ -301,7 +301,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="llm-layer" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">LLM Layer</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">LLM Layer</h2>
         <div className="prose-section">
           <p><strong>Bring Your Own Key (BYOK):</strong> Users can connect the LLM provider of their choice using their own API keys. This supports power users and enterprises with preferred vendors, budgets, and compliance requirements.</p>
           <p><strong>W3AI Open Gateway (token-based):</strong> Users can alternatively route inference through a W3AI-managed gateway with token-based billing. The Open Gateway is user-controlled by default with spending caps, per-session limits, and explicit on/off controls. A 30% margin is applied over underlying provider costs with transparent reporting.</p>
@@ -309,7 +309,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="developers" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Developers</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Developers</h2>
         <div className="prose-section">
           <p>W3AI is designed to be developer-friendly from the ground up. The browser exposes APIs and extension points that enable third-party developers to build plugins, integrate dApps, and extend browser functionality within a secure, sandboxed environment.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -322,14 +322,14 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="swap-execution" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">DeFi Swap Execution</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">DeFi Swap Execution</h2>
         <div className="prose-section">
           <p>W3AI intends to embed swap functionality directly in the browser and apply a transparent convenience fee that routes into the W3AI treasury. A practical implementation path is the Changelly API, designed for service providers to let users exchange without leaving the host product. Changelly's API supports an "extra fee" functionality allowing the integrator to configure an additional commission layer.</p>
         </div>
       </section>
 
       <section id="security-intelligence" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Security Intelligence</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Security Intelligence</h2>
         <div className="prose-section">
           <p>W3AI will integrate security posture into the act of connecting, signing, and transacting. A practical security integration partner is Hacken, offering smart contract audits, wallet audits, penetration testing, tokenomics audits, proof-of-reserves audits, and post-deployment monitoring. In W3AI, this becomes an "in-browser trust layer": risk flags, verified proofs, and standardized security context before users commit capital.</p>
         </div>
@@ -394,7 +394,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="rails-custody" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Custody & Asset Safeguarding</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Custody & Asset Safeguarding</h2>
         <div className="prose-section">
           <p>Institutional participation requires bank-grade custody solutions. W3AI integrates MPC (Multi-Party Computation) and HSM (Hardware Security Module) custody infrastructure to provide institutional-grade key management without sacrificing user sovereignty.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -406,7 +406,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="rails-compliance" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Compliance Infrastructure</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Compliance Infrastructure</h2>
         <div className="prose-section">
           <p>W3AI embeds compliance tooling directly into the browser experience, enabling institutions to interact with DeFi protocols, tokenized assets, and cross-chain bridges within a regulated framework.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -418,7 +418,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="rails-tokenization" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Tokenization & RWA Access</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Tokenization & RWA Access</h2>
         <div className="prose-section">
           <p>The browser serves as a discovery and management interface for tokenized real-world assets—real estate, commodities, carbon credits, infrastructure—bridging traditional finance with on-chain liquidity and fractional ownership.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -430,7 +430,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="rails-reporting" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Institutional Reporting</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Institutional Reporting</h2>
         <div className="prose-section">
           <p>W3AI provides institutional-grade reporting capabilities that satisfy fiduciary and regulatory requirements for digital asset portfolios.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -450,7 +450,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="solana-community" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Solana Community Integrations</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Solana Community Integrations</h2>
         <div className="prose-section">
           <p>Solana positions itself as a high-performance network enabling fast, secure, affordable transactions. W3AI's Solana strategy focuses on:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -462,7 +462,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="ethereum-community" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Ethereum Community Integrations</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Ethereum Community Integrations</h2>
         <div className="prose-section">
           <p>Ethereum's core superpower is composable dApps. W3AI's Ethereum integrations emphasize:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -474,7 +474,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="bsc-community" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">BSC Community Integrations</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">BSC Community Integrations</h2>
         <div className="prose-section">
           <p>BNB Chain emphasizes scale and mass adoption with daily active user figures (1.2M DAU on BSC, 2.7M on opBNB). W3AI's BSC strategy:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -494,7 +494,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="token-pillars" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Token Utility Pillars</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Token Utility Pillars</h2>
         <div className="prose-section">
           <p>W3AI token utility is designed around four demand drivers:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -507,7 +507,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="tokenomics" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Tokenomics Design</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Tokenomics Design</h2>
         <div className="prose-section">
           <p>W3AI is a monetized execution environment (the browser) backed by a decentralized service layer. Tokenomics satisfies three investor-grade requirements:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -519,7 +519,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="supply-allocations" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Supply, Allocations & Lockups</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Supply, Allocations & Lockups</h2>
         <div className="prose-section">
           <p><strong>Total Supply:</strong> Initial minting: 2,000,000,000 W3AI tokens (2B).</p>
           <div className="overflow-x-auto mt-4">
@@ -572,7 +572,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="sale-rounds" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Sale Rounds & Pricing</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Sale Rounds & Pricing</h2>
         <div className="prose-section">
           <div className="overflow-x-auto">
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
@@ -610,7 +610,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="byok-gateway" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">BYOK vs Open Gateway</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">BYOK vs Open Gateway</h2>
         <div className="prose-section">
           <p><strong>BYOK (Bring Your Own Key):</strong> User provides their own API key for their chosen LLM.</p>
           <p><strong>Open Gateway:</strong> Token-billed usage with user-controlled caps, designed 30% margin.</p>
@@ -618,7 +618,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="swaps-fee" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Swaps & Convenience Fee</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Swaps & Convenience Fee</h2>
         <div className="prose-section">
           <p>W3AI's plan includes in-browser swaps with a transparent convenience fee that accrues to treasury. If implemented using the Changelly Exchange API, Changelly's API extra fee shall not exceed 2% per transaction for API Partner referrals.</p>
         </div>
@@ -642,21 +642,21 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="eth-validators" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Ethereum Validators</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Ethereum Validators</h2>
         <div className="prose-section">
           <p>A validator must deposit 32 ETH and run execution, consensus, and validator clients, with potential slashing of some or all staked ETH for dishonest behavior.</p>
         </div>
       </section>
 
       <section id="bsc-validators" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">BSC Validators</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">BSC Validators</h2>
         <div className="prose-section">
           <p>Becoming a validator requires minimum self-delegation of 2000 BNB. Validators earn rewards from transaction fees with slashing and jailing rules for downtime, double-signing, and low self-delegation.</p>
         </div>
       </section>
 
       <section id="sol-validators" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Solana Validators</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Solana Validators</h2>
         <div className="prose-section">
           <p>Validators "form the backbone" of the Solana network with protocol-based rewards from inflation plus staking-related rewards and fee earnings.</p>
         </div>
@@ -677,21 +677,21 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="dex-strategy" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">DEX Liquidity Strategy</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">DEX Liquidity Strategy</h2>
         <div className="prose-section">
           <p>On Ethereum, W3AI deploys Uniswap-style AMM pools. On BSC, PancakeSwap's Smart Router (V2) links AMM/stableswap liquidity and market makers to improve pricing. The strategy combines protocol-owned liquidity (POL) and professional quoting for early volatility regimes.</p>
         </div>
       </section>
 
       <section id="cex-strategy" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">CEX Listing Readiness</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">CEX Listing Readiness</h2>
         <div className="prose-section">
           <p>Centralized exchanges evaluate projects on security posture, liquidity potential, and market quality. W3AI's market making strategy is tightly coupled with "listing readiness" artifacts: audited contracts, transparent tokenomics, liquidity plans, and operational reliability.</p>
         </div>
       </section>
 
       <section id="partner-mm" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Partner-Enabled Market Making</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Partner-Enabled Market Making</h2>
         <div className="prose-section">
           <p>G-20 Group provides liquidity solutions and treasury management across exchange-traded and on-chain venues. Within W3AI, this maps to a professional multi-venue liquidity framework, risk-managed treasury yield, and market-depth stability programs tied to milestones.</p>
         </div>
@@ -706,7 +706,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="community-growth" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Community Growth Objectives</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Community Growth Objectives</h2>
         <div className="prose-section">
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
             <li><strong>Pre-listing:</strong> 25,000 Registry users via whitelisted wallets.</li>
@@ -716,7 +716,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="kol-strategy" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Social & KOL Strategy</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Social & KOL Strategy</h2>
         <div className="prose-section">
           <p>W3AI's KOL engine is structured as "proof, not hype":</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -729,7 +729,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="six-month-rollout" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Six-Month Rollout with Partners</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Six-Month Rollout with Partners</h2>
         <div className="prose-section">
           <p>Pre-sale marketing → TGE → listings/liquidity expansion, with partner-led distribution:</p>
           <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
@@ -837,7 +837,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="foundation-governance" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Governance Framework</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Governance Framework</h2>
         <div className="prose-section">
           <p>W3AI governance is designed to evolve from core-team-led to community-led over time. Token holders participate in decisions covering treasury policy, supported chains, fee parameters, and security thresholds.</p>
           <p>Governance proposals follow a structured lifecycle: discussion → formal proposal → voting → execution. Voting power is proportional to staked W3AI tokens, with safeguards against governance attacks including time-locks, quorum requirements, and multi-sig execution.</p>
@@ -845,7 +845,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="foundation-treasury" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Treasury Management</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Treasury Management</h2>
         <div className="prose-section">
           <p>With a treasury-heavy allocation (52.5% of total supply), institutional-quality custody, reporting, and governance controls are essential. The W3AI treasury operates under explicit mandates:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -858,7 +858,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="foundation-compliance" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Regulatory Compliance</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Regulatory Compliance</h2>
         <div className="prose-section">
           <p>W3AI is designed to be capital-ready from day one. The regulatory framework includes jurisdiction-specific legal opinions, token classification analysis, and ongoing monitoring of regulatory developments across key markets.</p>
           <p>The foundation maintains relationships with legal counsel in major jurisdictions and implements compliance controls including KYC/AML for applicable token sale rounds, sanctions screening, and geographic restrictions where required by law.</p>
@@ -874,7 +874,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="infra-network" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Network Architecture</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Network Architecture</h2>
         <div className="prose-section">
           <p>W3AI's network infrastructure spans three blockchain ecosystems—Solana, Ethereum, and BNB Smart Chain—with Solana as the canonical mint and hub chain. The architecture uses Wormhole Native Token Transfers (NTT) for hub-and-spoke supply management with burn-and-mint models and governance-configurable per-chain rate limits.</p>
           <p>Backend services are distributed across geo-redundant infrastructure with edge computing for latency-sensitive operations such as AI inference routing and real-time transaction simulation.</p>
@@ -882,7 +882,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="infra-security" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Security & Custody</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Security & Custody</h2>
         <div className="prose-section">
           <p>Security is implemented at every layer: smart contract audits (Hacken), wallet-level security intelligence, browser sandboxing, and infrastructure-level protections. Key security measures include:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -895,7 +895,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="infra-monitoring" data-section>
-        <h3 className="text-2xl font-bold text-foreground mb-4">Monitoring & Operations</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Monitoring & Operations</h2>
         <div className="prose-section">
           <p>Validator and infrastructure operations require relentless operational discipline. W3AI implements comprehensive monitoring across all network participants:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
