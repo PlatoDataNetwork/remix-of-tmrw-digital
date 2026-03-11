@@ -627,12 +627,11 @@ export default function Whitepaper() {
       <div className={cn("flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20", !unlocked && "blur-md pointer-events-none select-none")}>
         <Sidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 min-w-0">
-          {/* Top bar */}
-          <div className="sticky top-16 lg:top-20 z-20 bg-background/80 backdrop-blur-md border-b border-border px-4 py-3 flex items-center gap-3 lg:px-6">
-            <button onClick={() => setSidebarOpen(true)} className="lg:hidden text-foreground">
+          {/* Top bar - mobile only */}
+          <div className="sticky top-16 lg:top-20 z-20 bg-background/80 backdrop-blur-md border-b border-border px-4 py-3 flex items-center gap-3 lg:hidden">
+            <button onClick={() => setSidebarOpen(true)} className="text-foreground">
               <Menu className="h-5 w-5" />
             </button>
-            <h1 className="text-sm font-semibold text-foreground truncate">W3AI Network — Light Paper</h1>
           </div>
           <WhitepaperContent onSectionVisible={setActiveId} />
         </main>
