@@ -102,7 +102,7 @@ const Footer = () => {
               {[
                 { label: "Showcase", href: "/showcase" },
                 { label: "Intelligence", href: "/intel" },
-                { label: "W3AI Token", href: "/whitepaper" },
+                { label: "W3AI Token", href: "/w3ai/whitepaper" },
                 { label: "CUT Token", href: "#" },
                 { label: "Security", href: "#" },
               ].map((link) => (
