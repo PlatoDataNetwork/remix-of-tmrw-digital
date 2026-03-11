@@ -267,9 +267,30 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Privacy */}
+      <section id="privacy" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Privacy</h2>
+        <p className="prose-section">Privacy is a foundational principle of Web3 architecture. W3AI is committed to building privacy-preserving systems that protect user data, on-chain identity, and transactional confidentiality while maintaining compliance with applicable regulatory frameworks.</p>
+      </section>
+
+      <section id="privacy-policy" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Privacy Policy</h3>
+        <div className="prose-section">
+          <p>W3AI's privacy framework is designed specifically for the Web3 environment, where traditional data collection models are replaced by cryptographic verification, zero-knowledge proofs, and user-sovereign data ownership.</p>
+          <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">Data Minimization</h4>
+          <p>W3AI adheres to a strict data minimization principle. The browser collects only the minimum information necessary to deliver core functionality. No browsing history, wallet balances, or transaction data is stored on centralized servers. All user activity remains local unless explicitly shared by the user.</p>
+          <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">On-Chain Privacy</h4>
+          <p>Wallet interactions, token swaps, and governance participation are conducted through privacy-preserving mechanisms. W3AI supports selective disclosure protocols, enabling users to prove eligibility (e.g., KYC status, token holdings) without revealing underlying personal data.</p>
+          <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">Third-Party Data Sharing</h4>
+          <p>W3AI does not sell, rent, or share user data with third parties for advertising or profiling purposes. Where integrations require data exchange (e.g., fiat on-ramps, KYC providers), users are informed and must provide explicit consent. All third-party processors are contractually bound to equivalent privacy standards.</p>
+          <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">User Rights & Control</h4>
+          <p>Users retain full control over their data at all times. This includes the right to export, delete, or restrict processing of any personally identifiable information. W3AI's architecture ensures that account deletion results in complete and irreversible data removal from all systems.</p>
+        </div>
+      </section>
+
       {/* Identity */}
       <section id="identity-anti-sybil" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Identity & Anti-Sybil Primitives</h2>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Identity & Anti-Sybil Primitives</h3>
         <div className="prose-section">
           <p>W3AI's Registry and whitelisted-wallet objective is strengthened by integrating a privacy-forward credential layer through Dentity, emphasizing trust, identity verification, and digital credentials. W3AI leverages this to support:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -286,6 +307,54 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>W3AI's mission is consumer-first, but the Web3 browser category will increasingly serve professionals and institutions. Northern Trust has described blockchain/tokenization initiatives utilizing its digital assets platform (Matrix Zenith) and participation in tokenizing ESG reporting credentials.</p>
           <p>W3AI translates this into product positioning: the browser becomes the interface where "tokenized everything" (RWAs, funds, ESG credentials) is discovered, verified, and managed.</p>
+        </div>
+      </section>
+
+      <section id="rails-custody" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Custody & Asset Safeguarding</h3>
+        <div className="prose-section">
+          <p>Institutional participation requires bank-grade custody solutions. W3AI integrates MPC (Multi-Party Computation) and HSM (Hardware Security Module) custody infrastructure to provide institutional-grade key management without sacrificing user sovereignty.</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Multi-signature authorization workflows for treasury and fund management</li>
+            <li>Insurance-backed custody partnerships for high-value asset classes</li>
+            <li>SOC 2 Type II compliant infrastructure and audit-ready reporting</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="rails-compliance" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Compliance Infrastructure</h3>
+        <div className="prose-section">
+          <p>W3AI embeds compliance tooling directly into the browser experience, enabling institutions to interact with DeFi protocols, tokenized assets, and cross-chain bridges within a regulated framework.</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Automated AML/KYC verification through credentialed wallet attestations</li>
+            <li>Travel Rule compliance for cross-border digital asset transfers</li>
+            <li>Real-time sanctions screening integrated at the transaction layer</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="rails-tokenization" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Tokenization & RWA Access</h3>
+        <div className="prose-section">
+          <p>The browser serves as a discovery and management interface for tokenized real-world assets—real estate, commodities, carbon credits, infrastructure—bridging traditional finance with on-chain liquidity and fractional ownership.</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Integrated RWA marketplace with verified asset originator profiles</li>
+            <li>Secondary market access with transparent pricing and settlement</li>
+            <li>ESG credential tokenization for sustainability reporting and verification</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="rails-reporting" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Institutional Reporting</h3>
+        <div className="prose-section">
+          <p>W3AI provides institutional-grade reporting capabilities that satisfy fiduciary and regulatory requirements for digital asset portfolios.</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Portfolio-level analytics with on-chain and off-chain data aggregation</li>
+            <li>Tax lot tracking and cost basis reporting across multi-chain positions</li>
+            <li>Customizable audit trails and compliance export formats</li>
+          </ul>
         </div>
       </section>
 
