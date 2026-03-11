@@ -139,7 +139,7 @@ function SidebarNav({ sections, activeId, expanded, toggle, onNavigate }: { sect
     <nav className="p-3 space-y-0.5">
       {sections.map(s => {
         const isActive = activeId === s.id || s.children?.some(c => c.id === activeId);
-        const isOpen = expanded[s.id] ?? isActive;
+        const isOpen = expanded[s.id] ?? false;
         return (
           <div key={s.id}>
             <button
