@@ -792,7 +792,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Infrastructure */}
       <section id="infrastructure" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Infrastructure</h2>
-        <p className="prose-section">W3AI's infrastructure layer underpins every product surface—from browser AI inference to multi-chain validator operations. The architecture is designed for resilience, scalability, and operational transparency.</p>
+        <div className="prose-section">
+          <p>W3AI's infrastructure layer underpins every product surface—from browser AI inference to multi-chain validator operations. The architecture is designed for resilience, scalability, and operational transparency.</p>
+        </div>
       </section>
 
       <section id="infra-network" data-section>
