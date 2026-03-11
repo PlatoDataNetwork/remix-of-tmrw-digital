@@ -55,48 +55,62 @@ const LanguageHandler = () => {
 
   const urlLang = getUrlLanguage(location.pathname);
 
-  // Helper to sync dropdown to a language value, with retries for when GTranslate isn't ready
-  const syncDropdown = (lang: string, retries = 10) => {
+  // Force GTranslate to re-translate by toggling the select value
+  const forceTranslate = (lang: string, retries = 20) => {
     const targetLang = normalizeLanguageValue(lang).toLowerCase();
 
-    const trySync = (attempt: number) => {
+    const tryForce = (attempt: number) => {
       const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
       if (!select) {
-        if (attempt < retries) {
-          setTimeout(() => trySync(attempt + 1), 300);
-        }
+        if (attempt < retries) setTimeout(() => tryForce(attempt + 1), 300);
         return;
       }
-      // Find the matching option (case-insensitive), supporting values like en|bn
+
       const options = Array.from(select.options);
       const matchOption = options.find(
         (o) => normalizeLanguageValue(o.value).toLowerCase() === targetLang
       );
       if (!matchOption) return;
 
-      const currentLang = normalizeLanguageValue(select.value).toLowerCase();
-      if (currentLang !== targetLang) {
-        isProgrammatic.current = true;
-        select.value = matchOption.value;
-        select.dispatchEvent(new Event("change", { bubbles: true }));
+      isProgrammatic.current = true;
+
+      if (targetLang === "en") {
+        // Reset to English
+        const enOption = options.find(o => normalizeLanguageValue(o.value).toLowerCase() === "en");
+        if (enOption && select.value !== enOption.value) {
+          select.value = enOption.value;
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      } else {
+        // First reset to English, then switch to target language
+        // This forces GTranslate to re-translate even if the value looks the same
+        const enOption = options.find(o => normalizeLanguageValue(o.value).toLowerCase() === "en");
+        if (enOption) {
+          select.value = enOption.value;
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+        // Then switch to target after a brief delay
         setTimeout(() => {
-          isProgrammatic.current = false;
-        }, 800);
+          select.value = matchOption.value;
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+          setTimeout(() => { isProgrammatic.current = false; }, 800);
+        }, 100);
+        return; // Don't reset isProgrammatic yet
       }
+
+      setTimeout(() => { isProgrammatic.current = false; }, 800);
     };
-    trySync(0);
+    tryForce(0);
   };
 
-  // Sync: URL → cookie → GTranslate widget
+  // Sync: URL → cookie → GTranslate widget on every route change
   useEffect(() => {
     if (urlLang && urlLang !== "en") {
-      // URL has a language prefix — set single cookie and sync dropdown
       setGoogleTranslateCookie(urlLang);
-      syncDropdown(urlLang);
+      forceTranslate(urlLang);
     } else {
-      // No language prefix (English or root) — clear all cookies, reset dropdown
       clearGoogleTranslateCookies();
-      syncDropdown("en");
+      forceTranslate("en");
     }
   }, [urlLang, location.pathname]);
 
