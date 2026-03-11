@@ -169,7 +169,7 @@ const ChatWidget = () => {
   const panelHeight = maximized ? "calc(100vh - 4rem)" : undefined;
   const panelHeightLg = maximized ? "calc(100vh - 5rem)" : undefined;
 
-  return (
+  const chatUi = (
     <>
       {/* Floating Chat Button — always visible, bottom right */}
       <motion.button
