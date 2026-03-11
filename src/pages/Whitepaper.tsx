@@ -85,6 +85,7 @@ const sections: Section[] = [
     { id: "partner-northern-trust", title: "Northern Trust" },
     { id: "partner-surge", title: "Surge" },
     { id: "partner-g20", title: "G-20 Group" },
+    { id: "partner-lablab", title: "LabLab" },
   ]},
   { id: "infrastructure", title: "Infrastructure", children: [
     { id: "infra-network", title: "Network Architecture" },
