@@ -66,7 +66,12 @@ const sections: Section[] = [
     { id: "byok-gateway", title: "BYOK vs Open Gateway" },
     { id: "swaps-fee", title: "Swaps & Convenience Fee" },
   ]},
-  { id: "multi-chain", title: "Multi-Chain Deployments" },
+  { id: "multi-chain", title: "Multi-Chain Deployments", children: [
+    { id: "multi-hub-spoke", title: "Hub & Spoke Architecture" },
+    { id: "multi-wormhole", title: "Wormhole NTT Bridge" },
+    { id: "multi-supply-integrity", title: "Supply Integrity" },
+    { id: "multi-chain-governance", title: "Cross-Chain Governance" },
+  ]},
   { id: "validator-yield", title: "Validator Yield & Staking", children: [
     { id: "eth-validators", title: "Ethereum Validators" },
     { id: "bsc-validators", title: "BSC Validators" },
