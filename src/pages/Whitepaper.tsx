@@ -224,19 +224,19 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 
       {/* TMRW Browser */}
       <section id="tmrw-browser" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">The W3AI TMRW Browser</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI TMRW Browser</h2>
         <p className="prose-section">W3AI's product philosophy is that the browser is no longer a "window." It is the execution environment for AI, identity, and money. W3AI's goal is to become the unified gateway that lets users discover → verify → transact → monitor across Web3 with an immersive UI/UX designed for high-frequency multi-chain activity.</p>
       </section>
 
       <section id="browser-architecture" data-section>
-        <h3 className="text-xl font-semibold text-foreground mb-3">Browser Architecture & Why Firefox Matters</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Architecture</h3>
         <div className="prose-section">
           <p>W3AI's macOS desktop browser is built on Firefox, leveraging a mature, open-source codebase that uses the Gecko engine and supports deep customization. In a market increasingly shaped by AI browsers and agentic assistants, platform choice matters because it influences extension models, sandbox boundaries, and security hardening approaches.</p>
         </div>
       </section>
 
       <section id="differentiation" data-section>
-        <h3 className="text-xl font-semibold text-foreground mb-3">Differentiation vs Brave, Safari, Comet, and OpenAI Atlas</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Differentiation</h3>
         <div className="prose-section">
           <p>W3AI's differentiation must be expressed as workflow superiority and permission superiority—not merely a checklist.</p>
           <p><strong>Brave</strong> demonstrates large-scale demand for privacy-first browsing (100M+ MAU). W3AI must meet or exceed these privacy expectations while also solving Web3-specific safety problems (wallet connections, transaction clarity, contract risk, chain selection, and agent safety).</p>
@@ -246,15 +246,28 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="llm-layer" data-section>
-        <h3 className="text-xl font-semibold text-foreground mb-3">User-selectable LLM Layer (BYOK + Open Gateway)</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-3">LLM Layer</h3>
         <div className="prose-section">
           <p><strong>Bring Your Own Key (BYOK):</strong> Users can connect the LLM provider of their choice using their own API keys. This supports power users and enterprises with preferred vendors, budgets, and compliance requirements.</p>
           <p><strong>W3AI Open Gateway (token-based):</strong> Users can alternatively route inference through a W3AI-managed gateway with token-based billing. The Open Gateway is user-controlled by default with spending caps, per-session limits, and explicit on/off controls. A 30% margin is applied over underlying provider costs with transparent reporting.</p>
         </div>
       </section>
 
+      <section id="developers" data-section>
+        <h3 className="text-xl font-semibold text-foreground mb-3">Developers</h3>
+        <div className="prose-section">
+          <p>W3AI is designed to be developer-friendly from the ground up. The browser exposes APIs and extension points that enable third-party developers to build plugins, integrate dApps, and extend browser functionality within a secure, sandboxed environment.</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li><strong>Extension SDK:</strong> A developer toolkit for building W3AI-native extensions with access to wallet state, transaction context, and AI assistant hooks</li>
+            <li><strong>Open-source components:</strong> Core browser modules published under permissive licenses to encourage community contributions and security audits</li>
+            <li><strong>Developer documentation:</strong> Comprehensive API references, integration guides, and example projects for rapid onboarding</li>
+            <li><strong>Hackathon ecosystem:</strong> Active participation in ETH Global, Solana hackathons, and BNB Chain builder programs to cultivate developer adoption</li>
+          </ul>
+        </div>
+      </section>
+
       <section id="swap-execution" data-section>
-        <h3 className="text-xl font-semibold text-foreground mb-3">Built-in Swap Execution</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-3">DeFi Swap Execution</h3>
         <div className="prose-section">
           <p>W3AI intends to embed swap functionality directly in the browser and apply a transparent convenience fee that routes into the W3AI treasury. A practical implementation path is the Changelly API, designed for service providers to let users exchange without leaving the host product. Changelly's API supports an "extra fee" functionality allowing the integrator to configure an additional commission layer.</p>
         </div>
