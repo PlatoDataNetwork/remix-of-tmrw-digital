@@ -610,7 +610,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 
       <section id="sol-validators" data-section>
         <h3 className="text-xl font-semibold text-foreground mb-3">Solana Validators</h3>
-        <p className="prose-section">Validators "form the backbone" of the Solana network with protocol-based rewards from inflation plus staking-related rewards and fee earnings.</p>
+        <div className="prose-section">
+          <p>Validators "form the backbone" of the Solana network with protocol-based rewards from inflation plus staking-related rewards and fee earnings.</p>
+        </div>
       </section>
 
       {/* Liquidity */}
