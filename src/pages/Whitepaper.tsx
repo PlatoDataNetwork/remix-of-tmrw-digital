@@ -28,6 +28,11 @@ const sections: Section[] = [
   ]},
   { id: "identity-anti-sybil", title: "Identity & Anti-Sybil" },
   { id: "institutional-rails", title: "Institutional-Grade Rails" },
+  { id: "foundations", title: "Governance", children: [
+    { id: "foundation-governance", title: "Governance Framework" },
+    { id: "foundation-treasury", title: "Treasury Management" },
+    { id: "foundation-compliance", title: "Regulatory Compliance" },
+  ]},
   { id: "community-integrations", title: "Community Integrations", children: [
     { id: "solana-community", title: "Solana" },
     { id: "ethereum-community", title: "Ethereum" },
