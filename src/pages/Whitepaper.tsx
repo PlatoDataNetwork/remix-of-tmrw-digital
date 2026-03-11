@@ -244,12 +244,27 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
     <div className="max-w-4xl mx-auto px-6 py-12 whitepaper-content">
       {/* W3AI Whitepaper Section */}
       <section id="w3ai-whitepaper" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Whitepaper</h2>
-        <div className="relative rounded-2xl overflow-hidden animated-gradient-hero-bg">
-          <img src={heroBg} alt="W3AI Whitepaper" className="w-full h-[300px] md:h-[420px] object-contain object-center" />
-        </div>
-        <div className="prose-section mt-4">
-          <p>The W3AI Whitepaper outlines the vision, architecture, and economic design of the W3AI Protocol — a Web3-native AI infrastructure layer powering the next generation of decentralized browsers, intelligent agents, and tokenized real-world assets.</p>
+        <div className="relative rounded-2xl overflow-hidden h-[300px] md:h-[420px] bg-[hsl(220,20%,4%)]">
+          {/* Background Image */}
+          <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-contain object-center scale-110" />
+          {/* Animated Gradient Overlay */}
+          <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
+          {/* Dark Overlays */}
+          <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.25)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%,0.3)] via-transparent to-[hsl(220,20%,4%)]" />
+          {/* Content */}
+          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extralight leading-[1.1] tracking-tight text-white mb-3">
+              Accelerating Growth<br />Through Space & Time.
+            </h2>
+            <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50 mb-3">
+              RWA's · Web3AI · Cyber · Data · Compliance
+            </p>
+            <p className="text-sm md:text-base text-white/70 max-w-2xl mx-auto leading-relaxed font-light">
+              The Tomorrow Company is a Diversified Web3 Infrastructure and Digital Asset
+              Holding Company Building the Infrastructure for Tomorrow's Digital Economy.
+            </p>
+          </div>
         </div>
       </section>
 
