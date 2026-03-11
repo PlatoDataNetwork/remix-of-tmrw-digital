@@ -396,9 +396,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* Token Utility */}
+      {/* Tokenomics */}
       <section id="token-utility" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Token Utility, Monetization & Treasury</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Tokenomics</h2>
         <div className="prose-section">
           <p>This section covers token assumptions, monetization surfaces, and treasury mechanics.</p>
         </div>
