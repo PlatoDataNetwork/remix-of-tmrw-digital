@@ -80,10 +80,10 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[hsl(220,20%,4%,0.9)] border-b border-white/10"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to={lp("/")} className="flex items-center gap-2">
+          <Link to={lp("/")} className="flex items-center gap-2 shrink-0">
             <div
               className="h-8 w-8 animated-gradient-icon-bright"
               style={{
@@ -128,7 +128,7 @@ const Navbar = () => {
           </div>
 
           {/* Right side */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <ChatNavbarIcon />
             <ThemeToggle />
             <div ref={gtranslateRef} className="gtranslate-navbar-slot" />
@@ -140,9 +140,19 @@ const Navbar = () => {
             </Link>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 text-white"
+              className="md:hidden p-1.5 text-white"
             >
-              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              <AnimatePresence mode="wait">
+                {mobileOpen ? (
+                  <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                    <X className="h-5 w-5" />
+                  </motion.div>
+                ) : (
+                  <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                    <Menu className="h-5 w-5" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </button>
           </div>
         </div>
@@ -155,38 +165,49 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
             className="md:hidden overflow-hidden bg-[hsl(220,20%,4%,0.95)] backdrop-blur-xl border-b border-white/10"
           >
-            <div className="px-6 py-6 space-y-4">
-              {navLinks.map((link) => (
-                link.href.startsWith("/#") ? (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="block text-lg font-medium text-white hover:text-white/60 transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={link.label}
-                    to={lp(link.href)}
-                    onClick={() => setMobileOpen(false)}
-                    className="block text-lg font-medium text-white hover:text-white/60 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                )
+            <div className="px-6 py-6 space-y-1">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.label}
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: i * 0.05, duration: 0.3, ease: "easeOut" }}
+                >
+                  {link.href.startsWith("/#") ? (
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className="block py-2.5 text-lg font-light text-white/80 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={lp(link.href)}
+                      onClick={() => setMobileOpen(false)}
+                      className="block py-2.5 text-lg font-light text-white/80 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </motion.div>
               ))}
-              <Link
-                to={lp("/investors")}
-                onClick={() => setMobileOpen(false)}
-                className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium mt-2"
+              <motion.div
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: navLinks.length * 0.05, duration: 0.3, ease: "easeOut" }}
               >
-                Investors
-              </Link>
+                <Link
+                  to={lp("/investors")}
+                  onClick={() => setMobileOpen(false)}
+                  className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium mt-4"
+                >
+                  Investors
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}
