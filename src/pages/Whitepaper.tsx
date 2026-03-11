@@ -29,13 +29,27 @@ const sections: Section[] = [
     { id: "protocol-architecture", title: "Architecture" },
     { id: "protocol-economic-model", title: "Economic Model" },
   ]},
-  { id: "tmrw-browser", title: "W3AI TMRW Browser", children: [
+  { id: "tmrw-browser", title: "W3AI Browser", children: [
     { id: "browser-architecture", title: "Architecture" },
     { id: "differentiation", title: "Differentiation" },
     { id: "llm-layer", title: "LLM Layer" },
     { id: "developers", title: "Developers" },
     { id: "swap-execution", title: "DeFi Swap Execution" },
     { id: "security-intelligence", title: "Security Intelligence" },
+  ]},
+  { id: "w3ai-rwas", title: "W3AI RWAs", children: [
+    { id: "rwa-carbon-credits", title: "Carbon Credits" },
+    { id: "rwa-collectables", title: "Collectables" },
+    { id: "rwa-commodities", title: "Commodities" },
+    { id: "rwa-energy", title: "Energy" },
+    { id: "rwa-infrastructure", title: "Infrastructure" },
+    { id: "rwa-metals", title: "Metals" },
+    { id: "rwa-rare-earth", title: "Rare Earth Minerals" },
+    { id: "rwa-real-estate", title: "Real Estate" },
+    { id: "rwa-sovereign-wealth", title: "Sovereign Wealth" },
+    { id: "rwa-stablecoins", title: "Stablecoins" },
+    { id: "rwa-tax-credits", title: "Tax Credits" },
+    { id: "rwa-utilities", title: "Utilities" },
   ]},
   { id: "token-utility", title: "Tokenomics", children: [
     { id: "token-pillars", title: "Token Utility Pillars" },
@@ -336,9 +350,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* TMRW Browser */}
+      {/* W3AI Browser */}
       <section id="tmrw-browser" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI TMRW Browser</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Browser</h2>
         <div className="prose-section">
           <p>W3AI's product philosophy is that the browser is no longer a "window." It is the execution environment for AI, identity, and money. W3AI's goal is to become the unified gateway that lets users discover → verify → transact → monitor across Web3 with an immersive UI/UX designed for high-frequency multi-chain activity.</p>
         </div>
@@ -393,6 +407,98 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <h2 className="text-2xl font-bold text-foreground mb-4">Security Intelligence</h2>
         <div className="prose-section">
           <p>W3AI will integrate security posture into the act of connecting, signing, and transacting. A practical security integration partner is Hacken, offering smart contract audits, wallet audits, penetration testing, tokenomics audits, proof-of-reserves audits, and post-deployment monitoring. In W3AI, this becomes an "in-browser trust layer": risk flags, verified proofs, and standardized security context before users commit capital.</p>
+        </div>
+      </section>
+
+      {/* W3AI RWAs */}
+      <section id="w3ai-rwas" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI RWAs</h2>
+        <div className="prose-section">
+          <p>The Real World of Asset Tokenization — Tomorrow's Next Big Thing. Bridging traditional assets with modern Web3AI markets through tokenization, data intelligence, and institutional-grade access.</p>
+        </div>
+      </section>
+
+      <section id="rwa-carbon-credits" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Carbon Credits</h2>
+        <div className="prose-section">
+          <p>Tokenized verified carbon credits and environmental assets bringing transparency and liquidity to global climate finance.</p>
+        </div>
+      </section>
+
+      <section id="rwa-collectables" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Collectables</h2>
+        <div className="prose-section">
+          <p>Tokenized fine art, luxury watches, rare wines, and vintage cars unlocking fractional ownership in alternative asset markets.</p>
+        </div>
+      </section>
+
+      <section id="rwa-commodities" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Commodities</h2>
+        <div className="prose-section">
+          <p>Agricultural, energy, and material commodities structured for institutional and retail participation.</p>
+        </div>
+      </section>
+
+      <section id="rwa-energy" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Energy</h2>
+        <div className="prose-section">
+          <p>Oil, gas, renewables, and next-generation energy infrastructure investments driving the global transition.</p>
+        </div>
+      </section>
+
+      <section id="rwa-infrastructure" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Infrastructure</h2>
+        <div className="prose-section">
+          <p>Large-scale public and private infrastructure projects delivering long-term, stable returns.</p>
+        </div>
+      </section>
+
+      <section id="rwa-metals" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Metals</h2>
+        <div className="prose-section">
+          <p>Precious and industrial metals exploration, production, and supply chain investment opportunities.</p>
+        </div>
+      </section>
+
+      <section id="rwa-rare-earth" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Rare Earth Minerals</h2>
+        <div className="prose-section">
+          <p>Critical mineral resources essential for advanced technology, defense, and clean energy applications.</p>
+        </div>
+      </section>
+
+      <section id="rwa-real-estate" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Real Estate</h2>
+        <div className="prose-section">
+          <p>Commercial and residential real estate assets tokenized for broader investor accessibility.</p>
+        </div>
+      </section>
+
+      <section id="rwa-sovereign-wealth" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Sovereign Wealth</h2>
+        <div className="prose-section">
+          <p>Strategic partnerships with sovereign wealth funds and government-backed investment vehicles.</p>
+        </div>
+      </section>
+
+      <section id="rwa-stablecoins" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Stablecoins</h2>
+        <div className="prose-section">
+          <p>Institutional-grade stablecoin infrastructure powering settlement, cross-border payments, and yield generation for tokenized assets.</p>
+        </div>
+      </section>
+
+      <section id="rwa-tax-credits" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Tax Credits</h2>
+        <div className="prose-section">
+          <p>Tokenized federal and state tax credits unlocking liquidity in renewable energy, housing, and R&D incentive programs.</p>
+        </div>
+      </section>
+
+      <section id="rwa-utilities" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Utilities</h2>
+        <div className="prose-section">
+          <p>Tokenized utility infrastructure assets from power generation and water systems to telecommunications networks.</p>
         </div>
       </section>
 
