@@ -96,7 +96,8 @@ const Navbar = () => {
                 className="notranslate text-lg lg:text-xl font-bold tracking-tight text-white"
                 translate="no"
               >
-                The Tomorrow Company
+                <span className="sm:hidden">The Tomorrow<br />Company</span>
+                <span className="hidden sm:inline">The Tomorrow Company</span>
               </span>
             </Link>
 
