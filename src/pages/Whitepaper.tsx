@@ -175,6 +175,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 space-y-16">
+      {/* Hero Robot Image */}
+      <div className="flex justify-center">
+        <img src={heroBg} alt="W3AI Robot" className="w-full max-w-md h-auto object-contain" />
+      </div>
       {/* Disclaimer */}
       <div className="p-5 rounded-lg border border-border bg-muted/50 text-sm text-muted-foreground leading-relaxed">
         <p className="font-semibold text-foreground mb-2">Disclaimer</p>
