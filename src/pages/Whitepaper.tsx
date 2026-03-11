@@ -603,7 +603,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 
       <section id="bsc-validators" data-section>
         <h3 className="text-xl font-semibold text-foreground mb-3">BSC Validators</h3>
-        <p className="prose-section">Becoming a validator requires minimum self-delegation of 2000 BNB. Validators earn rewards from transaction fees with slashing and jailing rules for downtime, double-signing, and low self-delegation.</p>
+        <div className="prose-section">
+          <p>Becoming a validator requires minimum self-delegation of 2000 BNB. Validators earn rewards from transaction fees with slashing and jailing rules for downtime, double-signing, and low self-delegation.</p>
+        </div>
       </section>
 
       <section id="sol-validators" data-section>
