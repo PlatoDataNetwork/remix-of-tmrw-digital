@@ -653,7 +653,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Marketing */}
       <section id="marketing" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Marketing & Distribution Roadmap</h2>
-        <p className="prose-section">W3AI's marketing strategy is built around authenticity: each chain is a community with its own verticals, founders, memetics, and risk tolerance. The objective is to embed W3AI into actual user workflows.</p>
+        <div className="prose-section">
+          <p>W3AI's marketing strategy is built around authenticity: each chain is a community with its own verticals, founders, memetics, and risk tolerance. The objective is to embed W3AI into actual user workflows.</p>
+        </div>
       </section>
 
       <section id="community-growth" data-section>
