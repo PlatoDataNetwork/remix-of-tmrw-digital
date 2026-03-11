@@ -622,13 +622,14 @@ export default function Whitepaper() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Navbar />
       {!unlocked && <PasswordGate onUnlock={() => setUnlocked(true)} />}
 
-      <div className={cn("flex min-h-screen", !unlocked && "blur-md pointer-events-none select-none")}>
+      <div className={cn("flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20", !unlocked && "blur-md pointer-events-none select-none")}>
         <Sidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 min-w-0">
           {/* Top bar */}
-          <div className="sticky top-0 z-20 bg-background/80 backdrop-blur-md border-b border-border px-4 py-3 flex items-center gap-3 lg:px-6">
+          <div className="sticky top-16 lg:top-20 z-20 bg-background/80 backdrop-blur-md border-b border-border px-4 py-3 flex items-center gap-3 lg:px-6">
             <button onClick={() => setSidebarOpen(true)} className="lg:hidden text-foreground">
               <Menu className="h-5 w-5" />
             </button>
@@ -637,6 +638,8 @@ export default function Whitepaper() {
           <WhitepaperContent onSectionVisible={setActiveId} />
         </main>
       </div>
+
+      <Footer />
 
       {/* Scroll to top */}
       {showScrollTop && unlocked && (
