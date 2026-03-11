@@ -755,7 +755,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Governance */}
       <section id="foundations" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Governance</h2>
-        <p className="prose-section">The W3AI Foundation provides the governance, treasury management, and regulatory framework required to operate a decentralized protocol at institutional quality. The foundation structure ensures long-term sustainability, transparent decision-making, and compliance across jurisdictions.</p>
+        <div className="prose-section">
+          <p>The W3AI Foundation provides the governance, treasury management, and regulatory framework required to operate a decentralized protocol at institutional quality. The foundation structure ensures long-term sustainability, transparent decision-making, and compliance across jurisdictions.</p>
+        </div>
       </section>
 
       <section id="foundation-governance" data-section>
