@@ -613,17 +613,6 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* Download White Paper */}
-      <div className="flex justify-center pt-8">
-        <Button
-          onClick={() => window.print()}
-          className="gap-2 px-8 py-3 text-base"
-          size="lg"
-        >
-          <Download className="h-5 w-5" />
-          Download White Paper
-        </Button>
-      </div>
 
       <div className="h-24" />
     </div>
