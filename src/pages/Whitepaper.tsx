@@ -257,11 +257,11 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-extralight leading-[1.1] tracking-tight text-white mb-2">
               Secure Network Protocol<br />For The Next Web.
             </h2>
-            <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50 mb-4">
-              WHITEPAPER
-            </p>
-            <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50">
+            <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50 mb-2">
               RWA's · Web3AI · Cyber · Data · Compliance
+            </p>
+            <p className="text-sm md:text-base uppercase tracking-[0.3em] text-white/60 font-medium">
+              WHITEPAPER
             </p>
           </div>
         </div>
