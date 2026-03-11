@@ -207,7 +207,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
   }, [onSectionVisible]);
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12 space-y-16">
+    <div className="max-w-4xl mx-auto px-6 py-12 whitepaper-content">
       {/* Hero Robot Image */}
       <div className="relative rounded-2xl overflow-hidden animated-gradient-icon">
         <img src={whitepaperHero} alt="W3AI Rise of the Machines" className="w-full h-[300px] md:h-[420px] object-cover" />
