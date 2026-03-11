@@ -71,14 +71,10 @@ function Sidebar({ activeId, onNavigate, open, onClose }: { activeId: string; on
 
   return (
     <>
-      {open && <div className="fixed inset-0 z-30 bg-black/40 lg:hidden" onClick={onClose} />}
       <aside className={cn(
-        "fixed top-[64px] lg:top-[64px] left-0 z-40 h-[calc(100vh-64px)] lg:h-[calc(100vh-64px)] w-72 border-r border-border bg-sidebar-background overflow-y-auto transition-transform duration-300 lg:translate-x-0 lg:sticky lg:z-0 shrink-0",
-        open ? "translate-x-0" : "-translate-x-full"
+        "sticky top-[64px] h-[calc(100vh-64px)] w-72 border-r border-border bg-sidebar-background overflow-y-auto transition-all duration-300 shrink-0 z-10",
+        open ? "ml-0" : "-ml-72 lg:ml-0"
       )}>
-        <div className="sticky top-0 bg-sidebar-background border-b border-border p-4 flex items-center justify-end">
-          <button onClick={onClose} className="lg:hidden text-sidebar-foreground"><X className="h-5 w-5" /></button>
-        </div>
         <nav className="p-3 space-y-0.5">
           {sections.map(s => {
             const isActive = activeId === s.id || s.children?.some(c => c.id === activeId);
@@ -605,13 +601,13 @@ export default function Whitepaper() {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
-      <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
+      <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20 overflow-hidden">
         <Sidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-        <main className="flex-1 min-w-0">
+        <main className="flex-1 min-w-0 transition-all duration-300">
           {/* Top bar - mobile only */}
           <div className="sticky top-16 lg:top-20 z-20 bg-background/80 backdrop-blur-md border-b border-border px-4 py-3 flex items-center gap-3 lg:hidden">
-            <button onClick={() => setSidebarOpen(true)} className="text-foreground">
-              <Menu className="h-5 w-5" />
+            <button onClick={() => setSidebarOpen(o => !o)} className="text-foreground">
+              {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
           <WhitepaperContent onSectionVisible={setActiveId} />
