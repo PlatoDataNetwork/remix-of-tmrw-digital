@@ -260,7 +260,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
             <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50 mb-2">
               RWA's · Web3AI · Cyber · Data · Compliance
             </p>
-            <p className="text-lg md:text-xl lg:text-2xl uppercase tracking-[0.25em] text-white/70 font-semibold mt-1">
+            <p className="text-lg md:text-xl lg:text-2xl uppercase tracking-[0.25em] text-white/70 mt-1">
               WHITEPAPER
             </p>
           </div>
