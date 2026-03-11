@@ -229,7 +229,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* W3AI Protocol */}
       <section id="w3ai-protocol" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Protocol</h2>
-        <p className="prose-section">The W3AI Protocol is the decentralized infrastructure layer that powers every surface of the W3AI ecosystem—from browser-native AI inference to multi-chain token operations and validator economics. Built across Solana, Ethereum, and BNB Smart Chain, the protocol establishes a unified execution framework where identity, liquidity, governance, and security converge into a single composable stack. Rather than operating as a standalone blockchain, W3AI functions as a cross-chain coordination protocol that leverages existing network security while adding proprietary intelligence, custody, and compliance layers on top.</p>
+        <div className="prose-section">
+          <p>The W3AI Protocol is the decentralized infrastructure layer that powers every surface of the W3AI ecosystem—from browser-native AI inference to multi-chain token operations and validator economics. Built across Solana, Ethereum, and BNB Smart Chain, the protocol establishes a unified execution framework where identity, liquidity, governance, and security converge into a single composable stack. Rather than operating as a standalone blockchain, W3AI functions as a cross-chain coordination protocol that leverages existing network security while adding proprietary intelligence, custody, and compliance layers on top.</p>
+        </div>
       </section>
 
       <section id="protocol-architecture" data-section>
@@ -249,7 +251,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* TMRW Browser */}
       <section id="tmrw-browser" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">W3AI TMRW Browser</h2>
-        <p className="prose-section">W3AI's product philosophy is that the browser is no longer a "window." It is the execution environment for AI, identity, and money. W3AI's goal is to become the unified gateway that lets users discover → verify → transact → monitor across Web3 with an immersive UI/UX designed for high-frequency multi-chain activity.</p>
+        <div className="prose-section">
+          <p>W3AI's product philosophy is that the browser is no longer a "window." It is the execution environment for AI, identity, and money. W3AI's goal is to become the unified gateway that lets users discover → verify → transact → monitor across Web3 with an immersive UI/UX designed for high-frequency multi-chain activity.</p>
+        </div>
       </section>
 
       <section id="browser-architecture" data-section>
@@ -393,7 +397,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Community Integrations */}
       <section id="community-integrations" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Community Integrations Across Solana, Ethereum, and BSC</h2>
-        <p className="prose-section">W3AI's marketing strategy is authentic community integration. Each chain represents different user psychographics, product norms, and vertical strengths.</p>
+        <div className="prose-section">
+          <p>W3AI's marketing strategy is authentic community integration. Each chain represents different user psychographics, product norms, and vertical strengths.</p>
+        </div>
       </section>
 
       <section id="solana-community" data-section>
@@ -435,7 +441,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Token Utility */}
       <section id="token-utility" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Token Utility, Monetization & Treasury</h2>
-        <p className="prose-section">This section covers token assumptions, monetization surfaces, and treasury mechanics.</p>
+        <div className="prose-section">
+          <p>This section covers token assumptions, monetization surfaces, and treasury mechanics.</p>
+        </div>
       </section>
 
       <section id="token-pillars" data-section>
@@ -581,22 +589,30 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Validator Yield */}
       <section id="validator-yield" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Validator Yield & Staking Economics</h2>
-        <p className="prose-section">Validator operations generate protocol-native rewards and must be managed with relentless operational discipline.</p>
+        <div className="prose-section">
+          <p>Validator operations generate protocol-native rewards and must be managed with relentless operational discipline.</p>
+        </div>
       </section>
 
       <section id="eth-validators" data-section>
         <h3 className="text-xl font-semibold text-foreground mb-3">Ethereum Validators</h3>
-        <p className="prose-section">A validator must deposit 32 ETH and run execution, consensus, and validator clients, with potential slashing of some or all staked ETH for dishonest behavior.</p>
+        <div className="prose-section">
+          <p>A validator must deposit 32 ETH and run execution, consensus, and validator clients, with potential slashing of some or all staked ETH for dishonest behavior.</p>
+        </div>
       </section>
 
       <section id="bsc-validators" data-section>
         <h3 className="text-xl font-semibold text-foreground mb-3">BSC Validators</h3>
-        <p className="prose-section">Becoming a validator requires minimum self-delegation of 2000 BNB. Validators earn rewards from transaction fees with slashing and jailing rules for downtime, double-signing, and low self-delegation.</p>
+        <div className="prose-section">
+          <p>Becoming a validator requires minimum self-delegation of 2000 BNB. Validators earn rewards from transaction fees with slashing and jailing rules for downtime, double-signing, and low self-delegation.</p>
+        </div>
       </section>
 
       <section id="sol-validators" data-section>
         <h3 className="text-xl font-semibold text-foreground mb-3">Solana Validators</h3>
-        <p className="prose-section">Validators "form the backbone" of the Solana network with protocol-based rewards from inflation plus staking-related rewards and fee earnings.</p>
+        <div className="prose-section">
+          <p>Validators "form the backbone" of the Solana network with protocol-based rewards from inflation plus staking-related rewards and fee earnings.</p>
+        </div>
       </section>
 
       {/* Liquidity */}
@@ -637,7 +653,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Marketing */}
       <section id="marketing" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Marketing & Distribution Roadmap</h2>
-        <p className="prose-section">W3AI's marketing strategy is built around authenticity: each chain is a community with its own verticals, founders, memetics, and risk tolerance. The objective is to embed W3AI into actual user workflows.</p>
+        <div className="prose-section">
+          <p>W3AI's marketing strategy is built around authenticity: each chain is a community with its own verticals, founders, memetics, and risk tolerance. The objective is to embed W3AI into actual user workflows.</p>
+        </div>
       </section>
 
       <section id="community-growth" data-section>
@@ -681,7 +699,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Network Partners */}
       <section id="strategic-partners" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Network Partners</h2>
-        <p className="prose-section">W3AI's partner ecosystem is designed to cover every critical surface of the product—from security and identity to liquidity and institutional credibility. Each partnership is structured around product integration, not brand association.</p>
+        <div className="prose-section">
+          <p>W3AI's partner ecosystem is designed to cover every critical surface of the product—from security and identity to liquidity and institutional credibility. Each partnership is structured around product integration, not brand association.</p>
+        </div>
       </section>
 
       <section id="partner-changelly" data-section>
@@ -735,7 +755,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Governance */}
       <section id="foundations" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Governance</h2>
-        <p className="prose-section">The W3AI Foundation provides the governance, treasury management, and regulatory framework required to operate a decentralized protocol at institutional quality. The foundation structure ensures long-term sustainability, transparent decision-making, and compliance across jurisdictions.</p>
+        <div className="prose-section">
+          <p>The W3AI Foundation provides the governance, treasury management, and regulatory framework required to operate a decentralized protocol at institutional quality. The foundation structure ensures long-term sustainability, transparent decision-making, and compliance across jurisdictions.</p>
+        </div>
       </section>
 
       <section id="foundation-governance" data-section>
@@ -770,7 +792,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       {/* Infrastructure */}
       <section id="infrastructure" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Infrastructure</h2>
-        <p className="prose-section">W3AI's infrastructure layer underpins every product surface—from browser AI inference to multi-chain validator operations. The architecture is designed for resilience, scalability, and operational transparency.</p>
+        <div className="prose-section">
+          <p>W3AI's infrastructure layer underpins every product surface—from browser AI inference to multi-chain validator operations. The architecture is designed for resilience, scalability, and operational transparency.</p>
+        </div>
       </section>
 
       <section id="infra-network" data-section>
