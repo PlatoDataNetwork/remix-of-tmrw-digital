@@ -596,7 +596,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 
       <section id="eth-validators" data-section>
         <h3 className="text-xl font-semibold text-foreground mb-3">Ethereum Validators</h3>
-        <p className="prose-section">A validator must deposit 32 ETH and run execution, consensus, and validator clients, with potential slashing of some or all staked ETH for dishonest behavior.</p>
+        <div className="prose-section">
+          <p>A validator must deposit 32 ETH and run execution, consensus, and validator clients, with potential slashing of some or all staked ETH for dishonest behavior.</p>
+        </div>
       </section>
 
       <section id="bsc-validators" data-section>
