@@ -369,17 +369,17 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <h2 className="text-2xl font-bold text-foreground mb-4">Differentiation</h2>
         <div className="prose-section">
           <p>W3AI's differentiation must be expressed as workflow superiority and permission superiority—not merely a checklist.</p>
-          <p><strong>Brave</strong> demonstrates large-scale demand for privacy-first browsing (100M+ MAU). W3AI must meet or exceed these privacy expectations while also solving Web3-specific safety problems (wallet connections, transaction clarity, contract risk, chain selection, and agent safety).</p>
-          <p><strong>Safari</strong> dominates Apple's ecosystem with privacy as a primary differentiator. W3AI's path: "Safari is privacy-first; W3AI is Web3 AI safety-first."</p>
-          <p><strong>Comet and Atlas</strong> confirm the new bar: context-aware assistants living inside the browser. W3AI competes by making "agent safety" patterns Web3-native, where "actions" often move assets.</p>
+          <p>Brave demonstrates large-scale demand for privacy-first browsing (100M+ MAU). W3AI must meet or exceed these privacy expectations while also solving Web3-specific safety problems (wallet connections, transaction clarity, contract risk, chain selection, and agent safety).</p>
+          <p>Safari dominates Apple's ecosystem with privacy as a primary differentiator. W3AI's path: "Safari is privacy-first; W3AI is Web3 AI safety-first."</p>
+          <p>Comet and Atlas confirm the new bar: context-aware assistants living inside the browser. W3AI competes by making "agent safety" patterns Web3-native, where "actions" often move assets.</p>
         </div>
       </section>
 
       <section id="llm-layer" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">LLM Layer</h2>
         <div className="prose-section">
-          <p><strong>Bring Your Own Key (BYOK):</strong> Users can connect the LLM provider of their choice using their own API keys. This supports power users and enterprises with preferred vendors, budgets, and compliance requirements.</p>
-          <p><strong>W3AI Open Gateway (token-based):</strong> Users can alternatively route inference through a W3AI-managed gateway with token-based billing. The Open Gateway is user-controlled by default with spending caps, per-session limits, and explicit on/off controls. A 30% margin is applied over underlying provider costs with transparent reporting.</p>
+          <p>Bring Your Own Key (BYOK): Users can connect the LLM provider of their choice using their own API keys. This supports power users and enterprises with preferred vendors, budgets, and compliance requirements.</p>
+          <p>W3AI Open Gateway (token-based): Users can alternatively route inference through a W3AI-managed gateway with token-based billing. The Open Gateway is user-controlled by default with spending caps, per-session limits, and explicit on/off controls. A 30% margin is applied over underlying provider costs with transparent reporting.</p>
         </div>
       </section>
 
@@ -388,10 +388,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>W3AI is designed to be developer-friendly from the ground up. The browser exposes APIs and extension points that enable third-party developers to build plugins, integrate dApps, and extend browser functionality within a secure, sandboxed environment.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Extension SDK:</strong> A developer toolkit for building W3AI-native extensions with access to wallet state, transaction context, and AI assistant hooks.</li>
-            <li><strong>Open-source components:</strong> Core browser modules published under permissive licenses to encourage community contributions and security audits.</li>
-            <li><strong>Developer documentation:</strong> Comprehensive API references, integration guides, and example projects for rapid onboarding.</li>
-            <li><strong>Hackathon ecosystem:</strong> Active participation in ETH Global, Solana hackathons, and BNB Chain builder programs to cultivate developer adoption.</li>
+            <li>Extension SDK: A developer toolkit for building W3AI-native extensions with access to wallet state, transaction context, and AI assistant hooks.</li>
+            <li>Open-source components: Core browser modules published under permissive licenses to encourage community contributions and security audits.</li>
+            <li>Developer documentation: Comprehensive API references, integration guides, and example projects for rapid onboarding.</li>
+            <li>Hackathon ecosystem: Active participation in ETH Global, Solana hackathons, and BNB Chain builder programs to cultivate developer adoption.</li>
           </ul>
         </div>
       </section>
@@ -528,10 +528,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>W3AI token utility is designed around four demand drivers:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Browser-native access:</strong> Premium browser features and AI workflows.</li>
-            <li><strong>Open Gateway AI spend:</strong> Token-based credits fund inference and routing.</li>
-            <li><strong>Network incentives:</strong> Validators and application service operators are rewarded.</li>
-            <li><strong>Governance:</strong> Treasury policy, supported chains, fee parameters, and security thresholds.</li>
+            <li>Browser-native access: Premium browser features and AI workflows.</li>
+            <li>Open Gateway AI spend: Token-based credits fund inference and routing.</li>
+            <li>Network incentives: Validators and application service operators are rewarded.</li>
+            <li>Governance: Treasury policy, supported chains, fee parameters, and security thresholds.</li>
           </ul>
         </div>
       </section>
@@ -541,9 +541,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>W3AI is a monetized execution environment (the browser) backed by a decentralized service layer. Tokenomics satisfies three investor-grade requirements:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Sustained Demand Drivers:</strong> Token needed for recurring consumption or privileged access.</li>
-            <li><strong>Credible Supply Integrity:</strong> Prevent "double supply" and bridge-driven inflation across chains.</li>
-            <li><strong>Transparent Revenue Routing:</strong> Token flows (fees, margins, rewards, burns) are explicit and auditable.</li>
+            <li>Sustained Demand Drivers: Token needed for recurring consumption or privileged access.</li>
+            <li>Credible Supply Integrity: Prevent "double supply" and bridge-driven inflation across chains.</li>
+            <li>Transparent Revenue Routing: Token flows (fees, margins, rewards, burns) are explicit and auditable.</li>
           </ul>
         </div>
       </section>
@@ -551,7 +551,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="supply-allocations" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Supply, Allocations & Lockups</h2>
         <div className="prose-section">
-          <p><strong>Total Supply:</strong> Initial minting: 2,000,000,000 W3AI tokens (2B).</p>
+          <p>Total Supply: Initial minting: 2,000,000,000 W3AI tokens (2B).</p>
           <div className="overflow-x-auto mt-4">
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted">
@@ -593,10 +593,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           </div>
           <h4 className="text-lg font-semibold text-foreground mt-6 mb-2">Lockups & Vesting</h4>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Private Pre-Sale 1 (unlocked):</strong> Released prior to IDO / TGE; eligible for staking rewards while staked.</li>
-            <li><strong>Private Pre-Sale 2 & Seed Round (locked):</strong> Released across isochronic events over 6 months, beginning 30 days after IDO.</li>
-            <li><strong>IDO / TGE:</strong> Without vesting period; staking encouraged for platform access.</li>
-            <li><strong>Team & Advisors:</strong> Locked; vest over 12 months across 21 isochronic events starting 30 days after IDO.</li>
+            <li>Private Pre-Sale 1 (unlocked): Released prior to IDO / TGE; eligible for staking rewards while staked.</li>
+            <li>Private Pre-Sale 2 & Seed Round (locked): Released across isochronic events over 6 months, beginning 30 days after IDO.</li>
+            <li>IDO / TGE: Without vesting period; staking encouraged for platform access.</li>
+            <li>Team & Advisors: Locked; vest over 12 months across 21 isochronic events starting 30 days after IDO.</li>
           </ul>
         </div>
       </section>
@@ -642,8 +642,8 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="byok-gateway" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">BYOK vs Open Gateway</h2>
         <div className="prose-section">
-          <p><strong>BYOK (Bring Your Own Key):</strong> User provides their own API key for their chosen LLM.</p>
-          <p><strong>Open Gateway:</strong> Token-billed usage with user-controlled caps, designed 30% margin.</p>
+          <p>BYOK (Bring Your Own Key): User provides their own API key for their chosen LLM.</p>
+          <p>Open Gateway: Token-billed usage with user-controlled caps, designed 30% margin.</p>
         </div>
       </section>
 
@@ -724,9 +724,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>Solana positions itself as a high-performance network enabling fast, secure, affordable transactions. W3AI's Solana strategy focuses on:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>DeFi-first execution:</strong> A Solana "Trading Space" merging research, route selection, swap simulation, and post-trade monitoring.</li>
-            <li><strong>NFTs and communities as identity:</strong> Token-gated browsing modes and "community rooms" built around NFT membership.</li>
-            <li><strong>Builder-native distribution:</strong> Hackathon sponsorships with 48,000+ developers and $600M+ in venture funding.</li>
+            <li>DeFi-first execution: A Solana "Trading Space" merging research, route selection, swap simulation, and post-trade monitoring.</li>
+            <li>NFTs and communities as identity: Token-gated browsing modes and "community rooms" built around NFT membership.</li>
+            <li>Builder-native distribution: Hackathon sponsorships with 48,000+ developers and $600M+ in venture funding.</li>
           </ul>
         </div>
       </section>
@@ -748,9 +748,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>BNB Chain emphasizes scale and mass adoption with daily active user figures (1.2M DAU on BSC, 2.7M on opBNB). W3AI's BSC strategy:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Retail-first simplicity:</strong> Optimized onboarding, reduced errors in swaps, bridging, and token discovery.</li>
-            <li><strong>DEX-native behaviors:</strong> An "execution cockpit" optimized for high-volume habits.</li>
-            <li><strong>Memecoins as community onboarding:</strong> Treated as a gateway vertical with safety overlay (risk banners, scam detection).</li>
+            <li>Retail-first simplicity: Optimized onboarding, reduced errors in swaps, bridging, and token discovery.</li>
+            <li>DEX-native behaviors: An "execution cockpit" optimized for high-volume habits.</li>
+            <li>Memecoins as community onboarding: Treated as a gateway vertical with safety overlay (risk banners, scam detection).</li>
           </ul>
         </div>
       </section>
@@ -984,7 +984,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="multi-hub-spoke" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Hub & Spoke Architecture</h2>
         <div className="prose-section">
-          <p><strong>Solana serves as the Canonical Mint and Hub Chain.</strong> All 2,000,000,000 W3AI tokens are minted natively on Solana. Ethereum and BNB Smart Chain operate as spoke chains, receiving wrapped or bridged representations of the canonical supply. This hub-and-spoke model ensures a single source of truth for total supply, eliminates the risk of independent minting on secondary chains, and simplifies auditing and compliance reporting.</p>
+          <p>Solana serves as the Canonical Mint and Hub Chain. All 2,000,000,000 W3AI tokens are minted natively on Solana. Ethereum and BNB Smart Chain operate as spoke chains, receiving wrapped or bridged representations of the canonical supply. This hub-and-spoke model ensures a single source of truth for total supply, eliminates the risk of independent minting on secondary chains, and simplifies auditing and compliance reporting.</p>
           <p>The architecture leverages Solana's high throughput and low transaction costs for primary token operations—staking, governance voting, and reward distribution—while maintaining presence on Ethereum and BSC for DeFi composability and exchange listing requirements.</p>
         </div>
       </section>
@@ -1058,9 +1058,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           <p>Market making is a core product feature. DEX liquidity allocation is locked for no less than 12 months. LPs may receive additional token rewards pro rata and a 50% share of market-making rewards in USDC/USDT.</p>
           <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">Principles & Goals</h4>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Healthy Price Discovery:</strong> Minimize discontinuities between venues.</li>
-            <li><strong>Reliable Liquidity:</strong> Competitive spreads and depth at core size bands.</li>
-            <li><strong>Cross-Venue Coherence:</strong> Align conditions across DEX pools and CEX order books.</li>
+            <li>Healthy Price Discovery: Minimize discontinuities between venues.</li>
+            <li>Reliable Liquidity: Competitive spreads and depth at core size bands.</li>
+            <li>Cross-Venue Coherence: Align conditions across DEX pools and CEX order books.</li>
           </ul>
         </div>
       </section>
@@ -1098,8 +1098,8 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <h2 className="text-2xl font-bold text-foreground mb-4">Community Growth Objectives</h2>
         <div className="prose-section">
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Pre-listing:</strong> 25,000 Registry users via whitelisted wallets.</li>
-            <li><strong>12–18 month:</strong> 3–5% of Web3 browser market (3M+ monthly users).</li>
+            <li>Pre-listing: 25,000 Registry users via whitelisted wallets.</li>
+            <li>12–18 month: 3–5% of Web3 browser market (3M+ monthly users).</li>
           </ul>
         </div>
       </section>
@@ -1122,12 +1122,12 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>Pre-sale marketing → TGE → listings/liquidity expansion, with partner-led distribution:</p>
           <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
-            <li><strong>Changelly:</strong> Instant exchange and on/off-ramp flows (2.7M community members).</li>
-            <li><strong>Hacken:</strong> "Verified-by-security" co-marketing with audits and monitoring.</li>
-            <li><strong>Dentity:</strong> Trusted onboarding and privacy-preserving credentials.</li>
-            <li><strong>Northern Trust:</strong> Institutional tokenization narrative alignment.</li>
-            <li><strong>Surge:</strong> Discovery and execution gateway for tokenized launches.</li>
-            <li><strong>G-20 Group:</strong> Professional liquidity and treasury management expertise.</li>
+            <li>Changelly: Instant exchange and on/off-ramp flows (2.7M community members).</li>
+            <li>Hacken: "Verified-by-security" co-marketing with audits and monitoring.</li>
+            <li>Dentity: Trusted onboarding and privacy-preserving credentials.</li>
+            <li>Northern Trust: Institutional tokenization narrative alignment.</li>
+            <li>Surge: Discovery and execution gateway for tokenized launches.</li>
+            <li>G-20 Group: Professional liquidity and treasury management expertise.</li>
           </ul>
         </div>
       </section>
@@ -1238,10 +1238,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>With a treasury-heavy allocation (52.5% of total supply), institutional-quality custody, reporting, and governance controls are essential. The W3AI treasury operates under explicit mandates:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Custody:</strong> Multi-signature wallets with time-locked transactions and independent custodian oversight.</li>
-            <li><strong>Reporting:</strong> Quarterly transparency reports covering treasury balances, disbursements, and yield generation.</li>
-            <li><strong>Diversification:</strong> Treasury assets held across stablecoins, protocol-native tokens, and yield-bearing positions.</li>
-            <li><strong>Runway management:</strong> Minimum 18-month operational runway maintained at all times.</li>
+            <li>Custody: Multi-signature wallets with time-locked transactions and independent custodian oversight.</li>
+            <li>Reporting: Quarterly transparency reports covering treasury balances, disbursements, and yield generation.</li>
+            <li>Diversification: Treasury assets held across stablecoins, protocol-native tokens, and yield-bearing positions.</li>
+            <li>Runway management: Minimum 18-month operational runway maintained at all times.</li>
           </ul>
         </div>
       </section>
@@ -1275,10 +1275,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>Security is implemented at every layer: smart contract audits (Hacken), wallet-level security intelligence, browser sandboxing, and infrastructure-level protections. Key security measures include:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Smart contract security:</strong> Third-party audits, formal verification where applicable, and bug bounty programs.</li>
-            <li><strong>Operational security:</strong> Hardware security modules (HSMs), multi-party computation (MPC) for key management.</li>
-            <li><strong>Browser security:</strong> Isolated profiles, agent permission boundaries, transaction simulation before signing.</li>
-            <li><strong>Incident response:</strong> Documented playbooks, 24/7 monitoring, and rapid response protocols.</li>
+            <li>Smart contract security: Third-party audits, formal verification where applicable, and bug bounty programs.</li>
+            <li>Operational security: Hardware security modules (HSMs), multi-party computation (MPC) for key management.</li>
+            <li>Browser security: Isolated profiles, agent permission boundaries, transaction simulation before signing.</li>
+            <li>Incident response: Documented playbooks, 24/7 monitoring, and rapid response protocols.</li>
           </ul>
         </div>
       </section>
@@ -1288,10 +1288,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <div className="prose-section">
           <p>Validator and infrastructure operations require relentless operational discipline. W3AI implements comprehensive monitoring across all network participants:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li><strong>Validator health:</strong> Uptime monitoring, attestation performance, and slashing risk alerts.</li>
-            <li><strong>Network metrics:</strong> Cross-chain bridge volumes, liquidity pool depths, and fee generation tracking.</li>
-            <li><strong>Treasury dashboards:</strong> Real-time visibility into treasury composition, runway, and yield performance.</li>
-            <li><strong>User-facing status:</strong> Public status pages for browser services, AI gateway availability, and network health.</li>
+            <li>Validator health: Uptime monitoring, attestation performance, and slashing risk alerts.</li>
+            <li>Network metrics: Cross-chain bridge volumes, liquidity pool depths, and fee generation tracking.</li>
+            <li>Treasury dashboards: Real-time visibility into treasury composition, runway, and yield performance.</li>
+            <li>User-facing status: Public status pages for browser services, AI gateway availability, and network health.</li>
           </ul>
         </div>
       </section>
@@ -1397,14 +1397,14 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <h2 className="text-2xl font-bold text-foreground mb-4">Disclaimer</h2>
         <div className="prose-section">
           <p>This document is provided for informational purposes only and does not constitute financial, legal, tax, investment, or other professional advice. Nothing contained herein is intended as, or shall be construed as, an offer to sell, or the solicitation of an offer to buy, any token, security, or other asset in any jurisdiction where such offer or solicitation would be unlawful.</p>
-          <p><strong>No Guarantees.</strong> Digital assets, including tokens referenced in this document, are inherently risky, speculative, and volatile. Purchasers may lose all or a substantial portion of their funds. Past performance is not indicative of future results, and no representation or warranty is made regarding future value, utility, or performance of any token or network feature described herein.</p>
-          <p><strong>Forward-Looking Statements.</strong> This document contains forward-looking statements that reflect the current intentions, expectations, and projections of the W3AI team. These statements are not guarantees of future performance and are subject to known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied.</p>
-          <p><strong>Regulatory Compliance.</strong> The regulatory landscape for digital assets and blockchain technology is evolving rapidly and varies by jurisdiction. It is the sole responsibility of each prospective participant to determine whether the acquisition, holding, or use of any token described herein is permissible under applicable laws and regulations in their jurisdiction.</p>
-          <p><strong>Exchange Listings.</strong> Any references to centralized exchange (CEX) or decentralized exchange (DEX) listings are subject to independent review, approval, and listing criteria established by the respective exchanges. W3AI makes no guarantee that any listing will occur or be maintained.</p>
-          <p><strong>Third-Party Services.</strong> This document may reference third-party platforms, protocols, tools, or service providers. W3AI does not endorse, guarantee, or assume responsibility for the accuracy, reliability, security, or performance of any third-party service. Users interact with third-party services at their own risk.</p>
-          <p><strong>No Fiduciary Relationship.</strong> Nothing in this document creates a fiduciary, advisory, or professional relationship between W3AI and any reader or participant. Recipients of this document should seek independent legal, financial, and tax advice before making any decisions related to digital asset purchases or participation in any network activity.</p>
-          <p><strong>Information Accuracy.</strong> While every effort has been made to ensure the accuracy and completeness of the information presented, W3AI does not warrant that the content is free from errors or omissions. Information is provided "as is" and may be updated, modified, or corrected without notice.</p>
-          <p><strong>Intellectual Property.</strong> All content, trademarks, logos, and intellectual property referenced in this document are the property of their respective owners. Unauthorized reproduction, distribution, or use of this document or any of its contents is strictly prohibited without prior written consent.</p>
+          <p>No Guarantees. Digital assets, including tokens referenced in this document, are inherently risky, speculative, and volatile. Purchasers may lose all or a substantial portion of their funds. Past performance is not indicative of future results, and no representation or warranty is made regarding future value, utility, or performance of any token or network feature described herein.</p>
+          <p>Forward-Looking Statements. This document contains forward-looking statements that reflect the current intentions, expectations, and projections of the W3AI team. These statements are not guarantees of future performance and are subject to known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied.</p>
+          <p>Regulatory Compliance. The regulatory landscape for digital assets and blockchain technology is evolving rapidly and varies by jurisdiction. It is the sole responsibility of each prospective participant to determine whether the acquisition, holding, or use of any token described herein is permissible under applicable laws and regulations in their jurisdiction.</p>
+          <p>Exchange Listings. Any references to centralized exchange (CEX) or decentralized exchange (DEX) listings are subject to independent review, approval, and listing criteria established by the respective exchanges. W3AI makes no guarantee that any listing will occur or be maintained.</p>
+          <p>Third-Party Services. This document may reference third-party platforms, protocols, tools, or service providers. W3AI does not endorse, guarantee, or assume responsibility for the accuracy, reliability, security, or performance of any third-party service. Users interact with third-party services at their own risk.</p>
+          <p>No Fiduciary Relationship. Nothing in this document creates a fiduciary, advisory, or professional relationship between W3AI and any reader or participant. Recipients of this document should seek independent legal, financial, and tax advice before making any decisions related to digital asset purchases or participation in any network activity.</p>
+          <p>Information Accuracy. While every effort has been made to ensure the accuracy and completeness of the information presented, W3AI does not warrant that the content is free from errors or omissions. Information is provided "as is" and may be updated, modified, or corrected without notice.</p>
+          <p>Intellectual Property. All content, trademarks, logos, and intellectual property referenced in this document are the property of their respective owners. Unauthorized reproduction, distribution, or use of this document or any of its contents is strictly prohibited without prior written consent.</p>
         </div>
       </section>
 
