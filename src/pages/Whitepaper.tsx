@@ -272,6 +272,23 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <img src={whitepaperHero} alt="W3AI Rise of the Machines" className="w-full h-[300px] md:h-[420px] object-cover" />
       </div>
 
+      {/* Welcome Message */}
+      <section id="welcome-message" data-section className="mt-8">
+        <div className="prose-section">
+          <h3 className="text-xl font-semibold text-foreground mb-4">Welcome and Thank you for Joining Us!</h3>
+          <p>We are excited to introduce you to W3AI, a pioneering force at the intersection of Web3 and AI. Our vision is to revolutionize the way vertically focused AI applications are conceived, developed and leveraged across both centralized and decentralized networks. creating a more efficient, transparent, and secure digital ecosystem and decentralized transport management system. We are revolutionizing data intelligence by delivering an array of vertically focused Generative AI Applications inside a custom network framework that leverages AI in ways that drive both high ROI and stored value. We embrace innovation and deploy it across our entire ecosystem and corporate culture.</p>
+          <p>W3AI is at the forefront of merging artificial intelligence with blockchain, forging a new path for decentralized automation and machine learning. Its architecture is based on a network of autonomous AI agents that execute a variety of tasks, such as data-sharing, dynamic optimization, and decision-making, all within a trustless environment. W3AI's decentralized framework fosters peer-to-peer intelligence sharing, enabling seamless interactions between humans, devices, and AI agents without intermediaries. This ecosystem is designed to enhance scalability, secure decision-making, and remove bottlenecks within Solana's high-performance blockchain ecosystem.</p>
+          <p>Our vision goes beyond the conventional as we were created to disrupt the current AI Application and Analytic marketplace. By employing a completely new methodology related to community and developer engagement, we enable deep and authentic connectivity to today's most active innovative technology sectors. At W3AI, we are revolutionizing data intelligence and analysis by delivering an array of vertically focused AI Applications via an immersive UI / UX. Fully Decentralized. Fully Tokenized. Fully Automated. Fully Gamified. As AI continues on its path to disrupt most industries we know of today, we will be a gateway for millions of users to access both our suite of applications but also those from our developer community to showcase and market their apps. We embrace innovation and deploy it across our entire ecosystem and corporate culture. As the AI Application Market continues to expand, we have a unique opportunity in this cycle to deploy our best of class technology and experience to a thriving community of users, enterprises, developers, testers and marketers. Whether you're an investor, a builder, or a visionary looking to be part of the next evolution of technology, we're thrilled to have you with us.</p>
+          <p>Let's explore the future—together. 🚀</p>
+          <div className="mt-6 pt-6 border-t border-border">
+            <p className="text-sm text-muted-foreground">Bryan Feinberg / Founder W3AI</p>
+            <p className="text-sm text-muted-foreground">A Division of Tomorrow Digital Inc.</p>
+            <p className="text-sm text-muted-foreground">bf@tmrw-digital.com</p>
+            <p className="text-sm text-muted-foreground">Direct: +1 551 574-2169</p>
+          </div>
+        </div>
+      </section>
+
       {/* Executive Summary */}
       <section id="executive-summary" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Rise of the Machines</h2>
