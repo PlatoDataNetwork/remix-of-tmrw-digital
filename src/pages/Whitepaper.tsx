@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import whitepaperHero from "@/assets/whitepaper-hero.png";
+import heroBg from "@/assets/hero-bg.png";
 
 const PASSWORD = "W3AI88";
 
@@ -18,6 +19,7 @@ interface Section {
 }
 
 const sections: Section[] = [
+  { id: "w3ai-whitepaper", title: "W3AI Whitepaper" },
   { id: "executive-summary", title: "Rise of the Machines", children: [
     { id: "network-thesis", title: "Network Thesis" },
     { id: "why-now", title: "Why Now" },
@@ -240,6 +242,17 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 whitepaper-content">
+      {/* W3AI Whitepaper Section */}
+      <section id="w3ai-whitepaper" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Whitepaper</h2>
+        <div className="relative rounded-2xl overflow-hidden animated-gradient-hero-bg">
+          <img src={heroBg} alt="W3AI Whitepaper" className="w-full h-[300px] md:h-[420px] object-contain object-center" />
+        </div>
+        <div className="prose-section mt-4">
+          <p>The W3AI Whitepaper outlines the vision, architecture, and economic design of the W3AI Protocol — a Web3-native AI infrastructure layer powering the next generation of decentralized browsers, intelligent agents, and tokenized real-world assets.</p>
+        </div>
+      </section>
+
       {/* Hero Robot Image */}
       <div className="relative rounded-2xl overflow-hidden animated-gradient-icon">
         <img src={whitepaperHero} alt="W3AI Rise of the Machines" className="w-full h-[300px] md:h-[420px] object-cover" />
