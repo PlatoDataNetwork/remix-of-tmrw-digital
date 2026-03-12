@@ -327,6 +327,7 @@ const slides: Slide[] = [
               { bold: "~$5M USD", text: "valued carbon credit portfolio." },
               { bold: "Option for 2.3M", text: "additional tonnes available." },
               { bold: "300M+ CUT tokens", text: "in treasury reserve." },
+              { bold: "Deployed by Northern Trust.", text: "1.7T in assets." },
             ]} />
           </div>
           <div className="space-y-4">
