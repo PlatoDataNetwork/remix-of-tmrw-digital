@@ -65,6 +65,7 @@ const Footer = () => {
               {[
                 { label: "About", href: "/#about" },
                 { label: "Methodology", href: "/#vision" },
+                { label: "Deck", href: "/deck" },
                 { label: "FAQ", href: "/legal#faq" },
                 { label: "RTO", href: "/rto" },
               ].map((link) => (
