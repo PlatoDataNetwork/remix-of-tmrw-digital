@@ -79,6 +79,7 @@ const Showcase = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead title="Showcase" description="Portfolio showcase of The Tomorrow Company's investments and ventures across Web3, AI, and real-world assets." path="/showcase" />
       <Navbar />
 
       {/* Hero */}
