@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { TrendingUp, Users, Shield, Cpu, BarChart3, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedImage from "./AnimatedImage";
-import dataCenterImg from "@/assets/data-center.jpeg";
+import dataCenterImg from "@/assets/data-center.webp";
 
 const services = [
   {

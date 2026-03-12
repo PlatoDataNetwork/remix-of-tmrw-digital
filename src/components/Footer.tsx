@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCurrentLanguage, langPath } from "@/hooks/useLanguage";
-import platoIcon from "@/assets/plato-icon.png";
+import platoIcon from "@/assets/plato-icon.webp";
 
 const Footer = () => {
   const currentLang = useCurrentLanguage();

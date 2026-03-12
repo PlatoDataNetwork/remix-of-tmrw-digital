@@ -3,7 +3,7 @@ import { ArrowLeft, Calendar, Tag, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import blogHero from "@/assets/blog-hero.jpeg";
+import blogHero from "@/assets/blog-hero.webp";
 
 export interface BlogPostData {
   date: string;

@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import teamAstronauts from "@/assets/team-astronauts.jpeg";
-import astronautHeadshot from "@/assets/astronaut-headshot.jpeg";
+import teamAstronauts from "@/assets/team-astronauts.webp";
+import astronautHeadshot from "@/assets/astronaut-headshot.webp";
 const teamMembers = [
   {
     name: "Justin Hartzman",

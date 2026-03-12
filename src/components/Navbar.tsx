@@ -6,7 +6,7 @@ import ThemeToggle from "./ThemeToggle";
 import ChatNavbarIcon from "./ChatNavbarIcon";
 import LanguageSelector from "./LanguageSelector";
 import { useCurrentLanguage, langPath } from "@/hooks/useLanguage";
-import platoIcon from "@/assets/plato-icon.png";
+import platoIcon from "@/assets/plato-icon.webp";
 
 const navLinks = [
   { label: "About", href: "/#about" },
