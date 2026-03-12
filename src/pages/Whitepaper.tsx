@@ -287,7 +287,7 @@ function SidebarNav({ activeId, onNavigate }: { activeId: string; onNavigate: (i
 }
 
 // --- Desktop Sidebar ---
-function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle, onPrint }: { activeId: string; onNavigate: (id: string) => void; collapsed: boolean; onToggle: () => void; onPrint: () => void }) {
+function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle }: { activeId: string; onNavigate: (id: string) => void; collapsed: boolean; onToggle: () => void }) {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
