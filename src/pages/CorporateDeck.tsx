@@ -324,10 +324,10 @@ const slides: Slide[] = [
           <div className="space-y-4">
             <SectionLabel>Carbon Assets</SectionLabel>
             <BulletList items={[
-              { bold: "500,000 tonnes", text: "ISO-certified carbon credits" },
-              { bold: "~$5M USD", text: "valued carbon credit portfolio" },
-              { bold: "Option for 2.3M", text: "additional tonnes available" },
-              { bold: "300M+ CUT tokens", text: "in treasury reserve" },
+              { bold: "500,000 tonnes", text: "ISO-certified carbon credits." },
+              { bold: "~$5M USD", text: "valued carbon credit portfolio." },
+              { bold: "Option for 2.3M", text: "additional tonnes available." },
+              { bold: "300M+ CUT tokens", text: "in treasury reserve." },
             ]} />
           </div>
           <div className="space-y-4">
