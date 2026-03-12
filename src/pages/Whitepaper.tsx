@@ -19,6 +19,7 @@ interface Section {
 const sections: Section[] = [
   { id: "w3lcome", title: "Home", icon: "home" },
   { id: "welcome-message", title: "W3LCOME", icon: "disclaimer" },
+  { id: "disclaimer", title: "Disclaimer", icon: "disclaimer" },
   { id: "executive-summary", title: "Rise of the Machines", number: "01" },
   { id: "w3ai-protocol", title: "W3AI Protocol", number: "02" },
   { id: "tmrw-browser", title: "W3AI TMRW", number: "03" },
@@ -41,8 +42,7 @@ const sections: Section[] = [
   { id: "privacy", title: "Privacy Policy", number: "20" },
   { id: "risks", title: "Risks & Disclosures", number: "21" },
   { id: "appendix", title: "Appendix & References", number: "22" },
-  { id: "disclaimer", title: "Disclaimer", number: "23" },
-  { id: "deck-link", title: "Project Deck", number: "24" },
+  { id: "deck-link", title: "Project Deck", number: "23" },
 ];
 
 // Only numbered sections for the chapter grid
@@ -296,6 +296,22 @@ function WhitepaperContent({ onSectionVisible, activeId, onNavigate }: { onSecti
           <p>W3AI is at the forefront of merging artificial intelligence with blockchain, forging a new path for decentralized automation and machine learning. Its architecture is based on a network of autonomous AI agents that execute a variety of tasks, such as data-sharing, dynamic optimization, and decision-making, all within a trustless environment. W3AI's decentralized framework fosters peer-to-peer intelligence sharing, enabling seamless interactions between humans, devices, and AI agents without intermediaries. This ecosystem is designed to enhance scalability, secure decision-making, and remove bottlenecks within Solana's high-performance blockchain ecosystem.</p>
           <p>Our vision goes beyond the conventional as we were created to disrupt the current AI Application and Analytic marketplace. By employing a completely new methodology related to community and developer engagement, we enable deep and authentic connectivity to today's most active innovative technology sectors. At W3AI, we are revolutionizing data intelligence and analysis by delivering an array of vertically focused AI Applications via an immersive UI / UX. Fully Decentralized. Fully Tokenized. Fully Automated. Fully Gamified. As AI continues on its path to disrupt most industries we know of today, we will be a gateway for millions of users to access both our suite of applications but also those from our developer community to showcase and market their apps. We embrace innovation and deploy it across our entire ecosystem and corporate culture. As the AI Application Market continues to expand, we have a unique opportunity in this cycle to deploy our best of class technology and experience to a thriving community of users, enterprises, developers, testers and marketers. Whether you're an investor, a builder, or a visionary looking to be part of the next evolution of technology, we're thrilled to have you with us.</p>
           <p>Let's explore the future—together. 🚀</p>
+        </div>
+      </section>
+
+      {/* Disclaimer - moved here after W3LCOME */}
+      <section id="disclaimer" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Disclaimer</h2>
+        <div className="prose-section">
+          <p>This document is provided for informational purposes only and does not constitute financial, legal, tax, investment, or other professional advice. Nothing contained herein is intended as, or shall be construed as, an offer to sell, or the solicitation of an offer to buy, any token, security, or other asset in any jurisdiction where such offer or solicitation would be unlawful.</p>
+          <p>No Guarantees. Digital assets, including tokens referenced in this document, are inherently risky, speculative, and volatile. Purchasers may lose all or a substantial portion of their funds. Past performance is not indicative of future results, and no representation or warranty is made regarding future value, utility, or performance of any token or network feature described herein.</p>
+          <p>Forward-Looking Statements. This document contains forward-looking statements that reflect the current intentions, expectations, and projections of the W3AI team. These statements are not guarantees of future performance and are subject to known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied.</p>
+          <p>Regulatory Compliance. The regulatory landscape for digital assets and blockchain technology is evolving rapidly and varies by jurisdiction. It is the sole responsibility of each prospective participant to determine whether the acquisition, holding, or use of any token described herein is permissible under applicable laws and regulations in their jurisdiction.</p>
+          <p>Exchange Listings. Any references to centralized exchange (CEX) or decentralized exchange (DEX) listings are subject to independent review, approval, and listing criteria established by the respective exchanges. W3AI makes no guarantee that any listing will occur or be maintained.</p>
+          <p>Third-Party Services. This document may reference third-party platforms, protocols, tools, or service providers. W3AI does not endorse, guarantee, or assume responsibility for the accuracy, reliability, security, or performance of any third-party service. Users interact with third-party services at their own risk.</p>
+          <p>No Fiduciary Relationship. Nothing in this document creates a fiduciary, advisory, or professional relationship between W3AI and any reader or participant. Recipients of this document should seek independent legal, financial, and tax advice before making any decisions related to digital asset purchases or participation in any network activity.</p>
+          <p>Information Accuracy. While every effort has been made to ensure the accuracy and completeness of the information presented, W3AI does not warrant that the content is free from errors or omissions. Information is provided "as is" and may be updated, modified, or corrected without notice.</p>
+          <p>Intellectual Property. All content, trademarks, logos, and intellectual property referenced in this document are the property of their respective owners. Unauthorized reproduction, distribution, or use of this document or any of its contents is strictly prohibited without prior written consent.</p>
         </div>
       </section>
 
@@ -1618,24 +1634,6 @@ function WhitepaperContent({ onSectionVisible, activeId, onNavigate }: { onSecti
         </div>
       </section>
 
-      {/* Section Divider */}
-      <div className="my-12 border-t border-border/50" />
-
-      {/* Disclaimer */}
-      <section id="disclaimer" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Disclaimer</h2>
-        <div className="prose-section">
-          <p>This document is provided for informational purposes only and does not constitute financial, legal, tax, investment, or other professional advice. Nothing contained herein is intended as, or shall be construed as, an offer to sell, or the solicitation of an offer to buy, any token, security, or other asset in any jurisdiction where such offer or solicitation would be unlawful.</p>
-          <p>No Guarantees. Digital assets, including tokens referenced in this document, are inherently risky, speculative, and volatile. Purchasers may lose all or a substantial portion of their funds. Past performance is not indicative of future results, and no representation or warranty is made regarding future value, utility, or performance of any token or network feature described herein.</p>
-          <p>Forward-Looking Statements. This document contains forward-looking statements that reflect the current intentions, expectations, and projections of the W3AI team. These statements are not guarantees of future performance and are subject to known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied.</p>
-          <p>Regulatory Compliance. The regulatory landscape for digital assets and blockchain technology is evolving rapidly and varies by jurisdiction. It is the sole responsibility of each prospective participant to determine whether the acquisition, holding, or use of any token described herein is permissible under applicable laws and regulations in their jurisdiction.</p>
-          <p>Exchange Listings. Any references to centralized exchange (CEX) or decentralized exchange (DEX) listings are subject to independent review, approval, and listing criteria established by the respective exchanges. W3AI makes no guarantee that any listing will occur or be maintained.</p>
-          <p>Third-Party Services. This document may reference third-party platforms, protocols, tools, or service providers. W3AI does not endorse, guarantee, or assume responsibility for the accuracy, reliability, security, or performance of any third-party service. Users interact with third-party services at their own risk.</p>
-          <p>No Fiduciary Relationship. Nothing in this document creates a fiduciary, advisory, or professional relationship between W3AI and any reader or participant. Recipients of this document should seek independent legal, financial, and tax advice before making any decisions related to digital asset purchases or participation in any network activity.</p>
-          <p>Information Accuracy. While every effort has been made to ensure the accuracy and completeness of the information presented, W3AI does not warrant that the content is free from errors or omissions. Information is provided "as is" and may be updated, modified, or corrected without notice.</p>
-          <p>Intellectual Property. All content, trademarks, logos, and intellectual property referenced in this document are the property of their respective owners. Unauthorized reproduction, distribution, or use of this document or any of its contents is strictly prohibited without prior written consent.</p>
-        </div>
-      </section>
 
       {/* Prev / Next Navigation */}
       <PrevNextNav activeId={activeId} onNavigate={onNavigate} />
