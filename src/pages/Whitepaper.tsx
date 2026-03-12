@@ -119,7 +119,7 @@ function SidebarNav({ sections, activeId, expanded, toggle, onNavigate }: { sect
                 isActive ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
               )}
             >
-              {s.icon === "home" && <Home className="h-3.5 w-3.5 shrink-0 text-primary" />}
+              {/* no home icon */}
               {s.icon === "disclaimer" && (
                 <>
                   {isOpen ? <ChevronDown className="h-3.5 w-3.5 shrink-0" /> : <ChevronRight className="h-3.5 w-3.5 shrink-0" />}
