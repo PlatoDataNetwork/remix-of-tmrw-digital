@@ -75,16 +75,44 @@ const slides: Slide[] = [
   {
     id: "title",
     render: () => (
-      <div className="flex flex-col items-center justify-center h-full text-center gap-8">
-        <div className="relative w-20 h-20 rounded-2xl overflow-hidden animated-gradient-icon">
-          <img src={logoIcon} alt="W3AI" className="w-full h-full object-cover" />
+      <div className="relative flex flex-col items-center justify-center h-full text-center gap-6">
+        <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none" />
+        <div className="relative z-10 flex flex-col items-center gap-6">
+          <div className="relative w-20 h-20 rounded-2xl overflow-hidden animated-gradient-icon">
+            <img src={logoIcon} alt="W3AI" className="w-full h-full object-cover" />
+          </div>
+          <div className="space-y-3">
+            <h1 className="text-4xl md:text-6xl font-extralight tracking-tight text-foreground">W3AI</h1>
+            <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">The Tomorrow Company</p>
+          </div>
+          <div className="w-16 h-px bg-[hsl(82,85%,55%,0.4)]" />
+          <p className="text-sm font-light text-muted-foreground/60 uppercase tracking-[0.3em]">Project Deck — 2026</p>
         </div>
-        <div className="space-y-3">
-          <h1 className="text-4xl md:text-6xl font-extralight tracking-tight text-foreground">W3AI</h1>
-          <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">The Tomorrow Company</p>
+      </div>
+    ),
+  },
+  // 2 — Disclaimer
+  {
+    id: "disclaimer",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-5 max-w-3xl mx-auto">
+        <SlideTitle>Important Disclaimer</SlideTitle>
+        <div className="space-y-3 text-left">
+          <p className="text-xs font-light text-muted-foreground leading-relaxed">
+            <span className="font-medium text-[hsl(82,85%,55%)]">Not an Offering.</span> This document does not constitute an offer to sell, or a solicitation of an offer to buy, any digital securities, tokens, or other financial instruments. No sale or offering of securities or tokens is being made pursuant to this presentation. Any future offering of digital securities or tokens would be conducted solely through a formal prospectus, offering memorandum, or equivalent disclosure document prepared in compliance with applicable securities laws and regulations.
+          </p>
+          <p className="text-xs font-light text-muted-foreground leading-relaxed">
+            <span className="font-medium text-[hsl(82,85%,55%)]">Informational Purposes Only.</span> This presentation is provided strictly for informational and educational purposes. It does not constitute financial, legal, tax, or investment advice. Recipients should consult qualified professional advisors before making any decisions related to digital assets.
+          </p>
+          <p className="text-xs font-light text-muted-foreground leading-relaxed">
+            <span className="font-medium text-[hsl(82,85%,55%)]">No Guarantees.</span> Forward-looking statements reflect current intentions and are not guarantees of future performance or results. Digital assets are inherently risky and volatile — purchasers may lose all invested funds. Regulatory landscapes vary by jurisdiction and are subject to change.
+          </p>
+          <p className="text-xs font-light text-muted-foreground leading-relaxed">
+            <span className="font-medium text-[hsl(82,85%,55%)]">No Fiduciary Relationship.</span> No fiduciary, advisory, or agency relationship is created by the distribution or receipt of this document. Exchange listings are subject to independent approval. Third-party references do not constitute endorsement. All intellectual property belongs to respective owners.
+          </p>
         </div>
-        <div className="w-16 h-px bg-border" />
-        <p className="text-sm font-light text-muted-foreground/60 uppercase tracking-[0.3em]">Project Deck — 2026</p>
+        <div className="w-16 h-px bg-[hsl(82,85%,55%,0.3)] mx-auto mt-2" />
+        <p className="text-xs font-light text-muted-foreground/50 uppercase tracking-[0.3em] text-center">W3AI — The Tomorrow Company</p>
       </div>
     ),
   },
