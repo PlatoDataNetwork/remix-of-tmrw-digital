@@ -367,27 +367,6 @@ function ReadingProgress() {
   );
 }
 
-// --- Breadcrumb ---
-function Breadcrumb({ activeId }: { activeId: string }) {
-  const parentId = getParentId(activeId);
-  const section = sections.find(s => s.id === parentId);
-  const child = parentId !== activeId ? section?.children?.find(c => c.id === activeId) : null;
-  if (!section) return null;
-  return (
-    <div className="flex items-center gap-2 text-xs text-muted-foreground/60 mb-6 px-6">
-      <span>W3AI Whitepaper</span>
-      <ChevronRight className="h-3 w-3" />
-      {section.number && <span className="text-[hsl(82,85%,55%)]">{section.number}</span>}
-      {section.number && <span>·</span>}
-      <span className="text-muted-foreground">{section.title}</span>
-      {child && <>
-        <ChevronRight className="h-3 w-3" />
-        <span className="text-muted-foreground">{child.title}</span>
-      </>}
-    </div>
-  );
-}
-
 // --- Content (page-based: only active section is visible) ---
 function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onNavigate: (id: string) => void }) {
   const p = (id: string) => activePage !== id ? "wp-page-hidden" : "";
@@ -1633,7 +1612,6 @@ export default function Whitepaper() {
           </button>
         )}
         <main className="flex-1 min-w-0">
-          <Breadcrumb activeId={activeId} />
           <WhitepaperContent activePage={activePage} onNavigate={navigateTo} />
         </main>
       </div>
