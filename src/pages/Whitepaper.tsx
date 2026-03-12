@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowUp, Download, Globe, Home, Shield, ChevronRight } from "lucide-react";
+import { ArrowUp, Download, Globe, Home, Shield, ChevronRight, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -48,11 +48,17 @@ const sections: Section[] = [
 const chapterSections = sections.filter(s => s.number);
 
 // --- Desktop Sidebar ---
-function DesktopSidebar({ activeId, onNavigate }: { activeId: string; onNavigate: (id: string) => void }) {
+function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle }: { activeId: string; onNavigate: (id: string) => void; collapsed: boolean; onToggle: () => void }) {
   return (
-    <aside className="flex flex-col sticky top-[80px] h-[calc(100vh-80px)] w-64 border-r border-border bg-sidebar-background overflow-y-auto shrink-0 z-10">
-      <div className="flex items-center px-4 py-3 border-b border-border shrink-0">
+    <aside className={cn(
+      "flex flex-col sticky top-[80px] h-[calc(100vh-80px)] border-r border-border bg-sidebar-background overflow-y-auto shrink-0 z-10 transition-all duration-300",
+      collapsed ? "w-0 overflow-hidden border-r-0" : "w-64"
+    )}>
+      <div className="flex items-center justify-between px-4 py-3 border-b border-border shrink-0">
         <span className="text-sm font-semibold text-foreground whitespace-nowrap">W3AI Whitepaper</span>
+        <button onClick={onToggle} className="p-1 text-muted-foreground hover:text-foreground transition-colors" aria-label="Collapse sidebar">
+          <Menu className="h-4 w-4" />
+        </button>
       </div>
       <SidebarNav sections={sections} activeId={activeId} onNavigate={onNavigate} />
     </aside>
@@ -1465,6 +1471,7 @@ export default function Whitepaper() {
   const [unlocked, setUnlocked] = useState(true);
   const [activeId, setActiveId] = useState("executive-summary");
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setShowScrollTop(window.scrollY > 400);
@@ -1482,7 +1489,17 @@ export default function Whitepaper() {
       <Navbar />
 
       <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
-        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} />
+        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(c => !c)} />
+        {/* Expand button when collapsed */}
+        {sidebarCollapsed && (
+          <button
+            onClick={() => setSidebarCollapsed(false)}
+            className="sticky top-[80px] h-10 w-10 flex items-center justify-center shrink-0 z-10 text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Expand sidebar"
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+        )}
         <main className="flex-1 min-w-0">
           <WhitepaperContent onSectionVisible={setActiveId} />
         </main>
