@@ -307,7 +307,7 @@ function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle }: { activeI
           </button>
         </div>
       </div>
-      <SidebarSearch query={searchQuery} setQuery={setSearchQuery} />
+      <SidebarAskMarvin />
       <SidebarNav activeId={activeId} onNavigate={onNavigate} />
     </aside>
   );
