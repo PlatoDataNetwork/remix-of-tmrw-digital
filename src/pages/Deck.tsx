@@ -740,7 +740,7 @@ const slides: Slide[] = [
             </div>
           </div>
           {/* Right — Treasury & Vesting */}
-          <div className="flex flex-col gap-5 justify-center">
+          <div className="flex flex-col gap-5 justify-end h-full">
             <GreenCard className="p-5 space-y-3">
               <div className="flex items-baseline justify-between">
                 <h3 className="text-[10px] uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)]">Treasury Reserve</h3>
