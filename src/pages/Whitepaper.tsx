@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, ChevronLeft, X, ArrowUp, Download, Globe, Home, Shield } from "lucide-react";
+import { ChevronRight, ChevronLeft, X, ArrowUp, Download, Globe, Home, Shield, Menu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
@@ -51,9 +51,18 @@ const sections: Section[] = [
 const chapterSections = sections.filter(s => s.number);
 
 // --- Desktop Sidebar ---
-function DesktopSidebar({ activeId, onNavigate }: { activeId: string; onNavigate: (id: string) => void }) {
+function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle }: { activeId: string; onNavigate: (id: string) => void; collapsed: boolean; onToggle: () => void }) {
   return (
-    <aside className="hidden lg:block sticky top-[80px] h-[calc(100vh-80px)] w-64 border-r border-border bg-sidebar-background overflow-y-auto shrink-0 z-10">
+    <aside className={cn(
+      "hidden lg:flex flex-col sticky top-[80px] h-[calc(100vh-80px)] border-r border-border bg-sidebar-background overflow-y-auto shrink-0 z-10 transition-[width] duration-200",
+      collapsed ? "w-0 overflow-hidden border-r-0" : "w-64"
+    )}>
+      <div className="flex items-center justify-between px-4 py-3 border-b border-border shrink-0">
+        <span className="text-sm font-semibold text-foreground whitespace-nowrap">W3AI Whitepaper</span>
+        <button onClick={onToggle} className="p-1 text-muted-foreground hover:text-foreground transition-colors">
+          <Menu className="h-4 w-4" />
+        </button>
+      </div>
       <SidebarNav sections={sections} activeId={activeId} onNavigate={onNavigate} />
     </aside>
   );
@@ -81,7 +90,7 @@ function MobileDrawerSidebar({ activeId, onNavigate, open, onClose }: { activeId
             className="fixed inset-y-0 left-0 z-[90] w-[75vw] max-w-xs bg-sidebar-background border-r border-border overflow-y-auto lg:hidden"
           >
             <div className="flex items-center justify-between px-4 py-3 border-b border-border">
-              <span className="text-sm font-semibold text-foreground">Contents</span>
+              <span className="text-sm font-semibold text-foreground">W3AI Whitepaper</span>
               <button onClick={onClose} className="p-1 text-muted-foreground hover:text-foreground transition-colors">
                 <X className="h-4 w-4" />
               </button>
@@ -1500,6 +1509,7 @@ export default function Whitepaper() {
   const [unlocked, setUnlocked] = useState(true);
   const [activeId, setActiveId] = useState("executive-summary");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [desktopSidebarCollapsed, setDesktopSidebarCollapsed] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -1518,14 +1528,14 @@ export default function Whitepaper() {
       <Navbar />
 
       <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
-        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} />
+        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} collapsed={desktopSidebarCollapsed} onToggle={() => setDesktopSidebarCollapsed(c => !c)} />
         <MobileDrawerSidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 min-w-0">
           <WhitepaperContent onSectionVisible={setActiveId} />
         </main>
       </div>
 
-      {/* Fixed mobile nav trigger - vertical tab on left edge */}
+      {/* Fixed nav trigger - mobile: left edge tab, desktop: hamburger when collapsed */}
       <div className="fixed left-0 top-1/2 -translate-y-1/2 z-[70] lg:hidden">
         <motion.button
           onClick={() => setSidebarOpen(true)}
@@ -1536,6 +1546,18 @@ export default function Whitepaper() {
           <ChevronRight className="h-4 w-4" />
         </motion.button>
       </div>
+      {desktopSidebarCollapsed && (
+        <div className="fixed left-0 top-[88px] z-[70] hidden lg:block">
+          <motion.button
+            onClick={() => setDesktopSidebarCollapsed(false)}
+            className="flex items-center justify-center w-9 h-9 rounded-r-lg bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm"
+            whileTap={{ scale: 0.9 }}
+            aria-label="Open sidebar"
+          >
+            <Menu className="h-4 w-4" />
+          </motion.button>
+        </div>
+      )}
 
       <Footer />
 
