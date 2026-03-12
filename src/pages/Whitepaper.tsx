@@ -298,9 +298,6 @@ function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle, onPrint }: 
       <div className="flex items-center justify-between px-4 py-3 border-b border-border shrink-0">
         <span className="text-sm font-semibold text-foreground whitespace-nowrap">W3AI Whitepaper</span>
         <div className="flex items-center gap-1">
-          <button onClick={onPrint} className="p-1 text-muted-foreground hover:text-foreground transition-colors" aria-label="Export PDF" title="Export as PDF">
-            <FileText className="h-4 w-4" />
-          </button>
           <button onClick={onToggle} className="p-1 text-muted-foreground hover:text-foreground transition-colors" aria-label="Collapse sidebar">
             <Menu className="h-4 w-4" />
           </button>
