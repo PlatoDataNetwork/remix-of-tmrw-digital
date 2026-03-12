@@ -305,7 +305,7 @@ const ChatWidget = () => {
                     }`}
                   >
                     {msg.role === "assistant" ? (
-                      <div className="prose prose-sm prose-invert max-w-none [&>p]:m-0 [&>p]:mb-2 [&>ul]:my-1.5 [&>ol]:my-1.5 [&>hr]:my-3 [&>hr]:border-white/10 [&_strong]:text-white [&_a]:text-[hsl(210,100%,70%)] [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-[hsl(210,100%,80%)] [&_li]:mb-1">
+                      <div className="prose prose-sm prose-invert max-w-none [&>p]:m-0 [&>p]:mb-2 [&>ul]:my-1.5 [&>ol]:my-1.5 [&>hr]:my-3 [&>hr]:border-white/10 [&_strong]:text-white [&_li]:mb-1">
                       <ReactMarkdown
                           components={{
                             a: ({ children }) => <span>{children}</span>,
