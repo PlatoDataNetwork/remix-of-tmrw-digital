@@ -58,6 +58,11 @@ const sections: Section[] = [
     { id: "token-utility-governance", title: "Governance Rights" },
     { id: "token-utility-burn", title: "Burn & Deflation" },
   ]},
+  { id: "foundations", title: "W3AI Governance", children: [
+    { id: "foundation-governance", title: "Governance Framework" },
+    { id: "foundation-treasury", title: "Treasury Management" },
+    { id: "foundation-compliance", title: "Regulatory Compliance" },
+  ]},
   { id: "token-utility", title: "W3AI Tokenomics", children: [
     { id: "token-pillars", title: "Token Utility Pillars" },
     { id: "tokenomics", title: "Tokenomics Design" },
@@ -71,11 +76,6 @@ const sections: Section[] = [
     { id: "rails-compliance", title: "Compliance Infrastructure" },
     { id: "rails-tokenization", title: "Tokenization & RWA Access" },
     { id: "rails-reporting", title: "Institutional Reporting" },
-  ]},
-  { id: "foundations", title: "Governance", children: [
-    { id: "foundation-governance", title: "Governance Framework" },
-    { id: "foundation-treasury", title: "Treasury Management" },
-    { id: "foundation-compliance", title: "Regulatory Compliance" },
   ]},
   { id: "community-integrations", title: "Community Integrations", children: [
     { id: "solana-community", title: "Solana" },
