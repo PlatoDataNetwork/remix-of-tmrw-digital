@@ -475,7 +475,7 @@ export default function Deck() {
           className={cn(
             "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all",
             i === current
-              ? "border-foreground/40 shadow-md ring-1 ring-foreground/20"
+              ? "border-[hsl(82,85%,55%)] shadow-[0_0_12px_hsl(82,85%,55%,0.3)] ring-1 ring-[hsl(82,85%,55%)]"
               : "border-border opacity-60 hover:opacity-100"
           )}
         >
