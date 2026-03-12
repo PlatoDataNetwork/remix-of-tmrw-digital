@@ -198,8 +198,13 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* W3LCOME Section */}
+      <section id="w3lcome" data-section className="mt-8">
+        <h2 className="text-2xl font-bold text-foreground mb-4">W3LCOME</h2>
+      </section>
+
       {/* Welcome Message */}
-      <section id="welcome-message" data-section className="mt-8">
+      <section id="welcome-message" data-section>
         <div className="prose-section">
           <h3 className="text-xl font-semibold text-foreground mb-4">Welcome and Thank you for Joining Us!</h3>
           <p>We are excited to introduce you to W3AI, a pioneering force at the intersection of Web3 and AI. Our vision is to revolutionize the way vertically focused AI applications are conceived, developed and leveraged across both centralized and decentralized networks. creating a more efficient, transparent, and secure digital ecosystem and decentralized transport management system. We are revolutionizing data intelligence by delivering an array of vertically focused Generative AI Applications inside a custom network framework that leverages AI in ways that drive both high ROI and stored value. We embrace innovation and deploy it across our entire ecosystem and corporate culture.</p>
