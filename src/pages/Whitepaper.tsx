@@ -145,7 +145,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
                 const el = document.getElementById(s.id);
                 if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="flex items-center gap-3 px-4 py-3 rounded-lg border border-border bg-card hover:bg-accent hover:border-primary/30 hover:shadow-[0_0_15px_-3px_hsl(82,85%,55%,0.15)] active:scale-[0.98] transition-all duration-200 text-left group"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg border border-border bg-card hover:bg-accent hover:border-chapter-number/30 hover:shadow-[0_0_15px_-3px_hsl(82,85%,55%,0.15)] active:scale-[0.98] transition-all duration-200 text-left group"
             >
               <span className="text-xs font-mono font-bold text-chapter-number w-6 shrink-0 group-hover:scale-110 transition-transform duration-200">{s.number}</span>
               <span className="text-sm text-foreground flex-1 group-hover:text-chapter-number transition-colors duration-200">{s.title}</span>
