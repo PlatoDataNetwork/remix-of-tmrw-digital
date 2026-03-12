@@ -713,23 +713,25 @@ const slides: Slide[] = [
                     <th className="py-2.5 px-3 font-medium text-foreground text-left text-[10px] uppercase tracking-wider">Allocation</th>
                     <th className="py-2.5 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">Tokens</th>
                     <th className="py-2.5 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">Share</th>
+                    <th className="py-2.5 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">FDV</th>
                     <th className="py-2.5 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">Lock</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    ["Private Round", "200M", "10%", "No"],
-                    ["Private Pre-Sale", "200M", "10%", "Yes"],
-                    ["Seed Round", "200M", "10%", "Yes"],
-                    ["IDO / TGE", "200M", "10%", "No"],
-                    ["Team & Advisors", "200M", "10%", "Yes"],
-                    ["Rewards", "50M", "2.5%", "No"],
-                    ["Treasury", "1.15B", "52.5%", "Yes"],
-                  ].map(([a, t, s, l]) => (
+                    ["Private Round", "200M", "10%", "$3.75M", "No"],
+                    ["Private Pre-Sale", "200M", "10%", "$7.5M", "Yes"],
+                    ["Seed Round", "200M", "10%", "$15M", "Yes"],
+                    ["IDO / TGE", "200M", "10%", "$30M", "No"],
+                    ["Team & Advisors", "200M", "10%", "—", "Yes"],
+                    ["Rewards", "50M", "2.5%", "—", "No"],
+                    ["Treasury", "1.15B", "52.5%", "—", "Yes"],
+                  ].map(([a, t, s, f, l]) => (
                     <tr key={a} className="border-b border-border/20 hover:bg-[hsl(82,85%,55%,0.02)] transition-colors">
                       <td className="py-2.5 px-3 text-foreground font-light">{a}</td>
                       <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{t}</td>
                       <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{s}</td>
+                      <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{f}</td>
                       <td className="py-2.5 px-3 text-right">
                         <span className={l === "Yes" ? "text-[hsl(82,85%,55%,0.6)]" : "text-muted-foreground/40"}>{l === "Yes" ? "Locked" : "—"}</span>
                       </td>
