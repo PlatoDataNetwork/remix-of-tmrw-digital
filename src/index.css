@@ -330,6 +330,7 @@ html {
   z-index: 1;
 }
 
+.animated-gradient-icon-bright {
   background: linear-gradient(
     270deg,
     hsl(275, 100%, 65%),
