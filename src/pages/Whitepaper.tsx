@@ -51,7 +51,14 @@ const sections: Section[] = [
     { id: "rwa-tax-credits", title: "Tax Credits" },
     { id: "rwa-utilities", title: "Utilities" },
   ]},
-  { id: "token-utility", title: "Tokenomics", children: [
+  { id: "w3ai-token-utility", title: "W3AI Token Utility", children: [
+    { id: "token-utility-overview", title: "Overview" },
+    { id: "token-utility-demand", title: "Demand Drivers" },
+    { id: "token-utility-access", title: "Access & Staking" },
+    { id: "token-utility-governance", title: "Governance Rights" },
+    { id: "token-utility-burn", title: "Burn & Deflation" },
+  ]},
+  { id: "token-utility", title: "W3AI Tokenomics", children: [
     { id: "token-pillars", title: "Token Utility Pillars" },
     { id: "tokenomics", title: "Tokenomics Design" },
     { id: "supply-allocations", title: "Supply & Allocations" },
