@@ -350,7 +350,6 @@ const slides: Slide[] = [
         <div className="relative rounded-2xl overflow-hidden">
           <img src={stockExchangeImg} alt="Stock Exchange" className="w-full h-[200px] md:h-[260px] object-cover grayscale brightness-110" />
           <div className="absolute inset-0 animated-gradient-datacenter-bg" />
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[hsl(82,85%,55%,0.4)] via-[hsl(82,85%,55%,0.2)] to-transparent" />
         </div>
         <SlideTitle>RTO & Public Markets</SlideTitle>
         <SlideSubtitle>
@@ -517,7 +516,7 @@ const slides: Slide[] = [
           <div className="space-y-4">
             <SectionLabel>Tomorrow Digital Inc.</SectionLabel>
             <BulletList items={[
-              { bold: "Headquarters —", text: "Richmond, BC, Canada." },
+              { bold: "Headquarters —", text: "Vancouver, BC, Canada." },
               { bold: "DBA —", text: "The Tomorrow Company." },
               { bold: "Listing target —", text: "TSX Venture Exchange, Q2 2026." },
               { bold: "Experienced team —", text: "proven executives with deep expertise across fintech, AI, blockchain, and public markets." },
