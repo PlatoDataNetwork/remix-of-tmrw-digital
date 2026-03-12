@@ -8,7 +8,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import whitepaperHero from "@/assets/whitepaper-hero.png";
 import heroBg from "@/assets/hero-bg.png";
-import platoIcon from "@/assets/plato-icon.png";
 
 const PASSWORD = "W3AI88";
 
@@ -156,22 +155,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.25)]" />
           <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%,0.3)] via-transparent to-[hsl(220,20%,4%)]" />
           {/* Content - positioned lower */}
-          <div className="relative z-10 flex flex-col items-center justify-start h-full pt-20 md:pt-28 text-center px-6">
-            {/* Plato Icon */}
-            <div
-              className="h-12 w-12 md:h-16 md:w-16 mb-4 animated-gradient-icon-bright"
-              style={{
-                WebkitMaskImage: `url(${platoIcon})`,
-                maskImage: `url(${platoIcon})`,
-                WebkitMaskSize: "contain",
-                maskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                maskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-                maskPosition: "center",
-                opacity: 1,
-              }}
-            />
+          <div className="relative z-10 flex flex-col items-center justify-start h-full pt-24 md:pt-32 text-center px-6">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-extralight leading-[1.1] tracking-tight text-white mb-2">
               Secure Network Protocol<br />For The Next Web.
             </h2>
