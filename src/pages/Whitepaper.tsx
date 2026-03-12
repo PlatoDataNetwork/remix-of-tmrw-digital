@@ -1540,18 +1540,6 @@ export default function Whitepaper() {
           <ChevronRight className="h-4 w-4" />
         </motion.button>
       </div>
-      {desktopSidebarCollapsed && (
-        <div className="fixed left-0 top-[88px] z-[70] hidden lg:block">
-          <motion.button
-            onClick={() => setDesktopSidebarCollapsed(false)}
-            className="flex items-center justify-center w-9 h-9 rounded-r-lg bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm"
-            whileTap={{ scale: 0.9 }}
-            aria-label="Open sidebar"
-          >
-            <Menu className="h-4 w-4" />
-          </motion.button>
-        </div>
-      )}
 
       <Footer />
 
