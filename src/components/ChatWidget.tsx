@@ -6,6 +6,16 @@ import ReactMarkdown from "react-markdown";
 
 import platoIcon from "@/assets/plato-icon.png";
 import { useChatContext } from "./ChatContext";
+import { Children, ReactNode, isValidElement } from "react";
+
+function extractText(node: ReactNode): string {
+  if (typeof node === "string") return node;
+  if (typeof node === "number") return String(node);
+  if (!node) return "";
+  if (Array.isArray(node)) return node.map(extractText).join("");
+  if (isValidElement(node)) return extractText(node.props.children);
+  return Children.toArray(node).map(extractText).join("");
+}
 
 interface Message {
   id: string;
@@ -35,6 +45,8 @@ const ChatWidget = () => {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  const pendingFollowUp = useRef<string | null>(null);
 
   const streamChat = useCallback(async (allMessages: Message[]) => {
     const controller = new AbortController();
@@ -162,6 +174,21 @@ const ChatWidget = () => {
     }
   };
 
+  const handleFollowUp = useCallback((text: string) => {
+    if (isLoading) return;
+    const now = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    const userMsg: Message = { id: Date.now().toString(), content: text, role: "user", time: now };
+    const newMessages = [...messages, userMsg];
+    setMessages(newMessages);
+    setInput("");
+    setIsLoading(true);
+    streamChat(newMessages).catch((e: any) => {
+      if (e.name !== "AbortError") {
+        setMessages((prev) => [...prev, { id: (Date.now() + 1).toString(), content: "Sorry, I'm having trouble connecting right now.", role: "assistant", time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) }]);
+      }
+    }).finally(() => setIsLoading(false));
+  }, [isLoading, messages, streamChat]);
+
   const panelClasses = maximized
     ? "fixed top-16 lg:top-20 right-0 z-[55] w-full sm:w-[480px] rounded-none sm:rounded-bl-2xl border-l border-b border-white/10 bg-[hsl(220,20%,6%,0.65)] backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden"
     : "fixed bottom-6 right-6 z-[60] w-[360px] sm:w-[400px] h-[520px] rounded-2xl border border-white/10 bg-[hsl(220,20%,6%,0.65)] backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden";
@@ -278,21 +305,25 @@ const ChatWidget = () => {
                     }`}
                   >
                     {msg.role === "assistant" ? (
-                      <div className="prose prose-sm prose-invert max-w-none [&>p]:m-0 [&>p]:mb-2 [&>ul]:my-1.5 [&>ol]:my-1.5 [&>hr]:my-3 [&>hr]:border-white/10 [&_strong]:text-white [&_a]:text-[hsl(210,100%,70%)] [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-[hsl(210,100%,80%)] [&_li]:mb-1">
-                        <ReactMarkdown
+                      <div className="prose prose-sm prose-invert max-w-none [&>p]:m-0 [&>p]:mb-2 [&>ul]:my-1.5 [&>ol]:my-1.5 [&>hr]:my-3 [&>hr]:border-white/10 [&_strong]:text-white [&_li]:mb-1">
+                      <ReactMarkdown
                           components={{
-                            a: ({ href, children, ...props }) => {
-                              return (
-                                <a
-                                  {...props}
-                                  href={href}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-[hsl(210,100%,70%)] underline underline-offset-2 hover:text-[hsl(210,100%,80%)] cursor-pointer transition-colors"
-                                >
-                                  {children}
-                                </a>
-                              );
+                            a: ({ children }) => <span>{children}</span>,
+                            li: ({ children, ...props }) => {
+                              const text = extractText(children);
+                              const isFollowUp = text.endsWith("?");
+                              if (isFollowUp) {
+                                return (
+                                  <li
+                                    {...props}
+                                    onClick={() => handleFollowUp(text)}
+                                    className="cursor-pointer hover:text-[hsl(210,100%,70%)] transition-colors"
+                                  >
+                                    {children}
+                                  </li>
+                                );
+                              }
+                              return <li {...props}>{children}</li>;
                             },
                           }}
                         >
