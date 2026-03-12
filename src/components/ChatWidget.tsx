@@ -1,8 +1,9 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { createPortal } from "react-dom";
-import { X, Send, Loader2, Trash2, Maximize2, Minimize2 } from "lucide-react";
+import { X, Send, Loader2, Trash2, Maximize2, Minimize2, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
+import { useNavigate } from "react-router-dom";
 
 import platoIcon from "@/assets/plato-icon.png";
 import { useChatContext } from "./ChatContext";
