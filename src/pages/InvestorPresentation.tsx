@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { TrendingUp, Globe, Cpu, Coins, BarChart3, Users, Layers, Zap, Target, Building2, Leaf, Lock, Shield, Briefcase } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import stockExchangeImg from "@/assets/stock-exchange.webp";
 import lotusFlowerImg from "@/assets/lotus-flower.webp";
 
@@ -140,6 +141,7 @@ const InvestorPresentation = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead title="Investor Presentation" description="Institutional investor overview for The Tomorrow Company — Web3 AI infrastructure, RWA tokenization, and public market strategy." path="/investors/presentation" noindex />
       <Navbar />
 
       <div className="pt-20">

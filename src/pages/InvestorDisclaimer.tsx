@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 const disclaimerText = `IMPORTANT LEGAL DISCLAIMER — PLEASE READ CAREFULLY
 
@@ -119,6 +120,7 @@ const InvestorDisclaimer = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SEOHead title="Investor Disclaimer" description="Legal disclaimer for accredited investors accessing The Tomorrow Company investor materials." path="/investors" noindex />
       <Navbar />
 
       {/* Content */}

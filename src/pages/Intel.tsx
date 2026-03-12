@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import platoIcon from "@/assets/plato-icon.webp";
 
 const articles = [
@@ -111,6 +112,7 @@ const Intel = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead title="Intelligence" description="Latest insights, market analysis, and research from The Tomorrow Company on Web3, AI, RWA tokenization, and digital assets." path="/intel" />
       <Navbar />
       <section className="relative pt-32 pb-16 lg:pt-44 lg:pb-24 bg-background overflow-hidden" ref={ref}>
         <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">

@@ -4,6 +4,7 @@ import { ArrowUp, ChevronRight, ChevronLeft, ChevronDown, Menu, X } from "lucide
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import whitepaperHero from "@/assets/whitepaper-hero.webp";
 import heroBg from "@/assets/hero-bg.webp";
 import platoIcon from "@/assets/plato-icon.webp";
@@ -1613,6 +1614,7 @@ export default function Whitepaper() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead title="Whitepaper" description="The Tomorrow Company whitepaper covering W3AI token ecosystem, RWA tokenization infrastructure, and the future of decentralized digital assets." path="/whitepaper" />
       <Navbar />
       <ReadingProgress />
 

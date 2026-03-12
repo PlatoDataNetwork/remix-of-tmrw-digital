@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Tag, Clock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import blogHero from "@/assets/blog-hero.webp";
 
 export interface BlogPostData {
@@ -25,8 +26,15 @@ const fadeUp = {
 };
 
 const BlogPostTemplate = ({ data }: { data: BlogPostData }) => {
+  const location = useLocation();
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={data.title}
+        description={data.subtitle}
+        path={location.pathname}
+        type="article"
+      />
       <Navbar />
 
       {/* Hero */}

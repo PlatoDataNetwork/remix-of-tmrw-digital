@@ -1,9 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 const Legal = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead title="Legal" description="Privacy policy, terms of service, and legal disclaimers for The Tomorrow Company." path="/legal" noindex />
       <Navbar />
       <main className="pt-24 pb-20 max-w-4xl mx-auto px-6 lg:px-8">
         <h1 className="text-3xl md:text-4xl font-light text-foreground mb-2">Legal</h1>

@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import heroBackground from "@/assets/hero-bg.webp";
 import platoIcon from "@/assets/plato-icon.webp";
 import dataCenterImg from "@/assets/data-center.webp";
@@ -654,6 +655,7 @@ export default function CorporateDeck() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead title="TMRW Deck" description="The Tomorrow Company corporate deck — diversified Web3 infrastructure, carbon assets, and digital economy platform." path="/corporate-deck" />
       <Navbar />
       <div className="pt-20 lg:pt-24 pb-16 px-4 md:px-8 max-w-6xl mx-auto">
         {slideContent}

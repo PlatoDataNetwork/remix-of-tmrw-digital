@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import { Flame, Mountain, Gem, Building2, Home, BarChart3, Leaf, Landmark, Receipt, Plug, Crown, Coins } from "lucide-react";
 
 const sectors = [
@@ -25,6 +26,7 @@ const RWAs = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead title="Real World Assets" description="Explore tokenized real-world asset sectors including carbon credits, commodities, energy, metals, real estate, and more." path="/rwas" />
       <Navbar />
 
       {/* Hero */}

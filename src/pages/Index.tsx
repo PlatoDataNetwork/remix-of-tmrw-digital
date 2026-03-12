@@ -1,5 +1,6 @@
 import { useEffect, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -33,6 +34,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead path="/" />
       <Navbar />
       <HeroSection />
       <AboutSection />

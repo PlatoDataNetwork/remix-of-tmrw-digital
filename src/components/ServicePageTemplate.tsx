@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { LucideIcon, ArrowLeft, CheckCircle2 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 export interface ServicePageData {
   icon: LucideIcon;
@@ -31,9 +32,15 @@ const fadeUp = {
 
 const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
   const Icon = data.icon;
+  const location = useLocation();
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={data.title}
+        description={data.heroDescription}
+        path={location.pathname}
+      />
       <Navbar />
 
       {/* Hero */}
