@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import whitepaperHero from "@/assets/whitepaper-hero.png";
 import heroBg from "@/assets/hero-bg.png";
+import platoIcon from "@/assets/plato-icon.png";
 import { useChatContext } from "@/components/ChatContext";
 
 const PASSWORD = "W3AI88";
