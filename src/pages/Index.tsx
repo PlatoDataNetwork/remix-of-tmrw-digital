@@ -1,31 +1,32 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import VisionSection from "@/components/VisionSection";
-import MethodologySection from "@/components/MethodologySection";
-import Web3AISection from "@/components/Web3AISection";
-import ServicesSection from "@/components/ServicesSection";
-import RWASection from "@/components/RWASection";
-import NewsSection from "@/components/NewsSection";
-import InvestorsSection from "@/components/InvestorsSection";
-import TeamSection from "@/components/TeamSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+
+// Lazy load below-fold sections
+const VisionSection = lazy(() => import("@/components/VisionSection"));
+const MethodologySection = lazy(() => import("@/components/MethodologySection"));
+const Web3AISection = lazy(() => import("@/components/Web3AISection"));
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const RWASection = lazy(() => import("@/components/RWASection"));
+const NewsSection = lazy(() => import("@/components/NewsSection"));
+const InvestorsSection = lazy(() => import("@/components/InvestorsSection"));
+const TeamSection = lazy(() => import("@/components/TeamSection"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+const Footer = lazy(() => import("@/components/Footer"));
+
+const SectionFallback = () => <div className="min-h-[200px]" />;
 
 const Index = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Handle scroll-to from subpage navigation
     const scrollTo = (location.state as { scrollTo?: string })?.scrollTo;
     if (scrollTo) {
-      // Small delay to ensure DOM is ready
       setTimeout(() => {
         document.getElementById(scrollTo)?.scrollIntoView({ behavior: "smooth" });
       }, 100);
-      // Clear the state so it doesn't re-scroll on back navigation
       window.history.replaceState({}, document.title);
     }
   }, [location.state]);
@@ -35,16 +36,18 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <AboutSection />
-      <VisionSection />
-      <MethodologySection />
-      <Web3AISection />
-      <ServicesSection />
-      <RWASection />
-      <NewsSection />
-      <InvestorsSection />
-      <TeamSection />
-      <ContactSection />
-      <Footer />
+      <Suspense fallback={<SectionFallback />}>
+        <VisionSection />
+        <MethodologySection />
+        <Web3AISection />
+        <ServicesSection />
+        <RWASection />
+        <NewsSection />
+        <InvestorsSection />
+        <TeamSection />
+        <ContactSection />
+        <Footer />
+      </Suspense>
     </div>
   );
 };
