@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import whitepaperHero from "@/assets/whitepaper-hero.png";
 import heroBg from "@/assets/hero-bg.png";
+import { useChatContext } from "@/components/ChatContext";
 
 const PASSWORD = "W3AI88";
 
@@ -185,8 +186,9 @@ function getParentId(id: string): string {
 
 // --- Sidebar Search ---
 function SidebarSearch({ query, setQuery }: { query: string; setQuery: (q: string) => void }) {
+  const { setOpen } = useChatContext();
   return (
-    <div className="px-3 py-2 border-b border-border">
+    <div className="px-3 py-2 border-b border-border space-y-2">
       <div className="relative">
         <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground/60" />
         <input
@@ -202,6 +204,14 @@ function SidebarSearch({ query, setQuery }: { query: string; setQuery: (q: strin
           </button>
         )}
       </div>
+      <button
+        onClick={() => setOpen(true)}
+        className="w-full flex items-center gap-2 bg-gradient-to-r from-[hsl(260,80%,55%,0.15)] to-[hsl(220,90%,55%,0.15)] hover:from-[hsl(260,80%,55%,0.25)] hover:to-[hsl(220,90%,55%,0.25)] border border-[hsl(260,80%,55%,0.3)] rounded-md px-3 py-1.5 text-xs font-medium text-[hsl(260,80%,70%)] hover:text-[hsl(260,80%,80%)] transition-all group"
+      >
+        <span className="text-[10px]">🤖</span>
+        <span>Ask Marvin</span>
+        <ChevronRight className="h-3 w-3 ml-auto opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+      </button>
     </div>
   );
 }
