@@ -171,7 +171,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 whitepaper-content">
       {/* W3AI Whitepaper Section */}
-      <section id="w3ai-whitepaper" data-section>
+      <section id="w3lcome" data-section>
         <div className="relative rounded-2xl overflow-hidden h-[300px] md:h-[420px] bg-[hsl(220,20%,4%)]">
           {/* Background Image */}
           <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-contain object-center scale-110" />
@@ -195,10 +195,8 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* W3LCOME Section */}
-      <section id="w3lcome" data-section className="mt-8">
-        <h2 className="text-2xl font-bold text-foreground mb-4">W3LCOME</h2>
-      </section>
+      {/* W3LCOME heading */}
+      <h2 className="text-2xl font-bold text-foreground mb-4 mt-8">W3LCOME</h2>
 
       {/* Welcome Message */}
       <section id="welcome-message" data-section>
