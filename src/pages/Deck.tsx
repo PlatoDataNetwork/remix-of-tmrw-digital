@@ -78,9 +78,6 @@ const slides: Slide[] = [
       <div className="relative flex flex-col items-center justify-center h-full text-center gap-6">
         <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none" />
         <div className="relative z-10 flex flex-col items-center gap-6">
-          <div className="relative w-20 h-20 rounded-2xl overflow-hidden animated-gradient-icon">
-            <img src={logoIcon} alt="W3AI" className="w-full h-full object-cover" />
-          </div>
           <div className="space-y-3">
             <h1 className="text-4xl md:text-6xl font-extralight tracking-tight text-foreground">W3AI</h1>
             <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">The Tomorrow Company</p>
