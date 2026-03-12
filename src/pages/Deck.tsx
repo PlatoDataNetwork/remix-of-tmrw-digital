@@ -232,13 +232,16 @@ const slides: Slide[] = [
     id: "architecture",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-
         <SlideTitle>Architecture & Differentiation</SlideTitle>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
-            <SectionLabel>Why Firefox</SectionLabel>
+            <SectionLabel>Inspired by AI. Built by Humans.</SectionLabel>
             <p className="text-sm font-light text-muted-foreground leading-relaxed">
               Gecko engine, deep customization, open-source codebase. Strategic differentiation in a Chromium-dominated market.
+            </p>
+            <p className="text-sm font-light text-muted-foreground leading-relaxed">
+              W3AI combines human-centric design with AI-native architecture — ensuring every interaction 
+              is intentional, transparent, and built for trust in a Web3 environment.
             </p>
           </div>
           <div className="space-y-4">
