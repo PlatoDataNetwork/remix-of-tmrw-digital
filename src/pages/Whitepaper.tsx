@@ -374,7 +374,7 @@ function ReadingProgress() {
 
 // --- Content (page-based: only active section is visible) ---
 function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onNavigate: (id: string) => void }) {
-  const p = (id: string) => activePage !== id ? "wp-page-hidden" : "";
+  const p = (id: string) => activePage !== id ? "wp-page-hidden" : "space-y-10";
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 whitepaper-content">
