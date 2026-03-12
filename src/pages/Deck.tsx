@@ -407,30 +407,6 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 15 — Disclaimer
-  {
-    id: "disclaimer",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto text-center">
-        <SlideTitle>Disclaimer</SlideTitle>
-        <div className="space-y-4 text-left">
-          <p className="text-xs font-light text-muted-foreground leading-relaxed">
-            This document is for informational purposes only and does not constitute financial, legal, tax, or investment advice. 
-            Digital assets are inherently risky and volatile. Purchasers may lose all funds.
-          </p>
-          <p className="text-xs font-light text-muted-foreground leading-relaxed">
-            Forward-looking statements reflect current intentions and are not guarantees. Regulatory landscapes vary by jurisdiction. 
-            Exchange listings are subject to independent approval. Third-party references do not constitute endorsement.
-          </p>
-          <p className="text-xs font-light text-muted-foreground leading-relaxed">
-            No fiduciary relationship is created. Information is provided "as is." All intellectual property belongs to respective owners.
-          </p>
-        </div>
-        <div className="w-16 h-px bg-border mx-auto mt-4" />
-        <p className="text-xs font-light text-muted-foreground/50 uppercase tracking-[0.3em]">W3AI — The Tomorrow Company</p>
-      </div>
-    ),
-  },
 ];
 
 // --- Deck viewer ---
