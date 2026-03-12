@@ -1471,6 +1471,7 @@ export default function Whitepaper() {
   const [unlocked, setUnlocked] = useState(true);
   const [activeId, setActiveId] = useState("executive-summary");
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setShowScrollTop(window.scrollY > 400);
@@ -1488,7 +1489,17 @@ export default function Whitepaper() {
       <Navbar />
 
       <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
-        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} />
+        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(c => !c)} />
+        {/* Expand button when collapsed */}
+        {sidebarCollapsed && (
+          <button
+            onClick={() => setSidebarCollapsed(false)}
+            className="sticky top-[80px] h-10 w-10 flex items-center justify-center shrink-0 z-10 text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Expand sidebar"
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+        )}
         <main className="flex-1 min-w-0">
           <WhitepaperContent onSectionVisible={setActiveId} />
         </main>
