@@ -38,12 +38,26 @@ interface Message {
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
-const defaultWelcome: Message = {
-  id: "welcome",
-  content: "Hey there, friend! 👋 I'm **Marvin** — your guide to everything TMRW. I know the W3AI Whitepaper inside and out, all 12 RWA sectors, tokenomics, and more. Ask me anything — I'm here to help! Oh, and if you ever need a laugh... I've got AI jokes ready to go. 😄",
-  role: "assistant",
-  time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-};
+const marvinGreetings = [
+  "Hey there! 👋 I'm **Marvin** — your W3AI guide. Ask me anything about the TMRW Browser, tokenomics, or our RWA sectors. Let's dive in!",
+  "Welcome! 🚀 **Marvin** here. I've got the full W3AI Whitepaper loaded up. What would you like to explore today?",
+  "Hi friend! ✨ I'm **Marvin**, your AI companion for all things TMRW. Curious about Web3, RWAs, or our token? Fire away!",
+  "Greetings! 🤖 **Marvin** at your service. I know W3AI inside and out — from tokenomics to cybersecurity. What's on your mind?",
+  "Hey! 👋 **Marvin** here, ready to chat. Whether it's the TMRW Browser, staking, or real-world assets — I've got answers.",
+  "Hello! 🌟 I'm **Marvin** — think of me as your TMRW concierge. Ask about any of our 12 RWA sectors or the W3AI roadmap!",
+  "What's up! 💡 **Marvin** reporting for duty. I can walk you through our whitepaper, token utility, or anything W3AI. Let's go!",
+  "Hi there! 🛡️ I'm **Marvin**, your friendly W3AI assistant. Got questions about our AI layer, security, or multi-chain strategy? Ask away!",
+];
+
+function createWelcomeMessage(): Message {
+  const greeting = marvinGreetings[Math.floor(Math.random() * marvinGreetings.length)];
+  return {
+    id: "welcome",
+    content: greeting,
+    role: "assistant",
+    time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+  };
+}
 
 const ChatWidget = () => {
   
