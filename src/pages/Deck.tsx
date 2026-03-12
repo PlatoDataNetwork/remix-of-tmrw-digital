@@ -15,7 +15,7 @@ interface Slide {
 function StatBlock({ value, label }: { value: string; label: string }) {
   return (
     <div className="text-center">
-      <div className="text-4xl md:text-5xl font-extralight tracking-tight text-foreground">{value}</div>
+      <div className="text-4xl md:text-5xl font-extralight tracking-tight text-[hsl(82,85%,55%)]">{value}</div>
       <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mt-2">{label}</div>
     </div>
   );
@@ -34,7 +34,7 @@ function BulletList({ items }: { items: { bold: string; text: string }[] }) {
     <div className="space-y-4">
       {items.map((item, i) => (
         <div key={i} className="flex gap-4 items-start">
-          <div className="w-1 h-1 rounded-full bg-muted-foreground mt-2.5 shrink-0" />
+          <div className="w-1.5 h-1.5 rounded-full bg-[hsl(82,85%,55%)] mt-2.5 shrink-0" />
           <p className="text-sm md:text-base font-light text-muted-foreground leading-relaxed">
             <span className="font-medium text-foreground">{item.bold}</span> {item.text}
           </p>
@@ -460,7 +460,7 @@ export default function Deck() {
 
       {/* Progress bar */}
       <div className="absolute top-0 left-0 right-0 h-0.5 bg-border">
-        <div className="h-full bg-foreground/30 transition-all duration-300" style={{ width: `${((current + 1) / total) * 100}%` }} />
+        <div className="h-full bg-[hsl(82,85%,55%)] transition-all duration-300" style={{ width: `${((current + 1) / total) * 100}%` }} />
       </div>
     </div>
   );
@@ -475,7 +475,7 @@ export default function Deck() {
           className={cn(
             "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all",
             i === current
-              ? "border-foreground/40 shadow-md ring-1 ring-foreground/20"
+              ? "border-[hsl(82,85%,55%)] shadow-[0_0_12px_hsl(82,85%,55%,0.3)] ring-1 ring-[hsl(82,85%,55%)]"
               : "border-border opacity-60 hover:opacity-100"
           )}
         >
