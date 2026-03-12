@@ -333,10 +333,10 @@ const slides: Slide[] = [
           <div className="space-y-4">
             <SectionLabel>ESG Technology</SectionLabel>
             <BulletList items={[
-              { bold: "Blockchain verification", text: "with immutable audit trails" },
-              { bold: "Retire App", text: "for transparent token burning" },
-              { bold: "FMA regulated", text: "under Liechtenstein framework" },
-              { bold: "6M+ kg", text: "carbon offsets already retired" },
+              { bold: "Blockchain verification", text: "with immutable audit trails." },
+              { bold: "Retire App", text: "for transparent token burning." },
+              { bold: "FMA regulated", text: "under Liechtenstein framework." },
+              { bold: "6M+ kg", text: "carbon offsets already retired." },
             ]} />
           </div>
         </div>
