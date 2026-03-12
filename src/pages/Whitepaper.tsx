@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowUp, Download, Globe, Home, Shield, ChevronRight } from "lucide-react";
+import { ArrowUp, Download, Globe, Home, Shield, ChevronRight, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
