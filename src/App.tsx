@@ -133,37 +133,39 @@ function getRoutes() {
 }
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ChatProvider>
-          <ScrollToTop />
-          <LanguageHandler />
-          <Suspense fallback={<LoadingScreen />}>
-            <Routes>
-              {/* Default English routes */}
-              <Route path="/" element={<Index />} />
-              {getRoutes().map(r => (
-                <Route key={r.key} path={`/${r.props.path}`} element={r.props.element} />
-              ))}
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ChatProvider>
+            <ScrollToTop />
+            <LanguageHandler />
+            <Suspense fallback={<LoadingScreen />}>
+              <Routes>
+                {/* Default English routes */}
+                <Route path="/" element={<Index />} />
+                {getRoutes().map(r => (
+                  <Route key={r.key} path={`/${r.props.path}`} element={r.props.element} />
+                ))}
 
-              {/* Language-prefixed routes */}
-              <Route path="/:lang" element={<LanguageLayout />}>
-                <Route index element={<Index />} />
-                {getRoutes()}
+                {/* Language-prefixed routes */}
+                <Route path="/:lang" element={<LanguageLayout />}>
+                  <Route index element={<Index />} />
+                  {getRoutes()}
+                  <Route path="*" element={<NotFound />} />
+                </Route>
+
                 <Route path="*" element={<NotFound />} />
-              </Route>
-
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-          <ChatWidget />
-        </ChatProvider>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+              </Routes>
+            </Suspense>
+            <ChatWidget />
+          </ChatProvider>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
