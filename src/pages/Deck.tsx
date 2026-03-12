@@ -733,7 +733,7 @@ const slides: Slide[] = [
                       <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{s}</td>
                       <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{f}</td>
                       <td className="py-2.5 px-3 text-right">
-                        <span className={l === "Yes" ? "text-[hsl(82,85%,55%,0.6)]" : "text-muted-foreground/40"}>{l === "Yes" ? "Locked" : "—"}</span>
+                        <span className={l === "Yes" ? "text-[hsl(82,85%,55%,0.6)]" : "text-muted-foreground/40"}>{l === "Yes" ? "Locked" : "Unlocked"}</span>
                       </td>
                     </tr>
                   ))}
