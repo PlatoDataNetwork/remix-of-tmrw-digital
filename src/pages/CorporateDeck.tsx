@@ -3,10 +3,10 @@ import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import heroBackground from "@/assets/hero-bg.png";
-import platoIcon from "@/assets/plato-icon.png";
-import dataCenterImg from "@/assets/data-center.jpeg";
-import stockExchangeImg from "@/assets/stock-exchange.png";
+import heroBackground from "@/assets/hero-bg.webp";
+import platoIcon from "@/assets/plato-icon.webp";
+import dataCenterImg from "@/assets/data-center.webp";
+import stockExchangeImg from "@/assets/stock-exchange.webp";
 
 interface Slide {
   id: string;

@@ -3,10 +3,10 @@ import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import whitepaperHero from "@/assets/whitepaper-hero.png";
-import heroBackground from "@/assets/hero-bg.png";
-import logoIcon from "@/assets/plato-icon.png";
-import platoIcon from "@/assets/plato-icon.png";
+import whitepaperHero from "@/assets/whitepaper-hero.webp";
+import heroBackground from "@/assets/hero-bg.webp";
+import logoIcon from "@/assets/plato-icon.webp";
+import platoIcon from "@/assets/plato-icon.webp";
 
 // --- Slide data derived from whitepaper ---
 interface Slide {
