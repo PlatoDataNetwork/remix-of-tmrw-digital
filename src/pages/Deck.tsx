@@ -434,6 +434,262 @@ const slides: Slide[] = [
       </div>
     ),
   },
+  // 15 — W3AI Protocol
+  {
+    id: "protocol",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+        <SlideTitle>W3AI Protocol</SlideTitle>
+        <SlideSubtitle>
+          A cross-chain coordination protocol binding AI agent permissions to on-chain wallet permissions 
+          as a single security domain.
+        </SlideSubtitle>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { title: "Unified Execution", desc: "Intelligence and capital move together under explicit user control across Solana, Ethereum, and BSC." },
+            { title: "Revenue Surfaces", desc: "Open Gateway AI fees, in-browser swap fees, validator yield, and premium feature access." },
+            { title: "Treasury-Backed", desc: "52.5% of supply governed by progressive decentralization for long-term sustainability." },
+          ].map(c => (
+            <div key={c.title} className="p-5 rounded-xl border border-border bg-card space-y-2">
+              <h3 className="text-sm font-medium text-foreground">{c.title}</h3>
+              <p className="text-xs font-light text-muted-foreground">{c.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  // 16 — Real World Assets
+  {
+    id: "rwas",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+        <SlideTitle>W3AI RWA's</SlideTitle>
+        <SlideSubtitle>
+          Tokenizing real-world assets across 12 verticals — bridging traditional finance with on-chain 
+          liquidity and fractional ownership.
+        </SlideSubtitle>
+        <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
+          {[
+            "Carbon Credits", "Collectables", "Commodities", "Energy",
+            "Infrastructure", "Metals", "Rare Earth", "Real Estate",
+            "Sovereign Wealth", "Stablecoins", "Tax Credits", "Utilities",
+          ].map(v => (
+            <div key={v} className="p-3 rounded-lg border border-border bg-card text-center">
+              <p className="text-xs font-medium text-foreground">{v}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  // 17 — Governance
+  {
+    id: "governance",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+        <SlideTitle>W3AI Governance</SlideTitle>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { title: "Governance Framework", desc: "Progressive decentralization from foundation-led to community-governed. Token-weighted voting with anti-sybil protections via Dentity credentials." },
+            { title: "Treasury Management", desc: "On-chain treasury with multi-sig controls, transparent allocation reporting, and milestone-based fund releases." },
+            { title: "Regulatory Compliance", desc: "Dual-jurisdiction framework: Canada (IFRS/FINTRAC) and Liechtenstein (TVTG/FMA) for global institutional credibility." },
+          ].map(c => (
+            <div key={c.title} className="p-6 rounded-xl border border-border bg-card space-y-3">
+              <h3 className="text-base font-medium text-foreground">{c.title}</h3>
+              <p className="text-sm font-light text-muted-foreground leading-relaxed">{c.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  // 18 — Institutional Rails
+  {
+    id: "institutional",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+        <SlideTitle>Institutional-Grade Rails</SlideTitle>
+        <SlideSubtitle>
+          Consumer-first mission with institutional-grade infrastructure for professionals and enterprise.
+        </SlideSubtitle>
+        <BulletList items={[
+          { bold: "Custody —", text: "MPC & HSM key management with insurance-backed partnerships and SOC 2 Type II compliance" },
+          { bold: "Compliance —", text: "Automated AML/KYC, Travel Rule compliance, real-time sanctions screening" },
+          { bold: "RWA Access —", text: "Integrated marketplace with verified asset originators and secondary market access" },
+          { bold: "Reporting —", text: "Portfolio analytics, tax lot tracking, and customizable audit trails" },
+        ]} />
+      </div>
+    ),
+  },
+  // 19 — Supported Networks
+  {
+    id: "networks",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+        <SlideTitle>Supported Networks</SlideTitle>
+        <SlideSubtitle>Multi-chain presence across 12+ foundational blockchain ecosystems.</SlideSubtitle>
+        <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
+          {[
+            "Solana", "Ethereum", "BNB Smart Chain", "Polygon",
+            "zkSync", "Avalanche", "Arbitrum", "Optimism",
+            "Base", "Fantom", "Cronos", "Moonbeam",
+          ].map(n => (
+            <div key={n} className="p-3 rounded-lg border border-border bg-card text-center">
+              <p className="text-xs font-medium text-foreground">{n}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  // 20 — Network Partners
+  {
+    id: "partners",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+        <SlideTitle>Network Partners</SlideTitle>
+        <SlideSubtitle>Product-integrated partnerships covering security, identity, liquidity, and institutional credibility.</SlideSubtitle>
+        <div className="grid grid-cols-3 gap-4">
+          {[
+            { name: "0x", role: "DEX aggregation & routing" },
+            { name: "Changelly", role: "Instant exchange & on-ramp" },
+            { name: "CLS", role: "FX settlement infrastructure" },
+            { name: "Dentity", role: "Identity & anti-sybil" },
+            { name: "G-20 Group", role: "Liquidity & treasury" },
+            { name: "Hacken", role: "Security & audits" },
+            { name: "LabLab", role: "AI builder community" },
+            { name: "Northern Trust", role: "Institutional tokenization" },
+            { name: "Surge", role: "Token launch gateway" },
+          ].map(p => (
+            <div key={p.name} className="p-4 rounded-xl border border-border bg-card space-y-1">
+              <h3 className="text-sm font-medium text-foreground">{p.name}</h3>
+              <p className="text-[11px] font-light text-muted-foreground">{p.role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  // 21 — Infrastructure
+  {
+    id: "infrastructure",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+        <SlideTitle>Infrastructure</SlideTitle>
+        <BulletList items={[
+          { bold: "Network architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT for supply management" },
+          { bold: "Edge computing —", text: "Geo-redundant infrastructure for latency-sensitive AI inference routing" },
+          { bold: "Security layers —", text: "HSMs, MPC key management, browser sandboxing, and isolated agent profiles" },
+          { bold: "Monitoring —", text: "Validator health, bridge volumes, treasury dashboards, and public status pages" },
+        ]} />
+      </div>
+    ),
+  },
+  // 22 — Cybersecurity
+  {
+    id: "cybersecurity",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+        <SlideTitle>Cybersecurity</SlideTitle>
+        <SlideSubtitle>
+          Security as an architectural primitive — embedded at every level from browser runtime to on-chain execution.
+        </SlideSubtitle>
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
+            { title: "Network Security", desc: "Validator hardening, node isolation, DDoS mitigation, and Wormhole NTT rate limits" },
+            { title: "Blockchain Security", desc: "Hacken audits, formal verification, bug bounties, and multi-sig upgrade governance" },
+            { title: "DeFi Security", desc: "Oracle manipulation detection, flash loan monitoring, and MEV protection" },
+            { title: "AI Security", desc: "LLM prompt injection defense, model output validation, and agent permission boundaries" },
+          ].map(c => (
+            <div key={c.title} className="p-5 rounded-xl border border-border bg-card space-y-2">
+              <h3 className="text-sm font-medium text-foreground">{c.title}</h3>
+              <p className="text-xs font-light text-muted-foreground">{c.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  // 23 — Auditing & Compliance
+  {
+    id: "auditing",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+        <SlideTitle>Auditing & Compliance</SlideTitle>
+        <div className="grid md:grid-cols-2 gap-12">
+          <div className="space-y-4">
+            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Smart Contract Auditing</h3>
+            <BulletList items={[
+              { bold: "Hacken.io —", text: "comprehensive audit coverage for logic vulnerabilities, reentrancy, and access control" },
+              { bold: "Continuous monitoring —", text: "post-deployment surveillance and anomaly detection" },
+              { bold: "Bug bounties —", text: "community-driven vulnerability discovery with tiered rewards" },
+            ]} />
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Financial Auditing</h3>
+            <BulletList items={[
+              { bold: "Canada —", text: "IFRS standards, FINTRAC compliance, and CPA-governed auditing" },
+              { bold: "Liechtenstein —", text: "TVTG regulatory framework and FMA oversight" },
+              { bold: "Transparency —", text: "quarterly treasury reports and on-chain audit trails" },
+            ]} />
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  // 24 — Privacy & Risks
+  {
+    id: "privacy-risks",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+        <SlideTitle>Privacy & Risk Management</SlideTitle>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Privacy Architecture</h3>
+            <BulletList items={[
+              { bold: "Data minimization —", text: "collect only what's necessary for product function" },
+              { bold: "On-chain privacy —", text: "zero-knowledge proofs for credential verification" },
+              { bold: "User sovereignty —", text: "full control over data export and deletion" },
+            ]} />
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Risk Disclosures</h3>
+            <BulletList items={[
+              { bold: "Market volatility —", text: "digital assets are inherently speculative" },
+              { bold: "Regulatory evolution —", text: "compliance frameworks vary by jurisdiction" },
+              { bold: "Technology risk —", text: "smart contract and bridge vulnerabilities" },
+            ]} />
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  // 25 — Closing
+  {
+    id: "closing",
+    render: () => (
+      <div className="relative flex flex-col items-center justify-center h-full text-center gap-6">
+        <div className="absolute inset-0 pointer-events-none">
+          <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-contain object-center scale-110" />
+          <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
+          <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.25)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
+        </div>
+        <div className="relative z-10 flex flex-col items-center gap-6">
+          <div className="space-y-3">
+            <h1 className="text-4xl md:text-6xl font-extralight tracking-tight text-foreground">Thank You</h1>
+            <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">W3AI — The Tomorrow Company</p>
+          </div>
+          <div className="w-16 h-px bg-[hsl(82,85%,55%,0.4)]" />
+          <p className="text-sm font-light text-muted-foreground/60 uppercase tracking-[0.3em]">tmrw.com · w3ai.app</p>
+          <p className="text-xs font-light text-muted-foreground/40 max-w-md">
+            RWA's · Web3AI · Cyber · Data · Compliance
+          </p>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 // --- Deck viewer ---
