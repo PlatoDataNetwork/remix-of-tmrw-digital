@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
-import { ArrowUp, ChevronRight, ChevronLeft, ChevronDown, Menu, Search, X, FileText } from "lucide-react";
+import { ArrowUp, ChevronRight, ChevronLeft, ChevronDown, Menu, Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -287,7 +287,7 @@ function SidebarNav({ activeId, onNavigate }: { activeId: string; onNavigate: (i
 }
 
 // --- Desktop Sidebar ---
-function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle, onPrint }: { activeId: string; onNavigate: (id: string) => void; collapsed: boolean; onToggle: () => void; onPrint: () => void }) {
+function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle }: { activeId: string; onNavigate: (id: string) => void; collapsed: boolean; onToggle: () => void }) {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
@@ -298,9 +298,6 @@ function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle, onPrint }: 
       <div className="flex items-center justify-between px-4 py-3 border-b border-border shrink-0">
         <span className="text-sm font-semibold text-foreground whitespace-nowrap">W3AI Whitepaper</span>
         <div className="flex items-center gap-1">
-          <button onClick={onPrint} className="p-1 text-muted-foreground hover:text-foreground transition-colors" aria-label="Export PDF" title="Export as PDF">
-            <FileText className="h-4 w-4" />
-          </button>
           <button onClick={onToggle} className="p-1 text-muted-foreground hover:text-foreground transition-colors" aria-label="Collapse sidebar">
             <Menu className="h-4 w-4" />
           </button>
@@ -1625,7 +1622,7 @@ export default function Whitepaper() {
       <ReadingProgress />
 
       <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
-        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(c => !c)} onPrint={handlePrint} />
+        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(c => !c)} />
         {sidebarCollapsed && (
           <button
             onClick={() => setSidebarCollapsed(false)}
