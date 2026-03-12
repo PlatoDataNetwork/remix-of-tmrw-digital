@@ -26,8 +26,15 @@ const fadeUp = {
 };
 
 const BlogPostTemplate = ({ data }: { data: BlogPostData }) => {
+  const location = useLocation();
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={data.title}
+        description={data.subtitle}
+        path={location.pathname}
+        type="article"
+      />
       <Navbar />
 
       {/* Hero */}

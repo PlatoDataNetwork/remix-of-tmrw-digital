@@ -32,9 +32,15 @@ const fadeUp = {
 
 const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
   const Icon = data.icon;
+  const location = useLocation();
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={data.title}
+        description={data.heroDescription}
+        path={location.pathname}
+      />
       <Navbar />
 
       {/* Hero */}

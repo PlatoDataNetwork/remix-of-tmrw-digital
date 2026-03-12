@@ -33,9 +33,15 @@ const fadeUp = {
 
 const RWASectorTemplate = ({ data }: { data: SectorPageData }) => {
   const Icon = data.icon;
+  const location = useLocation();
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={`${data.title} — RWA Tokenization`}
+        description={data.heroDescription}
+        path={location.pathname}
+      />
       <Navbar />
 
       {/* Hero */}
