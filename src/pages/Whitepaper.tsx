@@ -1,3 +1,4 @@
+/* whitepaper v2 */
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { ArrowUp, ChevronRight, ChevronLeft, ChevronDown, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
