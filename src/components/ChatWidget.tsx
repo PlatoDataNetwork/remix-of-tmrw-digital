@@ -18,6 +18,17 @@ function extractText(node: ReactNode): string {
   return Children.toArray(node).map(extractText).join("");
 }
 
+const REF_REGEX = /\[\[REF:([^|]+)\|([^\]]+)\]\]/g;
+
+function parseRefs(content: string): { cleanContent: string; refs: { label: string; path: string }[] } {
+  const refs: { label: string; path: string }[] = [];
+  const cleanContent = content.replace(REF_REGEX, (_, label, path) => {
+    refs.push({ label: label.trim(), path: path.trim() });
+    return "";
+  }).trim();
+  return { cleanContent, refs };
+}
+
 interface Message {
   id: string;
   role: "user" | "assistant";
