@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import whitepaperHero from "@/assets/whitepaper-hero.png";
 import heroBg from "@/assets/hero-bg.png";
+import platoIcon from "@/assets/plato-icon.png";
 import { useChatContext } from "@/components/ChatContext";
 
 const PASSWORD = "W3AI88";
@@ -192,9 +193,21 @@ function SidebarAskMarvin() {
     <div className="px-3 py-2 border-b border-border">
       <button
         onClick={() => setOpen(true)}
-        className="w-full flex items-center gap-2 bg-gradient-to-r from-[hsl(260,80%,55%,0.15)] to-[hsl(220,90%,55%,0.15)] hover:from-[hsl(260,80%,55%,0.25)] hover:to-[hsl(220,90%,55%,0.25)] border border-[hsl(260,80%,55%,0.3)] rounded-md px-3 py-1.5 text-xs font-medium text-[hsl(260,80%,70%)] hover:text-[hsl(260,80%,80%)] transition-all group"
+        className="w-full flex items-center gap-2 bg-gradient-to-r from-[hsl(82,85%,55%,0.1)] to-[hsl(82,85%,45%,0.1)] hover:from-[hsl(82,85%,55%,0.2)] hover:to-[hsl(82,85%,45%,0.2)] border border-[hsl(82,85%,55%,0.3)] rounded-md px-3 py-1.5 text-xs font-medium text-[hsl(82,85%,55%)] hover:text-[hsl(82,85%,65%)] transition-all group"
       >
-        <span className="text-[10px]">🤖</span>
+        <div
+          className="h-4 w-4 shrink-0 bg-[hsl(82,85%,55%)]"
+          style={{
+            WebkitMaskImage: `url(${platoIcon})`,
+            maskImage: `url(${platoIcon})`,
+            WebkitMaskSize: "contain",
+            maskSize: "contain",
+            WebkitMaskRepeat: "no-repeat",
+            maskRepeat: "no-repeat",
+            WebkitMaskPosition: "center",
+            maskPosition: "center",
+          }}
+        />
         <span>Ask Marvin</span>
         <ChevronRight className="h-3 w-3 ml-auto opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
       </button>
