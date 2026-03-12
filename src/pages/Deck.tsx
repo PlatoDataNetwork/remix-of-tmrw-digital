@@ -34,7 +34,7 @@ function BulletList({ items }: { items: { bold: string; text: string }[] }) {
     <div className="space-y-4">
       {items.map((item, i) => (
         <div key={i} className="flex gap-4 items-start">
-          <div className="w-1 h-1 rounded-full bg-muted-foreground mt-2.5 shrink-0" />
+          <div className="w-1.5 h-1.5 rounded-full bg-[hsl(82,85%,55%)] mt-2.5 shrink-0" />
           <p className="text-sm md:text-base font-light text-muted-foreground leading-relaxed">
             <span className="font-medium text-foreground">{item.bold}</span> {item.text}
           </p>
