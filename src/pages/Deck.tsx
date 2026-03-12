@@ -732,8 +732,13 @@ const slides: Slide[] = [
                       <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{t}</td>
                       <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{s}</td>
                       <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{f}</td>
-                      <td className="py-2.5 px-3 text-right">
-                        <span className={l === "Yes" ? "text-[hsl(82,85%,55%,0.6)]" : "text-muted-foreground/40"}>{l === "Yes" ? "Locked" : "Unlocked"}</span>
+                      <td className="py-2.5 px-3 text-left">
+                        <span className={cn(
+                          "inline-block px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider font-medium border",
+                          l === "Yes"
+                            ? "text-[hsl(30,90%,55%)] border-[hsl(30,90%,55%,0.25)] bg-[hsl(30,90%,55%,0.08)]"
+                            : "text-[hsl(82,85%,55%)] border-[hsl(82,85%,55%,0.25)] bg-[hsl(82,85%,55%,0.08)]"
+                        )}>{l === "Yes" ? "Locked" : "Unlocked"}</span>
                       </td>
                     </tr>
                   ))}
