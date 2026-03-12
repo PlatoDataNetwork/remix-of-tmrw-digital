@@ -517,7 +517,7 @@ const slides: Slide[] = [
           <div className="space-y-4">
             <SectionLabel>Tomorrow Digital Inc.</SectionLabel>
             <BulletList items={[
-              { bold: "Headquarters —", text: "Richmond, BC, Canada." },
+              { bold: "Headquarters —", text: "Vancouver, BC, Canada." },
               { bold: "DBA —", text: "The Tomorrow Company." },
               { bold: "Listing target —", text: "TSX Venture Exchange, Q2 2026." },
               { bold: "Experienced team —", text: "proven executives with deep expertise across fintech, AI, blockchain, and public markets." },
