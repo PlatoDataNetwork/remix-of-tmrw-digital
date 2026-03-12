@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import { Flame, Mountain, Gem, Building2, Home, BarChart3, Leaf, Landmark, Receipt, Plug, Crown, Coins } from "lucide-react";
 
 const sectors = [
