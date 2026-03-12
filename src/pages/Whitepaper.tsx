@@ -1521,28 +1521,15 @@ export default function Whitepaper() {
 
       <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
         <DesktopSidebar activeId={activeId} onNavigate={navigateTo} />
-        <MobileDrawerSidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 min-w-0">
           <WhitepaperContent onSectionVisible={setActiveId} />
         </main>
       </div>
 
-      {/* Fixed nav trigger - mobile: left edge tab, desktop: hamburger when collapsed */}
-      <div className="fixed left-0 top-1/2 -translate-y-1/2 z-[70] lg:hidden">
-        <motion.button
-          onClick={() => setSidebarOpen(true)}
-          className="flex items-center justify-center w-7 h-14 rounded-r-lg bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm"
-          whileTap={{ scale: 0.9 }}
-          aria-label="Open table of contents"
-        >
-          <ChevronRight className="h-4 w-4" />
-        </motion.button>
-      </div>
-
       <Footer />
 
       {/* Scroll to top */}
-      {showScrollTop && unlocked && (
+      {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="fixed bottom-6 right-6 z-30 h-10 w-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:bg-primary/90 transition-colors"
