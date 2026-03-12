@@ -803,7 +803,8 @@ const slides: Slide[] = [
           </p>
         </div>
       </div>
-    ),
+      );
+    },
   },
 ];
 
