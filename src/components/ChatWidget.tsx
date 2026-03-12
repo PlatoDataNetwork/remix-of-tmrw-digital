@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { X, Send, Loader2, Trash2, Maximize2, Minimize2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
-import { useNavigate } from "react-router-dom";
+
 import platoIcon from "@/assets/plato-icon.png";
 import { useChatContext } from "./ChatContext";
 
@@ -24,7 +24,7 @@ const defaultWelcome: Message = {
 };
 
 const ChatWidget = () => {
-  const navigate = useNavigate();
+  
   const { open, setOpen, maximized, setMaximized } = useChatContext();
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -286,33 +286,17 @@ const ChatWidget = () => {
                         <ReactMarkdown
                           components={{
                             a: ({ href, children, ...props }) => {
-                              const isInternal = href && (href.startsWith("/") || href.startsWith("/#"));
-                              if (isInternal) {
-                                return (
-                                  <a
-                                    {...props}
-                                    href={href}
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      if (href.startsWith("/#")) {
-                                        const id = href.slice(2);
-                                        navigate("/");
-                                        setTimeout(() => {
-                                          document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-                                        }, 300);
-                                      } else {
-                                        navigate(href);
-                                      }
-                                      setOpen(false);
-                                      setMaximized(false);
-                                    }}
-                                    className="text-[hsl(210,100%,70%)] underline underline-offset-2 hover:text-[hsl(210,100%,80%)] cursor-pointer transition-colors"
-                                  >
-                                    {children}
-                                  </a>
-                                );
-                              }
-                              return <a {...props} href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
+                              return (
+                                <a
+                                  {...props}
+                                  href={href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-[hsl(210,100%,70%)] underline underline-offset-2 hover:text-[hsl(210,100%,80%)] cursor-pointer transition-colors"
+                                >
+                                  {children}
+                                </a>
+                              );
                             },
                           }}
                         >
