@@ -349,77 +349,6 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 10 — Token Utility
-  {
-    id: "token-utility",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-
-        <SlideTitle>Token Utility</SlideTitle>
-        <SlideSubtitle>Four demand drivers powering the W3AI token economy.</SlideSubtitle>
-        <div className="grid grid-cols-2 gap-6">
-          {[
-            { title: "Browser Access", desc: "Premium features and AI workflows" },
-            { title: "AI Gateway", desc: "Token-based credits for inference" },
-            { title: "Network Incentives", desc: "Validator and operator rewards" },
-            { title: "Governance", desc: "Treasury policy and fee parameters" },
-          ].map(p => (
-            <GreenCard key={p.title}>
-              <h3 className="text-sm font-medium text-foreground">{p.title}</h3>
-              <p className="text-xs font-light text-muted-foreground">{p.desc}</p>
-            </GreenCard>
-          ))}
-        </div>
-      </div>
-    ),
-  },
-  // 11 — Tokenomics
-  {
-    id: "tokenomics",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-
-        <SlideTitle>Tokenomics & Supply</SlideTitle>
-        <div className="text-center mb-2">
-          <StatBlock value="2B" label="Total Token Supply" />
-        </div>
-        <TableSlide
-          headers={["Allocation", "Tokens", "Share", "Locked"]}
-          rows={[
-            ["Private Round", "200M", "10%", "No"],
-            ["Private Pre-Sale", "200M", "10%", "Yes"],
-            ["Seed Round", "200M", "10%", "Yes"],
-            ["IDO / TGE", "200M", "10%", "No"],
-            ["Team & Advisors", "200M", "10%", "Yes"],
-            ["Rewards", "50M", "2.5%", "No"],
-            ["Treasury", "1.15B", "52.5%", "Yes"],
-          ]}
-        />
-      </div>
-    ),
-  },
-  // 12 — Sale Rounds
-  {
-    id: "sale-rounds",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-
-        <SlideTitle>Sale Rounds & Pricing</SlideTitle>
-        <TableSlide
-          headers={["Round", "Price", "Raise", "FDV"]}
-          rows={[
-            ["Private Pre-Sale 1", "$0.001875", "$375.5K", "$3.75M"],
-            ["Private Pre-Sale 2", "$0.003750", "$750K", "$7.5M"],
-            ["Seed Round", "$0.007500", "$1M", "$15M"],
-            ["IDO / TGE", "$0.015000", "$1M", "$30M"],
-          ]}
-        />
-        <p className="text-xs font-light text-muted-foreground/60 italic">
-          Amounts represent reserved allocations. Actual sold may vary.
-        </p>
-      </div>
-    ),
-  },
   // 13 — Multi-Chain & Validators
   {
     id: "validators",
@@ -738,7 +667,75 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 26 — Closing
+  // Token Utility
+  {
+    id: "token-utility",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideTitle>Token Utility</SlideTitle>
+        <SlideSubtitle>Four demand drivers powering the W3AI token economy.</SlideSubtitle>
+        <div className="grid grid-cols-2 gap-6">
+          {[
+            { title: "Browser Access", desc: "Premium features and AI workflows" },
+            { title: "AI Gateway", desc: "Token-based credits for inference" },
+            { title: "Network Incentives", desc: "Validator and operator rewards" },
+            { title: "Governance", desc: "Treasury policy and fee parameters" },
+          ].map(p => (
+            <GreenCard key={p.title}>
+              <h3 className="text-sm font-medium text-foreground">{p.title}</h3>
+              <p className="text-xs font-light text-muted-foreground">{p.desc}</p>
+            </GreenCard>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  // Tokenomics
+  {
+    id: "tokenomics",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideTitle>Tokenomics & Supply</SlideTitle>
+        <div className="text-center mb-2">
+          <StatBlock value="2B" label="Total Token Supply" />
+        </div>
+        <TableSlide
+          headers={["Allocation", "Tokens", "Share", "Locked"]}
+          rows={[
+            ["Private Round", "200M", "10%", "No"],
+            ["Private Pre-Sale", "200M", "10%", "Yes"],
+            ["Seed Round", "200M", "10%", "Yes"],
+            ["IDO / TGE", "200M", "10%", "No"],
+            ["Team & Advisors", "200M", "10%", "Yes"],
+            ["Rewards", "50M", "2.5%", "No"],
+            ["Treasury", "1.15B", "52.5%", "Yes"],
+          ]}
+        />
+      </div>
+    ),
+  },
+  // Sale Rounds
+  {
+    id: "sale-rounds",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideTitle>Sale Rounds & Pricing</SlideTitle>
+        <TableSlide
+          headers={["Round", "Price", "Raise", "FDV"]}
+          rows={[
+            ["Private Pre-Sale 1", "$0.001875", "$375.5K", "$3.75M"],
+            ["Private Pre-Sale 2", "$0.003750", "$750K", "$7.5M"],
+            ["Seed Round", "$0.007500", "$1M", "$15M"],
+            ["IDO / TGE", "$0.015000", "$1M", "$30M"],
+          ]}
+        />
+        <p className="text-xs font-light text-muted-foreground/60 italic">
+          Amounts represent reserved allocations. Actual sold may vary.
+        </p>
+      </div>
+    ),
+  },
+  // Closing
   {
     id: "closing",
     render: () => (
