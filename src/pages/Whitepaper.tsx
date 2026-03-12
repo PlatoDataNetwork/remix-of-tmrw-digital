@@ -22,7 +22,7 @@ const sections: Section[] = [
   { id: "executive-summary", title: "Rise of the Machines", number: "01" },
   { id: "w3ai-protocol", title: "W3AI Protocol", number: "02" },
   { id: "tmrw-browser", title: "W3AI TMRW", number: "03" },
-  { id: "w3ai-rwas", title: "W3AI Real World Assets", number: "04" },
+  { id: "w3ai-rwas", title: "W3AI RWA's", number: "04" },
   { id: "w3ai-token-utility", title: "W3AI Token Utility", number: "05" },
   { id: "governance", title: "W3AI Governance", number: "06" },
   { id: "token-utility", title: "W3AI Tokenomics", number: "07" },
