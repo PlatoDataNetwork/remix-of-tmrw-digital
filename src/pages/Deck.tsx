@@ -114,7 +114,7 @@ const slides: Slide[] = [
           <img src={whitepaperHero} alt="W3AI Vision" className="w-full h-[260px] md:h-[340px] object-cover" />
         </div>
         <div className="space-y-3">
-          <SlideTitle>The W3AI TMRW Browser</SlideTitle>
+          <SlideTitle>W3AI TMRW Browser</SlideTitle>
           <SlideSubtitle>
             A macOS desktop Web3 AI Browser built on Firefox. The browser is no longer a window — 
             it is the execution environment for AI, identity, and money.
