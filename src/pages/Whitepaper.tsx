@@ -1226,10 +1226,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="partner-surge" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
-          Surge
-          <a href="https://surge.lablab.ai" target="_blank" rel="noopener noreferrer" className="partner-globe-link"><Globe className="h-5 w-5" /></a>
-        </h2>
+        <div className="flex items-center flex-wrap gap-4 mb-4">
+          <h2 className="text-2xl font-bold text-foreground">Surge</h2>
+          <a href="https://surge.lablab.ai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[hsl(75,80%,55%)] text-black text-sm font-medium hover:bg-[hsl(75,80%,45%)] transition-colors">Visit ↗</a>
+        </div>
         <div className="prose-section">
           <p>Surge operates as W3AI's discovery and execution gateway for tokenized launches. Within the W3AI ecosystem, Surge provides infrastructure for token distribution events, community-driven launches, and curated project discovery.</p>
           <p>The integration enables W3AI browser users to participate in vetted token launches directly from their browsing environment with built-in security checks and credential verification.</p>
