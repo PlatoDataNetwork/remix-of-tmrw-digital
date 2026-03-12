@@ -1248,10 +1248,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="partner-lablab" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
-          LabLab
-          <a href="https://lablab.ai" target="_blank" rel="noopener noreferrer" className="partner-globe-link"><Globe className="h-5 w-5" /></a>
-        </h2>
+        <div className="flex items-center flex-wrap gap-4 mb-4">
+          <h2 className="text-2xl font-bold text-foreground">LabLab</h2>
+          <a href="https://lablab.ai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[hsl(75,80%,55%)] text-black text-sm font-medium hover:bg-[hsl(75,80%,45%)] transition-colors">Visit ↗</a>
+        </div>
         <div className="prose-section">
           <p>LabLab.ai is a global AI innovation community with over 251,000 members, 23,000+ teams, and 5,200+ prototypes built through free-to-attend AI hackathons. LabLab connects builders, developers, and entrepreneurs with state-of-the-art AI tools and mentorship to accelerate product development from concept to launch.</p>
           <p>Within the W3AI ecosystem, LabLab serves as a talent and innovation pipeline—sourcing AI-native builders who can extend browser functionality, develop W3AI extensions, and contribute to the protocol's open-source components. LabLab's hackathon infrastructure provides W3AI with a repeatable engine for community-driven development and rapid prototyping of new features.</p>
