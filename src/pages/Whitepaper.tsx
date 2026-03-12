@@ -106,25 +106,34 @@ function SidebarNav({ sections, activeId, expanded, toggle, onNavigate }: { sect
   return (
     <nav className="p-3 space-y-0.5">
       {sections.map(s => {
-        const isActive = activeId === s.id || s.children?.some(c => c.id === activeId);
+        const isActive = activeId === s.id;
         const isOpen = expanded[s.id] ?? false;
         return (
           <div key={s.id}>
             <button
               onClick={() => {
                 if (s.id === "deck-link") { window.location.href = "/deck"; return; }
-                if (s.children) toggle(s.id); else onNavigate(s.id);
+                if (s.children) { toggle(s.id); onNavigate(s.id); } else onNavigate(s.id);
               }}
               className={cn(
-                "w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors",
-                isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
+                "w-full flex items-center gap-2.5 px-3 py-2 rounded-md text-sm transition-colors",
+                isActive ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
               )}
             >
-              {s.children ? (isOpen ? <ChevronDown className="h-3.5 w-3.5 shrink-0" /> : <ChevronRight className="h-3.5 w-3.5 shrink-0" />) : <span className="w-3.5" />}
+              {s.icon === "home" && <Home className="h-3.5 w-3.5 shrink-0 text-primary" />}
+              {s.icon === "disclaimer" && (
+                <>
+                  {isOpen ? <ChevronDown className="h-3.5 w-3.5 shrink-0" /> : <ChevronRight className="h-3.5 w-3.5 shrink-0" />}
+                </>
+              )}
+              {s.number && (
+                <span className="text-[10px] font-bold text-primary/80 w-5 shrink-0">{s.number}</span>
+              )}
+              {!s.icon && !s.number && <span className="w-5 shrink-0" />}
               <span className="text-left">{s.title}</span>
             </button>
             {s.children && isOpen && (
-              <div className="ml-6 mt-0.5 space-y-0.5 border-l border-border pl-3">
+              <div className="ml-7 mt-0.5 space-y-0.5 border-l border-border pl-3">
                 {s.children.map(c => (
                   <button
                     key={c.id}
