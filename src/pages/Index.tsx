@@ -35,6 +35,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead path="/" />
+      <Navbar />
       <HeroSection />
       <AboutSection />
       <Suspense fallback={<SectionFallback />}>
