@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, ChevronDown, ChevronLeft, X, ArrowUp, Download, Globe } from "lucide-react";
+import { ChevronRight, ChevronDown, ChevronLeft, X, ArrowUp, Download, Globe, Home } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
@@ -15,136 +15,37 @@ const PASSWORD = "W3AI88";
 interface Section {
   id: string;
   title: string;
+  number?: string;
+  icon?: "home" | "disclaimer";
   children?: { id: string; title: string }[];
 }
 
 const sections: Section[] = [
-  { id: "w3ai-whitepaper", title: "W3AI Whitepaper" },
-  { id: "executive-summary", title: "Rise of the Machines", children: [
-    { id: "network-thesis", title: "Network Thesis" },
-    { id: "why-now", title: "Why Now" },
-    { id: "go-to-market", title: "Go To Market" },
+  { id: "w3ai-whitepaper", title: "Home", icon: "home" },
+  { id: "w3lcome", title: "W3LCOME", icon: "disclaimer", children: [
+    { id: "welcome-message", title: "Welcome Message" },
   ]},
-  { id: "w3ai-protocol", title: "W3AI Protocol", children: [
-    { id: "protocol-architecture", title: "Architecture" },
-    { id: "protocol-economic-model", title: "Economic Model" },
-  ]},
-  { id: "tmrw-browser", title: "W3AI Browser", children: [
-    { id: "browser-architecture", title: "Architecture" },
-    { id: "differentiation", title: "Differentiation" },
-    { id: "llm-layer", title: "LLM Layer" },
-    { id: "developers", title: "Developers" },
-    { id: "swap-execution", title: "DeFi Swap Execution" },
-    { id: "security-intelligence", title: "Security Intelligence" },
-  ]},
-  { id: "w3ai-rwas", title: "W3AI RWAs", children: [
-    { id: "rwa-carbon-credits", title: "Carbon Credits" },
-    { id: "rwa-collectables", title: "Collectables" },
-    { id: "rwa-commodities", title: "Commodities" },
-    { id: "rwa-energy", title: "Energy" },
-    { id: "rwa-infrastructure", title: "Infrastructure" },
-    { id: "rwa-metals", title: "Metals" },
-    { id: "rwa-rare-earth", title: "Rare Earth Minerals" },
-    { id: "rwa-real-estate", title: "Real Estate" },
-    { id: "rwa-sovereign-wealth", title: "Sovereign Wealth" },
-    { id: "rwa-stablecoins", title: "Stablecoins" },
-    { id: "rwa-tax-credits", title: "Tax Credits" },
-    { id: "rwa-utilities", title: "Utilities" },
-  ]},
-  { id: "w3ai-token-utility", title: "W3AI Token Utility", children: [
-    { id: "token-utility-overview", title: "Overview" },
-    { id: "token-utility-demand", title: "Demand Drivers" },
-    { id: "token-utility-access", title: "Access & Staking" },
-    { id: "token-utility-governance", title: "Governance Rights" },
-    { id: "token-utility-burn", title: "Burn & Deflation" },
-  ]},
-  { id: "foundations", title: "W3AI Governance", children: [
-    { id: "foundation-governance", title: "Governance Framework" },
-    { id: "foundation-treasury", title: "Treasury Management" },
-    { id: "foundation-compliance", title: "Regulatory Compliance" },
-  ]},
-  { id: "token-utility", title: "W3AI Tokenomics", children: [
-    { id: "token-pillars", title: "Token Utility Pillars" },
-    { id: "tokenomics", title: "Tokenomics Design" },
-    { id: "supply-allocations", title: "Supply & Allocations" },
-    { id: "sale-rounds", title: "Sale Rounds & Pricing" },
-    { id: "byok-gateway", title: "BYOK vs Open Gateway" },
-    { id: "swaps-fee", title: "Swaps & Convenience Fee" },
-  ]},
-  { id: "institutional-rails", title: "Institutional-Grade Rails", children: [
-    { id: "rails-custody", title: "Custody & Asset Safeguarding" },
-    { id: "rails-compliance", title: "Compliance Infrastructure" },
-    { id: "rails-tokenization", title: "Tokenization & RWA Access" },
-    { id: "rails-reporting", title: "Institutional Reporting" },
-  ]},
-  { id: "community-integrations", title: "Community Integrations", children: [
-    { id: "solana-community", title: "Solana" },
-    { id: "ethereum-community", title: "Ethereum" },
-    { id: "bsc-community", title: "BSC" },
-  ]},
-  { id: "supported-networks", title: "Supported Networks", children: [
-    { id: "network-solana", title: "Solana" },
-    { id: "network-ethereum", title: "Ethereum" },
-    { id: "network-bsc", title: "BNB Smart Chain" },
-  ]},
-  { id: "foundations-infrastructure", title: "Foundations & Infrastructure", children: [
-    { id: "fi-ethereum", title: "Ethereum" },
-    { id: "fi-solana", title: "Solana" },
-    { id: "fi-bitcoin", title: "Bitcoin" },
-    { id: "fi-arbitrum", title: "Arbitrum" },
-    { id: "fi-polygon", title: "Polygon" },
-    { id: "fi-cosmos", title: "Cosmos" },
-    { id: "fi-cardano", title: "Cardano" },
-    { id: "fi-ton", title: "TON" },
-    { id: "fi-tezos", title: "Tezos" },
-    { id: "fi-icp", title: "Internet Computer" },
-    { id: "fi-web3-foundation", title: "Web3 Foundation" },
-  ]},
-  { id: "multi-chain", title: "Multi-Chain Deployments", children: [
-    { id: "multi-hub-spoke", title: "Hub & Spoke Architecture" },
-    { id: "multi-wormhole", title: "Wormhole NTT Bridge" },
-    { id: "multi-supply-integrity", title: "Supply Integrity" },
-    { id: "multi-chain-governance", title: "Cross-Chain Governance" },
-  ]},
-  { id: "validator-yield", title: "Validator Yield & Staking", children: [
-    { id: "eth-validators", title: "Ethereum Validators" },
-    { id: "bsc-validators", title: "BSC Validators" },
-    { id: "sol-validators", title: "Solana Validators" },
-  ]},
-  { id: "liquidity", title: "Liquidity & Market Making", children: [
-    { id: "dex-strategy", title: "DEX Liquidity Strategy" },
-    { id: "cex-strategy", title: "CEX Listing Readiness" },
-    { id: "partner-mm", title: "Partner Market Making" },
-  ]},
-  { id: "marketing", title: "Marketing & Distribution", children: [
-    { id: "community-growth", title: "Community Growth Objectives" },
-    { id: "kol-strategy", title: "Social & KOL Strategy" },
-    { id: "six-month-rollout", title: "Six-Month Rollout" },
-  ]},
-  { id: "strategic-partners", title: "Network Partners", children: [
-    { id: "partner-changelly", title: "Changelly" },
-    { id: "partner-hacken", title: "Hacken" },
-    { id: "partner-dentity", title: "Dentity" },
-    { id: "partner-northern-trust", title: "Northern Trust" },
-    { id: "partner-surge", title: "Surge" },
-    { id: "partner-g20", title: "G-20 Group" },
-    { id: "partner-lablab", title: "LabLab" },
-  ]},
-  { id: "infrastructure", title: "Infrastructure", children: [
-    { id: "infra-network", title: "Network Architecture" },
-    { id: "infra-security", title: "Security & Custody" },
-    { id: "infra-monitoring", title: "Monitoring & Operations" },
-  ]},
-  { id: "privacy", title: "Privacy Policy", children: [
-    { id: "privacy-data-minimization", title: "Data Minimization" },
-    { id: "privacy-on-chain", title: "On-Chain Privacy" },
-    { id: "privacy-third-party", title: "Third-Party Data Sharing" },
-    { id: "privacy-user-rights", title: "User Rights & Control" },
-    { id: "identity-anti-sybil", title: "Identity & Anti-Sybil" },
-  ]},
-  { id: "risks", title: "Risks & Disclosures" },
-  { id: "appendix", title: "Appendix & References" },
-  { id: "disclaimer", title: "Disclaimer" },
+  { id: "executive-summary", title: "Rise of the Machines", number: "01" },
+  { id: "w3ai-protocol", title: "W3AI Protocol", number: "02" },
+  { id: "tmrw-browser", title: "The W3AI TMRW Browser", number: "03" },
+  { id: "w3ai-rwas", title: "W3AI RWAs", number: "04" },
+  { id: "w3ai-token-utility", title: "W3AI Token Utility", number: "05" },
+  { id: "foundations", title: "W3AI Governance", number: "06" },
+  { id: "token-utility", title: "W3AI Tokenomics", number: "07" },
+  { id: "institutional-rails", title: "Institutional-Grade Rails", number: "08" },
+  { id: "community-integrations", title: "Community Integrations", number: "09" },
+  { id: "supported-networks", title: "Supported Networks", number: "10" },
+  { id: "foundations-infrastructure", title: "Foundations & Infrastructure", number: "11" },
+  { id: "multi-chain", title: "Multi-Chain Deployments", number: "12" },
+  { id: "validator-yield", title: "Validator Yield & Staking", number: "13" },
+  { id: "liquidity", title: "Liquidity & Market Making", number: "14" },
+  { id: "marketing", title: "Marketing & Distribution", number: "15" },
+  { id: "strategic-partners", title: "Network Partners", number: "16" },
+  { id: "infrastructure", title: "Infrastructure", number: "17" },
+  { id: "privacy", title: "Privacy Policy", number: "18" },
+  { id: "risks", title: "Risks & Disclosures", number: "19" },
+  { id: "appendix", title: "Appendix & References", number: "20" },
+  { id: "disclaimer", title: "Disclaimer", number: "21" },
   { id: "deck-link", title: "Project Deck" },
 ];
 
@@ -205,25 +106,34 @@ function SidebarNav({ sections, activeId, expanded, toggle, onNavigate }: { sect
   return (
     <nav className="p-3 space-y-0.5">
       {sections.map(s => {
-        const isActive = activeId === s.id || s.children?.some(c => c.id === activeId);
+        const isActive = activeId === s.id;
         const isOpen = expanded[s.id] ?? false;
         return (
           <div key={s.id}>
             <button
               onClick={() => {
                 if (s.id === "deck-link") { window.location.href = "/deck"; return; }
-                if (s.children) toggle(s.id); else onNavigate(s.id);
+                if (s.children) { toggle(s.id); onNavigate(s.id); } else onNavigate(s.id);
               }}
               className={cn(
-                "w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors",
-                isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
+                "w-full flex items-center gap-2.5 px-3 py-2 rounded-md text-sm transition-colors",
+                isActive ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
               )}
             >
-              {s.children ? (isOpen ? <ChevronDown className="h-3.5 w-3.5 shrink-0" /> : <ChevronRight className="h-3.5 w-3.5 shrink-0" />) : <span className="w-3.5" />}
+              {s.icon === "home" && <Home className="h-3.5 w-3.5 shrink-0 text-primary" />}
+              {s.icon === "disclaimer" && (
+                <>
+                  {isOpen ? <ChevronDown className="h-3.5 w-3.5 shrink-0" /> : <ChevronRight className="h-3.5 w-3.5 shrink-0" />}
+                </>
+              )}
+              {s.number && (
+                <span className="text-[10px] font-bold text-primary/80 w-5 shrink-0">{s.number}</span>
+              )}
+              {!s.icon && !s.number && <span className="w-5 shrink-0" />}
               <span className="text-left">{s.title}</span>
             </button>
             {s.children && isOpen && (
-              <div className="ml-6 mt-0.5 space-y-0.5 border-l border-border pl-3">
+              <div className="ml-7 mt-0.5 space-y-0.5 border-l border-border pl-3">
                 {s.children.map(c => (
                   <button
                     key={c.id}
@@ -288,8 +198,13 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* W3LCOME Section */}
+      <section id="w3lcome" data-section className="mt-8">
+        <h2 className="text-2xl font-bold text-foreground mb-4">W3LCOME</h2>
+      </section>
+
       {/* Welcome Message */}
-      <section id="welcome-message" data-section className="mt-8">
+      <section id="welcome-message" data-section>
         <div className="prose-section">
           <h3 className="text-xl font-semibold text-foreground mb-4">Welcome and Thank you for Joining Us!</h3>
           <p>We are excited to introduce you to W3AI, a pioneering force at the intersection of Web3 and AI. Our vision is to revolutionize the way vertically focused AI applications are conceived, developed and leveraged across both centralized and decentralized networks. creating a more efficient, transparent, and secure digital ecosystem and decentralized transport management system. We are revolutionizing data intelligence by delivering an array of vertically focused Generative AI Applications inside a custom network framework that leverages AI in ways that drive both high ROI and stored value. We embrace innovation and deploy it across our entire ecosystem and corporate culture.</p>
