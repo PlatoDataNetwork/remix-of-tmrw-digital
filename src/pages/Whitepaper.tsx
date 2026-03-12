@@ -51,7 +51,14 @@ const sections: Section[] = [
     { id: "rwa-tax-credits", title: "Tax Credits" },
     { id: "rwa-utilities", title: "Utilities" },
   ]},
-  { id: "token-utility", title: "Tokenomics", children: [
+  { id: "w3ai-token-utility", title: "W3AI Token Utility", children: [
+    { id: "token-utility-overview", title: "Overview" },
+    { id: "token-utility-demand", title: "Demand Drivers" },
+    { id: "token-utility-access", title: "Access & Staking" },
+    { id: "token-utility-governance", title: "Governance Rights" },
+    { id: "token-utility-burn", title: "Burn & Deflation" },
+  ]},
+  { id: "token-utility", title: "W3AI Tokenomics", children: [
     { id: "token-pillars", title: "Token Utility Pillars" },
     { id: "tokenomics", title: "Tokenomics Design" },
     { id: "supply-allocations", title: "Supply & Allocations" },
@@ -515,9 +522,100 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* Tokenomics */}
+      {/* W3AI Token Utility */}
+      <section id="w3ai-token-utility" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-6">W3AI Token Utility</h2>
+        <div className="prose-section">
+          <p>The W3AI token is engineered as a multi-functional utility asset that powers every layer of the W3AI ecosystem — from browser-native AI features and decentralized inference to governance, staking, and cross-border settlements. Token utility is designed to create sustained, organic demand through real usage rather than speculation.</p>
+        </div>
+      </section>
+
+      <section id="token-utility-overview" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Token Utility Overview</h2>
+        <div className="prose-section">
+          <p>W3AI tokens serve as the primary medium of exchange, access credential, and governance instrument across the entire network. Every interaction within the W3AI Browser, Open Gateway, and RWA infrastructure is designed to route value through the token — creating a closed-loop economy where usage drives demand.</p>
+          <p>The token architecture supports dual revenue streams for participants: transaction-based fees from network activity and yield-based returns from staking and validation. This dual-income model ensures that both active users and passive holders benefit from ecosystem growth.</p>
+        </div>
+      </section>
+
+      <section id="token-utility-demand" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Demand Drivers</h2>
+        <div className="prose-section">
+          <p>W3AI token demand is anchored by four core consumption vectors:</p>
+          <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
+            <li><strong className="text-foreground">Browser-Native Access:</strong> Premium AI features within the W3AI Browser — including advanced agent workflows, priority inference, and personalized AI models — require W3AI tokens. Users stake or spend tokens to unlock tiered feature sets.</li>
+            <li><strong className="text-foreground">Open Gateway AI Spend:</strong> Developers and enterprises route AI inference calls through the W3AI Open Gateway using token-based credits. Every API call, model query, and data retrieval consumes tokens, creating persistent demand proportional to network usage.</li>
+            <li><strong className="text-foreground">Network Incentives:</strong> Validators, node operators, and application service providers earn W3AI tokens for securing the network and processing transactions across Solana, Ethereum, and BSC chains.</li>
+            <li><strong className="text-foreground">RWA Transaction Fees:</strong> Tokenization, trading, and settlement of real-world assets on the W3AI platform incur fees denominated in W3AI tokens, linking asset market activity directly to token demand.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="token-utility-access" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Access & Staking Tiers</h2>
+        <div className="prose-section">
+          <p>The W3AI ecosystem implements a tiered staking model that rewards long-term commitment with escalating benefits:</p>
+          <div className="overflow-x-auto mt-4">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted">
+                <tr>
+                  <th className="text-left px-4 py-3 font-semibold text-foreground">Tier</th>
+                  <th className="text-right px-4 py-3 font-semibold text-foreground">Stake Requirement</th>
+                  <th className="text-left px-4 py-3 font-semibold text-foreground">Benefits</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {[
+                  ["Explorer", "1,000 W3AI", "Basic browser AI features, standard inference speeds"],
+                  ["Builder", "10,000 W3AI", "Priority inference, advanced agent workflows, API access"],
+                  ["Architect", "50,000 W3AI", "Premium AI models, custom agent deployment, governance voting"],
+                  ["Sovereign", "250,000 W3AI", "Full platform access, revenue sharing, proposal creation rights"],
+                ].map(([tier, stake, benefits]) => (
+                  <tr key={tier} className="hover:bg-muted/50">
+                    <td className="px-4 py-2.5 font-medium text-foreground">{tier}</td>
+                    <td className="px-4 py-2.5 text-right text-muted-foreground">{stake}</td>
+                    <td className="px-4 py-2.5 text-muted-foreground">{benefits}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4">Staking also unlocks loyalty-based reward multipliers — holders who maintain their stake position for 90+ days receive enhanced yield bonuses and priority access to new feature releases and RWA offerings.</p>
+        </div>
+      </section>
+
+      <section id="token-utility-governance" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Governance Rights</h2>
+        <div className="prose-section">
+          <p>W3AI token holders participate directly in protocol governance through on-chain voting mechanisms:</p>
+          <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
+            <li><strong className="text-foreground">Treasury Allocation:</strong> Vote on how foundation reserves are deployed — including ecosystem grants, liquidity provisions, and strategic partnerships.</li>
+            <li><strong className="text-foreground">Fee Parameters:</strong> Influence transaction fee structures across the browser, Open Gateway, and RWA marketplace.</li>
+            <li><strong className="text-foreground">Chain Expansion:</strong> Decide which new blockchain networks are added to the W3AI multi-chain deployment.</li>
+            <li><strong className="text-foreground">Security Thresholds:</strong> Set and adjust security parameters for wallet permissions, agent authorization levels, and anti-sybil measures.</li>
+          </ul>
+          <p>Governance weight scales with staking tier — Architect and Sovereign tier holders have proposal creation rights, while all stakers can vote on active proposals.</p>
+        </div>
+      </section>
+
+      <section id="token-utility-burn" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Burn & Deflationary Mechanics</h2>
+        <div className="prose-section">
+          <p>The W3AI token incorporates built-in deflationary pressure through multiple burn mechanisms:</p>
+          <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
+            <li><strong className="text-foreground">Transaction Fee Burns:</strong> A percentage of all transaction fees across the network are permanently burned, reducing circulating supply with every interaction.</li>
+            <li><strong className="text-foreground">Gateway Revenue Burns:</strong> A portion of Open Gateway AI inference revenue is allocated to quarterly token buybacks and burns.</li>
+            <li><strong className="text-foreground">RWA Settlement Burns:</strong> Real-world asset settlement fees include a burn component, tying deflationary pressure to real economic activity.</li>
+          </ul>
+          <div className="mt-4 p-4 rounded-lg bg-muted/50 border border-border">
+            <p className="text-sm text-muted-foreground"><strong className="text-foreground">Deflationary Impact:</strong> As network usage grows, the burn rate accelerates — creating a positive feedback loop where increased adoption leads to reduced supply, supporting long-term value appreciation for token holders.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* W3AI Tokenomics */}
       <section id="token-utility" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Tokenomics</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Tokenomics</h2>
         <div className="prose-section">
           <p>This section covers token assumptions, monetization surfaces, and treasury mechanics.</p>
         </div>
