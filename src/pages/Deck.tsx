@@ -714,7 +714,7 @@ const slides: Slide[] = [
                     <th className="py-2.5 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">Tokens</th>
                     <th className="py-2.5 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">Share</th>
                     <th className="py-2.5 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">FDV</th>
-                    <th className="py-2.5 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">Lock</th>
+                    <th className="py-2.5 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">Lock Status</th>
                   </tr>
                 </thead>
                 <tbody>
