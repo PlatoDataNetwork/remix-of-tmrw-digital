@@ -362,8 +362,8 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
         <div className="relative rounded-2xl overflow-hidden">
-          <img src={stockExchangeImg} alt="Stock Exchange" className="w-full h-[200px] md:h-[260px] object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <img src={stockExchangeImg} alt="Stock Exchange" className="w-full h-[200px] md:h-[260px] object-cover grayscale brightness-110" />
+          <div className="absolute inset-0 animated-gradient-datacenter-bg" />
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[hsl(82,85%,55%,0.4)] via-[hsl(82,85%,55%,0.2)] to-transparent" />
         </div>
         <SlideTitle>RTO & Public Markets</SlideTitle>
