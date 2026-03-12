@@ -90,7 +90,7 @@ const sections: Section[] = [
     { id: "network-ethereum", title: "Ethereum" },
     { id: "network-bsc", title: "BNB Smart Chain" },
   ]},
-  { id: "foundations-infrastructure", title: "Foundations & Infrastructure", number: "11", children: [
+  { id: "foundations", title: "Foundations", number: "11", children: [
     { id: "fi-ethereum", title: "Ethereum" },
     { id: "fi-solana", title: "Solana" },
     { id: "fi-bitcoin", title: "Bitcoin" },
@@ -949,9 +949,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* Foundations & Infrastructure */}
-      <section id="foundations-infrastructure" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Foundations & Infrastructure</h2>
+      {/* Foundations */}
+      <section id="foundations" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Foundations</h2>
         <div className="prose-section">
           <p>W3AI is built on and integrated with the leading blockchain protocols that power the decentralized web. These foundations provide the secure, scalable infrastructure that enables W3AI's multi-chain AI browser capabilities.</p>
         </div>
