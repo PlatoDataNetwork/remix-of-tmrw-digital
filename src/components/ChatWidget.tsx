@@ -174,6 +174,21 @@ const ChatWidget = () => {
     }
   };
 
+  const handleFollowUp = useCallback((text: string) => {
+    if (isLoading) return;
+    const now = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    const userMsg: Message = { id: Date.now().toString(), content: text, role: "user", time: now };
+    const newMessages = [...messages, userMsg];
+    setMessages(newMessages);
+    setInput("");
+    setIsLoading(true);
+    streamChat(newMessages).catch((e: any) => {
+      if (e.name !== "AbortError") {
+        setMessages((prev) => [...prev, { id: (Date.now() + 1).toString(), content: "Sorry, I'm having trouble connecting right now.", role: "assistant", time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) }]);
+      }
+    }).finally(() => setIsLoading(false));
+  }, [isLoading, messages, streamChat]);
+
   const panelClasses = maximized
     ? "fixed top-16 lg:top-20 right-0 z-[55] w-full sm:w-[480px] rounded-none sm:rounded-bl-2xl border-l border-b border-white/10 bg-[hsl(220,20%,6%,0.65)] backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden"
     : "fixed bottom-6 right-6 z-[60] w-[360px] sm:w-[400px] h-[520px] rounded-2xl border border-white/10 bg-[hsl(220,20%,6%,0.65)] backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden";
