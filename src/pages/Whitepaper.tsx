@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { ArrowUp, Download, Globe, Home, Shield, ChevronRight, Menu } from "lucide-react";
+import { useState, useEffect, useRef, useMemo } from "react";
+import { ArrowUp, ChevronRight, ChevronLeft, Menu, Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -48,8 +48,38 @@ const sections: Section[] = [
 // Only numbered sections for the chapter grid
 const chapterSections = sections.filter(s => s.number);
 
+// --- Sidebar Search ---
+function SidebarSearch({ query, setQuery }: { query: string; setQuery: (q: string) => void }) {
+  return (
+    <div className="px-3 py-2 border-b border-border">
+      <div className="relative">
+        <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground/60" />
+        <input
+          type="text"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+          placeholder="Search..."
+          className="w-full bg-muted/50 border border-border rounded-md pl-8 pr-8 py-1.5 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 transition-colors"
+        />
+        {query && (
+          <button onClick={() => setQuery("")} className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground/60 hover:text-foreground">
+            <X className="h-3 w-3" />
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // --- Desktop Sidebar ---
 function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle }: { activeId: string; onNavigate: (id: string) => void; collapsed: boolean; onToggle: () => void }) {
+  const [searchQuery, setSearchQuery] = useState("");
+  const filteredSections = useMemo(() => {
+    if (!searchQuery.trim()) return sections;
+    const q = searchQuery.toLowerCase();
+    return sections.filter(s => s.title.toLowerCase().includes(q) || (s.number && s.number.includes(q)));
+  }, [searchQuery]);
+
   return (
     <aside className={cn(
       "flex flex-col sticky top-[80px] h-[calc(100vh-80px)] border-r border-border bg-sidebar-background overflow-y-auto shrink-0 z-10 transition-all duration-300",
@@ -61,33 +91,43 @@ function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle }: { activeI
           <Menu className="h-4 w-4" />
         </button>
       </div>
-      <SidebarNav sections={sections} activeId={activeId} onNavigate={onNavigate} />
+      <SidebarSearch query={searchQuery} setQuery={setSearchQuery} />
+      <SidebarNav sections={filteredSections} activeId={activeId} onNavigate={onNavigate} />
     </aside>
   );
 }
 
-// --- Mobile Drawer Sidebar ---
-function SidebarNav({ sections, activeId, onNavigate }: { sections: Section[]; activeId: string; onNavigate: (id: string) => void }) {
+// --- Sidebar Nav ---
+function SidebarNav({ sections: secs, activeId, onNavigate }: { sections: Section[]; activeId: string; onNavigate: (id: string) => void }) {
+  const activeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    activeRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, [activeId]);
+
   return (
-    <nav className="p-3 space-y-0.5">
-      {sections.map(s => {
+    <nav className="p-3 space-y-0.5 flex-1 overflow-y-auto">
+      {secs.map(s => {
         const isActive = activeId === s.id;
         return (
           <button
             key={s.id}
+            ref={isActive ? activeRef : undefined}
             onClick={() => {
               if (s.id === "deck-link") { window.location.href = "/deck"; return; }
               onNavigate(s.id);
             }}
             className={cn(
-              "w-full flex items-center gap-2.5 px-3 py-2 rounded-md text-sm transition-colors",
-              isActive ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
+              "w-full flex items-center gap-2.5 px-3 py-2 rounded-md text-sm transition-all duration-200",
+              isActive
+                ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium border-l-2 border-[hsl(82,85%,55%)]"
+                : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
             )}
           >
-            {s.icon === "home" && <Home className="h-4 w-4 shrink-0 text-primary/70" />}
-            {s.icon === "disclaimer" && <Shield className="h-4 w-4 shrink-0 text-primary/70" />}
+            {s.icon === "home" && <span className="text-[10px] font-bold w-5 shrink-0 text-primary/70">🏠</span>}
+            {s.icon === "disclaimer" && <span className="text-[10px] font-bold w-5 shrink-0 text-primary/70">📜</span>}
             {s.number && (
-              <span className="text-[10px] font-bold w-5 shrink-0 text-[hsl(82,85%,55%)]">{s.number}</span>
+              <span className={cn("text-[10px] font-bold w-5 shrink-0 transition-colors", isActive ? "text-[hsl(82,85%,65%)]" : "text-[hsl(82,85%,55%)]")}>{s.number}</span>
             )}
             {!s.icon && !s.number && <span className="w-5 shrink-0" />}
             <span className="text-left truncate">{s.title}</span>
@@ -98,8 +138,90 @@ function SidebarNav({ sections, activeId, onNavigate }: { sections: Section[]; a
   );
 }
 
+// --- Prev / Next Navigation ---
+function PrevNextNav({ activeId, onNavigate }: { activeId: string; onNavigate: (id: string) => void }) {
+  const idx = sections.findIndex(s => s.id === activeId);
+  const prev = idx > 0 ? sections[idx - 1] : null;
+  const next = idx < sections.length - 1 ? sections[idx + 1] : null;
+
+  // Don't render for deck-link
+  if (prev?.id === "deck-link") return null;
+
+  return (
+    <div className="flex items-stretch gap-4 mt-16 mb-8 border-t border-border pt-8">
+      {prev ? (
+        <button
+          onClick={() => {
+            if (prev.id === "deck-link") { window.location.href = "/deck"; return; }
+            onNavigate(prev.id);
+          }}
+          className="flex-1 flex items-center gap-3 px-5 py-4 rounded-lg border border-border bg-card hover:bg-accent hover:border-primary/30 hover:shadow-[0_0_15px_-3px_hsl(82,85%,55%,0.15)] transition-all duration-200 text-left group"
+        >
+          <ChevronLeft className="h-4 w-4 text-muted-foreground group-hover:text-foreground group-hover:-translate-x-0.5 transition-all shrink-0" />
+          <div className="flex flex-col min-w-0">
+            <span className="text-[10px] uppercase tracking-wider text-muted-foreground/60 mb-0.5">Previous</span>
+            <span className="text-sm text-foreground truncate group-hover:text-primary transition-colors">{prev.number ? `${prev.number}. ` : ""}{prev.title}</span>
+          </div>
+        </button>
+      ) : <div className="flex-1" />}
+      {next && next.id !== "deck-link" ? (
+        <button
+          onClick={() => onNavigate(next.id)}
+          className="flex-1 flex items-center justify-end gap-3 px-5 py-4 rounded-lg border border-border bg-card hover:bg-accent hover:border-primary/30 hover:shadow-[0_0_15px_-3px_hsl(82,85%,55%,0.15)] transition-all duration-200 text-right group"
+        >
+          <div className="flex flex-col min-w-0 items-end">
+            <span className="text-[10px] uppercase tracking-wider text-muted-foreground/60 mb-0.5">Next</span>
+            <span className="text-sm text-foreground truncate group-hover:text-primary transition-colors">{next.number ? `${next.number}. ` : ""}{next.title}</span>
+          </div>
+          <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 transition-all shrink-0" />
+        </button>
+      ) : <div className="flex-1" />}
+    </div>
+  );
+}
+
+// --- Reading Progress Bar ---
+function ReadingProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="fixed top-[64px] lg:top-[80px] left-0 right-0 z-50 h-0.5 bg-transparent">
+      <div
+        className="h-full bg-gradient-to-r from-[hsl(82,85%,55%)] to-[hsl(160,80%,45%)] transition-[width] duration-150 ease-out"
+        style={{ width: `${progress}%` }}
+      />
+    </div>
+  );
+}
+
+// --- Breadcrumb ---
+function Breadcrumb({ activeId }: { activeId: string }) {
+  const section = sections.find(s => s.id === activeId);
+  if (!section) return null;
+
+  return (
+    <div className="flex items-center gap-2 text-xs text-muted-foreground/60 mb-6 px-6">
+      <span>W3AI Whitepaper</span>
+      <ChevronRight className="h-3 w-3" />
+      {section.number && <span className="text-[hsl(82,85%,55%)]">{section.number}</span>}
+      {section.number && <span>·</span>}
+      <span className="text-muted-foreground">{section.title}</span>
+    </div>
+  );
+}
+
 // --- Content ---
-function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string) => void }) {
+function WhitepaperContent({ onSectionVisible, activeId, onNavigate }: { onSectionVisible: (id: string) => void; activeId: string; onNavigate: (id: string) => void }) {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -182,6 +304,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         <img src={whitepaperHero} alt="W3AI Rise of the Machines" className="w-full h-[300px] md:h-[420px] object-cover" />
       </div>
 
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
+
       {/* Executive Summary */}
       <section id="executive-summary" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Rise of the Machines</h2>
@@ -213,6 +338,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
+
       {/* W3AI Protocol */}
       <section id="w3ai-protocol" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Protocol</h2>
@@ -234,6 +362,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           <p>The protocol's economic model is designed for long-term sustainability. Revenue flows from multiple surfaces—Open Gateway AI inference fees, in-browser swap convenience fees, validator yield, and premium feature access—all routed transparently through on-chain treasury mechanisms. With 52.5% of total token supply allocated to the treasury and governed by progressive decentralization, the W3AI Protocol is structured to fund development, incentivize participation, and maintain operational resilience across market cycles.</p>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
 
       {/* W3AI TMRW Browser */}
       <section id="tmrw-browser" data-section>
@@ -294,6 +425,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           <p>W3AI will integrate security posture into the act of connecting, signing, and transacting. A practical security integration partner is Hacken, offering smart contract audits, wallet audits, penetration testing, tokenomics audits, proof-of-reserves audits, and post-deployment monitoring. In W3AI, this becomes an "in-browser trust layer": risk flags, verified proofs, and standardized security context before users commit capital.</p>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
 
       {/* W3AI RWAs */}
       <section id="w3ai-rwas" data-section>
@@ -395,107 +529,51 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="rwa-utilities" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Utilities</h2>
         <div className="prose-section">
-          <p>Utility infrastructure represents one of the most stable and essential asset classes globally, generating predictable cash flows from electricity, water, gas, and telecommunications services. However, direct investment in utility assets has historically been limited to governments, sovereign funds, and large institutional players. Tokenization democratizes access to these inflation-protected, yield-generating assets by converting ownership stakes into digital tokens that can be fractionalized, traded, and managed with unprecedented transparency.</p>
-          <p>The global utility market cap exceeds $5T with average asset lifespans of 30+ years. IoT-connected utility infrastructure feeds real-time usage and revenue data directly to token holders via smart contracts. Key verticals include power generation from solar, wind, and hydroelectric facilities, water treatment and desalination systems, fiber optic and 5G telecommunications networks, electric grid transmission and distribution assets, district heating & cooling systems, and waste management & recycling facilities generating revenue from tipping fees and recovered materials.</p>
+          <p>Utility companies provide essential services—electricity, gas, water, and telecommunications—that generate stable, regulated revenue streams. These assets have traditionally been accessible only through public equities or massive infrastructure deals. Tokenization enables fractional ownership of utility-grade assets, from renewable energy installations and water treatment facilities to broadband networks and smart grid infrastructure.</p>
+          <p>The global utilities market exceeds $5T with predictable cash flows driven by regulated rate structures. Tokenized utility stakes provide inflation-protected yield with historically low correlation to equity markets. The framework supports municipal energy cooperatives, water treatment and distribution infrastructure, smart grid and distributed energy resources, telecom tower and fiber optic networks, waste-to-energy facilities, and district heating and cooling systems.</p>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
 
       {/* W3AI Token Utility */}
       <section id="w3ai-token-utility" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-6">W3AI Token Utility</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Token Utility</h2>
         <div className="prose-section">
-          <p>The W3AI token is engineered as a multi-functional utility asset that powers every layer of the W3AI ecosystem — from browser-native AI features and decentralized inference to governance, staking, and cross-border settlements. Token utility is designed to create sustained, organic demand through real usage rather than speculation.</p>
+          <p>The W3AI token is the native utility and governance token powering the entire W3AI ecosystem. Token utility extends across every product surface—from browser-native AI access to validator operations and cross-chain governance.</p>
         </div>
       </section>
 
-      <section id="token-utility-overview" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Token Utility Overview</h2>
+      <section id="staking-tiers" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Staking Tiers</h2>
         <div className="prose-section">
-          <p>W3AI tokens serve as the primary medium of exchange, access credential, and governance instrument across the entire network. Every interaction within the W3AI Browser, Open Gateway, and RWA infrastructure is designed to route value through the token — creating a closed-loop economy where usage drives demand.</p>
-          <p>The token architecture supports dual revenue streams for participants: transaction-based fees from network activity and yield-based returns from staking and validation. This dual-income model ensures that both active users and passive holders benefit from ecosystem growth.</p>
-        </div>
-      </section>
-
-      <section id="token-utility-demand" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Demand Drivers</h2>
-        <div className="prose-section">
-          <p>W3AI token demand is anchored by four core consumption vectors:</p>
-          <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
-            <li><strong className="text-foreground">Browser-Native Access:</strong> Premium AI features within the W3AI Browser — including advanced agent workflows, priority inference, and personalized AI models — require W3AI tokens. Users stake or spend tokens to unlock tiered feature sets.</li>
-            <li><strong className="text-foreground">Open Gateway AI Spend:</strong> Developers and enterprises route AI inference calls through the W3AI Open Gateway using token-based credits. Every API call, model query, and data retrieval consumes tokens, creating persistent demand proportional to network usage.</li>
-            <li><strong className="text-foreground">Network Incentives:</strong> Validators, node operators, and application service providers earn W3AI tokens for securing the network and processing transactions across Solana, Ethereum, and BSC chains.</li>
-            <li><strong className="text-foreground">RWA Transaction Fees:</strong> Tokenization, trading, and settlement of real-world assets on the W3AI platform incur fees denominated in W3AI tokens, linking asset market activity directly to token demand.</li>
+          <p>W3AI implements a tiered staking model that aligns token lockup with ecosystem access. Higher staking tiers unlock premium features, enhanced AI capabilities, and increased governance weight.</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Explorer Tier: Basic browser access and standard AI assistant functionality.</li>
+            <li>Builder Tier: Enhanced AI capabilities, priority inference routing, and developer tools access.</li>
+            <li>Validator Tier: Full governance rights, maximum AI allocation, and validator delegation eligibility.</li>
           </ul>
         </div>
       </section>
 
-      <section id="token-utility-access" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Access & Staking Tiers</h2>
+      <section id="deflationary-mechanics" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Deflationary Mechanics</h2>
         <div className="prose-section">
-          <p>The W3AI ecosystem implements a tiered staking model that rewards long-term commitment with escalating benefits:</p>
-          <div className="overflow-x-auto mt-4">
-            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
-              <thead className="bg-muted">
-                <tr>
-                  <th className="text-left px-4 py-3 font-semibold text-foreground">Tier</th>
-                  <th className="text-right px-4 py-3 font-semibold text-foreground">Stake Requirement</th>
-                  <th className="text-left px-4 py-3 font-semibold text-foreground">Benefits</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border">
-                {[
-                  ["Explorer", "1,000 W3AI", "Basic browser AI features, standard inference speeds"],
-                  ["Builder", "10,000 W3AI", "Priority inference, advanced agent workflows, API access"],
-                  ["Architect", "50,000 W3AI", "Premium AI models, custom agent deployment, governance voting"],
-                  ["Sovereign", "250,000 W3AI", "Full platform access, revenue sharing, proposal creation rights"],
-                ].map(([tier, stake, benefits]) => (
-                  <tr key={tier} className="hover:bg-muted/50">
-                    <td className="px-4 py-2.5 font-medium text-foreground">{tier}</td>
-                    <td className="px-4 py-2.5 text-right text-muted-foreground">{stake}</td>
-                    <td className="px-4 py-2.5 text-muted-foreground">{benefits}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-4">Staking also unlocks loyalty-based reward multipliers — holders who maintain their stake position for 90+ days receive enhanced yield bonuses and priority access to new feature releases and RWA offerings.</p>
-        </div>
-      </section>
-
-      <section id="token-utility-governance" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Governance Rights</h2>
-        <div className="prose-section">
-          <p>W3AI token holders participate directly in protocol governance through on-chain voting mechanisms:</p>
-          <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
-            <li><strong className="text-foreground">Treasury Allocation:</strong> Vote on how foundation reserves are deployed — including ecosystem grants, liquidity provisions, and strategic partnerships.</li>
-            <li><strong className="text-foreground">Fee Parameters:</strong> Influence transaction fee structures across the browser, Open Gateway, and RWA marketplace.</li>
-            <li><strong className="text-foreground">Chain Expansion:</strong> Decide which new blockchain networks are added to the W3AI multi-chain deployment.</li>
-            <li><strong className="text-foreground">Security Thresholds:</strong> Set and adjust security parameters for wallet permissions, agent authorization levels, and anti-sybil measures.</li>
+          <p>W3AI implements systematic supply reduction through multiple burn mechanisms tied to protocol revenue:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Open Gateway burn: A percentage of AI inference fees collected through the Open Gateway is used to buy back and burn W3AI tokens.</li>
+            <li>Swap fee burn: A portion of in-browser swap convenience fees is allocated to token burns.</li>
+            <li>Premium feature burn: Revenue from premium browser features contributes to deflationary pressure.</li>
           </ul>
-          <p>Governance weight scales with staking tier — Architect and Sovereign tier holders have proposal creation rights, while all stakers can vote on active proposals.</p>
         </div>
       </section>
 
-      <section id="token-utility-burn" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Burn & Deflationary Mechanics</h2>
-        <div className="prose-section">
-          <p>The W3AI token incorporates built-in deflationary pressure through multiple burn mechanisms:</p>
-          <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
-            <li><strong className="text-foreground">Transaction Fee Burns:</strong> A percentage of all transaction fees across the network are permanently burned, reducing circulating supply with every interaction.</li>
-            <li><strong className="text-foreground">Gateway Revenue Burns:</strong> A portion of Open Gateway AI inference revenue is allocated to quarterly token buybacks and burns.</li>
-            <li><strong className="text-foreground">RWA Settlement Burns:</strong> Real-world asset settlement fees include a burn component, tying deflationary pressure to real economic activity.</li>
-          </ul>
-          <div className="mt-4 p-4 rounded-lg bg-muted/50 border border-border">
-            <p className="text-sm text-muted-foreground"><strong className="text-foreground">Deflationary Impact:</strong> As network usage grows, the burn rate accelerates — creating a positive feedback loop where increased adoption leads to reduced supply, supporting long-term value appreciation for token holders.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* W3AI Governance */}
+      {/* Governance */}
       <section id="governance" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Governance</h2>
         <div className="prose-section">
-          <p>The W3AI Foundation provides the governance, treasury management, and regulatory framework required to operate a decentralized protocol at institutional quality. The foundation structure ensures long-term sustainability, transparent decision-making, and compliance across jurisdictions.</p>
+          <p>W3AI is designed to evolve from core-team-led to fully community-governed. The governance framework establishes transparent decision-making processes for treasury management, protocol upgrades, and ecosystem development.</p>
         </div>
       </section>
 
@@ -527,6 +605,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           <p>The foundation maintains relationships with legal counsel in major jurisdictions and implements compliance controls including KYC/AML for applicable token sale rounds, sanctions screening, and geographic restrictions where required by law.</p>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
 
       {/* W3AI Tokenomics */}
       <section id="token-utility" data-section>
@@ -667,6 +748,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
+
       {/* Institutional */}
       <section id="institutional-rails" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Institutional-Grade Rails</h2>
@@ -724,6 +808,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
+
       {/* Community Integrations */}
       <section id="community-integrations" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Community Integrations Across Solana, Ethereum, and BSC</h2>
@@ -767,6 +854,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           </ul>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
+
       <section id="supported-networks" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Supported Networks</h2>
         <div className="prose-section">
@@ -777,12 +868,12 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="network-solana" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Solana</h2>
         <div className="prose-section">
-          <p>Solana serves as W3AI's canonical mint chain and primary hub. With sub-second finality, transaction costs under $0.01, and throughput exceeding 4,000 TPS, Solana provides the performance foundation for W3AI's high-frequency operations including token staking, governance voting, AI gateway billing, and reward distribution.</p>
+          <p>Solana serves as the hub chain and canonical mint for the W3AI token. Its sub-second finality and low transaction costs make it the optimal execution environment for high-frequency AI agent operations, real-time swap execution, and staking mechanics.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Canonical mint of all 2,000,000,000 W3AI tokens.</li>
-            <li>Primary chain for staking, governance, and treasury operations.</li>
-            <li>Hub chain for Wormhole NTT cross-chain transfers.</li>
-            <li>Ecosystem of 48,000+ developers and $600M+ in venture funding.</li>
+            <li>Hub chain with canonical token mint and primary staking contracts.</li>
+            <li>AI inference routing optimized for Solana's parallel transaction processing.</li>
+            <li>Native integration with Jupiter aggregator for optimal swap routing.</li>
+            <li>Validator operations contributing to network security and protocol revenue.</li>
           </ul>
         </div>
       </section>
@@ -790,12 +881,12 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="network-ethereum" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Ethereum</h2>
         <div className="prose-section">
-          <p>Ethereum provides W3AI with access to the largest DeFi ecosystem and the deepest institutional liquidity pools. As a spoke chain, Ethereum enables composability with leading protocols including Uniswap, Aave, and MakerDAO, while providing the credibility and listing infrastructure required for institutional adoption.</p>
+          <p>Ethereum provides W3AI with access to the deepest DeFi liquidity, the largest developer ecosystem, and the strongest institutional credibility in Web3. As a spoke chain in the hub-and-spoke architecture, Ethereum hosts bridged W3AI tokens for DeFi composability and exchange listings.</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Spoke chain receiving bridged W3AI tokens via Wormhole NTT.</li>
-            <li>Uniswap-style AMM pools for decentralized liquidity.</li>
-            <li>Validator node operations with 32 ETH staking requirement.</li>
-            <li>ETH Global hackathon ecosystem with 95+ events and 14,000+ projects.</li>
+            <li>Spoke chain with Wormhole NTT bridged tokens.</li>
+            <li>Uniswap-style AMM pools for deep liquidity access.</li>
+            <li>Smart contract audit standards aligned with Ethereum's security-first culture.</li>
+            <li>Layer 2 expansion roadmap (Arbitrum, Polygon) for cost-efficient operations.</li>
           </ul>
         </div>
       </section>
@@ -812,6 +903,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           </ul>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
 
       {/* Foundations */}
       <section id="foundations" data-section>
@@ -986,6 +1080,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
+
       {/* Multi-chain */}
       <section id="multi-chain" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Multi-Chain Deployments & Supply Integrity</h2>
@@ -1035,6 +1132,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
+
       {/* Validator Yield */}
       <section id="validator-yield" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Validator Yield & Staking Economics</h2>
@@ -1063,6 +1163,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           <p>Validators "form the backbone" of the Solana network with protocol-based rewards from inflation plus staking-related rewards and fee earnings.</p>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
 
       {/* Liquidity */}
       <section id="liquidity" data-section>
@@ -1098,6 +1201,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           <p>G-20 Group provides liquidity solutions and treasury management across exchange-traded and on-chain venues. Within W3AI, this maps to a professional multi-venue liquidity framework, risk-managed treasury yield, and market-depth stability programs tied to milestones.</p>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
 
       {/* Marketing */}
       <section id="marketing" data-section>
@@ -1144,6 +1250,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           </ul>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
 
       {/* Network Partners */}
       <section id="strategic-partners" data-section>
@@ -1230,6 +1339,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
+
       <section id="infrastructure" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Infrastructure</h2>
         <div className="prose-section">
@@ -1270,6 +1382,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           </ul>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
 
       {/* Security */}
       <section id="security" data-section>
@@ -1315,7 +1430,6 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
             <li>MEV protection: W3AI integrates private transaction relays and MEV-aware routing to shield users from sandwich attacks and front-running on Ethereum and BSC.</li>
             <li>Oracle integrity: Price feeds are sourced from multiple decentralized oracles with outlier detection. Stale or manipulated price data triggers automatic circuit breakers.</li>
             <li>Liquidity risk monitoring: Real-time pool depth analysis, impermanent loss estimation, and concentration risk alerts are surfaced directly in the browser interface.</li>
-            <li>Protocol allow-listing: Only audited and verified DeFi protocols are accessible through W3AI's native swap and yield interfaces. Unverified contracts require explicit user override with risk acknowledgment.</li>
           </ul>
         </div>
       </section>
@@ -1323,13 +1437,12 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="security-defai" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">DeFAI Security</h2>
         <div className="prose-section">
-          <p>DeFAI—the convergence of decentralized finance and artificial intelligence—represents the next frontier of both opportunity and risk. When AI agents autonomously execute financial strategies, the security model must evolve beyond human-in-the-loop to agent-in-the-loop with cryptographic constraints:</p>
+          <p>DeFAI (Decentralized Finance + AI) represents the emerging convergence where AI agents autonomously interact with DeFi protocols. This creates a novel attack surface that traditional security models are not designed to address:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Agent permission boundaries: AI agents operate within explicit permission envelopes—maximum transaction size, approved protocols, and whitelisted token pairs. No autonomous signing is permitted outside these boundaries.</li>
-            <li>Deterministic execution: AI-recommended strategies are compiled into verifiable execution plans. Users approve the plan, not individual transactions, enabling batch execution with full auditability.</li>
-            <li>Adversarial robustness: AI models are tested against prompt injection, data poisoning, and adversarial input attacks. The browser sandboxes all AI inference to prevent cross-context data leakage.</li>
-            <li>Explainability enforcement: Every AI-driven financial recommendation includes a human-readable rationale, data sources, confidence scores, and risk disclaimers. Black-box execution is architecturally prohibited.</li>
-            <li>Kill switch governance: DAO-governed emergency stop mechanisms can pause all AI agent activity network-wide within seconds if systemic risk is detected.</li>
+            <li>Agent permission boundaries: AI agents operate within strictly defined permission scopes. No agent can initiate transactions, sign messages, or modify wallet state without explicit user authorization.</li>
+            <li>Prompt injection defense: All AI agent inputs are sanitized and validated against injection patterns designed to bypass permission boundaries or manipulate agent behavior.</li>
+            <li>Action verification: Every AI-recommended action is translated into a human-readable summary with risk assessment before user confirmation. "Explain before execute" is enforced at the protocol level.</li>
+            <li>Audit trails: Complete logs of all AI agent actions, recommendations, and user approvals are maintained for forensic analysis and compliance reporting.</li>
           </ul>
         </div>
       </section>
@@ -1337,37 +1450,39 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="security-ai" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">AI Security</h2>
         <div className="prose-section">
-          <p>AI systems within W3AI—from the browser's built-in LLM layer to the Open Gateway inference API—are secured against the full spectrum of AI-specific threats. The security model treats AI as untrusted infrastructure that must be constrained, monitored, and verified at every interaction:</p>
+          <p>As AI becomes deeply integrated into financial infrastructure, protecting the AI layer itself becomes critical. W3AI implements comprehensive AI security measures across the inference pipeline:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Model isolation: Each AI inference request runs in an isolated execution environment. No persistent state is shared between sessions, preventing cross-user data contamination.</li>
-            <li>Input sanitization: All user inputs and web content processed by AI models are sanitized against prompt injection, jailbreaking, and instruction override attacks.</li>
-            <li>Output verification: AI-generated outputs—especially those triggering financial actions—are validated against rule-based checks before execution. Hallucinated contract addresses, token symbols, or transaction parameters are caught and rejected.</li>
-            <li>Data sovereignty: AI inference can run locally on-device for privacy-sensitive operations. No user data is sent to external AI providers without explicit consent and encryption in transit.</li>
-            <li>Model provenance: All AI models used within the W3AI ecosystem are version-tracked, hash-verified, and auditable. Model updates require governance approval to prevent supply chain attacks on the inference layer.</li>
-            <li>Rate limiting and abuse prevention: API-level rate limits, anomaly detection, and behavioral analysis prevent automated abuse of AI endpoints for phishing content generation, social engineering, or market manipulation.</li>
+            <li>Model integrity: AI inference is routed through verified, versioned model endpoints. Users can audit which model version processed their request.</li>
+            <li>Data privacy: User queries, wallet data, and transaction context are processed with strict data isolation. No user data is used for model training or shared across sessions.</li>
+            <li>Adversarial robustness: AI models are tested against adversarial inputs designed to produce harmful, misleading, or manipulative outputs in financial contexts.</li>
+            <li>Hallucination mitigation: Financial data, token prices, and protocol parameters are sourced from verified on-chain data. AI outputs are cross-referenced against ground truth before presentation to users.</li>
           </ul>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
 
       {/* Auditing */}
       <section id="auditing" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Auditing</h2>
         <div className="prose-section">
-          <p>W3AI maintains the highest standards of accountability through comprehensive auditing across both smart contract infrastructure and corporate financial operations. This dual-audit framework ensures technical integrity on-chain and regulatory compliance off-chain, providing stakeholders with verifiable trust at every layer.</p>
+          <p>W3AI maintains a rigorous auditing framework that spans both technical infrastructure and financial operations. Auditing is not a one-time event but a continuous process embedded into the protocol's operational lifecycle—ensuring accountability, transparency, and regulatory compliance across all jurisdictions where W3AI operates.</p>
         </div>
       </section>
 
       <section id="auditing-smart-contract" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">3rd Party Smart Contract Auditing</h2>
         <div className="prose-section">
-          <p>All W3AI smart contracts undergo rigorous third-party security audits conducted by Hacken.io, a leading blockchain security auditor with a proven track record across 1,800+ projects. Hacken's audit methodology provides institutional-grade assurance across the full contract lifecycle:</p>
+          <p>All W3AI smart contracts undergo comprehensive third-party security audits conducted by <a href="https://hacken.io" target="_blank" rel="noopener noreferrer" className="text-[hsl(82,85%,55%)] hover:underline">Hacken.io</a>, a leading blockchain security firm with a proven track record across 1,500+ projects and $200B+ in secured digital assets.</p>
+          <p>The audit process covers the complete smart contract lifecycle:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Comprehensive code review: Line-by-line analysis of all deployed smart contracts covering logic vulnerabilities, access control flaws, reentrancy vectors, integer overflow/underflow, and gas optimization.</li>
-            <li>Automated vulnerability scanning: Static and dynamic analysis tools identify known vulnerability patterns, including those catalogued in the SWC Registry and OWASP Smart Contract Top 10.</li>
-            <li>Formal verification: Critical contract paths—token minting, governance execution, bridge operations, and staking mechanics—are formally verified to ensure mathematical correctness.</li>
-            <li>Audit reporting: All audit reports are published publicly, detailing findings by severity (Critical, High, Medium, Low, Informational), remediation status, and re-audit confirmation.</li>
-            <li>Continuous auditing: W3AI maintains an ongoing audit relationship with Hacken. All contract upgrades, new deployments, and protocol modifications trigger mandatory re-audits before mainnet deployment.</li>
-            <li>Bug bounty integration: Hacken's audit process is complemented by W3AI's community-driven bug bounty program, ensuring continuous post-deployment vulnerability discovery.</li>
+            <li>Pre-deployment code review: Line-by-line analysis of all smart contract code for logic errors, reentrancy vulnerabilities, integer overflow/underflow, and access control weaknesses.</li>
+            <li>Automated vulnerability scanning: Industry-standard tools (Slither, Mythril, Echidna) complement manual review to ensure comprehensive coverage.</li>
+            <li>Formal verification: Critical contract paths—including token minting, bridge operations, and governance execution—undergo formal mathematical verification where applicable.</li>
+            <li>Tokenomics audit: Independent validation of supply mechanics, vesting schedules, burn mechanisms, and treasury allocation logic to ensure alignment with published parameters.</li>
+            <li>Post-deployment monitoring: Continuous on-chain surveillance for anomalous contract behavior, unauthorized access patterns, and supply integrity deviations.</li>
+            <li>Re-audit cycles: All major contract upgrades trigger mandatory re-audit before deployment. Audit reports are published publicly for community verification.</li>
           </ul>
         </div>
       </section>
@@ -1375,28 +1490,31 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       <section id="auditing-financial" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Financial Auditing</h2>
         <div className="prose-section">
-          <p>W3AI operates under dual-jurisdiction financial auditing requirements, maintaining compliance with both Canadian and Liechtenstein regulatory frameworks. This multi-jurisdictional approach ensures the highest standards of financial transparency and corporate governance:</p>
+          <p>W3AI maintains dual-jurisdiction financial auditing standards to satisfy regulatory requirements in both Canada and Liechtenstein—the two primary regulatory environments under which the project operates.</p>
 
-          <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Canada — Regulatory Compliance</h3>
+          <h4 className="text-lg font-semibold text-foreground mt-6 mb-3">🇨🇦 Canada</h4>
+          <p>Financial auditing in Canada follows Canadian Auditing Standards (CAS), which are aligned with International Standards on Auditing (ISA). W3AI's Canadian financial compliance framework includes:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Annual financial audits conducted in accordance with Canadian Auditing Standards (CAS) and International Financial Reporting Standards (IFRS) as adopted in Canada.</li>
-            <li>Compliance with Canadian Securities Administrators (CSA) reporting requirements, including National Instrument 51-102 Continuous Disclosure Obligations where applicable.</li>
-            <li>Anti-Money Laundering (AML) and Know Your Customer (KYC) compliance under the Proceeds of Crime (Money Laundering) and Terrorist Financing Act (PCMLTFA), with registration and reporting to FINTRAC.</li>
-            <li>Tax compliance with the Canada Revenue Agency (CRA), including proper treatment and reporting of digital asset transactions under the Income Tax Act.</li>
-            <li>Engagement of independent, CPAB-registered audit firms to ensure objectivity and adherence to professional standards.</li>
+            <li>Annual financial statement audits conducted by a CPA-licensed audit firm in accordance with CAS and International Financial Reporting Standards (IFRS).</li>
+            <li>FINTRAC compliance: Registration and ongoing reporting obligations under Canada's Proceeds of Crime (Money Laundering) and Terrorist Financing Act (PCMLTFA), including suspicious transaction reporting (STR) and large cash transaction reporting.</li>
+            <li>Securities compliance: Adherence to applicable Canadian Securities Administrators (CSA) guidance on crypto-asset trading platforms and token classifications.</li>
+            <li>Tax reporting: Compliance with Canada Revenue Agency (CRA) requirements for digital asset transactions, including capital gains reporting and GST/HST treatment.</li>
           </ul>
 
-          <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Liechtenstein — Regulatory Compliance</h3>
+          <h4 className="text-lg font-semibold text-foreground mt-6 mb-3">🇱🇮 Liechtenstein</h4>
+          <p>Liechtenstein provides one of the most comprehensive regulatory frameworks for blockchain and token economies through the Token and Trusted Technology Service Provider Act (TVTG), commonly known as the "Blockchain Act." W3AI's Liechtenstein compliance framework includes:</p>
           <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Compliance with the Liechtenstein Token and TT Service Provider Act (TVTG / "Blockchain Act"), one of the world's most comprehensive legal frameworks for tokenized assets and blockchain-based business models.</li>
-            <li>Financial audits conducted in accordance with Liechtenstein audit standards and International Standards on Auditing (ISA), ensuring alignment with European regulatory expectations.</li>
-            <li>Regulatory oversight by the Financial Market Authority Liechtenstein (FMA), including registration as a TT Service Provider and adherence to ongoing reporting obligations.</li>
-            <li>AML/KYC compliance under Liechtenstein's Due Diligence Act (SPG) and Due Diligence Ordinance (SPV), aligned with EU Anti-Money Laundering Directives (AMLD5/AMLD6).</li>
-            <li>MiCA readiness: Proactive alignment with the EU Markets in Crypto-Assets Regulation (MiCA), ensuring seamless compliance as the regulation takes full effect across the European Economic Area.</li>
-            <li>Engagement of FMA-approved audit firms with expertise in digital asset businesses and tokenized security structures.</li>
+            <li>TVTG registration: Compliance with the Blockchain Act's requirements for token generation, storage, and transfer services, overseen by the Financial Market Authority (FMA).</li>
+            <li>Annual financial audits conducted in accordance with Liechtenstein audit standards and International Financial Reporting Standards (IFRS) by an FMA-approved audit firm.</li>
+            <li>AML/KYC compliance: Adherence to Liechtenstein's Due Diligence Act (SPG) and EU Anti-Money Laundering Directives, including ongoing transaction monitoring and customer due diligence.</li>
+            <li>MiCA readiness: Proactive alignment with the EU's Markets in Crypto-Assets Regulation (MiCA), ensuring seamless compliance as pan-European requirements take effect.</li>
+            <li>Token classification documentation: Formal legal opinions on token classification under the TVTG's "container model," which treats tokens as digital containers that can represent various rights and assets.</li>
           </ul>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
 
       {/* Privacy Policy */}
       <section id="privacy" data-section>
@@ -1447,6 +1565,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
+
       {/* Risks */}
       <section id="risks" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Risks, Security & Disclosures</h2>
@@ -1456,6 +1577,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
           <p className="italic text-muted-foreground">Exchange listing targets are aspirational. Kraken, Coinbase, Gate, and MEXC all describe formal processes and criteria, and none guarantee approval.</p>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
 
       {/* Appendix */}
       <section id="appendix" data-section>
@@ -1494,6 +1618,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="my-12 border-t border-border/50" />
+
       {/* Disclaimer */}
       <section id="disclaimer" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Disclaimer</h2>
@@ -1510,8 +1637,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Prev / Next Navigation */}
+      <PrevNextNav activeId={activeId} onNavigate={onNavigate} />
 
-      <div className="h-24" />
+      <div className="h-12" />
     </div>
   );
 }
@@ -1537,6 +1666,7 @@ export default function Whitepaper() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
+      <ReadingProgress />
 
       <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
         <DesktopSidebar activeId={activeId} onNavigate={navigateTo} collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(c => !c)} />
@@ -1551,7 +1681,8 @@ export default function Whitepaper() {
           </button>
         )}
         <main className="flex-1 min-w-0">
-          <WhitepaperContent onSectionVisible={setActiveId} />
+          <Breadcrumb activeId={activeId} />
+          <WhitepaperContent onSectionVisible={setActiveId} activeId={activeId} onNavigate={navigateTo} />
         </main>
       </div>
 
