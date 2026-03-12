@@ -475,10 +475,10 @@ const slides: Slide[] = [
         </div>
         <SlideTitle>Enterprise Infrastructure</SlideTitle>
         <BulletList items={[
-          { bold: "Multi-chain architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT" },
-          { bold: "Edge computing —", text: "geo-redundant infrastructure for low-latency AI inference" },
-          { bold: "Security layers —", text: "HSMs, MPC key management, browser sandboxing" },
-          { bold: "Monitoring —", text: "validator health, bridge volumes, treasury dashboards" },
+          { bold: "Multi-chain architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT." },
+          { bold: "Edge computing —", text: "geo-redundant infrastructure for low-latency AI inference." },
+          { bold: "Security layers —", text: "HSMs, MPC key management, browser sandboxing." },
+          { bold: "Monitoring —", text: "validator health, bridge volumes, treasury dashboards." },
         ]} />
       </div>
     ),
