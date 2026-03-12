@@ -262,10 +262,10 @@ const slides: Slide[] = [
           for AI, identity, and money.
         </SlideSubtitle>
         <BulletList items={[
-          { bold: "Gecko engine —", text: "deep customization, open-source codebase, Chromium-independent" },
-          { bold: "User-selectable AI —", text: "BYOK or Open Gateway with token-based billing" },
-          { bold: "Security-first —", text: "smart contract audits, transaction simulation, no autonomous signing" },
-          { bold: "Multi-chain —", text: "native support for Solana, Ethereum, BSC, and 12+ networks" },
+          { bold: "Gecko engine —", text: "deep customization, open-source codebase, Chromium-independent." },
+          { bold: "User-selectable AI —", text: "BYOK or Open Gateway with token-based billing." },
+          { bold: "Security-first —", text: "smart contract audits, transaction simulation, no autonomous signing." },
+          { bold: "Multi-chain —", text: "native support for Solana, Ethereum, BSC, and 12+ networks." },
         ]} />
       </div>
     ),
