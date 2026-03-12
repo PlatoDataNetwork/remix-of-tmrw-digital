@@ -107,7 +107,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
   }, [onSectionVisible]);
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12 whitepaper-content">
+    <div className="max-w-4xl mx-auto px-6 py-12 whitepaper-content prose-whitepaper">
       {/* W3AI Whitepaper Section */}
       <section id="w3lcome" data-section>
         <div className="relative rounded-2xl overflow-hidden h-[300px] md:h-[420px] bg-[hsl(220,20%,4%)]">
