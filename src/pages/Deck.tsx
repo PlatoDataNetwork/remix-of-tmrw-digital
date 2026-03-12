@@ -791,11 +791,11 @@ const slides: Slide[] = [
         </div>
         <div className="relative z-10 flex flex-col items-center gap-6">
           <div className="space-y-3">
-            <h1 className="text-4xl md:text-6xl font-extralight tracking-tight text-foreground">Thank You</h1>
-            <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">W3AI — The Tomorrow Company</p>
-          </div>
-          <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
-          <p className="text-sm font-light text-[hsl(82,85%,55%,0.5)] uppercase tracking-[0.3em]">tmrw.com · w3ai.app</p>
+           <h1 className="text-4xl md:text-6xl font-extralight tracking-tight text-foreground">Thank You</h1>
+             <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">The Tomorrow Company</p>
+           </div>
+           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
+           <p className="text-sm font-light text-[hsl(82,85%,55%,0.5)] uppercase tracking-[0.3em]">TMRW-DIGITAL.COM</p>
           <p className="text-xs font-light text-muted-foreground/40 max-w-md">
             RWA's · Web3AI · Cyber · Data · Compliance
           </p>
