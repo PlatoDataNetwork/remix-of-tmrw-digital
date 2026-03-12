@@ -833,9 +833,9 @@ export default function Deck() {
       {/* Slide branding */}
       <SlideBranding />
       {/* Slide content */}
-      <div className="absolute inset-0 p-8 md:p-16 flex flex-col">
-        {slides[current].render()}
-      </div>
+       <div key={current} className="absolute inset-0 p-8 md:p-16 flex flex-col animate-fade-in">
+         {slides[current].render()}
+       </div>
 
       {/* Bottom controls */}
       <div className={cn(
