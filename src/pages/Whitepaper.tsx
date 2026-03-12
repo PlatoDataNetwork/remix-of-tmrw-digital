@@ -19,6 +19,7 @@ interface Section {
 const sections: Section[] = [
   { id: "w3lcome", title: "Home", icon: "home" },
   { id: "welcome-message", title: "W3LCOME", icon: "disclaimer" },
+  { id: "disclaimer", title: "Disclaimer" },
   { id: "executive-summary", title: "Rise of the Machines", number: "01" },
   { id: "w3ai-protocol", title: "W3AI Protocol", number: "02" },
   { id: "tmrw-browser", title: "W3AI TMRW", number: "03" },
