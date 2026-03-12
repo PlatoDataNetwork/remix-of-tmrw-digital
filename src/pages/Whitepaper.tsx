@@ -26,7 +26,7 @@ interface Section {
 }
 
 const sections: Section[] = [
-  { id: "w3lcome", title: "Home", icon: "home" },
+  { id: "w3lcome", title: "Directory", icon: "home" },
   { id: "welcome-message", title: "W3LCOME", number: "01" },
   { id: "disclaimer", title: "Disclaimer", number: "02" },
   { id: "executive-summary", title: "Rise of the Machines", number: "03", children: [
