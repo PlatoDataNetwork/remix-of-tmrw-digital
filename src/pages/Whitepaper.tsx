@@ -90,7 +90,7 @@ const sections: Section[] = [
     { id: "network-ethereum", title: "Ethereum" },
     { id: "network-bsc", title: "BNB Smart Chain" },
   ]},
-  { id: "foundations-infrastructure", title: "Foundations & Infrastructure", number: "11", children: [
+  { id: "foundations", title: "Foundations", number: "11", children: [
     { id: "fi-ethereum", title: "Ethereum" },
     { id: "fi-solana", title: "Solana" },
     { id: "fi-bitcoin", title: "Bitcoin" },
