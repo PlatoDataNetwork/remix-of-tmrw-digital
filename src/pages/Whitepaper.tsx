@@ -43,7 +43,7 @@ const sections: Section[] = [
   { id: "risks", title: "Risks & Disclosures", number: "19" },
   { id: "appendix", title: "Appendix & References", number: "20" },
   { id: "disclaimer", title: "Disclaimer", number: "21" },
-  { id: "deck-link", title: "Project Deck" },
+  { id: "deck-link", title: "Project Deck", number: "22" },
 ];
 
 // Only numbered sections for the chapter grid
