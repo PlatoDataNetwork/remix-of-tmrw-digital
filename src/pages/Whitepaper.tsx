@@ -18,30 +18,23 @@ interface Section {
 
 const sections: Section[] = [
   { id: "w3lcome", title: "Home", icon: "home" },
-  { id: "welcome-message", title: "W3LCOME", icon: "disclaimer" },
+  { id: "disclaimer", title: "Disclaimer", icon: "disclaimer" },
   { id: "executive-summary", title: "Rise of the Machines", number: "01" },
-  { id: "w3ai-protocol", title: "W3AI Protocol", number: "02" },
-  { id: "tmrw-browser", title: "W3AI TMRW", number: "03" },
-  { id: "token-utility", title: "W3AI Token", number: "04" },
-  { id: "w3ai-rwas", title: "W3AI RWA's", number: "05" },
-  { id: "w3ai-token-utility", title: "W3AI Token Utility", number: "06" },
-  { id: "governance", title: "W3AI Governance", number: "07" },
-  { id: "institutional-rails", title: "Institutional-Grade Rails", number: "08" },
-  { id: "community-integrations", title: "Community Integrations", number: "09" },
-  { id: "supported-networks", title: "Supported Networks", number: "10" },
-  { id: "foundations", title: "Foundations", number: "11" },
-  { id: "multi-chain", title: "Multi-Chain Deployments", number: "12" },
-  { id: "validator-yield", title: "Validator Yield & Staking", number: "13" },
-  { id: "liquidity", title: "Liquidity & Market Making", number: "14" },
-  { id: "marketing", title: "Marketing & Distribution", number: "15" },
-  { id: "strategic-partners", title: "Network Partners", number: "16" },
-  { id: "infrastructure", title: "Infrastructure", number: "17" },
-  { id: "security", title: "Security", number: "18" },
-  { id: "privacy", title: "Privacy Policy", number: "19" },
-  { id: "risks", title: "Risks & Disclosures", number: "20" },
-  { id: "appendix", title: "Appendix & References", number: "21" },
-  { id: "disclaimer", title: "Disclaimer", number: "22" },
-  { id: "deck-link", title: "Project Deck", number: "23" },
+  { id: "tmrw-browser", title: "The W3AI TMRW Browser", number: "02" },
+  { id: "privacy", title: "Identity & Anti-Sybil", number: "03" },
+  { id: "institutional-rails", title: "Institutional-Grade Rails", number: "04" },
+  { id: "community-integrations", title: "Community Integrations", number: "05" },
+  { id: "w3ai-token-utility", title: "Token Utility", number: "06" },
+  { id: "token-utility", title: "Tokenomics Design", number: "07" },
+  { id: "multi-chain", title: "Multi-Chain Deployments", number: "08" },
+  { id: "validator-yield", title: "Validator Yield & Staking", number: "09" },
+  { id: "liquidity", title: "Liquidity & Market Making", number: "10" },
+  { id: "marketing", title: "Marketing & Distribution", number: "11" },
+  { id: "strategic-partners", title: "Strategic Partners", number: "12" },
+  { id: "foundations", title: "Foundations", number: "13" },
+  { id: "infrastructure", title: "Infrastructure", number: "14" },
+  { id: "risks", title: "Risks & Security", number: "15" },
+  { id: "appendix", title: "Appendix & References", number: "16" },
 ];
 
 // Only numbered sections for the chapter grid
@@ -80,13 +73,13 @@ function SidebarNav({ sections, activeId, onNavigate }: { sections: Section[]; a
             }}
             className={cn(
               "w-full flex items-center gap-2.5 px-3 py-2 rounded-md text-sm transition-colors",
-              isActive ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
+              isActive ? "nav-link-active font-medium" : "nav-link-inactive"
             )}
           >
-            {s.icon === "home" && <Home className="h-4 w-4 shrink-0 text-primary/70" />}
-            {s.icon === "disclaimer" && <Shield className="h-4 w-4 shrink-0 text-primary/70" />}
+            {s.icon === "home" && <Home className="h-4 w-4 shrink-0 text-chapter-number" />}
+            {s.icon === "disclaimer" && <Shield className="h-4 w-4 shrink-0 text-chapter-number" />}
             {s.number && (
-              <span className="text-[10px] font-bold w-5 shrink-0 text-[hsl(82,85%,55%)]">{s.number}</span>
+              <span className="text-[10px] font-mono font-bold w-5 shrink-0 text-chapter-number">{s.number}</span>
             )}
             {!s.icon && !s.number && <span className="w-5 shrink-0" />}
             <span className="text-left truncate">{s.title}</span>
@@ -114,7 +107,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
   }, [onSectionVisible]);
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12 whitepaper-content">
+    <div className="max-w-4xl mx-auto px-6 py-12 whitepaper-content prose-whitepaper">
       {/* W3AI Whitepaper Section */}
       <section id="w3lcome" data-section>
         <div className="relative rounded-2xl overflow-hidden h-[300px] md:h-[420px] bg-[hsl(220,20%,4%)]">
@@ -152,11 +145,11 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
                 const el = document.getElementById(s.id);
                 if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="flex items-center gap-3 px-4 py-3 rounded-lg border border-border bg-card hover:bg-accent hover:border-primary/30 hover:shadow-[0_0_15px_-3px_hsl(82,85%,55%,0.15)] active:scale-[0.98] transition-all duration-200 text-left group"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg border border-border bg-card hover:bg-accent hover:border-chapter-number/30 hover:shadow-[0_0_15px_-3px_hsl(82,85%,55%,0.15)] active:scale-[0.98] transition-all duration-200 text-left group"
             >
-              <span className="text-xs font-bold text-[hsl(82,85%,55%)] w-6 shrink-0 group-hover:scale-110 transition-transform duration-200">{s.number}</span>
-              <span className="text-sm text-foreground flex-1 group-hover:text-primary transition-colors duration-200">{s.title}</span>
-              <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
+              <span className="text-xs font-mono font-bold text-chapter-number w-6 shrink-0 group-hover:scale-110 transition-transform duration-200">{s.number}</span>
+              <span className="text-sm text-foreground flex-1 group-hover:text-chapter-number transition-colors duration-200">{s.title}</span>
+              <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-chapter-number group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
             </button>
           ))}
         </div>
