@@ -380,10 +380,10 @@ const slides: Slide[] = [
           <div className="space-y-4">
             <SectionLabel>vs Market</SectionLabel>
             <BulletList items={[
-              { bold: "vs Brave —", text: "Web3-specific security beyond privacy" },
-              { bold: "vs Pure DeFi —", text: "institutional-grade rails + compliance" },
-              { bold: "vs TradFi —", text: "on-chain transparency + fractional access" },
-              { bold: "vs AI startups —", text: "integrated token economy + browser distribution" },
+              { bold: "vs Brave —", text: "Web3-specific security beyond privacy." },
+              { bold: "vs Pure DeFi —", text: "institutional-grade rails + compliance." },
+              { bold: "vs TradFi —", text: "on-chain transparency + fractional access." },
+              { bold: "vs AI startups —", text: "integrated token economy + browser distribution." },
             ]} />
           </div>
         </div>
