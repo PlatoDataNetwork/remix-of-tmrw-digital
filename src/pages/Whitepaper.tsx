@@ -166,10 +166,32 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
             </p>
           </div>
         </div>
+
+        {/* Title + subtitle below hero */}
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground mt-10 mb-2">W3AI Whitepaper</h1>
+        <p className="text-muted-foreground mb-8">Rise of the Machines — Building the Web3 AI gateway for the agentic browser era.</p>
+
+        {/* Chapter Index Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-12">
+          {chapterSections.map(s => (
+            <button
+              key={s.id}
+              onClick={() => {
+                const el = document.getElementById(s.id);
+                if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="flex items-center gap-3 px-4 py-3 rounded-lg border border-border bg-card hover:bg-accent transition-colors text-left group"
+            >
+              <span className="text-xs font-bold text-[hsl(82,85%,55%)] w-6 shrink-0">{s.number}</span>
+              <span className="text-sm text-foreground flex-1">{s.title}</span>
+              <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors shrink-0" />
+            </button>
+          ))}
+        </div>
       </section>
 
       {/* W3LCOME heading */}
-      <h2 className="text-2xl font-bold text-foreground mb-4 mt-8">W3LCOME</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-4">W3LCOME</h2>
 
       {/* Welcome Message */}
       <section id="welcome-message" data-section>
