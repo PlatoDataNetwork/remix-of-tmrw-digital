@@ -1193,10 +1193,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="partner-hacken" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
-          Hacken
-          <a href="https://hacken.io" target="_blank" rel="noopener noreferrer" className="partner-globe-link"><Globe className="h-5 w-5" /></a>
-        </h2>
+        <div className="flex items-center flex-wrap gap-4 mb-4">
+          <h2 className="text-2xl font-bold text-foreground">Hacken</h2>
+          <a href="https://hacken.io" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[hsl(75,80%,55%)] text-black text-sm font-medium hover:bg-[hsl(75,80%,45%)] transition-colors">Visit ↗</a>
+        </div>
         <div className="prose-section">
           <p>Hacken delivers the security backbone for W3AI through smart contract audits, wallet audits, penetration testing, tokenomics audits, proof-of-reserves audits, and post-deployment monitoring. In W3AI, this translates to an "in-browser trust layer" providing risk flags, verified proofs, and standardized security context before users commit capital.</p>
           <p>The "Verified-by-security" co-marketing strategy positions W3AI as the browser that takes security seriously—not as an afterthought, but as a core product feature.</p>
