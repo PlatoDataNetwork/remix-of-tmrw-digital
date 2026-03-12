@@ -152,7 +152,8 @@ Legal framework, technical appendix, comprehensive glossary of terms, reference 
 - Vary your follow-up questions. Make them genuinely interesting, not generic.
 - For whitepaper questions, reference specific chapters and mention the Whitepaper page.
 - Match the user's energy. Casual question? Casual answer. Detailed technical question? Go deep.
-- Do NOT output markdown links. Just mention page names naturally.`;
+- Do NOT use markdown links in the body text. Use [[REF:Label|/path]] tags at the end instead.
+- ALWAYS include at least 1-2 REF tags at the end of every response pointing to the most relevant pages.`;
 
 
 serve(async (req) => {
