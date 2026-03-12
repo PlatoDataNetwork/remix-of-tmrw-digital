@@ -60,41 +60,6 @@ function DesktopSidebar({ activeId, onNavigate }: { activeId: string; onNavigate
 }
 
 // --- Mobile Drawer Sidebar ---
-function MobileDrawerSidebar({ activeId, onNavigate, open, onClose }: { activeId: string; onNavigate: (id: string) => void; open: boolean; onClose: () => void }) {
-  return (
-    <AnimatePresence>
-      {open && (
-        <>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[80] bg-black/50 backdrop-blur-sm lg:hidden"
-            onClick={onClose}
-          />
-          <motion.aside
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed inset-y-0 left-0 z-[90] w-[75vw] max-w-xs bg-sidebar-background border-r border-border overflow-y-auto lg:hidden"
-          >
-            <div className="flex items-center justify-between px-4 py-3 border-b border-border">
-              <span className="text-sm font-semibold text-foreground">W3AI Whitepaper</span>
-              <button onClick={onClose} className="p-1 text-muted-foreground hover:text-foreground transition-colors">
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-            <SidebarNav sections={sections} activeId={activeId} onNavigate={(id) => { onNavigate(id); onClose(); }} />
-          </motion.aside>
-        </>
-      )}
-    </AnimatePresence>
-  );
-}
-
-// --- Shared Sidebar Nav Content (flat, matching reference) ---
 function SidebarNav({ sections, activeId, onNavigate }: { sections: Section[]; activeId: string; onNavigate: (id: string) => void }) {
   return (
     <nav className="p-3 space-y-0.5">
