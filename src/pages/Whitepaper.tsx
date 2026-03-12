@@ -1349,6 +1349,55 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Auditing */}
+      <section id="auditing" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Auditing</h2>
+        <div className="prose-section">
+          <p>W3AI maintains the highest standards of accountability through comprehensive auditing across both smart contract infrastructure and corporate financial operations. This dual-audit framework ensures technical integrity on-chain and regulatory compliance off-chain, providing stakeholders with verifiable trust at every layer.</p>
+        </div>
+      </section>
+
+      <section id="auditing-smart-contract" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">3rd Party Smart Contract Auditing</h2>
+        <div className="prose-section">
+          <p>All W3AI smart contracts undergo rigorous third-party security audits conducted by Hacken.io, a leading blockchain security auditor with a proven track record across 1,800+ projects. Hacken's audit methodology provides institutional-grade assurance across the full contract lifecycle:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Comprehensive code review: Line-by-line analysis of all deployed smart contracts covering logic vulnerabilities, access control flaws, reentrancy vectors, integer overflow/underflow, and gas optimization.</li>
+            <li>Automated vulnerability scanning: Static and dynamic analysis tools identify known vulnerability patterns, including those catalogued in the SWC Registry and OWASP Smart Contract Top 10.</li>
+            <li>Formal verification: Critical contract paths—token minting, governance execution, bridge operations, and staking mechanics—are formally verified to ensure mathematical correctness.</li>
+            <li>Audit reporting: All audit reports are published publicly, detailing findings by severity (Critical, High, Medium, Low, Informational), remediation status, and re-audit confirmation.</li>
+            <li>Continuous auditing: W3AI maintains an ongoing audit relationship with Hacken. All contract upgrades, new deployments, and protocol modifications trigger mandatory re-audits before mainnet deployment.</li>
+            <li>Bug bounty integration: Hacken's audit process is complemented by W3AI's community-driven bug bounty program, ensuring continuous post-deployment vulnerability discovery.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="auditing-financial" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Financial Auditing</h2>
+        <div className="prose-section">
+          <p>W3AI operates under dual-jurisdiction financial auditing requirements, maintaining compliance with both Canadian and Liechtenstein regulatory frameworks. This multi-jurisdictional approach ensures the highest standards of financial transparency and corporate governance:</p>
+
+          <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Canada — Regulatory Compliance</h3>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Annual financial audits conducted in accordance with Canadian Auditing Standards (CAS) and International Financial Reporting Standards (IFRS) as adopted in Canada.</li>
+            <li>Compliance with Canadian Securities Administrators (CSA) reporting requirements, including National Instrument 51-102 Continuous Disclosure Obligations where applicable.</li>
+            <li>Anti-Money Laundering (AML) and Know Your Customer (KYC) compliance under the Proceeds of Crime (Money Laundering) and Terrorist Financing Act (PCMLTFA), with registration and reporting to FINTRAC.</li>
+            <li>Tax compliance with the Canada Revenue Agency (CRA), including proper treatment and reporting of digital asset transactions under the Income Tax Act.</li>
+            <li>Engagement of independent, CPAB-registered audit firms to ensure objectivity and adherence to professional standards.</li>
+          </ul>
+
+          <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Liechtenstein — Regulatory Compliance</h3>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Compliance with the Liechtenstein Token and TT Service Provider Act (TVTG / "Blockchain Act"), one of the world's most comprehensive legal frameworks for tokenized assets and blockchain-based business models.</li>
+            <li>Financial audits conducted in accordance with Liechtenstein audit standards and International Standards on Auditing (ISA), ensuring alignment with European regulatory expectations.</li>
+            <li>Regulatory oversight by the Financial Market Authority Liechtenstein (FMA), including registration as a TT Service Provider and adherence to ongoing reporting obligations.</li>
+            <li>AML/KYC compliance under Liechtenstein's Due Diligence Act (SPG) and Due Diligence Ordinance (SPV), aligned with EU Anti-Money Laundering Directives (AMLD5/AMLD6).</li>
+            <li>MiCA readiness: Proactive alignment with the EU Markets in Crypto-Assets Regulation (MiCA), ensuring seamless compliance as the regulation takes full effect across the European Economic Area.</li>
+            <li>Engagement of FMA-approved audit firms with expertise in digital asset businesses and tokenized security structures.</li>
+          </ul>
+        </div>
+      </section>
+
       {/* Privacy Policy */}
       <section id="privacy" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Privacy Policy</h2>
