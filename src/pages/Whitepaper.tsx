@@ -1633,7 +1633,6 @@ export default function Whitepaper() {
           </button>
         )}
         <main className="flex-1 min-w-0">
-          <Breadcrumb activeId={activeId} />
           <WhitepaperContent activePage={activePage} onNavigate={navigateTo} />
         </main>
       </div>
