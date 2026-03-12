@@ -781,10 +781,12 @@ const slides: Slide[] = [
   // Closing
   {
     id: "closing",
-    render: () => (
+    render: () => {
+      const [bgLoaded, setBgLoaded] = useState(false);
+      return (
       <div className="relative flex flex-col items-center justify-center h-full text-center gap-6">
-        <div className="absolute inset-0 pointer-events-none">
-          <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-cover object-center opacity-80" />
+        <div className={cn("absolute inset-0 pointer-events-none transition-opacity duration-700", bgLoaded ? "opacity-100" : "opacity-0")}>
+          <img src={heroBackground} alt="" onLoad={() => setBgLoaded(true)} className="absolute inset-0 w-full h-full object-cover object-center opacity-80" />
           <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
           <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.25)]" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
@@ -801,7 +803,8 @@ const slides: Slide[] = [
           </p>
         </div>
       </div>
-    ),
+      );
+    },
   },
 ];
 
