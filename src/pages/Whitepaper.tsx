@@ -1204,10 +1204,10 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
       </section>
 
       <section id="partner-dentity" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
-          Dentity
-          <a href="https://dentity.com" target="_blank" rel="noopener noreferrer" className="partner-globe-link"><Globe className="h-5 w-5" /></a>
-        </h2>
+        <div className="flex items-center flex-wrap gap-4 mb-4">
+          <h2 className="text-2xl font-bold text-foreground">Dentity</h2>
+          <a href="https://dentity.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[hsl(75,80%,55%)] text-black text-sm font-medium hover:bg-[hsl(75,80%,45%)] transition-colors">Visit ↗</a>
+        </div>
         <div className="prose-section">
           <p>Dentity provides the privacy-forward credential layer that strengthens W3AI's Registry and whitelisted-wallet objective. Dentity emphasizes trust, identity verification, and digital credentials while preserving user privacy.</p>
           <p>W3AI leverages Dentity for pre-sale and beta access controls (credentialed wallet allowlists), reduced bot/sybil influence in governance, and higher-trust partner campaigns with per-vertical onboarding.</p>
