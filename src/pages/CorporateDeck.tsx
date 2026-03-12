@@ -277,8 +277,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
         <SlideTitle>Real World Asset Tokenization</SlideTitle>
         <SlideSubtitle>
-          12 verticals bridging traditional finance with on-chain liquidity and fractional ownership.
-          Tokenization transforms illiquid assets into programmable, borderless capital unlocking trillions in previously inaccessible value.
+          Tokenization transforms illiquid assets into programmable, borderless capital — unlocking trillions in previously inaccessible value.
         </SlideSubtitle>
         <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
           {[
