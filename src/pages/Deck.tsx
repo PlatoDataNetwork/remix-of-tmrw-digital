@@ -725,7 +725,7 @@ const slides: Slide[] = [
                     ["IDO / TGE", "200M", "10%", "—", "No"],
                     ["Team & Advisors", "200M", "10%", "—", "Yes"],
                     ["Rewards", "50M", "2.5%", "—", "No"],
-                    ["Treasury", "1.15B", "52.5%", "—", "Yes"],
+                    ["Treasury", "1.15B", "52.5%", "$7.85M", "Yes"],
                   ].map(([a, t, s, f, l]) => (
                     <tr key={a} className="border-b border-border/20 hover:bg-[hsl(82,85%,55%,0.02)] transition-colors">
                       <td className="py-2.5 px-3 text-foreground font-light">{a}</td>
