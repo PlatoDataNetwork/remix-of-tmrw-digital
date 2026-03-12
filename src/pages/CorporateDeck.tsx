@@ -307,9 +307,9 @@ const slides: Slide[] = [
         </div>
         <div className="w-full h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.15)] to-transparent" />
         <BulletList items={[
-          { bold: "Blockchain-verified", text: "carbon credit infrastructure with 500K+ tonnes ISO-certified" },
-          { bold: "Enterprise adoption", text: "accelerating across DeFi, tokenization, and institutional custody" },
-          { bold: "Public market access", text: "via TSX Venture Exchange listing targeting Q2 2026" },
+          { bold: "Blockchain-verified", text: "carbon credit infrastructure with 500K+ tonnes ISO-certified." },
+          { bold: "Enterprise adoption", text: "accelerating across DeFi, tokenization, and institutional custody." },
+          { bold: "Public market access", text: "via TSX Venture Exchange listing targeting Q2 2026." },
         ]} />
       </div>
     ),
