@@ -26,6 +26,7 @@ const RWAs = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead title="Real World Assets" description="Explore tokenized real-world asset sectors including carbon credits, commodities, energy, metals, real estate, and more." path="/rwas" />
       <Navbar />
 
       {/* Hero */}
