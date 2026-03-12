@@ -194,9 +194,9 @@ const slides: Slide[] = [
           critical growth stages — delivering measurable outcomes backed by deep industry knowledge and strategic execution.
         </SlideSubtitle>
         <BulletList items={[
-          { bold: "Disciplined capital deployment", text: "with forward-thinking execution across emerging and established markets" },
-          { bold: "AI and Web3 convergence", text: "redefining how capital moves, how value is measured, and how trust is established" },
-          { bold: "Institutional credibility", text: "with public market transparency and regulatory compliance from day one" },
+          { bold: "Disciplined capital deployment", text: "with forward-thinking execution across emerging and established markets." },
+          { bold: "AI and Web3 convergence", text: "redefining how capital moves, how value is measured, and how trust is established." },
+          { bold: "Institutional credibility", text: "with public market transparency and regulatory compliance from day one." },
         ]} />
       </div>
     ),
@@ -262,10 +262,10 @@ const slides: Slide[] = [
           for AI, identity, and money.
         </SlideSubtitle>
         <BulletList items={[
-          { bold: "Gecko engine —", text: "deep customization, open-source codebase, Chromium-independent" },
-          { bold: "User-selectable AI —", text: "BYOK or Open Gateway with token-based billing" },
-          { bold: "Security-first —", text: "smart contract audits, transaction simulation, no autonomous signing" },
-          { bold: "Multi-chain —", text: "native support for Solana, Ethereum, BSC, and 12+ networks" },
+          { bold: "Gecko engine —", text: "deep customization, open-source codebase, Chromium-independent." },
+          { bold: "User-selectable AI —", text: "BYOK or Open Gateway with token-based billing." },
+          { bold: "Security-first —", text: "smart contract audits, transaction simulation, no autonomous signing." },
+          { bold: "Multi-chain —", text: "native support for Solana, Ethereum, BSC, and 12+ networks." },
         ]} />
       </div>
     ),
@@ -307,9 +307,9 @@ const slides: Slide[] = [
         </div>
         <div className="w-full h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.15)] to-transparent" />
         <BulletList items={[
-          { bold: "Blockchain-verified", text: "carbon credit infrastructure with 500K+ tonnes ISO-certified" },
-          { bold: "Enterprise adoption", text: "accelerating across DeFi, tokenization, and institutional custody" },
-          { bold: "Public market access", text: "via TSX Venture Exchange listing targeting Q2 2026" },
+          { bold: "Blockchain-verified", text: "carbon credit infrastructure with 500K+ tonnes ISO-certified." },
+          { bold: "Enterprise adoption", text: "accelerating across DeFi, tokenization, and institutional custody." },
+          { bold: "Public market access", text: "via TSX Venture Exchange listing targeting Q2 2026." },
         ]} />
       </div>
     ),
@@ -324,19 +324,19 @@ const slides: Slide[] = [
           <div className="space-y-4">
             <SectionLabel>Carbon Assets</SectionLabel>
             <BulletList items={[
-              { bold: "500,000 tonnes", text: "ISO-certified carbon credits" },
-              { bold: "~$5M USD", text: "valued carbon credit portfolio" },
-              { bold: "Option for 2.3M", text: "additional tonnes available" },
-              { bold: "300M+ CUT tokens", text: "in treasury reserve" },
+              { bold: "500,000 tonnes", text: "ISO-certified carbon credits." },
+              { bold: "~$5M USD", text: "valued carbon credit portfolio." },
+              { bold: "Option for 2.3M", text: "additional tonnes available." },
+              { bold: "300M+ CUT tokens", text: "in treasury reserve." },
             ]} />
           </div>
           <div className="space-y-4">
             <SectionLabel>ESG Technology</SectionLabel>
             <BulletList items={[
-              { bold: "Blockchain verification", text: "with immutable audit trails" },
-              { bold: "Retire App", text: "for transparent token burning" },
-              { bold: "FMA regulated", text: "under Liechtenstein framework" },
-              { bold: "6M+ kg", text: "carbon offsets already retired" },
+              { bold: "Blockchain verification", text: "with immutable audit trails." },
+              { bold: "Retire App", text: "for transparent token burning." },
+              { bold: "FMA regulated", text: "under Liechtenstein framework." },
+              { bold: "6M+ kg", text: "carbon offsets already retired." },
             ]} />
           </div>
         </div>
@@ -371,19 +371,19 @@ const slides: Slide[] = [
           <div className="space-y-4">
             <SectionLabel>What Sets Us Apart</SectionLabel>
             <BulletList items={[
-              { bold: "Convergence —", text: "AI + Web3 + RWA in a single integrated platform" },
-              { bold: "Public market path —", text: "TSX listing provides institutional confidence" },
-              { bold: "Regulatory-first —", text: "dual-jurisdiction compliance (Canada + Liechtenstein)" },
-              { bold: "Revenue generating —", text: "existing platform with proven traction" },
+              { bold: "Convergence —", text: "AI + Web3 + RWA in a single integrated platform." },
+              { bold: "Public market path —", text: "TSX listing provides institutional confidence." },
+              { bold: "Regulatory-first —", text: "dual-jurisdiction compliance (Canada + Liechtenstein)." },
+              { bold: "Revenue generating —", text: "existing platform with proven traction." },
             ]} />
           </div>
           <div className="space-y-4">
             <SectionLabel>vs Market</SectionLabel>
             <BulletList items={[
-              { bold: "vs Brave —", text: "Web3-specific security beyond privacy" },
-              { bold: "vs Pure DeFi —", text: "institutional-grade rails + compliance" },
-              { bold: "vs TradFi —", text: "on-chain transparency + fractional access" },
-              { bold: "vs AI startups —", text: "integrated token economy + browser distribution" },
+              { bold: "vs Brave —", text: "Web3-specific security beyond privacy." },
+              { bold: "vs Pure DeFi —", text: "institutional-grade rails + compliance." },
+              { bold: "vs TradFi —", text: "on-chain transparency + fractional access." },
+              { bold: "vs AI startups —", text: "integrated token economy + browser distribution." },
             ]} />
           </div>
         </div>
@@ -475,10 +475,10 @@ const slides: Slide[] = [
         </div>
         <SlideTitle>Enterprise Infrastructure</SlideTitle>
         <BulletList items={[
-          { bold: "Multi-chain architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT" },
-          { bold: "Edge computing —", text: "geo-redundant infrastructure for low-latency AI inference" },
-          { bold: "Security layers —", text: "HSMs, MPC key management, browser sandboxing" },
-          { bold: "Monitoring —", text: "validator health, bridge volumes, treasury dashboards" },
+          { bold: "Multi-chain architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT." },
+          { bold: "Edge computing —", text: "geo-redundant infrastructure for low-latency AI inference." },
+          { bold: "Security layers —", text: "HSMs, MPC key management, browser sandboxing." },
+          { bold: "Monitoring —", text: "validator health, bridge volumes, treasury dashboards." },
         ]} />
       </div>
     ),
@@ -518,19 +518,19 @@ const slides: Slide[] = [
           <div className="space-y-4">
             <SectionLabel>Tomorrow Digital Inc.</SectionLabel>
             <BulletList items={[
-              { bold: "Headquarters —", text: "Richmond, BC, Canada" },
-              { bold: "DBA —", text: "The Tomorrow Company" },
-              { bold: "Subsidiaries —", text: "Plato AI, Carbon Distributed Technologies AG" },
-              { bold: "Listing target —", text: "TSX Venture Exchange, Q2 2026" },
+              { bold: "Headquarters —", text: "Richmond, BC, Canada." },
+              { bold: "DBA —", text: "The Tomorrow Company." },
+              { bold: "Listing target —", text: "TSX Venture Exchange, Q2 2026." },
+              { bold: "Experienced team —", text: "proven executives with deep expertise across fintech, AI, blockchain, and public markets." },
             ]} />
           </div>
           <div className="space-y-4">
             <SectionLabel>Governance</SectionLabel>
             <BulletList items={[
-              { bold: "Board oversight —", text: "experienced directors from fintech and public markets" },
-              { bold: "Multi-sig treasury —", text: "transparent allocation and milestone-based releases" },
-              { bold: "Progressive decentralization —", text: "from foundation-led to community-governed" },
-              { bold: "Auditing —", text: "Hacken smart contracts + CPA financial audits" },
+              { bold: "Board oversight —", text: "experienced directors from fintech and public markets." },
+              { bold: "Multi-sig treasury —", text: "transparent allocation and milestone-based releases." },
+              { bold: "Progressive decentralization —", text: "from foundation-led to community-governed." },
+              { bold: "Auditing —", text: "Hacken smart contracts + CPA financial audits." },
             ]} />
           </div>
         </div>
