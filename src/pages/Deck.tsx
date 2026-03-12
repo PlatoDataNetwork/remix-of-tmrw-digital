@@ -796,8 +796,6 @@ export default function Deck() {
     )}>
       {/* Slide branding */}
       <SlideBranding />
-      {/* Slide number */}
-      <SlideNumber n={current + 1} />
       {/* Slide content */}
       <div className="absolute inset-0 p-8 md:p-16 flex flex-col">
         {slides[current].render()}
