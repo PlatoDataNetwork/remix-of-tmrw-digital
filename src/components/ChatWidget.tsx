@@ -290,7 +290,7 @@ const ChatWidget = () => {
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => {
-                    setMessages([{ ...defaultWelcome, time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) }]);
+                    setMessages([createWelcomeMessage()]);
                   }}
                   className="p-1.5 rounded-full hover:bg-white/10 transition-colors"
                   title="Clear chat"
