@@ -1,8 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { ChevronRight, ChevronLeft, X, ArrowUp, Download, Globe, Home, Shield } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUp, Download, Globe, Home, Shield, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -53,7 +50,7 @@ const chapterSections = sections.filter(s => s.number);
 // --- Desktop Sidebar ---
 function DesktopSidebar({ activeId, onNavigate }: { activeId: string; onNavigate: (id: string) => void }) {
   return (
-    <aside className="hidden lg:flex flex-col sticky top-[80px] h-[calc(100vh-80px)] w-64 border-r border-border bg-sidebar-background overflow-y-auto shrink-0 z-10">
+    <aside className="flex flex-col sticky top-[80px] h-[calc(100vh-80px)] w-64 border-r border-border bg-sidebar-background overflow-y-auto shrink-0 z-10">
       <div className="flex items-center px-4 py-3 border-b border-border shrink-0">
         <span className="text-sm font-semibold text-foreground whitespace-nowrap">W3AI Whitepaper</span>
       </div>
@@ -63,41 +60,6 @@ function DesktopSidebar({ activeId, onNavigate }: { activeId: string; onNavigate
 }
 
 // --- Mobile Drawer Sidebar ---
-function MobileDrawerSidebar({ activeId, onNavigate, open, onClose }: { activeId: string; onNavigate: (id: string) => void; open: boolean; onClose: () => void }) {
-  return (
-    <AnimatePresence>
-      {open && (
-        <>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[80] bg-black/50 backdrop-blur-sm lg:hidden"
-            onClick={onClose}
-          />
-          <motion.aside
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed inset-y-0 left-0 z-[90] w-[75vw] max-w-xs bg-sidebar-background border-r border-border overflow-y-auto lg:hidden"
-          >
-            <div className="flex items-center justify-between px-4 py-3 border-b border-border">
-              <span className="text-sm font-semibold text-foreground">W3AI Whitepaper</span>
-              <button onClick={onClose} className="p-1 text-muted-foreground hover:text-foreground transition-colors">
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-            <SidebarNav sections={sections} activeId={activeId} onNavigate={(id) => { onNavigate(id); onClose(); }} />
-          </motion.aside>
-        </>
-      )}
-    </AnimatePresence>
-  );
-}
-
-// --- Shared Sidebar Nav Content (flat, matching reference) ---
 function SidebarNav({ sections, activeId, onNavigate }: { sections: Section[]; activeId: string; onNavigate: (id: string) => void }) {
   return (
     <nav className="p-3 space-y-0.5">
@@ -1502,7 +1464,6 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 export default function Whitepaper() {
   const [unlocked, setUnlocked] = useState(true);
   const [activeId, setActiveId] = useState("executive-summary");
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -1522,28 +1483,15 @@ export default function Whitepaper() {
 
       <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
         <DesktopSidebar activeId={activeId} onNavigate={navigateTo} />
-        <MobileDrawerSidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 min-w-0">
           <WhitepaperContent onSectionVisible={setActiveId} />
         </main>
       </div>
 
-      {/* Fixed nav trigger - mobile: left edge tab, desktop: hamburger when collapsed */}
-      <div className="fixed left-0 top-1/2 -translate-y-1/2 z-[70] lg:hidden">
-        <motion.button
-          onClick={() => setSidebarOpen(true)}
-          className="flex items-center justify-center w-7 h-14 rounded-r-lg bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm"
-          whileTap={{ scale: 0.9 }}
-          aria-label="Open table of contents"
-        >
-          <ChevronRight className="h-4 w-4" />
-        </motion.button>
-      </div>
-
       <Footer />
 
       {/* Scroll to top */}
-      {showScrollTop && unlocked && (
+      {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="fixed bottom-6 right-6 z-30 h-10 w-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:bg-primary/90 transition-colors"
