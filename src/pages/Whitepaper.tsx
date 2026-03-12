@@ -265,7 +265,7 @@ function SidebarNav({ activeId, onNavigate }: { activeId: string; onNavigate: (i
               )}
             </button>
             {hasChildren && isOpen && (
-              <div className="ml-7 pl-3 border-l border-border/50 space-y-0.5 mt-0.5 mb-1">
+              <div className="ml-7 pl-3 space-y-0.5 mt-0.5 mb-1">
                 {s.children!.map(child => {
                   const isChildActive = activeId === child.id;
                   return (
@@ -274,7 +274,7 @@ function SidebarNav({ activeId, onNavigate }: { activeId: string; onNavigate: (i
                       ref={isChildActive ? activeRef : undefined}
                       onClick={() => onNavigate(child.id)}
                       className={cn(
-                        "w-full text-left px-2 py-1.5 rounded text-xs transition-colors",
+                        "w-full text-left px-2 py-1.5 rounded text-sm transition-colors",
                         isChildActive
                           ? "text-[hsl(82,85%,55%)] font-medium bg-sidebar-accent/50"
                           : "text-sidebar-foreground/50 hover:text-sidebar-foreground/80"
