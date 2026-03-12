@@ -166,7 +166,7 @@ const slides: Slide[] = [
     id: "disclaimer",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-5 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Important Disclaimer</SlideTitle>
         <div className="space-y-3 text-left">
           <p className="text-xs font-light text-muted-foreground leading-relaxed">
@@ -192,7 +192,7 @@ const slides: Slide[] = [
     id: "rise",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Rise of the Machines</SlideTitle>
         <SlideSubtitle>
           Browsers are evolving from passive viewers into agentic, AI-native operating systems. 
@@ -232,7 +232,7 @@ const slides: Slide[] = [
     id: "architecture",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Architecture & Differentiation</SlideTitle>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
@@ -258,7 +258,7 @@ const slides: Slide[] = [
     id: "ai-layer",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>User-Selectable AI Layer</SlideTitle>
         <div className="grid md:grid-cols-2 gap-12">
           <GreenCard className="p-6">
@@ -284,7 +284,7 @@ const slides: Slide[] = [
     id: "security",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Security Intelligence</SlideTitle>
         <SlideSubtitle>
           Security posture integrated into every connection, signature, and transaction. 
@@ -304,7 +304,7 @@ const slides: Slide[] = [
     id: "identity",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Identity & Institutional Rails</SlideTitle>
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-4">
@@ -332,7 +332,7 @@ const slides: Slide[] = [
     id: "community",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Multi-Chain Community</SlideTitle>
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -355,7 +355,7 @@ const slides: Slide[] = [
     id: "token-utility",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Token Utility</SlideTitle>
         <SlideSubtitle>Four demand drivers powering the W3AI token economy.</SlideSubtitle>
         <div className="grid grid-cols-2 gap-6">
@@ -379,7 +379,7 @@ const slides: Slide[] = [
     id: "tokenomics",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Tokenomics & Supply</SlideTitle>
         <div className="text-center mb-2">
           <StatBlock value="2B" label="Total Token Supply" />
@@ -404,7 +404,7 @@ const slides: Slide[] = [
     id: "sale-rounds",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Sale Rounds & Pricing</SlideTitle>
         <TableSlide
           headers={["Round", "Price", "Raise", "FDV"]}
@@ -426,7 +426,7 @@ const slides: Slide[] = [
     id: "validators",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Multi-Chain & Validators</SlideTitle>
         <SlideSubtitle>
           Solana as canonical mint hub. Ethereum and BSC as spoke chains via Wormhole NTT.
@@ -452,7 +452,7 @@ const slides: Slide[] = [
     id: "liquidity",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Liquidity & Market Making</SlideTitle>
         <BulletList items={[
           { bold: "DEX liquidity locked", text: "for no less than 12 months" },
@@ -470,7 +470,7 @@ const slides: Slide[] = [
     id: "marketing",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Marketing & Distribution</SlideTitle>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
@@ -499,7 +499,7 @@ const slides: Slide[] = [
     id: "protocol",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>W3AI Protocol</SlideTitle>
         <SlideSubtitle>
           A cross-chain coordination protocol binding AI agent permissions to on-chain wallet permissions 
@@ -525,7 +525,7 @@ const slides: Slide[] = [
     id: "rwas",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>W3AI RWA's</SlideTitle>
         <SlideSubtitle>
           Tokenizing real-world assets across 12 verticals — bridging traditional finance with on-chain 
@@ -551,7 +551,7 @@ const slides: Slide[] = [
     id: "governance",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>W3AI Governance</SlideTitle>
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -573,7 +573,7 @@ const slides: Slide[] = [
     id: "institutional",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Institutional-Grade Rails</SlideTitle>
         <SlideSubtitle>
           Consumer-first mission with institutional-grade infrastructure for professionals and enterprise.
@@ -593,7 +593,7 @@ const slides: Slide[] = [
     id: "networks",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Supported Networks</SlideTitle>
         <SlideSubtitle>Multi-chain presence across 12+ foundational blockchain ecosystems.</SlideSubtitle>
         <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
@@ -616,7 +616,7 @@ const slides: Slide[] = [
     id: "partners",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Network Partners</SlideTitle>
         <SlideSubtitle>Product-integrated partnerships covering security, identity, liquidity, and institutional credibility.</SlideSubtitle>
         <div className="grid grid-cols-3 gap-4">
@@ -645,7 +645,7 @@ const slides: Slide[] = [
     id: "infrastructure",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Infrastructure</SlideTitle>
         <BulletList items={[
           { bold: "Network architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT for supply management" },
@@ -662,7 +662,7 @@ const slides: Slide[] = [
     id: "cybersecurity",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Cybersecurity</SlideTitle>
         <SlideSubtitle>
           Security as an architectural primitive — embedded at every level from browser runtime to on-chain execution.
@@ -688,7 +688,7 @@ const slides: Slide[] = [
     id: "auditing",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Auditing & Compliance</SlideTitle>
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-4">
@@ -716,7 +716,7 @@ const slides: Slide[] = [
     id: "privacy-risks",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideAccent />
+
         <SlideTitle>Privacy & Risk Management</SlideTitle>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
