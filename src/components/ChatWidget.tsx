@@ -28,7 +28,7 @@ const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
 const defaultWelcome: Message = {
   id: "welcome",
-  content: "Hey there, curious mind! 👋 I'm **Marvin** — part AI, part encyclopedia, part sarcastic genius (if I do say so myself). I've memorized the entire W3AI Whitepaper, know every RWA sector by heart, and I never sleep. So go ahead — ask me anything about TMRW, tokenomics, our tech stack, or the meaning of life. *Well, maybe not that last one.* 🤖",
+  content: "Hey there, friend! 👋 I'm **Marvin** — your guide to everything TMRW. I know the W3AI Whitepaper inside and out, all 12 RWA sectors, tokenomics, and more. Ask me anything — I'm here to help! Oh, and if you ever need a laugh... I've got AI jokes ready to go. 😄",
   role: "assistant",
   time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
 };
