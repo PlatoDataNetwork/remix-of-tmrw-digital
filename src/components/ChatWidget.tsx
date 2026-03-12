@@ -46,6 +46,23 @@ const ChatWidget = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  const handleFollowUp = useCallback((text: string) => {
+    if (isLoading) return;
+    setInput(text);
+    setTimeout(() => {
+      const now = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      const userMsg: Message = { id: Date.now().toString(), content: text, role: "user", time: now };
+      setMessages((prev) => [...prev, userMsg]);
+      setInput("");
+      setIsLoading(true);
+      streamChat([...messages, userMsg]).catch((e: any) => {
+        if (e.name !== "AbortError") {
+          setMessages((prev) => [...prev, { id: (Date.now() + 1).toString(), content: "Sorry, I'm having trouble connecting right now. Please try again in a moment.", role: "assistant", time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) }]);
+        }
+      }).finally(() => setIsLoading(false));
+    }, 0);
+  }, [isLoading, messages, streamChat]);
+
   const streamChat = useCallback(async (allMessages: Message[]) => {
     const controller = new AbortController();
     abortRef.current = controller;
