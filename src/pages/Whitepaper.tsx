@@ -1503,7 +1503,7 @@ export default function Whitepaper() {
   const [unlocked, setUnlocked] = useState(true);
   const [activeId, setActiveId] = useState("executive-summary");
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [desktopSidebarCollapsed, setDesktopSidebarCollapsed] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
