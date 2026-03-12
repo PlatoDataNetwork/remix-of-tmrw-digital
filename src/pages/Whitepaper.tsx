@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
-import { ArrowUp, ChevronRight, ChevronLeft, ChevronDown, Menu, Search, X, FileText } from "lucide-react";
+import { ArrowUp, ChevronRight, ChevronLeft, ChevronDown, Menu, Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
