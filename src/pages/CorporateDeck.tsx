@@ -301,7 +301,7 @@ const slides: Slide[] = [
         <SlideTitle>Market Opportunity</SlideTitle>
         <div className="grid grid-cols-3 gap-8 pt-4">
           <StatBlock value="$200B+" label="Web3/AI Market by 2030" />
-          <StatBlock value="$50B+" label="Carbon Market by 2030" />
+          <StatBlock value="$200B+" label="Carbon Market by 2030" />
           <StatBlock value="741M" label="Global Crypto Owners" />
         </div>
         <div className="w-full h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.15)] to-transparent" />
