@@ -518,19 +518,19 @@ const slides: Slide[] = [
           <div className="space-y-4">
             <SectionLabel>Tomorrow Digital Inc.</SectionLabel>
             <BulletList items={[
-              { bold: "Headquarters —", text: "Richmond, BC, Canada" },
-              { bold: "DBA —", text: "The Tomorrow Company" },
-              { bold: "Subsidiaries —", text: "Plato AI, Carbon Distributed Technologies AG" },
-              { bold: "Listing target —", text: "TSX Venture Exchange, Q2 2026" },
+              { bold: "Headquarters —", text: "Richmond, BC, Canada." },
+              { bold: "DBA —", text: "The Tomorrow Company." },
+              { bold: "Listing target —", text: "TSX Venture Exchange, Q2 2026." },
+              { bold: "Experienced team —", text: "proven executives with deep expertise across fintech, AI, blockchain, and public markets." },
             ]} />
           </div>
           <div className="space-y-4">
             <SectionLabel>Governance</SectionLabel>
             <BulletList items={[
-              { bold: "Board oversight —", text: "experienced directors from fintech and public markets" },
-              { bold: "Multi-sig treasury —", text: "transparent allocation and milestone-based releases" },
-              { bold: "Progressive decentralization —", text: "from foundation-led to community-governed" },
-              { bold: "Auditing —", text: "Hacken smart contracts + CPA financial audits" },
+              { bold: "Board oversight —", text: "experienced directors from fintech and public markets." },
+              { bold: "Multi-sig treasury —", text: "transparent allocation and milestone-based releases." },
+              { bold: "Progressive decentralization —", text: "from foundation-led to community-governed." },
+              { bold: "Auditing —", text: "Hacken smart contracts + CPA financial audits." },
             ]} />
           </div>
         </div>
