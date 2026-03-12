@@ -1622,7 +1622,7 @@ export default function Whitepaper() {
       <ReadingProgress />
 
       <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
-        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(c => !c)} onPrint={handlePrint} />
+        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(c => !c)} />
         {sidebarCollapsed && (
           <button
             onClick={() => setSidebarCollapsed(false)}
