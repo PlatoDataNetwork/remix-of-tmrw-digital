@@ -256,7 +256,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%,0.6)]">Flagship Product</p>
-        <SlideTitle>W3AI TMRW DEFAI</SlideTitle>
+        <SlideTitle>Agentic Web3 AI Browser</SlideTitle>
         <SlideSubtitle>
           A macOS desktop Web3 AI Browser built on Firefox. The browser is the execution environment 
           for AI, identity, and money.
