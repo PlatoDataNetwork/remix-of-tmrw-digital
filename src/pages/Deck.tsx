@@ -722,7 +722,7 @@ const slides: Slide[] = [
                     ["Private Round", "200M", "10%", "$3.75M", "No"],
                     ["Private Pre-Sale", "200M", "10%", "$7.5M", "Yes"],
                     ["Seed Round", "200M", "10%", "$15M", "Yes"],
-                    ["IDO / TGE", "200M", "10%", "$30M", "No"],
+                    ["IDO / TGE", "200M", "10%", "—", "No"],
                     ["Team & Advisors", "200M", "10%", "—", "Yes"],
                     ["Rewards", "50M", "2.5%", "—", "No"],
                     ["Treasury", "1.15B", "52.5%", "—", "Yes"],
