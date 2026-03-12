@@ -386,7 +386,6 @@ const ChatWidget = () => {
                 </div>
               );
               })}
-              ))}
               {isLoading && messages[messages.length - 1]?.role === "user" && (
                 <div className="flex justify-start">
                   <div className="bg-white/[0.06] border border-white/10 rounded-2xl rounded-bl-md px-4 py-3">
