@@ -6,11 +6,35 @@ import Footer from "@/components/Footer";
 import whitepaperHero from "@/assets/whitepaper-hero.png";
 import heroBackground from "@/assets/hero-bg.png";
 import logoIcon from "@/assets/plato-icon.png";
+import platoIcon from "@/assets/plato-icon.png";
 
 // --- Slide data derived from whitepaper ---
 interface Slide {
   id: string;
   render: () => React.ReactNode;
+}
+
+function SlideBranding() {
+  return (
+    <div className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center gap-2 z-20">
+      <div
+        className="h-5 w-5 animated-gradient-icon-bright shrink-0"
+        style={{
+          WebkitMaskImage: `url(${platoIcon})`,
+          WebkitMaskSize: "contain",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskPosition: "center",
+          maskImage: `url(${platoIcon})`,
+          maskSize: "contain",
+          maskRepeat: "no-repeat",
+          maskPosition: "center",
+        }}
+      />
+      <span className="text-[10px] font-light tracking-[0.2em] text-muted-foreground/60 uppercase">
+        TMRW <span className="text-muted-foreground/30">|</span> W3AI
+      </span>
+    </div>
+  );
 }
 
 function StatBlock({ value, label }: { value: string; label: string }) {
