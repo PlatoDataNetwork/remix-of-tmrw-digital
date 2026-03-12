@@ -76,9 +76,9 @@ const Navbar = () => {
         className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[hsl(220,20%,4%,0.9)] border-b border-white/10"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
-            <Link to={lp("/")} className="flex items-center gap-2 shrink-0">
+        <div className="relative flex items-center justify-between h-16 lg:h-20">
+            {/* Logo - pushed left */}
+            <Link to={lp("/")} className="flex items-center gap-2 shrink-0 mr-auto">
               <div
                 className="h-8 w-8 animated-gradient-icon-bright"
                 style={{
@@ -102,15 +102,15 @@ const Navbar = () => {
               </span>
             </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-8">
+            {/* Desktop Nav - centered */}
+            <div className="hidden lg:flex items-center justify-center gap-8 absolute left-1/2 -translate-x-1/2">
               {navLinks.map((link) =>
                 link.href.startsWith("/#") ? (
                   <a
                     key={link.label}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-sm font-medium text-white/60 hover:text-white transition-colors duration-200"
+                    className="text-sm font-medium text-white/60 hover:text-white transition-colors duration-200 whitespace-nowrap"
                   >
                     {link.label}
                   </a>
@@ -118,7 +118,7 @@ const Navbar = () => {
                   <Link
                     key={link.label}
                     to={lp(link.href)}
-                    className="text-sm font-medium text-white/60 hover:text-white transition-colors duration-200"
+                    className="text-sm font-medium text-white/60 hover:text-white transition-colors duration-200 whitespace-nowrap"
                   >
                     {link.label}
                   </Link>
@@ -126,8 +126,8 @@ const Navbar = () => {
               )}
             </div>
 
-            {/* Right side */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            {/* Right side - pushed right */}
+            <div className="flex items-center gap-2 sm:gap-3 ml-auto">
               <ChatNavbarIcon />
               <ThemeToggle />
               <LanguageSelector />
