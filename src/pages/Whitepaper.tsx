@@ -949,8 +949,8 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* Foundations & Infrastructure */}
-      <section id="foundations-infrastructure" data-section>
+      {/* Foundations */}
+      <section id="foundations" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Foundations & Infrastructure</h2>
         <div className="prose-section">
           <p>W3AI is built on and integrated with the leading blockchain protocols that power the decentralized web. These foundations provide the secure, scalable infrastructure that enables W3AI's multi-chain AI browser capabilities.</p>
