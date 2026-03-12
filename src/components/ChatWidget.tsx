@@ -1,8 +1,9 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { createPortal } from "react-dom";
-import { X, Send, Loader2, Trash2, Maximize2, Minimize2 } from "lucide-react";
+import { X, Send, Loader2, Trash2, Maximize2, Minimize2, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
+import { useNavigate } from "react-router-dom";
 
 import platoIcon from "@/assets/plato-icon.png";
 import { useChatContext } from "./ChatContext";
@@ -15,6 +16,17 @@ function extractText(node: ReactNode): string {
   if (Array.isArray(node)) return node.map(extractText).join("");
   if (isValidElement(node)) return extractText(node.props.children);
   return Children.toArray(node).map(extractText).join("");
+}
+
+const REF_REGEX = /\[\[REF:([^|]+)\|([^\]]+)\]\]/g;
+
+function parseRefs(content: string): { cleanContent: string; refs: { label: string; path: string }[] } {
+  const refs: { label: string; path: string }[] = [];
+  const cleanContent = content.replace(REF_REGEX, (_, label, path) => {
+    refs.push({ label: label.trim(), path: path.trim() });
+    return "";
+  }).trim();
+  return { cleanContent, refs };
 }
 
 interface Message {
@@ -35,6 +47,7 @@ const defaultWelcome: Message = {
 
 const ChatWidget = () => {
   
+  const navigate = useNavigate();
   const { open, setOpen, maximized, setMaximized } = useChatContext();
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -292,53 +305,87 @@ const ChatWidget = () => {
 
             {/* Messages */}
             <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 scrollbar-thin bg-transparent">
-              {messages.map((msg) => (
+              {messages.map((msg) => {
+                const { cleanContent, refs } = msg.role === "assistant" ? parseRefs(msg.content) : { cleanContent: msg.content, refs: [] };
+                return (
                 <div
                   key={msg.id}
                   className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
-                  <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
-                      msg.role === "user"
-                        ? "bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white rounded-br-md"
-                        : "bg-white/[0.06] text-white/90 border border-white/10 rounded-bl-md"
-                    }`}
-                  >
-                    {msg.role === "assistant" ? (
-                      <div className="prose prose-sm prose-invert max-w-none [&>p]:m-0 [&>p]:mb-2 [&>ul]:my-1.5 [&>ol]:my-1.5 [&>hr]:my-3 [&>hr]:border-white/10 [&_strong]:text-white [&_li]:mb-1">
-                      <ReactMarkdown
-                          components={{
-                            a: ({ children }) => <span>{children}</span>,
-                            li: ({ children, ...props }) => {
-                              const text = extractText(children);
-                              const isFollowUp = text.endsWith("?");
-                              if (isFollowUp) {
-                                return (
-                                  <li
-                                    {...props}
-                                    onClick={() => handleFollowUp(text)}
-                                    className="cursor-pointer hover:text-[hsl(210,100%,70%)] transition-colors"
-                                  >
-                                    {children}
-                                  </li>
-                                );
-                              }
-                              return <li {...props}>{children}</li>;
-                            },
-                          }}
-                        >
-                          {msg.content}
-                        </ReactMarkdown>
-                      </div>
-                    ) : (
-                      <p>{msg.content}</p>
+                  <div className={`max-w-[85%] flex flex-col gap-2`}>
+                    <div
+                      className={`rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                        msg.role === "user"
+                          ? "bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white rounded-br-md"
+                          : "bg-white/[0.06] text-white/90 border border-white/10 rounded-bl-md"
+                      }`}
+                    >
+                      {msg.role === "assistant" ? (
+                        <div className="prose prose-sm prose-invert max-w-none [&>p]:m-0 [&>p]:mb-2 [&>ul]:my-1.5 [&>ol]:my-1.5 [&>hr]:my-3 [&>hr]:border-white/10 [&_strong]:text-white [&_li]:mb-1">
+                        <ReactMarkdown
+                            components={{
+                              a: ({ children }) => <span>{children}</span>,
+                              li: ({ children, ...props }) => {
+                                const text = extractText(children);
+                                const isFollowUp = text.endsWith("?");
+                                if (isFollowUp) {
+                                  return (
+                                    <li
+                                      {...props}
+                                      onClick={() => handleFollowUp(text)}
+                                      className="cursor-pointer hover:text-[hsl(210,100%,70%)] transition-colors"
+                                    >
+                                      {children}
+                                    </li>
+                                  );
+                                }
+                                return <li {...props}>{children}</li>;
+                              },
+                            }}
+                          >
+                            {cleanContent}
+                          </ReactMarkdown>
+                        </div>
+                      ) : (
+                        <p>{msg.content}</p>
+                      )}
+                      <p className={`text-[10px] mt-1.5 ${msg.role === "user" ? "text-white/40" : "text-white/30"}`}>
+                        {msg.time}
+                      </p>
+                    </div>
+                    {/* Reference Link Pills */}
+                    {refs.length > 0 && msg.id !== "streaming" && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.15 }}
+                        className="flex flex-wrap gap-1.5 px-1"
+                      >
+                        {refs.map((ref, i) => (
+                          <motion.button
+                            key={i}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.2, delay: 0.2 + i * 0.08 }}
+                            whileHover={{ scale: 1.05, y: -1 }}
+                            whileTap={{ scale: 0.97 }}
+                            onClick={() => {
+                              setOpen(false);
+                              setMaximized(false);
+                              navigate(ref.path);
+                            }}
+                            className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-[hsl(260,60%,30%,0.4)] to-[hsl(220,70%,30%,0.4)] border border-white/10 text-white/80 hover:text-white hover:border-white/25 hover:from-[hsl(260,60%,35%,0.5)] hover:to-[hsl(220,70%,35%,0.5)] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[hsl(260,80%,55%,0.15)]"
+                          >
+                            <ExternalLink className="h-3 w-3 text-white/40 group-hover:text-[hsl(210,100%,70%)] transition-colors" />
+                            {ref.label}
+                          </motion.button>
+                        ))}
+                      </motion.div>
                     )}
-                    <p className={`text-[10px] mt-1.5 ${msg.role === "user" ? "text-white/40" : "text-white/30"}`}>
-                      {msg.time}
-                    </p>
                   </div>
                 </div>
-              ))}
+              );
+              })}
               {isLoading && messages[messages.length - 1]?.role === "user" && (
                 <div className="flex justify-start">
                   <div className="bg-white/[0.06] border border-white/10 rounded-2xl rounded-bl-md px-4 py-3">

@@ -26,7 +26,26 @@ ALWAYS structure your responses with clear formatting:
 4. **End with 2-3 follow-up questions** under a "**Curious about more?**" section (vary the header — "**Want to go deeper?**", "**What else can I dig into?**", "**What catches your eye?**")
 5. Keep each section concise (2-3 sentences max)
 6. Use --- to separate major sections when covering multiple topics
-7. Do NOT include markdown links in responses — just reference page names naturally (e.g., "You can find that on the Whitepaper page" or "Check out the RWA sectors").
+7. Do NOT include markdown links in the body text.
+8. **IMPORTANT — Reference Tags:** At the VERY END of your response (after follow-up questions), add relevant reference tags using this exact format: [[REF:Label Text|/path]]. Add 1-4 references that point to the most relevant pages discussed. These will render as clickable navigation pills for the user. Examples:
+   - [[REF:W3AI Whitepaper|/whitepaper]]
+   - [[REF:RWA Sectors|/rwas]]
+   - [[REF:Web3AI Services|/services/web3-ai]]
+   - [[REF:Meet the Team|/#team]]
+   - [[REF:Carbon Credits|/rwas/carbon-credits]]
+   - [[REF:Tokenomics (Ch. 09)|/whitepaper]]
+   - [[REF:Contact Us|/#contact]]
+   - [[REF:Intelligence Hub|/intel]]
+   - [[REF:Investor Presentation|/investors/presentation]]
+
+## Available Reference Paths
+Use these exact paths in REF tags:
+- / (Homepage), /#about, /#team, /#contact
+- /whitepaper, /intel, /investors, /investors/presentation
+- /services/web3-ai, /services/real-world-assets, /services/data-intelligence, /services/ai-analytics, /services/cyber-defense, /services/digital-strategy
+- /web3ai/ai-automation, /web3ai/token-ecosystem, /web3ai/cross-border-settlements, /web3ai/rwa-infrastructure, /web3ai/vertical-intelligence, /web3ai/community-driven
+- /rwas, /rwas/carbon-credits, /rwas/collectables, /rwas/commodities, /rwas/energy, /rwas/infrastructure, /rwas/metals, /rwas/rare-earth, /rwas/real-estate, /rwas/sovereign-wealth, /rwas/stablecoins, /rwas/tax-credits, /rwas/utilities
+- /blog/rwa-tokenization, /blog/ai-investor-engagement, /blog/pre-ipo-markets
 
 ## Company Knowledge
 
@@ -133,7 +152,8 @@ Legal framework, technical appendix, comprehensive glossary of terms, reference 
 - Vary your follow-up questions. Make them genuinely interesting, not generic.
 - For whitepaper questions, reference specific chapters and mention the Whitepaper page.
 - Match the user's energy. Casual question? Casual answer. Detailed technical question? Go deep.
-- Do NOT output markdown links. Just mention page names naturally.`;
+- Do NOT use markdown links in the body text. Use [[REF:Label|/path]] tags at the end instead.
+- ALWAYS include at least 1-2 REF tags at the end of every response pointing to the most relevant pages.`;
 
 
 serve(async (req) => {
