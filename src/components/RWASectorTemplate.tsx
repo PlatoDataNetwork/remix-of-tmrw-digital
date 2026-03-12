@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { LucideIcon, ArrowLeft, CheckCircle2, TrendingUp, Shield, Globe } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 export interface SectorPageData {
   icon: LucideIcon;
