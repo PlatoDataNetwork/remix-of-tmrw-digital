@@ -455,6 +455,8 @@ export default function Deck() {
       "relative w-full bg-background border border-border rounded-2xl overflow-hidden transition-all duration-300",
       fullscreen ? "fixed inset-0 z-50 rounded-none border-none" : "aspect-video"
     )}>
+      {/* Slide branding */}
+      <SlideBranding />
       {/* Slide content */}
       <div className="absolute inset-0 p-8 md:p-16 flex flex-col">
         {slides[current].render()}
