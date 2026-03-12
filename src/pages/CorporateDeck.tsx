@@ -371,10 +371,10 @@ const slides: Slide[] = [
           <div className="space-y-4">
             <SectionLabel>What Sets Us Apart</SectionLabel>
             <BulletList items={[
-              { bold: "Convergence —", text: "AI + Web3 + RWA in a single integrated platform" },
-              { bold: "Public market path —", text: "TSX listing provides institutional confidence" },
-              { bold: "Regulatory-first —", text: "dual-jurisdiction compliance (Canada + Liechtenstein)" },
-              { bold: "Revenue generating —", text: "existing platform with proven traction" },
+              { bold: "Convergence —", text: "AI + Web3 + RWA in a single integrated platform." },
+              { bold: "Public market path —", text: "TSX listing provides institutional confidence." },
+              { bold: "Regulatory-first —", text: "dual-jurisdiction compliance (Canada + Liechtenstein)." },
+              { bold: "Revenue generating —", text: "existing platform with proven traction." },
             ]} />
           </div>
           <div className="space-y-4">
