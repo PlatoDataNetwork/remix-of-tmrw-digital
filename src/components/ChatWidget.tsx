@@ -279,20 +279,24 @@ const ChatWidget = () => {
                   >
                     {msg.role === "assistant" ? (
                       <div className="prose prose-sm prose-invert max-w-none [&>p]:m-0 [&>p]:mb-2 [&>ul]:my-1.5 [&>ol]:my-1.5 [&>hr]:my-3 [&>hr]:border-white/10 [&_strong]:text-white [&_a]:text-[hsl(210,100%,70%)] [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-[hsl(210,100%,80%)] [&_li]:mb-1">
-                        <ReactMarkdown
+                      <ReactMarkdown
                           components={{
-                            a: ({ href, children, ...props }) => {
-                              return (
-                                <a
-                                  {...props}
-                                  href={href}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-[hsl(210,100%,70%)] underline underline-offset-2 hover:text-[hsl(210,100%,80%)] cursor-pointer transition-colors"
-                                >
-                                  {children}
-                                </a>
-                              );
+                            a: ({ children }) => <span>{children}</span>,
+                            li: ({ children, ...props }) => {
+                              const text = extractText(children);
+                              const isFollowUp = text.endsWith("?");
+                              if (isFollowUp) {
+                                return (
+                                  <li
+                                    {...props}
+                                    onClick={() => handleFollowUp(text)}
+                                    className="cursor-pointer hover:text-[hsl(210,100%,70%)] transition-colors"
+                                  >
+                                    {children}
+                                  </li>
+                                );
+                              }
+                              return <li {...props}>{children}</li>;
                             },
                           }}
                         >
