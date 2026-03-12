@@ -906,6 +906,7 @@ export default function Deck() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead title="W3AI Deck" description="W3AI investor deck — Web3 AI infrastructure, token ecosystem, and real-world asset tokenization platform." path="/deck" />
       <Navbar />
       <div className="pt-20 lg:pt-24 pb-16 px-4 md:px-8 max-w-6xl mx-auto">
         {slideContent}

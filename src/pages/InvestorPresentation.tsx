@@ -141,6 +141,7 @@ const InvestorPresentation = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead title="Investor Presentation" description="Institutional investor overview for The Tomorrow Company — Web3 AI infrastructure, RWA tokenization, and public market strategy." path="/investors/presentation" noindex />
       <Navbar />
 
       <div className="pt-20">

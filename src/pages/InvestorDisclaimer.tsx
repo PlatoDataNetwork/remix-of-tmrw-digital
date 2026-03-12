@@ -120,6 +120,7 @@ const InvestorDisclaimer = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SEOHead title="Investor Disclaimer" description="Legal disclaimer for accredited investors accessing The Tomorrow Company investor materials." path="/investors" noindex />
       <Navbar />
 
       {/* Content */}

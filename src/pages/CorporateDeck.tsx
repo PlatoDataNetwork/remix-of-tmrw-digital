@@ -655,6 +655,7 @@ export default function CorporateDeck() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead title="TMRW Deck" description="The Tomorrow Company corporate deck — diversified Web3 infrastructure, carbon assets, and digital economy platform." path="/corporate-deck" />
       <Navbar />
       <div className="pt-20 lg:pt-24 pb-16 px-4 md:px-8 max-w-6xl mx-auto">
         {slideContent}
