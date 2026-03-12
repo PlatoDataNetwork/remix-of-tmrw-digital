@@ -694,23 +694,75 @@ const slides: Slide[] = [
   {
     id: "tokenomics",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Tokenomics & Supply</SlideTitle>
-        <div className="text-center mb-2">
-          <StatBlock value="2B" label="Total Token Supply" />
+      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+        <div className="flex items-baseline justify-between">
+          <SlideTitle>Tokenomics & Supply</SlideTitle>
+          <div className="text-right">
+            <span className="text-3xl font-extralight text-[hsl(82,85%,55%)]">2B</span>
+            <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground ml-2">Total Supply</span>
+          </div>
         </div>
-        <TableSlide
-          headers={["Allocation", "Tokens", "Share", "Locked"]}
-          rows={[
-            ["Private Round", "200M", "10%", "No"],
-            ["Private Pre-Sale", "200M", "10%", "Yes"],
-            ["Seed Round", "200M", "10%", "Yes"],
-            ["IDO / TGE", "200M", "10%", "No"],
-            ["Team & Advisors", "200M", "10%", "Yes"],
-            ["Rewards", "50M", "2.5%", "No"],
-            ["Treasury", "1.15B", "52.5%", "Yes"],
-          ]}
-        />
+        <div className="grid md:grid-cols-5 gap-4">
+          <div className="md:col-span-3">
+            <div className="overflow-x-auto w-full">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="border-b border-[hsl(82,85%,55%,0.2)]">
+                    <th className="py-2 px-3 font-medium text-foreground text-left text-[10px] uppercase tracking-wider">Allocation</th>
+                    <th className="py-2 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">Tokens</th>
+                    <th className="py-2 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">Share</th>
+                    <th className="py-2 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">Lock</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Private Round", "200M", "10%", "No"],
+                    ["Private Pre-Sale", "200M", "10%", "Yes"],
+                    ["Seed Round", "200M", "10%", "Yes"],
+                    ["IDO / TGE", "200M", "10%", "No"],
+                    ["Team & Advisors", "200M", "10%", "Yes"],
+                    ["Rewards", "50M", "2.5%", "No"],
+                    ["Treasury", "1.15B", "52.5%", "Yes"],
+                  ].map(([a, t, s, l]) => (
+                    <tr key={a} className="border-b border-border/30 hover:bg-[hsl(82,85%,55%,0.02)] transition-colors">
+                      <td className="py-2 px-3 text-foreground font-light">{a}</td>
+                      <td className="py-2 px-3 text-right text-muted-foreground font-light">{t}</td>
+                      <td className="py-2 px-3 text-right text-muted-foreground font-light">{s}</td>
+                      <td className="py-2 px-3 text-right">
+                        <span className={l === "Yes" ? "text-[hsl(82,85%,55%,0.7)]" : "text-muted-foreground/50"}>{l === "Yes" ? "🔒" : "—"}</span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="md:col-span-2 space-y-3">
+            <GreenCard className="p-4 space-y-2">
+              <h3 className="text-[10px] uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)]">Treasury</h3>
+              <p className="text-2xl font-extralight text-foreground">52.5%</p>
+              <p className="text-[11px] font-light text-muted-foreground leading-relaxed">
+                Governed by progressive decentralization with institutional-quality reporting and custody controls.
+              </p>
+            </GreenCard>
+            <GreenCard className="p-4 space-y-2">
+              <h3 className="text-[10px] uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)]">Vesting</h3>
+              <p className="text-[11px] font-light text-muted-foreground leading-relaxed">
+                Team & Advisors vest over 12 months across 21 isochronic events. Pre-Sale 2 & Seed release over 6 months post-IDO.
+              </p>
+            </GreenCard>
+            <div className="flex gap-3">
+              <div className="flex-1 p-3 rounded-lg border border-[hsl(82,85%,55%,0.15)] bg-card text-center">
+                <p className="text-lg font-extralight text-[hsl(82,85%,55%)]">3</p>
+                <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Demand Drivers</p>
+              </div>
+              <div className="flex-1 p-3 rounded-lg border border-[hsl(82,85%,55%,0.15)] bg-card text-center">
+                <p className="text-lg font-extralight text-[hsl(82,85%,55%)]">30%</p>
+                <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Gateway Margin</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     ),
   },
