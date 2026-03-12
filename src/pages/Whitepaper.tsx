@@ -1299,6 +1299,84 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
+      {/* Security */}
+      <section id="security" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Security</h2>
+        <div className="prose-section">
+          <p>Security is the non-negotiable foundation of every W3AI product surface. In an era where AI agents execute financial transactions, interact with smart contracts, and manage digital identities on behalf of users, the attack surface has expanded beyond traditional cybersecurity models. W3AI treats security not as a feature layer but as an architectural primitive—embedded at every level from browser runtime to on-chain execution.</p>
+        </div>
+      </section>
+
+      <section id="security-network" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Network Security</h2>
+        <div className="prose-section">
+          <p>W3AI's network security model spans three blockchain ecosystems—Solana, Ethereum, and BNB Smart Chain—each with distinct consensus mechanisms, validator economics, and threat profiles. The protocol implements defense-in-depth across all layers:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Validator hardening: Hardware security modules (HSMs), geo-distributed infrastructure, and automated failover to prevent single points of failure.</li>
+            <li>Node isolation: Dedicated validator nodes with restricted network access, DDoS mitigation, and encrypted peer-to-peer communication channels.</li>
+            <li>Consensus monitoring: Real-time attestation tracking, slashing risk alerts, and automated response protocols for consensus anomalies.</li>
+            <li>Bridge security: Wormhole NTT burn-and-mint model eliminates locked-token attack vectors. Per-chain rate limits contain blast radius in the event of bridge compromise.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="security-blockchain" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Blockchain Security</h2>
+        <div className="prose-section">
+          <p>Smart contract security is enforced through a multi-layered audit and verification pipeline. Every contract deployed within the W3AI ecosystem undergoes rigorous pre-deployment and post-deployment security processes:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Third-party audits: Hacken conducts comprehensive smart contract audits covering logic vulnerabilities, reentrancy attacks, integer overflows, and access control flaws.</li>
+            <li>Formal verification: Critical contract paths—token minting, governance execution, and bridge operations—are formally verified where applicable.</li>
+            <li>Bug bounty programs: Continuous community-driven vulnerability discovery with tiered rewards based on severity classification.</li>
+            <li>Upgrade governance: All contract upgrades require multi-sig approval with time-lock periods, ensuring no single actor can modify live contracts unilaterally.</li>
+            <li>Supply integrity enforcement: Automated cross-chain reconciliation checks verify that the total W3AI supply across all deployed chains equals the canonical 2,000,000,000 at every block.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="security-defi" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">DeFi Security</h2>
+        <div className="prose-section">
+          <p>Decentralized finance introduces unique security challenges—flash loan attacks, oracle manipulation, liquidity pool exploits, and MEV extraction. W3AI addresses these through purpose-built safeguards integrated into the browser and protocol layers:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Transaction simulation: Every swap, stake, or liquidity provision is simulated before signing. Users see exactly what they will receive, what fees apply, and whether the transaction path contains anomalies.</li>
+            <li>MEV protection: W3AI integrates private transaction relays and MEV-aware routing to shield users from sandwich attacks and front-running on Ethereum and BSC.</li>
+            <li>Oracle integrity: Price feeds are sourced from multiple decentralized oracles with outlier detection. Stale or manipulated price data triggers automatic circuit breakers.</li>
+            <li>Liquidity risk monitoring: Real-time pool depth analysis, impermanent loss estimation, and concentration risk alerts are surfaced directly in the browser interface.</li>
+            <li>Protocol allow-listing: Only audited and verified DeFi protocols are accessible through W3AI's native swap and yield interfaces. Unverified contracts require explicit user override with risk acknowledgment.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="security-defai" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">DeFAI Security</h2>
+        <div className="prose-section">
+          <p>DeFAI—the convergence of decentralized finance and artificial intelligence—represents the next frontier of both opportunity and risk. When AI agents autonomously execute financial strategies, the security model must evolve beyond human-in-the-loop to agent-in-the-loop with cryptographic constraints:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Agent permission boundaries: AI agents operate within explicit permission envelopes—maximum transaction size, approved protocols, and whitelisted token pairs. No autonomous signing is permitted outside these boundaries.</li>
+            <li>Deterministic execution: AI-recommended strategies are compiled into verifiable execution plans. Users approve the plan, not individual transactions, enabling batch execution with full auditability.</li>
+            <li>Adversarial robustness: AI models are tested against prompt injection, data poisoning, and adversarial input attacks. The browser sandboxes all AI inference to prevent cross-context data leakage.</li>
+            <li>Explainability enforcement: Every AI-driven financial recommendation includes a human-readable rationale, data sources, confidence scores, and risk disclaimers. Black-box execution is architecturally prohibited.</li>
+            <li>Kill switch governance: DAO-governed emergency stop mechanisms can pause all AI agent activity network-wide within seconds if systemic risk is detected.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="security-ai" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">AI Security</h2>
+        <div className="prose-section">
+          <p>AI systems within W3AI—from the browser's built-in LLM layer to the Open Gateway inference API—are secured against the full spectrum of AI-specific threats. The security model treats AI as untrusted infrastructure that must be constrained, monitored, and verified at every interaction:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Model isolation: Each AI inference request runs in an isolated execution environment. No persistent state is shared between sessions, preventing cross-user data contamination.</li>
+            <li>Input sanitization: All user inputs and web content processed by AI models are sanitized against prompt injection, jailbreaking, and instruction override attacks.</li>
+            <li>Output verification: AI-generated outputs—especially those triggering financial actions—are validated against rule-based checks before execution. Hallucinated contract addresses, token symbols, or transaction parameters are caught and rejected.</li>
+            <li>Data sovereignty: AI inference can run locally on-device for privacy-sensitive operations. No user data is sent to external AI providers without explicit consent and encryption in transit.</li>
+            <li>Model provenance: All AI models used within the W3AI ecosystem are version-tracked, hash-verified, and auditable. Model updates require governance approval to prevent supply chain attacks on the inference layer.</li>
+            <li>Rate limiting and abuse prevention: API-level rate limits, anomaly detection, and behavioral analysis prevent automated abuse of AI endpoints for phishing content generation, social engineering, or market manipulation.</li>
+          </ul>
+        </div>
+      </section>
+
       {/* Privacy Policy */}
       <section id="privacy" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Privacy Policy</h2>
