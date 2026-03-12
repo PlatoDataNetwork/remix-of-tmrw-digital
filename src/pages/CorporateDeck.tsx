@@ -285,9 +285,7 @@ const slides: Slide[] = [
             "Infrastructure", "Metals", "Rare Earth", "Real Estate",
             "Sovereign Wealth", "Stablecoins", "Tax Credits", "Utilities",
           ].map(v => (
-            <div key={v} className="p-3 rounded-lg border border-[hsl(82,85%,55%,0.2)] bg-card text-center relative overflow-hidden hover:border-[hsl(82,85%,55%,0.5)] hover:shadow-[0_0_15px_-5px_hsl(82,85%,55%,0.3)] transition-all group">
-              <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[hsl(82,85%,55%)] via-[hsl(82,85%,55%,0.5)] to-[hsl(82,85%,55%)]" />
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[hsl(82,85%,55%,0.5)] via-[hsl(82,85%,55%,0.2)] to-transparent" />
+            <div key={v} className="p-3 rounded-lg border border-[hsl(82,85%,55%,0.3)] bg-card text-center relative overflow-hidden hover:border-[hsl(82,85%,55%,0.8)] hover:shadow-[0_0_20px_-5px_hsl(82,85%,55%,0.4)] hover:shadow-[inset_0_0_20px_-10px_hsl(82,85%,55%,0.2)] transition-all group">
               <p className="text-xs font-medium text-foreground group-hover:text-[hsl(82,85%,55%)] transition-colors">{v}</p>
             </div>
           ))}
