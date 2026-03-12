@@ -1504,7 +1504,6 @@ export default function Whitepaper() {
   const [activeId, setActiveId] = useState("executive-summary");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setShowScrollTop(window.scrollY > 400);
