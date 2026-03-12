@@ -90,7 +90,7 @@ function MobileDrawerSidebar({ activeId, onNavigate, open, onClose }: { activeId
             className="fixed inset-y-0 left-0 z-[90] w-[75vw] max-w-xs bg-sidebar-background border-r border-border overflow-y-auto lg:hidden"
           >
             <div className="flex items-center justify-between px-4 py-3 border-b border-border">
-              <span className="text-sm font-semibold text-foreground">Contents</span>
+              <span className="text-sm font-semibold text-foreground">W3AI Whitepaper</span>
               <button onClick={onClose} className="p-1 text-muted-foreground hover:text-foreground transition-colors">
                 <X className="h-4 w-4" />
               </button>
