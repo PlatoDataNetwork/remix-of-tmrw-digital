@@ -547,19 +547,6 @@ const slides: Slide[] = [
           <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
         </div>
         <div className="relative z-10 flex flex-col items-center gap-6">
-          <div
-            className="h-14 w-14 animated-gradient-icon-bright"
-            style={{
-              WebkitMaskImage: `url(${platoIcon})`,
-              WebkitMaskSize: "contain",
-              WebkitMaskRepeat: "no-repeat",
-              WebkitMaskPosition: "center",
-              maskImage: `url(${platoIcon})`,
-              maskSize: "contain",
-              maskRepeat: "no-repeat",
-              maskPosition: "center",
-            }}
-          />
           <div className="space-y-3">
             <h1 className="text-4xl md:text-6xl font-extralight tracking-tight text-foreground">Thank You</h1>
             <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">The Tomorrow Company</p>
