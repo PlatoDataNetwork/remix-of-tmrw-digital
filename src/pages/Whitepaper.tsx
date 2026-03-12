@@ -1528,7 +1528,7 @@ export default function Whitepaper() {
       <Navbar />
 
       <div className="flex min-h-[calc(100vh-80px)] pt-16 lg:pt-20">
-        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} />
+        <DesktopSidebar activeId={activeId} onNavigate={navigateTo} collapsed={desktopSidebarCollapsed} onToggle={() => setDesktopSidebarCollapsed(c => !c)} />
         <MobileDrawerSidebar activeId={activeId} onNavigate={navigateTo} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 min-w-0">
           <WhitepaperContent onSectionVisible={setActiveId} />
