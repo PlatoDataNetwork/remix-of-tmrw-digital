@@ -36,12 +36,13 @@ const sections: Section[] = [
   { id: "marketing", title: "Marketing & Distribution", number: "15" },
   { id: "strategic-partners", title: "Network Partners", number: "16" },
   { id: "infrastructure", title: "Infrastructure", number: "17" },
-  { id: "security", title: "Security", number: "18" },
-  { id: "privacy", title: "Privacy Policy", number: "19" },
-  { id: "risks", title: "Risks & Disclosures", number: "20" },
-  { id: "appendix", title: "Appendix & References", number: "21" },
-  { id: "disclaimer", title: "Disclaimer", number: "22" },
-  { id: "deck-link", title: "Project Deck", number: "23" },
+  { id: "security", title: "Cybersecurity", number: "18" },
+  { id: "auditing", title: "Auditing", number: "19" },
+  { id: "privacy", title: "Privacy Policy", number: "20" },
+  { id: "risks", title: "Risks & Disclosures", number: "21" },
+  { id: "appendix", title: "Appendix & References", number: "22" },
+  { id: "disclaimer", title: "Disclaimer", number: "23" },
+  { id: "deck-link", title: "Project Deck", number: "24" },
 ];
 
 // Only numbered sections for the chapter grid
@@ -1272,7 +1273,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 
       {/* Security */}
       <section id="security" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Security</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Cybersecurity</h2>
         <div className="prose-section">
           <p>Security is the non-negotiable foundation of every W3AI product surface. In an era where AI agents execute financial transactions, interact with smart contracts, and manage digital identities on behalf of users, the attack surface has expanded beyond traditional cybersecurity models. W3AI treats security not as a feature layer but as an architectural primitive—embedded at every level from browser runtime to on-chain execution.</p>
         </div>
@@ -1344,6 +1345,55 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
             <li>Data sovereignty: AI inference can run locally on-device for privacy-sensitive operations. No user data is sent to external AI providers without explicit consent and encryption in transit.</li>
             <li>Model provenance: All AI models used within the W3AI ecosystem are version-tracked, hash-verified, and auditable. Model updates require governance approval to prevent supply chain attacks on the inference layer.</li>
             <li>Rate limiting and abuse prevention: API-level rate limits, anomaly detection, and behavioral analysis prevent automated abuse of AI endpoints for phishing content generation, social engineering, or market manipulation.</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Auditing */}
+      <section id="auditing" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Auditing</h2>
+        <div className="prose-section">
+          <p>W3AI maintains the highest standards of accountability through comprehensive auditing across both smart contract infrastructure and corporate financial operations. This dual-audit framework ensures technical integrity on-chain and regulatory compliance off-chain, providing stakeholders with verifiable trust at every layer.</p>
+        </div>
+      </section>
+
+      <section id="auditing-smart-contract" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">3rd Party Smart Contract Auditing</h2>
+        <div className="prose-section">
+          <p>All W3AI smart contracts undergo rigorous third-party security audits conducted by Hacken.io, a leading blockchain security auditor with a proven track record across 1,800+ projects. Hacken's audit methodology provides institutional-grade assurance across the full contract lifecycle:</p>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Comprehensive code review: Line-by-line analysis of all deployed smart contracts covering logic vulnerabilities, access control flaws, reentrancy vectors, integer overflow/underflow, and gas optimization.</li>
+            <li>Automated vulnerability scanning: Static and dynamic analysis tools identify known vulnerability patterns, including those catalogued in the SWC Registry and OWASP Smart Contract Top 10.</li>
+            <li>Formal verification: Critical contract paths—token minting, governance execution, bridge operations, and staking mechanics—are formally verified to ensure mathematical correctness.</li>
+            <li>Audit reporting: All audit reports are published publicly, detailing findings by severity (Critical, High, Medium, Low, Informational), remediation status, and re-audit confirmation.</li>
+            <li>Continuous auditing: W3AI maintains an ongoing audit relationship with Hacken. All contract upgrades, new deployments, and protocol modifications trigger mandatory re-audits before mainnet deployment.</li>
+            <li>Bug bounty integration: Hacken's audit process is complemented by W3AI's community-driven bug bounty program, ensuring continuous post-deployment vulnerability discovery.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="auditing-financial" data-section>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Financial Auditing</h2>
+        <div className="prose-section">
+          <p>W3AI operates under dual-jurisdiction financial auditing requirements, maintaining compliance with both Canadian and Liechtenstein regulatory frameworks. This multi-jurisdictional approach ensures the highest standards of financial transparency and corporate governance:</p>
+
+          <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Canada — Regulatory Compliance</h3>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Annual financial audits conducted in accordance with Canadian Auditing Standards (CAS) and International Financial Reporting Standards (IFRS) as adopted in Canada.</li>
+            <li>Compliance with Canadian Securities Administrators (CSA) reporting requirements, including National Instrument 51-102 Continuous Disclosure Obligations where applicable.</li>
+            <li>Anti-Money Laundering (AML) and Know Your Customer (KYC) compliance under the Proceeds of Crime (Money Laundering) and Terrorist Financing Act (PCMLTFA), with registration and reporting to FINTRAC.</li>
+            <li>Tax compliance with the Canada Revenue Agency (CRA), including proper treatment and reporting of digital asset transactions under the Income Tax Act.</li>
+            <li>Engagement of independent, CPAB-registered audit firms to ensure objectivity and adherence to professional standards.</li>
+          </ul>
+
+          <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Liechtenstein — Regulatory Compliance</h3>
+          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+            <li>Compliance with the Liechtenstein Token and TT Service Provider Act (TVTG / "Blockchain Act"), one of the world's most comprehensive legal frameworks for tokenized assets and blockchain-based business models.</li>
+            <li>Financial audits conducted in accordance with Liechtenstein audit standards and International Standards on Auditing (ISA), ensuring alignment with European regulatory expectations.</li>
+            <li>Regulatory oversight by the Financial Market Authority Liechtenstein (FMA), including registration as a TT Service Provider and adherence to ongoing reporting obligations.</li>
+            <li>AML/KYC compliance under Liechtenstein's Due Diligence Act (SPG) and Due Diligence Ordinance (SPV), aligned with EU Anti-Money Laundering Directives (AMLD5/AMLD6).</li>
+            <li>MiCA readiness: Proactive alignment with the EU Markets in Crypto-Assets Regulation (MiCA), ensuring seamless compliance as the regulation takes full effect across the European Economic Area.</li>
+            <li>Engagement of FMA-approved audit firms with expertise in digital asset businesses and tokenized security structures.</li>
           </ul>
         </div>
       </section>
