@@ -1021,45 +1021,41 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         <section id="supported-networks">
           <h2 className="text-2xl font-bold text-foreground mb-4">Supported Networks</h2>
           <div className="prose-section">
-            <p>W3AI is built as a multi-chain protocol with native presence across three foundational blockchain ecosystems. Each network was selected for its unique strengths in performance, composability, and community reach — together providing comprehensive coverage of the Web3 landscape.</p>
+            <p>W3AI is built as a multi-chain protocol with native presence across foundational blockchain ecosystems. Each network was selected for its unique strengths in performance, composability, and community reach — together providing comprehensive coverage of the Web3 landscape.</p>
           </div>
         </section>
-        <section id="network-solana">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Solana</h2>
-          <div className="prose-section">
-            <p>Solana serves as the hub chain and canonical mint for the W3AI token. Its sub-second finality and low transaction costs make it the optimal execution environment for high-frequency AI agent operations, real-time swap execution, and staking mechanics.</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Hub chain with canonical token mint and primary staking contracts.</li>
-              <li>AI inference routing optimized for Solana's parallel transaction processing.</li>
-              <li>Native integration with Jupiter aggregator for optimal swap routing.</li>
-              <li>Validator operations contributing to network security and protocol revenue.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="network-ethereum">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Ethereum</h2>
-          <div className="prose-section">
-            <p>Ethereum provides W3AI with access to the deepest DeFi liquidity, the largest developer ecosystem, and the strongest institutional credibility in Web3. As a spoke chain in the hub-and-spoke architecture, Ethereum hosts bridged W3AI tokens for DeFi composability and exchange listings.</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Spoke chain with Wormhole NTT bridged tokens.</li>
-              <li>Uniswap-style AMM pools for deep liquidity access.</li>
-              <li>Smart contract audit standards aligned with Ethereum's security-first culture.</li>
-              <li>Layer 2 expansion roadmap (Arbitrum, Polygon) for cost-efficient operations.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="network-bsc">
-          <h2 className="text-2xl font-bold text-foreground mb-4">BNB Smart Chain</h2>
-          <div className="prose-section">
-            <p>BNB Smart Chain (BSC) extends W3AI's reach into the highest-volume retail trading ecosystem. With 1.2M daily active users on BSC and 2.7M on opBNB, the chain provides access to a massive user base optimized for high-frequency swaps, token discovery, and community-driven activity.</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Spoke chain with PancakeSwap Smart Router integration.</li>
-              <li>Retail-first onboarding with optimized swap and bridging flows.</li>
-              <li>Validator operations with 2,000 BNB minimum self-delegation.</li>
-              <li>Gateway vertical for memecoin communities with safety overlay.</li>
-            </ul>
-          </div>
-        </section>
+        {[
+          { id: "network-solana", name: "Solana", desc: "Solana serves as the hub chain and canonical mint for the W3AI token. Its sub-second finality and low transaction costs make it the optimal execution environment for high-frequency AI agent operations, real-time swap execution, and staking mechanics.", bullets: ["Hub chain with canonical token mint and primary staking contracts.", "AI inference routing optimized for Solana's parallel transaction processing.", "Native integration with Jupiter aggregator for optimal swap routing.", "Validator operations contributing to network security and protocol revenue."], links: { github: "https://github.com/solana-labs", foundation: "https://solana.org", x: "https://x.com/solana", visit: "https://solana.com" }},
+          { id: "network-ethereum", name: "Ethereum", desc: "Ethereum provides W3AI with access to the deepest DeFi liquidity, the largest developer ecosystem, and the strongest institutional credibility in Web3. As a spoke chain, Ethereum hosts bridged W3AI tokens for DeFi composability and exchange listings.", bullets: ["Spoke chain with Wormhole NTT bridged tokens.", "Uniswap-style AMM pools for deep liquidity access.", "Smart contract audit standards aligned with Ethereum's security-first culture.", "Layer 2 expansion roadmap for cost-efficient operations."], links: { github: "https://github.com/ethereum", foundation: "https://ethereum.foundation", x: "https://x.com/ethereum", visit: "https://ethereum.org" }},
+          { id: "network-bsc", name: "BNB Smart Chain", desc: "BNB Smart Chain extends W3AI's reach into the highest-volume retail trading ecosystem. With 1.2M daily active users on BSC and 2.7M on opBNB, the chain provides access to a massive user base optimized for high-frequency swaps and community-driven activity.", bullets: ["Spoke chain with PancakeSwap Smart Router integration.", "Retail-first onboarding with optimized swap and bridging flows.", "Validator operations with 2,000 BNB minimum self-delegation.", "Gateway vertical for memecoin communities with safety overlay."], links: { github: "https://github.com/bnb-chain", foundation: "https://www.bnbchain.org", x: "https://x.com/BNBCHAIN", visit: "https://www.bnbchain.org" }},
+          { id: "network-polygon", name: "Polygon", desc: "Polygon provides W3AI with enterprise-grade Ethereum scaling through its zkEVM and PoS sidechains. Its low-cost, high-throughput infrastructure enables mass-market AI agent deployment while maintaining full EVM compatibility and access to Ethereum's security guarantees.", bullets: ["zkEVM rollup for trustless Ethereum-equivalent execution at fraction of cost.", "PoS sidechain for high-speed, low-latency AI agent interactions.", "Enterprise partnerships enabling institutional RWA tokenization pathways.", "Supernets architecture for dedicated W3AI application-specific chains."], links: { github: "https://github.com/0xPolygon", foundation: "https://polygon.technology", x: "https://x.com/0xPolygon", visit: "https://polygon.technology" }},
+          { id: "network-zksync", name: "zkSync", desc: "zkSync Era delivers the highest throughput Ethereum L2 experience with native account abstraction and zero-knowledge proof security. W3AI leverages zkSync for privacy-preserving AI computations and gasless user onboarding flows.", bullets: ["Native account abstraction for seamless gasless transactions.", "ZK-proof verification ensuring computational integrity for AI outputs.", "Hyperchain architecture enabling W3AI-dedicated execution environments.", "Paymaster contracts subsidizing end-user gas for frictionless onboarding."], links: { github: "https://github.com/matter-labs", foundation: "https://zksync.io", x: "https://x.com/zaborny_k", visit: "https://zksync.io" }},
+          { id: "network-avalanche", name: "Avalanche", desc: "Avalanche's subnet architecture allows W3AI to deploy purpose-built blockchain environments with custom gas tokens, validator sets, and compliance rules — ideal for regulated RWA tokenization and institutional AI applications.", bullets: ["Subnet deployment for dedicated W3AI execution with custom parameters.", "Sub-second finality enabling real-time AI agent decision execution.", "Institutional DeFi ecosystem with native KYC/AML compliance tooling.", "Warp Messaging for seamless cross-subnet AI agent communication."], links: { github: "https://github.com/ava-labs", foundation: "https://www.avax.network", x: "https://x.com/avaborny_k", visit: "https://www.avax.network" }},
+          { id: "network-arbitrum", name: "Arbitrum", desc: "Arbitrum One is the leading Ethereum L2 by TVL, providing W3AI with access to the deepest Layer 2 DeFi liquidity. Its optimistic rollup architecture delivers 10x cost reduction while inheriting Ethereum's full security model.", bullets: ["Optimistic rollup with 7-day fraud proof window and Ethereum-grade security.", "Arbitrum Orbit chains for dedicated W3AI application rollups.", "Stylus smart contracts enabling Rust/C++ for high-performance AI logic.", "Deepest L2 DeFi liquidity via GMX, Aave, and Uniswap deployments."], links: { github: "https://github.com/OffchainLabs", foundation: "https://arbitrum.foundation", x: "https://x.com/arbitrum", visit: "https://arbitrum.io" }},
+          { id: "network-optimism", name: "Optimism", desc: "Optimism powers the Superchain vision — a unified network of interoperable L2 chains. W3AI integrates with Optimism for its governance-forward ecosystem, retroactive public goods funding, and seamless cross-chain messaging via the OP Stack.", bullets: ["OP Stack integration for potential W3AI-dedicated chain deployment.", "Cross-chain message passing via Superchain interoperability layer.", "RetroPGF alignment for funding open-source AI safety research.", "EVM equivalence ensuring zero-friction smart contract portability."], links: { github: "https://github.com/ethereum-optimism", foundation: "https://optimism.io", x: "https://x.com/Optimism", visit: "https://optimism.io" }},
+          { id: "network-base", name: "Base", desc: "Base, incubated by Coinbase, bridges the gap between centralized exchange liquidity and on-chain DeFi. W3AI leverages Base for seamless fiat-to-crypto onboarding and access to Coinbase's 110M+ verified user base.", bullets: ["Direct Coinbase integration for institutional-grade fiat on/off ramps.", "OP Stack foundation with Superchain interoperability benefits.", "Lowest-cost EVM execution for high-frequency AI micro-transactions.", "Smart Wallet integration for one-click onboarding without seed phrases."], links: { github: "https://github.com/base-org", foundation: "https://base.org", x: "https://x.com/base", visit: "https://base.org" }},
+          { id: "network-fantom", name: "Fantom", desc: "Fantom's Lachesis consensus delivers DAG-based finality in 1-2 seconds with minimal fees. The upcoming Sonic upgrade positions Fantom as one of the fastest EVM chains — ideal for W3AI's latency-sensitive AI agent operations.", bullets: ["DAG-based Lachesis consensus for near-instant transaction finality.", "Sonic upgrade delivering 2,000+ TPS for high-frequency AI workloads.", "Fee monetization model sharing 90% of gas fees with dApp developers.", "Battle-tested DeFi ecosystem with established liquidity protocols."], links: { github: "https://github.com/Fantom-foundation", foundation: "https://fantom.foundation", x: "https://x.com/FantomFDN", visit: "https://fantom.foundation" }},
+          { id: "network-cronos", name: "Cronos", desc: "Cronos, powered by Crypto.com, connects W3AI to 80M+ Crypto.com app users and a robust CeFi-DeFi bridge. Its Cosmos SDK foundation and EVM compatibility create a unique hybrid environment for retail-focused AI applications.", bullets: ["Crypto.com ecosystem integration with 80M+ retail users.", "EVM and Cosmos SDK dual compatibility for maximum composability.", "Cronos zkEVM scaling solution for privacy-preserving transactions.", "Native fiat gateway via Crypto.com Pay for seamless onboarding."], links: { github: "https://github.com/crypto-org-chain", foundation: "https://cronos.org", x: "https://x.com/cronaborny_k", visit: "https://cronos.org" }},
+          { id: "network-moonbeam", name: "Moonbeam", desc: "Moonbeam is the top Polkadot parachain for EVM-compatible smart contracts, providing W3AI with cross-chain connectivity to the entire Polkadot ecosystem via XCM messaging and access to shared security from the Polkadot relay chain.", bullets: ["Full EVM and Substrate API compatibility for hybrid dApp development.", "XCM messaging for cross-parachain AI agent orchestration.", "Polkadot relay chain shared security model.", "Connected contracts enabling multi-chain logic execution from a single deployment."], links: { github: "https://github.com/moonbeam-foundation", foundation: "https://moonbeam.foundation", x: "https://x.com/MoonbeamNetwork", visit: "https://moonbeam.network" }},
+        ].map(n => (
+          <section key={n.id} id={n.id}>
+            <div className="flex items-center flex-wrap gap-4 mb-4">
+              <h2 className="text-2xl font-bold text-foreground">{n.name}</h2>
+              <div className="flex flex-wrap gap-2">
+                <a href={n.links.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">GitHub</a>
+                <a href={n.links.foundation} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">Foundation</a>
+                <a href={n.links.x} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">X</a>
+                <a href={n.links.visit} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[hsl(75,80%,55%)] text-black text-sm font-medium hover:bg-[hsl(75,80%,45%)] transition-colors">Visit ↗</a>
+              </div>
+            </div>
+            <div className="prose-section">
+              <p>{n.desc}</p>
+              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+                {n.bullets.map((b, i) => <li key={i}>{b}</li>)}
+              </ul>
+            </div>
+          </section>
+        ))}
       </div>
 
       {/* ============================================================ */}
