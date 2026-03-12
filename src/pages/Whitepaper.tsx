@@ -36,12 +36,13 @@ const sections: Section[] = [
   { id: "marketing", title: "Marketing & Distribution", number: "15" },
   { id: "strategic-partners", title: "Network Partners", number: "16" },
   { id: "infrastructure", title: "Infrastructure", number: "17" },
-  { id: "security", title: "Security", number: "18" },
-  { id: "privacy", title: "Privacy Policy", number: "19" },
-  { id: "risks", title: "Risks & Disclosures", number: "20" },
-  { id: "appendix", title: "Appendix & References", number: "21" },
-  { id: "disclaimer", title: "Disclaimer", number: "22" },
-  { id: "deck-link", title: "Project Deck", number: "23" },
+  { id: "security", title: "Cybersecurity", number: "18" },
+  { id: "auditing", title: "Auditing", number: "19" },
+  { id: "privacy", title: "Privacy Policy", number: "20" },
+  { id: "risks", title: "Risks & Disclosures", number: "21" },
+  { id: "appendix", title: "Appendix & References", number: "22" },
+  { id: "disclaimer", title: "Disclaimer", number: "23" },
+  { id: "deck-link", title: "Project Deck", number: "24" },
 ];
 
 // Only numbered sections for the chapter grid
