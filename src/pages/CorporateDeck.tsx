@@ -194,9 +194,9 @@ const slides: Slide[] = [
           critical growth stages — delivering measurable outcomes backed by deep industry knowledge and strategic execution.
         </SlideSubtitle>
         <BulletList items={[
-          { bold: "Disciplined capital deployment", text: "with forward-thinking execution across emerging and established markets" },
-          { bold: "AI and Web3 convergence", text: "redefining how capital moves, how value is measured, and how trust is established" },
-          { bold: "Institutional credibility", text: "with public market transparency and regulatory compliance from day one" },
+          { bold: "Disciplined capital deployment", text: "with forward-thinking execution across emerging and established markets." },
+          { bold: "AI and Web3 convergence", text: "redefining how capital moves, how value is measured, and how trust is established." },
+          { bold: "Institutional credibility", text: "with public market transparency and regulatory compliance from day one." },
         ]} />
       </div>
     ),
