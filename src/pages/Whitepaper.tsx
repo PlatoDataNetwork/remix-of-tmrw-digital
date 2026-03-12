@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, ChevronDown, ChevronLeft, X, ArrowUp, Download, Globe, Home } from "lucide-react";
+import { ChevronRight, ChevronDown, ChevronLeft, X, ArrowUp, Download, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
@@ -21,7 +21,6 @@ interface Section {
 }
 
 const sections: Section[] = [
-  { id: "w3ai-whitepaper", title: "Home", icon: "home" },
   { id: "w3lcome", title: "W3LCOME", icon: "disclaimer", children: [
     { id: "welcome-message", title: "Welcome Message" },
   ]},
@@ -120,7 +119,7 @@ function SidebarNav({ sections, activeId, expanded, toggle, onNavigate }: { sect
                 isActive ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
               )}
             >
-              {s.icon === "home" && <Home className="h-3.5 w-3.5 shrink-0 text-primary" />}
+              {/* no home icon */}
               {s.icon === "disclaimer" && (
                 <>
                   {isOpen ? <ChevronDown className="h-3.5 w-3.5 shrink-0" /> : <ChevronRight className="h-3.5 w-3.5 shrink-0" />}
