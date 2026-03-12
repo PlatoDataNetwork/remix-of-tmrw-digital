@@ -6,6 +6,16 @@ import ReactMarkdown from "react-markdown";
 
 import platoIcon from "@/assets/plato-icon.png";
 import { useChatContext } from "./ChatContext";
+import { Children, ReactNode, isValidElement } from "react";
+
+function extractText(node: ReactNode): string {
+  if (typeof node === "string") return node;
+  if (typeof node === "number") return String(node);
+  if (!node) return "";
+  if (Array.isArray(node)) return node.map(extractText).join("");
+  if (isValidElement(node)) return extractText(node.props.children);
+  return Children.toArray(node).map(extractText).join("");
+}
 
 interface Message {
   id: string;
