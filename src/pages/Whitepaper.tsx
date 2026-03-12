@@ -245,7 +245,7 @@ function SidebarNav({ activeId, onNavigate }: { activeId: string; onNavigate: (i
                   : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
               )}
             >
-              {s.icon === "home" && <span className="text-[10px] font-bold w-5 shrink-0 text-primary/70">🏠</span>}
+              {s.icon === "home" && <img src="/favicon.png" alt="logo" className="w-4 h-4 shrink-0 object-contain" />}
               {s.number && (
                 <span className={cn("text-[10px] font-bold w-5 shrink-0 transition-colors", isActive ? "text-[hsl(82,85%,65%)]" : "text-[hsl(82,85%,55%)]")}>{s.number}</span>
               )}
