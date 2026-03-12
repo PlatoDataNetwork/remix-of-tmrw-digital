@@ -37,6 +37,27 @@ function SlideBranding() {
   );
 }
 
+/** Subtle decorative accent — a short neon-green vertical line in the top-left corner */
+function SlideAccent() {
+  return (
+    <div className="absolute top-0 left-0 z-10 pointer-events-none">
+      <div className="w-px h-16 bg-gradient-to-b from-[hsl(82,85%,55%,0.6)] to-transparent" />
+      <div className="absolute top-0 left-0 w-16 h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.6)] to-transparent" />
+    </div>
+  );
+}
+
+/** Slide number badge — small neon green pill in the bottom-left */
+function SlideNumber({ n }: { n: number }) {
+  return (
+    <div className="absolute bottom-4 left-6 md:bottom-6 md:left-8 z-20 pointer-events-none">
+      <span className="text-[10px] font-light tracking-[0.2em] text-[hsl(82,85%,55%,0.5)]">
+        {String(n).padStart(2, "0")}
+      </span>
+    </div>
+  );
+}
+
 function StatBlock({ value, label }: { value: string; label: string }) {
   return (
     <div className="text-center">
@@ -46,8 +67,13 @@ function StatBlock({ value, label }: { value: string; label: string }) {
   );
 }
 
-function SlideTitle({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-foreground">{children}</h2>;
+function SlideTitle({ children, accent = true }: { children: React.ReactNode; accent?: boolean }) {
+  return (
+    <div className="space-y-2">
+      {accent && <div className="w-8 h-0.5 bg-[hsl(82,85%,55%,0.5)] rounded-full" />}
+      <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-foreground">{children}</h2>
+    </div>
+  );
 }
 
 function SlideSubtitle({ children }: { children: React.ReactNode }) {
@@ -69,12 +95,30 @@ function BulletList({ items }: { items: { bold: string; text: string }[] }) {
   );
 }
 
+function GreenCard({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={cn(
+      "p-5 rounded-xl border border-[hsl(82,85%,55%,0.15)] bg-card space-y-2 relative overflow-hidden",
+      className
+    )}>
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.3)] via-[hsl(82,85%,55%,0.1)] to-transparent" />
+      {children}
+    </div>
+  );
+}
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <h3 className="text-sm uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)]">{children}</h3>
+  );
+}
+
 function TableSlide({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
     <div className="overflow-x-auto w-full">
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-border">
+          <tr className="border-b border-[hsl(82,85%,55%,0.2)]">
             {headers.map((h, i) => (
               <th key={i} className={cn("py-3 px-4 font-medium text-foreground text-xs uppercase tracking-wider", i > 0 && "text-right")}>{h}</th>
             ))}
@@ -82,7 +126,7 @@ function TableSlide({ headers, rows }: { headers: string[]; rows: string[][] }) 
         </thead>
         <tbody>
           {rows.map((row, ri) => (
-            <tr key={ri} className="border-b border-border/50">
+            <tr key={ri} className="border-b border-border/50 hover:bg-[hsl(82,85%,55%,0.02)] transition-colors">
               {row.map((cell, ci) => (
                 <td key={ci} className={cn("py-3 px-4 text-muted-foreground font-light", ci > 0 && "text-right")}>{cell}</td>
               ))}
@@ -100,7 +144,6 @@ const slides: Slide[] = [
     id: "title",
     render: () => (
       <div className="relative flex flex-col items-center justify-center h-full text-center gap-6">
-        {/* Hero BG with animated gradient colorization — same as homepage */}
         <div className="absolute inset-0 pointer-events-none">
           <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-contain object-center scale-110" />
           <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
@@ -112,8 +155,8 @@ const slides: Slide[] = [
             <h1 className="text-4xl md:text-6xl font-extralight tracking-tight text-foreground">W3AI</h1>
             <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">The Tomorrow Company</p>
           </div>
-          <div className="w-16 h-px bg-[hsl(82,85%,55%,0.4)]" />
-          <p className="text-sm font-light text-muted-foreground/60 uppercase tracking-[0.3em]">Project Deck — 2026</p>
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
+          <p className="text-sm font-light text-[hsl(82,85%,55%,0.6)] uppercase tracking-[0.3em]">Project Deck — 2026</p>
         </div>
       </div>
     ),
@@ -122,7 +165,8 @@ const slides: Slide[] = [
   {
     id: "disclaimer",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-5 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-5 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Important Disclaimer</SlideTitle>
         <div className="space-y-3 text-left">
           <p className="text-xs font-light text-muted-foreground leading-relaxed">
@@ -143,11 +187,12 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 2 — Rise of the Machines
+  // 3 — Rise of the Machines
   {
     id: "rise",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Rise of the Machines</SlideTitle>
         <SlideSubtitle>
           Browsers are evolving from passive viewers into agentic, AI-native operating systems. 
@@ -158,16 +203,19 @@ const slides: Slide[] = [
           <StatBlock value="30M" label="Active Stablecoin Addresses" />
           <StatBlock value="101M" label="Brave MAU Benchmark" />
         </div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.15)] to-transparent mt-2" />
       </div>
     ),
   },
-  // 3 — Hero visual
+  // 4 — Hero visual
   {
     id: "vision",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto">
-        <div className="relative rounded-2xl overflow-hidden animated-gradient-icon">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
+        <div className="relative rounded-2xl overflow-hidden">
           <img src={whitepaperHero} alt="W3AI Vision" className="w-full h-[260px] md:h-[340px] object-cover" />
+          <div className="absolute inset-0 border-2 border-[hsl(82,85%,55%,0.15)] rounded-2xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[hsl(82,85%,55%,0.4)] via-[hsl(82,85%,55%,0.2)] to-transparent" />
         </div>
         <div className="space-y-3">
           <SlideTitle>W3AI TMRW Browser</SlideTitle>
@@ -179,21 +227,22 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 4 — Architecture
+  // 5 — Architecture
   {
     id: "architecture",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Architecture & Differentiation</SlideTitle>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Why Firefox</h3>
+            <SectionLabel>Why Firefox</SectionLabel>
             <p className="text-sm font-light text-muted-foreground leading-relaxed">
               Gecko engine, deep customization, open-source codebase. Strategic differentiation in a Chromium-dominated market.
             </p>
           </div>
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Competitive Edge</h3>
+            <SectionLabel>Competitive Edge</SectionLabel>
             <BulletList items={[
               { bold: "vs Brave —", text: "Web3-specific safety beyond privacy" },
               { bold: "vs Safari —", text: "Web3 AI safety-first, not just privacy-first" },
@@ -204,36 +253,38 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 5 — AI Layer
+  // 6 — AI Layer
   {
     id: "ai-layer",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>User-Selectable AI Layer</SlideTitle>
         <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-4 p-6 rounded-xl border border-border bg-card">
-            <h3 className="text-base font-medium text-foreground">BYOK</h3>
+          <GreenCard className="p-6">
+            <h3 className="text-base font-medium text-[hsl(82,85%,55%)]">BYOK</h3>
             <p className="text-sm font-light text-muted-foreground leading-relaxed">
               Bring Your Own Key — connect any LLM provider. Supports power users and enterprises 
               with preferred vendors and compliance requirements.
             </p>
-          </div>
-          <div className="space-y-4 p-6 rounded-xl border border-border bg-card">
-            <h3 className="text-base font-medium text-foreground">Open Gateway</h3>
+          </GreenCard>
+          <GreenCard className="p-6">
+            <h3 className="text-base font-medium text-[hsl(82,85%,55%)]">Open Gateway</h3>
             <p className="text-sm font-light text-muted-foreground leading-relaxed">
               Token-based billing with spending caps, per-session limits, and explicit controls. 
               Transparent 30% margin over provider costs.
             </p>
-          </div>
+          </GreenCard>
         </div>
       </div>
     ),
   },
-  // 6 — Security
+  // 7 — Security
   {
     id: "security",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Security Intelligence</SlideTitle>
         <SlideSubtitle>
           Security posture integrated into every connection, signature, and transaction. 
@@ -248,15 +299,16 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 7 — Identity
+  // 8 — Identity
   {
     id: "identity",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Identity & Institutional Rails</SlideTitle>
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Anti-Sybil via Dentity</h3>
+            <SectionLabel>Anti-Sybil via Dentity</SectionLabel>
             <BulletList items={[
               { bold: "Pre-sale controls —", text: "credentialed wallet allowlists" },
               { bold: "Governance integrity —", text: "reduced bot influence" },
@@ -264,7 +316,7 @@ const slides: Slide[] = [
             ]} />
           </div>
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Institutional Positioning</h3>
+            <SectionLabel>Institutional Positioning</SectionLabel>
             <p className="text-sm font-light text-muted-foreground leading-relaxed">
               The browser becomes the interface where tokenized assets — RWAs, funds, 
               ESG credentials — are discovered, verified, and managed. Aligned with 
@@ -275,11 +327,12 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 8 — Community
+  // 9 — Community
   {
     id: "community",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Multi-Chain Community</SlideTitle>
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -287,21 +340,22 @@ const slides: Slide[] = [
             { chain: "Ethereum", focus: "Composable dApps", detail: "Transaction clarity + contract literacy + ETHGlobal network" },
             { chain: "BSC", focus: "Retail-first scale", detail: "1.2M DAU + execution cockpit + safety overlay for memecoins" },
           ].map(c => (
-            <div key={c.chain} className="p-6 rounded-xl border border-border bg-card space-y-3">
+            <GreenCard key={c.chain} className="p-6 space-y-3">
               <h3 className="text-base font-medium text-foreground">{c.chain}</h3>
-              <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">{c.focus}</p>
+              <p className="text-xs uppercase tracking-[0.15em] text-[hsl(82,85%,55%,0.7)]">{c.focus}</p>
               <p className="text-sm font-light text-muted-foreground leading-relaxed">{c.detail}</p>
-            </div>
+            </GreenCard>
           ))}
         </div>
       </div>
     ),
   },
-  // 9 — Token Utility
+  // 10 — Token Utility
   {
     id: "token-utility",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Token Utility</SlideTitle>
         <SlideSubtitle>Four demand drivers powering the W3AI token economy.</SlideSubtitle>
         <div className="grid grid-cols-2 gap-6">
@@ -311,20 +365,21 @@ const slides: Slide[] = [
             { title: "Network Incentives", desc: "Validator and operator rewards" },
             { title: "Governance", desc: "Treasury policy and fee parameters" },
           ].map(p => (
-            <div key={p.title} className="p-5 rounded-xl border border-border bg-card space-y-2">
+            <GreenCard key={p.title}>
               <h3 className="text-sm font-medium text-foreground">{p.title}</h3>
               <p className="text-xs font-light text-muted-foreground">{p.desc}</p>
-            </div>
+            </GreenCard>
           ))}
         </div>
       </div>
     ),
   },
-  // 10 — Tokenomics
+  // 11 — Tokenomics
   {
     id: "tokenomics",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Tokenomics & Supply</SlideTitle>
         <div className="text-center mb-2">
           <StatBlock value="2B" label="Total Token Supply" />
@@ -344,11 +399,12 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 11 — Sale Rounds
+  // 12 — Sale Rounds
   {
     id: "sale-rounds",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Sale Rounds & Pricing</SlideTitle>
         <TableSlide
           headers={["Round", "Price", "Raise", "FDV"]}
@@ -359,17 +415,18 @@ const slides: Slide[] = [
             ["IDO / TGE", "$0.015000", "$1M", "$30M"],
           ]}
         />
-        <p className="text-xs font-light text-muted-foreground italic">
+        <p className="text-xs font-light text-muted-foreground/60 italic">
           Amounts represent reserved allocations. Actual sold may vary.
         </p>
       </div>
     ),
   },
-  // 12 — Multi-Chain & Validators
+  // 13 — Multi-Chain & Validators
   {
     id: "validators",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Multi-Chain & Validators</SlideTitle>
         <SlideSubtitle>
           Solana as canonical mint hub. Ethereum and BSC as spoke chains via Wormhole NTT.
@@ -380,21 +437,22 @@ const slides: Slide[] = [
             { chain: "BSC", req: "2,000 BNB minimum", detail: "Self-delegation with slashing rules" },
             { chain: "Solana", req: "Network backbone", detail: "Inflation rewards + staking + fees" },
           ].map(v => (
-            <div key={v.chain} className="p-5 rounded-xl border border-border bg-card space-y-2">
-              <h3 className="text-sm font-medium text-foreground">{v.chain}</h3>
+            <GreenCard key={v.chain}>
+              <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">{v.chain}</h3>
               <p className="text-2xl font-extralight text-foreground">{v.req}</p>
               <p className="text-xs font-light text-muted-foreground">{v.detail}</p>
-            </div>
+            </GreenCard>
           ))}
         </div>
       </div>
     ),
   },
-  // 13 — Liquidity
+  // 14 — Liquidity
   {
     id: "liquidity",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Liquidity & Market Making</SlideTitle>
         <BulletList items={[
           { bold: "DEX liquidity locked", text: "for no less than 12 months" },
@@ -403,25 +461,27 @@ const slides: Slide[] = [
           { bold: "CEX readiness —", text: "audited contracts, transparent tokenomics, operational reliability" },
           { bold: "G-20 Group —", text: "professional multi-venue liquidity framework" },
         ]} />
+        <div className="w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.2)] via-[hsl(82,85%,55%,0.1)] to-transparent mt-2" />
       </div>
     ),
   },
-  // 14 — Marketing
+  // 15 — Marketing
   {
     id: "marketing",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Marketing & Distribution</SlideTitle>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Objectives</h3>
+            <SectionLabel>Objectives</SectionLabel>
             <div className="space-y-6">
               <StatBlock value="25K" label="Pre-listing Registry Users" />
               <StatBlock value="3M+" label="Monthly Users (12-18 mo)" />
             </div>
           </div>
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Partner Distribution</h3>
+            <SectionLabel>Partner Distribution</SectionLabel>
             <BulletList items={[
               { bold: "Changelly —", text: "2.7M community, instant exchange" },
               { bold: "Hacken —", text: "security co-marketing" },
@@ -434,11 +494,12 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 15 — W3AI Protocol
+  // 16 — W3AI Protocol
   {
     id: "protocol",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>W3AI Protocol</SlideTitle>
         <SlideSubtitle>
           A cross-chain coordination protocol binding AI agent permissions to on-chain wallet permissions 
@@ -450,20 +511,21 @@ const slides: Slide[] = [
             { title: "Revenue Surfaces", desc: "Open Gateway AI fees, in-browser swap fees, validator yield, and premium feature access." },
             { title: "Treasury-Backed", desc: "52.5% of supply governed by progressive decentralization for long-term sustainability." },
           ].map(c => (
-            <div key={c.title} className="p-5 rounded-xl border border-border bg-card space-y-2">
+            <GreenCard key={c.title} className="p-5">
               <h3 className="text-sm font-medium text-foreground">{c.title}</h3>
               <p className="text-xs font-light text-muted-foreground">{c.desc}</p>
-            </div>
+            </GreenCard>
           ))}
         </div>
       </div>
     ),
   },
-  // 16 — Real World Assets
+  // 17 — Real World Assets
   {
     id: "rwas",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>W3AI RWA's</SlideTitle>
         <SlideSubtitle>
           Tokenizing real-world assets across 12 verticals — bridging traditional finance with on-chain 
@@ -475,7 +537,8 @@ const slides: Slide[] = [
             "Infrastructure", "Metals", "Rare Earth", "Real Estate",
             "Sovereign Wealth", "Stablecoins", "Tax Credits", "Utilities",
           ].map(v => (
-            <div key={v} className="p-3 rounded-lg border border-border bg-card text-center">
+            <div key={v} className="p-3 rounded-lg border border-[hsl(82,85%,55%,0.15)] bg-card text-center relative overflow-hidden hover:border-[hsl(82,85%,55%,0.3)] transition-colors">
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[hsl(82,85%,55%,0.2)] to-transparent" />
               <p className="text-xs font-medium text-foreground">{v}</p>
             </div>
           ))}
@@ -483,11 +546,12 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 17 — Governance
+  // 18 — Governance
   {
     id: "governance",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>W3AI Governance</SlideTitle>
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -495,20 +559,21 @@ const slides: Slide[] = [
             { title: "Treasury Management", desc: "On-chain treasury with multi-sig controls, transparent allocation reporting, and milestone-based fund releases." },
             { title: "Regulatory Compliance", desc: "Dual-jurisdiction framework: Canada (IFRS/FINTRAC) and Liechtenstein (TVTG/FMA) for global institutional credibility." },
           ].map(c => (
-            <div key={c.title} className="p-6 rounded-xl border border-border bg-card space-y-3">
-              <h3 className="text-base font-medium text-foreground">{c.title}</h3>
+            <GreenCard key={c.title} className="p-6 space-y-3">
+              <h3 className="text-base font-medium text-[hsl(82,85%,55%)]">{c.title}</h3>
               <p className="text-sm font-light text-muted-foreground leading-relaxed">{c.desc}</p>
-            </div>
+            </GreenCard>
           ))}
         </div>
       </div>
     ),
   },
-  // 18 — Institutional Rails
+  // 19 — Institutional Rails
   {
     id: "institutional",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Institutional-Grade Rails</SlideTitle>
         <SlideSubtitle>
           Consumer-first mission with institutional-grade infrastructure for professionals and enterprise.
@@ -519,14 +584,16 @@ const slides: Slide[] = [
           { bold: "RWA Access —", text: "Integrated marketplace with verified asset originators and secondary market access" },
           { bold: "Reporting —", text: "Portfolio analytics, tax lot tracking, and customizable audit trails" },
         ]} />
+        <div className="w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.2)] via-[hsl(82,85%,55%,0.1)] to-transparent mt-2" />
       </div>
     ),
   },
-  // 19 — Supported Networks
+  // 20 — Supported Networks
   {
     id: "networks",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Supported Networks</SlideTitle>
         <SlideSubtitle>Multi-chain presence across 12+ foundational blockchain ecosystems.</SlideSubtitle>
         <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
@@ -535,7 +602,8 @@ const slides: Slide[] = [
             "zkSync", "Avalanche", "Arbitrum", "Optimism",
             "Base", "Fantom", "Cronos", "Moonbeam",
           ].map(n => (
-            <div key={n} className="p-3 rounded-lg border border-border bg-card text-center">
+            <div key={n} className="p-3 rounded-lg border border-[hsl(82,85%,55%,0.15)] bg-card text-center relative overflow-hidden hover:border-[hsl(82,85%,55%,0.3)] transition-colors">
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[hsl(82,85%,55%,0.25)] via-transparent to-transparent" />
               <p className="text-xs font-medium text-foreground">{n}</p>
             </div>
           ))}
@@ -543,11 +611,12 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 20 — Network Partners
+  // 21 — Network Partners
   {
     id: "partners",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Network Partners</SlideTitle>
         <SlideSubtitle>Product-integrated partnerships covering security, identity, liquidity, and institutional credibility.</SlideSubtitle>
         <div className="grid grid-cols-3 gap-4">
@@ -562,20 +631,21 @@ const slides: Slide[] = [
             { name: "Northern Trust", role: "Institutional tokenization" },
             { name: "Surge", role: "Token launch gateway" },
           ].map(p => (
-            <div key={p.name} className="p-4 rounded-xl border border-border bg-card space-y-1">
+            <GreenCard key={p.name} className="p-4 space-y-1">
               <h3 className="text-sm font-medium text-foreground">{p.name}</h3>
               <p className="text-[11px] font-light text-muted-foreground">{p.role}</p>
-            </div>
+            </GreenCard>
           ))}
         </div>
       </div>
     ),
   },
-  // 21 — Infrastructure
+  // 22 — Infrastructure
   {
     id: "infrastructure",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Infrastructure</SlideTitle>
         <BulletList items={[
           { bold: "Network architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT for supply management" },
@@ -583,14 +653,16 @@ const slides: Slide[] = [
           { bold: "Security layers —", text: "HSMs, MPC key management, browser sandboxing, and isolated agent profiles" },
           { bold: "Monitoring —", text: "Validator health, bridge volumes, treasury dashboards, and public status pages" },
         ]} />
+        <div className="w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.2)] via-[hsl(82,85%,55%,0.1)] to-transparent mt-2" />
       </div>
     ),
   },
-  // 22 — Cybersecurity
+  // 23 — Cybersecurity
   {
     id: "cybersecurity",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Cybersecurity</SlideTitle>
         <SlideSubtitle>
           Security as an architectural primitive — embedded at every level from browser runtime to on-chain execution.
@@ -602,24 +674,25 @@ const slides: Slide[] = [
             { title: "DeFi Security", desc: "Oracle manipulation detection, flash loan monitoring, and MEV protection" },
             { title: "AI Security", desc: "LLM prompt injection defense, model output validation, and agent permission boundaries" },
           ].map(c => (
-            <div key={c.title} className="p-5 rounded-xl border border-border bg-card space-y-2">
-              <h3 className="text-sm font-medium text-foreground">{c.title}</h3>
+            <GreenCard key={c.title} className="p-5">
+              <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">{c.title}</h3>
               <p className="text-xs font-light text-muted-foreground">{c.desc}</p>
-            </div>
+            </GreenCard>
           ))}
         </div>
       </div>
     ),
   },
-  // 23 — Auditing & Compliance
+  // 24 — Auditing & Compliance
   {
     id: "auditing",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Auditing & Compliance</SlideTitle>
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Smart Contract Auditing</h3>
+            <SectionLabel>Smart Contract Auditing</SectionLabel>
             <BulletList items={[
               { bold: "Hacken.io —", text: "comprehensive audit coverage for logic vulnerabilities, reentrancy, and access control" },
               { bold: "Continuous monitoring —", text: "post-deployment surveillance and anomaly detection" },
@@ -627,7 +700,7 @@ const slides: Slide[] = [
             ]} />
           </div>
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Financial Auditing</h3>
+            <SectionLabel>Financial Auditing</SectionLabel>
             <BulletList items={[
               { bold: "Canada —", text: "IFRS standards, FINTRAC compliance, and CPA-governed auditing" },
               { bold: "Liechtenstein —", text: "TVTG regulatory framework and FMA oversight" },
@@ -638,15 +711,16 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 24 — Privacy & Risks
+  // 25 — Privacy & Risks
   {
     id: "privacy-risks",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideAccent />
         <SlideTitle>Privacy & Risk Management</SlideTitle>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Privacy Architecture</h3>
+            <SectionLabel>Privacy Architecture</SectionLabel>
             <BulletList items={[
               { bold: "Data minimization —", text: "collect only what's necessary for product function" },
               { bold: "On-chain privacy —", text: "zero-knowledge proofs for credential verification" },
@@ -654,7 +728,7 @@ const slides: Slide[] = [
             ]} />
           </div>
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Risk Disclosures</h3>
+            <SectionLabel>Risk Disclosures</SectionLabel>
             <BulletList items={[
               { bold: "Market volatility —", text: "digital assets are inherently speculative" },
               { bold: "Regulatory evolution —", text: "compliance frameworks vary by jurisdiction" },
@@ -665,7 +739,7 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 25 — Closing
+  // 26 — Closing
   {
     id: "closing",
     render: () => (
@@ -681,8 +755,8 @@ const slides: Slide[] = [
             <h1 className="text-4xl md:text-6xl font-extralight tracking-tight text-foreground">Thank You</h1>
             <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">W3AI — The Tomorrow Company</p>
           </div>
-          <div className="w-16 h-px bg-[hsl(82,85%,55%,0.4)]" />
-          <p className="text-sm font-light text-muted-foreground/60 uppercase tracking-[0.3em]">tmrw.com · w3ai.app</p>
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
+          <p className="text-sm font-light text-[hsl(82,85%,55%,0.5)] uppercase tracking-[0.3em]">tmrw.com · w3ai.app</p>
           <p className="text-xs font-light text-muted-foreground/40 max-w-md">
             RWA's · Web3AI · Cyber · Data · Compliance
           </p>
@@ -719,6 +793,8 @@ export default function Deck() {
     )}>
       {/* Slide branding */}
       <SlideBranding />
+      {/* Slide number */}
+      <SlideNumber n={current + 1} />
       {/* Slide content */}
       <div className="absolute inset-0 p-8 md:p-16 flex flex-col">
         {slides[current].render()}
@@ -730,7 +806,7 @@ export default function Deck() {
         "bg-gradient-to-t from-background/80 to-transparent"
       )}>
         <button onClick={prev} disabled={current === 0}
-          className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-foreground disabled:opacity-30 transition-all">
+          className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-[hsl(82,85%,55%)] hover:border-[hsl(82,85%,55%,0.3)] disabled:opacity-30 transition-all">
           <ChevronLeft className="h-4 w-4" />
         </button>
         <span className="text-xs font-light text-muted-foreground tracking-wider">
@@ -738,11 +814,11 @@ export default function Deck() {
         </span>
         <div className="flex items-center gap-2">
           <button onClick={() => setFullscreen(f => !f)}
-            className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-foreground transition-all">
+            className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-[hsl(82,85%,55%)] hover:border-[hsl(82,85%,55%,0.3)] transition-all">
             {fullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
           </button>
           <button onClick={next} disabled={current === total - 1}
-            className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-foreground disabled:opacity-30 transition-all">
+            className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-[hsl(82,85%,55%)] hover:border-[hsl(82,85%,55%,0.3)] disabled:opacity-30 transition-all">
             <ChevronRight className="h-4 w-4" />
           </button>
         </div>
@@ -766,7 +842,7 @@ export default function Deck() {
             "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all",
             i === current
               ? "border-[hsl(82,85%,55%)] shadow-[0_0_12px_hsl(82,85%,55%,0.3)] ring-1 ring-[hsl(82,85%,55%)]"
-              : "border-border opacity-60 hover:opacity-100"
+              : "border-border opacity-60 hover:opacity-100 hover:border-[hsl(82,85%,55%,0.3)]"
           )}
         >
           <div className="absolute inset-0 bg-background">
