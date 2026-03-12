@@ -24,7 +24,7 @@ const defaultWelcome: Message = {
 };
 
 const ChatWidget = () => {
-  const navigate = useNavigate();
+  
   const { open, setOpen, maximized, setMaximized } = useChatContext();
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
