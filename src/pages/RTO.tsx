@@ -143,6 +143,7 @@ const BulletList = ({ items }: { items: string[] }) => (
 const RTO = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead title="RTO — Reverse Takeover" description="Tomorrow Digital Inc. reverse takeover transaction targeting TSX Venture Exchange listing. Web3 AI infrastructure and carbon credit tokenization." path="/rto" />
       <Navbar />
 
       {/* Hero */}
