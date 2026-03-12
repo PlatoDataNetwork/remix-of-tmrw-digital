@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
-import heroBg from "@/assets/hero-bg.png";
+import heroBg from "@/assets/hero-bg.webp";
 
 const heroMessages = [
   { line1: "Accelerating Growth", line2: "Through Space & Time." },

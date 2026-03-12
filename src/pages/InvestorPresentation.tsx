@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { TrendingUp, Globe, Cpu, Coins, BarChart3, Users, Layers, Zap, Target, Building2, Leaf, Lock, Shield, Briefcase } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import stockExchangeImg from "@/assets/stock-exchange.png";
-import lotusFlowerImg from "@/assets/lotus-flower.jpeg";
+import stockExchangeImg from "@/assets/stock-exchange.webp";
+import lotusFlowerImg from "@/assets/lotus-flower.webp";
 
 const stats = [
   { value: "$200B+", label: "Web3/AI Market by 2030" },

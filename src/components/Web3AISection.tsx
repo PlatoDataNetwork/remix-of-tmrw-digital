@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Bot, Coins, Zap, BarChart3, Users, Database } from "lucide-react";
 import { Link } from "react-router-dom";
-import blogHero from "@/assets/blog-hero.jpeg";
+import blogHero from "@/assets/blog-hero.webp";
 
 const innovations = [
   {

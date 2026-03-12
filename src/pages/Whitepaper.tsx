@@ -4,9 +4,9 @@ import { ArrowUp, ChevronRight, ChevronLeft, ChevronDown, Menu, X } from "lucide
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import whitepaperHero from "@/assets/whitepaper-hero.png";
-import heroBg from "@/assets/hero-bg.png";
-import platoIcon from "@/assets/plato-icon.png";
+import whitepaperHero from "@/assets/whitepaper-hero.webp";
+import heroBg from "@/assets/hero-bg.webp";
+import platoIcon from "@/assets/plato-icon.webp";
 import { useChatContext } from "@/components/ChatContext";
 
 const PASSWORD = "W3AI88";

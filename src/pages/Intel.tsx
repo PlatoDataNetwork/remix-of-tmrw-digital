@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import platoIcon from "@/assets/plato-icon.png";
+import platoIcon from "@/assets/plato-icon.webp";
 
 const articles = [
   {

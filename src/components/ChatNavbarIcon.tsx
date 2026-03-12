@@ -1,4 +1,4 @@
-import platoIcon from "@/assets/plato-icon.png";
+import platoIcon from "@/assets/plato-icon.webp";
 import { AnimatePresence, motion } from "framer-motion";
 import { useChatContext } from "./ChatContext";
 

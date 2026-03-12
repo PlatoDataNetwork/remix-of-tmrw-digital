@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useNavigate } from "react-router-dom";
 
-import platoIcon from "@/assets/plato-icon.png";
+import platoIcon from "@/assets/plato-icon.webp";
 import { useChatContext } from "./ChatContext";
 import { Children, ReactNode, isValidElement } from "react";
 

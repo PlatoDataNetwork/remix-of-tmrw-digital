@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import platoIcon from "@/assets/plato-icon.png";
+import platoIcon from "@/assets/plato-icon.webp";
 
 interface PortfolioItem {
   name: string;
