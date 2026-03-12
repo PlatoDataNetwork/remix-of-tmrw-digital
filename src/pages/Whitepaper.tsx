@@ -1352,44 +1352,6 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* Governance */}
-      <section id="foundations" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Governance</h2>
-        <div className="prose-section">
-          <p>The W3AI Foundation provides the governance, treasury management, and regulatory framework required to operate a decentralized protocol at institutional quality. The foundation structure ensures long-term sustainability, transparent decision-making, and compliance across jurisdictions.</p>
-        </div>
-      </section>
-
-      <section id="foundation-governance" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Governance Framework</h2>
-        <div className="prose-section">
-          <p>W3AI governance is designed to evolve from core-team-led to community-led over time. Token holders participate in decisions covering treasury policy, supported chains, fee parameters, and security thresholds.</p>
-          <p>Governance proposals follow a structured lifecycle: discussion → formal proposal → voting → execution. Voting power is proportional to staked W3AI tokens, with safeguards against governance attacks including time-locks, quorum requirements, and multi-sig execution.</p>
-        </div>
-      </section>
-
-      <section id="foundation-treasury" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Treasury Management</h2>
-        <div className="prose-section">
-          <p>With a treasury-heavy allocation (52.5% of total supply), institutional-quality custody, reporting, and governance controls are essential. The W3AI treasury operates under explicit mandates:</p>
-          <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-            <li>Custody: Multi-signature wallets with time-locked transactions and independent custodian oversight.</li>
-            <li>Reporting: Quarterly transparency reports covering treasury balances, disbursements, and yield generation.</li>
-            <li>Diversification: Treasury assets held across stablecoins, protocol-native tokens, and yield-bearing positions.</li>
-            <li>Runway management: Minimum 18-month operational runway maintained at all times.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="foundation-compliance" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Regulatory Compliance</h2>
-        <div className="prose-section">
-          <p>W3AI is designed to be capital-ready from day one. The regulatory framework includes jurisdiction-specific legal opinions, token classification analysis, and ongoing monitoring of regulatory developments across key markets.</p>
-          <p>The foundation maintains relationships with legal counsel in major jurisdictions and implements compliance controls including KYC/AML for applicable token sale rounds, sanctions screening, and geographic restrictions where required by law.</p>
-        </div>
-      </section>
-
-      {/* Infrastructure */}
       <section id="infrastructure" data-section>
         <h2 className="text-2xl font-bold text-foreground mb-4">Infrastructure</h2>
         <div className="prose-section">
