@@ -67,13 +67,8 @@ function StatBlock({ value, label }: { value: string; label: string }) {
   );
 }
 
-function SlideTitle({ children, accent = true }: { children: React.ReactNode; accent?: boolean }) {
-  return (
-    <div className="space-y-2">
-      {accent && <div className="w-8 h-0.5 bg-[hsl(82,85%,55%,0.5)] rounded-full" />}
-      <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-foreground">{children}</h2>
-    </div>
-  );
+function SlideTitle({ children }: { children: React.ReactNode }) {
+  return <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-foreground">{children}</h2>;
 }
 
 function SlideSubtitle({ children }: { children: React.ReactNode }) {
