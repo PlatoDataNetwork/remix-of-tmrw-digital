@@ -73,13 +73,13 @@ function SidebarNav({ sections, activeId, onNavigate }: { sections: Section[]; a
             }}
             className={cn(
               "w-full flex items-center gap-2.5 px-3 py-2 rounded-md text-sm transition-colors",
-              isActive ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
+              isActive ? "nav-link-active font-medium" : "nav-link-inactive"
             )}
           >
-            {s.icon === "home" && <Home className="h-4 w-4 shrink-0 text-primary/70" />}
-            {s.icon === "disclaimer" && <Shield className="h-4 w-4 shrink-0 text-primary/70" />}
+            {s.icon === "home" && <Home className="h-4 w-4 shrink-0 text-chapter-number" />}
+            {s.icon === "disclaimer" && <Shield className="h-4 w-4 shrink-0 text-chapter-number" />}
             {s.number && (
-              <span className="text-[10px] font-bold w-5 shrink-0 text-[hsl(82,85%,55%)]">{s.number}</span>
+              <span className="text-[10px] font-mono font-bold w-5 shrink-0 text-chapter-number">{s.number}</span>
             )}
             {!s.icon && !s.number && <span className="w-5 shrink-0" />}
             <span className="text-left truncate">{s.title}</span>
