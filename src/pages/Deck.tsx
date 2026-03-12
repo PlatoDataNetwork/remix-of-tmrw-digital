@@ -713,7 +713,7 @@ const slides: Slide[] = [
                     <th className="py-2.5 px-3 font-medium text-foreground text-left text-[10px] uppercase tracking-wider">Allocation</th>
                     <th className="py-2.5 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">Tokens</th>
                     <th className="py-2.5 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">Share</th>
-                    <th className="py-2.5 px-3 font-medium text-foreground text-right text-[10px] uppercase tracking-wider">FDV</th>
+                    <th className="py-2.5 px-3 font-medium text-foreground text-center text-[10px] uppercase tracking-wider">FDV</th>
                     <th className="py-2.5 px-3 font-medium text-foreground text-left text-[10px] uppercase tracking-wider">Lock Status</th>
                   </tr>
                 </thead>
@@ -725,13 +725,13 @@ const slides: Slide[] = [
                     ["IDO / TGE", "200M", "10%", "—", "No"],
                     ["Team & Advisors", "200M", "10%", "—", "Yes"],
                     ["Rewards", "50M", "2.5%", "—", "No"],
-                    ["Treasury", "1.15B", "52.5%", "—", "Yes"],
+                    ["Treasury", "1.15B", "52.5%", "$7.85M", "Yes"],
                   ].map(([a, t, s, f, l]) => (
                     <tr key={a} className="border-b border-border/20 hover:bg-[hsl(82,85%,55%,0.02)] transition-colors">
                       <td className="py-2.5 px-3 text-foreground font-light">{a}</td>
                       <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{t}</td>
                       <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{s}</td>
-                      <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{f}</td>
+                      <td className="py-2.5 px-3 text-center text-muted-foreground font-light">{f}</td>
                       <td className="py-2.5 px-3 text-left">
                         <span className={cn(
                           "inline-flex items-center justify-center w-[72px] py-0.5 rounded text-[10px] uppercase tracking-wider font-medium border",
