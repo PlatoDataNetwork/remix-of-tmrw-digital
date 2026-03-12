@@ -39,10 +39,11 @@ const sections: Section[] = [
   { id: "marketing", title: "Marketing & Distribution", number: "15" },
   { id: "strategic-partners", title: "Network Partners", number: "16" },
   { id: "infrastructure", title: "Infrastructure", number: "17" },
-  { id: "privacy", title: "Privacy Policy", number: "18" },
-  { id: "risks", title: "Risks & Disclosures", number: "19" },
-  { id: "appendix", title: "Appendix & References", number: "20" },
-  { id: "disclaimer", title: "Disclaimer", number: "21" },
+  { id: "security", title: "Security", number: "18" },
+  { id: "privacy", title: "Privacy Policy", number: "19" },
+  { id: "risks", title: "Risks & Disclosures", number: "20" },
+  { id: "appendix", title: "Appendix & References", number: "21" },
+  { id: "disclaimer", title: "Disclaimer", number: "22" },
   { id: "deck-link", title: "Project Deck", number: "22" },
 ];
 
