@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
-import { ArrowUp, ChevronRight, ChevronLeft, ChevronDown, Menu, Search, X } from "lucide-react";
+import { ArrowUp, ChevronRight, ChevronLeft, ChevronDown, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -184,26 +184,11 @@ function getParentId(id: string): string {
   return sections[0].id;
 }
 
-// --- Sidebar Search ---
-function SidebarSearch({ query, setQuery }: { query: string; setQuery: (q: string) => void }) {
+// --- Sidebar Ask Marvin ---
+function SidebarAskMarvin() {
   const { setOpen } = useChatContext();
   return (
-    <div className="px-3 py-2 border-b border-border space-y-2">
-      <div className="relative">
-        <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground/60" />
-        <input
-          type="text"
-          value={query}
-          onChange={e => setQuery(e.target.value)}
-          placeholder="Search..."
-          className="w-full bg-muted/50 border border-border rounded-md pl-8 pr-8 py-1.5 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 transition-colors"
-        />
-        {query && (
-          <button onClick={() => setQuery("")} className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground/60 hover:text-foreground">
-            <X className="h-3 w-3" />
-          </button>
-        )}
-      </div>
+    <div className="px-3 py-2 border-b border-border">
       <button
         onClick={() => setOpen(true)}
         className="w-full flex items-center gap-2 bg-gradient-to-r from-[hsl(260,80%,55%,0.15)] to-[hsl(220,90%,55%,0.15)] hover:from-[hsl(260,80%,55%,0.25)] hover:to-[hsl(220,90%,55%,0.25)] border border-[hsl(260,80%,55%,0.3)] rounded-md px-3 py-1.5 text-xs font-medium text-[hsl(260,80%,70%)] hover:text-[hsl(260,80%,80%)] transition-all group"
@@ -309,8 +294,6 @@ function SidebarNav({ activeId, onNavigate }: { activeId: string; onNavigate: (i
 
 // --- Desktop Sidebar ---
 function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle }: { activeId: string; onNavigate: (id: string) => void; collapsed: boolean; onToggle: () => void }) {
-  const [searchQuery, setSearchQuery] = useState("");
-
   return (
     <aside className={cn(
       "flex flex-col sticky top-[80px] h-[calc(100vh-80px)] border-r border-border bg-sidebar-background overflow-y-auto shrink-0 z-10 transition-all duration-300",
@@ -324,7 +307,7 @@ function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle }: { activeI
           </button>
         </div>
       </div>
-      <SidebarSearch query={searchQuery} setQuery={setSearchQuery} />
+      <SidebarAskMarvin />
       <SidebarNav activeId={activeId} onNavigate={onNavigate} />
     </aside>
   );
