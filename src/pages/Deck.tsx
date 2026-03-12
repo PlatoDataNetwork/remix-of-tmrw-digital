@@ -731,7 +731,7 @@ const slides: Slide[] = [
                       <td className="py-2.5 px-3 text-foreground font-light">{a}</td>
                       <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{t}</td>
                       <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{s}</td>
-                      <td className="py-2.5 px-3 text-right text-muted-foreground font-light">{f}</td>
+                      <td className="py-2.5 px-3 text-center text-muted-foreground font-light">{f}</td>
                       <td className="py-2.5 px-3 text-left">
                         <span className={cn(
                           "inline-flex items-center justify-center w-[72px] py-0.5 rounded text-[10px] uppercase tracking-wider font-medium border",
