@@ -234,9 +234,9 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
         </div>
       </section>
 
-      {/* W3AI Browser */}
+      {/* W3AI TMRW Browser */}
       <section id="tmrw-browser" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Browser</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">W3AI TMRW Browser</h2>
         <div className="prose-section">
           <p>W3AI's product philosophy is that the browser is no longer a "window." It is the execution environment for AI, identity, and money. W3AI's goal is to become the unified gateway that lets users discover → verify → transact → monitor across Web3 with an immersive UI/UX designed for high-frequency multi-chain activity.</p>
         </div>
