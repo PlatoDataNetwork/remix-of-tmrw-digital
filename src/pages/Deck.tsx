@@ -842,7 +842,7 @@ export default function Deck() {
   const slideContent = (
     <div className={cn(
       "relative w-full bg-background border border-border rounded-2xl overflow-hidden transition-all duration-300",
-      fullscreen ? "fixed inset-0 z-50 rounded-none border-none" : "aspect-video"
+      fullscreen ? "fixed inset-0 z-[80] rounded-none border-none" : "aspect-video"
     )}>
       {/* Slide branding */}
       <SlideBranding />
