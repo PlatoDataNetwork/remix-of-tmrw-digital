@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, ChevronLeft, X, ArrowUp, Download, Globe, Home, Shield } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUp, Download, Globe, Home, Shield } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
