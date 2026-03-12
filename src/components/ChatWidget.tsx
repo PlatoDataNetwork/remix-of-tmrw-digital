@@ -65,7 +65,7 @@ const ChatWidget = () => {
   const { open, setOpen, maximized, setMaximized } = useChatContext();
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([defaultWelcome]);
+  const [messages, setMessages] = useState<Message[]>([createWelcomeMessage()]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
