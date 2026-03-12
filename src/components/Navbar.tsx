@@ -75,7 +75,7 @@ const Navbar = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[hsl(220,20%,4%,0.9)] border-b border-white/10"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6">
         <div className="relative flex items-center justify-between h-16 lg:h-20">
             {/* Logo - pushed left */}
             <Link to={lp("/")} className="flex items-center gap-2 shrink-0 mr-auto">
