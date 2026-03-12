@@ -53,7 +53,7 @@ const chapterSections = sections.filter(s => s.number);
 // --- Desktop Sidebar ---
 function DesktopSidebar({ activeId, onNavigate }: { activeId: string; onNavigate: (id: string) => void }) {
   return (
-    <aside className="hidden lg:flex flex-col sticky top-[80px] h-[calc(100vh-80px)] w-64 border-r border-border bg-sidebar-background overflow-y-auto shrink-0 z-10">
+    <aside className="flex flex-col sticky top-[80px] h-[calc(100vh-80px)] w-64 border-r border-border bg-sidebar-background overflow-y-auto shrink-0 z-10">
       <div className="flex items-center px-4 py-3 border-b border-border shrink-0">
         <span className="text-sm font-semibold text-foreground whitespace-nowrap">W3AI Whitepaper</span>
       </div>
