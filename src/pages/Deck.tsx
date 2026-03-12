@@ -778,27 +778,6 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // Sale Rounds
-  {
-    id: "sale-rounds",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Sale Rounds & Pricing</SlideTitle>
-        <TableSlide
-          headers={["Round", "Price", "Raise", "FDV"]}
-          rows={[
-            ["Private Pre-Sale 1", "$0.001875", "$375.5K", "$3.75M"],
-            ["Private Pre-Sale 2", "$0.003750", "$750K", "$7.5M"],
-            ["Seed Round", "$0.007500", "$1M", "$15M"],
-            ["IDO / TGE", "$0.015000", "$1M", "$30M"],
-          ]}
-        />
-        <p className="text-xs font-light text-muted-foreground/60 italic">
-          Amounts represent reserved allocations. Actual sold may vary.
-        </p>
-      </div>
-    ),
-  },
   // Closing
   {
     id: "closing",
