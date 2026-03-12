@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import whitepaperHero from "@/assets/whitepaper-hero.png";
+import heroBackground from "@/assets/hero-bg.png";
 import logoIcon from "@/assets/plato-icon.png";
 
 // --- Slide data derived from whitepaper ---
