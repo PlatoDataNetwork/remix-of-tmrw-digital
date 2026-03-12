@@ -327,29 +327,6 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 11 — Platform Traction
-  {
-    id: "traction",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Platform Traction</SlideTitle>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            { value: "13M+", label: "Organic Visitors", detail: "Across 160+ countries" },
-            { value: "70K+", label: "Enterprises", detail: "Active platform users" },
-            { value: "$1.4M", label: "Revenue", detail: "Via Plato platform" },
-            { value: "35", label: "Languages", detail: "Global multilingual support" },
-          ].map(m => (
-            <GreenCard key={m.label} className="p-5 text-center space-y-2">
-              <div className="text-3xl font-extralight text-[hsl(82,85%,55%)]">{m.value}</div>
-              <h3 className="text-sm font-medium text-foreground">{m.label}</h3>
-              <p className="text-[11px] font-light text-muted-foreground">{m.detail}</p>
-            </GreenCard>
-          ))}
-        </div>
-      </div>
-    ),
-  },
   // 12 — Carbon & ESG Assets
   {
     id: "carbon",
