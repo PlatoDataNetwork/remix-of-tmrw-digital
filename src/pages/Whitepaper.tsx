@@ -294,8 +294,6 @@ function SidebarNav({ activeId, onNavigate }: { activeId: string; onNavigate: (i
 
 // --- Desktop Sidebar ---
 function DesktopSidebar({ activeId, onNavigate, collapsed, onToggle }: { activeId: string; onNavigate: (id: string) => void; collapsed: boolean; onToggle: () => void }) {
-  const [searchQuery, setSearchQuery] = useState("");
-
   return (
     <aside className={cn(
       "flex flex-col sticky top-[80px] h-[calc(100vh-80px)] border-r border-border bg-sidebar-background overflow-y-auto shrink-0 z-10 transition-all duration-300",
