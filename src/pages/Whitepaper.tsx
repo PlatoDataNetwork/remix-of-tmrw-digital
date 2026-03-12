@@ -1273,7 +1273,7 @@ function WhitepaperContent({ onSectionVisible }: { onSectionVisible: (id: string
 
       {/* Security */}
       <section id="security" data-section>
-        <h2 className="text-2xl font-bold text-foreground mb-4">Security</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Cybersecurity</h2>
         <div className="prose-section">
           <p>Security is the non-negotiable foundation of every W3AI product surface. In an era where AI agents execute financial transactions, interact with smart contracts, and manage digital identities on behalf of users, the attack surface has expanded beyond traditional cybersecurity models. W3AI treats security not as a feature layer but as an architectural primitive—embedded at every level from browser runtime to on-chain execution.</p>
         </div>
