@@ -819,8 +819,8 @@ export default function Deck() {
             {fullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
           </button>
           <button onClick={next} disabled={current === total - 1}
-            className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-[hsl(82,85%,55%)] hover:border-[hsl(82,85%,55%,0.3)] disabled:opacity-30 transition-all">
-            <ChevronRight className="h-4 w-4" />
+            className="text-muted-foreground hover:text-[hsl(82,85%,55%)] disabled:opacity-30 transition-all">
+            <ChevronRight className="h-5 w-5" />
           </button>
         </div>
       </div>
