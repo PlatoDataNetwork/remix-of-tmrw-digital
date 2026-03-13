@@ -186,15 +186,21 @@ const SuperCloud = () => {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="relative w-48 h-48 md:w-56 md:h-56 mx-auto mb-16"
           >
-            {[0, 1, 2].map((i) => (
+            {/* Colored rings */}
+            {[
+              { color: "hsl(82 85% 55% / 0.18)", dur: 20 },
+              { color: "hsl(200 90% 55% / 0.14)", dur: 28 },
+              { color: "hsl(275 80% 60% / 0.12)", dur: 36 },
+              { color: "hsl(330 90% 55% / 0.10)", dur: 44 },
+            ].map((ring, i) => (
               <motion.div
                 key={i}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20 + i * 8, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border"
+                animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
+                transition={{ duration: ring.dur, repeat: Infinity, ease: "linear" }}
+                className="absolute rounded-full border"
                 style={{
-                  inset: `${i * 20}px`,
-                  borderColor: `hsl(82 85% 55% / ${0.15 - i * 0.03})`,
+                  inset: `${i * 16}px`,
+                  borderColor: ring.color,
                 }}
               />
             ))}
@@ -204,18 +210,30 @@ const SuperCloud = () => {
                 <span className="text-[10px] uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)]">5 Layers</span>
               </div>
             </div>
-            {/* Orbiting dots */}
-            {[0, 1, 2, 3].map((i) => (
+            {/* Orbiting dots — 5 colored dots */}
+            {[
+              { color: "hsl(82 85% 55%)",  glow: "hsl(82 85% 55% / 0.5)",  dur: 10, inset: 0 },
+              { color: "hsl(200 90% 55%)", glow: "hsl(200 90% 55% / 0.5)", dur: 14, inset: 12 },
+              { color: "hsl(275 80% 60%)", glow: "hsl(275 80% 60% / 0.5)", dur: 18, inset: 24 },
+              { color: "hsl(330 90% 55%)", glow: "hsl(330 90% 55% / 0.5)", dur: 22, inset: 36 },
+              { color: "hsl(45 95% 55%)",  glow: "hsl(45 95% 55% / 0.5)",  dur: 26, inset: 48 },
+            ].map((dot, i) => (
               <motion.div
                 key={`dot-${i}`}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 12 + i * 4, repeat: Infinity, ease: "linear" }}
+                animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
+                transition={{ duration: dot.dur, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0"
-                style={{ inset: `${i * 12}px` }}
+                style={{ inset: `${dot.inset}px` }}
               >
                 <div
-                  className="absolute w-2 h-2 rounded-full bg-[hsl(82,85%,55%)]"
-                  style={{ top: 0, left: "50%", transform: "translateX(-50%)", boxShadow: "0 0 8px hsl(82 85% 55% / 0.4)" }}
+                  className="absolute w-2 h-2 rounded-full"
+                  style={{
+                    top: 0,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    backgroundColor: dot.color,
+                    boxShadow: `0 0 10px ${dot.glow}`,
+                  }}
                 />
               </motion.div>
             ))}
