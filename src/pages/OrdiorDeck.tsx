@@ -114,7 +114,7 @@ const slides: Slide[] = [
             <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">Tomorrow Digital Inc.</p>
           </div>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
-          <p className="text-sm font-light text-[hsl(82,85%,55%,0.6)] uppercase tracking-[0.3em]">Prepared for Ordior Australia</p>
+          <p className="text-sm font-light text-[hsl(82,85%,55%,0.6)] uppercase tracking-[0.3em]">Prepared for Ordior</p>
         </div>
       </div>
     ),
