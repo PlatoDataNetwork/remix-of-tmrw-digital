@@ -384,8 +384,6 @@ const ChatWidget = () => {
                             whileHover={{ scale: 1.05, y: -1 }}
                             whileTap={{ scale: 0.97 }}
                             onClick={() => {
-                              setOpen(false);
-                              setMaximized(false);
                               navigate(ref.path);
                             }}
                             className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-[hsl(260,60%,30%,0.4)] to-[hsl(220,70%,30%,0.4)] border border-white/10 text-white/80 hover:text-white hover:border-white/25 hover:from-[hsl(260,60%,35%,0.5)] hover:to-[hsl(220,70%,35%,0.5)] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[hsl(260,80%,55%,0.15)]"
