@@ -102,6 +102,7 @@ function getRoutes() {
     <Route key="svc-data" path="services/data-intelligence" element={<DataIntelligenceService />} />,
     <Route key="svc-ai" path="services/ai-analytics" element={<AIAnalyticsService />} />,
     <Route key="super-cloud" path="super-cloud" element={<SuperCloud />} />,
+    <Route key="cut-token" path="cut-token" element={<CUTToken />} />,
     <Route key="svc-cyber" path="services/cyber-defense" element={<CyberDefenseService />} />,
     <Route key="svc-digital" path="services/digital-strategy" element={<DigitalStrategyService />} />,
     <Route key="w3-ai" path="web3ai/ai-automation" element={<AIAutomation />} />,
