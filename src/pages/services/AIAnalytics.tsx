@@ -6,6 +6,7 @@ const data: ServicePageData = {
   title: "AI Super Cloud",
   subtitle: "Service · Distributed Infrastructure",
   heroDescription: "A decentralized AI compute layer purpose-built for Web3 — distributing inference, training, and compliance workloads across a global mesh of GPU and TPU resources so projects ship faster, cheaper, and without centralized bottlenecks.",
+  heroLink: { label: "Visit Super Cloud →", path: "/super-cloud" },
   overview: "The AI Super Cloud is TMRW's distributed infrastructure backbone — a permissionless compute network that pools GPU/TPU capacity from data centers, edge nodes, and partner clusters worldwide. Rather than locking Web3 builders into expensive, centralized cloud providers, we offer elastic AI resources on-demand: model hosting, fine-tuning pipelines, real-time inference, and compliance automation — all orchestrated through smart contracts with transparent pricing and verifiable uptime. Open by design, the Super Cloud actively sponsors and supports emerging Web3 AI projects through subsidized compute grants, hackathon infrastructure, and plug-and-play starter environments. If you're building at the intersection of AI and decentralization, this is your launchpad.",
   capabilities: [
     { title: "Distributed GPU/TPU Mesh", description: "Elastic compute pooled from global data centers and edge nodes — no single point of failure, no vendor lock-in. Scale from prototype to production seamlessly." },
