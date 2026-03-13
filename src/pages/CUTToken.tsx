@@ -111,9 +111,7 @@ const CUTToken = () => {
             />
           ))}
 
-          {/* Large atmospheric glow orbs */}
-          <div className="absolute top-1/4 -left-32 w-96 h-96 bg-emerald-500/[0.04] rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 right-0 w-80 h-80 bg-teal-400/[0.05] rounded-full blur-[80px]" />
+
         </motion.div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
