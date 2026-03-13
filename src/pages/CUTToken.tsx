@@ -85,31 +85,6 @@ const CUTToken = () => {
             backgroundSize: "40px 40px",
           }} />
 
-          {/* Floating carbon particles */}
-          {particles.map((p) => (
-            <motion.div
-              key={p.id}
-              className="absolute rounded-full"
-              style={{
-                left: `${p.x}%`,
-                top: `${p.y}%`,
-                width: p.size,
-                height: p.size,
-                background: `radial-gradient(circle, hsl(160 60% 50% / 0.6), hsl(160 60% 40% / 0))`,
-              }}
-              animate={{
-                y: [-p.drift, p.drift, -p.drift],
-                x: [-p.drift * 0.4, p.drift * 0.4, -p.drift * 0.4],
-                opacity: [0.2, 0.7, 0.2],
-              }}
-              transition={{
-                duration: p.dur,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: p.delay,
-              }}
-            />
-          ))}
 
 
         </motion.div>
