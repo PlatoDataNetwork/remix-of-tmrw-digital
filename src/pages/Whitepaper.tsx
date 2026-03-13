@@ -1902,7 +1902,122 @@ export default function Whitepaper() {
 
       <style>{`
         .prose-section p { color: hsl(var(--muted-foreground)); line-height: 1.75; margin-bottom: 1rem; }
-        .prose-section strong { color: hsl(var(--foreground)); }
+        .prose-section strong { color: hsl(82 85% 55%); }
+
+        /* Neon green section headers */
+        .whitepaper-content section > h2 {
+          position: relative;
+          padding-bottom: 0.5rem;
+        }
+        .whitepaper-content section > h2::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 40px;
+          height: 2px;
+          background: linear-gradient(90deg, hsl(82 85% 55%), hsl(82 85% 55% / 0));
+          border-radius: 1px;
+        }
+
+        /* Neon green list bullets */
+        .prose-section ul { list-style: none; }
+        .prose-section ul li {
+          position: relative;
+          padding-left: 1.25rem;
+        }
+        .prose-section ul li::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0.65em;
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: hsl(82 85% 55%);
+          box-shadow: 0 0 6px hsl(82 85% 55% / 0.4);
+        }
+
+        /* Neon green ordered list numbers */
+        .prose-section ol li::marker {
+          color: hsl(82 85% 55%);
+          font-weight: 600;
+        }
+
+        /* Neon green table accents */
+        .whitepaper-content table {
+          border-color: hsl(82 85% 55% / 0.15);
+        }
+        .whitepaper-content thead {
+          border-bottom: 2px solid hsl(82 85% 55% / 0.25);
+        }
+        .whitepaper-content th {
+          color: hsl(82 85% 55%) !important;
+          font-weight: 500;
+          letter-spacing: 0.02em;
+        }
+
+        /* Neon green callout card left border */
+        .whitepaper-content .rounded-xl.border {
+          border-left: 2px solid hsl(82 85% 55% / 0.4);
+          box-shadow: inset 3px 0 12px -4px hsl(82 85% 55% / 0.06);
+        }
+
+        /* Neon green info boxes */
+        .whitepaper-content .bg-muted\\/50.border {
+          border-left: 2px solid hsl(82 85% 55% / 0.3);
+        }
+
+        /* Diagram neon green accents */
+        .whitepaper-content svg rect[rx="10"],
+        .whitepaper-content svg rect[rx="16"],
+        .whitepaper-content svg rect[rx="12"] {
+          filter: drop-shadow(0 0 1px hsl(82 85% 55% / 0.08));
+        }
+
+        /* Neon green glow on diagram hub nodes */
+        .whitepaper-content svg circle[r="60"] {
+          filter: drop-shadow(0 0 12px hsl(82 85% 55% / 0.15));
+        }
+
+        /* Diagram caption styling */
+        .whitepaper-content svg text[font-style="italic"] {
+          fill: hsl(82 85% 55% / 0.5);
+        }
+
+        /* Subtle neon divider between sections */
+        .whitepaper-content > .space-y-10 > section + section {
+          border-top: 1px solid hsl(82 85% 55% / 0.06);
+          padding-top: 2.5rem;
+        }
+
+        /* Neon green link hover glow */
+        .prose-section a {
+          text-decoration: none;
+          transition: text-shadow 0.2s ease;
+        }
+        .prose-section a:hover {
+          text-shadow: 0 0 8px hsl(82 85% 55% / 0.3);
+        }
+
+        /* Sidebar neon scrollbar */
+        aside::-webkit-scrollbar-thumb {
+          background: hsl(82 85% 55% / 0.2) !important;
+          border-radius: 3px;
+        }
+        aside::-webkit-scrollbar-thumb:hover {
+          background: hsl(82 85% 55% / 0.4) !important;
+        }
+
+        /* Chapter index cards neon hover glow */
+        .whitepaper-content button.group:hover {
+          box-shadow: 0 0 20px -6px hsl(82 85% 55% / 0.12);
+        }
+
+        /* Reading progress bar glow */
+        .fixed .bg-gradient-to-r {
+          box-shadow: 0 1px 8px -1px hsl(82 85% 55% / 0.3);
+        }
 
         /* Hide non-active pages */
         .wp-page-hidden { display: none; }
@@ -1939,7 +2054,7 @@ export default function Whitepaper() {
 
           h1, h2, h3 { color: #ffffff !important; break-after: avoid; }
           p, li { color: #c0c0c0 !important; }
-          strong { color: #ffffff !important; }
+          strong { color: #a3e635 !important; }
 
           /* Hide prev/next in print */
           .flex.items-stretch.gap-4 { display: none !important; }
@@ -1954,7 +2069,8 @@ export default function Whitepaper() {
           /* Table styling */
           table { border-color: #333 !important; }
           thead { background: #1a1a2e !important; }
-          th, td { color: #e0e0e0 !important; border-color: #333 !important; }
+          th { color: #a3e635 !important; }
+          td { color: #e0e0e0 !important; border-color: #333 !important; }
 
           /* Links */
           a { color: #a3e635 !important; }
