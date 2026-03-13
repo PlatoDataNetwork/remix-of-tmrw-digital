@@ -632,6 +632,54 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
           <div className="prose-section">
             <p>W3AI operates across Solana, Ethereum, and BNB Smart Chain using a hub-and-spoke model designed to maximize ecosystem reach while maintaining absolute supply integrity. This section describes the architecture in full — all cross-chain mechanics throughout this whitepaper reference this design.</p>
           </div>
+
+          {/* Hub-and-Spoke Architecture Diagram */}
+          <div className="my-8 flex justify-center">
+            <div className="w-full max-w-2xl">
+              <svg viewBox="0 0 600 400" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Spoke connection lines */}
+                <line x1="300" y1="160" x2="120" y2="300" className="stroke-muted-foreground" strokeWidth="2" strokeDasharray="8,4" opacity="0.5" />
+                <line x1="300" y1="160" x2="480" y2="300" className="stroke-muted-foreground" strokeWidth="2" strokeDasharray="8,4" opacity="0.5" />
+
+                {/* Wormhole NTT labels on lines */}
+                <text x="185" y="218" className="fill-muted-foreground" fontSize="10" fontFamily="monospace" transform="rotate(-35, 185, 218)">Wormhole NTT</text>
+                <text x="380" y="218" className="fill-muted-foreground" fontSize="10" fontFamily="monospace" transform="rotate(35, 380, 218)">Wormhole NTT</text>
+
+                {/* Arrows on lines */}
+                <polygon points="195,245 185,240 190,250" className="fill-muted-foreground" opacity="0.7" />
+                <polygon points="215,232 210,240 220,238" className="fill-muted-foreground" opacity="0.7" />
+                <polygon points="405,245 415,240 410,250" className="fill-muted-foreground" opacity="0.7" />
+                <polygon points="385,232 390,240 380,238" className="fill-muted-foreground" opacity="0.7" />
+
+                {/* Hub - Solana */}
+                <circle cx="300" cy="130" r="60" className="fill-accent stroke-border" strokeWidth="2" />
+                <text x="300" y="120" textAnchor="middle" className="fill-foreground font-bold" fontSize="16">Solana</text>
+                <text x="300" y="138" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Canonical Mint</text>
+                <text x="300" y="152" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Hub Chain</text>
+
+                {/* Hub label */}
+                <text x="300" y="56" textAnchor="middle" className="fill-foreground font-bold" fontSize="13" letterSpacing="0.1em">HUB</text>
+                <line x1="270" y1="62" x2="330" y2="62" className="stroke-muted-foreground" strokeWidth="1" opacity="0.4" />
+
+                {/* Spoke - Ethereum */}
+                <circle cx="120" cy="310" r="50" className="fill-card stroke-border" strokeWidth="2" />
+                <text x="120" y="305" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">Ethereum</text>
+                <text x="120" y="322" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Spoke Chain</text>
+
+                {/* Spoke - BSC */}
+                <circle cx="480" cy="310" r="50" className="fill-card stroke-border" strokeWidth="2" />
+                <text x="480" y="305" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">BNB Chain</text>
+                <text x="480" y="322" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Spoke Chain</text>
+
+                {/* Spoke labels */}
+                <text x="120" y="375" textAnchor="middle" className="fill-muted-foreground" fontSize="9">DeFi · Listings</text>
+                <text x="480" y="375" textAnchor="middle" className="fill-muted-foreground" fontSize="9">DeFi · Listings</text>
+
+                {/* Legend */}
+                <text x="300" y="395" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">Burn-and-mint model · Total supply invariance across all chains</text>
+              </svg>
+            </div>
+          </div>
         </section>
 
         <section id="xchain-hub-spoke">
