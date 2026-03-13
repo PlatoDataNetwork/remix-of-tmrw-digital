@@ -1,6 +1,7 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Leaf, Shield, Zap, ArrowLeft, ExternalLink, Recycle, Globe, BarChart3 } from "lucide-react";
+import { useRef, useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -43,6 +44,26 @@ const pillars = [
 ];
 
 const CUTToken = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  // Generate stable particle positions
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 40 }, (_, i) => ({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: 2 + Math.random() * 4,
+        dur: 12 + Math.random() * 20,
+        delay: Math.random() * -20,
+        drift: 10 + Math.random() * 30,
+      })),
+    []
+  );
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEOHead
@@ -53,13 +74,49 @@ const CUTToken = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(160,40%,8%)] via-background to-background" />
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: "radial-gradient(circle at 1px 1px, hsl(160 60% 40%) 1px, transparent 0)",
-          backgroundSize: "40px 40px",
-        }} />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section ref={heroRef} className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
+        {/* Parallax background layers */}
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(160,40%,8%)] via-background to-background" />
+
+          {/* Dot grid */}
+          <div className="absolute inset-0 opacity-[0.04]" style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, hsl(160 60% 40%) 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }} />
+
+          {/* Floating carbon particles */}
+          {particles.map((p) => (
+            <motion.div
+              key={p.id}
+              className="absolute rounded-full"
+              style={{
+                left: `${p.x}%`,
+                top: `${p.y}%`,
+                width: p.size,
+                height: p.size,
+                background: `radial-gradient(circle, hsl(160 60% 50% / 0.6), hsl(160 60% 40% / 0))`,
+              }}
+              animate={{
+                y: [-p.drift, p.drift, -p.drift],
+                x: [-p.drift * 0.4, p.drift * 0.4, -p.drift * 0.4],
+                opacity: [0.2, 0.7, 0.2],
+              }}
+              transition={{
+                duration: p.dur,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: p.delay,
+              }}
+            />
+          ))}
+
+          {/* Large atmospheric glow orbs */}
+          <div className="absolute top-1/4 -left-32 w-96 h-96 bg-emerald-500/[0.04] rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-teal-400/[0.05] rounded-full blur-[80px]" />
+        </motion.div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <Link
             to="/"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10"
