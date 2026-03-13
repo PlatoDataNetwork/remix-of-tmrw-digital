@@ -521,6 +521,62 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
             </ul>
             <p>The browser is not a collection of separate products — it is a unified execution environment where AI, identity, and money converge under explicit user control.</p>
           </div>
+
+          {/* Platform Architecture Diagram */}
+          <div className="my-8 flex justify-center">
+            <div className="w-full max-w-2xl">
+              <svg viewBox="0 0 600 340" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Layer 3 - Outer */}
+                <rect x="30" y="20" width="540" height="300" rx="16" className="fill-accent/30 stroke-border" strokeWidth="1.5" />
+                <text x="300" y="48" textAnchor="middle" className="fill-muted-foreground" fontSize="11" letterSpacing="0.15em">ECOSYSTEM</text>
+
+                {/* Layer 2 - Middle */}
+                <rect x="70" y="62" width="460" height="220" rx="12" className="fill-accent/50 stroke-border" strokeWidth="1.5" />
+                <text x="300" y="88" textAnchor="middle" className="fill-muted-foreground" fontSize="11" letterSpacing="0.15em">PROTOCOL LAYER</text>
+
+                {/* Layer 1 - Inner / Core */}
+                <rect x="120" y="102" width="360" height="148" rx="10" className="fill-card stroke-border" strokeWidth="2" />
+                <text x="300" y="130" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">TMRW Browser</text>
+                <text x="300" y="150" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Core Product · Live Today</text>
+
+                {/* Feature pills inside core */}
+                {[
+                  { label: "Wallet", x: 165 },
+                  { label: "AI Assistant", x: 255 },
+                  { label: "Swaps", x: 355 },
+                  { label: "RWA Access", x: 435 },
+                ].map((f, i) => (
+                  <g key={i}>
+                    <rect x={f.x - 38} y={170} width={76} height={24} rx="12" className="fill-accent stroke-border" strokeWidth="1" />
+                    <text x={f.x} y={186} textAnchor="middle" className="fill-foreground" fontSize="9">{f.label}</text>
+                  </g>
+                ))}
+
+                {/* Protocol layer labels */}
+                {[
+                  { label: "Identity", x: 130 },
+                  { label: "Governance", x: 240 },
+                  { label: "Cross-Chain", x: 360 },
+                  { label: "Security", x: 470 },
+                ].map((f, i) => (
+                  <text key={i} x={f.x} y={268} textAnchor="middle" className="fill-muted-foreground" fontSize="9">{f.label}</text>
+                ))}
+
+                {/* Ecosystem layer labels */}
+                {[
+                  { label: "Tokenized Assets", x: 150 },
+                  { label: "Validators", x: 300 },
+                  { label: "Developer Plugins", x: 450 },
+                ].map((f, i) => (
+                  <text key={i} x={f.x} y={306} textAnchor="middle" className="fill-muted-foreground" fontSize="9">{f.label}</text>
+                ))}
+
+                {/* Caption */}
+                <text x="300" y="335" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">Three-layer architecture: Browser → Protocol → Ecosystem</text>
+              </svg>
+            </div>
+          </div>
+          </div>
         </section>
 
         <section id="solution-platform">
