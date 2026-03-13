@@ -367,8 +367,8 @@ const ChatWidget = () => {
                         {msg.time}
                       </p>
                     </div>
-                    {/* Reference Link Pills */}
-                    {refs.length > 0 && msg.id !== "streaming" && (
+                    {/* Reference Link Pills + Tell Me a Joke */}
+                    {msg.role === "assistant" && msg.id !== "streaming" && (
                       <motion.div
                         initial={{ opacity: 0, y: 6 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -394,6 +394,17 @@ const ChatWidget = () => {
                             {ref.label}
                           </motion.button>
                         ))}
+                        <motion.button
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.2, delay: 0.2 + refs.length * 0.08 }}
+                          whileHover={{ scale: 1.05, y: -1 }}
+                          whileTap={{ scale: 0.97 }}
+                          onClick={() => handleFollowUp("Tell me a joke about AI")}
+                          className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-[hsl(45,80%,35%,0.4)] to-[hsl(30,70%,30%,0.4)] border border-white/10 text-white/80 hover:text-white hover:border-white/25 hover:from-[hsl(45,80%,40%,0.5)] hover:to-[hsl(30,70%,35%,0.5)] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[hsl(45,80%,55%,0.15)]"
+                        >
+                          😄 Tell Me a Joke
+                        </motion.button>
                       </motion.div>
                     )}
                   </div>
