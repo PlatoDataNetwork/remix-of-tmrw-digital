@@ -790,6 +790,48 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
             <p>The W3AI Protocol is the decentralized infrastructure layer that powers every surface of the W3AI ecosystem — from browser-native AI inference to multi-chain token operations and validator economics. Built across Solana, Ethereum, and BNB Smart Chain, the protocol establishes a unified execution framework where identity, liquidity, governance, and security converge into a single composable stack.</p>
           </div>
         </section>
+
+        {/* Protocol Permission Model Diagram */}
+        <div className="my-8 flex justify-center">
+          <div className="w-full max-w-2xl">
+            <svg viewBox="0 0 600 300" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              {/* User at top */}
+              <circle cx="300" cy="45" r="28" className="fill-card stroke-border" strokeWidth="2" />
+              <text x="300" y="42" textAnchor="middle" className="fill-foreground font-bold" fontSize="11">User</text>
+              <text x="300" y="55" textAnchor="middle" className="fill-muted-foreground" fontSize="8">Explicit Control</text>
+
+              {/* Line down to unified domain */}
+              <line x1="300" y1="73" x2="300" y2="105" className="stroke-muted-foreground" strokeWidth="1.5" strokeDasharray="4,3" />
+              <polygon points="300,108 295,100 305,100" className="fill-muted-foreground" />
+
+              {/* Unified Security Domain box */}
+              <rect x="130" y="110" width="340" height="60" rx="10" className="fill-accent stroke-border" strokeWidth="2" />
+              <text x="300" y="136" textAnchor="middle" className="fill-foreground font-bold" fontSize="12">Unified Security Domain</text>
+              <text x="300" y="155" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Cryptographic verification · User-consent framework</text>
+
+              {/* Lines down to two domains */}
+              <line x1="220" y1="170" x2="180" y2="205" className="stroke-muted-foreground" strokeWidth="1.5" strokeDasharray="4,3" />
+              <line x1="380" y1="170" x2="420" y2="205" className="stroke-muted-foreground" strokeWidth="1.5" strokeDasharray="4,3" />
+
+              {/* AI Permissions */}
+              <rect x="90" y="208" width="180" height="55" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+              <text x="180" y="232" textAnchor="middle" className="fill-foreground font-bold" fontSize="11">AI Permissions</text>
+              <text x="180" y="250" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Inference · Recommendations</text>
+
+              {/* Wallet Permissions */}
+              <rect x="330" y="208" width="180" height="55" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+              <text x="420" y="232" textAnchor="middle" className="fill-foreground font-bold" fontSize="11">Wallet Permissions</text>
+              <text x="420" y="250" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Signing · Transfers · Staking</text>
+
+              {/* Bidirectional arrow between the two */}
+              <line x1="270" y1="235" x2="330" y2="235" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="3,2" />
+              <text x="300" y="228" textAnchor="middle" className="fill-muted-foreground" fontSize="7">Bound</text>
+
+              {/* Caption */}
+              <text x="300" y="292" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">Assist → Verify → Act — only with explicit user control</text>
+            </svg>
+          </div>
+        </div>
         <section id="protocol-architecture">
           <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
           <div className="prose-section">
