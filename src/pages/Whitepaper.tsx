@@ -1,4 +1,4 @@
-/* whitepaper v2 */
+/* whitepaper v3 — restructured */
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { ArrowUp, ChevronRight, ChevronLeft, ChevronDown, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -28,68 +28,42 @@ interface Section {
 
 const sections: Section[] = [
   { id: "w3lcome", title: "Directory", icon: "home" },
-  { id: "welcome-message", title: "W3LCOME", number: "01" },
+  { id: "abstract", title: "Abstract", number: "01" },
   { id: "disclaimer", title: "Disclaimer", number: "02" },
-  { id: "executive-summary", title: "Rise of the Machines", number: "03", children: [
-    { id: "network-thesis", title: "Network Thesis" },
-    { id: "why-now", title: "Why Now" },
-    { id: "go-to-market", title: "Go To Market" },
+  { id: "the-problem", title: "The Problem", number: "03" },
+  { id: "the-solution", title: "The Solution", number: "04", children: [
+    { id: "solution-platform", title: "Platform Capabilities" },
+    { id: "solution-differentiation", title: "Differentiation" },
+    { id: "solution-security", title: "Security Intelligence" },
   ]},
-  { id: "w3ai-protocol", title: "W3AI Protocol", number: "04", children: [
+  { id: "what-exists-today", title: "What Exists Today", number: "05", children: [
+    { id: "today-browser", title: "TMRW Browser" },
+    { id: "today-protocol", title: "W3AI Protocol" },
+    { id: "today-go-to-market", title: "Go To Market" },
+  ]},
+  { id: "platform-capabilities", title: "Platform Capabilities", number: "06", children: [
+    { id: "cap-llm-layer", title: "LLM Layer" },
+    { id: "cap-swap-execution", title: "DeFi Swap Execution" },
+    { id: "cap-developers", title: "Developers" },
+  ]},
+  { id: "cross-chain-architecture", title: "Cross-Chain Architecture", number: "07", children: [
+    { id: "xchain-hub-spoke", title: "Hub & Spoke Model" },
+    { id: "xchain-wormhole", title: "Wormhole NTT Bridge" },
+    { id: "xchain-supply-integrity", title: "Supply Integrity" },
+    { id: "xchain-governance", title: "Cross-Chain Governance" },
+  ]},
+  { id: "w3ai-protocol", title: "W3AI Protocol", number: "08", children: [
     { id: "protocol-architecture", title: "Architecture" },
     { id: "protocol-economic-model", title: "Economic Model" },
   ]},
-  { id: "tmrw-browser", title: "W3AI TMRW", number: "05", children: [
-    { id: "browser-architecture", title: "Architecture" },
-    { id: "differentiation", title: "Differentiation" },
-    { id: "llm-layer", title: "LLM Layer" },
-    { id: "developers", title: "Developers" },
-    { id: "swap-execution", title: "DeFi Swap Execution" },
-    { id: "security-intelligence", title: "Security Intelligence" },
-  ]},
-  { id: "w3ai-rwas", title: "W3AI RWA's", number: "06", children: [
-    { id: "rwa-carbon-credits", title: "Carbon Credits" },
-    { id: "rwa-collectables", title: "Collectables" },
-    { id: "rwa-commodities", title: "Commodities" },
-    { id: "rwa-energy", title: "Energy" },
-    { id: "rwa-infrastructure", title: "Infrastructure" },
-    { id: "rwa-metals", title: "Metals" },
-    { id: "rwa-rare-earth", title: "Rare Earth Minerals" },
-    { id: "rwa-real-estate", title: "Real Estate" },
-    { id: "rwa-sovereign-wealth", title: "Sovereign Wealth" },
-    { id: "rwa-stablecoins", title: "Stablecoins" },
-    { id: "rwa-tax-credits", title: "Tax Credits" },
-    { id: "rwa-utilities", title: "Utilities" },
-  ]},
-  { id: "w3ai-token-utility", title: "W3AI Token Utility", number: "07", children: [
-    { id: "staking-tiers", title: "Staking Tiers" },
-    { id: "deflationary-mechanics", title: "Deflationary Mechanics" },
-  ]},
-  { id: "governance", title: "W3AI Governance", number: "08", children: [
-    { id: "foundation-governance", title: "Governance Framework" },
-    { id: "foundation-treasury", title: "Treasury Management" },
-    { id: "foundation-compliance", title: "Regulatory Compliance" },
-  ]},
-  { id: "token-utility", title: "W3AI Tokenomics", number: "09", children: [
-    { id: "token-pillars", title: "Token Utility Pillars" },
-    { id: "tokenomics", title: "Tokenomics Design" },
-    { id: "supply-allocations", title: "Supply & Allocations" },
-    { id: "sale-rounds", title: "Sale Rounds & Pricing" },
-    { id: "byok-gateway", title: "BYOK vs Open Gateway" },
-    { id: "swaps-fee", title: "Swaps & Convenience Fee" },
-  ]},
+  { id: "tokenized-assets", title: "Tokenized Asset Opportunity", number: "09" },
   { id: "institutional-rails", title: "Institutional-Grade Rails", number: "10", children: [
     { id: "rails-custody", title: "Custody & Safeguarding" },
     { id: "rails-compliance", title: "Compliance Infrastructure" },
     { id: "rails-tokenization", title: "Tokenization & RWA Access" },
     { id: "rails-reporting", title: "Institutional Reporting" },
   ]},
-  { id: "community-integrations", title: "Community Integrations", number: "11", children: [
-    { id: "solana-community", title: "Solana" },
-    { id: "ethereum-community", title: "Ethereum" },
-    { id: "bsc-community", title: "BSC" },
-  ]},
-  { id: "supported-networks", title: "Supported Networks", number: "12", children: [
+  { id: "supported-networks", title: "Supported Networks", number: "11", children: [
     { id: "network-solana", title: "Solana" },
     { id: "network-ethereum", title: "Ethereum" },
     { id: "network-bsc", title: "BNB Smart Chain" },
@@ -103,7 +77,7 @@ const sections: Section[] = [
     { id: "network-cronos", title: "Cronos" },
     { id: "network-moonbeam", title: "Moonbeam" },
   ]},
-  { id: "foundations", title: "Foundations", number: "13", children: [
+  { id: "foundations", title: "Foundations", number: "12", children: [
     { id: "fi-ethereum", title: "Ethereum" },
     { id: "fi-solana", title: "Solana" },
     { id: "fi-bitcoin", title: "Bitcoin" },
@@ -116,28 +90,59 @@ const sections: Section[] = [
     { id: "fi-icp", title: "Internet Computer" },
     { id: "fi-web3-foundation", title: "Web3 Foundation" },
   ]},
-  { id: "multi-chain", title: "Multi-Chain Deployments", number: "14", children: [
-    { id: "multi-hub-spoke", title: "Hub & Spoke Architecture" },
-    { id: "multi-wormhole", title: "Wormhole NTT Bridge" },
-    { id: "multi-supply-integrity", title: "Supply Integrity" },
-    { id: "multi-chain-governance", title: "Cross-Chain Governance" },
+  { id: "community-integrations", title: "Community Integrations", number: "13", children: [
+    { id: "solana-community", title: "Solana" },
+    { id: "ethereum-community", title: "Ethereum" },
+    { id: "bsc-community", title: "BSC" },
   ]},
-  { id: "validator-yield", title: "Validator Yield & Staking", number: "15", children: [
+  { id: "infrastructure", title: "Infrastructure", number: "14", children: [
+    { id: "infra-network", title: "Network Architecture" },
+    { id: "infra-security", title: "Security & Custody" },
+    { id: "infra-monitoring", title: "Monitoring & Operations" },
+  ]},
+  { id: "security", title: "Cybersecurity", number: "15", children: [
+    { id: "security-network", title: "Network Security" },
+    { id: "security-blockchain", title: "Blockchain Security" },
+    { id: "security-defi", title: "DeFi Security" },
+    { id: "security-defai", title: "DeFAI Security" },
+    { id: "security-ai", title: "AI Security" },
+  ]},
+  { id: "auditing", title: "Auditing", number: "16", children: [
+    { id: "auditing-smart-contract", title: "Smart Contract Auditing" },
+    { id: "auditing-financial", title: "Financial Auditing" },
+  ]},
+  { id: "market-opportunity", title: "Market Opportunity", number: "17" },
+  { id: "token-utility", title: "W3AI Tokenomics", number: "18", children: [
+    { id: "token-pillars", title: "Token Utility Pillars" },
+    { id: "tokenomics", title: "Tokenomics Design" },
+    { id: "supply-allocations", title: "Supply & Allocations" },
+    { id: "sale-rounds", title: "Sale Rounds & Pricing" },
+    { id: "staking-tiers", title: "Staking Tiers" },
+    { id: "deflationary-mechanics", title: "Deflationary Mechanics" },
+    { id: "byok-gateway", title: "BYOK vs Open Gateway" },
+    { id: "swaps-fee", title: "Swaps & Convenience Fee" },
+  ]},
+  { id: "governance", title: "W3AI Governance", number: "19", children: [
+    { id: "foundation-governance", title: "Governance Framework" },
+    { id: "foundation-treasury", title: "Treasury Management" },
+    { id: "foundation-compliance", title: "Regulatory Compliance" },
+  ]},
+  { id: "validator-yield", title: "Validator Yield & Staking", number: "20", children: [
     { id: "eth-validators", title: "Ethereum Validators" },
     { id: "bsc-validators", title: "BSC Validators" },
     { id: "sol-validators", title: "Solana Validators" },
   ]},
-  { id: "liquidity", title: "Liquidity & Market Making", number: "16", children: [
+  { id: "liquidity", title: "Liquidity & Market Making", number: "21", children: [
     { id: "dex-strategy", title: "DEX Liquidity Strategy" },
     { id: "cex-strategy", title: "CEX Listing Readiness" },
     { id: "partner-mm", title: "Partner Market Making" },
   ]},
-  { id: "marketing", title: "Marketing & Distribution", number: "17", children: [
+  { id: "marketing", title: "Marketing & Distribution", number: "22", children: [
     { id: "community-growth", title: "Community Growth" },
     { id: "kol-strategy", title: "Social & KOL Strategy" },
     { id: "six-month-rollout", title: "Six-Month Rollout" },
   ]},
-  { id: "strategic-partners", title: "Network Partners", number: "18", children: [
+  { id: "strategic-partners", title: "Network Partners", number: "23", children: [
     { id: "partner-0x", title: "0x" },
     { id: "partner-changelly", title: "Changelly" },
     { id: "partner-cls", title: "CLS" },
@@ -148,32 +153,17 @@ const sections: Section[] = [
     { id: "partner-northern-trust", title: "Northern Trust" },
     { id: "partner-surge", title: "Surge" },
   ]},
-  { id: "infrastructure", title: "Infrastructure", number: "19", children: [
-    { id: "infra-network", title: "Network Architecture" },
-    { id: "infra-security", title: "Security & Custody" },
-    { id: "infra-monitoring", title: "Monitoring & Operations" },
-  ]},
-  { id: "security", title: "Cybersecurity", number: "20", children: [
-    { id: "security-network", title: "Network Security" },
-    { id: "security-blockchain", title: "Blockchain Security" },
-    { id: "security-defi", title: "DeFi Security" },
-    { id: "security-defai", title: "DeFAI Security" },
-    { id: "security-ai", title: "AI Security" },
-  ]},
-  { id: "auditing", title: "Auditing", number: "21", children: [
-    { id: "auditing-smart-contract", title: "Smart Contract Auditing" },
-    { id: "auditing-financial", title: "Financial Auditing" },
-  ]},
-  { id: "privacy", title: "Privacy Policy", number: "22", children: [
+  { id: "use-cases", title: "Use Cases", number: "24" },
+  { id: "privacy", title: "Privacy Policy", number: "25", children: [
     { id: "privacy-data-minimization", title: "Data Minimization" },
     { id: "privacy-on-chain", title: "On-Chain Privacy" },
     { id: "privacy-third-party", title: "Third-Party Data Sharing" },
     { id: "privacy-user-rights", title: "User Rights & Control" },
     { id: "identity-anti-sybil", title: "Identity & Anti-Sybil" },
   ]},
-  { id: "risks", title: "Risks & Disclosures", number: "23" },
-  { id: "appendix", title: "Appendix & References", number: "24" },
-  { id: "deck-link", title: "Project Deck", number: "25" },
+  { id: "risks", title: "Risks & Disclosures", number: "26" },
+  { id: "appendix", title: "Appendix & References", number: "27" },
+  { id: "deck-link", title: "Project Deck", number: "28" },
 ];
 
 const topLevelIds = sections.map(s => s.id);
@@ -417,7 +407,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE: Home */}
+      {/* PAGE: Directory */}
       {/* ============================================================ */}
       <div className={p("w3lcome")}>
         <section id="w3lcome">
@@ -439,7 +429,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
             </div>
           </div>
           <h1 className="text-2xl md:text-3xl font-bold text-foreground mt-10 mb-2">W3AI Whitepaper</h1>
-          <p className="text-muted-foreground mb-8">Rise of the Machines — Building the Web3 AI gateway for the agentic browser era.</p>
+          <p className="text-muted-foreground mb-8">Secure Network Protocol — The Web3 AI gateway for the agentic browser era.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-12">
             {chapterSections.map(s => (
               <button
@@ -460,17 +450,19 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 01: W3LCOME */}
+      {/* PAGE 01: Abstract */}
       {/* ============================================================ */}
-      <div className={p("welcome-message")}>
-        <section id="welcome-message">
-          <h2 className="text-2xl font-bold text-foreground mb-4">W3LCOME</h2>
+      <div className={p("abstract")}>
+        <div className="relative rounded-2xl overflow-hidden animated-gradient-icon mb-8">
+          <img src={whitepaperHero} alt="W3AI Rise of the Machines" className="w-full h-[300px] md:h-[420px] object-cover" />
+        </div>
+        <section id="abstract">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Abstract</h2>
           <div className="prose-section">
-            <h3 className="text-xl font-semibold text-foreground mb-4">Welcome and Thank you for Joining Us!</h3>
-            <p>We are excited to introduce you to W3AI, a pioneering force at the intersection of Web3 and AI. Our vision is to revolutionize the way vertically focused AI applications are conceived, developed and leveraged across both centralized and decentralized networks. creating a more efficient, transparent, and secure digital ecosystem and decentralized transport management system. We are revolutionizing data intelligence by delivering an array of vertically focused Generative AI Applications inside a custom network framework that leverages AI in ways that drive both high ROI and stored value. We embrace innovation and deploy it across our entire ecosystem and corporate culture.</p>
-            <p>W3AI is at the forefront of merging artificial intelligence with blockchain, forging a new path for decentralized automation and machine learning. Its architecture is based on a network of autonomous AI agents that execute a variety of tasks, such as data-sharing, dynamic optimization, and decision-making, all within a trustless environment. W3AI's decentralized framework fosters peer-to-peer intelligence sharing, enabling seamless interactions between humans, devices, and AI agents without intermediaries. This ecosystem is designed to enhance scalability, secure decision-making, and remove bottlenecks within Solana's high-performance blockchain ecosystem.</p>
-            <p>Our vision goes beyond the conventional as we were created to disrupt the current AI Application and Analytic marketplace. By employing a completely new methodology related to community and developer engagement, we enable deep and authentic connectivity to today's most active innovative technology sectors. At W3AI, we are revolutionizing data intelligence and analysis by delivering an array of vertically focused AI Applications via an immersive UI / UX. Fully Decentralized. Fully Tokenized. Fully Automated. Fully Gamified. As AI continues on its path to disrupt most industries we know of today, we will be a gateway for millions of users to access both our suite of applications but also those from our developer community to showcase and market their apps. We embrace innovation and deploy it across our entire ecosystem and corporate culture. As the AI Application Market continues to expand, we have a unique opportunity in this cycle to deploy our best of class technology and experience to a thriving community of users, enterprises, developers, testers and marketers. Whether you're an investor, a builder, or a visionary looking to be part of the next evolution of technology, we're thrilled to have you with us.</p>
-            <p>Let's explore the future—together. 🚀</p>
+            <p>W3AI is building the Web3 AI gateway for the agentic browser era. The TMRW Browser is a macOS desktop application built on Firefox that unifies AI-powered browsing, cross-chain wallet management, and tokenized real-world asset access into a single, secure interface.</p>
+            <p>The platform treats AI agent permissions and wallet permissions as one coherent security domain — "assist, verify, then act — only with explicit user control." This architectural decision differentiates W3AI from both traditional browsers and emerging AI browser competitors.</p>
+            <p>The W3AI ecosystem spans three layers: a core browser platform with integrated wallet and AI capabilities (live today), a cross-chain protocol layer connecting Solana, Ethereum, and BNB Smart Chain, and a tokenized asset framework enabling fractional access to real-world assets across multiple sectors.</p>
+            <p>This whitepaper describes the problem W3AI solves, the solution architecture, what exists today, platform capabilities, tokenomics, and the roadmap for ecosystem expansion.</p>
           </div>
         </section>
       </div>
@@ -487,46 +479,103 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
             <p>Forward-Looking Statements. This document contains forward-looking statements that reflect the current intentions, expectations, and projections of the W3AI team. These statements are not guarantees of future performance and are subject to known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied.</p>
             <p>Regulatory Compliance. The regulatory landscape for digital assets and blockchain technology is evolving rapidly and varies by jurisdiction. It is the sole responsibility of each prospective participant to determine whether the acquisition, holding, or use of any token described herein is permissible under applicable laws and regulations in their jurisdiction.</p>
             <p>Exchange Listings. Any references to centralized exchange (CEX) or decentralized exchange (DEX) listings are subject to independent review, approval, and listing criteria established by the respective exchanges. W3AI makes no guarantee that any listing will occur or be maintained.</p>
-            <p>Third-Party Services. This document may reference third-party platforms, protocols, tools, or service providers. W3AI does not endorse, guarantee, or assume responsibility for the accuracy, reliability, security, or performance of any third-party service. Users interact with third-party services at their own risk.</p>
-            <p>No Fiduciary Relationship. Nothing in this document creates a fiduciary, advisory, or professional relationship between W3AI and any reader or participant. Recipients of this document should seek independent legal, financial, and tax advice before making any decisions related to digital asset purchases or participation in any network activity.</p>
-            <p>Information Accuracy. While every effort has been made to ensure the accuracy and completeness of the information presented, W3AI does not warrant that the content is free from errors or omissions. Information is provided "as is" and may be updated, modified, or corrected without notice.</p>
-            <p>Intellectual Property. All content, trademarks, logos, and intellectual property referenced in this document are the property of their respective owners. Unauthorized reproduction, distribution, or use of this document or any of its contents is strictly prohibited without prior written consent.</p>
           </div>
         </section>
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 03: Rise of the Machines */}
+      {/* PAGE 03: The Problem */}
       {/* ============================================================ */}
-      <div className={p("executive-summary")}>
-        <div className="relative rounded-2xl overflow-hidden animated-gradient-icon mb-8">
-          <img src={whitepaperHero} alt="W3AI Rise of the Machines" className="w-full h-[300px] md:h-[420px] object-cover" />
-        </div>
-
-        <section id="executive-summary">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Rise of the Machines</h2>
+      <div className={p("the-problem")}>
+        <section id="the-problem">
+          <h2 className="text-2xl font-bold text-foreground mb-4">The Problem</h2>
           <div className="prose-section">
-            <p>W3AI is building the Web3 AI gateway for the "Rise of the Machines" era—when browsers evolve from passive viewers into agentic, AI-native operating systems. Recent launches from Perplexity (Comet) and OpenAI (ChatGPT Atlas) confirm the browser is becoming the primary AI surface where context is captured and actions are executed.</p>
-            <p>W3AI's wedge is Web3-native security + immersive UX. AI browsers create new convenience—and new risk. W3AI's product strategy is to treat AI agent permissions and wallet permissions as one coherent security domain: "assist, verify, then act—only with explicit user control."</p>
-            <p>The W3AI / TMRW Browser is a macOS desktop Web3 AI Browser built on Firefox with a sidekick mobile app. Firefox is a free, open-source browser using the Gecko rendering engine, designed to be extensible via add-ons and customization. Building on Firefox creates strategic differentiation in a market where many AI browsers trend toward Chromium-based stacks.</p>
+            <p>Web3 infrastructure is fragmented. Users must navigate between separate wallets, bridges, exchanges, and analytics platforms to perform even basic cross-chain operations. Each additional tool introduces friction, security risk, and cognitive overhead.</p>
+            <p>Emerging AI browsers like Perplexity's Comet and OpenAI's ChatGPT Atlas confirm that the browser is becoming the primary AI surface where context is captured and actions are executed. But these products are built for Web2 — they lack native wallet integration, cross-chain awareness, and the security primitives required for financial transactions.</p>
+            <p>Meanwhile, existing Web3 browsers focus on privacy (Brave) or basic dApp access without providing the intelligent, unified experience that modern users expect. The result is a gap: no single product combines AI-powered browsing, secure wallet management, and tokenized asset access in a coherent, user-friendly interface.</p>
+            <p>This fragmentation creates three critical problems:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong>Security risk:</strong> Users expose private keys and sign transactions across multiple uncoordinated surfaces, increasing attack vectors.</li>
+              <li><strong>Poor user experience:</strong> Cross-chain operations require switching between 3–5 separate tools, leading to errors and abandonment.</li>
+              <li><strong>Limited access:</strong> Tokenized real-world assets remain inaccessible to most investors due to fragmented discovery and complex onboarding.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      {/* ============================================================ */}
+      {/* PAGE 04: The Solution */}
+      {/* ============================================================ */}
+      <div className={p("the-solution")}>
+        <section id="the-solution">
+          <h2 className="text-2xl font-bold text-foreground mb-4">The Solution: The TMRW Browser Platform</h2>
+          <div className="prose-section">
+            <p>The TMRW Browser is the core product — a macOS desktop Web3 AI browser built on Firefox with a sidekick mobile app. Firefox's open-source Gecko engine provides deep customization, strategic differentiation from Chromium-based competitors, and a proven extension model.</p>
+            <p>The browser integrates several capabilities into a single interface:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Secure wallet functionality with multi-chain support.</li>
+              <li>Cross-chain asset management via hub-and-spoke architecture.</li>
+              <li>Token swaps and DeFi access with transparent fee structures.</li>
+              <li>AI-assisted transactions with "explain before execute" safety patterns.</li>
+              <li>Access to tokenized real-world assets through an integrated marketplace.</li>
+            </ul>
+            <p>The browser is not a collection of separate products — it is a unified execution environment where AI, identity, and money converge under explicit user control.</p>
           </div>
         </section>
 
-        <section id="network-thesis">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Network Thesis</h2>
+        <section id="solution-platform">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Platform Capabilities</h2>
           <div className="prose-section">
-            <p>A browser becomes a category-defining platform when it has its own decentralized backbone. W3AI is building Network infrastructure through a series of validator nodes on Solana, Ethereum, and BNB Smart Chain (BSC).</p>
+            <p>W3AI's product philosophy is that the browser is no longer a "window." It is the execution environment for AI, identity, and money. The platform enables users to discover → verify → transact → monitor across Web3 with an immersive UI/UX designed for high-frequency multi-chain activity.</p>
           </div>
         </section>
 
-        <section id="why-now">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Why Now</h2>
+        <section id="solution-differentiation">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Differentiation</h2>
           <div className="prose-section">
-            <p>Crypto adoption is measured in hundreds of millions globally. Global crypto owners grew from 659 million (end of 2024) to 741 million in 2025. Active stablecoin addresses increased from 19.6 million to 30 million from Feb 2024 to Feb 2025. This is the user base that needs a safer, simpler "front door" into Web3.</p>
+            <p>W3AI's differentiation is expressed through workflow superiority and permission superiority:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong>vs. Brave:</strong> Brave demonstrates large-scale demand for privacy-first browsing (100M+ MAU). W3AI meets these privacy expectations while solving Web3-specific safety problems — wallet connections, transaction clarity, contract risk, chain selection, and agent safety.</li>
+              <li><strong>vs. Safari:</strong> Safari dominates Apple's ecosystem with privacy as a primary differentiator. W3AI's path: "Safari is privacy-first; W3AI is Web3 AI safety-first."</li>
+              <li><strong>vs. Comet & Atlas:</strong> These products confirm the new bar — context-aware assistants living inside the browser. W3AI competes by making "agent safety" patterns Web3-native, where "actions" often move assets.</li>
+            </ul>
           </div>
         </section>
 
-        <section id="go-to-market">
+        <section id="solution-security">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Security Intelligence</h2>
+          <div className="prose-section">
+            <p>W3AI integrates security posture into the act of connecting, signing, and transacting. A practical security integration partner is Hacken, offering smart contract audits, wallet audits, penetration testing, tokenomics audits, proof-of-reserves audits, and post-deployment monitoring. In W3AI, this becomes an "in-browser trust layer": risk flags, verified proofs, and standardized security context before users commit capital.</p>
+          </div>
+        </section>
+      </div>
+
+      {/* ============================================================ */}
+      {/* PAGE 05: What Exists Today */}
+      {/* ============================================================ */}
+      <div className={p("what-exists-today")}>
+        <section id="what-exists-today">
+          <h2 className="text-2xl font-bold text-foreground mb-4">What Exists Today</h2>
+          <div className="prose-section">
+            <p>W3AI has moved beyond concept stage. The following core components are built and operational:</p>
+          </div>
+        </section>
+
+        <section id="today-browser">
+          <h2 className="text-2xl font-bold text-foreground mb-4">TMRW Browser</h2>
+          <div className="prose-section">
+            <p>The macOS desktop browser is built on Firefox and delivers the core Web3 AI browsing experience. The browser includes integrated wallet connectivity, AI-assisted transaction explanation, and a unified interface for multi-chain activity.</p>
+          </div>
+        </section>
+
+        <section id="today-protocol">
+          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Protocol</h2>
+          <div className="prose-section">
+            <p>The W3AI Protocol provides the decentralized infrastructure layer — identity, liquidity, governance, and security converging into a composable stack across Solana, Ethereum, and BNB Smart Chain. The protocol binds AI agent permissions to on-chain wallet permissions as a single security domain.</p>
+          </div>
+        </section>
+
+        <section id="today-go-to-market">
           <h2 className="text-2xl font-bold text-foreground mb-4">Go To Market</h2>
           <div className="prose-section">
             <p>The project targets a six-month rollout with a measurable pre-listing objective: 25,000 Registry users via whitelisted wallets prior to listing. Post-launch, W3AI targets 3–5% share of the Web3 browser market within 12–18 months, modeled as 3M+ monthly users, benchmarked against Brave's reported 101M MAU.</p>
@@ -535,62 +584,32 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 04: W3AI Protocol */}
+      {/* PAGE 06: Platform Capabilities */}
       {/* ============================================================ */}
-      <div className={p("w3ai-protocol")}>
-        <section id="w3ai-protocol">
-          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Protocol</h2>
+      <div className={p("platform-capabilities")}>
+        <section id="platform-capabilities">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Platform Capabilities</h2>
           <div className="prose-section">
-            <p>The W3AI Protocol is the decentralized infrastructure layer that powers every surface of the W3AI ecosystem—from browser-native AI inference to multi-chain token operations and validator economics. Built across Solana, Ethereum, and BNB Smart Chain, the protocol establishes a unified execution framework where identity, liquidity, governance, and security converge into a single composable stack. Rather than operating as a standalone blockchain, W3AI functions as a cross-chain coordination protocol that leverages existing network security while adding proprietary intelligence, custody, and compliance layers on top.</p>
+            <p>The TMRW Browser extends its core browsing experience through AI tools, developer integrations, and DeFi functionality — all embedded within the browser rather than offered as separate products.</p>
           </div>
         </section>
-        <section id="protocol-architecture">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
-          <div className="prose-section">
-            <p>At its core, the W3AI Protocol introduces a novel architecture that binds AI agent permissions to on-chain wallet permissions—treating them as a single security domain. This means every AI-assisted action within the ecosystem, whether a swap recommendation, a governance vote, or a portfolio rebalance, must pass through the same cryptographic verification and user-consent framework that governs asset transfers. The result is a protocol where intelligence and capital move together under explicit user control, eliminating the trust gaps that plague conventional AI-integrated platforms.</p>
-          </div>
-        </section>
-        <section id="protocol-economic-model">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Economic Model</h2>
-          <div className="prose-section">
-            <p>The protocol's economic model is designed for long-term sustainability. Revenue flows from multiple surfaces—Open Gateway AI inference fees, in-browser swap convenience fees, validator yield, and premium feature access—all routed transparently through on-chain treasury mechanisms. With 52.5% of total token supply allocated to the treasury and governed by progressive decentralization, the W3AI Protocol is structured to fund development, incentivize participation, and maintain operational resilience across market cycles.</p>
-          </div>
-        </section>
-      </div>
 
-      {/* ============================================================ */}
-      {/* PAGE 05: W3AI TMRW */}
-      {/* ============================================================ */}
-      <div className={p("tmrw-browser")}>
-        <section id="tmrw-browser">
-          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI TMRW Browser</h2>
-          <div className="prose-section">
-            <p>W3AI's product philosophy is that the browser is no longer a "window." It is the execution environment for AI, identity, and money. W3AI's goal is to become the unified gateway that lets users discover → verify → transact → monitor across Web3 with an immersive UI/UX designed for high-frequency multi-chain activity.</p>
-          </div>
-        </section>
-        <section id="browser-architecture">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
-          <div className="prose-section">
-            <p>W3AI's macOS desktop browser is built on Firefox, leveraging a mature, open-source codebase that uses the Gecko engine and supports deep customization. In a market increasingly shaped by AI browsers and agentic assistants, platform choice matters because it influences extension models, sandbox boundaries, and security hardening approaches.</p>
-          </div>
-        </section>
-        <section id="differentiation">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Differentiation</h2>
-          <div className="prose-section">
-            <p>W3AI's differentiation must be expressed as workflow superiority and permission superiority—not merely a checklist.</p>
-            <p>Brave demonstrates large-scale demand for privacy-first browsing (100M+ MAU). W3AI must meet or exceed these privacy expectations while also solving Web3-specific safety problems (wallet connections, transaction clarity, contract risk, chain selection, and agent safety).</p>
-            <p>Safari dominates Apple's ecosystem with privacy as a primary differentiator. W3AI's path: "Safari is privacy-first; W3AI is Web3 AI safety-first."</p>
-            <p>Comet and Atlas confirm the new bar: context-aware assistants living inside the browser. W3AI competes by making "agent safety" patterns Web3-native, where "actions" often move assets.</p>
-          </div>
-        </section>
-        <section id="llm-layer">
+        <section id="cap-llm-layer">
           <h2 className="text-2xl font-bold text-foreground mb-4">LLM Layer</h2>
           <div className="prose-section">
             <p>Bring Your Own Key (BYOK): Users can connect the LLM provider of their choice using their own API keys. This supports power users and enterprises with preferred vendors, budgets, and compliance requirements.</p>
             <p>W3AI Open Gateway (token-based): Users can alternatively route inference through a W3AI-managed gateway with token-based billing. The Open Gateway is user-controlled by default with spending caps, per-session limits, and explicit on/off controls. A 30% margin is applied over underlying provider costs with transparent reporting.</p>
           </div>
         </section>
-        <section id="developers">
+
+        <section id="cap-swap-execution">
+          <h2 className="text-2xl font-bold text-foreground mb-4">DeFi Swap Execution</h2>
+          <div className="prose-section">
+            <p>W3AI embeds swap functionality directly in the browser and applies a transparent convenience fee that routes into the W3AI treasury. A practical implementation path is the Changelly API, designed for service providers to let users exchange without leaving the host product. Changelly's API supports an "extra fee" functionality allowing the integrator to configure an additional commission layer.</p>
+          </div>
+        </section>
+
+        <section id="cap-developers">
           <h2 className="text-2xl font-bold text-foreground mb-4">Developers</h2>
           <div className="prose-section">
             <p>W3AI is designed to be developer-friendly from the ground up. The browser exposes APIs and extension points that enable third-party developers to build plugins, integrate dApps, and extend browser functionality within a secure, sandboxed environment.</p>
@@ -602,197 +621,484 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
             </ul>
           </div>
         </section>
-        <section id="swap-execution">
-          <h2 className="text-2xl font-bold text-foreground mb-4">DeFi Swap Execution</h2>
+      </div>
+
+      {/* ============================================================ */}
+      {/* PAGE 07: Cross-Chain Architecture */}
+      {/* ============================================================ */}
+      <div className={p("cross-chain-architecture")}>
+        <section id="cross-chain-architecture">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Cross-Chain Architecture</h2>
           <div className="prose-section">
-            <p>W3AI intends to embed swap functionality directly in the browser and apply a transparent convenience fee that routes into the W3AI treasury. A practical implementation path is the Changelly API, designed for service providers to let users exchange without leaving the host product. Changelly's API supports an "extra fee" functionality allowing the integrator to configure an additional commission layer.</p>
+            <p>W3AI operates across Solana, Ethereum, and BNB Smart Chain using a hub-and-spoke model designed to maximize ecosystem reach while maintaining absolute supply integrity. This section describes the architecture in full — all cross-chain mechanics throughout this whitepaper reference this design.</p>
           </div>
         </section>
-        <section id="security-intelligence">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Security Intelligence</h2>
+
+        <section id="xchain-hub-spoke">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Hub & Spoke Model</h2>
           <div className="prose-section">
-            <p>W3AI will integrate security posture into the act of connecting, signing, and transacting. A practical security integration partner is Hacken, offering smart contract audits, wallet audits, penetration testing, tokenomics audits, proof-of-reserves audits, and post-deployment monitoring. In W3AI, this becomes an "in-browser trust layer": risk flags, verified proofs, and standardized security context before users commit capital.</p>
+            <p>Solana serves as the Canonical Mint and Hub Chain. All 2,000,000,000 W3AI tokens are minted natively on Solana. Ethereum and BNB Smart Chain operate as spoke chains, receiving wrapped or bridged representations of the canonical supply. This hub-and-spoke model ensures a single source of truth for total supply, eliminates the risk of independent minting on secondary chains, and simplifies auditing and compliance reporting.</p>
+            <p>The architecture leverages Solana's high throughput and low transaction costs for primary token operations — staking, governance voting, and reward distribution — while maintaining presence on Ethereum and BSC for DeFi composability and exchange listing requirements.</p>
+          </div>
+        </section>
+
+        <section id="xchain-wormhole">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Wormhole NTT Bridge</h2>
+          <div className="prose-section">
+            <p>Cross-chain transfers are powered by Wormhole Native Token Transfers (NTT), a protocol-level bridging framework that supports burn-and-mint models with governance-configurable per-chain rate limits. Unlike traditional lock-and-mint bridges, NTT burns tokens on the source chain and mints equivalent tokens on the destination chain, preserving total supply invariance at every step.</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Burn-and-mint model eliminates locked-token attack vectors common in bridge exploits.</li>
+              <li>Per-chain rate limits prevent catastrophic supply drainage in the event of a bridge compromise.</li>
+              <li>Governance-controlled parameters allow the DAO to adjust transfer limits, pause bridges, and whitelist new chains without contract redeployment.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="xchain-supply-integrity">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Supply Integrity</h2>
+          <div className="prose-section">
+            <p>Supply integrity is enforced through a combination of on-chain invariants and off-chain monitoring. The total supply across all chains must equal the canonical 2,000,000,000 W3AI at all times. Any deviation triggers automated alerts and can invoke emergency governance procedures.</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Real-time cross-chain supply dashboards with public verification endpoints.</li>
+              <li>Automated reconciliation checks running every block on each deployed chain.</li>
+              <li>Third-party audit integration for periodic supply attestation reports.</li>
+              <li>Emergency pause functionality governed by multi-sig with time-lock safeguards.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="xchain-governance">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Cross-Chain Governance</h2>
+          <div className="prose-section">
+            <p>Governance participation is chain-agnostic. Token holders on Ethereum and BSC can vote on proposals without bridging back to Solana. Cross-chain message passing aggregates voting power from all chains into a unified governance result on the hub chain.</p>
+            <p>This ensures that the multi-chain deployment does not fragment governance participation or create asymmetric voting power between chains. All governance outcomes are executed on Solana and propagated to spoke chains via Wormhole messaging.</p>
           </div>
         </section>
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 06: W3AI RWA's */}
+      {/* PAGE 08: W3AI Protocol */}
       {/* ============================================================ */}
-      <div className={p("w3ai-rwas")}>
-        <section id="w3ai-rwas">
-          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI RWAs</h2>
+      <div className={p("w3ai-protocol")}>
+        <section id="w3ai-protocol">
+          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Protocol</h2>
           <div className="prose-section">
-            <p>The Real World of Asset Tokenization — Tomorrow's Next Big Thing. Bridging traditional assets with modern Web3AI markets through tokenization, data intelligence, and institutional-grade access.</p>
-            <p>W3AI's RWA framework spans 12 core sectors, each representing a multi-billion-dollar opportunity to digitize traditionally illiquid assets into transparent, tradeable, and fractionally accessible digital securities on blockchain networks.</p>
+            <p>The W3AI Protocol is the decentralized infrastructure layer that powers every surface of the W3AI ecosystem — from browser-native AI inference to multi-chain token operations and validator economics. Built across Solana, Ethereum, and BNB Smart Chain, the protocol establishes a unified execution framework where identity, liquidity, governance, and security converge into a single composable stack.</p>
           </div>
         </section>
-        <section id="rwa-carbon-credits">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Carbon Credits</h2>
+        <section id="protocol-architecture">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
           <div className="prose-section">
-            <p>Carbon markets are critical to the global fight against climate change, yet they have long been plagued by opacity, fragmentation, and limited accessibility. Tokenization transforms verified carbon credits into transparent, tradeable digital assets on blockchain networks. This enables fractional ownership, real-time price discovery, and automated retirement tracking—empowering institutions, corporations, and individuals to participate in climate action with confidence and efficiency.</p>
-            <p>Every token is backed by independently verified carbon offset projects with transparent monitoring, reporting, and verification (MRV). Blockchain-based retirement tracking ensures credits are permanently removed from circulation, preventing double-counting. Key verticals include forestry & REDD+ projects, renewable energy credits, blue carbon from coastal ecosystems, direct air capture technology, and diversified carbon credit funds spanning multiple vintages and standards.</p>
+            <p>At its core, the W3AI Protocol binds AI agent permissions to on-chain wallet permissions — treating them as a single security domain. Every AI-assisted action within the ecosystem, whether a swap recommendation, a governance vote, or a portfolio rebalance, must pass through the same cryptographic verification and user-consent framework that governs asset transfers. The result is a protocol where intelligence and capital move together under explicit user control.</p>
           </div>
         </section>
-        <section id="rwa-collectables">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Collectables</h2>
+        <section id="protocol-economic-model">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Economic Model</h2>
           <div className="prose-section">
-            <p>The global collectables market—spanning fine art, rare wines, classic automobiles, sports memorabilia, and luxury goods—represents trillions in stored value largely inaccessible to everyday investors. Tokenization transforms these illiquid treasures into fractional digital assets, enabling transparent provenance tracking, instant settlement, and democratized access. Blockchain-verified authenticity and smart contract–governed ownership bring institutional rigor to passion-driven markets.</p>
-            <p>Immutable blockchain provenance records ensure every collectable's history, ownership chain, and authenticity are permanently verified. Physical assets are stored in insured, climate-controlled vaults with real-time digital verification. Use cases range from fractional ownership of blue-chip artworks from masters like Picasso and Warhol, to tokenized rare timepieces from Patek Philippe and Rolex, curated wine portfolios, classic car investments, and sports memorabilia with verified provenance.</p>
+            <p>The protocol's economic model is designed for long-term sustainability. Revenue flows from multiple surfaces — Open Gateway AI inference fees, in-browser swap convenience fees, validator yield, and premium feature access — all routed transparently through on-chain treasury mechanisms. With 52.5% of total token supply allocated to the treasury and governed by progressive decentralization, the W3AI Protocol is structured to fund development, incentivize participation, and maintain operational resilience across market cycles.</p>
           </div>
         </section>
-        <section id="rwa-commodities">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Commodities</h2>
+      </div>
+
+      {/* ============================================================ */}
+      {/* PAGE 09: Tokenized Asset Opportunity */}
+      {/* ============================================================ */}
+      <div className={p("tokenized-assets")}>
+        <section id="tokenized-assets">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Tokenized Asset Opportunity</h2>
           <div className="prose-section">
-            <p>Commodity markets form the backbone of the global economy, yet participation has been dominated by futures exchanges and specialized trading desks. Tokenization creates a direct bridge between physical commodity assets and digital investors, enabling fractional ownership of grain silos, coffee plantations, cotton inventories, and timber forests. Smart contracts handle settlement, custody verification, and yield distribution, bringing 21st-century efficiency to centuries-old markets.</p>
-            <p>Every token represents verified, audited physical commodity inventories held in certified warehouses and storage facilities. Commodity-backed tokens provide natural inflation protection as physical goods appreciate with rising price levels. The tokenization framework supports agricultural futures, single-origin coffee and cocoa production, managed timber plantations combining carbon sequestration with harvest revenue, cotton inventories, sugar & ethanol facilities, and transferable water rights.</p>
+            <p>Tokenization enables real-world assets to be fractionalized and traded digitally on blockchain networks. By converting traditionally illiquid holdings into transparent, auditable digital securities, tokenization increases accessibility, transparency, and liquidity across asset classes that have historically been reserved for institutional investors.</p>
+            <p>W3AI's RWA framework provides browser-native discovery, verification, and management of tokenized assets across the following sectors:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong>Commodities</strong> — agricultural futures, coffee, cotton, timber, and managed resource inventories.</li>
+              <li><strong>Infrastructure</strong> — toll roads, airports, data centers, water systems, and digital infrastructure.</li>
+              <li><strong>Real Estate</strong> — commercial, residential, hospitality, and mixed-use properties with automated rental distribution.</li>
+              <li><strong>Energy</strong> — solar farms, wind installations, oil & gas royalties, EV charging networks, and LNG terminals.</li>
+              <li><strong>Metals</strong> — gold, silver, copper, lithium, and platinum group metals with blockchain-verified provenance.</li>
+              <li><strong>Carbon Credits</strong> — verified offset projects with on-chain retirement tracking and MRV compliance.</li>
+              <li><strong>Rare Earth Minerals</strong> — neodymium, cobalt, graphite, and critical minerals for technology supply chains.</li>
+              <li><strong>Sovereign Wealth</strong> — national asset digitization, citizen participation programs, and co-investment instruments.</li>
+              <li><strong>Stablecoins</strong> — treasury-backed settlement rails, cross-border payments, and institutional yield vaults.</li>
+              <li><strong>Tax Credits</strong> — renewable energy ITCs, LIHTCs, R&D credits, and opportunity zone investments.</li>
+              <li><strong>Collectables</strong> — fine art, rare timepieces, classic automobiles, and sports memorabilia with verified provenance.</li>
+              <li><strong>Utilities</strong> — municipal energy, water treatment, telecom infrastructure, and smart grid assets.</li>
+            </ul>
+            <p>The key opportunity is enabling global investors to access institutional-quality assets at fractions of traditional minimums — with smart contracts automating settlement, custody verification, and yield distribution. Detailed sector analysis is available at <a href="/rwas" className="text-[hsl(82,85%,55%)] hover:underline">tmrw-digital.com/rwas</a>.</p>
           </div>
         </section>
-        <section id="rwa-energy">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Energy</h2>
+      </div>
+
+      {/* ============================================================ */}
+      {/* PAGE 10: Institutional-Grade Rails */}
+      {/* ============================================================ */}
+      <div className={p("institutional-rails")}>
+        <section id="institutional-rails">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Institutional-Grade Rails</h2>
           <div className="prose-section">
-            <p>The energy sector represents one of the largest asset classes globally, yet access has historically been limited to institutional investors and sovereign entities. Tokenization transforms energy assets—from solar farms and wind installations to oil reserves and LNG terminals—into fractional, tradeable digital securities. This democratizes participation while providing asset owners with new capital formation tools and enhanced liquidity for traditionally illiquid holdings.</p>
-            <p>Smart contracts automate revenue distribution from energy production, providing real-time visibility into yield generation. Geographic barriers are removed, allowing global investors to participate in projects across jurisdictions. Key verticals include utility-scale solar installations with automated revenue sharing, tokenized oil & gas royalty streams, wind energy credits, EV charging network ownership, LNG terminal access, and carbon credit portfolios linked to energy transition projects.</p>
+            <p>W3AI's mission is consumer-first, but the Web3 browser category will increasingly serve professionals and institutions. Northern Trust has described blockchain/tokenization initiatives utilizing its digital assets platform (Matrix Zenith) and participation in tokenizing ESG reporting credentials.</p>
+            <p>W3AI translates this into product positioning: the browser becomes the interface where tokenized assets, funds, and ESG credentials are discovered, verified, and managed.</p>
           </div>
         </section>
-        <section id="rwa-infrastructure">
+        <section id="rails-custody">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Custody & Asset Safeguarding</h2>
+          <div className="prose-section">
+            <p>Institutional participation requires bank-grade custody solutions. W3AI integrates MPC (Multi-Party Computation) and HSM (Hardware Security Module) custody infrastructure to provide institutional-grade key management without sacrificing user sovereignty.</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Multi-signature authorization workflows for treasury and fund management.</li>
+              <li>Insurance-backed custody partnerships for high-value asset classes.</li>
+              <li>SOC 2 Type II compliant infrastructure and audit-ready reporting.</li>
+            </ul>
+          </div>
+        </section>
+        <section id="rails-compliance">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Compliance Infrastructure</h2>
+          <div className="prose-section">
+            <p>W3AI embeds compliance tooling directly into the browser experience, enabling institutions to interact with DeFi protocols, tokenized assets, and cross-chain bridges within a regulated framework.</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Automated AML/KYC verification through credentialed wallet attestations.</li>
+              <li>Travel Rule compliance for cross-border digital asset transfers.</li>
+              <li>Real-time sanctions screening integrated at the transaction layer.</li>
+            </ul>
+          </div>
+        </section>
+        <section id="rails-tokenization">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Tokenization & RWA Access</h2>
+          <div className="prose-section">
+            <p>The browser serves as a discovery and management interface for tokenized real-world assets — bridging traditional finance with on-chain liquidity and fractional ownership.</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Integrated RWA marketplace with verified asset originator profiles.</li>
+              <li>Secondary market access with transparent pricing and settlement.</li>
+              <li>ESG credential tokenization for sustainability reporting and verification.</li>
+            </ul>
+          </div>
+        </section>
+        <section id="rails-reporting">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Institutional Reporting</h2>
+          <div className="prose-section">
+            <p>W3AI provides institutional-grade reporting capabilities that satisfy fiduciary and regulatory requirements for digital asset portfolios.</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Portfolio-level analytics with on-chain and off-chain data aggregation.</li>
+              <li>Tax lot tracking and cost basis reporting across multi-chain positions.</li>
+              <li>Customizable audit trails and compliance export formats.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      {/* ============================================================ */}
+      {/* PAGE 11: Supported Networks */}
+      {/* ============================================================ */}
+      <div className={p("supported-networks")}>
+        <section id="supported-networks">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Supported Networks</h2>
+          <div className="prose-section">
+            <p>W3AI is built as a multi-chain protocol with native presence across foundational blockchain ecosystems. Each network was selected for its unique strengths in performance, composability, and community reach — together providing comprehensive coverage of the Web3 landscape.</p>
+          </div>
+        </section>
+        {[
+          { id: "network-solana", name: "Solana", desc: "Solana serves as the hub chain and canonical mint for the W3AI token. Its sub-second finality and low transaction costs make it the optimal execution environment for high-frequency AI agent operations, real-time swap execution, and staking mechanics.", bullets: ["Hub chain with canonical token mint and primary staking contracts.", "AI inference routing optimized for Solana's parallel transaction processing.", "Native integration with Jupiter aggregator for optimal swap routing.", "Validator operations contributing to network security and protocol revenue."], links: { github: "https://github.com/solana-labs", foundation: "https://solana.org", x: "https://x.com/solana", visit: "https://solana.com" }},
+          { id: "network-ethereum", name: "Ethereum", desc: "Ethereum provides W3AI with access to the deepest DeFi liquidity, the largest developer ecosystem, and the strongest institutional credibility in Web3. As a spoke chain, Ethereum hosts bridged W3AI tokens for DeFi composability and exchange listings.", bullets: ["Spoke chain with Wormhole NTT bridged tokens.", "Uniswap-style AMM pools for deep liquidity access.", "Smart contract audit standards aligned with Ethereum's security-first culture.", "Layer 2 expansion roadmap for cost-efficient operations."], links: { github: "https://github.com/ethereum", foundation: "https://ethereum.foundation", x: "https://x.com/ethereum", visit: "https://ethereum.org" }},
+          { id: "network-bsc", name: "BNB Smart Chain", desc: "BNB Smart Chain extends W3AI's reach into the highest-volume retail trading ecosystem. With 1.2M daily active users on BSC and 2.7M on opBNB, the chain provides access to a massive user base optimized for high-frequency swaps and community-driven activity.", bullets: ["Spoke chain with PancakeSwap Smart Router integration.", "Retail-first onboarding with optimized swap and bridging flows.", "Validator operations with 2,000 BNB minimum self-delegation.", "Gateway vertical for memecoin communities with safety overlay."], links: { github: "https://github.com/bnb-chain", foundation: "https://www.bnbchain.org", x: "https://x.com/BNBCHAIN", visit: "https://www.bnbchain.org" }},
+          { id: "network-polygon", name: "Polygon", desc: "Polygon provides W3AI with enterprise-grade Ethereum scaling through its zkEVM and PoS sidechains. Its low-cost, high-throughput infrastructure enables mass-market AI agent deployment while maintaining full EVM compatibility and access to Ethereum's security guarantees.", bullets: ["zkEVM rollup for trustless Ethereum-equivalent execution at fraction of cost.", "PoS sidechain for high-speed, low-latency AI agent interactions.", "Enterprise partnerships enabling institutional RWA tokenization pathways.", "Supernets architecture for dedicated W3AI application-specific chains."], links: { github: "https://github.com/0xPolygon", foundation: "https://polygon.technology", x: "https://x.com/0xPolygon", visit: "https://polygon.technology" }},
+          { id: "network-zksync", name: "zkSync", desc: "zkSync Era delivers the highest throughput Ethereum L2 experience with native account abstraction and zero-knowledge proof security. W3AI leverages zkSync for privacy-preserving AI computations and gasless user onboarding flows.", bullets: ["Native account abstraction for seamless gasless transactions.", "ZK-proof verification ensuring computational integrity for AI outputs.", "Hyperchain architecture enabling W3AI-dedicated execution environments.", "Paymaster contracts subsidizing end-user gas for frictionless onboarding."], links: { github: "https://github.com/matter-labs", foundation: "https://zksync.io", x: "https://x.com/zksync", visit: "https://zksync.io" }},
+          { id: "network-avalanche", name: "Avalanche", desc: "Avalanche's subnet architecture allows W3AI to deploy purpose-built blockchain environments with custom gas tokens, validator sets, and compliance rules — ideal for regulated RWA tokenization and institutional AI applications.", bullets: ["Subnet deployment for dedicated W3AI execution with custom parameters.", "Sub-second finality enabling real-time AI agent decision execution.", "Institutional DeFi ecosystem with native KYC/AML compliance tooling.", "Warp Messaging for seamless cross-subnet AI agent communication."], links: { github: "https://github.com/ava-labs", foundation: "https://www.avax.network", x: "https://x.com/avax", visit: "https://www.avax.network" }},
+          { id: "network-arbitrum", name: "Arbitrum", desc: "Arbitrum One is the leading Ethereum L2 by TVL, providing W3AI with access to the deepest Layer 2 DeFi liquidity. Its optimistic rollup architecture delivers 10x cost reduction while inheriting Ethereum's full security model.", bullets: ["Optimistic rollup with 7-day fraud proof window and Ethereum-grade security.", "Arbitrum Orbit chains for dedicated W3AI application rollups.", "Stylus smart contracts enabling Rust/C++ for high-performance AI logic.", "Deepest L2 DeFi liquidity via GMX, Aave, and Uniswap deployments."], links: { github: "https://github.com/OffchainLabs", foundation: "https://arbitrum.foundation", x: "https://x.com/arbitrum", visit: "https://arbitrum.io" }},
+          { id: "network-optimism", name: "Optimism", desc: "Optimism powers the Superchain vision — a unified network of interoperable L2 chains. W3AI integrates with Optimism for its governance-forward ecosystem, retroactive public goods funding, and seamless cross-chain messaging via the OP Stack.", bullets: ["OP Stack integration for potential W3AI-dedicated chain deployment.", "Cross-chain message passing via Superchain interoperability layer.", "RetroPGF alignment for funding open-source AI safety research.", "EVM equivalence ensuring zero-friction smart contract portability."], links: { github: "https://github.com/ethereum-optimism", foundation: "https://optimism.io", x: "https://x.com/Optimism", visit: "https://optimism.io" }},
+          { id: "network-base", name: "Base", desc: "Base, incubated by Coinbase, bridges the gap between centralized exchange liquidity and on-chain DeFi. W3AI leverages Base for seamless fiat-to-crypto onboarding and access to Coinbase's 110M+ verified user base.", bullets: ["Direct Coinbase integration for institutional-grade fiat on/off ramps.", "OP Stack foundation with Superchain interoperability benefits.", "Lowest-cost EVM execution for high-frequency AI micro-transactions.", "Smart Wallet integration for one-click onboarding without seed phrases."], links: { github: "https://github.com/base-org", foundation: "https://base.org", x: "https://x.com/base", visit: "https://base.org" }},
+          { id: "network-fantom", name: "Fantom", desc: "Fantom's Lachesis consensus delivers DAG-based finality in 1-2 seconds with minimal fees. The upcoming Sonic upgrade positions Fantom as one of the fastest EVM chains — ideal for W3AI's latency-sensitive AI agent operations.", bullets: ["DAG-based Lachesis consensus for near-instant transaction finality.", "Sonic upgrade delivering 2,000+ TPS for high-frequency AI workloads.", "Fee monetization model sharing 90% of gas fees with dApp developers.", "Battle-tested DeFi ecosystem with established liquidity protocols."], links: { github: "https://github.com/Fantom-foundation", foundation: "https://fantom.foundation", x: "https://x.com/FantomFDN", visit: "https://fantom.foundation" }},
+          { id: "network-cronos", name: "Cronos", desc: "Cronos, powered by Crypto.com, connects W3AI to 80M+ Crypto.com app users and a robust CeFi-DeFi bridge. Its Cosmos SDK foundation and EVM compatibility create a unique hybrid environment for retail-focused AI applications.", bullets: ["Crypto.com ecosystem integration with 80M+ retail users.", "EVM and Cosmos SDK dual compatibility for maximum composability.", "Cronos zkEVM scaling solution for privacy-preserving transactions.", "Native fiat gateway via Crypto.com Pay for seamless onboarding."], links: { github: "https://github.com/crypto-org-chain", foundation: "https://cronos.org", x: "https://x.com/cronos_chain", visit: "https://cronos.org" }},
+          { id: "network-moonbeam", name: "Moonbeam", desc: "Moonbeam is the top Polkadot parachain for EVM-compatible smart contracts, providing W3AI with cross-chain connectivity to the entire Polkadot ecosystem via XCM messaging and access to shared security from the Polkadot relay chain.", bullets: ["Full EVM and Substrate API compatibility for hybrid dApp development.", "XCM messaging for cross-parachain AI agent orchestration.", "Polkadot relay chain shared security model.", "Connected contracts enabling multi-chain logic execution from a single deployment."], links: { github: "https://github.com/moonbeam-foundation", foundation: "https://moonbeam.foundation", x: "https://x.com/MoonbeamNetwork", visit: "https://moonbeam.network" }},
+        ].map(n => (
+          <section key={n.id} id={n.id} className="py-6">
+            <div className="flex items-center flex-wrap gap-4 mb-6">
+              <h2 className="text-2xl font-bold text-foreground">{n.name}</h2>
+              <div className="flex flex-wrap gap-2">
+                <a href={n.links.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">GitHub</a>
+                <a href={n.links.foundation} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">Foundation</a>
+                <a href={n.links.x} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">X</a>
+                <a href={n.links.visit} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[hsl(75,80%,55%)] text-black text-sm font-medium hover:bg-[hsl(75,80%,45%)] transition-colors">Visit ↗</a>
+              </div>
+            </div>
+            <div className="prose-section">
+              <p>{n.desc}</p>
+              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+                {n.bullets.map((b, i) => <li key={i}>{b}</li>)}
+              </ul>
+            </div>
+          </section>
+        ))}
+      </div>
+
+      {/* ============================================================ */}
+      {/* PAGE 12: Foundations */}
+      {/* ============================================================ */}
+      <div className={p("foundations")}>
+        <section id="foundations">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Foundations</h2>
+          <div className="prose-section">
+            <p>W3AI is built on and integrated with the leading blockchain protocols that power the decentralized web. These foundations provide the secure, scalable infrastructure that enables W3AI's multi-chain AI browser capabilities.</p>
+          </div>
+        </section>
+        {[
+          { id: "fi-ethereum", name: "Ethereum", desc: "The world's leading smart contract platform and the foundation of decentralized finance. Ethereum provides the robust security and vibrant developer ecosystem that powers W3AI's core DeFi integrations and institutional-grade infrastructure.", links: { github: "https://github.com/ethereum", foundation: "https://ethereum.foundation", x: "https://x.com/ethereum", visit: "https://ethereum.org" }},
+          { id: "fi-solana", name: "Solana", desc: "A high-performance blockchain delivering fast, secure, and scalable crypto apps. Solana's sub-second finality and low transaction costs enable real-time AI agent execution and high-frequency DeFi operations within W3AI.", links: { github: "https://github.com/solana-labs", foundation: "https://solana.org", x: "https://x.com/solana", visit: "https://solana.com" }},
+          { id: "fi-bitcoin", name: "Bitcoin", desc: "The original and most secure blockchain network. W3AI integrates Bitcoin for institutional-grade store-of-value capabilities and emerging layer-2 solutions that bridge Bitcoin liquidity into DeFi protocols.", links: { github: "https://github.com/bitcoin", foundation: "https://bitcoin.org/en/bitcoin-core/", x: "https://x.com/bitcoin", visit: "https://bitcoin.org" }},
+          { id: "fi-arbitrum", name: "Arbitrum", desc: "A leading Ethereum Layer 2 scaling solution offering ultra-low costs and high throughput. Arbitrum powers W3AI's cost-efficient AI computations and complex smart contract interactions at a fraction of mainnet costs.", links: { github: "https://github.com/OffchainLabs", foundation: "https://arbitrum.foundation", x: "https://x.com/arbitrum", visit: "https://arbitrum.io" }},
+          { id: "fi-polygon", name: "Polygon", desc: "A multi-chain ecosystem connecting Ethereum-compatible blockchains. Polygon's zkEVM and PoS chains provide W3AI users with enterprise scalability, regulatory-grade compliance options, and seamless Web2-Web3 bridges.", links: { github: "https://github.com/0xPolygon", foundation: "https://polygon.technology", x: "https://x.com/0xPolygon", visit: "https://polygon.technology" }},
+          { id: "fi-cosmos", name: "Cosmos", desc: "The internet of blockchains enabling interoperability between sovereign chains. Cosmos IBC integration allows W3AI to route AI agents and assets across independent blockchain ecosystems with minimal friction.", links: { github: "https://github.com/cosmos", foundation: "https://interchain.io", x: "https://x.com/cosmos", visit: "https://cosmos.network" }},
+          { id: "fi-cardano", name: "Cardano", desc: "A research-driven blockchain built on peer-reviewed academic foundations. Cardano brings institutional-grade security and formal verification capabilities that strengthen W3AI's high-assurance DeFi integrations.", links: { github: "https://github.com/cardano-foundation", foundation: "https://cardanofoundation.org", x: "https://x.com/cardano", visit: "https://cardano.org" }},
+          { id: "fi-ton", name: "TON", desc: "The Open Network designed for Web3 mass adoption with Telegram integration. TON provides W3AI with seamless access to 800M+ Telegram users and ultra-fast transaction processing for consumer-scale AI applications.", links: { github: "https://github.com/ton-blockchain", foundation: "https://ton.org", x: "https://x.com/ton_blockchain", visit: "https://ton.org" }},
+          { id: "fi-tezos", name: "Tezos", desc: "A self-amending blockchain with on-chain governance and formal verification. Tezos integration brings institutional-grade smart contract security and proven tokenization standards to W3AI's asset management layer.", links: { github: "https://github.com/tezos", foundation: "https://tezos.foundation", x: "https://x.com/taboratezos", visit: "https://tezos.com" }},
+          { id: "fi-icp", name: "Internet Computer", desc: "A blockchain-based cloud computing platform that hosts smart contracts, data, and entire web applications on-chain. Internet Computer's canister architecture enables W3AI to deploy fully decentralized frontend and backend logic with web-speed performance and infinite scalability.", links: { github: "https://github.com/dfinity", foundation: "https://dfinity.org", x: "https://x.com/dfinity", visit: "https://internetcomputer.org" }},
+          { id: "fi-web3-foundation", name: "Web3 Foundation", desc: "The organization behind Polkadot and Kusama, pioneering multi-chain interoperability. Web3 Foundation research and Substrate technology inform W3AI's cross-chain architecture and parachain connectivity roadmap.", links: { github: "https://github.com/nicored", foundation: "https://web3.foundation", x: "https://x.com/Web3foundation", visit: "https://web3.foundation" }},
+        ].map(f => (
+          <section key={f.id} id={f.id}>
+            <div className="flex items-center flex-wrap gap-4 mb-4">
+              <h2 className="text-2xl font-bold text-foreground">{f.name}</h2>
+              <div className="flex flex-wrap gap-2">
+                <a href={f.links.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">GitHub</a>
+                <a href={f.links.foundation} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">Foundation</a>
+                <a href={f.links.x} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">X</a>
+                <a href={f.links.visit} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[hsl(75,80%,55%)] text-black text-sm font-medium hover:bg-[hsl(75,80%,45%)] transition-colors">Visit ↗</a>
+              </div>
+            </div>
+            <div className="prose-section"><p>{f.desc}</p></div>
+          </section>
+        ))}
+      </div>
+
+      {/* ============================================================ */}
+      {/* PAGE 13: Community Integrations */}
+      {/* ============================================================ */}
+      <div className={p("community-integrations")}>
+        <section id="community-integrations">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Community Integrations Across Solana, Ethereum, and BSC</h2>
+          <div className="prose-section">
+            <p>W3AI's marketing strategy is authentic community integration. Each chain represents different user psychographics, product norms, and vertical strengths.</p>
+          </div>
+        </section>
+        <section id="solana-community">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Solana Community Integrations</h2>
+          <div className="prose-section">
+            <p>Solana positions itself as a high-performance network enabling fast, secure, affordable transactions. W3AI's Solana strategy focuses on:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>DeFi-first execution: A Solana "Trading Space" merging research, route selection, swap simulation, and post-trade monitoring.</li>
+              <li>NFTs and communities as identity: Token-gated browsing modes and "community rooms" built around NFT membership.</li>
+              <li>Builder-native distribution: Hackathon sponsorships with 48,000+ developers and $600M+ in venture funding.</li>
+            </ul>
+          </div>
+        </section>
+        <section id="ethereum-community">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Ethereum Community Integrations</h2>
+          <div className="prose-section">
+            <p>Ethereum's core superpower is composable dApps. W3AI's Ethereum integrations emphasize:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Transaction clarity and contract literacy at the moment of signing.</li>
+              <li>"Explain this transaction" assistance plus standardized warnings.</li>
+              <li>Ecosystem-native developer relationships through ETH Global (95+ hackathons, 14,000+ projects).</li>
+            </ul>
+          </div>
+        </section>
+        <section id="bsc-community">
+          <h2 className="text-2xl font-bold text-foreground mb-4">BSC Community Integrations</h2>
+          <div className="prose-section">
+            <p>BNB Chain emphasizes scale and mass adoption with daily active user figures (1.2M DAU on BSC, 2.7M on opBNB). W3AI's BSC strategy:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Retail-first simplicity: Optimized onboarding, reduced errors in swaps, bridging, and token discovery.</li>
+              <li>DEX-native behaviors: An "execution cockpit" optimized for high-volume habits.</li>
+              <li>Memecoins as community onboarding: Treated as a gateway vertical with safety overlay (risk banners, scam detection).</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      {/* ============================================================ */}
+      {/* PAGE 14: Infrastructure */}
+      {/* ============================================================ */}
+      <div className={p("infrastructure")}>
+        <section id="infrastructure">
           <h2 className="text-2xl font-bold text-foreground mb-4">Infrastructure</h2>
           <div className="prose-section">
-            <p>Infrastructure assets generate predictable, inflation-linked cash flows over decades, making them highly attractive to investors seeking stability. However, the scale of these investments has traditionally excluded all but the largest institutions. Tokenization breaks down billion-dollar infrastructure projects into accessible digital units, enabling retail and mid-market investors to participate in toll roads, airports, water systems, and digital infrastructure alongside institutional capital.</p>
-            <p>The global infrastructure market is valued at $130T with an estimated $15T investment gap by 2040. Tokenized infrastructure offers long-term portfolio stability with asset lives spanning 25-99 years and enables seamless participation in public-private partnerships. Use cases include toll road revenue streams, airport concessions, hyperscale data center equity, water utility stakes, port & logistics terminals, and 5G & fiber network infrastructure.</p>
+            <p>W3AI's infrastructure layer underpins every product surface — from browser AI inference to multi-chain validator operations. The architecture is designed for resilience, scalability, and operational transparency.</p>
           </div>
         </section>
-        <section id="rwa-metals">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Metals</h2>
+        <section id="infra-network">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Network Architecture</h2>
           <div className="prose-section">
-            <p>Metals have served as stores of value and industrial inputs for millennia. Today, tokenization bridges physical metal assets with digital Web3 markets, enabling fractional ownership of vaulted gold, silver reserves, copper mines, and lithium deposits. Blockchain verification ensures provenance and purity while smart contracts automate custody, settlement, and dividend distribution across the metals value chain.</p>
-            <p>The global metals market exceeds $12T with lithium demand growing at 35% annually. Blockchain-tracked chain of custody from mine to vault ensures authenticity and ethical sourcing compliance. Tokenized metals reflect live spot prices with instant settlement. Key offerings include gold-backed tokens representing allocated bars in audited vaults, silver mining royalties, copper supply contracts, lithium deposit rights critical to the EV battery supply chain, platinum group metals, and recycled metals supporting circular economies.</p>
+            <p>W3AI's network infrastructure spans three blockchain ecosystems with Solana as the canonical mint and hub chain. Transactions occur through the cross-chain architecture described in Chapter 07. Backend services are distributed across geo-redundant infrastructure with edge computing for latency-sensitive operations such as AI inference routing and real-time transaction simulation.</p>
           </div>
         </section>
-        <section id="rwa-rare-earth">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Rare Earth Minerals</h2>
+        <section id="infra-security">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Security & Custody</h2>
           <div className="prose-section">
-            <p>Rare earth elements and critical minerals underpin modern technology—from smartphones and electric vehicles to missile guidance systems and wind turbines. Yet investment access has been extremely limited due to supply chain opacity and geopolitical concentration. Tokenization opens this strategically vital sector to a broader investor base while creating transparent, auditable supply chains that enhance national security and economic resilience.</p>
-            <p>The rare earth market is valued at $9.6B with 28% annual demand growth and 60% supply concentration risk. Blockchain-verified tracking from mine to end-use ensures ethical sourcing and regulatory compliance. Tokenized rare earth positions provide manufacturers and governments with new tools to hedge supply disruption risk. Verticals include neodymium reserves for EV and wind turbine magnets, lithium-ion supply chains, ethically sourced cobalt mining, graphite production for battery anodes, scandium alloys for aerospace, and diversified critical mineral funds.</p>
-          </div>
-        </section>
-        <section id="rwa-real-estate">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Real Estate</h2>
-          <div className="prose-section">
-            <p>Real estate is the world's most valuable asset class at $326T, yet it remains one of the least liquid. Tokenization transforms physical properties—office towers, residential complexes, retail centers, and hospitality assets—into tradeable digital securities. Investors can own fractions of premium properties across global markets, receive automated rental distributions, and trade positions on secondary markets, all while maintaining the fundamental value proposition of real estate ownership.</p>
-            <p>Smart contracts handle rental income distribution automatically, reducing administrative overhead and ensuring timely investor payments. Entry barriers drop from six-figure minimums to as low as $100. The framework supports commercial office towers with long-term corporate leases, multi-family residential portfolios, hospitality assets with revenue-based returns, industrial & warehouse logistics, student housing near major universities, and mixed-use urban developments combining retail, residential, and commercial spaces.</p>
-          </div>
-        </section>
-        <section id="rwa-sovereign-wealth">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Sovereign Wealth</h2>
-          <div className="prose-section">
-            <p>Sovereign wealth funds manage over $11.5 trillion in assets globally, representing the long-term savings and strategic reserves of nations. Tokenization offers these institutions unprecedented tools for portfolio diversification, co-investment structuring, and cross-border capital deployment. By digitizing sovereign holdings, governments gain real-time portfolio visibility, enhanced liquidity management, and the ability to democratize national wealth for citizen participation programs.</p>
-            <p>With 90+ active SWFs and investment horizons exceeding 50 years, tokenization enables national asset digitization—transforming sovereign holdings in natural resources, infrastructure, and real estate into transparent, auditable digital portfolios. Use cases include sovereign digital bonds with automated coupon payments, national resource fund royalties distributed to citizens, smart contract platforms for multi-sovereign co-investment in mega projects, citizen wealth distribution programs, strategic reserve management with real-time auditing, and development finance instruments for emerging markets.</p>
-          </div>
-        </section>
-        <section id="rwa-stablecoins">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Stablecoins</h2>
-          <div className="prose-section">
-            <p>Stablecoins represent the critical bridge between traditional finance and the on-chain economy. Backed by fiat reserves, government treasuries, or algorithmically managed collateral pools, they provide the price stability essential for tokenized asset settlement, cross-border payments, and yield generation. As the tokenized RWA ecosystem scales, stablecoins serve as the foundational settlement and liquidity layer enabling seamless capital flows across jurisdictions.</p>
-            <p>The stablecoin market cap exceeds $170B with over $7T in annual settlement volume reaching 190+ countries with 24/7 availability. Treasury-backed stablecoins pass through underlying yield from government bonds and money market instruments. Key verticals include treasury-backed coins collateralized by U.S. Treasury bills, cross-border settlement rails for international trade, native RWA payment infrastructure for dividend distributions, institutional yield vaults, multi-currency stables (EUR, GBP, emerging markets), and DeFi liquidity pools for tokenized assets.</p>
-          </div>
-        </section>
-        <section id="rwa-tax-credits">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Tax Credits</h2>
-          <div className="prose-section">
-            <p>Tax credits—including renewable energy investment tax credits (ITCs), production tax credits (PTCs), historic rehabilitation credits, and low-income housing tax credits (LIHTCs)—represent billions in annual government incentives. Yet accessing these credits has traditionally required complex syndication structures, long negotiation timelines, and significant minimum commitments. Tokenization transforms tax credits into transparent, tradeable digital assets, enabling fractional ownership, faster settlement, and programmatic compliance verification.</p>
-            <p>The annual US tax credit market exceeds $50B with tokenization delivering up to 40% efficiency gains. Smart contracts enforce eligibility requirements, recapture provisions, and holding period rules automatically, while reducing syndication timelines from months to days. Verticals include renewable energy ITCs from solar, wind, and battery storage projects, low-income housing (LIHTC) programs, historic rehabilitation credits, R&D tax credits, opportunity zone investments combining capital gains deferral with community impact, and carbon & clean energy production tax credits.</p>
-          </div>
-        </section>
-        <section id="rwa-utilities">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Utilities</h2>
-          <div className="prose-section">
-            <p>Utility companies provide essential services—electricity, gas, water, and telecommunications—that generate stable, regulated revenue streams. These assets have traditionally been accessible only through public equities or massive infrastructure deals. Tokenization enables fractional ownership of utility-grade assets, from renewable energy installations and water treatment facilities to broadband networks and smart grid infrastructure.</p>
-            <p>The global utilities market exceeds $5T with predictable cash flows driven by regulated rate structures. Tokenized utility stakes provide inflation-protected yield with historically low correlation to equity markets. The framework supports municipal energy cooperatives, water treatment and distribution infrastructure, smart grid and distributed energy resources, telecom tower and fiber optic networks, waste-to-energy facilities, and district heating and cooling systems.</p>
-          </div>
-        </section>
-      </div>
-
-      {/* ============================================================ */}
-      {/* PAGE 07: W3AI Token Utility */}
-      {/* ============================================================ */}
-      <div className={p("w3ai-token-utility")}>
-        <section id="w3ai-token-utility">
-          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Token Utility</h2>
-          <div className="prose-section">
-            <p>The W3AI token is the native utility and governance token powering the entire W3AI ecosystem. Token utility extends across every product surface—from browser-native AI access to validator operations and cross-chain governance.</p>
-          </div>
-        </section>
-        <section id="staking-tiers">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Staking Tiers</h2>
-          <div className="prose-section">
-            <p>W3AI implements a tiered staking model that aligns token lockup with ecosystem access. Higher staking tiers unlock premium features, enhanced AI capabilities, and increased governance weight.</p>
+            <p>Security is implemented at every layer: smart contract audits (Hacken), wallet-level security intelligence, browser sandboxing, and infrastructure-level protections. Key security measures include:</p>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Explorer Tier: Basic browser access and standard AI assistant functionality.</li>
-              <li>Builder Tier: Enhanced AI capabilities, priority inference routing, and developer tools access.</li>
-              <li>Validator Tier: Full governance rights, maximum AI allocation, and validator delegation eligibility.</li>
+              <li>Smart contract security: Third-party audits, formal verification where applicable, and bug bounty programs.</li>
+              <li>Operational security: Hardware security modules (HSMs), multi-party computation (MPC) for key management.</li>
+              <li>Browser security: Isolated profiles, agent permission boundaries, transaction simulation before signing.</li>
+              <li>Incident response: Documented playbooks, 24/7 monitoring, and rapid response protocols.</li>
             </ul>
           </div>
         </section>
-        <section id="deflationary-mechanics">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Deflationary Mechanics</h2>
+        <section id="infra-monitoring">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Monitoring & Operations</h2>
           <div className="prose-section">
-            <p>W3AI implements systematic supply reduction through multiple burn mechanisms tied to protocol revenue:</p>
+            <p>Validator and infrastructure operations require relentless operational discipline. W3AI implements comprehensive monitoring across all network participants:</p>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Open Gateway burn: A percentage of AI inference fees collected through the Open Gateway is used to buy back and burn W3AI tokens.</li>
-              <li>Swap fee burn: A portion of in-browser swap convenience fees is allocated to token burns.</li>
-              <li>Premium feature burn: Revenue from premium browser features contributes to deflationary pressure.</li>
+              <li>Validator health: Uptime monitoring, attestation performance, and slashing risk alerts.</li>
+              <li>Network metrics: Cross-chain bridge volumes, liquidity pool depths, and fee generation tracking.</li>
+              <li>Treasury dashboards: Real-time visibility into treasury composition, runway, and yield performance.</li>
+              <li>User-facing status: Public status pages for browser services, AI gateway availability, and network health.</li>
             </ul>
           </div>
         </section>
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 08: W3AI Governance */}
+      {/* PAGE 15: Cybersecurity */}
       {/* ============================================================ */}
-      <div className={p("governance")}>
-        <section id="governance">
-          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Governance</h2>
+      <div className={p("security")}>
+        <section id="security">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Cybersecurity</h2>
           <div className="prose-section">
-            <p>W3AI is designed to evolve from core-team-led to fully community-governed. The governance framework establishes transparent decision-making processes for treasury management, protocol upgrades, and ecosystem development.</p>
+            <p>Security is the non-negotiable foundation of every W3AI product surface. In an era where AI agents execute financial transactions, interact with smart contracts, and manage digital identities on behalf of users, the attack surface has expanded beyond traditional cybersecurity models. W3AI treats security not as a feature layer but as an architectural primitive — embedded at every level from browser runtime to on-chain execution.</p>
           </div>
         </section>
-        <section id="foundation-governance">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Governance Framework</h2>
+        <section id="security-network">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Network Security</h2>
           <div className="prose-section">
-            <p>W3AI governance is designed to evolve from core-team-led to community-led over time. Token holders participate in decisions covering treasury policy, supported chains, fee parameters, and security thresholds.</p>
-            <p>Governance proposals follow a structured lifecycle: discussion → formal proposal → voting → execution. Voting power is proportional to staked W3AI tokens, with safeguards against governance attacks including time-locks, quorum requirements, and multi-sig execution.</p>
-          </div>
-        </section>
-        <section id="foundation-treasury">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Treasury Management</h2>
-          <div className="prose-section">
-            <p>With a treasury-heavy allocation (52.5% of total supply), institutional-quality custody, reporting, and governance controls are essential. The W3AI treasury operates under explicit mandates:</p>
+            <p>W3AI's network security model spans three blockchain ecosystems — each with distinct consensus mechanisms, validator economics, and threat profiles. The protocol implements defense-in-depth across all layers:</p>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Custody: Multi-signature wallets with time-locked transactions and independent custodian oversight.</li>
-              <li>Reporting: Quarterly transparency reports covering treasury balances, disbursements, and yield generation.</li>
-              <li>Diversification: Treasury assets held across stablecoins, protocol-native tokens, and yield-bearing positions.</li>
-              <li>Runway management: Minimum 18-month operational runway maintained at all times.</li>
+              <li>Validator hardening: Hardware security modules (HSMs), geo-distributed infrastructure, and automated failover to prevent single points of failure.</li>
+              <li>Node isolation: Dedicated validator nodes with restricted network access, DDoS mitigation, and encrypted peer-to-peer communication channels.</li>
+              <li>Consensus monitoring: Real-time attestation tracking, slashing risk alerts, and automated response protocols for consensus anomalies.</li>
+              <li>Bridge security: Wormhole NTT burn-and-mint model eliminates locked-token attack vectors. Per-chain rate limits contain blast radius in the event of bridge compromise.</li>
             </ul>
           </div>
         </section>
-        <section id="foundation-compliance">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Regulatory Compliance</h2>
+        <section id="security-blockchain">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Blockchain Security</h2>
           <div className="prose-section">
-            <p>W3AI is designed to be capital-ready from day one. The regulatory framework includes jurisdiction-specific legal opinions, token classification analysis, and ongoing monitoring of regulatory developments across key markets.</p>
-            <p>The foundation maintains relationships with legal counsel in major jurisdictions and implements compliance controls including KYC/AML for applicable token sale rounds, sanctions screening, and geographic restrictions where required by law.</p>
+            <p>Smart contract security is enforced through a multi-layered audit and verification pipeline. Every contract deployed within the W3AI ecosystem undergoes rigorous pre-deployment and post-deployment security processes:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Third-party audits: Hacken conducts comprehensive smart contract audits covering logic vulnerabilities, reentrancy attacks, integer overflows, and access control flaws.</li>
+              <li>Formal verification: Critical contract paths — token minting, governance execution, and bridge operations — are formally verified where applicable.</li>
+              <li>Bug bounty programs: Continuous community-driven vulnerability discovery with tiered rewards based on severity classification.</li>
+              <li>Upgrade governance: All contract upgrades require multi-sig approval with time-lock periods, ensuring no single actor can modify live contracts unilaterally.</li>
+              <li>Supply integrity enforcement: Automated cross-chain reconciliation checks verify that the total W3AI supply across all deployed chains equals the canonical 2,000,000,000 at every block.</li>
+            </ul>
+          </div>
+        </section>
+        <section id="security-defi">
+          <h2 className="text-2xl font-bold text-foreground mb-4">DeFi Security</h2>
+          <div className="prose-section">
+            <p>Decentralized finance introduces unique security challenges — flash loan attacks, oracle manipulation, liquidity pool exploits, and MEV extraction. W3AI addresses these through purpose-built safeguards integrated into the browser and protocol layers:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Transaction simulation: Every swap, stake, or liquidity provision is simulated before signing. Users see exactly what they will receive, what fees apply, and whether the transaction path contains anomalies.</li>
+              <li>MEV protection: W3AI integrates private transaction relays and MEV-aware routing to shield users from sandwich attacks and front-running on Ethereum and BSC.</li>
+              <li>Oracle integrity: Price feeds are sourced from multiple decentralized oracles with outlier detection. Stale or manipulated price data triggers automatic circuit breakers.</li>
+              <li>Liquidity risk monitoring: Real-time pool depth analysis, impermanent loss estimation, and concentration risk alerts are surfaced directly in the browser interface.</li>
+            </ul>
+          </div>
+        </section>
+        <section id="security-defai">
+          <h2 className="text-2xl font-bold text-foreground mb-4">DeFAI Security</h2>
+          <div className="prose-section">
+            <p>DeFAI (Decentralized Finance + AI) represents the emerging convergence where AI agents autonomously interact with DeFi protocols. This creates a novel attack surface that traditional security models are not designed to address:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Agent permission boundaries: AI agents operate within strictly defined permission scopes. No agent can initiate transactions, sign messages, or modify wallet state without explicit user authorization.</li>
+              <li>Prompt injection defense: All AI agent inputs are sanitized and validated against injection patterns designed to bypass permission boundaries or manipulate agent behavior.</li>
+              <li>Action verification: Every AI-recommended action is translated into a human-readable summary with risk assessment before user confirmation. "Explain before execute" is enforced at the protocol level.</li>
+              <li>Audit trails: Complete logs of all AI agent actions, recommendations, and user approvals are maintained for forensic analysis and compliance reporting.</li>
+            </ul>
+          </div>
+        </section>
+        <section id="security-ai">
+          <h2 className="text-2xl font-bold text-foreground mb-4">AI Security</h2>
+          <div className="prose-section">
+            <p>As AI becomes deeply integrated into financial infrastructure, protecting the AI layer itself becomes critical. W3AI implements comprehensive AI security measures across the inference pipeline:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Model integrity: AI inference is routed through verified, versioned model endpoints. Users can audit which model version processed their request.</li>
+              <li>Data privacy: User queries, wallet data, and transaction context are processed with strict data isolation. No user data is used for model training or shared across sessions.</li>
+              <li>Adversarial robustness: AI models are tested against adversarial inputs designed to produce harmful, misleading, or manipulative outputs in financial contexts.</li>
+              <li>Hallucination mitigation: Financial data, token prices, and protocol parameters are sourced from verified on-chain data. AI outputs are cross-referenced against ground truth before presentation to users.</li>
+            </ul>
           </div>
         </section>
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 09: W3AI Tokenomics */}
+      {/* PAGE 16: Auditing */}
+      {/* ============================================================ */}
+      <div className={p("auditing")}>
+        <section id="auditing">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Auditing</h2>
+          <div className="prose-section">
+            <p>W3AI maintains a rigorous auditing framework that spans both technical infrastructure and financial operations. Auditing is not a one-time event but a continuous process embedded into the protocol's operational lifecycle — ensuring accountability, transparency, and regulatory compliance across all jurisdictions where W3AI operates.</p>
+          </div>
+        </section>
+        <section id="auditing-smart-contract">
+          <h2 className="text-2xl font-bold text-foreground mb-4">3rd Party Smart Contract Auditing</h2>
+          <div className="prose-section">
+            <p>All W3AI smart contracts undergo comprehensive third-party security audits conducted by <a href="https://hacken.io" target="_blank" rel="noopener noreferrer" className="text-[hsl(82,85%,55%)] hover:underline">Hacken.io</a>, a leading blockchain security firm with a proven track record across 1,500+ projects and $200B+ in secured digital assets.</p>
+            <p>The audit process covers the complete smart contract lifecycle:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Pre-deployment code review: Line-by-line analysis of all smart contract code for logic errors, reentrancy vulnerabilities, integer overflow/underflow, and access control weaknesses.</li>
+              <li>Automated vulnerability scanning: Industry-standard tools (Slither, Mythril, Echidna) complement manual review to ensure comprehensive coverage.</li>
+              <li>Formal verification: Critical contract paths — including token minting, bridge operations, and governance execution — undergo formal mathematical verification where applicable.</li>
+              <li>Tokenomics audit: Independent validation of supply mechanics, vesting schedules, burn mechanisms, and treasury allocation logic to ensure alignment with published parameters.</li>
+              <li>Post-deployment monitoring: Continuous on-chain surveillance for anomalous contract behavior, unauthorized access patterns, and supply integrity deviations.</li>
+              <li>Re-audit cycles: All major contract upgrades trigger mandatory re-audit before deployment. Audit reports are published publicly for community verification.</li>
+            </ul>
+          </div>
+        </section>
+        <section id="auditing-financial">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Financial Auditing</h2>
+          <div className="prose-section">
+            <p>W3AI maintains dual-jurisdiction financial auditing standards to satisfy regulatory requirements in both Canada and Liechtenstein — the two primary regulatory environments under which the project operates.</p>
+            <h4 className="text-lg font-semibold text-foreground mt-6 mb-3">🇨🇦 Canada</h4>
+            <p>Financial auditing in Canada follows Canadian Auditing Standards (CAS), which are aligned with International Standards on Auditing (ISA). W3AI's Canadian financial compliance framework includes:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Annual financial statement audits conducted by a CPA-licensed audit firm in accordance with CAS and International Financial Reporting Standards (IFRS).</li>
+              <li>FINTRAC compliance: Registration and ongoing reporting obligations under Canada's Proceeds of Crime (Money Laundering) and Terrorist Financing Act (PCMLTFA), including suspicious transaction reporting (STR) and large cash transaction reporting.</li>
+              <li>Securities compliance: Adherence to applicable Canadian Securities Administrators (CSA) guidance on crypto-asset trading platforms and token classifications.</li>
+              <li>Tax reporting: Compliance with Canada Revenue Agency (CRA) requirements for digital asset transactions, including capital gains reporting and GST/HST treatment.</li>
+            </ul>
+            <h4 className="text-lg font-semibold text-foreground mt-6 mb-3">🇱🇮 Liechtenstein</h4>
+            <p>Liechtenstein provides one of the most comprehensive regulatory frameworks for blockchain and token economies through the Token and Trusted Technology Service Provider Act (TVTG), commonly known as the "Blockchain Act." W3AI's Liechtenstein compliance framework includes:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>TVTG registration: Compliance with the Blockchain Act's requirements for token generation, storage, and transfer services, overseen by the Financial Market Authority (FMA).</li>
+              <li>Annual financial audits conducted in accordance with Liechtenstein audit standards and International Financial Reporting Standards (IFRS) by an FMA-approved audit firm.</li>
+              <li>AML/KYC compliance: Adherence to Liechtenstein's Due Diligence Act (SPG) and EU Anti-Money Laundering Directives, including ongoing transaction monitoring and customer due diligence.</li>
+              <li>MiCA readiness: Proactive alignment with the EU's Markets in Crypto-Assets Regulation (MiCA), ensuring seamless compliance as pan-European requirements take effect.</li>
+              <li>Token classification documentation: Formal legal opinions on token classification under the TVTG's "container model," which treats tokens as digital containers that can represent various rights and assets.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      {/* ============================================================ */}
+      {/* PAGE 17: Market Opportunity */}
+      {/* ============================================================ */}
+      <div className={p("market-opportunity")}>
+        <section id="market-opportunity">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Market Opportunity</h2>
+          <div className="prose-section">
+            <p><strong>Web3 Adoption.</strong> Crypto adoption is measured in hundreds of millions globally. Global crypto owners grew from 659 million (end of 2024) to 741 million in 2025. Active stablecoin addresses increased from 19.6 million to 30 million from Feb 2024 to Feb 2025. This is the user base that needs a safer, simpler "front door" into Web3 — and the TMRW Browser is positioned to serve that need.</p>
+            <p><strong>Tokenization.</strong> Real-world asset tokenization is projected to become a multi-trillion-dollar market within the next decade. The infrastructure gap — estimated at $15T by 2040 — creates immediate demand for platforms that can bridge physical assets with digital rails. W3AI's browser-native RWA marketplace provides the discovery, verification, and management layer that institutional and retail investors require.</p>
+            <p><strong>AI + Finance Convergence.</strong> The convergence of AI and financial services is creating new categories of products that did not exist 18 months ago. AI browsers (Perplexity Comet, OpenAI Atlas) validate the browser as the primary AI surface. W3AI's differentiation — treating AI agent permissions and wallet permissions as a single security domain — positions it uniquely at the intersection of these two megatrends.</p>
+          </div>
+        </section>
+      </div>
+
+      {/* ============================================================ */}
+      {/* PAGE 18: W3AI Tokenomics (merged: Token Utility + Tokenomics) */}
       {/* ============================================================ */}
       <div className={p("token-utility")}>
         <section id="token-utility">
           <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Tokenomics</h2>
           <div className="prose-section">
-            <p>This section covers token assumptions, monetization surfaces, and treasury mechanics.</p>
+            <p>The W3AI token is the native utility and governance token powering the entire W3AI ecosystem. This section covers token utility, supply mechanics, and economic design.</p>
           </div>
         </section>
         <section id="token-pillars">
@@ -859,15 +1165,8 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
               </table>
             </div>
             <div className="mt-4 p-4 rounded-lg bg-muted/50 border border-border">
-              <p className="text-sm text-muted-foreground"><strong className="text-foreground">Treasury Takeaway:</strong> This is a treasury-heavy allocation (52.5%), which can be a strength if governance, reporting, and custody controls are executed at institutional quality.</p>
+              <p className="text-sm text-muted-foreground"><strong className="text-foreground">Vesting & Lockup Summary:</strong> Team & Advisor tokens are subject to a 12-month cliff followed by 24-month linear vesting. Treasury tokens are governed by DAO proposal and release schedule. Pre-Sale and Seed Round tokens include 6-month cliff with 18-month vesting.</p>
             </div>
-            <h4 className="text-lg font-semibold text-foreground mt-6 mb-2">Lockups & Vesting</h4>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Private Pre-Sale 1 (unlocked): Released prior to IDO / TGE; eligible for staking rewards while staked.</li>
-              <li>Private Pre-Sale 2 & Seed Round (locked): Released across isochronic events over 6 months, beginning 30 days after IDO.</li>
-              <li>IDO / TGE: Without vesting period; staking encouraged for platform access.</li>
-              <li>Team & Advisors: Locked; vest over 12 months across 21 isochronic events starting 30 days after IDO.</li>
-            </ul>
           </div>
         </section>
         <section id="sale-rounds">
@@ -878,25 +1177,21 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
                 <thead className="bg-muted">
                   <tr>
                     <th className="text-left px-4 py-3 font-semibold text-foreground">Round</th>
-                    <th className="text-right px-4 py-3 font-semibold text-foreground">Tokens</th>
-                    <th className="text-right px-4 py-3 font-semibold text-foreground">Share</th>
-                    <th className="text-right px-4 py-3 font-semibold text-foreground">Token Price</th>
-                    <th className="text-right px-4 py-3 font-semibold text-foreground">Raise</th>
+                    <th className="text-right px-4 py-3 font-semibold text-foreground">Price</th>
+                    <th className="text-right px-4 py-3 font-semibold text-foreground">Reserved Allocation</th>
                     <th className="text-right px-4 py-3 font-semibold text-foreground">FDV</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border">
                   {[
-                    ["Private Pre-Sale 1", "200,000,000", "10%", "$0.001875", "$375,500", "$3,750,000"],
-                    ["Private Pre-Sale 2", "200,000,000", "10%", "$0.003750", "$750,000", "$7,500,000"],
-                    ["Seed Round", "200,000,000", "10%", "$0.007500", "$1,000,000", "$15,000,000"],
-                    ["IDO / TGE", "200,000,000", "10%", "$0.015000", "$1,000,000", "$30,000,000"],
-                  ].map(([r, t, s, p, ra, f]) => (
+                    ["Private Round", "$0.003", "200,000,000", "$6,000,000"],
+                    ["Private Pre-Sale", "$0.005", "200,000,000", "$10,000,000"],
+                    ["Seed Round", "$0.008", "200,000,000", "$16,000,000"],
+                    ["IDO / TGE", "$0.01", "200,000,000", "$20,000,000"],
+                  ].map(([r, pr, ra, f]) => (
                     <tr key={r} className="hover:bg-muted/50">
                       <td className="px-4 py-2.5 text-foreground">{r}</td>
-                      <td className="px-4 py-2.5 text-right text-muted-foreground">{t}</td>
-                      <td className="px-4 py-2.5 text-right text-muted-foreground">{s}</td>
-                      <td className="px-4 py-2.5 text-right text-muted-foreground">{p}</td>
+                      <td className="px-4 py-2.5 text-right text-muted-foreground">{pr}</td>
                       <td className="px-4 py-2.5 text-right text-muted-foreground">{ra}</td>
                       <td className="px-4 py-2.5 text-right text-muted-foreground">{f}</td>
                     </tr>
@@ -905,6 +1200,28 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
               </table>
             </div>
             <p className="mt-3 text-sm text-muted-foreground italic">Disclosure: Round token amounts represent reserved allocations. Actual sold amount may be lower depending on round caps and demand.</p>
+          </div>
+        </section>
+        <section id="staking-tiers">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Staking Tiers</h2>
+          <div className="prose-section">
+            <p>W3AI implements a tiered staking model that aligns token lockup with ecosystem access. Higher staking tiers unlock premium features, enhanced AI capabilities, and increased governance weight.</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Explorer Tier: Basic browser access and standard AI assistant functionality.</li>
+              <li>Builder Tier: Enhanced AI capabilities, priority inference routing, and developer tools access.</li>
+              <li>Validator Tier: Full governance rights, maximum AI allocation, and validator delegation eligibility.</li>
+            </ul>
+          </div>
+        </section>
+        <section id="deflationary-mechanics">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Deflationary Mechanics</h2>
+          <div className="prose-section">
+            <p>W3AI implements systematic supply reduction through multiple burn mechanisms tied to protocol revenue:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Open Gateway burn: A percentage of AI inference fees collected through the Open Gateway is used to buy back and burn W3AI tokens.</li>
+              <li>Swap fee burn: A portion of in-browser swap convenience fees is allocated to token burns.</li>
+              <li>Premium feature burn: Revenue from premium browser features contributes to deflationary pressure.</li>
+            </ul>
           </div>
         </section>
         <section id="byok-gateway">
@@ -923,240 +1240,45 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 10: Institutional-Grade Rails */}
+      {/* PAGE 19: W3AI Governance */}
       {/* ============================================================ */}
-      <div className={p("institutional-rails")}>
-        <section id="institutional-rails">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Institutional-Grade Rails</h2>
+      <div className={p("governance")}>
+        <section id="governance">
+          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Governance</h2>
           <div className="prose-section">
-            <p>W3AI's mission is consumer-first, but the Web3 browser category will increasingly serve professionals and institutions. Northern Trust has described blockchain/tokenization initiatives utilizing its digital assets platform (Matrix Zenith) and participation in tokenizing ESG reporting credentials.</p>
-            <p>W3AI translates this into product positioning: the browser becomes the interface where "tokenized everything" (RWAs, funds, ESG credentials) is discovered, verified, and managed.</p>
+            <p>W3AI is designed to evolve from core-team-led to fully community-governed. The governance framework establishes transparent decision-making processes for treasury management, protocol upgrades, and ecosystem development.</p>
           </div>
         </section>
-        <section id="rails-custody">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Custody & Asset Safeguarding</h2>
+        <section id="foundation-governance">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Governance Framework</h2>
           <div className="prose-section">
-            <p>Institutional participation requires bank-grade custody solutions. W3AI integrates MPC (Multi-Party Computation) and HSM (Hardware Security Module) custody infrastructure to provide institutional-grade key management without sacrificing user sovereignty.</p>
+            <p>Token holders participate in decisions covering treasury policy, supported chains, fee parameters, and security thresholds.</p>
+            <p>Governance proposals follow a structured lifecycle: discussion → formal proposal → voting → execution. Voting power is proportional to staked W3AI tokens, with safeguards against governance attacks including time-locks, quorum requirements, and multi-sig execution.</p>
+          </div>
+        </section>
+        <section id="foundation-treasury">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Treasury Management</h2>
+          <div className="prose-section">
+            <p>With a treasury-heavy allocation (52.5% of total supply), institutional-quality custody, reporting, and governance controls are essential. The W3AI treasury operates under explicit mandates:</p>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Multi-signature authorization workflows for treasury and fund management.</li>
-              <li>Insurance-backed custody partnerships for high-value asset classes.</li>
-              <li>SOC 2 Type II compliant infrastructure and audit-ready reporting.</li>
+              <li>Custody: Multi-signature wallets with time-locked transactions and independent custodian oversight.</li>
+              <li>Reporting: Quarterly transparency reports covering treasury balances, disbursements, and yield generation.</li>
+              <li>Diversification: Treasury assets held across stablecoins, protocol-native tokens, and yield-bearing positions.</li>
+              <li>Runway management: Minimum 18-month operational runway maintained at all times.</li>
             </ul>
           </div>
         </section>
-        <section id="rails-compliance">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Compliance Infrastructure</h2>
+        <section id="foundation-compliance">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Regulatory Compliance</h2>
           <div className="prose-section">
-            <p>W3AI embeds compliance tooling directly into the browser experience, enabling institutions to interact with DeFi protocols, tokenized assets, and cross-chain bridges within a regulated framework.</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Automated AML/KYC verification through credentialed wallet attestations.</li>
-              <li>Travel Rule compliance for cross-border digital asset transfers.</li>
-              <li>Real-time sanctions screening integrated at the transaction layer.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="rails-tokenization">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Tokenization & RWA Access</h2>
-          <div className="prose-section">
-            <p>The browser serves as a discovery and management interface for tokenized real-world assets—real estate, commodities, carbon credits, infrastructure—bridging traditional finance with on-chain liquidity and fractional ownership.</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Integrated RWA marketplace with verified asset originator profiles.</li>
-              <li>Secondary market access with transparent pricing and settlement.</li>
-              <li>ESG credential tokenization for sustainability reporting and verification.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="rails-reporting">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Institutional Reporting</h2>
-          <div className="prose-section">
-            <p>W3AI provides institutional-grade reporting capabilities that satisfy fiduciary and regulatory requirements for digital asset portfolios.</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Portfolio-level analytics with on-chain and off-chain data aggregation.</li>
-              <li>Tax lot tracking and cost basis reporting across multi-chain positions.</li>
-              <li>Customizable audit trails and compliance export formats.</li>
-            </ul>
+            <p>W3AI is designed to be capital-ready from day one. The regulatory framework includes jurisdiction-specific legal opinions, token classification analysis, and ongoing monitoring of regulatory developments across key markets.</p>
+            <p>The foundation maintains relationships with legal counsel in major jurisdictions and implements compliance controls including KYC/AML for applicable token sale rounds, sanctions screening, and geographic restrictions where required by law.</p>
           </div>
         </section>
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 11: Community Integrations */}
-      {/* ============================================================ */}
-      <div className={p("community-integrations")}>
-        <section id="community-integrations">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Community Integrations Across Solana, Ethereum, and BSC</h2>
-          <div className="prose-section">
-            <p>W3AI's marketing strategy is authentic community integration. Each chain represents different user psychographics, product norms, and vertical strengths.</p>
-          </div>
-        </section>
-        <section id="solana-community">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Solana Community Integrations</h2>
-          <div className="prose-section">
-            <p>Solana positions itself as a high-performance network enabling fast, secure, affordable transactions. W3AI's Solana strategy focuses on:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>DeFi-first execution: A Solana "Trading Space" merging research, route selection, swap simulation, and post-trade monitoring.</li>
-              <li>NFTs and communities as identity: Token-gated browsing modes and "community rooms" built around NFT membership.</li>
-              <li>Builder-native distribution: Hackathon sponsorships with 48,000+ developers and $600M+ in venture funding.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="ethereum-community">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Ethereum Community Integrations</h2>
-          <div className="prose-section">
-            <p>Ethereum's core superpower is composable dApps. W3AI's Ethereum integrations emphasize:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Transaction clarity and contract literacy at the moment of signing.</li>
-              <li>"Explain this transaction" assistance plus standardized warnings.</li>
-              <li>Ecosystem-native developer relationships through ETH Global (95+ hackathons, 14,000+ projects).</li>
-            </ul>
-          </div>
-        </section>
-        <section id="bsc-community">
-          <h2 className="text-2xl font-bold text-foreground mb-4">BSC Community Integrations</h2>
-          <div className="prose-section">
-            <p>BNB Chain emphasizes scale and mass adoption with daily active user figures (1.2M DAU on BSC, 2.7M on opBNB). W3AI's BSC strategy:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Retail-first simplicity: Optimized onboarding, reduced errors in swaps, bridging, and token discovery.</li>
-              <li>DEX-native behaviors: An "execution cockpit" optimized for high-volume habits.</li>
-              <li>Memecoins as community onboarding: Treated as a gateway vertical with safety overlay (risk banners, scam detection).</li>
-            </ul>
-          </div>
-        </section>
-      </div>
-
-      {/* ============================================================ */}
-      {/* PAGE 12: Supported Networks */}
-      {/* ============================================================ */}
-      <div className={p("supported-networks")}>
-        <section id="supported-networks">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Supported Networks</h2>
-          <div className="prose-section">
-            <p>W3AI is built as a multi-chain protocol with native presence across foundational blockchain ecosystems. Each network was selected for its unique strengths in performance, composability, and community reach — together providing comprehensive coverage of the Web3 landscape.</p>
-          </div>
-        </section>
-        {[
-          { id: "network-solana", name: "Solana", desc: "Solana serves as the hub chain and canonical mint for the W3AI token. Its sub-second finality and low transaction costs make it the optimal execution environment for high-frequency AI agent operations, real-time swap execution, and staking mechanics.", bullets: ["Hub chain with canonical token mint and primary staking contracts.", "AI inference routing optimized for Solana's parallel transaction processing.", "Native integration with Jupiter aggregator for optimal swap routing.", "Validator operations contributing to network security and protocol revenue."], links: { github: "https://github.com/solana-labs", foundation: "https://solana.org", x: "https://x.com/solana", visit: "https://solana.com" }},
-          { id: "network-ethereum", name: "Ethereum", desc: "Ethereum provides W3AI with access to the deepest DeFi liquidity, the largest developer ecosystem, and the strongest institutional credibility in Web3. As a spoke chain, Ethereum hosts bridged W3AI tokens for DeFi composability and exchange listings.", bullets: ["Spoke chain with Wormhole NTT bridged tokens.", "Uniswap-style AMM pools for deep liquidity access.", "Smart contract audit standards aligned with Ethereum's security-first culture.", "Layer 2 expansion roadmap for cost-efficient operations."], links: { github: "https://github.com/ethereum", foundation: "https://ethereum.foundation", x: "https://x.com/ethereum", visit: "https://ethereum.org" }},
-          { id: "network-bsc", name: "BNB Smart Chain", desc: "BNB Smart Chain extends W3AI's reach into the highest-volume retail trading ecosystem. With 1.2M daily active users on BSC and 2.7M on opBNB, the chain provides access to a massive user base optimized for high-frequency swaps and community-driven activity.", bullets: ["Spoke chain with PancakeSwap Smart Router integration.", "Retail-first onboarding with optimized swap and bridging flows.", "Validator operations with 2,000 BNB minimum self-delegation.", "Gateway vertical for memecoin communities with safety overlay."], links: { github: "https://github.com/bnb-chain", foundation: "https://www.bnbchain.org", x: "https://x.com/BNBCHAIN", visit: "https://www.bnbchain.org" }},
-          { id: "network-polygon", name: "Polygon", desc: "Polygon provides W3AI with enterprise-grade Ethereum scaling through its zkEVM and PoS sidechains. Its low-cost, high-throughput infrastructure enables mass-market AI agent deployment while maintaining full EVM compatibility and access to Ethereum's security guarantees.", bullets: ["zkEVM rollup for trustless Ethereum-equivalent execution at fraction of cost.", "PoS sidechain for high-speed, low-latency AI agent interactions.", "Enterprise partnerships enabling institutional RWA tokenization pathways.", "Supernets architecture for dedicated W3AI application-specific chains."], links: { github: "https://github.com/0xPolygon", foundation: "https://polygon.technology", x: "https://x.com/0xPolygon", visit: "https://polygon.technology" }},
-          { id: "network-zksync", name: "zkSync", desc: "zkSync Era delivers the highest throughput Ethereum L2 experience with native account abstraction and zero-knowledge proof security. W3AI leverages zkSync for privacy-preserving AI computations and gasless user onboarding flows.", bullets: ["Native account abstraction for seamless gasless transactions.", "ZK-proof verification ensuring computational integrity for AI outputs.", "Hyperchain architecture enabling W3AI-dedicated execution environments.", "Paymaster contracts subsidizing end-user gas for frictionless onboarding."], links: { github: "https://github.com/matter-labs", foundation: "https://zksync.io", x: "https://x.com/zksync", visit: "https://zksync.io" }},
-          { id: "network-avalanche", name: "Avalanche", desc: "Avalanche's subnet architecture allows W3AI to deploy purpose-built blockchain environments with custom gas tokens, validator sets, and compliance rules — ideal for regulated RWA tokenization and institutional AI applications.", bullets: ["Subnet deployment for dedicated W3AI execution with custom parameters.", "Sub-second finality enabling real-time AI agent decision execution.", "Institutional DeFi ecosystem with native KYC/AML compliance tooling.", "Warp Messaging for seamless cross-subnet AI agent communication."], links: { github: "https://github.com/ava-labs", foundation: "https://www.avax.network", x: "https://x.com/avax", visit: "https://www.avax.network" }},
-          { id: "network-arbitrum", name: "Arbitrum", desc: "Arbitrum One is the leading Ethereum L2 by TVL, providing W3AI with access to the deepest Layer 2 DeFi liquidity. Its optimistic rollup architecture delivers 10x cost reduction while inheriting Ethereum's full security model.", bullets: ["Optimistic rollup with 7-day fraud proof window and Ethereum-grade security.", "Arbitrum Orbit chains for dedicated W3AI application rollups.", "Stylus smart contracts enabling Rust/C++ for high-performance AI logic.", "Deepest L2 DeFi liquidity via GMX, Aave, and Uniswap deployments."], links: { github: "https://github.com/OffchainLabs", foundation: "https://arbitrum.foundation", x: "https://x.com/arbitrum", visit: "https://arbitrum.io" }},
-          { id: "network-optimism", name: "Optimism", desc: "Optimism powers the Superchain vision — a unified network of interoperable L2 chains. W3AI integrates with Optimism for its governance-forward ecosystem, retroactive public goods funding, and seamless cross-chain messaging via the OP Stack.", bullets: ["OP Stack integration for potential W3AI-dedicated chain deployment.", "Cross-chain message passing via Superchain interoperability layer.", "RetroPGF alignment for funding open-source AI safety research.", "EVM equivalence ensuring zero-friction smart contract portability."], links: { github: "https://github.com/ethereum-optimism", foundation: "https://optimism.io", x: "https://x.com/Optimism", visit: "https://optimism.io" }},
-          { id: "network-base", name: "Base", desc: "Base, incubated by Coinbase, bridges the gap between centralized exchange liquidity and on-chain DeFi. W3AI leverages Base for seamless fiat-to-crypto onboarding and access to Coinbase's 110M+ verified user base.", bullets: ["Direct Coinbase integration for institutional-grade fiat on/off ramps.", "OP Stack foundation with Superchain interoperability benefits.", "Lowest-cost EVM execution for high-frequency AI micro-transactions.", "Smart Wallet integration for one-click onboarding without seed phrases."], links: { github: "https://github.com/base-org", foundation: "https://base.org", x: "https://x.com/base", visit: "https://base.org" }},
-          { id: "network-fantom", name: "Fantom", desc: "Fantom's Lachesis consensus delivers DAG-based finality in 1-2 seconds with minimal fees. The upcoming Sonic upgrade positions Fantom as one of the fastest EVM chains — ideal for W3AI's latency-sensitive AI agent operations.", bullets: ["DAG-based Lachesis consensus for near-instant transaction finality.", "Sonic upgrade delivering 2,000+ TPS for high-frequency AI workloads.", "Fee monetization model sharing 90% of gas fees with dApp developers.", "Battle-tested DeFi ecosystem with established liquidity protocols."], links: { github: "https://github.com/Fantom-foundation", foundation: "https://fantom.foundation", x: "https://x.com/FantomFDN", visit: "https://fantom.foundation" }},
-          { id: "network-cronos", name: "Cronos", desc: "Cronos, powered by Crypto.com, connects W3AI to 80M+ Crypto.com app users and a robust CeFi-DeFi bridge. Its Cosmos SDK foundation and EVM compatibility create a unique hybrid environment for retail-focused AI applications.", bullets: ["Crypto.com ecosystem integration with 80M+ retail users.", "EVM and Cosmos SDK dual compatibility for maximum composability.", "Cronos zkEVM scaling solution for privacy-preserving transactions.", "Native fiat gateway via Crypto.com Pay for seamless onboarding."], links: { github: "https://github.com/crypto-org-chain", foundation: "https://cronos.org", x: "https://x.com/cronos_chain", visit: "https://cronos.org" }},
-          { id: "network-moonbeam", name: "Moonbeam", desc: "Moonbeam is the top Polkadot parachain for EVM-compatible smart contracts, providing W3AI with cross-chain connectivity to the entire Polkadot ecosystem via XCM messaging and access to shared security from the Polkadot relay chain.", bullets: ["Full EVM and Substrate API compatibility for hybrid dApp development.", "XCM messaging for cross-parachain AI agent orchestration.", "Polkadot relay chain shared security model.", "Connected contracts enabling multi-chain logic execution from a single deployment."], links: { github: "https://github.com/moonbeam-foundation", foundation: "https://moonbeam.foundation", x: "https://x.com/MoonbeamNetwork", visit: "https://moonbeam.network" }},
-        ].map(n => (
-          <section key={n.id} id={n.id} className="py-6">
-            <div className="flex items-center flex-wrap gap-4 mb-6">
-              <h2 className="text-2xl font-bold text-foreground">{n.name}</h2>
-              <div className="flex flex-wrap gap-2">
-                <a href={n.links.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">GitHub</a>
-                <a href={n.links.foundation} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">Foundation</a>
-                <a href={n.links.x} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">X</a>
-                <a href={n.links.visit} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[hsl(75,80%,55%)] text-black text-sm font-medium hover:bg-[hsl(75,80%,45%)] transition-colors">Visit ↗</a>
-              </div>
-            </div>
-            <div className="prose-section">
-              <p>{n.desc}</p>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                {n.bullets.map((b, i) => <li key={i}>{b}</li>)}
-              </ul>
-            </div>
-          </section>
-        ))}
-      </div>
-
-      {/* ============================================================ */}
-      {/* PAGE 13: Foundations */}
-      {/* ============================================================ */}
-      <div className={p("foundations")}>
-        <section id="foundations">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Foundations</h2>
-          <div className="prose-section">
-            <p>W3AI is built on and integrated with the leading blockchain protocols that power the decentralized web. These foundations provide the secure, scalable infrastructure that enables W3AI's multi-chain AI browser capabilities.</p>
-          </div>
-        </section>
-        {[
-          { id: "fi-ethereum", name: "Ethereum", desc: "The world's leading smart contract platform and the foundation of decentralized finance. Ethereum provides the robust security and vibrant developer ecosystem that powers W3AI's core DeFi integrations and institutional-grade infrastructure.", links: { github: "https://github.com/ethereum", foundation: "https://ethereum.foundation", x: "https://x.com/ethereum", visit: "https://ethereum.org" }},
-          { id: "fi-solana", name: "Solana", desc: "A high-performance blockchain delivering fast, secure, and scalable crypto apps. Solana's sub-second finality and low transaction costs enable real-time AI agent execution and high-frequency DeFi operations within W3AI.", links: { github: "https://github.com/solana-labs", foundation: "https://solana.org", x: "https://x.com/solana", visit: "https://solana.com" }},
-          { id: "fi-bitcoin", name: "Bitcoin", desc: "The original and most secure blockchain network. W3AI integrates Bitcoin for institutional-grade store-of-value capabilities and emerging layer-2 solutions that bridge Bitcoin liquidity into DeFi protocols.", links: { github: "https://github.com/bitcoin", foundation: "https://bitcoin.org/en/bitcoin-core/", x: "https://x.com/bitcoin", visit: "https://bitcoin.org" }},
-          { id: "fi-arbitrum", name: "Arbitrum", desc: "A leading Ethereum Layer 2 scaling solution offering ultra-low costs and high throughput. Arbitrum powers W3AI's cost-efficient AI computations and complex smart contract interactions at a fraction of mainnet costs.", links: { github: "https://github.com/OffchainLabs", foundation: "https://arbitrum.foundation", x: "https://x.com/arbitrum", visit: "https://arbitrum.io" }},
-          { id: "fi-polygon", name: "Polygon", desc: "A multi-chain ecosystem connecting Ethereum-compatible blockchains. Polygon's zkEVM and PoS chains provide W3AI users with enterprise scalability, regulatory-grade compliance options, and seamless Web2-Web3 bridges.", links: { github: "https://github.com/0xPolygon", foundation: "https://polygon.technology", x: "https://x.com/0xPolygon", visit: "https://polygon.technology" }},
-          { id: "fi-cosmos", name: "Cosmos", desc: "The internet of blockchains enabling interoperability between sovereign chains. Cosmos IBC integration allows W3AI to route AI agents and assets across independent blockchain ecosystems with minimal friction.", links: { github: "https://github.com/cosmos", foundation: "https://interchain.io", x: "https://x.com/cosmos", visit: "https://cosmos.network" }},
-          { id: "fi-cardano", name: "Cardano", desc: "A research-driven blockchain built on peer-reviewed academic foundations. Cardano brings institutional-grade security and formal verification capabilities that strengthen W3AI's high-assurance DeFi integrations.", links: { github: "https://github.com/cardano-foundation", foundation: "https://cardanofoundation.org", x: "https://x.com/cardano", visit: "https://cardano.org" }},
-          { id: "fi-ton", name: "TON", desc: "The Open Network designed for Web3 mass adoption with Telegram integration. TON provides W3AI with seamless access to 800M+ Telegram users and ultra-fast transaction processing for consumer-scale AI applications.", links: { github: "https://github.com/ton-blockchain", foundation: "https://ton.org", x: "https://x.com/ton_blockchain", visit: "https://ton.org" }},
-          { id: "fi-tezos", name: "Tezos", desc: "A self-amending blockchain with on-chain governance and formal verification. Tezos integration brings institutional-grade smart contract security and proven tokenization standards to W3AI's asset management layer.", links: { github: "https://github.com/tezos", foundation: "https://tezos.foundation", x: "https://x.com/taboratezos", visit: "https://tezos.com" }},
-          { id: "fi-icp", name: "Internet Computer", desc: "A blockchain-based cloud computing platform that hosts smart contracts, data, and entire web applications on-chain. Internet Computer's canister architecture enables W3AI to deploy fully decentralized frontend and backend logic with web-speed performance and infinite scalability.", links: { github: "https://github.com/dfinity", foundation: "https://dfinity.org", x: "https://x.com/dfinity", visit: "https://internetcomputer.org" }},
-          { id: "fi-web3-foundation", name: "Web3 Foundation", desc: "The organization behind Polkadot and Kusama, pioneering multi-chain interoperability. Web3 Foundation research and Substrate technology inform W3AI's cross-chain architecture and parachain connectivity roadmap.", links: { github: "https://github.com/nicored", foundation: "https://web3.foundation", x: "https://x.com/Web3foundation", visit: "https://web3.foundation" }},
-        ].map(f => (
-          <section key={f.id} id={f.id}>
-            <div className="flex items-center flex-wrap gap-4 mb-4">
-              <h2 className="text-2xl font-bold text-foreground">{f.name}</h2>
-              <div className="flex flex-wrap gap-2">
-                <a href={f.links.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">GitHub</a>
-                <a href={f.links.foundation} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">Foundation</a>
-                <a href={f.links.x} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">X</a>
-                <a href={f.links.visit} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[hsl(75,80%,55%)] text-black text-sm font-medium hover:bg-[hsl(75,80%,45%)] transition-colors">Visit ↗</a>
-              </div>
-            </div>
-            <div className="prose-section"><p>{f.desc}</p></div>
-          </section>
-        ))}
-      </div>
-
-      {/* ============================================================ */}
-      {/* PAGE 14: Multi-Chain Deployments */}
-      {/* ============================================================ */}
-      <div className={p("multi-chain")}>
-        <section id="multi-chain">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Multi-Chain Deployments & Supply Integrity</h2>
-          <div className="prose-section">
-            <p>W3AI intends native token representations on Solana, Ethereum, and BSC. The multi-chain strategy is designed to maximize ecosystem reach while maintaining absolute supply integrity across all deployed networks. Tokenomics must prevent multi-chain "supply duplication" — a critical risk when tokens exist on multiple blockchains simultaneously.</p>
-          </div>
-        </section>
-        <section id="multi-hub-spoke">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Hub & Spoke Architecture</h2>
-          <div className="prose-section">
-            <p>Solana serves as the Canonical Mint and Hub Chain. All 2,000,000,000 W3AI tokens are minted natively on Solana. Ethereum and BNB Smart Chain operate as spoke chains, receiving wrapped or bridged representations of the canonical supply. This hub-and-spoke model ensures a single source of truth for total supply, eliminates the risk of independent minting on secondary chains, and simplifies auditing and compliance reporting.</p>
-            <p>The architecture leverages Solana's high throughput and low transaction costs for primary token operations—staking, governance voting, and reward distribution—while maintaining presence on Ethereum and BSC for DeFi composability and exchange listing requirements.</p>
-          </div>
-        </section>
-        <section id="multi-wormhole">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Wormhole NTT Bridge</h2>
-          <div className="prose-section">
-            <p>Cross-chain transfers are powered by Wormhole Native Token Transfers (NTT), a protocol-level bridging framework that supports burn-and-mint models with governance-configurable per-chain rate limits. Unlike traditional lock-and-mint bridges, NTT burns tokens on the source chain and mints equivalent tokens on the destination chain, preserving total supply invariance at every step.</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Burn-and-mint model eliminates locked-token attack vectors common in bridge exploits.</li>
-              <li>Per-chain rate limits prevent catastrophic supply drainage in the event of a bridge compromise.</li>
-              <li>Governance-controlled parameters allow the DAO to adjust transfer limits, pause bridges, and whitelist new chains without contract redeployment.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="multi-supply-integrity">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Supply Integrity</h2>
-          <div className="prose-section">
-            <p>Supply integrity is enforced through a combination of on-chain invariants and off-chain monitoring. The total supply across all chains must equal the canonical 2,000,000,000 W3AI at all times. Any deviation triggers automated alerts and can invoke emergency governance procedures.</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Real-time cross-chain supply dashboards with public verification endpoints.</li>
-              <li>Automated reconciliation checks running every block on each deployed chain.</li>
-              <li>Third-party audit integration for periodic supply attestation reports.</li>
-              <li>Emergency pause functionality governed by multi-sig with time-lock safeguards.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="multi-chain-governance">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Cross-Chain Governance</h2>
-          <div className="prose-section">
-            <p>Governance participation is chain-agnostic. Token holders on Ethereum and BSC can vote on proposals without bridging back to Solana. Cross-chain message passing aggregates voting power from all chains into a unified governance result on the hub chain.</p>
-            <p>This ensures that the multi-chain deployment does not fragment governance participation or create asymmetric voting power between chains. All governance outcomes are executed on Solana and propagated to spoke chains via Wormhole messaging.</p>
-          </div>
-        </section>
-      </div>
-
-      {/* ============================================================ */}
-      {/* PAGE 15: Validator Yield & Staking */}
+      {/* PAGE 20: Validator Yield & Staking */}
       {/* ============================================================ */}
       <div className={p("validator-yield")}>
         <section id="validator-yield">
@@ -1186,7 +1308,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 16: Liquidity & Market Making */}
+      {/* PAGE 21: Liquidity & Market Making */}
       {/* ============================================================ */}
       <div className={p("liquidity")}>
         <section id="liquidity">
@@ -1222,7 +1344,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 17: Marketing & Distribution */}
+      {/* PAGE 22: Marketing & Distribution */}
       {/* ============================================================ */}
       <div className={p("marketing")}>
         <section id="marketing">
@@ -1243,239 +1365,99 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         <section id="kol-strategy">
           <h2 className="text-2xl font-bold text-foreground mb-4">Social & KOL Strategy</h2>
           <div className="prose-section">
-            <p>W3AI's KOL engine is structured as "proof, not hype":</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Security KOLs who discuss wallet safety, transaction clarity, and AI-agent threat models.</li>
-              <li>Chain-native creators with content mapping to each chain's daily reality.</li>
-              <li>Builder KOLs in hackathon ecosystems.</li>
-            </ul>
-            <p>Success metrics are tied to product behaviors: Registry sign-ups, wallet connections, first swap, daily active retention.</p>
+            <p>W3AI partners with key opinion leaders (KOLs) across crypto verticals — DeFi, NFTs, AI, and institutional Web3 — to drive awareness and community growth through authentic content and product demonstrations.</p>
           </div>
         </section>
         <section id="six-month-rollout">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Six-Month Rollout with Partners</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">Six-Month Rollout</h2>
           <div className="prose-section">
-            <p>Pre-sale marketing → TGE → listings/liquidity expansion, with partner-led distribution:</p>
-            <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
-              <li>Changelly: Instant exchange and on/off-ramp flows (2.7M community members).</li>
-              <li>Hacken: "Verified-by-security" co-marketing with audits and monitoring.</li>
-              <li>Dentity: Trusted onboarding and privacy-preserving credentials.</li>
-              <li>Northern Trust: Institutional tokenization narrative alignment.</li>
-              <li>Surge: Discovery and execution gateway for tokenized launches.</li>
-              <li>G-20 Group: Professional liquidity and treasury management expertise.</li>
+            <p>The six-month rollout plan is structured around three phases:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Phase 1 (Months 1–2): Registry launch, whitelisted wallet onboarding, and community seeding across Solana, Ethereum, and BSC ecosystems.</li>
+              <li>Phase 2 (Months 3–4): Browser beta release, KOL partnerships, hackathon sponsorships, and initial DEX liquidity deployment.</li>
+              <li>Phase 3 (Months 5–6): Public launch, CEX listing applications, and scaling community to 25,000+ Registry users.</li>
             </ul>
           </div>
         </section>
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 18: Network Partners */}
+      {/* PAGE 23: Network Partners */}
       {/* ============================================================ */}
       <div className={p("strategic-partners")}>
         <section id="strategic-partners">
           <h2 className="text-2xl font-bold text-foreground mb-4">Network Partners</h2>
           <div className="prose-section">
-            <p>W3AI's partner ecosystem is designed to cover every critical surface of the product—from security and identity to liquidity and institutional credibility. Each partnership is structured around product integration, not brand association.</p>
+            <p>W3AI's ecosystem is strengthened by strategic partnerships across infrastructure, security, liquidity, and identity verification. Each partner provides specialized capabilities that integrate directly into the W3AI platform.</p>
           </div>
         </section>
         {[
-          { id: "partner-0x", name: "0x", url: "https://0x.org", p1: "0x Protocol provides the decentralized exchange infrastructure that powers W3AI's cross-chain token swap capabilities. As a professional-grade DEX aggregation and routing protocol, 0x enables W3AI to source optimal liquidity across hundreds of on-chain sources—including AMMs, order books, and private market makers—delivering best-execution pricing for every trade.", p2: "Within the W3AI browser, 0x's Swap API enables gasless approvals, MEV-protected routing, and RFQ (Request for Quote) access to professional market makers. This integration ensures that W3AI users receive institutional-quality trade execution with transparent pricing, slippage protection, and cross-chain settlement across Ethereum, Polygon, Arbitrum, Optimism, Base, BSC, and Avalanche." },
-          { id: "partner-changelly", name: "Changelly", url: "https://changelly.com", p1: "Changelly provides instant exchange and on/off-ramp infrastructure with a 2.7M-member community. Within W3AI, Changelly's Exchange API powers in-browser swap execution with transparent convenience fees. The API's \"extra fee\" functionality enables W3AI to configure an additional commission layer that routes to the project treasury.", p2: "Changelly supports 500+ crypto assets across multiple blockchains, providing W3AI users with broad cross-chain swap coverage without leaving the browser environment." },
-          { id: "partner-cls", name: "CLS", url: "https://www.cls.global", p1: "CLS is a global leader in foreign exchange settlement and processing, providing critical financial market infrastructure trusted by the world's largest institutions. CLS settles trillions of dollars in FX transactions daily through its CLSSettlement service, mitigating settlement risk across 18 major currencies and connecting over 70 central banks.", p2: "Within the W3AI ecosystem, CLS brings institutional-grade settlement infrastructure and regulatory credibility to cross-border tokenized asset transactions. CLS's expertise in multi-currency netting, payment-versus-payment settlement, and real-time liquidity optimization directly supports W3AI's vision for compliant, institutional-scale RWA tokenization and cross-chain settlement operations." },
-          { id: "partner-dentity", name: "Dentity", url: "https://dentity.com", p1: "Dentity provides the privacy-forward credential layer that strengthens W3AI's Registry and whitelisted-wallet objective. Dentity emphasizes trust, identity verification, and digital credentials while preserving user privacy.", p2: "W3AI leverages Dentity for pre-sale and beta access controls (credentialed wallet allowlists), reduced bot/sybil influence in governance, and higher-trust partner campaigns with per-vertical onboarding." },
-          { id: "partner-g20", name: "G-20 Group", url: "https://g20.group", p1: "G-20 Group provides professional liquidity solutions and treasury management across exchange-traded and on-chain venues. Within W3AI, this maps to a multi-venue liquidity framework, risk-managed treasury yield, and market-depth stability programs tied to milestones.", p2: "G-20 Group's expertise ensures that W3AI's market making operations meet institutional standards for reliability, transparency, and cross-venue coherence." },
-          { id: "partner-hacken", name: "Hacken", url: "https://hacken.io", p1: "Hacken delivers the security backbone for W3AI through smart contract audits, wallet audits, penetration testing, tokenomics audits, proof-of-reserves audits, and post-deployment monitoring. In W3AI, this translates to an \"in-browser trust layer\" providing risk flags, verified proofs, and standardized security context before users commit capital.", p2: "The \"Verified-by-security\" co-marketing strategy positions W3AI as the browser that takes security seriously—not as an afterthought, but as a core product feature." },
-          { id: "partner-lablab", name: "LabLab", url: "https://lablab.ai", p1: "LabLab.ai is a global AI innovation community with over 251,000 members, 23,000+ teams, and 5,200+ prototypes built through free-to-attend AI hackathons. LabLab connects builders, developers, and entrepreneurs with state-of-the-art AI tools and mentorship to accelerate product development from concept to launch.", p2: "Within the W3AI ecosystem, LabLab serves as a talent and innovation pipeline—sourcing AI-native builders who can extend browser functionality, develop W3AI extensions, and contribute to the protocol's open-source components. LabLab's hackathon infrastructure provides W3AI with a repeatable engine for community-driven development and rapid prototyping of new features." },
-          { id: "partner-northern-trust", name: "Northern Trust", url: "https://www.northerntrust.com", p1: "Northern Trust brings institutional credibility and tokenization expertise through its digital assets platform (Matrix Zenith) and participation in tokenizing ESG reporting credentials. W3AI translates this into product positioning: the browser becomes the interface where \"tokenized everything\"—RWAs, funds, ESG credentials—is discovered, verified, and managed.", p2: "This partnership signals to institutional participants that W3AI is building for the convergence of traditional finance and decentralized infrastructure." },
-          { id: "partner-surge", name: "Surge", url: "https://surge.lablab.ai", p1: "Surge operates as W3AI's discovery and execution gateway for tokenized launches. Within the W3AI ecosystem, Surge provides infrastructure for token distribution events, community-driven launches, and curated project discovery.", p2: "The integration enables W3AI browser users to participate in vetted token launches directly from their browsing environment with built-in security checks and credential verification." },
+          { id: "partner-0x", name: "0x", desc: "0x provides the foundational DEX aggregation and swap routing infrastructure that powers W3AI's in-browser trading experience. The 0x API enables access to deep liquidity across multiple DEX protocols with optimized gas efficiency.", visit: "https://0x.org" },
+          { id: "partner-changelly", name: "Changelly", desc: "Changelly's exchange API enables W3AI to offer seamless in-browser token swaps with support for 500+ digital assets. The API's 'extra fee' functionality provides the transparent convenience fee mechanism that routes revenue to the W3AI treasury.", visit: "https://changelly.com" },
+          { id: "partner-cls", name: "CLS", desc: "CLS is the trusted leader in global FX settlement, processing over $6.5 trillion in daily transactions. CLS brings institutional-grade settlement infrastructure and risk management capabilities that position W3AI for cross-border RWA tokenization and institutional adoption.", visit: "https://cls-group.com" },
+          { id: "partner-dentity", name: "Dentity", desc: "Dentity provides privacy-forward digital identity and credential verification. W3AI leverages Dentity for Registry whitelisting, anti-sybil protections, and credentialed wallet attestations that enable compliant access to tokenized assets.", visit: "https://dentity.com" },
+          { id: "partner-g20", name: "G-20 Group", desc: "G-20 Group delivers professional liquidity solutions and treasury management across exchange-traded and on-chain venues. Within W3AI, G-20 provides multi-venue market making, risk-managed treasury yield optimization, and market-depth stability programs.", visit: "https://g20.group" },
+          { id: "partner-hacken", name: "Hacken", desc: "Hacken is a leading blockchain security firm providing smart contract audits, penetration testing, tokenomics audits, proof-of-reserves verification, and post-deployment monitoring. Hacken's security framework forms the foundation of W3AI's 'in-browser trust layer.'", visit: "https://hacken.io" },
+          { id: "partner-lablab", name: "LabLab", desc: "LabLab connects W3AI with a global community of AI developers through hackathons and builder programs. This partnership drives developer adoption, plugin ecosystem growth, and community-driven innovation within the W3AI browser platform.", visit: "https://lablab.ai" },
+          { id: "partner-northern-trust", name: "Northern Trust", desc: "Northern Trust manages $1.7T+ in assets and has pioneered blockchain tokenization through its Matrix Zenith digital assets platform. The partnership positions W3AI at the intersection of institutional asset management and on-chain infrastructure.", visit: "https://northerntrust.com" },
+          { id: "partner-surge", name: "Surge", desc: "Surge provides Web3 marketing, community building, and growth infrastructure. Within W3AI, Surge supports community-first distribution strategy, KOL partnerships, and chain-native marketing campaigns across Solana, Ethereum, and BSC ecosystems.", visit: "https://surge.xyz" },
         ].map(partner => (
-          <section key={partner.id} id={partner.id} className="py-6">
-            <div className="flex items-center flex-wrap gap-4 mb-6">
+          <section key={partner.id} id={partner.id}>
+            <div className="flex items-center flex-wrap gap-4 mb-4">
               <h2 className="text-2xl font-bold text-foreground">{partner.name}</h2>
-              <a href={partner.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[hsl(75,80%,55%)] text-black text-sm font-medium hover:bg-[hsl(75,80%,45%)] transition-colors">Visit ↗</a>
+              <a href={partner.visit} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[hsl(75,80%,55%)] text-black text-sm font-medium hover:bg-[hsl(75,80%,45%)] transition-colors">Visit ↗</a>
             </div>
-            <div className="prose-section">
-              <p>{partner.p1}</p>
-              <p>{partner.p2}</p>
-            </div>
+            <div className="prose-section"><p>{partner.desc}</p></div>
           </section>
         ))}
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 19: Infrastructure */}
+      {/* PAGE 24: Use Cases */}
       {/* ============================================================ */}
-      <div className={p("infrastructure")}>
-        <section id="infrastructure">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Infrastructure</h2>
+      <div className={p("use-cases")}>
+        <section id="use-cases">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Use Cases</h2>
           <div className="prose-section">
-            <p>W3AI's infrastructure layer underpins every product surface—from browser AI inference to multi-chain validator operations. The architecture is designed for resilience, scalability, and operational transparency.</p>
+            <p>The following walkthroughs illustrate how the TMRW Browser platform works in practice.</p>
           </div>
-        </section>
-        <section id="infra-network">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Network Architecture</h2>
-          <div className="prose-section">
-            <p>W3AI's network infrastructure spans three blockchain ecosystems—Solana, Ethereum, and BNB Smart Chain—with Solana as the canonical mint and hub chain. The architecture uses Wormhole Native Token Transfers (NTT) for hub-and-spoke supply management with burn-and-mint models and governance-configurable per-chain rate limits.</p>
-            <p>Backend services are distributed across geo-redundant infrastructure with edge computing for latency-sensitive operations such as AI inference routing and real-time transaction simulation.</p>
+
+          <div className="mt-8 p-6 rounded-xl border border-border bg-card">
+            <h3 className="text-xl font-semibold text-foreground mb-4">Example: Cross-Chain Transaction</h3>
+            <div className="prose-section">
+              <p>A user wants to move W3AI tokens from Solana to Ethereum to provide liquidity on Uniswap.</p>
+              <ol className="list-decimal ml-6 space-y-2 text-muted-foreground">
+                <li><strong className="text-foreground">Open the browser.</strong> The user launches the TMRW Browser and connects their Solana wallet. The dashboard shows their W3AI balance across all chains.</li>
+                <li><strong className="text-foreground">Initiate bridge.</strong> The user selects "Bridge to Ethereum" from the asset management panel. The AI assistant explains the Wormhole NTT burn-and-mint process and estimates gas costs on both chains.</li>
+                <li><strong className="text-foreground">Review and confirm.</strong> A transaction simulation shows the exact amount that will arrive on Ethereum after fees. The user reviews the "explain before execute" summary and approves the transaction.</li>
+                <li><strong className="text-foreground">Execute.</strong> Tokens are burned on Solana and minted on Ethereum. The user receives a confirmation with transaction hashes on both chains and an updated cross-chain balance view.</li>
+              </ol>
+            </div>
           </div>
-        </section>
-        <section id="infra-security">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Security & Custody</h2>
-          <div className="prose-section">
-            <p>Security is implemented at every layer: smart contract audits (Hacken), wallet-level security intelligence, browser sandboxing, and infrastructure-level protections. Key security measures include:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Smart contract security: Third-party audits, formal verification where applicable, and bug bounty programs.</li>
-              <li>Operational security: Hardware security modules (HSMs), multi-party computation (MPC) for key management.</li>
-              <li>Browser security: Isolated profiles, agent permission boundaries, transaction simulation before signing.</li>
-              <li>Incident response: Documented playbooks, 24/7 monitoring, and rapid response protocols.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="infra-monitoring">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Monitoring & Operations</h2>
-          <div className="prose-section">
-            <p>Validator and infrastructure operations require relentless operational discipline. W3AI implements comprehensive monitoring across all network participants:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Validator health: Uptime monitoring, attestation performance, and slashing risk alerts.</li>
-              <li>Network metrics: Cross-chain bridge volumes, liquidity pool depths, and fee generation tracking.</li>
-              <li>Treasury dashboards: Real-time visibility into treasury composition, runway, and yield performance.</li>
-              <li>User-facing status: Public status pages for browser services, AI gateway availability, and network health.</li>
-            </ul>
+
+          <div className="mt-6 p-6 rounded-xl border border-border bg-card">
+            <h3 className="text-xl font-semibold text-foreground mb-4">Example: Tokenized Asset Purchase</h3>
+            <div className="prose-section">
+              <p>A retail investor wants to gain exposure to commercial real estate through tokenized assets.</p>
+              <ol className="list-decimal ml-6 space-y-2 text-muted-foreground">
+                <li><strong className="text-foreground">Browse the RWA marketplace.</strong> The user opens the tokenized assets section in the browser. The AI assistant filters available assets by sector, yield profile, and minimum investment.</li>
+                <li><strong className="text-foreground">Review asset data.</strong> The user selects a tokenized commercial office building. The browser displays verified originator information, rental yield history, occupancy rates, and third-party valuation data — all sourced from on-chain attestations.</li>
+                <li><strong className="text-foreground">Complete purchase.</strong> The user specifies their investment amount (as low as $100). The AI assistant confirms eligibility, explains any holding period requirements, and presents a transaction summary. The user signs with their connected wallet.</li>
+                <li><strong className="text-foreground">Monitor position.</strong> The purchased tokens appear in the user's portfolio with real-time yield tracking, automated rental distributions, and secondary market pricing.</li>
+              </ol>
+            </div>
           </div>
         </section>
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 20: Cybersecurity */}
-      {/* ============================================================ */}
-      <div className={p("security")}>
-        <section id="security">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Cybersecurity</h2>
-          <div className="prose-section">
-            <p>Security is the non-negotiable foundation of every W3AI product surface. In an era where AI agents execute financial transactions, interact with smart contracts, and manage digital identities on behalf of users, the attack surface has expanded beyond traditional cybersecurity models. W3AI treats security not as a feature layer but as an architectural primitive—embedded at every level from browser runtime to on-chain execution.</p>
-          </div>
-        </section>
-        <section id="security-network">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Network Security</h2>
-          <div className="prose-section">
-            <p>W3AI's network security model spans three blockchain ecosystems—Solana, Ethereum, and BNB Smart Chain—each with distinct consensus mechanisms, validator economics, and threat profiles. The protocol implements defense-in-depth across all layers:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Validator hardening: Hardware security modules (HSMs), geo-distributed infrastructure, and automated failover to prevent single points of failure.</li>
-              <li>Node isolation: Dedicated validator nodes with restricted network access, DDoS mitigation, and encrypted peer-to-peer communication channels.</li>
-              <li>Consensus monitoring: Real-time attestation tracking, slashing risk alerts, and automated response protocols for consensus anomalies.</li>
-              <li>Bridge security: Wormhole NTT burn-and-mint model eliminates locked-token attack vectors. Per-chain rate limits contain blast radius in the event of bridge compromise.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="security-blockchain">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Blockchain Security</h2>
-          <div className="prose-section">
-            <p>Smart contract security is enforced through a multi-layered audit and verification pipeline. Every contract deployed within the W3AI ecosystem undergoes rigorous pre-deployment and post-deployment security processes:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Third-party audits: Hacken conducts comprehensive smart contract audits covering logic vulnerabilities, reentrancy attacks, integer overflows, and access control flaws.</li>
-              <li>Formal verification: Critical contract paths—token minting, governance execution, and bridge operations—are formally verified where applicable.</li>
-              <li>Bug bounty programs: Continuous community-driven vulnerability discovery with tiered rewards based on severity classification.</li>
-              <li>Upgrade governance: All contract upgrades require multi-sig approval with time-lock periods, ensuring no single actor can modify live contracts unilaterally.</li>
-              <li>Supply integrity enforcement: Automated cross-chain reconciliation checks verify that the total W3AI supply across all deployed chains equals the canonical 2,000,000,000 at every block.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="security-defi">
-          <h2 className="text-2xl font-bold text-foreground mb-4">DeFi Security</h2>
-          <div className="prose-section">
-            <p>Decentralized finance introduces unique security challenges—flash loan attacks, oracle manipulation, liquidity pool exploits, and MEV extraction. W3AI addresses these through purpose-built safeguards integrated into the browser and protocol layers:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Transaction simulation: Every swap, stake, or liquidity provision is simulated before signing. Users see exactly what they will receive, what fees apply, and whether the transaction path contains anomalies.</li>
-              <li>MEV protection: W3AI integrates private transaction relays and MEV-aware routing to shield users from sandwich attacks and front-running on Ethereum and BSC.</li>
-              <li>Oracle integrity: Price feeds are sourced from multiple decentralized oracles with outlier detection. Stale or manipulated price data triggers automatic circuit breakers.</li>
-              <li>Liquidity risk monitoring: Real-time pool depth analysis, impermanent loss estimation, and concentration risk alerts are surfaced directly in the browser interface.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="security-defai">
-          <h2 className="text-2xl font-bold text-foreground mb-4">DeFAI Security</h2>
-          <div className="prose-section">
-            <p>DeFAI (Decentralized Finance + AI) represents the emerging convergence where AI agents autonomously interact with DeFi protocols. This creates a novel attack surface that traditional security models are not designed to address:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Agent permission boundaries: AI agents operate within strictly defined permission scopes. No agent can initiate transactions, sign messages, or modify wallet state without explicit user authorization.</li>
-              <li>Prompt injection defense: All AI agent inputs are sanitized and validated against injection patterns designed to bypass permission boundaries or manipulate agent behavior.</li>
-              <li>Action verification: Every AI-recommended action is translated into a human-readable summary with risk assessment before user confirmation. "Explain before execute" is enforced at the protocol level.</li>
-              <li>Audit trails: Complete logs of all AI agent actions, recommendations, and user approvals are maintained for forensic analysis and compliance reporting.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="security-ai">
-          <h2 className="text-2xl font-bold text-foreground mb-4">AI Security</h2>
-          <div className="prose-section">
-            <p>As AI becomes deeply integrated into financial infrastructure, protecting the AI layer itself becomes critical. W3AI implements comprehensive AI security measures across the inference pipeline:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Model integrity: AI inference is routed through verified, versioned model endpoints. Users can audit which model version processed their request.</li>
-              <li>Data privacy: User queries, wallet data, and transaction context are processed with strict data isolation. No user data is used for model training or shared across sessions.</li>
-              <li>Adversarial robustness: AI models are tested against adversarial inputs designed to produce harmful, misleading, or manipulative outputs in financial contexts.</li>
-              <li>Hallucination mitigation: Financial data, token prices, and protocol parameters are sourced from verified on-chain data. AI outputs are cross-referenced against ground truth before presentation to users.</li>
-            </ul>
-          </div>
-        </section>
-      </div>
-
-      {/* ============================================================ */}
-      {/* PAGE 21: Auditing */}
-      {/* ============================================================ */}
-      <div className={p("auditing")}>
-        <section id="auditing">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Auditing</h2>
-          <div className="prose-section">
-            <p>W3AI maintains a rigorous auditing framework that spans both technical infrastructure and financial operations. Auditing is not a one-time event but a continuous process embedded into the protocol's operational lifecycle—ensuring accountability, transparency, and regulatory compliance across all jurisdictions where W3AI operates.</p>
-          </div>
-        </section>
-        <section id="auditing-smart-contract">
-          <h2 className="text-2xl font-bold text-foreground mb-4">3rd Party Smart Contract Auditing</h2>
-          <div className="prose-section">
-            <p>All W3AI smart contracts undergo comprehensive third-party security audits conducted by <a href="https://hacken.io" target="_blank" rel="noopener noreferrer" className="text-[hsl(82,85%,55%)] hover:underline">Hacken.io</a>, a leading blockchain security firm with a proven track record across 1,500+ projects and $200B+ in secured digital assets.</p>
-            <p>The audit process covers the complete smart contract lifecycle:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Pre-deployment code review: Line-by-line analysis of all smart contract code for logic errors, reentrancy vulnerabilities, integer overflow/underflow, and access control weaknesses.</li>
-              <li>Automated vulnerability scanning: Industry-standard tools (Slither, Mythril, Echidna) complement manual review to ensure comprehensive coverage.</li>
-              <li>Formal verification: Critical contract paths—including token minting, bridge operations, and governance execution—undergo formal mathematical verification where applicable.</li>
-              <li>Tokenomics audit: Independent validation of supply mechanics, vesting schedules, burn mechanisms, and treasury allocation logic to ensure alignment with published parameters.</li>
-              <li>Post-deployment monitoring: Continuous on-chain surveillance for anomalous contract behavior, unauthorized access patterns, and supply integrity deviations.</li>
-              <li>Re-audit cycles: All major contract upgrades trigger mandatory re-audit before deployment. Audit reports are published publicly for community verification.</li>
-            </ul>
-          </div>
-        </section>
-        <section id="auditing-financial">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Financial Auditing</h2>
-          <div className="prose-section">
-            <p>W3AI maintains dual-jurisdiction financial auditing standards to satisfy regulatory requirements in both Canada and Liechtenstein—the two primary regulatory environments under which the project operates.</p>
-            <h4 className="text-lg font-semibold text-foreground mt-6 mb-3">🇨🇦 Canada</h4>
-            <p>Financial auditing in Canada follows Canadian Auditing Standards (CAS), which are aligned with International Standards on Auditing (ISA). W3AI's Canadian financial compliance framework includes:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Annual financial statement audits conducted by a CPA-licensed audit firm in accordance with CAS and International Financial Reporting Standards (IFRS).</li>
-              <li>FINTRAC compliance: Registration and ongoing reporting obligations under Canada's Proceeds of Crime (Money Laundering) and Terrorist Financing Act (PCMLTFA), including suspicious transaction reporting (STR) and large cash transaction reporting.</li>
-              <li>Securities compliance: Adherence to applicable Canadian Securities Administrators (CSA) guidance on crypto-asset trading platforms and token classifications.</li>
-              <li>Tax reporting: Compliance with Canada Revenue Agency (CRA) requirements for digital asset transactions, including capital gains reporting and GST/HST treatment.</li>
-            </ul>
-            <h4 className="text-lg font-semibold text-foreground mt-6 mb-3">🇱🇮 Liechtenstein</h4>
-            <p>Liechtenstein provides one of the most comprehensive regulatory frameworks for blockchain and token economies through the Token and Trusted Technology Service Provider Act (TVTG), commonly known as the "Blockchain Act." W3AI's Liechtenstein compliance framework includes:</p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>TVTG registration: Compliance with the Blockchain Act's requirements for token generation, storage, and transfer services, overseen by the Financial Market Authority (FMA).</li>
-              <li>Annual financial audits conducted in accordance with Liechtenstein audit standards and International Financial Reporting Standards (IFRS) by an FMA-approved audit firm.</li>
-              <li>AML/KYC compliance: Adherence to Liechtenstein's Due Diligence Act (SPG) and EU Anti-Money Laundering Directives, including ongoing transaction monitoring and customer due diligence.</li>
-              <li>MiCA readiness: Proactive alignment with the EU's Markets in Crypto-Assets Regulation (MiCA), ensuring seamless compliance as pan-European requirements take effect.</li>
-              <li>Token classification documentation: Formal legal opinions on token classification under the TVTG's "container model," which treats tokens as digital containers that can represent various rights and assets.</li>
-            </ul>
-          </div>
-        </section>
-      </div>
-
-      {/* ============================================================ */}
-      {/* PAGE 22: Privacy Policy */}
+      {/* PAGE 25: Privacy Policy */}
       {/* ============================================================ */}
       <div className={p("privacy")}>
         <section id="privacy">
           <h2 className="text-2xl font-bold text-foreground mb-4">Privacy Policy</h2>
           <div className="prose-section">
-            <p>Privacy is a foundational principle of Web3 architecture. W3AI is committed to building privacy-preserving systems that protect user data, on-chain identity, and transactional confidentiality while maintaining compliance with applicable regulatory frameworks. The privacy framework is designed specifically for the Web3 environment, where traditional data collection models are replaced by cryptographic verification, zero-knowledge proofs, and user-sovereign data ownership.</p>
+            <p>Privacy is a foundational principle of Web3 architecture. W3AI is committed to building privacy-preserving systems that protect user data, on-chain identity, and transactional confidentiality while maintaining compliance with applicable regulatory frameworks.</p>
           </div>
         </section>
         <section id="privacy-data-minimization">
@@ -1505,7 +1487,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         <section id="identity-anti-sybil">
           <h2 className="text-2xl font-bold text-foreground mb-4">Identity & Anti-Sybil Primitives</h2>
           <div className="prose-section">
-            <p>W3AI's Registry and whitelisted-wallet objective is strengthened by integrating a privacy-forward credential layer through Dentity, emphasizing trust, identity verification, and digital credentials. W3AI leverages this to support:</p>
+            <p>W3AI's Registry and whitelisted-wallet objective is strengthened by integrating a privacy-forward credential layer through Dentity. W3AI leverages this to support:</p>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
               <li>Pre-sale / beta access controls (credentialed wallet allowlists).</li>
               <li>Reduced bot/sybil influence in governance.</li>
@@ -1516,13 +1498,13 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 23: Risks & Disclosures */}
+      {/* PAGE 26: Risks & Disclosures */}
       {/* ============================================================ */}
       <div className={p("risks")}>
         <section id="risks">
           <h2 className="text-2xl font-bold text-foreground mb-4">Risks, Security & Disclosures</h2>
           <div className="prose-section">
-            <p>AI browsers and agentic workflows introduce genuine new risks. W3AI must assume that any browser-integrated assistant operating over untrusted web content is a target, and must treat "agent permissions" with the same rigor as "wallet permissions."</p>
+            <p>AI browsers and agentic workflows introduce genuine new risks. W3AI assumes that any browser-integrated assistant operating over untrusted web content is a target, and treats "agent permissions" with the same rigor as "wallet permissions."</p>
             <p>W3AI implements boundaries including: no autonomous signing, always-on transaction simulation and explainability, explicit whitelists for dApp connections, isolated profiles for high-risk browsing and airdrop hunting.</p>
             <p className="italic text-muted-foreground">Exchange listing targets are aspirational. Kraken, Coinbase, Gate, and MEXC all describe formal processes and criteria, and none guarantee approval.</p>
           </div>
@@ -1530,7 +1512,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 24: Appendix & References */}
+      {/* PAGE 27: Appendix & References */}
       {/* ============================================================ */}
       <div className={p("appendix")}>
         <section id="appendix">
@@ -1600,7 +1582,6 @@ export default function Whitepaper() {
     if (isTopLevel) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      // Sub-section: wait for page render then scroll
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
