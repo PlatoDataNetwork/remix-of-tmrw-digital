@@ -410,6 +410,24 @@ const ChatWidget = () => {
               <div ref={messagesEndRef} />
             </div>
 
+            {/* Quick Suggestions */}
+            {messages.length <= 1 && !isLoading && (
+              <div className="px-4 pt-2 pb-0 flex flex-wrap gap-1.5">
+                {[
+                  { label: "📄 W3AI Whitepaper", text: "Tell me about the W3AI Whitepaper" },
+                  { label: "😄 Tell Me a Joke", text: "Tell me a joke about AI" },
+                ].map((s) => (
+                  <button
+                    key={s.label}
+                    onClick={() => handleFollowUp(s.text)}
+                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-white/[0.06] border border-white/10 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200"
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
+            )}
+
             {/* Input */}
             <div className="px-4 py-3 border-t border-white/10 bg-[hsl(220,20%,8%,0.7)]">
               <form
