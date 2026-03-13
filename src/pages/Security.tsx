@@ -82,53 +82,6 @@ const Security = () => {
             </p>
           </motion.div>
 
-          {/* Animated shield visual */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative w-40 h-40 md:w-52 md:h-52 mx-auto mt-14"
-          >
-            {[0, 1, 2].map((i) => (
-              <motion.div
-                key={i}
-                animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-                transition={{ duration: 25 + i * 10, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border"
-                style={{
-                  inset: `${i * 18}px`,
-                  borderColor: `hsl(var(--primary) / ${0.2 - i * 0.05})`,
-                }}
-              />
-            ))}
-            {[
-              { color: "hsl(var(--primary))", dur: 12, inset: 0, pos: "top" as const },
-              { color: "hsl(200 90% 55%)", dur: 16, inset: 18, pos: "right" as const },
-              { color: "hsl(275 80% 60%)", dur: 20, inset: 36, pos: "bottom" as const },
-            ].map((dot, i) => (
-              <motion.div
-                key={`dot-${i}`}
-                animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-                transition={{ duration: dot.dur, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0"
-                style={{ inset: `${dot.inset}px` }}
-              >
-                <div
-                  className="absolute w-2.5 h-2.5 rounded-full"
-                  style={{
-                    backgroundColor: dot.color,
-                    boxShadow: `0 0 12px ${dot.color}`,
-                    ...(dot.pos === "top" ? { top: -4, left: "50%", transform: "translateX(-50%)" } :
-                       dot.pos === "right" ? { right: -4, top: "50%", transform: "translateY(-50%)" } :
-                       { bottom: -4, left: "50%", transform: "translateX(-50%)" }),
-                  }}
-                />
-              </motion.div>
-            ))}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Shield className="h-10 w-10 text-primary" />
-            </div>
-          </motion.div>
         </div>
       </section>
 
