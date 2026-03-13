@@ -10,6 +10,7 @@ export interface ServicePageData {
   title: string;
   subtitle: string;
   heroDescription: string;
+  heroLink?: { label: string; path: string };
   overview: string;
   capabilities: {
     title: string;
