@@ -65,6 +65,7 @@ const Whitepaper = lazy(() => import("./pages/Whitepaper"));
 const Deck = lazy(() => import("./pages/Deck"));
 const CorporateDeck = lazy(() => import("./pages/CorporateDeck"));
 const OrdiorDeck = lazy(() => import("./pages/OrdiorDeck"));
+const SuperCloud = lazy(() => import("./pages/SuperCloud"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -99,6 +100,7 @@ function getRoutes() {
     <Route key="svc-rwa" path="services/real-world-assets" element={<RealWorldAssetsService />} />,
     <Route key="svc-data" path="services/data-intelligence" element={<DataIntelligenceService />} />,
     <Route key="svc-ai" path="services/ai-analytics" element={<AIAnalyticsService />} />,
+    <Route key="super-cloud" path="super-cloud" element={<SuperCloud />} />,
     <Route key="svc-cyber" path="services/cyber-defense" element={<CyberDefenseService />} />,
     <Route key="svc-digital" path="services/digital-strategy" element={<DigitalStrategyService />} />,
     <Route key="w3-ai" path="web3ai/ai-automation" element={<AIAutomation />} />,

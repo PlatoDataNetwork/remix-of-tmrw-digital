@@ -10,6 +10,7 @@ export interface ServicePageData {
   title: string;
   subtitle: string;
   heroDescription: string;
+  heroLink?: { label: string; path: string };
   overview: string;
   capabilities: {
     title: string;
@@ -85,6 +86,17 @@ const ServicePageTemplate = ({ data }: { data: ServicePageData }) => {
           >
             {data.heroDescription}
           </motion.p>
+
+          {data.heroLink && (
+            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.3 }} className="mt-6">
+              <Link
+                to={data.heroLink.path}
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium border border-[hsl(82,85%,55%,0.3)] text-[hsl(82,85%,55%)] hover:bg-[hsl(82,85%,55%,0.08)] hover:border-[hsl(82,85%,55%,0.5)] transition-all duration-200"
+              >
+                {data.heroLink.label}
+              </Link>
+            </motion.div>
+          )}
         </div>
       </section>
 
