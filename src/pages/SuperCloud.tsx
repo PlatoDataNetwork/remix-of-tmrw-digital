@@ -176,20 +176,49 @@ const SuperCloud = () => {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed mb-12"
           >
-            A decentralized AI compute mesh spanning 500+ nodes worldwide. Scroll to explore each layer of the architecture — from the hardware foundation to the application frontier.
+            A decentralized AI compute mesh with plans to grow 500+ nodes worldwide. Scroll to explore each layer of the architecture — from the hardware foundation to the application frontier.
           </motion.p>
 
-          {/* Stats row */}
+          {/* Architecture preview — animated rings */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="flex justify-center gap-4 md:gap-6 flex-wrap mb-16"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.35 }}
+            className="relative w-48 h-48 md:w-56 md:h-56 mx-auto mb-16"
           >
-            <StatPill value="60%" label="Cost Reduction" />
-            <StatPill value="500+" label="Global Nodes" />
-            <StatPill value="<50ms" label="Inference Latency" />
-            <StatPill value="120+" label="Projects Supported" />
+            {[0, 1, 2].map((i) => (
+              <motion.div
+                key={i}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20 + i * 8, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 rounded-full border"
+                style={{
+                  inset: `${i * 20}px`,
+                  borderColor: `hsl(82 85% 55% / ${0.15 - i * 0.03})`,
+                }}
+              />
+            ))}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="flex flex-col items-center gap-1">
+                <Cpu className="h-8 w-8 text-[hsl(82,85%,55%)]" />
+                <span className="text-[10px] uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)]">5 Layers</span>
+              </div>
+            </div>
+            {/* Orbiting dots */}
+            {[0, 1, 2, 3].map((i) => (
+              <motion.div
+                key={`dot-${i}`}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 12 + i * 4, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0"
+                style={{ inset: `${i * 12}px` }}
+              >
+                <div
+                  className="absolute w-2 h-2 rounded-full bg-[hsl(82,85%,55%)]"
+                  style={{ top: 0, left: "50%", transform: "translateX(-50%)", boxShadow: "0 0 8px hsl(82 85% 55% / 0.4)" }}
+                />
+              </motion.div>
+            ))}
           </motion.div>
 
           {/* Scroll indicator */}
