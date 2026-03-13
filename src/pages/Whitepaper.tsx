@@ -1067,6 +1067,39 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
           <div className="prose-section">
             <p>W3AI's infrastructure layer underpins every product surface — from browser AI inference to multi-chain validator operations. The architecture is designed for resilience, scalability, and operational transparency.</p>
           </div>
+
+          {/* Infrastructure Stack Diagram */}
+          <div className="my-8 flex justify-center">
+            <div className="w-full max-w-2xl">
+              <svg viewBox="0 0 600 320" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Stack layers - bottom to top */}
+                {[
+                  { label: "Blockchain Networks", sub: "Solana · Ethereum · BNB Chain", y: 250, fill: "fill-accent/30" },
+                  { label: "Validator & Node Infrastructure", sub: "HSMs · Geo-Distributed · Automated Failover", y: 195, fill: "fill-accent/50" },
+                  { label: "Protocol Services", sub: "Bridge · Governance · Treasury · Staking", y: 140, fill: "fill-accent/70" },
+                  { label: "Edge Computing & AI Inference", sub: "Low-Latency Routing · Transaction Simulation", y: 85, fill: "fill-card" },
+                  { label: "TMRW Browser", sub: "User Interface · Wallet · AI Assistant", y: 30, fill: "fill-card" },
+                ].map((layer, i) => (
+                  <g key={i}>
+                    <rect x="80" y={layer.y} width="440" height="48" rx="6" className={`${layer.fill} stroke-border`} strokeWidth="1.5" />
+                    <text x="300" y={layer.y + 22} textAnchor="middle" className="fill-foreground font-bold" fontSize="11">{layer.label}</text>
+                    <text x="300" y={layer.y + 37} textAnchor="middle" className="fill-muted-foreground" fontSize="8.5">{layer.sub}</text>
+                  </g>
+                ))}
+
+                {/* Side label */}
+                <text x="45" y="160" textAnchor="middle" className="fill-muted-foreground" fontSize="9" transform="rotate(-90, 45, 160)">MONITORING</text>
+                <line x1="60" y1="40" x2="60" y2="290" className="stroke-border" strokeWidth="1" strokeDasharray="4,3" />
+
+                {/* Right side label */}
+                <text x="555" y="160" textAnchor="middle" className="fill-muted-foreground" fontSize="9" transform="rotate(90, 555, 160)">SECURITY</text>
+                <line x1="540" y1="40" x2="540" y2="290" className="stroke-border" strokeWidth="1" strokeDasharray="4,3" />
+
+                {/* Caption */}
+                <text x="300" y="312" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">Full-stack infrastructure with monitoring and security at every layer</text>
+              </svg>
+            </div>
+          </div>
         </section>
         <section id="infra-network">
           <h2 className="text-2xl font-bold text-foreground mb-4">Network Architecture</h2>
