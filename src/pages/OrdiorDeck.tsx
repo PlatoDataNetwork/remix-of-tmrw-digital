@@ -31,17 +31,8 @@ function SlideBranding() {
         }}
       />
       <span className="text-[10px] font-light tracking-[0.2em] text-muted-foreground/60 uppercase">
-        TMRW <span className="text-muted-foreground/30">|</span> Corporate
+        TMRW <span className="text-muted-foreground/30">|</span> Ordior
       </span>
-    </div>
-  );
-}
-
-function SlideAccent() {
-  return (
-    <div className="absolute top-0 left-0 z-10 pointer-events-none">
-      <div className="w-px h-16 bg-gradient-to-b from-[hsl(82,85%,55%,0.6)] to-transparent" />
-      <div className="absolute top-0 left-0 w-16 h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.6)] to-transparent" />
     </div>
   );
 }
@@ -97,7 +88,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 const slides: Slide[] = [
-  // 1 — Title
+  // ===== 1 — Title =====
   {
     id: "title",
     render: () => (
@@ -115,11 +106,13 @@ const slides: Slide[] = [
           </div>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
           <p className="text-sm font-light text-[hsl(82,85%,55%,0.6)] uppercase tracking-[0.3em]">Prepared for Ordior</p>
+          <p className="text-xs font-light text-muted-foreground/40 uppercase tracking-[0.2em]">Private & Confidential</p>
         </div>
       </div>
     ),
   },
-  // 2 — Disclaimer
+
+  // ===== 2 — Disclaimer =====
   {
     id: "disclaimer",
     render: () => (
@@ -138,140 +131,82 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 3 — Company Overview
+
+  // ===== 3 — TMRW Framework Overview =====
   {
-    id: "overview",
+    id: "framework",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Company Overview</SlideTitle>
+        <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%,0.6)]">The TMRW Framework</p>
+        <SlideTitle>Licensed Data Intelligence & Tokenization Infrastructure</SlideTitle>
         <SlideSubtitle>
-          Tomorrow Digital Inc. (DBA: The Tomorrow Company) consolidates Plato AI with Carbon Distributed Technologies, 
-          creating the foundation for tomorrow's digital economy.
+          A best-in-class white-label tokenization solution for real-world assets — combining data intelligence, 
+          blockchain infrastructure, and institutional-grade analytics into a single deployable platform.
         </SlideSubtitle>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4">
-          <StatBlock value="13M+" label="Platform Visitors" />
-          <StatBlock value="160+" label="Countries Reached" />
-          <StatBlock value="35" label="Languages" />
-          <StatBlock value="70K+" label="Enterprise Users" />
-        </div>
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.15)] to-transparent mt-2" />
-      </div>
-    ),
-  },
-  // 4 — Mission & Vision
-  {
-    id: "mission",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%,0.6)]">Mission</p>
-        <SlideTitle>Building the Infrastructure for Tomorrow's Digital Economy</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <SectionLabel>Our Mission</SectionLabel>
-            <p className="text-sm font-light text-muted-foreground leading-relaxed">
-              To engineer the infrastructure layer that the next generation of capital markets will run on — 
-              where AI is native, assets are programmable, and trust is verified.
-            </p>
-          </div>
-          <div className="space-y-4">
-            <SectionLabel>Our Vision</SectionLabel>
-            <p className="text-sm font-light text-muted-foreground leading-relaxed">
-              A world where intelligence and capital move together under explicit user control, 
-              bridging traditional finance with Web3 through institutional-grade infrastructure.
-            </p>
-          </div>
+          <StatBlock value="12+" label="Asset Classes" />
+          <StatBlock value="160+" label="Countries" />
+          <StatBlock value="$2B+" label="Assets Tokenized" />
+          <StatBlock value="24/7" label="Settlement" />
         </div>
       </div>
     ),
   },
-  // 5 — About
+
+  // ===== 4 — Whitelabel Model =====
   {
-    id: "about",
+    id: "whitelabel",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Built on Experience. Driven by Results.</SlideTitle>
+        <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%,0.6)]">Whitelabel Tokenization</p>
+        <SlideTitle>Your Brand. Our Infrastructure.</SlideTitle>
         <SlideSubtitle>
-          With over two decades of proven expertise, our team has guided hundreds of companies through 
-          critical growth stages — delivering measurable outcomes backed by deep industry knowledge and strategic execution.
+          Deploy a fully branded tokenization and data intelligence platform — built on the TMRW Licensed Data Framework — 
+          without building from scratch.
         </SlideSubtitle>
-        <BulletList items={[
-          { bold: "Disciplined capital deployment", text: "with forward-thinking execution across emerging and established markets." },
-          { bold: "AI and Web3 convergence", text: "redefining how capital moves, how value is measured, and how trust is established." },
-          { bold: "Institutional credibility", text: "with public market transparency and regulatory compliance from day one." },
-        ]} />
-      </div>
-    ),
-  },
-  // 6 — Methodology
-  {
-    id: "methodology",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%,0.6)]">Methodology</p>
-        <SlideTitle>Conviction Over Convention</SlideTitle>
         <div className="grid grid-cols-2 gap-6">
           {[
-            { num: "01", title: "Infrastructure First", desc: "We build the rails, not chase trends. Institutional-grade infrastructure designed to outlast market cycles." },
-            { num: "02", title: "Vertical Intelligence", desc: "Embedding AI natively into each vertical so data, compliance, and execution become indivisible." },
-            { num: "03", title: "Convergence by Design", desc: "Web3 + AI architected simultaneously — trust is verifiable, intelligence is decentralized." },
-            { num: "04", title: "Capital-Ready", desc: "Every product built to withstand regulatory scrutiny, due diligence, and public market transparency." },
-          ].map(p => (
-            <GreenCard key={p.num} className="p-5 space-y-2">
-              <span className="text-2xl font-extralight text-muted-foreground/30">{p.num}</span>
-              <h3 className="text-sm font-medium text-foreground">{p.title}</h3>
-              <p className="text-xs font-light text-muted-foreground leading-relaxed">{p.desc}</p>
+            { title: "Custom Branded Interface", desc: "Fully white-labeled application with your identity, dashboards, and investor portal." },
+            { title: "Data Intelligence Engine", desc: "Real-time analytics, asset valuation tracking, NAV calculations, and market data feeds." },
+            { title: "Token Lifecycle Management", desc: "End-to-end token minting, distribution, burn, retirement, and supply tracking." },
+            { title: "Blockchain Infrastructure", desc: "Ethereum / EVM compatible smart contracts, asset registries, and ownership records." },
+          ].map(c => (
+            <GreenCard key={c.title} className="p-5 space-y-2">
+              <h3 className="text-sm font-medium text-foreground">{c.title}</h3>
+              <p className="text-[11px] font-light text-muted-foreground leading-relaxed">{c.desc}</p>
             </GreenCard>
           ))}
         </div>
       </div>
     ),
   },
-  // 7 — Services
+
+  // ===== 5 — Platform Architecture =====
   {
-    id: "services",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Service Verticals</SlideTitle>
-        <SlideSubtitle>End-to-end capabilities driving growth, security, and competitive advantage.</SlideSubtitle>
-        <div className="grid grid-cols-3 gap-4">
-          {[
-            { title: "Web3AI", desc: "Strategic guidance through Web3 and AI-powered digital transformation" },
-            { title: "Real World Assets", desc: "Tokenization and management for broader investor accessibility" },
-            { title: "Data Intelligence", desc: "Data-driven insights for opportunity identification" },
-            { title: "AI Super Cloud", desc: "Distributed compute layer for AI inference and analytics" },
-            { title: "Cyber Defense", desc: "Advanced threat detection and blockchain security audits" },
-            { title: "Digital Strategy", desc: "Comprehensive social media and outreach for Web3 markets" },
-          ].map(s => (
-            <GreenCard key={s.title} className="p-4 space-y-2">
-              <h3 className="text-sm font-medium text-foreground">{s.title}</h3>
-              <p className="text-[11px] font-light text-muted-foreground leading-relaxed">{s.desc}</p>
-            </GreenCard>
-          ))}
-        </div>
-      </div>
-    ),
-  },
-  // 8 — W3AI TMRW Browser
-  {
-    id: "browser",
+    id: "architecture",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
-        <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%,0.6)]">Flagship Product</p>
-        <SlideTitle>Agentic Web3 AI Browser</SlideTitle>
-        <SlideSubtitle>
-          A macOS desktop Web3 AI Browser built on Firefox. The browser is the execution environment 
-          for AI, identity, and money.
-        </SlideSubtitle>
-        <BulletList items={[
-          { bold: "Gecko engine —", text: "deep customization, open-source codebase, Chromium-independent." },
-          { bold: "User-selectable AI —", text: "BYOK or Open Gateway with token-based billing." },
-          { bold: "Security-first —", text: "smart contract audits, transaction simulation, no autonomous signing." },
-          { bold: "Multi-chain —", text: "native support for Solana, Ethereum, BSC, and 12+ networks." },
-        ]} />
+        <SlideTitle>Platform Architecture</SlideTitle>
+        <SlideSubtitle>Four integrated layers powering the complete tokenization lifecycle.</SlideSubtitle>
+        <div className="grid grid-cols-2 gap-4">
+          {[
+            { num: "L1", title: "Blockchain Infrastructure", desc: "Ethereum / EVM compatible — token minting, smart contracts, asset registry, transfers, ownership records, and interoperability." },
+            { num: "L2", title: "Token Lifecycle Engine", desc: "Token minting, distribution, burn and retirement management, asset reserve reconciliation, and supply integrity tracking." },
+            { num: "L3", title: "Data Intelligence Engine", desc: "Powered by the TMRW Data Framework — real-time analytics, reserve intelligence, market feeds, NAV calculations, and investor dashboards." },
+            { num: "L4", title: "Application & Trading Layer", desc: "White-label platform with asset dashboard, investor reporting, minting controls, registry management, and trading integration." },
+          ].map(l => (
+            <GreenCard key={l.num} className="p-5 space-y-2">
+              <span className="text-2xl font-extralight text-muted-foreground/30">{l.num}</span>
+              <h3 className="text-sm font-medium text-foreground">{l.title}</h3>
+              <p className="text-[11px] font-light text-muted-foreground leading-relaxed">{l.desc}</p>
+            </GreenCard>
+          ))}
+        </div>
       </div>
     ),
   },
-  // 9 — RWA Tokenization
+
+  // ===== 6 — RWA Tokenization Sectors =====
   {
     id: "rwas",
     render: () => (
@@ -286,7 +221,7 @@ const slides: Slide[] = [
             "Infrastructure", "Metals", "Rare Earth", "Real Estate",
             "Sovereign Wealth", "Stablecoins", "Tax Credits", "Utilities",
           ].map(v => (
-            <div key={v} className="p-3 rounded-lg border border-[hsl(82,85%,55%,0.3)] bg-card text-center relative overflow-hidden hover:border-[hsl(82,85%,55%,0.8)] hover:shadow-[0_0_20px_-5px_hsl(82,85%,55%,0.4)] hover:shadow-[inset_0_0_20px_-10px_hsl(82,85%,55%,0.2)] transition-all group">
+            <div key={v} className="p-3 rounded-lg border border-[hsl(82,85%,55%,0.3)] bg-card text-center relative overflow-hidden hover:border-[hsl(82,85%,55%,0.8)] hover:shadow-[0_0_20px_-5px_hsl(82,85%,55%,0.4)] transition-all group">
               <p className="text-xs font-medium text-foreground group-hover:text-[hsl(82,85%,55%)] transition-colors">{v}</p>
             </div>
           ))}
@@ -294,7 +229,47 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 10 — Market Opportunity
+
+  // ===== 7 — Company Overview =====
+  {
+    id: "company",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideTitle>Company Overview</SlideTitle>
+        <SlideSubtitle>
+          Tomorrow Digital Inc. (DBA: The Tomorrow Company) consolidates Plato AI with Carbon Distributed Technologies,
+          creating the foundation for tomorrow's digital economy.
+        </SlideSubtitle>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4">
+          <StatBlock value="13M+" label="Platform Visitors" />
+          <StatBlock value="160+" label="Countries Reached" />
+          <StatBlock value="35" label="Languages" />
+          <StatBlock value="70K+" label="Enterprise Users" />
+        </div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.15)] to-transparent mt-2" />
+      </div>
+    ),
+  },
+
+  // ===== 8 — Institutional Vision =====
+  {
+    id: "vision",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <div className="relative rounded-2xl overflow-hidden">
+          <img src={stockExchangeImg} alt="Stock Exchange" className="w-full h-[200px] md:h-[260px] object-cover grayscale brightness-110" />
+          <div className="absolute inset-0 animated-gradient-datacenter-bg" />
+        </div>
+        <SlideTitle>Institutional Trading Vision</SlideTitle>
+        <SlideSubtitle>
+          Enabling tokenized assets to trade across institutional platforms — bank commodity desks, digital asset exchanges, 
+          institutional RWA platforms, and OTC trading systems with blockchain-based settlement and transparency.
+        </SlideSubtitle>
+      </div>
+    ),
+  },
+
+  // ===== 9 — Market Opportunity =====
   {
     id: "market",
     render: () => (
@@ -314,83 +289,8 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 11 — Carbon & ESG Assets
-  {
-    id: "carbon",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Carbon & ESG Infrastructure</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <SectionLabel>Carbon Assets</SectionLabel>
-            <BulletList items={[
-              { bold: "500,000 tonnes", text: "ISO-certified carbon credits." },
-              { bold: "~$5M USD", text: "valued carbon credit portfolio." },
-              { bold: "Option for 2.3M", text: "additional tonnes available." },
-              { bold: "300M+ CUT tokens", text: "in treasury reserve." },
-              { bold: "Deployed by Northern Trust.", text: "1.7T in assets." },
-            ]} />
-          </div>
-          <div className="space-y-4">
-            <SectionLabel>ESG Technology</SectionLabel>
-            <BulletList items={[
-              { bold: "Blockchain verification", text: "with immutable audit trails." },
-              { bold: "Retire App", text: "for transparent token burning." },
-              { bold: "FMA regulated", text: "under Liechtenstein framework." },
-              { bold: "6M+ kg", text: "carbon offsets already retired." },
-            ]} />
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  // 12 — RTO & Public Markets
-  {
-    id: "rto",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <div className="relative rounded-2xl overflow-hidden">
-          <img src={stockExchangeImg} alt="Stock Exchange" className="w-full h-[200px] md:h-[260px] object-cover grayscale brightness-110" />
-          <div className="absolute inset-0 animated-gradient-datacenter-bg" />
-        </div>
-        <SlideTitle>RTO & Public Markets</SlideTitle>
-        <SlideSubtitle>
-          Reverse takeover transaction targeting TSX Venture Exchange listing in Q2 2026 — 
-          bringing institutional credibility and public market access.
-        </SlideSubtitle>
-      </div>
-    ),
-  },
-  // 13 — Competitive Landscape
-  {
-    id: "competitive",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Competitive Landscape</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <SectionLabel>What Sets Us Apart</SectionLabel>
-            <BulletList items={[
-              { bold: "Convergence —", text: "AI + Web3 + RWA in a single integrated platform." },
-              { bold: "Public market path —", text: "TSX listing provides institutional confidence." },
-              { bold: "Regulatory-first —", text: "dual-jurisdiction compliance (Canada + Liechtenstein)." },
-              { bold: "Revenue generating —", text: "existing platform with proven traction." },
-            ]} />
-          </div>
-          <div className="space-y-4">
-            <SectionLabel>vs Market</SectionLabel>
-            <BulletList items={[
-              { bold: "vs Brave —", text: "Web3-specific security beyond privacy." },
-              { bold: "vs Pure DeFi —", text: "institutional-grade rails + compliance." },
-              { bold: "vs TradFi —", text: "on-chain transparency + fractional access." },
-              { bold: "vs AI startups —", text: "integrated token economy + browser distribution." },
-            ]} />
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  // 14 — Leadership Team
+
+  // ===== 10 — Leadership Team =====
   {
     id: "team",
     render: () => (
@@ -414,130 +314,268 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 15 — Network Partners
+
+  // ===== 11 — Tokenized Mining Assets (Pilot Intro) =====
   {
-    id: "partners",
+    id: "pilot-intro",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Network Partners</SlideTitle>
-        <SlideSubtitle>Product-integrated partnerships covering security, identity, liquidity, and institutional credibility.</SlideSubtitle>
+        <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%,0.6)]">Pilot Program</p>
+        <SlideTitle>Tokenized Mining Assets Platform</SlideTitle>
+        <SlideSubtitle>
+          Custom Data Intelligence & Tokenization Engine for Real World Gold Assets — bridging traditional commodity markets 
+          and blockchain infrastructure.
+        </SlideSubtitle>
+        <BulletList items={[
+          { bold: "RWA Tokenization Infrastructure —", text: "end-to-end token lifecycle from minting to retirement." },
+          { bold: "Custom Data Intelligence Engine —", text: "real-time analytics powered by the TMRW Data Framework." },
+          { bold: "Institutional-Grade Analytics —", text: "asset valuation, NAV calculations, and reserve intelligence." },
+          { bold: "Trading & Transfer Infrastructure —", text: "built for eventual institutional desk integration." },
+        ]} />
+      </div>
+    ),
+  },
+
+  // ===== 12 — Core Offering: $25,000 Pilot =====
+  {
+    id: "pilot-offering",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <div className="flex items-baseline gap-4">
+          <SlideTitle>Core Offering</SlideTitle>
+          <span className="text-2xl font-extralight text-[hsl(82,85%,55%)]">$25,000</span>
+        </div>
+        <SlideSubtitle>
+          The Pilot Program enables mining operators or asset owners to deploy a fully branded tokenization 
+          and intelligence platform to represent their gold assets digitally.
+        </SlideSubtitle>
+        <div className="grid grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <SectionLabel>White Label Application</SectionLabel>
+            <BulletList items={[
+              { bold: "Custom branded interface", text: "built on the TMRW Data Framework." },
+              { bold: "Asset analytics dashboards", text: "with data visualization and reporting." },
+              { bold: "Token lifecycle management", text: "system with backend registry." },
+            ]} />
+          </div>
+          <div className="space-y-4">
+            <SectionLabel>Blockchain Infrastructure</SectionLabel>
+            <BulletList items={[
+              { bold: "Ethereum / EVM compatible", text: "testnet deployment." },
+              { bold: "Token minting infrastructure", text: "with smart contract deployment." },
+              { bold: "Asset token registry", text: "with lifecycle management tools." },
+            ]} />
+          </div>
+        </div>
+      </div>
+    ),
+  },
+
+  // ===== 13 — Tokenized Asset Model =====
+  {
+    id: "token-model",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideTitle>Tokenized Asset Model</SlideTitle>
+        <SlideSubtitle>
+          Each token series represents specific asset allocations or reserve blocks — verified in-ground gold reserves 
+          linked to asset metadata, reserve documentation, and chain-verified minting records.
+        </SlideSubtitle>
         <div className="grid grid-cols-3 gap-4">
           {[
-            { name: "0x", role: "DEX aggregation & routing" },
-            { name: "Changelly", role: "Instant exchange & on-ramp" },
-            { name: "CLS", role: "FX settlement infrastructure" },
-            { name: "Dentity", role: "Identity & anti-sybil" },
-            { name: "G-20 Group", role: "Liquidity & treasury" },
-            { name: "Hacken", role: "Security & audits" },
-            { name: "LabLab", role: "AI builder community" },
-            { name: "Northern Trust", role: "Institutional tokenization" },
-            { name: "Surge", role: "Token launch gateway" },
-          ].map(p => (
-            <GreenCard key={p.name} className="p-4 space-y-1">
-              <h3 className="text-sm font-medium text-foreground">{p.name}</h3>
-              <p className="text-[11px] font-light text-muted-foreground">{p.role}</p>
-            </GreenCard>
-          ))}
-        </div>
-      </div>
-    ),
-  },
-  // 16 — Regulatory & Compliance
-  {
-    id: "regulatory",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Regulatory & Compliance</SlideTitle>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { title: "Canada", desc: "IFRS standards, FINTRAC compliance, CPA-governed auditing, and TSX Venture Exchange regulatory framework." },
-            { title: "Liechtenstein", desc: "TVTG (Token & VT Service Provider Act) regulatory framework under FMA oversight — EU-passportable." },
-            { title: "Global Standards", desc: "AML/KYC automation, Travel Rule compliance, real-time sanctions screening, and quarterly treasury reporting." },
+            { title: "Verified Reserves", desc: "Tokens represent verified in-ground gold reserves with linked geological data." },
+            { title: "Asset Metadata", desc: "Complete asset documentation framework with ownership records and chain verification." },
+            { title: "Supply Integrity", desc: "Reserve reconciliation, asset reporting, and transparent supply tracking on-chain." },
           ].map(c => (
-            <GreenCard key={c.title} className="p-6 space-y-3">
-              <h3 className="text-base font-medium text-[hsl(82,85%,55%)]">{c.title}</h3>
-              <p className="text-sm font-light text-muted-foreground leading-relaxed">{c.desc}</p>
+            <GreenCard key={c.title} className="p-5 space-y-2">
+              <h3 className="text-sm font-medium text-foreground">{c.title}</h3>
+              <p className="text-[11px] font-light text-muted-foreground leading-relaxed">{c.desc}</p>
             </GreenCard>
           ))}
         </div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.15)] to-transparent" />
       </div>
     ),
   },
-  // 17 — Infrastructure
+
+  // ===== 14 — Pilot Deliverables =====
   {
-    id: "infrastructure",
+    id: "deliverables",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
+        <SlideTitle>Pilot Deliverables</SlideTitle>
+        <div className="grid grid-cols-2 gap-4">
+          {[
+            "Custom branded application",
+            "Token minting on EVM testnet",
+            "Token lifecycle management system",
+            "Asset registry & verification layer",
+            "Custom analytics dashboard",
+            "Secure backend administration",
+            "Smart contract deployment",
+            "Token issuance test environment",
+            "12 months hosting & infrastructure",
+            "Security monitoring",
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-3 p-3 rounded-lg border border-[hsl(82,85%,55%,0.1)] bg-card/50">
+              <div className="w-5 h-5 rounded-full border border-[hsl(82,85%,55%,0.4)] flex items-center justify-center shrink-0">
+                <div className="w-2 h-2 rounded-full bg-[hsl(82,85%,55%)]" />
+              </div>
+              <p className="text-xs font-light text-muted-foreground">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+
+  // ===== 15 — Conversion & Ongoing Costs =====
+  {
+    id: "costs",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+        <SlideTitle>Conversion & Ongoing Costs</SlideTitle>
+        <div className="grid md:grid-cols-3 gap-6">
+          <GreenCard className="p-6 space-y-3">
+            <h3 className="text-base font-medium text-[hsl(82,85%,55%)]">Testnet → Mainnet</h3>
+            <p className="text-3xl font-extralight text-foreground">1%</p>
+            <p className="text-xs font-light text-muted-foreground">of Minted Asset NAV plus ancillary operational costs. Clients have up to 12 months to convert.</p>
+          </GreenCard>
+          <GreenCard className="p-6 space-y-3">
+            <h3 className="text-base font-medium text-[hsl(82,85%,55%)]">Pilot Maintenance</h3>
+            <p className="text-3xl font-extralight text-foreground">$1,500<span className="text-lg text-muted-foreground">/mo</span></p>
+            <p className="text-xs font-light text-muted-foreground">Platform maintenance, security monitoring, infrastructure hosting, and token management support.</p>
+          </GreenCard>
+          <GreenCard className="p-6 space-y-3">
+            <h3 className="text-base font-medium text-[hsl(82,85%,55%)]">Live Mainnet</h3>
+            <p className="text-3xl font-extralight text-foreground">$20–40K<span className="text-lg text-muted-foreground">/yr</span></p>
+            <p className="text-xs font-light text-muted-foreground">Hosting, security, smart contract monitoring, compliance support, and trading system integration.</p>
+          </GreenCard>
+        </div>
+      </div>
+    ),
+  },
+
+  // ===== 16 — 90-Day Deployment Roadmap =====
+  {
+    id: "roadmap",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
+        <SlideTitle>90-Day Deployment Roadmap</SlideTitle>
+        <div className="grid grid-cols-2 gap-4">
+          {[
+            { phase: "01", title: "Assessment & Planning", duration: "2 Weeks", items: "Evaluate asset class, review reserve documentation, define token model, establish economics, identify compliance requirements." },
+            { phase: "02", title: "Custom Design & Branding", duration: "2 Weeks", items: "Develop client branding, design dashboard interface, investor portal, analytics displays, and UX architecture." },
+            { phase: "03", title: "Development", duration: "30 Days", items: "Smart contract layer, token minting contracts, application layer with dashboards, data infrastructure with asset registry." },
+            { phase: "04", title: "Testing & Validation", duration: "30 Days", items: "Security testing, token minting validation, data integrity testing, penetration testing, EVM testnet deployment." },
+          ].map(p => (
+            <GreenCard key={p.phase} className="p-5 space-y-2">
+              <div className="flex items-baseline justify-between">
+                <span className="text-2xl font-extralight text-muted-foreground/30">{p.phase}</span>
+                <span className="text-[10px] uppercase tracking-wider text-[hsl(82,85%,55%,0.6)]">{p.duration}</span>
+              </div>
+              <h3 className="text-sm font-medium text-foreground">{p.title}</h3>
+              <p className="text-[11px] font-light text-muted-foreground leading-relaxed">{p.items}</p>
+            </GreenCard>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+
+  // ===== 17 — Pilot Launch (Day 90) =====
+  {
+    id: "launch",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
         <div className="relative rounded-2xl overflow-hidden">
           <img src={dataCenterImg} alt="Data Center" className="w-full h-[200px] md:h-[260px] object-cover grayscale brightness-110" />
           <div className="absolute inset-0 animated-gradient-datacenter-bg" />
           <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
         </div>
-        <SlideTitle>Enterprise Infrastructure</SlideTitle>
-        <BulletList items={[
-          { bold: "Multi-chain architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT." },
-          { bold: "Edge computing —", text: "geo-redundant infrastructure for low-latency AI inference." },
-          { bold: "Security layers —", text: "HSMs, MPC key management, browser sandboxing." },
-          { bold: "Monitoring —", text: "validator health, bridge volumes, treasury dashboards." },
-        ]} />
+        <SlideTitle>Pilot Launch — Day 90</SlideTitle>
+        <div className="grid grid-cols-2 gap-4">
+          {[
+            "Fully deployed branded application",
+            "Token minting system operational",
+            "Testnet token series live",
+            "Asset analytics dashboards",
+            "Admin management console",
+            "Investor portal access",
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-3">
+              <div className="w-5 h-5 rounded-full border border-[hsl(82,85%,55%,0.4)] flex items-center justify-center shrink-0">
+                <div className="w-2 h-2 rounded-full bg-[hsl(82,85%,55%)]" />
+              </div>
+              <p className="text-sm font-light text-muted-foreground">{item}</p>
+            </div>
+          ))}
+        </div>
       </div>
     ),
   },
-  // 18 — Revenue Model
+
+  // ===== 18 — Mainnet Migration =====
   {
-    id: "revenue",
+    id: "mainnet",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Revenue Model</SlideTitle>
-        <SlideSubtitle>Multiple revenue surfaces across the platform ecosystem.</SlideSubtitle>
-        <div className="grid grid-cols-2 gap-6">
+        <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%,0.6)]">Post-Launch</p>
+        <SlideTitle>Mainnet Migration Path</SlideTitle>
+        <SlideSubtitle>
+          During the 12-month pilot period, clients can expand token supply, onboard investors, validate trading models, 
+          and integrate institutional partners — converting to mainnet at any time.
+        </SlideSubtitle>
+        <div className="grid grid-cols-3 gap-4">
           {[
-            { title: "AI Gateway Fees", desc: "Token-based credits for inference with transparent 30% margin over provider costs" },
-            { title: "Browser Premium", desc: "Subscription access to advanced AI workflows and enterprise features" },
-            { title: "RWA Marketplace", desc: "Transaction fees on tokenized asset issuance, trading, and settlement" },
-            { title: "Carbon Credits", desc: "Blockchain-verified carbon offset trading and retirement infrastructure" },
-            { title: "In-Browser Swaps", desc: "Aggregated DEX fees on native crypto exchange within the browser" },
-            { title: "Validator Yield", desc: "Staking rewards from multi-chain validator operations" },
-          ].map(r => (
-            <GreenCard key={r.title} className="p-4 space-y-2">
-              <h3 className="text-sm font-medium text-foreground">{r.title}</h3>
-              <p className="text-[11px] font-light text-muted-foreground leading-relaxed">{r.desc}</p>
+            { num: "01", title: "Smart Contract Audit", desc: "Comprehensive security review of all deployed contracts." },
+            { num: "02", title: "Mainnet Deployment", desc: "Contract deployment to production blockchain." },
+            { num: "03", title: "Asset Verification", desc: "Final confirmation of reserve documentation." },
+            { num: "04", title: "Custody Integration", desc: "Institutional-grade custody system setup." },
+            { num: "05", title: "Settlement Rails", desc: "Institutional settlement infrastructure." },
+            { num: "06", title: "Liquidity Partners", desc: "Onboarding market makers and exchanges." },
+          ].map(s => (
+            <GreenCard key={s.num} className="p-4 space-y-1">
+              <span className="text-lg font-extralight text-muted-foreground/30">{s.num}</span>
+              <h3 className="text-xs font-medium text-foreground">{s.title}</h3>
+              <p className="text-[10px] font-light text-muted-foreground leading-relaxed">{s.desc}</p>
             </GreenCard>
           ))}
         </div>
       </div>
     ),
   },
-  // 19 — Corporate Structure
+
+  // ===== 19 — Strategic Value =====
   {
-    id: "structure",
+    id: "strategic",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Corporate Structure</SlideTitle>
+        <SlideTitle>Strategic Value</SlideTitle>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
-            <SectionLabel>Tomorrow Digital Inc.</SectionLabel>
+            <SectionLabel>For Mining Companies</SectionLabel>
             <BulletList items={[
-              { bold: "Headquarters —", text: "Vancouver, BC, Canada." },
-              { bold: "DBA —", text: "The Tomorrow Company." },
-              { bold: "Listing target —", text: "TSX Venture Exchange, Q2 2026." },
-              { bold: "Experienced team —", text: "proven executives with deep expertise across fintech, AI, blockchain, and public markets." },
+              { bold: "Unlock liquidity", text: "from verified reserves through tokenization." },
+              { bold: "Digitize ownership", text: "with blockchain-verified provenance." },
+              { bold: "Create tradable tokens", text: "backed by real-world gold assets." },
+              { bold: "Attract institutional investors", text: "with transparent, auditable infrastructure." },
             ]} />
           </div>
           <div className="space-y-4">
-            <SectionLabel>Governance</SectionLabel>
+            <SectionLabel>For Financial Institutions</SectionLabel>
             <BulletList items={[
-              { bold: "Board oversight —", text: "experienced directors from fintech and public markets." },
-              { bold: "Multi-sig treasury —", text: "transparent allocation and milestone-based releases." },
-              { bold: "Progressive decentralization —", text: "from foundation-led to community-governed." },
-              { bold: "Auditing —", text: "Hacken smart contracts + CPA financial audits." },
+              { bold: "Commodity-backed digital assets", text: "with verifiable provenance." },
+              { bold: "Programmable infrastructure", text: "enabling automated compliance and settlement." },
+              { bold: "Expansion potential", text: "across precious metals, energy, minerals, and infrastructure." },
             ]} />
           </div>
         </div>
       </div>
     ),
   },
-  // 20 — Closing
+
+  // ===== 20 — Closing =====
   {
     id: "closing",
     render: () => (
@@ -655,7 +693,7 @@ export default function OrdiorDeck() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SEOHead title="Ordior Deck" description="The Tomorrow Company — Prepared for Ordior Australia." path="/Ordior" noindex />
+      <SEOHead title="Ordior | TMRW Deck" description="TMRW tokenization platform deck prepared for Ordior." path="/Ordior" noindex />
       <Navbar />
       <div className="pt-20 lg:pt-24 pb-16 px-4 md:px-8 max-w-6xl mx-auto">
         {slideContent}
