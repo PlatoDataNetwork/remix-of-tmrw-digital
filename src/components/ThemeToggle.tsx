@@ -18,7 +18,7 @@ const ThemeToggle = () => {
   }, [theme]);
 
   useEffect(() => {
-    document.documentElement.classList.add("dark");
+    document.documentElement.classList.add("colorful");
   }, []);
 
   const cycleTheme = () => {
