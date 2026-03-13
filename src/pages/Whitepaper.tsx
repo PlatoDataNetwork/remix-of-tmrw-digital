@@ -2019,6 +2019,59 @@ export default function Whitepaper() {
           box-shadow: 0 1px 8px -1px hsl(82 85% 55% / 0.3);
         }
 
+        /* ===== Light theme: swap neon green → black ===== */
+        :root:not(.dark):not(.colorful) .prose-section strong { color: hsl(220 20% 10%) !important; }
+        :root:not(.dark):not(.colorful) .whitepaper-content section > h2::after {
+          background: linear-gradient(90deg, hsl(220 20% 10%), hsl(220 20% 10% / 0)) !important;
+        }
+        :root:not(.dark):not(.colorful) .prose-section ul li::before {
+          background: hsl(220 20% 10%) !important;
+          box-shadow: none !important;
+        }
+        :root:not(.dark):not(.colorful) .prose-section ol li::marker { color: hsl(220 20% 10%) !important; }
+        :root:not(.dark):not(.colorful) .whitepaper-content table { border-color: hsl(220 13% 91%) !important; }
+        :root:not(.dark):not(.colorful) .whitepaper-content thead { border-bottom-color: hsl(220 20% 10% / 0.2) !important; }
+        :root:not(.dark):not(.colorful) .whitepaper-content th { color: hsl(220 20% 10%) !important; }
+        :root:not(.dark):not(.colorful) .whitepaper-content .rounded-xl.border {
+          border-left-color: hsl(220 20% 10% / 0.3) !important;
+          box-shadow: inset 3px 0 12px -4px hsl(220 20% 10% / 0.04) !important;
+        }
+        :root:not(.dark):not(.colorful) .whitepaper-content .bg-muted\\/50.border {
+          border-left-color: hsl(220 20% 10% / 0.2) !important;
+        }
+        :root:not(.dark):not(.colorful) .whitepaper-content svg rect[rx="10"],
+        :root:not(.dark):not(.colorful) .whitepaper-content svg rect[rx="16"],
+        :root:not(.dark):not(.colorful) .whitepaper-content svg rect[rx="12"] { filter: none !important; }
+        :root:not(.dark):not(.colorful) .whitepaper-content svg circle[r="60"] { filter: none !important; }
+        :root:not(.dark):not(.colorful) .whitepaper-content svg text[font-style="italic"] { fill: hsl(220 10% 40%) !important; }
+        :root:not(.dark):not(.colorful) .whitepaper-content > .space-y-10 > section + section {
+          border-top-color: hsl(220 13% 91%) !important;
+        }
+        :root:not(.dark):not(.colorful) .prose-section a { color: hsl(220 20% 10%) !important; }
+        :root:not(.dark):not(.colorful) .prose-section a:hover { text-shadow: none !important; }
+        :root:not(.dark):not(.colorful) aside::-webkit-scrollbar-thumb { background: hsl(220 20% 10% / 0.15) !important; }
+        :root:not(.dark):not(.colorful) aside::-webkit-scrollbar-thumb:hover { background: hsl(220 20% 10% / 0.3) !important; }
+        :root:not(.dark):not(.colorful) .whitepaper-content button.group:hover { box-shadow: 0 0 20px -6px hsl(220 20% 10% / 0.08) !important; }
+        :root:not(.dark):not(.colorful) .fixed .bg-gradient-to-r {
+          box-shadow: 0 1px 8px -1px hsl(220 20% 10% / 0.15) !important;
+        }
+
+        /* Light theme: override inline hsl(82) Tailwind classes */
+        :root:not(.dark):not(.colorful) [class*="text-[hsl(82"] { color: hsl(220 20% 10%) !important; }
+        :root:not(.dark):not(.colorful) [class*="bg-[hsl(82"] { background-color: hsl(220 20% 10%) !important; }
+        :root:not(.dark):not(.colorful) [class*="border-[hsl(82"] { border-color: hsl(220 20% 10% / 0.2) !important; }
+        :root:not(.dark):not(.colorful) [class*="from-[hsl(82"] { --tw-gradient-from: hsl(220 20% 10% / 0.06) !important; }
+        :root:not(.dark):not(.colorful) [class*="to-[hsl(82"] { --tw-gradient-to: hsl(220 20% 10% / 0.06) !important; }
+        :root:not(.dark):not(.colorful) [class*="hover:from-[hsl(82"]:hover { --tw-gradient-from: hsl(220 20% 10% / 0.1) !important; }
+        :root:not(.dark):not(.colorful) [class*="hover:to-[hsl(82"]:hover { --tw-gradient-to: hsl(220 20% 10% / 0.1) !important; }
+        :root:not(.dark):not(.colorful) [class*="hover:text-[hsl(82"]:hover { color: hsl(220 20% 10%) !important; }
+        :root:not(.dark):not(.colorful) [class*="shadow-[0_0_15px"] { --tw-shadow: 0 0 15px -3px hsl(220 20% 10% / 0.08) !important; }
+
+        /* Light theme: progress bar */
+        :root:not(.dark):not(.colorful) .fixed .bg-gradient-to-r.from-\\[hsl\\(82 {
+          background: linear-gradient(to right, hsl(220 20% 10%), hsl(220 14% 30%)) !important;
+        }
+
         /* Hide non-active pages */
         .wp-page-hidden { display: none; }
 
