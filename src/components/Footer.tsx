@@ -7,10 +7,10 @@ const Footer = () => {
   const lp = (path: string) => langPath(currentLang, path);
 
   return (
-    <footer className="py-16 bg-background border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid md:grid-cols-6 gap-10 mb-16">
-          <div className="md:col-span-2">
+    <footer className="py-12 sm:py-16 bg-background border-t border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10 mb-12 sm:mb-16">
+          <div className="col-span-2">
             <Link to={lp("/")} className="flex items-center gap-2 mb-2">
               <div
                 className="h-8 w-8 animated-gradient-icon-bright"
@@ -26,22 +26,22 @@ const Footer = () => {
                   opacity: 1,
                 }}
               />
-              <span className="text-lg lg:text-xl font-bold tracking-tight text-foreground">
+              <span className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-foreground">
                 The Tomorrow Company
               </span>
             </Link>
-            <p className="text-lg text-muted-foreground mt-4">
+            <p className="text-sm sm:text-base text-muted-foreground mt-4">
               <a href="mailto:bf@tmrw-digital.com" className="hover:text-foreground transition-colors">bf@tmrw-digital.com</a>
             </p>
-            <p className="text-lg text-muted-foreground mt-2">
+            <p className="text-sm sm:text-base text-muted-foreground mt-2">
               300-10991 Shellbridge Way<br />
               Richmond, BC V6X 3C6
             </p>
-            <div className="mt-4 inline-flex items-center gap-2.5 px-4 py-3 rounded-xl border border-border">
+            <div className="mt-4 inline-flex items-center gap-2.5 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-border">
               <span className="h-2.5 w-2.5 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-lg font-light text-foreground">AI Systems Online</span>
+              <span className="text-sm sm:text-base font-light text-foreground">AI Systems Online</span>
             </div>
-            <p className="text-lg text-muted-foreground font-light mt-6 flex items-center gap-1.5">
+            <p className="text-sm sm:text-base text-muted-foreground font-light mt-6 flex items-center gap-1.5">
               Made with
               <span
                 className="inline-block h-5 w-5 animated-gradient-icon-bright"
@@ -60,8 +60,8 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Company</p>
-            <div className="space-y-3">
+            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3 sm:mb-4">Company</p>
+            <div className="space-y-2.5 sm:space-y-3">
               {[
                 { label: "About", href: "/#about" },
                 { label: "Methodology", href: "/#vision" },
@@ -73,7 +73,7 @@ const Footer = () => {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                    className="block text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </a>
@@ -81,7 +81,7 @@ const Footer = () => {
                   <Link
                     key={link.label}
                     to={lp(link.href)}
-                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                    className="block text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -89,7 +89,7 @@ const Footer = () => {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                    className="block text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </a>
@@ -98,8 +98,8 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Network</p>
-            <div className="space-y-3">
+            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3 sm:mb-4">Network</p>
+            <div className="space-y-2.5 sm:space-y-3">
               {[
                 { label: "Showcase", href: "/showcase" },
                 { label: "Intelligence", href: "/intel" },
@@ -111,7 +111,7 @@ const Footer = () => {
                   <Link
                     key={link.label}
                     to={lp(link.href)}
-                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                    className="block text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -119,7 +119,7 @@ const Footer = () => {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                    className="block text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </a>
@@ -128,8 +128,8 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Resources</p>
-            <div className="space-y-3">
+            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3 sm:mb-4">Resources</p>
+            <div className="space-y-2.5 sm:space-y-3">
               {[
               { label: "RTO", href: "/rto" },
               { label: "Blog", href: "#" },
@@ -141,7 +141,7 @@ const Footer = () => {
                   <Link
                     key={link.label}
                     to={lp(link.href)}
-                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                    className="block text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -149,7 +149,7 @@ const Footer = () => {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                    className="block text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </a>
@@ -158,8 +158,8 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Connect</p>
-            <div className="space-y-3">
+            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3 sm:mb-4">Connect</p>
+            <div className="space-y-2.5 sm:space-y-3">
               {[
                 { label: "LinkedIn", href: "#" },
                 { label: "Reddit", href: "#" },
@@ -170,7 +170,7 @@ const Footer = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link.label}
                 </a>
@@ -178,16 +178,16 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-lg text-muted-foreground">
+        <div className="border-t border-border pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <p className="text-sm sm:text-base text-muted-foreground">
             © 2026 Tomorrow Digital Inc. All Rights Reserved.
           </p>
-          <div className="flex flex-wrap gap-6">
-            <Link to={lp("/legal#privacy")} className="text-lg text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
-            <Link to={lp("/legal#compliance")} className="text-lg text-muted-foreground hover:text-foreground transition-colors">Compliance</Link>
-            <Link to={lp("/legal#terms")} className="text-lg text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
-            <Link to={lp("/legal#faq")} className="text-lg text-muted-foreground hover:text-foreground transition-colors">FAQ</Link>
-            <Link to={lp("/legal#data-processing")} className="text-lg text-muted-foreground hover:text-foreground transition-colors">Data Processing</Link>
+          <div className="flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-2">
+            <Link to={lp("/legal#privacy")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link to={lp("/legal#compliance")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">Compliance</Link>
+            <Link to={lp("/legal#terms")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
+            <Link to={lp("/legal#faq")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">FAQ</Link>
+            <Link to={lp("/legal#data-processing")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">Data Processing</Link>
           </div>
         </div>
       </div>
