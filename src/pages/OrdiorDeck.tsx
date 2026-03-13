@@ -693,7 +693,7 @@ export default function OrdiorDeck() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SEOHead title="Ordior | TMRW Deck" description="TMRW tokenization platform deck prepared for Ordior." path="/Ordior" noIndex />
+      <SEOHead title="Ordior | TMRW Deck" description="TMRW tokenization platform deck prepared for Ordior." path="/Ordior" noindex />
       <Navbar />
       <div className="pt-20 lg:pt-24 pb-16 px-4 md:px-8 max-w-6xl mx-auto">
         {slideContent}
