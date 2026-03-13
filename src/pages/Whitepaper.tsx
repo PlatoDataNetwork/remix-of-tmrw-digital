@@ -391,7 +391,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
   const p = (id: string) => activePage !== id ? "wp-page-hidden" : "space-y-10";
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12 whitepaper-content">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 whitepaper-content">
 
       {/* === Print-only Table of Contents === */}
       <div className="hidden print:block print:break-after-page">
