@@ -105,7 +105,7 @@ const Footer = () => {
                 { label: "Intelligence", href: "/intel" },
                 { label: "W3AI Token", href: "/whitepaper" },
                 { label: "CUT Token", href: "/cut-token" },
-                { label: "Security", href: "#" },
+                { label: "Security", href: "/security" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
                   <Link
