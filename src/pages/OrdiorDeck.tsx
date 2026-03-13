@@ -230,28 +230,7 @@ const slides: Slide[] = [
     ),
   },
 
-  // ===== 7 — Company Overview =====
-  {
-    id: "company",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Company Overview</SlideTitle>
-        <SlideSubtitle>
-          Tomorrow Digital Inc. (DBA: The Tomorrow Company) consolidates Plato AI with Carbon Distributed Technologies,
-          creating the foundation for tomorrow's digital economy.
-        </SlideSubtitle>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4">
-          <StatBlock value="13M+" label="Platform Visitors" />
-          <StatBlock value="160+" label="Countries Reached" />
-          <StatBlock value="35" label="Languages" />
-          <StatBlock value="70K+" label="Enterprise Users" />
-        </div>
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.15)] to-transparent mt-2" />
-      </div>
-    ),
-  },
-
-  // ===== 8 — Institutional Vision =====
+  // ===== 7 — Institutional Vision =====
   {
     id: "vision",
     render: () => (
@@ -269,28 +248,30 @@ const slides: Slide[] = [
     ),
   },
 
-  // ===== 9 — Market Opportunity =====
+  // ===== 8 — Leadership Team =====
   {
-    id: "market",
+    id: "team",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Market Opportunity</SlideTitle>
-        <div className="grid grid-cols-3 gap-8 pt-4">
-          <StatBlock value="$200B+" label="Web3/AI Market by 2030" />
-          <StatBlock value="$200B+" label="Carbon Market by 2030" />
-          <StatBlock value="741M" label="Global Crypto Owners" />
+        <SlideTitle>Leadership Team</SlideTitle>
+        <SlideSubtitle>Proven executives with track records in Fintech, AI, Blockchain, and Public Markets.</SlideSubtitle>
+        <div className="grid grid-cols-2 gap-5">
+          {[
+            { name: "Justin Hartzman", role: "Chairman", bio: "Serial entrepreneur. Co-founded CoinSmart, leading it to a public listing and sale to WonderFi (TSX:WNDR). Over a decade scaling fintech companies." },
+            { name: "Paul Thomson", role: "CEO", bio: "Founder of Carbon Distributed Technologies AG. Independent Director at eXeBlock Technology Inc. Deep expertise in corporate governance and compliance." },
+            { name: "Bryan Feinberg", role: "COO / CTO", bio: "Founder of Zephyr Technology Ventures, Platodata and AmplifiX. Led startup from inception to $130M revenue and public listing. Licensed Investment Banker." },
+            { name: "Zach Goldenberg", role: "Advisor", bio: "Principal at Liberty Venture Partners. Corporate securities lawyer. ICD.D designate and TSXV Advisory Committee member." },
+          ].map(m => (
+            <GreenCard key={m.name} className="p-5 space-y-2">
+              <h3 className="text-sm font-medium text-foreground">{m.name}</h3>
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-[hsl(82,85%,55%,0.7)]">{m.role}</p>
+              <p className="text-[11px] font-light text-muted-foreground leading-relaxed">{m.bio}</p>
+            </GreenCard>
+          ))}
         </div>
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.15)] to-transparent" />
-        <BulletList items={[
-          { bold: "Blockchain-verified", text: "carbon credit infrastructure with 500K+ tonnes ISO-certified." },
-          { bold: "Enterprise adoption", text: "accelerating across DeFi, tokenization, and institutional custody." },
-          { bold: "Public market access", text: "via TSX Venture Exchange listing targeting Q2 2026." },
-        ]} />
       </div>
     ),
   },
-
-  // ===== 10 — Leadership Team =====
   {
     id: "team",
     render: () => (
