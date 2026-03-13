@@ -576,7 +576,6 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
               </svg>
             </div>
           </div>
-          </div>
         </section>
 
         <section id="solution-platform">
