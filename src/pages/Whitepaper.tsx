@@ -521,6 +521,61 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
             </ul>
             <p>The browser is not a collection of separate products — it is a unified execution environment where AI, identity, and money converge under explicit user control.</p>
           </div>
+
+          {/* Platform Architecture Diagram */}
+          <div className="my-8 flex justify-center">
+            <div className="w-full max-w-2xl">
+              <svg viewBox="0 0 600 340" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Layer 3 - Outer */}
+                <rect x="30" y="20" width="540" height="300" rx="16" className="fill-accent/30 stroke-border" strokeWidth="1.5" />
+                <text x="300" y="48" textAnchor="middle" className="fill-muted-foreground" fontSize="11" letterSpacing="0.15em">ECOSYSTEM</text>
+
+                {/* Layer 2 - Middle */}
+                <rect x="70" y="62" width="460" height="220" rx="12" className="fill-accent/50 stroke-border" strokeWidth="1.5" />
+                <text x="300" y="88" textAnchor="middle" className="fill-muted-foreground" fontSize="11" letterSpacing="0.15em">PROTOCOL LAYER</text>
+
+                {/* Layer 1 - Inner / Core */}
+                <rect x="120" y="102" width="360" height="148" rx="10" className="fill-card stroke-border" strokeWidth="2" />
+                <text x="300" y="130" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">TMRW Browser</text>
+                <text x="300" y="150" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Core Product · Live Today</text>
+
+                {/* Feature pills inside core */}
+                {[
+                  { label: "Wallet", x: 165 },
+                  { label: "AI Assistant", x: 255 },
+                  { label: "Swaps", x: 355 },
+                  { label: "RWA Access", x: 435 },
+                ].map((f, i) => (
+                  <g key={i}>
+                    <rect x={f.x - 38} y={170} width={76} height={24} rx="12" className="fill-accent stroke-border" strokeWidth="1" />
+                    <text x={f.x} y={186} textAnchor="middle" className="fill-foreground" fontSize="9">{f.label}</text>
+                  </g>
+                ))}
+
+                {/* Protocol layer labels */}
+                {[
+                  { label: "Identity", x: 130 },
+                  { label: "Governance", x: 240 },
+                  { label: "Cross-Chain", x: 360 },
+                  { label: "Security", x: 470 },
+                ].map((f, i) => (
+                  <text key={i} x={f.x} y={268} textAnchor="middle" className="fill-muted-foreground" fontSize="9">{f.label}</text>
+                ))}
+
+                {/* Ecosystem layer labels */}
+                {[
+                  { label: "Tokenized Assets", x: 150 },
+                  { label: "Validators", x: 300 },
+                  { label: "Developer Plugins", x: 450 },
+                ].map((f, i) => (
+                  <text key={i} x={f.x} y={306} textAnchor="middle" className="fill-muted-foreground" fontSize="9">{f.label}</text>
+                ))}
+
+                {/* Caption */}
+                <text x="300" y="335" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">Three-layer architecture: Browser → Protocol → Ecosystem</text>
+              </svg>
+            </div>
+          </div>
         </section>
 
         <section id="solution-platform">
@@ -734,6 +789,48 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
             <p>The W3AI Protocol is the decentralized infrastructure layer that powers every surface of the W3AI ecosystem — from browser-native AI inference to multi-chain token operations and validator economics. Built across Solana, Ethereum, and BNB Smart Chain, the protocol establishes a unified execution framework where identity, liquidity, governance, and security converge into a single composable stack.</p>
           </div>
         </section>
+
+        {/* Protocol Permission Model Diagram */}
+        <div className="my-8 flex justify-center">
+          <div className="w-full max-w-2xl">
+            <svg viewBox="0 0 600 300" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              {/* User at top */}
+              <circle cx="300" cy="45" r="28" className="fill-card stroke-border" strokeWidth="2" />
+              <text x="300" y="42" textAnchor="middle" className="fill-foreground font-bold" fontSize="11">User</text>
+              <text x="300" y="55" textAnchor="middle" className="fill-muted-foreground" fontSize="8">Explicit Control</text>
+
+              {/* Line down to unified domain */}
+              <line x1="300" y1="73" x2="300" y2="105" className="stroke-muted-foreground" strokeWidth="1.5" strokeDasharray="4,3" />
+              <polygon points="300,108 295,100 305,100" className="fill-muted-foreground" />
+
+              {/* Unified Security Domain box */}
+              <rect x="130" y="110" width="340" height="60" rx="10" className="fill-accent stroke-border" strokeWidth="2" />
+              <text x="300" y="136" textAnchor="middle" className="fill-foreground font-bold" fontSize="12">Unified Security Domain</text>
+              <text x="300" y="155" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Cryptographic verification · User-consent framework</text>
+
+              {/* Lines down to two domains */}
+              <line x1="220" y1="170" x2="180" y2="205" className="stroke-muted-foreground" strokeWidth="1.5" strokeDasharray="4,3" />
+              <line x1="380" y1="170" x2="420" y2="205" className="stroke-muted-foreground" strokeWidth="1.5" strokeDasharray="4,3" />
+
+              {/* AI Permissions */}
+              <rect x="90" y="208" width="180" height="55" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+              <text x="180" y="232" textAnchor="middle" className="fill-foreground font-bold" fontSize="11">AI Permissions</text>
+              <text x="180" y="250" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Inference · Recommendations</text>
+
+              {/* Wallet Permissions */}
+              <rect x="330" y="208" width="180" height="55" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+              <text x="420" y="232" textAnchor="middle" className="fill-foreground font-bold" fontSize="11">Wallet Permissions</text>
+              <text x="420" y="250" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Signing · Transfers · Staking</text>
+
+              {/* Bidirectional arrow between the two */}
+              <line x1="270" y1="235" x2="330" y2="235" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="3,2" />
+              <text x="300" y="228" textAnchor="middle" className="fill-muted-foreground" fontSize="7">Bound</text>
+
+              {/* Caption */}
+              <text x="300" y="292" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">Assist → Verify → Act — only with explicit user control</text>
+            </svg>
+          </div>
+        </div>
         <section id="protocol-architecture">
           <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
           <div className="prose-section">
@@ -969,6 +1066,39 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
           <div className="prose-section">
             <p>W3AI's infrastructure layer underpins every product surface — from browser AI inference to multi-chain validator operations. The architecture is designed for resilience, scalability, and operational transparency.</p>
           </div>
+
+          {/* Infrastructure Stack Diagram */}
+          <div className="my-8 flex justify-center">
+            <div className="w-full max-w-2xl">
+              <svg viewBox="0 0 600 320" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Stack layers - bottom to top */}
+                {[
+                  { label: "Blockchain Networks", sub: "Solana · Ethereum · BNB Chain", y: 250, fill: "fill-accent/30" },
+                  { label: "Validator & Node Infrastructure", sub: "HSMs · Geo-Distributed · Automated Failover", y: 195, fill: "fill-accent/50" },
+                  { label: "Protocol Services", sub: "Bridge · Governance · Treasury · Staking", y: 140, fill: "fill-accent/70" },
+                  { label: "Edge Computing & AI Inference", sub: "Low-Latency Routing · Transaction Simulation", y: 85, fill: "fill-card" },
+                  { label: "TMRW Browser", sub: "User Interface · Wallet · AI Assistant", y: 30, fill: "fill-card" },
+                ].map((layer, i) => (
+                  <g key={i}>
+                    <rect x="80" y={layer.y} width="440" height="48" rx="6" className={`${layer.fill} stroke-border`} strokeWidth="1.5" />
+                    <text x="300" y={layer.y + 22} textAnchor="middle" className="fill-foreground font-bold" fontSize="11">{layer.label}</text>
+                    <text x="300" y={layer.y + 37} textAnchor="middle" className="fill-muted-foreground" fontSize="8.5">{layer.sub}</text>
+                  </g>
+                ))}
+
+                {/* Side label */}
+                <text x="45" y="160" textAnchor="middle" className="fill-muted-foreground" fontSize="9" transform="rotate(-90, 45, 160)">MONITORING</text>
+                <line x1="60" y1="40" x2="60" y2="290" className="stroke-border" strokeWidth="1" strokeDasharray="4,3" />
+
+                {/* Right side label */}
+                <text x="555" y="160" textAnchor="middle" className="fill-muted-foreground" fontSize="9" transform="rotate(90, 555, 160)">SECURITY</text>
+                <line x1="540" y1="40" x2="540" y2="290" className="stroke-border" strokeWidth="1" strokeDasharray="4,3" />
+
+                {/* Caption */}
+                <text x="300" y="312" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">Full-stack infrastructure with monitoring and security at every layer</text>
+              </svg>
+            </div>
+          </div>
         </section>
         <section id="infra-network">
           <h2 className="text-2xl font-bold text-foreground mb-4">Network Architecture</h2>
@@ -1148,6 +1278,63 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
           <div className="prose-section">
             <p>The W3AI token is the native utility and governance token powering the entire W3AI ecosystem. This section covers token utility, supply mechanics, and economic design.</p>
           </div>
+
+          {/* Token Flow Diagram */}
+          <div className="my-8 flex justify-center">
+            <div className="w-full max-w-2xl">
+              <svg viewBox="0 0 600 310" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Revenue sources at top */}
+                {[
+                  { label: "AI Gateway", sub: "Inference Fees", x: 100 },
+                  { label: "Swaps", sub: "Convenience Fee", x: 250 },
+                  { label: "Premium", sub: "Browser Features", x: 400 },
+                  { label: "Validators", sub: "Network Yield", x: 530 },
+                ].map((src, i) => (
+                  <g key={i}>
+                    <rect x={src.x - 55} y={15} width={110} height={42} rx="6" className="fill-card stroke-border" strokeWidth="1.5" />
+                    <text x={src.x} y={33} textAnchor="middle" className="fill-foreground font-bold" fontSize="10">{src.label}</text>
+                    <text x={src.x} y={47} textAnchor="middle" className="fill-muted-foreground" fontSize="8">{src.sub}</text>
+                  </g>
+                ))}
+
+                {/* Arrows down to treasury */}
+                {[100, 250, 400, 530].map((x, i) => (
+                  <g key={i}>
+                    <line x1={x} y1={57} x2={300} y2={110} className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+                  </g>
+                ))}
+
+                {/* Treasury - central */}
+                <rect x="195" y={110} width="210" height={55} rx="10" className="fill-accent stroke-border" strokeWidth="2" />
+                <text x="300" y={134} textAnchor="middle" className="fill-foreground font-bold" fontSize="13">W3AI Treasury</text>
+                <text x="300" y={152} textAnchor="middle" className="fill-muted-foreground" fontSize="9">On-Chain · DAO-Governed · 52.5%</text>
+
+                {/* Arrows down from treasury */}
+                {[140, 300, 460].map((x, i) => (
+                  <g key={i}>
+                    <line x1={300} y1={165} x2={x} y2={205} className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+                    <polygon points={`${x},208 ${x-4},200 ${x+4},200`} className="fill-muted-foreground" opacity="0.6" />
+                  </g>
+                ))}
+
+                {/* Outflows */}
+                {[
+                  { label: "Development", sub: "Protocol · Browser", x: 140 },
+                  { label: "Rewards", sub: "Staking · Incentives", x: 300 },
+                  { label: "Burns", sub: "Deflationary Pressure", x: 460 },
+                ].map((out, i) => (
+                  <g key={i}>
+                    <rect x={out.x - 60} y={210} width={120} height={42} rx="6" className="fill-card stroke-border" strokeWidth="1.5" />
+                    <text x={out.x} y={228} textAnchor="middle" className="fill-foreground font-bold" fontSize="10">{out.label}</text>
+                    <text x={out.x} y={242} textAnchor="middle" className="fill-muted-foreground" fontSize="8">{out.sub}</text>
+                  </g>
+                ))}
+
+                {/* Caption */}
+                <text x="300" y={290} textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">Revenue flows transparently through on-chain treasury mechanisms</text>
+              </svg>
+            </div>
+          </div>
         </section>
         <section id="token-pillars">
           <h2 className="text-2xl font-bold text-foreground mb-4">Token Utility Pillars</h2>
@@ -1295,6 +1482,45 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
           <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Governance</h2>
           <div className="prose-section">
             <p>W3AI is designed to evolve from core-team-led to fully community-governed. The governance framework establishes transparent decision-making processes for treasury management, protocol upgrades, and ecosystem development.</p>
+          </div>
+
+          {/* Governance Lifecycle Diagram */}
+          <div className="my-8 flex justify-center">
+            <div className="w-full max-w-2xl">
+              <svg viewBox="0 0 600 160" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Steps */}
+                {[
+                  { label: "Discussion", sub: "Community", x: 75 },
+                  { label: "Proposal", sub: "Formal Submit", x: 225 },
+                  { label: "Voting", sub: "Token-Weighted", x: 375 },
+                  { label: "Execution", sub: "On-Chain", x: 525 },
+                ].map((step, i) => (
+                  <g key={i}>
+                    <rect x={step.x - 60} y={30} width={120} height={55} rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                    <text x={step.x} y={54} textAnchor="middle" className="fill-foreground font-bold" fontSize="12">{step.label}</text>
+                    <text x={step.x} y={72} textAnchor="middle" className="fill-muted-foreground" fontSize="9">{step.sub}</text>
+                    {/* Step number */}
+                    <circle cx={step.x - 48} cy={36} r="8" className="fill-accent stroke-border" strokeWidth="1" />
+                    <text x={step.x - 48} y={40} textAnchor="middle" className="fill-foreground" fontSize="8" fontWeight="bold">{i + 1}</text>
+                  </g>
+                ))}
+
+                {/* Arrows between steps */}
+                {[150, 300, 450].map((x, i) => (
+                  <g key={i}>
+                    <line x1={x - 10} y1={57} x2={x + 10} y2={57} className="stroke-muted-foreground" strokeWidth="1.5" />
+                    <polygon points={`${x + 14},57 ${x + 6},53 ${x + 6},61`} className="fill-muted-foreground" />
+                  </g>
+                ))}
+
+                {/* Safeguards bar below */}
+                <rect x="75" y={105} width="450" height={28} rx="5" className="fill-accent/30 stroke-border" strokeWidth="1" />
+                <text x="300" y={123} textAnchor="middle" className="fill-muted-foreground" fontSize="9">Safeguards: Time-Locks · Quorum Requirements · Multi-Sig Execution · Cross-Chain Aggregation</text>
+
+                {/* Caption */}
+                <text x="300" y={155} textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">Progressive decentralization: core-team-led → fully community-governed</text>
+              </svg>
+            </div>
           </div>
         </section>
         <section id="foundation-governance">
