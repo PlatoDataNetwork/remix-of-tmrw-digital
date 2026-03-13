@@ -1623,7 +1623,7 @@ export default function Whitepaper() {
         {sidebarCollapsed && (
           <button
             onClick={() => setSidebarCollapsed(false)}
-            className="sticky top-[80px] h-10 w-10 flex items-center justify-center shrink-0 z-10 text-muted-foreground hover:text-foreground transition-colors"
+            className="fixed top-[72px] left-3 lg:sticky lg:top-[80px] lg:left-auto h-9 w-9 flex items-center justify-center shrink-0 z-20 text-muted-foreground hover:text-foreground transition-colors bg-card/80 backdrop-blur-sm rounded-md border border-border lg:bg-transparent lg:backdrop-blur-none lg:border-0 lg:rounded-none lg:h-10 lg:w-10"
             aria-label="Expand sidebar"
           >
             <Menu className="h-5 w-5" />
