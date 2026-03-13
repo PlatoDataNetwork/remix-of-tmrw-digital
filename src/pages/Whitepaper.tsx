@@ -1484,6 +1484,45 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
           <div className="prose-section">
             <p>W3AI is designed to evolve from core-team-led to fully community-governed. The governance framework establishes transparent decision-making processes for treasury management, protocol upgrades, and ecosystem development.</p>
           </div>
+
+          {/* Governance Lifecycle Diagram */}
+          <div className="my-8 flex justify-center">
+            <div className="w-full max-w-2xl">
+              <svg viewBox="0 0 600 160" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Steps */}
+                {[
+                  { label: "Discussion", sub: "Community", x: 75 },
+                  { label: "Proposal", sub: "Formal Submit", x: 225 },
+                  { label: "Voting", sub: "Token-Weighted", x: 375 },
+                  { label: "Execution", sub: "On-Chain", x: 525 },
+                ].map((step, i) => (
+                  <g key={i}>
+                    <rect x={step.x - 60} y={30} width={120} height={55} rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                    <text x={step.x} y={54} textAnchor="middle" className="fill-foreground font-bold" fontSize="12">{step.label}</text>
+                    <text x={step.x} y={72} textAnchor="middle" className="fill-muted-foreground" fontSize="9">{step.sub}</text>
+                    {/* Step number */}
+                    <circle cx={step.x - 48} cy={36} r="8" className="fill-accent stroke-border" strokeWidth="1" />
+                    <text x={step.x - 48} y={40} textAnchor="middle" className="fill-foreground" fontSize="8" fontWeight="bold">{i + 1}</text>
+                  </g>
+                ))}
+
+                {/* Arrows between steps */}
+                {[150, 300, 450].map((x, i) => (
+                  <g key={i}>
+                    <line x1={x - 10} y1={57} x2={x + 10} y2={57} className="stroke-muted-foreground" strokeWidth="1.5" />
+                    <polygon points={`${x + 14},57 ${x + 6},53 ${x + 6},61`} className="fill-muted-foreground" />
+                  </g>
+                ))}
+
+                {/* Safeguards bar below */}
+                <rect x="75" y={105} width="450" height={28} rx="5" className="fill-accent/30 stroke-border" strokeWidth="1" />
+                <text x="300" y={123} textAnchor="middle" className="fill-muted-foreground" fontSize="9">Safeguards: Time-Locks · Quorum Requirements · Multi-Sig Execution · Cross-Chain Aggregation</text>
+
+                {/* Caption */}
+                <text x="300" y={155} textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">Progressive decentralization: core-team-led → fully community-governed</text>
+              </svg>
+            </div>
+          </div>
         </section>
         <section id="foundation-governance">
           <h2 className="text-2xl font-bold text-foreground mb-4">Governance Framework</h2>
