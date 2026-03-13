@@ -1279,6 +1279,63 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
           <div className="prose-section">
             <p>The W3AI token is the native utility and governance token powering the entire W3AI ecosystem. This section covers token utility, supply mechanics, and economic design.</p>
           </div>
+
+          {/* Token Flow Diagram */}
+          <div className="my-8 flex justify-center">
+            <div className="w-full max-w-2xl">
+              <svg viewBox="0 0 600 310" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Revenue sources at top */}
+                {[
+                  { label: "AI Gateway", sub: "Inference Fees", x: 100 },
+                  { label: "Swaps", sub: "Convenience Fee", x: 250 },
+                  { label: "Premium", sub: "Browser Features", x: 400 },
+                  { label: "Validators", sub: "Network Yield", x: 530 },
+                ].map((src, i) => (
+                  <g key={i}>
+                    <rect x={src.x - 55} y={15} width={110} height={42} rx="6" className="fill-card stroke-border" strokeWidth="1.5" />
+                    <text x={src.x} y={33} textAnchor="middle" className="fill-foreground font-bold" fontSize="10">{src.label}</text>
+                    <text x={src.x} y={47} textAnchor="middle" className="fill-muted-foreground" fontSize="8">{src.sub}</text>
+                  </g>
+                ))}
+
+                {/* Arrows down to treasury */}
+                {[100, 250, 400, 530].map((x, i) => (
+                  <g key={i}>
+                    <line x1={x} y1={57} x2={300} y2={110} className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+                  </g>
+                ))}
+
+                {/* Treasury - central */}
+                <rect x="195" y={110} width="210" height={55} rx="10" className="fill-accent stroke-border" strokeWidth="2" />
+                <text x="300" y={134} textAnchor="middle" className="fill-foreground font-bold" fontSize="13">W3AI Treasury</text>
+                <text x="300" y={152} textAnchor="middle" className="fill-muted-foreground" fontSize="9">On-Chain · DAO-Governed · 52.5%</text>
+
+                {/* Arrows down from treasury */}
+                {[140, 300, 460].map((x, i) => (
+                  <g key={i}>
+                    <line x1={300} y1={165} x2={x} y2={205} className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+                    <polygon points={`${x},208 ${x-4},200 ${x+4},200`} className="fill-muted-foreground" opacity="0.6" />
+                  </g>
+                ))}
+
+                {/* Outflows */}
+                {[
+                  { label: "Development", sub: "Protocol · Browser", x: 140 },
+                  { label: "Rewards", sub: "Staking · Incentives", x: 300 },
+                  { label: "Burns", sub: "Deflationary Pressure", x: 460 },
+                ].map((out, i) => (
+                  <g key={i}>
+                    <rect x={out.x - 60} y={210} width={120} height={42} rx="6" className="fill-card stroke-border" strokeWidth="1.5" />
+                    <text x={out.x} y={228} textAnchor="middle" className="fill-foreground font-bold" fontSize="10">{out.label}</text>
+                    <text x={out.x} y={242} textAnchor="middle" className="fill-muted-foreground" fontSize="8">{out.sub}</text>
+                  </g>
+                ))}
+
+                {/* Caption */}
+                <text x="300" y={290} textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">Revenue flows transparently through on-chain treasury mechanisms</text>
+              </svg>
+            </div>
+          </div>
         </section>
         <section id="token-pillars">
           <h2 className="text-2xl font-bold text-foreground mb-4">Token Utility Pillars</h2>
