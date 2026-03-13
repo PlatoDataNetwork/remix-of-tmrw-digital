@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 type Theme = "light" | "dark" | "colorful";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("colorful");
 
   useEffect(() => {
     const root = document.documentElement;
