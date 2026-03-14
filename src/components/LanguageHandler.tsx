@@ -109,6 +109,7 @@ const LanguageHandler = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const isProgrammatic = useRef(false);
+  const syncRunIdRef = useRef(0);
   const pathnameRef = useRef(location.pathname);
   pathnameRef.current = location.pathname;
 
@@ -116,6 +117,9 @@ const LanguageHandler = () => {
 
   // Sync: URL → cookie → GTranslate widget on every route change
   useEffect(() => {
+    const runId = ++syncRunIdRef.current;
+    const isActiveRun = () => syncRunIdRef.current === runId;
+
     isProgrammatic.current = true;
 
     let releaseProgrammaticMs = 1500;
@@ -124,29 +128,39 @@ const LanguageHandler = () => {
     if (urlLang && urlLang !== "en") {
       // ─── Non-English route ───
       setGoogleTranslateCookie(urlLang);
-      callDoGTranslate(`en|${urlLang.toLowerCase()}`);
+      callDoGTranslate(`en|${urlLang.toLowerCase()}`, isActiveRun);
     } else {
       // ─── English / root route ───
-      // Clear cookies and force GTranslate back to English
-      const enforceEnglish = () => {
-        clearGoogleTranslateCookies();
+      // Force a clean English state (cookie + widget + native call)
+      const enforceEnglishSync = () => {
+        if (!isActiveRun()) return;
+        setGoogleTranslateCookie("en");
         resetWidgetToEnglish();
       };
 
-      clearGoogleTranslateCookies();
-      callDoGTranslate("en|en");
-      enforceEnglish();
+      setGoogleTranslateCookie("en");
+      callDoGTranslate("en|en", isActiveRun);
+      enforceEnglishSync();
 
       // Watchdog: keep enforcing English while GTranslate initializes
       let attempts = 0;
       const maxAttempts = 16;
       const intervalId = window.setInterval(() => {
-        enforceEnglish();
+        if (!isActiveRun()) {
+          window.clearInterval(intervalId);
+          return;
+        }
+
+        enforceEnglishSync();
         attempts += 1;
         if (attempts >= maxAttempts) window.clearInterval(intervalId);
       }, 350);
 
-      const onLoad = () => enforceEnglish();
+      const onLoad = () => {
+        if (!isActiveRun()) return;
+        enforceEnglishSync();
+        callDoGTranslate("en|en", isActiveRun, 2);
+      };
       window.addEventListener("load", onLoad);
 
       releaseProgrammaticMs = 5600;
@@ -157,10 +171,12 @@ const LanguageHandler = () => {
     }
 
     const timer = window.setTimeout(() => {
+      if (!isActiveRun()) return;
       isProgrammatic.current = false;
     }, releaseProgrammaticMs);
 
     return () => {
+      if (syncRunIdRef.current === runId) syncRunIdRef.current += 1;
       window.clearTimeout(timer);
       cleanupRootSync?.();
     };
