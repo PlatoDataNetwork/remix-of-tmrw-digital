@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Globe } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SUPPORTED_LANGUAGES, getBasePath, getUrlLanguage } from "@/hooks/useLanguage";
-import { clearGoogleTranslateCookies, setGoogleTranslateCookie } from "./LanguageHandler";
+import { setGoogleTranslateCookie } from "./LanguageHandler";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
@@ -67,8 +67,7 @@ const LanguageSelector = () => {
     const basePath = getBasePath(location.pathname);
 
     if (code.toLowerCase() === "en") {
-      // Switch to English: explicitly set English cookie and navigate to base path
-      clearGoogleTranslateCookies();
+      setGoogleTranslateCookie("en");
       navigate(basePath || "/", { replace: true });
     } else {
       // Switch to target language: set cookie, navigate, then GTranslate will sync via LanguageHandler

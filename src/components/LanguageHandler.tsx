@@ -2,16 +2,12 @@ import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath } from "@/hooks/useLanguage";
 
-/**
- * Aggressively remove ALL googtrans cookies across every domain/path variant.
- */
-function clearGoogleTranslateCookies() {
+function getCookieDomains(): string[] {
   const hostname = window.location.hostname;
   const hostParts = hostname.split(".");
   const rootDomain = hostParts.length > 2 ? hostParts.slice(-2).join(".") : hostname;
-  const expiry = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
 
-  const domains = Array.from(new Set([
+  return Array.from(new Set([
     hostname,
     `.${hostname}`,
     rootDomain,
@@ -20,31 +16,43 @@ function clearGoogleTranslateCookies() {
     `.www.${rootDomain}`,
     "",
   ]));
+}
 
-  for (const domain of domains) {
+/**
+ * Aggressively remove ALL googtrans cookies across every domain/path variant.
+ */
+function clearGoogleTranslateCookies() {
+  const expiry = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+
+  for (const domain of getCookieDomains()) {
     const d = domain ? `;domain=${domain}` : "";
     document.cookie = `googtrans=;${expiry};path=/${d}`;
     document.cookie = `googtrans=;${expiry}${d}`;
   }
+
   document.cookie = `googtrans=;${expiry}`;
   document.cookie = `googtrans=;${expiry};path=/`;
 }
 
 /**
  * Set googtrans cookie for a target language.
- * For English: clears all cookies (GTranslate shows original content when no cookie exists).
- * For other languages: clears first, then sets a single clean cookie.
+ * Always writes exactly one normalized value after clearing stale variants.
  */
 function setGoogleTranslateCookie(lang: string) {
+  const requested = (lang || "").trim().toLowerCase();
+  const normalized =
+    SUPPORTED_LANGUAGES.find((value) => value.toLowerCase() === requested) || "en";
+
   clearGoogleTranslateCookies();
 
-  const target = (lang || "").trim().toLowerCase();
+  const cookieValue = `googtrans=/en/${normalized};path=/`;
+  for (const domain of getCookieDomains()) {
+    const d = domain ? `;domain=${domain}` : "";
+    document.cookie = `${cookieValue}${d}`;
+  }
 
-  // For English, just clearing is enough — GTranslate defaults to original content
-  if (!target || target === "en") return;
-
-  // For non-English: set exactly ONE cookie on the simplest path
-  document.cookie = `googtrans=/en/${lang};path=/`;
+  // Host-only fallback
+  document.cookie = cookieValue;
 }
 
 function normalizeLanguageValue(value: string): string {
@@ -63,16 +71,20 @@ function normalizeLanguageValue(value: string): string {
 
 /**
  * Calls GTranslate's native doGTranslate function, retrying until available.
+ * Retries are cancelable via isActive to avoid stale route sync races.
  */
-function callDoGTranslate(langPair: string, retries = 30) {
+function callDoGTranslate(langPair: string, isActive: () => boolean, retries = 30) {
   const tryCall = (attempt: number) => {
+    if (!isActive()) return;
+
     const doGT = (window as any).doGTranslate;
     if (typeof doGT === "function") {
       doGT(langPair);
     } else if (attempt < retries) {
-      setTimeout(() => tryCall(attempt + 1), 300);
+      window.setTimeout(() => tryCall(attempt + 1), 300);
     }
   };
+
   tryCall(0);
 }
 
@@ -97,6 +109,7 @@ const LanguageHandler = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const isProgrammatic = useRef(false);
+  const syncRunIdRef = useRef(0);
   const pathnameRef = useRef(location.pathname);
   pathnameRef.current = location.pathname;
 
@@ -104,6 +117,9 @@ const LanguageHandler = () => {
 
   // Sync: URL → cookie → GTranslate widget on every route change
   useEffect(() => {
+    const runId = ++syncRunIdRef.current;
+    const isActiveRun = () => syncRunIdRef.current === runId;
+
     isProgrammatic.current = true;
 
     let releaseProgrammaticMs = 1500;
@@ -112,29 +128,39 @@ const LanguageHandler = () => {
     if (urlLang && urlLang !== "en") {
       // ─── Non-English route ───
       setGoogleTranslateCookie(urlLang);
-      callDoGTranslate(`en|${urlLang.toLowerCase()}`);
+      callDoGTranslate(`en|${urlLang.toLowerCase()}`, isActiveRun);
     } else {
       // ─── English / root route ───
-      // Clear cookies and force GTranslate back to English
-      const enforceEnglish = () => {
-        clearGoogleTranslateCookies();
+      // Force a clean English state (cookie + widget + native call)
+      const enforceEnglishSync = () => {
+        if (!isActiveRun()) return;
+        setGoogleTranslateCookie("en");
         resetWidgetToEnglish();
       };
 
-      clearGoogleTranslateCookies();
-      callDoGTranslate("en|en");
-      enforceEnglish();
+      setGoogleTranslateCookie("en");
+      callDoGTranslate("en|en", isActiveRun);
+      enforceEnglishSync();
 
       // Watchdog: keep enforcing English while GTranslate initializes
       let attempts = 0;
       const maxAttempts = 16;
       const intervalId = window.setInterval(() => {
-        enforceEnglish();
+        if (!isActiveRun()) {
+          window.clearInterval(intervalId);
+          return;
+        }
+
+        enforceEnglishSync();
         attempts += 1;
         if (attempts >= maxAttempts) window.clearInterval(intervalId);
       }, 350);
 
-      const onLoad = () => enforceEnglish();
+      const onLoad = () => {
+        if (!isActiveRun()) return;
+        enforceEnglishSync();
+        callDoGTranslate("en|en", isActiveRun, 2);
+      };
       window.addEventListener("load", onLoad);
 
       releaseProgrammaticMs = 5600;
@@ -145,10 +171,12 @@ const LanguageHandler = () => {
     }
 
     const timer = window.setTimeout(() => {
+      if (!isActiveRun()) return;
       isProgrammatic.current = false;
     }, releaseProgrammaticMs);
 
     return () => {
+      if (syncRunIdRef.current === runId) syncRunIdRef.current += 1;
       window.clearTimeout(timer);
       cleanupRootSync?.();
     };
@@ -168,7 +196,7 @@ const LanguageHandler = () => {
       const basePath = getBasePath(pathnameRef.current);
 
       if (selectedLang === "en") {
-        clearGoogleTranslateCookies();
+        setGoogleTranslateCookie("en");
         navigate(basePath || "/", { replace: true });
       } else {
         const normalized =
