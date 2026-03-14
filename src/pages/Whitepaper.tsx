@@ -46,6 +46,12 @@ const sections: Section[] = [
     { id: "cap-swap-execution", title: "DeFi Swap Execution" },
     { id: "cap-developers", title: "Developers" },
   ]},
+  { id: "ai-processing", title: "AI Processing & MCP", number: "6B", children: [
+    { id: "ai-models-overview", title: "Model Providers" },
+    { id: "ai-mcp-architecture", title: "MCP Server Architecture" },
+    { id: "ai-live-analysis", title: "Live Webpage Analysis" },
+    { id: "ai-orchestration", title: "Orchestration Layer" },
+  ]},
   { id: "cross-chain-architecture", title: "Cross-Chain Architecture", number: "07", children: [
     { id: "xchain-hub-spoke", title: "Hub & Spoke Model" },
     { id: "xchain-wormhole", title: "Wormhole NTT Bridge" },
