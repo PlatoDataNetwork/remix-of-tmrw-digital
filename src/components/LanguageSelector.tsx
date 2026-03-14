@@ -67,8 +67,8 @@ const LanguageSelector = () => {
     const basePath = getBasePath(location.pathname);
 
     if (code.toLowerCase() === "en") {
-      // Switch to English: clear cookies, navigate to base path, reset GTranslate
-      clearGoogleTranslateCookies();
+      // Switch to English: explicitly set English cookie and navigate to base path
+      setGoogleTranslateCookie("en");
       navigate(basePath || "/", { replace: true });
     } else {
       // Switch to target language: set cookie, navigate, then GTranslate will sync via LanguageHandler

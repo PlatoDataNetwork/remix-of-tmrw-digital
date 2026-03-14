@@ -172,7 +172,7 @@ const LanguageHandler = () => {
       const basePath = getBasePath(pathnameRef.current);
 
       if (selectedLang === "en") {
-        clearGoogleTranslateCookies();
+        setGoogleTranslateCookie("en");
         navigate(basePath || "/", { replace: true });
       } else {
         const normalized =
