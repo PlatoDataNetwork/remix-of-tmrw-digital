@@ -106,9 +106,9 @@ const LanguageHandler = () => {
       setGoogleTranslateCookie(urlLang);
       callDoGTranslate(`en|${urlLang.toLowerCase()}`);
     } else {
-      // Root domain or English route: aggressively clear stale translation state
-      const enforceEnglishAndClearCookies = () => {
-        clearGoogleTranslateCookies();
+      // Root domain or English route: force cookie + widget to English state
+      const enforceEnglishSync = () => {
+        setGoogleTranslateCookie("en");
 
         const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
         if (!select) return;
@@ -124,19 +124,19 @@ const LanguageHandler = () => {
       };
 
       callDoGTranslate("en|en");
-      enforceEnglishAndClearCookies();
+      enforceEnglishSync();
 
       let attempts = 0;
       const maxAttempts = 16;
       const intervalId = window.setInterval(() => {
-        enforceEnglishAndClearCookies();
+        enforceEnglishSync();
         attempts += 1;
         if (attempts >= maxAttempts) {
           window.clearInterval(intervalId);
         }
       }, 350);
 
-      const onLoad = () => enforceEnglishAndClearCookies();
+      const onLoad = () => enforceEnglishSync();
       window.addEventListener("load", onLoad);
 
       releaseProgrammaticMs = 5600;
