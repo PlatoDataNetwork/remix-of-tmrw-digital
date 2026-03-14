@@ -4,9 +4,22 @@ import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath } from "@/hooks/useLan
 
 function clearGoogleTranslateCookies() {
   const hostname = window.location.hostname;
+  const hostParts = hostname.split(".");
+  const rootDomain = hostParts.length > 2 ? hostParts.slice(-2).join(".") : hostname;
   const expiry = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
-  const domains = [hostname, "." + hostname, ".www." + hostname, ""];
+
+  const domains = Array.from(new Set([
+    hostname,
+    `.${hostname}`,
+    rootDomain,
+    `.${rootDomain}`,
+    `www.${rootDomain}`,
+    `.www.${rootDomain}`,
+    "",
+  ]));
+
   const paths = ["/", ""];
+
   for (const domain of domains) {
     for (const path of paths) {
       const d = domain ? `;domain=${domain}` : "";
@@ -14,6 +27,7 @@ function clearGoogleTranslateCookies() {
       document.cookie = `googtrans=;${expiry}${d}${p}`;
     }
   }
+
   document.cookie = `googtrans=;${expiry}`;
 }
 
