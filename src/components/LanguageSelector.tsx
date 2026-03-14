@@ -3,72 +3,15 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Globe } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SUPPORTED_LANGUAGES, getBasePath, getUrlLanguage } from "@/hooks/useLanguage";
-import { clearGoogleTranslateCookies, setGoogleTranslateCookie } from "./LanguageHandler";
-
-const LANGUAGES = [
-  { code: "en", label: "English" },
-  { code: "ar", label: "Arabic" },
-  { code: "bn", label: "Bengali" },
-  { code: "zh-CN", label: "Chinese" },
-  { code: "da", label: "Danish" },
-  { code: "nl", label: "Dutch" },
-  { code: "et", label: "Estonian" },
-  { code: "fi", label: "Finnish" },
-  { code: "fr", label: "French" },
-  { code: "de", label: "German" },
-  { code: "el", label: "Greek" },
-  { code: "iw", label: "Hebrew" },
-  { code: "hi", label: "Hindi" },
-  { code: "hu", label: "Hungarian" },
-  { code: "id", label: "Indonesian" },
-  { code: "it", label: "Italian" },
-  { code: "ja", label: "Japanese" },
-  { code: "km", label: "Khmer" },
-  { code: "ko", label: "Korean" },
-  { code: "ms", label: "Malay" },
-  { code: "no", label: "Norwegian" },
-  { code: "fa", label: "Persian" },
-  { code: "pl", label: "Polish" },
-  { code: "pt", label: "Portuguese" },
-  { code: "pa", label: "Punjabi" },
-  { code: "ro", label: "Romanian" },
-  { code: "ru", label: "Russian" },
-  { code: "sl", label: "Slovenian" },
-  { code: "es", label: "Spanish" },
-  { code: "sv", label: "Swedish" },
-  { code: "th", label: "Thai" },
-  { code: "tr", label: "Turkish" },
-  { code: "uk", label: "Ukrainian" },
-  { code: "ur", label: "Urdu" },
-  { code: "vi", label: "Vietnamese" },
-];
-
-const LanguageSelector = () => {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  // Derive active language from URL (single source of truth)
-  const urlLang = getUrlLanguage(location.pathname);
-  const currentLang = urlLang || "en";
-
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
-
+import { setGoogleTranslateCookie } from "./LanguageHandler";
+...
   const handleSelect = (code: string) => {
     setOpen(false);
 
     const basePath = getBasePath(location.pathname);
 
     if (code.toLowerCase() === "en") {
-      // Switch to English: explicitly set English cookie and navigate to base path
-      clearGoogleTranslateCookies();
+      setGoogleTranslateCookie("en");
       navigate(basePath || "/", { replace: true });
     } else {
       // Switch to target language: set cookie, navigate, then GTranslate will sync via LanguageHandler

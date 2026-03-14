@@ -2,16 +2,12 @@ import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath } from "@/hooks/useLanguage";
 
-/**
- * Aggressively remove ALL googtrans cookies across every domain/path variant.
- */
-function clearGoogleTranslateCookies() {
+function getCookieDomains(): string[] {
   const hostname = window.location.hostname;
   const hostParts = hostname.split(".");
   const rootDomain = hostParts.length > 2 ? hostParts.slice(-2).join(".") : hostname;
-  const expiry = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
 
-  const domains = Array.from(new Set([
+  return Array.from(new Set([
     hostname,
     `.${hostname}`,
     rootDomain,
@@ -20,31 +16,43 @@ function clearGoogleTranslateCookies() {
     `.www.${rootDomain}`,
     "",
   ]));
+}
 
-  for (const domain of domains) {
+/**
+ * Aggressively remove ALL googtrans cookies across every domain/path variant.
+ */
+function clearGoogleTranslateCookies() {
+  const expiry = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+
+  for (const domain of getCookieDomains()) {
     const d = domain ? `;domain=${domain}` : "";
     document.cookie = `googtrans=;${expiry};path=/${d}`;
     document.cookie = `googtrans=;${expiry}${d}`;
   }
+
   document.cookie = `googtrans=;${expiry}`;
   document.cookie = `googtrans=;${expiry};path=/`;
 }
 
 /**
  * Set googtrans cookie for a target language.
- * For English: clears all cookies (GTranslate shows original content when no cookie exists).
- * For other languages: clears first, then sets a single clean cookie.
+ * Always writes exactly one normalized value after clearing stale variants.
  */
 function setGoogleTranslateCookie(lang: string) {
+  const requested = (lang || "").trim().toLowerCase();
+  const normalized =
+    SUPPORTED_LANGUAGES.find((value) => value.toLowerCase() === requested) || "en";
+
   clearGoogleTranslateCookies();
 
-  const target = (lang || "").trim().toLowerCase();
+  const cookieValue = `googtrans=/en/${normalized};path=/`;
+  for (const domain of getCookieDomains()) {
+    const d = domain ? `;domain=${domain}` : "";
+    document.cookie = `${cookieValue}${d}`;
+  }
 
-  // For English, just clearing is enough — GTranslate defaults to original content
-  if (!target || target === "en") return;
-
-  // For non-English: set exactly ONE cookie on the simplest path
-  document.cookie = `googtrans=/en/${lang};path=/`;
+  // Host-only fallback
+  document.cookie = cookieValue;
 }
 
 function normalizeLanguageValue(value: string): string {
@@ -63,16 +71,20 @@ function normalizeLanguageValue(value: string): string {
 
 /**
  * Calls GTranslate's native doGTranslate function, retrying until available.
+ * Retries are cancelable via isActive to avoid stale route sync races.
  */
-function callDoGTranslate(langPair: string, retries = 30) {
+function callDoGTranslate(langPair: string, isActive: () => boolean, retries = 30) {
   const tryCall = (attempt: number) => {
+    if (!isActive()) return;
+
     const doGT = (window as any).doGTranslate;
     if (typeof doGT === "function") {
       doGT(langPair);
     } else if (attempt < retries) {
-      setTimeout(() => tryCall(attempt + 1), 300);
+      window.setTimeout(() => tryCall(attempt + 1), 300);
     }
   };
+
   tryCall(0);
 }
 
