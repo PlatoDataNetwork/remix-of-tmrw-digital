@@ -55,50 +55,26 @@ const LanguageHandler = () => {
 
   const urlLang = getUrlLanguage(location.pathname);
 
-  // Force GTranslate to re-translate by toggling the select value
-  const forceTranslate = (lang: string, retries = 20) => {
+  // Force GTranslate to translate using its native doGTranslate function
+  const forceTranslate = (lang: string, retries = 30) => {
     const targetLang = normalizeLanguageValue(lang).toLowerCase();
 
     const tryForce = (attempt: number) => {
-      const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
-      if (!select) {
+      const doGT = (window as any).doGTranslate;
+      if (typeof doGT !== "function") {
         if (attempt < retries) setTimeout(() => tryForce(attempt + 1), 300);
         return;
       }
 
-      const options = Array.from(select.options);
-      const matchOption = options.find(
-        (o) => normalizeLanguageValue(o.value).toLowerCase() === targetLang
-      );
-      if (!matchOption) return;
-
       isProgrammatic.current = true;
 
       if (targetLang === "en") {
-        // Reset to English
-        const enOption = options.find(o => normalizeLanguageValue(o.value).toLowerCase() === "en");
-        if (enOption && select.value !== enOption.value) {
-          select.value = enOption.value;
-          select.dispatchEvent(new Event("change", { bubbles: true }));
-        }
+        doGT("en|en");
       } else {
-        // First reset to English, then switch to target language
-        // This forces GTranslate to re-translate even if the value looks the same
-        const enOption = options.find(o => normalizeLanguageValue(o.value).toLowerCase() === "en");
-        if (enOption) {
-          select.value = enOption.value;
-          select.dispatchEvent(new Event("change", { bubbles: true }));
-        }
-        // Then switch to target after a brief delay
-        setTimeout(() => {
-          select.value = matchOption.value;
-          select.dispatchEvent(new Event("change", { bubbles: true }));
-          setTimeout(() => { isProgrammatic.current = false; }, 800);
-        }, 100);
-        return; // Don't reset isProgrammatic yet
+        doGT(`en|${targetLang}`);
       }
 
-      setTimeout(() => { isProgrammatic.current = false; }, 800);
+      setTimeout(() => { isProgrammatic.current = false; }, 1200);
     };
     tryForce(0);
   };

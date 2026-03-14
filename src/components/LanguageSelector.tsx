@@ -56,16 +56,22 @@ const LanguageSelector = () => {
 
   const handleSelect = (code: string) => {
     setOpen(false);
-    // Trigger GTranslate's hidden select
-    const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
-    if (!select) return;
-    const options = Array.from(select.options);
-    const match = options.find(
-      (o) => o.value.toLowerCase().includes(code.toLowerCase())
-    );
-    if (match) {
-      select.value = match.value;
-      select.dispatchEvent(new Event("change", { bubbles: true }));
+    // Use GTranslate's native doGTranslate function
+    const doGT = (window as any).doGTranslate;
+    if (typeof doGT === "function") {
+      doGT(`en|${code.toLowerCase()}`);
+    } else {
+      // Fallback: trigger the hidden select
+      const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
+      if (!select) return;
+      const options = Array.from(select.options);
+      const match = options.find(
+        (o) => o.value.toLowerCase().includes(code.toLowerCase())
+      );
+      if (match) {
+        select.value = match.value;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+      }
     }
   };
 
