@@ -685,6 +685,241 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       </div>
 
       {/* ============================================================ */}
+      {/* PAGE 6B: AI Processing & MCP */}
+      {/* ============================================================ */}
+      <div className={p("ai-processing")}>
+        <section id="ai-processing">
+          <h2 className="text-2xl font-bold text-foreground mb-4">AI Processing & Model Context Protocol</h2>
+          <div className="prose-section">
+            <p>W3AI operates a multi-model AI processing layer that orchestrates inference across the industry's leading foundation model providers — OpenAI, Anthropic, and Google Gemini. Rather than locking users into a single provider, the platform dynamically routes requests to the optimal model based on task complexity, latency requirements, and cost efficiency.</p>
+            <p>At the core of this architecture sits the Model Context Protocol (MCP) — an open standard for connecting AI models to external data sources, tools, and live web content. MCP servers act as the bridge between foundation models and the real-world context they need to deliver accurate, actionable intelligence within the browser environment.</p>
+          </div>
+        </section>
+
+        <section id="ai-models-overview">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Model Providers</h2>
+          <div className="prose-section">
+            <p>W3AI integrates three tier-one AI providers, each selected for distinct strengths that map to specific browser-native use cases:</p>
+          </div>
+
+          {/* Model Provider Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+            {[
+              {
+                name: "OpenAI",
+                models: "GPT-5 · GPT-5 Mini · GPT-5 Nano",
+                strengths: ["Complex reasoning & nuanced analysis", "Long-context multimodal processing", "Code generation & smart contract review", "High-accuracy transaction explanation"],
+                useCase: "Deep analysis, contract auditing, complex financial modeling",
+              },
+              {
+                name: "Anthropic",
+                models: "Claude 4 Opus · Claude 4 Sonnet",
+                strengths: ["Constitutional AI safety alignment", "Precise instruction following", "Extended context windows (200K+)", "Nuanced compliance & legal analysis"],
+                useCase: "Compliance review, risk assessment, regulatory documentation",
+              },
+              {
+                name: "Google Gemini",
+                models: "Gemini 2.5 Pro · Gemini 2.5 Flash",
+                strengths: ["Native multimodal (text + image + video)", "Real-time web grounding & search", "Cost-efficient high-volume inference", "Live webpage understanding"],
+                useCase: "Live page analysis, visual asset verification, real-time market intelligence",
+              },
+            ].map((provider) => (
+              <div key={provider.name} className="rounded-xl border border-border bg-card p-5 space-y-3">
+                <h3 className="text-lg font-bold text-foreground">{provider.name}</h3>
+                <p className="text-xs font-mono text-[hsl(82,85%,55%)]">{provider.models}</p>
+                <ul className="space-y-1">
+                  {provider.strengths.map((s, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[hsl(82,85%,55%)] shrink-0" />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-2 border-t border-border">
+                  <p className="text-xs text-muted-foreground"><span className="font-medium text-foreground">Primary Use:</span> {provider.useCase}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="prose-section">
+            <p>The W3AI gateway intelligently routes each request to the optimal model. Compliance-heavy queries route to Anthropic's safety-aligned models. Visual verification and live page analysis leverage Gemini's multimodal capabilities. Complex reasoning and contract analysis default to OpenAI's frontier models. Users with BYOK (Bring Your Own Key) can override routing to use their preferred provider.</p>
+          </div>
+        </section>
+
+        <section id="ai-mcp-architecture">
+          <h2 className="text-2xl font-bold text-foreground mb-4">MCP Server Architecture</h2>
+          <div className="prose-section">
+            <p>The Model Context Protocol (MCP) is an open standard originally developed by Anthropic that defines how AI models connect to external tools, data sources, and services. W3AI deploys MCP servers as the connective tissue between foundation models and the browser's execution environment.</p>
+            <p>Each MCP server exposes a set of tools and resources that AI models can invoke during inference. This creates a composable architecture where new capabilities — blockchain explorers, price feeds, compliance databases, live webpage parsers — can be added as modular MCP endpoints without modifying the core AI pipeline.</p>
+          </div>
+
+          {/* MCP Architecture SVG Diagram */}
+          <div className="my-8 flex justify-center">
+            <div className="w-full max-w-3xl">
+              <svg viewBox="0 0 720 520" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Title */}
+                <text x="360" y="24" textAnchor="middle" className="fill-foreground font-bold" fontSize="14" letterSpacing="0.08em">MCP SERVER ARCHITECTURE</text>
+                <line x1="240" y1="32" x2="480" y2="32" className="stroke-[hsl(82,85%,55%)]" strokeWidth="2" opacity="0.5" />
+
+                {/* TMRW Browser - Top */}
+                <rect x="220" y="48" width="280" height="56" rx="12" className="fill-card stroke-border" strokeWidth="2" />
+                <text x="360" y="72" textAnchor="middle" className="fill-foreground font-bold" fontSize="13">TMRW Browser</text>
+                <text x="360" y="90" textAnchor="middle" className="fill-muted-foreground" fontSize="9">User Interface · Wallet · AI Sidebar</text>
+
+                {/* Arrow down to MCP Gateway */}
+                <line x1="360" y1="104" x2="360" y2="134" className="stroke-[hsl(82,85%,55%)]" strokeWidth="2" />
+                <polygon points="360,140 354,130 366,130" className="fill-[hsl(82,85%,55%)]" />
+                <text x="390" y="124" className="fill-muted-foreground" fontSize="8">JSON-RPC</text>
+
+                {/* MCP Gateway / Router */}
+                <rect x="180" y="142" width="360" height="52" rx="10" className="fill-accent stroke-[hsl(82,85%,55%)]" strokeWidth="1.5" />
+                <text x="360" y="165" textAnchor="middle" className="fill-foreground font-bold" fontSize="12">W3AI MCP Gateway</text>
+                <text x="360" y="182" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Routing · Auth · Rate Limiting · Context Assembly</text>
+
+                {/* Three arrows down to model providers */}
+                <line x1="240" y1="194" x2="140" y2="238" className="stroke-muted-foreground" strokeWidth="1.5" strokeDasharray="6,3" />
+                <line x1="360" y1="194" x2="360" y2="238" className="stroke-muted-foreground" strokeWidth="1.5" strokeDasharray="6,3" />
+                <line x1="480" y1="194" x2="580" y2="238" className="stroke-muted-foreground" strokeWidth="1.5" strokeDasharray="6,3" />
+
+                {/* Model Provider boxes */}
+                {/* OpenAI */}
+                <rect x="60" y="240" width="160" height="48" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                <text x="140" y="260" textAnchor="middle" className="fill-foreground font-bold" fontSize="11">OpenAI</text>
+                <text x="140" y="276" textAnchor="middle" className="fill-muted-foreground" fontSize="8">GPT-5 · Reasoning</text>
+
+                {/* Anthropic */}
+                <rect x="280" y="240" width="160" height="48" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                <text x="360" y="260" textAnchor="middle" className="fill-foreground font-bold" fontSize="11">Anthropic</text>
+                <text x="360" y="276" textAnchor="middle" className="fill-muted-foreground" fontSize="8">Claude · Safety</text>
+
+                {/* Gemini */}
+                <rect x="500" y="240" width="160" height="48" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                <text x="580" y="260" textAnchor="middle" className="fill-foreground font-bold" fontSize="11">Google Gemini</text>
+                <text x="580" y="276" textAnchor="middle" className="fill-muted-foreground" fontSize="8">Multimodal · Grounding</text>
+
+                {/* Bidirectional arrows from models down to MCP Servers layer */}
+                <line x1="140" y1="288" x2="140" y2="326" className="stroke-[hsl(82,85%,55%)]" strokeWidth="1.5" strokeDasharray="4,3" />
+                <line x1="360" y1="288" x2="360" y2="326" className="stroke-[hsl(82,85%,55%)]" strokeWidth="1.5" strokeDasharray="4,3" />
+                <line x1="580" y1="288" x2="580" y2="326" className="stroke-[hsl(82,85%,55%)]" strokeWidth="1.5" strokeDasharray="4,3" />
+
+                {/* "Tool Calls" label */}
+                <text x="360" y="316" textAnchor="middle" className="fill-[hsl(82,85%,55%)]" fontSize="8" fontWeight="bold">TOOL CALLS</text>
+
+                {/* MCP Servers Layer - wide bar */}
+                <rect x="40" y="328" width="640" height="44" rx="8" className="fill-accent/60 stroke-border" strokeWidth="1.5" />
+                <text x="360" y="348" textAnchor="middle" className="fill-foreground font-bold" fontSize="11">MCP Server Layer</text>
+                <text x="360" y="362" textAnchor="middle" className="fill-muted-foreground" fontSize="8">Standardized Tool Interface · JSON-RPC · Streamable HTTP</text>
+
+                {/* Individual MCP server boxes at bottom */}
+                {[
+                  { label: "Blockchain\nExplorer", x: 90 },
+                  { label: "Price\nFeeds", x: 210 },
+                  { label: "Live Page\nParser", x: 330 },
+                  { label: "Compliance\nDB", x: 450 },
+                  { label: "Wallet\nContext", x: 570 },
+                ].map((srv, i) => (
+                  <g key={i}>
+                    <line x1={srv.x + 30} y1="372" x2={srv.x + 30} y2="400" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="3,2" />
+                    <rect x={srv.x - 10} y="402" width="80" height="52" rx="6" className="fill-card stroke-border" strokeWidth="1" />
+                    {srv.label.split("\n").map((line, li) => (
+                      <text key={li} x={srv.x + 30} y={420 + li * 14} textAnchor="middle" className="fill-muted-foreground" fontSize="9">{line}</text>
+                    ))}
+                  </g>
+                ))}
+
+                {/* Data sources at very bottom */}
+                <text x="360" y="478" textAnchor="middle" className="fill-muted-foreground" fontSize="8" letterSpacing="0.15em">EXTERNAL DATA SOURCES</text>
+                {[
+                  { label: "Solscan", x: 90 },
+                  { label: "CoinGecko", x: 210 },
+                  { label: "Web DOM", x: 330 },
+                  { label: "Chainalysis", x: 450 },
+                  { label: "On-Chain", x: 570 },
+                ].map((ds, i) => (
+                  <g key={i}>
+                    <line x1={ds.x + 30} y1="454" x2={ds.x + 30} y2="470" className="stroke-muted-foreground" strokeWidth="1" opacity="0.4" />
+                    <text x={ds.x + 30} y={498} textAnchor="middle" className="fill-muted-foreground" fontSize="8" opacity="0.7">{ds.label}</text>
+                  </g>
+                ))}
+
+                {/* Caption */}
+                <text x="360" y="516" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">MCP servers provide standardized tool access — models call tools, servers execute against live data</text>
+              </svg>
+            </div>
+          </div>
+
+          <div className="prose-section">
+            <p>Key architectural principles of the MCP implementation:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong>Standardized Protocol:</strong> All MCP servers communicate via JSON-RPC over Streamable HTTP, ensuring interoperability regardless of the underlying data source.</li>
+              <li><strong>Tool Discovery:</strong> Models dynamically discover available tools at runtime. When a new MCP server is deployed (e.g., a new DEX aggregator), all connected models can immediately leverage it without retraining.</li>
+              <li><strong>Context Windows:</strong> MCP servers can inject contextual resources — token metadata, contract ABIs, wallet history — directly into the model's context window, enabling informed decision-making without explicit user prompting.</li>
+              <li><strong>Security Boundary:</strong> MCP servers operate within the W3AI security domain. Tool calls that involve wallet operations require explicit user consent before execution, maintaining the "assist → verify → act" pattern.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="ai-live-analysis">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Live Webpage Analysis</h2>
+          <div className="prose-section">
+            <p>One of W3AI's most powerful capabilities is real-time analysis of live webpages within the browser. When a user visits a DeFi protocol, NFT marketplace, or token launch page, the AI can parse the page's DOM, extract structured data, and cross-reference it against on-chain state — all in real time.</p>
+            <p>This is powered by a dedicated Live Page Parser MCP server that:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li>Extracts smart contract addresses, token symbols, and transaction parameters from page content.</li>
+              <li>Cross-references extracted addresses against known scam databases, audit records, and sanctions lists.</li>
+              <li>Verifies that displayed APY, TVL, and price data matches on-chain reality — flagging discrepancies as potential fraud indicators.</li>
+              <li>Analyzes dApp permissions requests before the user signs, explaining exactly what each permission grants in plain language.</li>
+              <li>Monitors page mutations in real-time, alerting users if contract addresses or transaction parameters change after initial page load (a common phishing vector).</li>
+            </ul>
+            <p>This capability transforms the browser from a passive rendering engine into an active security partner — the AI sees what the user sees, understands what the page is asking, and intervenes before harmful actions are executed.</p>
+          </div>
+        </section>
+
+        <section id="ai-orchestration">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Orchestration Layer</h2>
+          <div className="prose-section">
+            <p>The W3AI orchestration layer manages the end-to-end lifecycle of AI requests within the browser. It determines which model to invoke, which MCP tools to make available, and how to assemble context from multiple sources into a coherent response.</p>
+          </div>
+
+          {/* Orchestration Flow Table */}
+          <div className="overflow-x-auto my-6">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="border-b-2 border-[hsl(82,85%,55%,0.3)]">
+                  <th className="text-left py-3 px-4 text-foreground font-bold">Stage</th>
+                  <th className="text-left py-3 px-4 text-foreground font-bold">Action</th>
+                  <th className="text-left py-3 px-4 text-foreground font-bold">Components</th>
+                </tr>
+              </thead>
+              <tbody className="text-muted-foreground">
+                {[
+                  ["1. Intake", "User query or browser event triggers AI pipeline", "Browser UI · Event System"],
+                  ["2. Classification", "Query classified by type: analysis, transaction, compliance, general", "Router · Classifier Model"],
+                  ["3. Model Selection", "Optimal model selected based on task type, cost, latency", "Gateway · Routing Rules"],
+                  ["4. Context Assembly", "Relevant MCP tools and resources attached to model context", "MCP Registry · Tool Discovery"],
+                  ["5. Inference", "Model processes query with tool access, may invoke multiple MCP calls", "Foundation Model · MCP Servers"],
+                  ["6. Verification", "Response validated against on-chain data, flagged if inconsistent", "Verification Engine · Chain RPCs"],
+                  ["7. Presentation", "Result rendered in browser with actionable UI (approve/reject/modify)", "AI Sidebar · Transaction Preview"],
+                ].map(([stage, action, components], i) => (
+                  <tr key={i} className="border-b border-border/50 hover:bg-accent/30 transition-colors">
+                    <td className="py-3 px-4 font-medium text-[hsl(82,85%,55%)] whitespace-nowrap">{stage}</td>
+                    <td className="py-3 px-4">{action}</td>
+                    <td className="py-3 px-4 font-mono text-xs">{components}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="prose-section">
+            <p>The orchestration layer enforces strict latency budgets: simple queries (token price, wallet balance) must resolve within 500ms using cached MCP resources. Complex queries (contract analysis, compliance review) are allowed up to 8 seconds with streaming partial results to maintain perceived responsiveness.</p>
+            <p>All AI interactions are logged with full provenance — which model was used, which MCP tools were invoked, what context was provided, and what the model recommended. This audit trail is critical for compliance-sensitive institutional users and enables continuous improvement of routing decisions.</p>
+          </div>
+        </section>
+      </div>
+
+      {/* ============================================================ */}
       {/* PAGE 07: Cross-Chain Architecture */}
       {/* ============================================================ */}
       <div className={p("cross-chain-architecture")}>
