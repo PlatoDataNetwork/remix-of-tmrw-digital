@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Globe } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useCurrentLanguage } from "@/hooks/useLanguage";
+import { SUPPORTED_LANGUAGES, getBasePath, getUrlLanguage } from "@/hooks/useLanguage";
+import { setGoogleTranslateCookie, clearGoogleTranslateCookies } from "./LanguageHandler";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
@@ -44,7 +46,12 @@ const LANGUAGES = [
 const LanguageSelector = () => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const currentLang = useCurrentLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Derive active language from URL (single source of truth)
+  const urlLang = getUrlLanguage(location.pathname);
+  const currentLang = urlLang || "en";
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -56,22 +63,19 @@ const LanguageSelector = () => {
 
   const handleSelect = (code: string) => {
     setOpen(false);
-    // Use GTranslate's native doGTranslate function
-    const doGT = (window as any).doGTranslate;
-    if (typeof doGT === "function") {
-      doGT(`en|${code.toLowerCase()}`);
+
+    const basePath = getBasePath(location.pathname);
+
+    if (code.toLowerCase() === "en") {
+      // Switch to English: clear cookies, navigate to base path, reset GTranslate
+      clearGoogleTranslateCookies();
+      navigate(basePath || "/", { replace: true });
     } else {
-      // Fallback: trigger the hidden select
-      const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
-      if (!select) return;
-      const options = Array.from(select.options);
-      const match = options.find(
-        (o) => o.value.toLowerCase().includes(code.toLowerCase())
-      );
-      if (match) {
-        select.value = match.value;
-        select.dispatchEvent(new Event("change", { bubbles: true }));
-      }
+      // Switch to target language: set cookie, navigate, then GTranslate will sync via LanguageHandler
+      const normalized =
+        SUPPORTED_LANGUAGES.find((l) => l.toLowerCase() === code.toLowerCase()) || code;
+      setGoogleTranslateCookie(normalized);
+      navigate(`/${normalized}${basePath === "/" ? "" : basePath}`, { replace: true });
     }
   };
 
