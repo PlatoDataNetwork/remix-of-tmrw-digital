@@ -33,10 +33,31 @@ function clearGoogleTranslateCookies() {
 
 function setGoogleTranslateCookie(lang: string) {
   clearGoogleTranslateCookies();
-  if (lang && lang !== "en") {
-    const value = `/en/${lang}`;
-    document.cookie = `googtrans=${value};path=/`;
+
+  const normalized = (lang || "en").trim();
+  const targetLang = normalized.toLowerCase() === "en" ? "en" : normalized;
+  const value = `/en/${targetLang}`;
+
+  const hostname = window.location.hostname;
+  const hostParts = hostname.split(".");
+  const rootDomain = hostParts.length > 2 ? hostParts.slice(-2).join(".") : hostname;
+
+  const domains = Array.from(new Set([
+    hostname,
+    `.${hostname}`,
+    rootDomain,
+    `.${rootDomain}`,
+    `www.${rootDomain}`,
+    `.www.${rootDomain}`,
+    "",
+  ]));
+
+  for (const domain of domains) {
+    const d = domain ? `;domain=${domain}` : "";
+    document.cookie = `googtrans=${value};path=/${d}`;
   }
+
+  document.cookie = `googtrans=${value};path=/`;
 }
 
 function normalizeLanguageValue(value: string): string {
