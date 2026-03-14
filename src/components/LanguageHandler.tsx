@@ -4,9 +4,22 @@ import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath } from "@/hooks/useLan
 
 function clearGoogleTranslateCookies() {
   const hostname = window.location.hostname;
+  const hostParts = hostname.split(".");
+  const rootDomain = hostParts.length > 2 ? hostParts.slice(-2).join(".") : hostname;
   const expiry = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
-  const domains = [hostname, "." + hostname, ".www." + hostname, ""];
+
+  const domains = Array.from(new Set([
+    hostname,
+    `.${hostname}`,
+    rootDomain,
+    `.${rootDomain}`,
+    `www.${rootDomain}`,
+    `.www.${rootDomain}`,
+    "",
+  ]));
+
   const paths = ["/", ""];
+
   for (const domain of domains) {
     for (const path of paths) {
       const d = domain ? `;domain=${domain}` : "";
@@ -14,6 +27,7 @@ function clearGoogleTranslateCookies() {
       document.cookie = `googtrans=;${expiry}${d}${p}`;
     }
   }
+
   document.cookie = `googtrans=;${expiry}`;
 }
 
@@ -64,18 +78,62 @@ const LanguageHandler = () => {
   useEffect(() => {
     isProgrammatic.current = true;
 
+    let releaseProgrammaticMs = 1500;
+    let cleanupRootSync: (() => void) | undefined;
+
     if (urlLang && urlLang !== "en") {
       setGoogleTranslateCookie(urlLang);
       callDoGTranslate(`en|${urlLang.toLowerCase()}`);
     } else {
-      // Root domain or English — nuke ALL cookies and reset GTranslate
-      clearGoogleTranslateCookies();
+      // Root domain or English route: aggressively clear stale translation state
+      const enforceEnglishAndClearCookies = () => {
+        clearGoogleTranslateCookies();
+
+        const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
+        if (!select) return;
+
+        const enOption = Array.from(select.options).find(
+          (option) => normalizeLanguageValue(option.value).toLowerCase() === "en"
+        );
+
+        if (enOption && select.value !== enOption.value) {
+          select.value = enOption.value;
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      };
+
       callDoGTranslate("en|en");
+      enforceEnglishAndClearCookies();
+
+      let attempts = 0;
+      const maxAttempts = 16;
+      const intervalId = window.setInterval(() => {
+        enforceEnglishAndClearCookies();
+        attempts += 1;
+        if (attempts >= maxAttempts) {
+          window.clearInterval(intervalId);
+        }
+      }, 350);
+
+      const onLoad = () => enforceEnglishAndClearCookies();
+      window.addEventListener("load", onLoad);
+
+      releaseProgrammaticMs = 5600;
+      cleanupRootSync = () => {
+        window.clearInterval(intervalId);
+        window.removeEventListener("load", onLoad);
+      };
     }
 
     // Give GTranslate time to process before allowing user-initiated changes
-    const timer = setTimeout(() => { isProgrammatic.current = false; }, 1500);
-    return () => clearTimeout(timer);
+    const timer = window.setTimeout(() => {
+      isProgrammatic.current = false;
+    }, releaseProgrammaticMs);
+
+    return () => {
+      window.clearTimeout(timer);
+      cleanupRootSync?.();
+    };
   }, [urlLang, location.pathname]);
 
   // Listen: GTranslate's hidden dropdown change → update URL
