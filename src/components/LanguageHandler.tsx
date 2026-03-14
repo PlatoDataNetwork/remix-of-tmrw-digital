@@ -5,8 +5,7 @@ import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath } from "@/hooks/useLan
 function clearGoogleTranslateCookies() {
   const hostname = window.location.hostname;
   const expiry = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
-  // Clear every possible domain/path combination to remove ALL googtrans cookies
-  const domains = [hostname, "." + hostname, ""];
+  const domains = [hostname, "." + hostname, ".www." + hostname, ""];
   const paths = ["/", ""];
   for (const domain of domains) {
     for (const path of paths) {
@@ -15,16 +14,13 @@ function clearGoogleTranslateCookies() {
       document.cookie = `googtrans=;${expiry}${d}${p}`;
     }
   }
-  // Also try without any path/domain at all
   document.cookie = `googtrans=;${expiry}`;
 }
 
 function setGoogleTranslateCookie(lang: string) {
-  // Always nuke ALL existing cookies first to prevent duplicates
   clearGoogleTranslateCookies();
   if (lang && lang !== "en") {
     const value = `/en/${lang}`;
-    // Only set ONE cookie on the current path
     document.cookie = `googtrans=${value};path=/`;
   }
 }
@@ -32,18 +28,27 @@ function setGoogleTranslateCookie(lang: string) {
 function normalizeLanguageValue(value: string): string {
   const raw = (value || "").trim();
   if (!raw) return "";
-
   if (raw.includes("|")) {
     const parts = raw.split("|").filter(Boolean);
     return (parts[parts.length - 1] || "").trim();
   }
-
   if (raw.includes("/")) {
     const parts = raw.split("/").filter(Boolean);
     return (parts[parts.length - 1] || "").trim();
   }
-
   return raw;
+}
+
+function callDoGTranslate(langPair: string, retries = 30) {
+  const tryCall = (attempt: number) => {
+    const doGT = (window as any).doGTranslate;
+    if (typeof doGT === "function") {
+      doGT(langPair);
+    } else if (attempt < retries) {
+      setTimeout(() => tryCall(attempt + 1), 300);
+    }
+  };
+  tryCall(0);
 }
 
 const LanguageHandler = () => {
@@ -55,49 +60,34 @@ const LanguageHandler = () => {
 
   const urlLang = getUrlLanguage(location.pathname);
 
-  // Force GTranslate to translate using its native doGTranslate function
-  const forceTranslate = (lang: string, retries = 30) => {
-    const targetLang = normalizeLanguageValue(lang).toLowerCase();
-
-    const tryForce = (attempt: number) => {
-      const doGT = (window as any).doGTranslate;
-      if (typeof doGT !== "function") {
-        if (attempt < retries) setTimeout(() => tryForce(attempt + 1), 300);
-        return;
-      }
-
-      isProgrammatic.current = true;
-
-      if (targetLang === "en") {
-        doGT("en|en");
-      } else {
-        doGT(`en|${targetLang}`);
-      }
-
-      setTimeout(() => { isProgrammatic.current = false; }, 1200);
-    };
-    tryForce(0);
-  };
-
   // Sync: URL → cookie → GTranslate widget on every route change
   useEffect(() => {
+    isProgrammatic.current = true;
+
     if (urlLang && urlLang !== "en") {
       setGoogleTranslateCookie(urlLang);
-      forceTranslate(urlLang);
+      callDoGTranslate(`en|${urlLang.toLowerCase()}`);
     } else {
+      // Root domain or English — nuke ALL cookies and reset GTranslate
       clearGoogleTranslateCookies();
-      forceTranslate("en");
+      callDoGTranslate("en|en");
     }
+
+    // Give GTranslate time to process before allowing user-initiated changes
+    const timer = setTimeout(() => { isProgrammatic.current = false; }, 1500);
+    return () => clearTimeout(timer);
   }, [urlLang, location.pathname]);
 
-  // Listen: GTranslate dropdown change → update URL
+  // Listen: GTranslate's hidden dropdown change → update URL
+  // This catches when someone interacts with the native GTranslate widget directly
   useEffect(() => {
     let currentSelect: HTMLSelectElement | null = null;
 
-    const handleChange = (e: Event) => {
+    const handleChange = () => {
       if (isProgrammatic.current) return;
-      const select = e.target as HTMLSelectElement;
-      const selectedLang = normalizeLanguageValue(select.value).toLowerCase();
+      if (!currentSelect) return;
+
+      const selectedLang = normalizeLanguageValue(currentSelect.value).toLowerCase();
       if (!selectedLang) return;
 
       const basePath = getBasePath(pathnameRef.current);
