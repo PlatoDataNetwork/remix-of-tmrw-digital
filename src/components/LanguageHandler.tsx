@@ -2,6 +2,9 @@ import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SUPPORTED_LANGUAGES, getUrlLanguage, getBasePath } from "@/hooks/useLanguage";
 
+/**
+ * Aggressively remove ALL googtrans cookies across every domain/path variant.
+ */
 function clearGoogleTranslateCookies() {
   const hostname = window.location.hostname;
   const hostParts = hostname.split(".");
@@ -18,46 +21,30 @@ function clearGoogleTranslateCookies() {
     "",
   ]));
 
-  const paths = ["/", ""];
-
   for (const domain of domains) {
-    for (const path of paths) {
-      const d = domain ? `;domain=${domain}` : "";
-      const p = path ? `;path=${path}` : "";
-      document.cookie = `googtrans=;${expiry}${d}${p}`;
-    }
+    const d = domain ? `;domain=${domain}` : "";
+    document.cookie = `googtrans=;${expiry};path=/${d}`;
+    document.cookie = `googtrans=;${expiry}${d}`;
   }
-
   document.cookie = `googtrans=;${expiry}`;
+  document.cookie = `googtrans=;${expiry};path=/`;
 }
 
+/**
+ * Set googtrans cookie for a target language.
+ * For English: clears all cookies (GTranslate shows original content when no cookie exists).
+ * For other languages: clears first, then sets a single clean cookie.
+ */
 function setGoogleTranslateCookie(lang: string) {
   clearGoogleTranslateCookies();
 
-  const normalized = (lang || "en").trim();
-  const targetLang = normalized.toLowerCase() === "en" ? "en" : normalized;
-  const value = `/en/${targetLang}`;
+  const target = (lang || "").trim().toLowerCase();
 
-  const hostname = window.location.hostname;
-  const hostParts = hostname.split(".");
-  const rootDomain = hostParts.length > 2 ? hostParts.slice(-2).join(".") : hostname;
+  // For English, just clearing is enough — GTranslate defaults to original content
+  if (!target || target === "en") return;
 
-  const domains = Array.from(new Set([
-    hostname,
-    `.${hostname}`,
-    rootDomain,
-    `.${rootDomain}`,
-    `www.${rootDomain}`,
-    `.www.${rootDomain}`,
-    "",
-  ]));
-
-  for (const domain of domains) {
-    const d = domain ? `;domain=${domain}` : "";
-    document.cookie = `googtrans=${value};path=/${d}`;
-  }
-
-  document.cookie = `googtrans=${value};path=/`;
+  // For non-English: set exactly ONE cookie on the simplest path
+  document.cookie = `googtrans=/en/${lang};path=/`;
 }
 
 function normalizeLanguageValue(value: string): string {
@@ -74,6 +61,9 @@ function normalizeLanguageValue(value: string): string {
   return raw;
 }
 
+/**
+ * Calls GTranslate's native doGTranslate function, retrying until available.
+ */
 function callDoGTranslate(langPair: string, retries = 30) {
   const tryCall = (attempt: number) => {
     const doGT = (window as any).doGTranslate;
@@ -84,6 +74,23 @@ function callDoGTranslate(langPair: string, retries = 30) {
     }
   };
   tryCall(0);
+}
+
+/**
+ * Reset the hidden GTranslate <select> widget to English.
+ */
+function resetWidgetToEnglish() {
+  const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
+  if (!select) return;
+
+  const enOption = Array.from(select.options).find(
+    (opt) => normalizeLanguageValue(opt.value).toLowerCase() === "en"
+  );
+
+  if (enOption && select.value !== enOption.value) {
+    select.value = enOption.value;
+    select.dispatchEvent(new Event("change", { bubbles: true }));
+  }
 }
 
 const LanguageHandler = () => {
@@ -103,40 +110,31 @@ const LanguageHandler = () => {
     let cleanupRootSync: (() => void) | undefined;
 
     if (urlLang && urlLang !== "en") {
+      // ─── Non-English route ───
       setGoogleTranslateCookie(urlLang);
       callDoGTranslate(`en|${urlLang.toLowerCase()}`);
     } else {
-      // Root domain or English route: force cookie + widget to English state
-      const enforceEnglishSync = () => {
-        setGoogleTranslateCookie("en");
-
-        const select = document.querySelector(".gtranslate_wrapper select") as HTMLSelectElement | null;
-        if (!select) return;
-
-        const enOption = Array.from(select.options).find(
-          (option) => normalizeLanguageValue(option.value).toLowerCase() === "en"
-        );
-
-        if (enOption && select.value !== enOption.value) {
-          select.value = enOption.value;
-          select.dispatchEvent(new Event("change", { bubbles: true }));
-        }
+      // ─── English / root route ───
+      // Clear cookies and force GTranslate back to English
+      const enforceEnglish = () => {
+        clearGoogleTranslateCookies();
+        resetWidgetToEnglish();
       };
 
+      clearGoogleTranslateCookies();
       callDoGTranslate("en|en");
-      enforceEnglishSync();
+      enforceEnglish();
 
+      // Watchdog: keep enforcing English while GTranslate initializes
       let attempts = 0;
       const maxAttempts = 16;
       const intervalId = window.setInterval(() => {
-        enforceEnglishSync();
+        enforceEnglish();
         attempts += 1;
-        if (attempts >= maxAttempts) {
-          window.clearInterval(intervalId);
-        }
+        if (attempts >= maxAttempts) window.clearInterval(intervalId);
       }, 350);
 
-      const onLoad = () => enforceEnglishSync();
+      const onLoad = () => enforceEnglish();
       window.addEventListener("load", onLoad);
 
       releaseProgrammaticMs = 5600;
@@ -146,7 +144,6 @@ const LanguageHandler = () => {
       };
     }
 
-    // Give GTranslate time to process before allowing user-initiated changes
     const timer = window.setTimeout(() => {
       isProgrammatic.current = false;
     }, releaseProgrammaticMs);
@@ -158,7 +155,6 @@ const LanguageHandler = () => {
   }, [urlLang, location.pathname]);
 
   // Listen: GTranslate's hidden dropdown change → update URL
-  // This catches when someone interacts with the native GTranslate widget directly
   useEffect(() => {
     let currentSelect: HTMLSelectElement | null = null;
 
@@ -172,7 +168,7 @@ const LanguageHandler = () => {
       const basePath = getBasePath(pathnameRef.current);
 
       if (selectedLang === "en") {
-        setGoogleTranslateCookie("en");
+        clearGoogleTranslateCookies();
         navigate(basePath || "/", { replace: true });
       } else {
         const normalized =
