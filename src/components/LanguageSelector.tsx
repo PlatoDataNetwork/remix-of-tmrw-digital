@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Globe } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SUPPORTED_LANGUAGES, getBasePath, getUrlLanguage } from "@/hooks/useLanguage";
@@ -46,10 +46,8 @@ const LANGUAGES = [
 const LanguageSelector = () => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
   const location = useLocation();
 
-  // Derive active language from URL (single source of truth)
   const urlLang = getUrlLanguage(location.pathname);
   const currentLang = urlLang || "en";
 
@@ -64,18 +62,17 @@ const LanguageSelector = () => {
   const handleSelect = (code: string) => {
     setOpen(false);
 
-    const basePath = getBasePath(location.pathname);
+    const normalized =
+      SUPPORTED_LANGUAGES.find((lang) => lang.toLowerCase() === code.toLowerCase()) || "en";
 
-    if (code.toLowerCase() === "en") {
-      setGoogleTranslateCookie("en");
-      navigate(basePath || "/", { replace: true });
-    } else {
-      // Switch to target language: set cookie, navigate, then GTranslate will sync via LanguageHandler
-      const normalized =
-        SUPPORTED_LANGUAGES.find((l) => l.toLowerCase() === code.toLowerCase()) || code;
-      setGoogleTranslateCookie(normalized);
-      navigate(`/${normalized}${basePath === "/" ? "" : basePath}`, { replace: true });
-    }
+    const basePath = getBasePath(location.pathname);
+    const targetPath =
+      normalized.toLowerCase() === "en"
+        ? basePath || "/"
+        : `/${normalized}${basePath === "/" ? "" : basePath}`;
+
+    setGoogleTranslateCookie(normalized);
+    window.location.replace(`${targetPath}${location.search}${location.hash}`);
   };
 
   return (
