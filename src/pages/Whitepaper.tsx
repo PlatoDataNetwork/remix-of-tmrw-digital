@@ -1488,7 +1488,7 @@ W3AI.ai.registerTool({
 
                 {/* Central Browser - the convergence point */}
                 <rect x="280" y="250" width="240" height="100" rx="14" className="fill-card stroke-[hsl(82,85%,55%)]" strokeWidth="2.5" />
-                <text x="400" y="280" textAnchor="middle" className="fill-foreground font-bold" fontSize="15">W3AI Privacy Browser</text>
+                <text x="400" y="280" textAnchor="middle" className="fill-foreground font-bold" fontSize="15">W3AI Browser</text>
                 <text x="400" y="300" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Firefox/Gecko · Unified Execution</text>
                 <text x="400" y="316" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Plugin Sandbox · Privacy Layer · Wallet Engine</text>
 
