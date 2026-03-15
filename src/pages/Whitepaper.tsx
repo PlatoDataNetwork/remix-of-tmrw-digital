@@ -1431,12 +1431,12 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
             </div>
           </div>
 
-          {/* — Your Web3 AI Assistant — */}
+          {/* — Meet Marvin — */}
           <div className="mb-8">
             <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%)] mb-3">Real-Time Intelligence</p>
-            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">Your Web3 AI Assistant</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">Meet Marvin. Your Web3 AI Assistant.</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl">
-              The W3AI Browser comes with a built-in AI assistant that provides context, explanations, and insights to help you navigate Web3 with confidence.
+              The W3AI Browser comes with Marvin, a built-in AI assistant that provides context, explanations, and insights to help you navigate Web3 with confidence.
             </p>
 
             <div className="grid lg:grid-cols-2 gap-6 items-start">
