@@ -1528,6 +1528,15 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
           </div>
         </section>
 
+        {/* — W3AI Live — */}
+        <section id="browser-w3ai-live">
+          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Live</h2>
+          <div className="prose-section mb-6">
+            <p>The W3AI Browser in action — seamlessly integrating with the leading Web3 platforms, DeFi protocols, NFT marketplaces, and blockchain networks. Every site rendered natively with full sidebar navigation, integrated analytics, and real-time protocol data.</p>
+          </div>
+          <W3AILiveSlidePlayer />
+        </section>
+
         <section id="browser-firefox-framework">
           <h2 className="text-2xl font-bold text-foreground mb-4">Firefox Framework & Gecko Engine</h2>
           <div className="prose-section">
