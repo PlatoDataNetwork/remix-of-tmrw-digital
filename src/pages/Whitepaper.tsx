@@ -382,6 +382,142 @@ function ReadingProgress() {
   );
 }
 
+// --- Live Staking Dashboard Component ---
+function StakingDashboard() {
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    const iv = setInterval(() => setTick(t => t + 1), 3000);
+    return () => clearInterval(iv);
+  }, []);
+
+  const jitter = (base: number, range: number) => +(base + (Math.sin(tick * 1.7 + base) * range)).toFixed(2);
+  const jitterInt = (base: number, range: number) => Math.round(base + Math.sin(tick * 2.1 + base) * range);
+
+  const chains = useMemo(() => [
+    {
+      name: "Ethereum",
+      color: "hsl(220,80%,60%)",
+      bgClass: "from-[hsl(220,80%,60%,0.1)] to-[hsl(220,80%,60%,0.05)]",
+      borderClass: "border-[hsl(220,80%,60%,0.3)]",
+      validators: 8,
+      staked: `${jitter(256, 12)} ETH`,
+      stakedUsd: `$${jitterInt(640000, 30000).toLocaleString()}`,
+      apy: `${jitter(4.1, 0.3)}%`,
+      uptime: `${jitter(99.97, 0.02)}%`,
+      rewards24h: `${jitter(0.028, 0.004)} ETH`,
+      rewards30d: `${jitter(0.84, 0.05)} ETH`,
+      mev: `${jitter(0.012, 0.005)} ETH`,
+      slashing: "0 events",
+      status: "Active",
+    },
+    {
+      name: "BNB Smart Chain",
+      color: "hsl(45,95%,55%)",
+      bgClass: "from-[hsl(45,95%,55%,0.1)] to-[hsl(45,95%,55%,0.05)]",
+      borderClass: "border-[hsl(45,95%,55%,0.3)]",
+      validators: 1,
+      staked: `${jitterInt(2450, 80).toLocaleString()} BNB`,
+      stakedUsd: `$${jitterInt(1470000, 50000).toLocaleString()}`,
+      apy: `${jitter(3.8, 0.5)}%`,
+      uptime: `${jitter(99.95, 0.03)}%`,
+      rewards24h: `${jitter(0.25, 0.06)} BNB`,
+      rewards30d: `${jitter(7.6, 0.8)} BNB`,
+      mev: "N/A",
+      slashing: "0 events",
+      status: "Active Set #38",
+    },
+    {
+      name: "Solana",
+      color: "hsl(280,75%,60%)",
+      bgClass: "from-[hsl(280,75%,60%,0.1)] to-[hsl(280,75%,60%,0.05)]",
+      borderClass: "border-[hsl(280,75%,60%,0.3)]",
+      validators: 2,
+      staked: `${jitterInt(185000, 8000).toLocaleString()} SOL`,
+      stakedUsd: `$${jitterInt(3145000, 140000).toLocaleString()}`,
+      apy: `${jitter(7.2, 0.4)}%`,
+      uptime: `${jitter(99.99, 0.005)}%`,
+      rewards24h: `${jitter(36.5, 4)} SOL`,
+      rewards30d: `${jitterInt(1095, 60).toLocaleString()} SOL`,
+      mev: `${jitter(8.4, 2.1)} SOL (Jito)`,
+      slashing: "0 events",
+      status: "Active · SFDP",
+    },
+  ], [tick]);
+
+  const totalUsd = useMemo(() => {
+    return `$${(jitterInt(640000, 30000) + jitterInt(1470000, 50000) + jitterInt(3145000, 140000)).toLocaleString()}`;
+  }, [tick]);
+
+  const blendedApy = jitter(5.4, 0.25);
+
+  return (
+    <div className="space-y-4">
+      {/* Summary Bar */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {[
+          { label: "Total Staked (USD)", value: totalUsd },
+          { label: "Blended APY", value: `${blendedApy}%` },
+          { label: "Active Validators", value: "11" },
+          { label: "Slashing Events", value: "0" },
+        ].map(item => (
+          <div key={item.label} className="rounded-lg border border-border bg-card p-3 text-center">
+            <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">{item.label}</div>
+            <div className="text-lg font-bold text-foreground">{item.value}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Per-chain cards */}
+      {chains.map(chain => (
+        <div key={chain.name} className={`rounded-xl border ${chain.borderClass} bg-gradient-to-br ${chain.bgClass} p-4 sm:p-5`}>
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: chain.color }} />
+              <h4 className="text-base font-bold text-foreground">{chain.name}</h4>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent/40 text-muted-foreground">{chain.validators} node{chain.validators > 1 ? "s" : ""}</span>
+            </div>
+            <span className="text-xs font-medium px-2 py-1 rounded-full border border-[hsl(82,85%,55%,0.3)] text-[hsl(82,85%,55%)]">{chain.status}</span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+            {[
+              { l: "Staked", v: chain.staked, sub: chain.stakedUsd },
+              { l: "APY", v: chain.apy },
+              { l: "Uptime", v: chain.uptime },
+              { l: "Rewards (24h)", v: chain.rewards24h },
+              { l: "Rewards (30d)", v: chain.rewards30d },
+              { l: "MEV / Tips", v: chain.mev },
+              { l: "Slashing", v: chain.slashing },
+            ].map(metric => (
+              <div key={metric.l}>
+                <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-0.5">{metric.l}</div>
+                <div className="font-semibold text-foreground">{metric.v}</div>
+                {metric.sub && <div className="text-[10px] text-muted-foreground">{metric.sub}</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      {/* Yield allocation bar */}
+      <div className="rounded-lg border border-border bg-card p-4">
+        <div className="text-xs font-semibold text-foreground mb-2">Yield Allocation</div>
+        <div className="flex h-4 rounded-full overflow-hidden">
+          <div className="bg-[hsl(82,85%,55%)]" style={{ width: "60%" }} title="Auto-Compound 60%" />
+          <div className="bg-[hsl(220,80%,60%)]" style={{ width: "25%" }} title="Treasury Reserve 25%" />
+          <div className="bg-[hsl(280,75%,60%)]" style={{ width: "10%" }} title="Community Rewards 10%" />
+          <div className="bg-muted" style={{ width: "5%" }} title="Operations 5%" />
+        </div>
+        <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-[10px] text-muted-foreground">
+          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[hsl(82,85%,55%)]" />Auto-Compound 60%</span>
+          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[hsl(220,80%,60%)]" />Treasury 25%</span>
+          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[hsl(280,75%,60%)]" />Community 10%</span>
+          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-muted" />Ops 5%</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // --- Content (page-based: only active section is visible) ---
 function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onNavigate: (id: string) => void }) {
   const p = (id: string) => activePage !== id ? "wp-page-hidden" : "space-y-10";
