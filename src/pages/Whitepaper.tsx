@@ -657,18 +657,18 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       {/* ============================================================ */}
       <div className={p("the-solution")}>
         <section id="the-solution">
-          <h2 className="text-2xl font-bold text-foreground mb-4">The Solution: The TMRW Browser Platform</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">The Solution: The W3AI Privacy Browser Platform</h2>
           <div className="prose-section">
-            <p>The TMRW Browser is the core product — a macOS desktop Web3 AI browser built on Firefox with a sidekick mobile app. Firefox's open-source Gecko engine provides deep customization, strategic differentiation from Chromium-based competitors, and a proven extension model.</p>
-            <p>The browser integrates several capabilities into a single interface:</p>
+            <p>The W3AI Privacy Browser is the core product — a macOS desktop Web3 AI browser built on Mozilla's Firefox/Gecko engine with a sidekick mobile app. The browser integrates several capabilities into a single interface:</p>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
               <li>Secure wallet functionality with multi-chain support.</li>
               <li>Cross-chain asset management via hub-and-spoke architecture.</li>
               <li>Token swaps and DeFi access with transparent fee structures.</li>
               <li>AI-assisted transactions with "explain before execute" safety patterns.</li>
               <li>Access to tokenized real-world assets through an integrated marketplace.</li>
+              <li>Privacy-first browsing powered by Gecko's isolation architecture.</li>
             </ul>
-            <p>The browser is not a collection of separate products — it is a unified execution environment where AI, identity, and money converge under explicit user control.</p>
+            <p>The browser is not a collection of separate products — it is a unified execution environment where AI, identity, and money converge under explicit user control. For the full Firefox framework deep-dive, plugin environment, and network architecture, see <a href="#privacy-browser" className="text-[hsl(82,85%,55%)] hover:underline">Chapter 08B</a>.</p>
           </div>
 
           {/* Platform Architecture Diagram */}
