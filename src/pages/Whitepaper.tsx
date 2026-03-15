@@ -1334,7 +1334,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         <section id="browser-plugin-environment">
           <h2 className="text-2xl font-bold text-foreground mb-4">Plugin Environment</h2>
           <div className="prose-section">
-            <p>The W3AI Privacy Browser exposes a comprehensive plugin architecture built on top of Firefox's WebExtensions API, extended with privileged W3AI-specific APIs for Web3 and AI functionality. This environment enables third-party developers to build powerful browser-native applications without compromising the browser's security model.</p>
+            <p>The W3AI Browser exposes a comprehensive plugin architecture built on top of Firefox's WebExtensions API, extended with privileged W3AI-specific APIs for Web3 and AI functionality. This environment enables third-party developers to build powerful browser-native applications without compromising the browser's security model.</p>
 
             <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Extension API Layers</h3>
             <div className="overflow-x-auto my-6">
