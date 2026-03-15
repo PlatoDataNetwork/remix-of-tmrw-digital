@@ -11,21 +11,20 @@ import heroBg from "@/assets/hero-bg.webp";
 import platoIcon from "@/assets/plato-icon.webp";
 import { useChatContext } from "@/components/ChatContext";
 
-import w3aiLivePyth from "@/assets/w3ai-live-pyth.png";
-import w3aiLivePyth2 from "@/assets/w3ai-live-pyth2.png";
-import w3aiLiveLumia from "@/assets/w3ai-live-lumia.png";
-import w3aiLiveMagiceden from "@/assets/w3ai-live-magiceden.png";
-import w3aiLiveMagiceden2 from "@/assets/w3ai-live-magiceden2.png";
-import w3aiLivePyth3 from "@/assets/w3ai-live-pyth3.png";
-import w3aiLivePyth4 from "@/assets/w3ai-live-pyth4.png";
-import w3aiLiveLumia2 from "@/assets/w3ai-live-lumia2.png";
-import w3aiLiveMagiceden3 from "@/assets/w3ai-live-magiceden3.png";
-import w3aiLiveMagiceden4 from "@/assets/w3ai-live-magiceden4.png";
-import w3aiLiveMagiceden5 from "@/assets/w3ai-live-magiceden5.png";
+import w3aiLiveRaydiumSwap from "@/assets/w3ai-live-raydium-swap.png";
+import w3aiLiveRaydiumPerps from "@/assets/w3ai-live-raydium-perps.png";
+import w3aiLiveRaydiumPools from "@/assets/w3ai-live-raydium-pools.png";
+import w3aiLiveJupiter from "@/assets/w3ai-live-jupiter.png";
 import w3aiLiveNear from "@/assets/w3ai-live-near.png";
 import w3aiLiveSynthetix from "@/assets/w3ai-live-synthetix.png";
 import w3aiLiveThegraph from "@/assets/w3ai-live-thegraph.png";
 import w3aiLiveSushi from "@/assets/w3ai-live-sushi.png";
+import w3aiLiveLumia2 from "@/assets/w3ai-live-lumia2.png";
+import w3aiLiveMagiceden3 from "@/assets/w3ai-live-magiceden3.png";
+import w3aiLiveMagiceden4 from "@/assets/w3ai-live-magiceden4.png";
+import w3aiLiveMagiceden5 from "@/assets/w3ai-live-magiceden5.png";
+import w3aiLivePyth3 from "@/assets/w3ai-live-pyth3.png";
+import w3aiLivePyth4 from "@/assets/w3ai-live-pyth4.png";
 
 const PASSWORD = "W3AI88";
 
@@ -211,6 +210,10 @@ function getParentId(id: string): string {
 
 // --- W3AI Live Slide Player ---
 const w3aiLiveSlides = [
+  { src: w3aiLiveRaydiumSwap, label: "Raydium — Swap", desc: "RAY/SOL trading pair with candlestick charts and swap interface." },
+  { src: w3aiLiveRaydiumPerps, label: "Raydium — Perpetuals", desc: "ETH-PERP trading with order book, charts, and cross-leverage." },
+  { src: w3aiLiveRaydiumPools, label: "Raydium — Liquidity Pools", desc: "Concentrated and standard liquidity pools with TVL and APR data." },
+  { src: w3aiLiveJupiter, label: "Jupiter — Predict", desc: "Prediction markets for politics, sports, crypto, and economics." },
   { src: w3aiLivePyth3, label: "Pyth Network — Price Feeds", desc: "Real-time oracle data feeds from institutional sources." },
   { src: w3aiLivePyth4, label: "Pyth Network — Community", desc: "Pythian World event discovery and community engagement." },
   { src: w3aiLiveLumia2, label: "Lumia — RWA Access", desc: "Institutional-grade access to real-world assets globally." },
@@ -221,11 +224,6 @@ const w3aiLiveSlides = [
   { src: w3aiLiveSynthetix, label: "Synthetix — Perps", desc: "Onchain custody with offchain performance for perpetuals." },
   { src: w3aiLiveThegraph, label: "The Graph — Blockchain Data", desc: "Fast, easy access to organized and indexed Web3 data." },
   { src: w3aiLiveSushi, label: "SushiSwap — DeFi Analytics", desc: "Ethereum TVL, volume charts, and liquidity pool analytics." },
-  { src: w3aiLivePyth, label: "Pyth Network — Discovery", desc: "Browsing Pyth with integrated W3AI sidebar navigation." },
-  { src: w3aiLivePyth2, label: "Pyth Network — Events", desc: "Community events and protocol updates within the browser." },
-  { src: w3aiLiveLumia, label: "Lumia — Globe View", desc: "Global RWA access with protocol-level sidebar integration." },
-  { src: w3aiLiveMagiceden, label: "Magic Eden — Explore", desc: "NFT marketplace browsing with W3AI sidebar protocols." },
-  { src: w3aiLiveMagiceden2, label: "Magic Eden — BASC Detail", desc: "Collection-level analytics and purchase within the browser." },
 ];
 
 function W3AILiveSlidePlayer() {
