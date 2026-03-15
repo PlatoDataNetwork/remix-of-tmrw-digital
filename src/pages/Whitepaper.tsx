@@ -1968,7 +1968,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
                 ].map((chain, i) => (
                   <g key={i}>
                     {/* Connection line from hub */}
-                    <line x1="360" y1="105" x2={chain.x + 90} y2="160" className="stroke-muted-foreground/40" strokeWidth="1.5" strokeDasharray="4,3" />
+                    <line x1="360" y1="115" x2={chain.x + 90} y2="160" className="stroke-muted-foreground/40" strokeWidth="1.5" strokeDasharray="4,3" />
                     <polygon points={`${chain.x + 90},160 ${chain.x + 85},152 ${chain.x + 95},152`} className="fill-muted-foreground/40" />
 
                     {/* Chain card */}
