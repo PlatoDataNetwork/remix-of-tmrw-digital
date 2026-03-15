@@ -460,6 +460,7 @@ function SidebarNav({ activeId, onNavigate }: { activeId: string; onNavigate: (i
               ref={isActive && !hasChildren ? activeRef : undefined}
               onClick={() => {
                 if (s.id === "deck-link") { window.location.href = "/deck"; return; }
+                if (s.id === "path-to-1b-link") { window.location.href = "/path-to-1b"; return; }
                 onNavigate(s.id);
               }}
               className={cn(
