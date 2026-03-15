@@ -62,6 +62,13 @@ const sections: Section[] = [
     { id: "protocol-architecture", title: "Architecture" },
     { id: "protocol-economic-model", title: "Economic Model" },
   ]},
+  { id: "privacy-browser", title: "W3AI Privacy Browser", number: "08B", children: [
+    { id: "browser-firefox-framework", title: "Firefox & Gecko Engine" },
+    { id: "browser-privacy-architecture", title: "Privacy Architecture" },
+    { id: "browser-plugin-environment", title: "Plugin Environment" },
+    { id: "browser-app-development", title: "App Development SDK" },
+    { id: "browser-network-architecture", title: "Network Architecture" },
+  ]},
   { id: "tokenized-assets", title: "Tokenized Asset Opportunity", number: "09" },
   { id: "institutional-rails", title: "Institutional-Grade Rails", number: "10", children: [
     { id: "rails-custody", title: "Custody & Safeguarding" },
@@ -650,18 +657,18 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       {/* ============================================================ */}
       <div className={p("the-solution")}>
         <section id="the-solution">
-          <h2 className="text-2xl font-bold text-foreground mb-4">The Solution: The TMRW Browser Platform</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">The Solution: The W3AI Privacy Browser Platform</h2>
           <div className="prose-section">
-            <p>The TMRW Browser is the core product — a macOS desktop Web3 AI browser built on Firefox with a sidekick mobile app. Firefox's open-source Gecko engine provides deep customization, strategic differentiation from Chromium-based competitors, and a proven extension model.</p>
-            <p>The browser integrates several capabilities into a single interface:</p>
+            <p>The W3AI Privacy Browser is the core product — a macOS desktop Web3 AI browser built on Mozilla's Firefox/Gecko engine with a sidekick mobile app. The browser integrates several capabilities into a single interface:</p>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
               <li>Secure wallet functionality with multi-chain support.</li>
               <li>Cross-chain asset management via hub-and-spoke architecture.</li>
               <li>Token swaps and DeFi access with transparent fee structures.</li>
               <li>AI-assisted transactions with "explain before execute" safety patterns.</li>
               <li>Access to tokenized real-world assets through an integrated marketplace.</li>
+              <li>Privacy-first browsing powered by Gecko's isolation architecture.</li>
             </ul>
-            <p>The browser is not a collection of separate products — it is a unified execution environment where AI, identity, and money converge under explicit user control.</p>
+            <p>The browser is not a collection of separate products — it is a unified execution environment where AI, identity, and money converge under explicit user control. For the full Firefox framework deep-dive, plugin environment, and network architecture, see <a href="#privacy-browser" className="text-[hsl(82,85%,55%)] hover:underline">Chapter 08B</a>.</p>
           </div>
 
           {/* Platform Architecture Diagram */}
@@ -678,8 +685,8 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
 
                 {/* Layer 1 - Inner / Core */}
                 <rect x="120" y="102" width="360" height="148" rx="10" className="fill-card stroke-border" strokeWidth="2" />
-                <text x="300" y="130" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">TMRW Browser</text>
-                <text x="300" y="150" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Core Product · Live Today</text>
+                <text x="300" y="130" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">W3AI Privacy Browser</text>
+                <text x="300" y="150" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Firefox/Gecko · Live Today</text>
 
                 {/* Feature pills inside core */}
                 {[
@@ -759,9 +766,9 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         </section>
 
         <section id="today-browser">
-          <h2 className="text-2xl font-bold text-foreground mb-4">TMRW Browser</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Privacy Browser</h2>
           <div className="prose-section">
-            <p>The macOS desktop browser is built on Firefox and delivers the core Web3 AI browsing experience. The browser includes integrated wallet connectivity, AI-assisted transaction explanation, and a unified interface for multi-chain activity.</p>
+            <p>The W3AI Privacy Browser is a macOS desktop application built on the Firefox/Gecko engine, delivering the core Web3 AI browsing experience with integrated wallet connectivity, AI-assisted transaction explanation, and a unified interface for multi-chain activity. For full technical architecture, Firefox framework details, and plugin development documentation, see <a href="#privacy-browser" className="text-[hsl(82,85%,55%)] hover:underline">Chapter 08B: W3AI Privacy Browser</a>.</p>
           </div>
         </section>
 
@@ -787,7 +794,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         <section id="platform-capabilities">
           <h2 className="text-2xl font-bold text-foreground mb-4">Platform Capabilities</h2>
           <div className="prose-section">
-            <p>The TMRW Browser extends its core browsing experience through AI tools, developer integrations, and DeFi functionality — all embedded within the browser rather than offered as separate products.</p>
+            <p>The W3AI Privacy Browser extends its core browsing experience through AI tools, developer integrations, and DeFi functionality — all embedded within the browser rather than offered as separate products. For the full Firefox framework and plugin development documentation, see <a href="#privacy-browser" className="text-[hsl(82,85%,55%)] hover:underline">Chapter 08B: W3AI Privacy Browser</a>.</p>
           </div>
         </section>
 
@@ -1223,7 +1230,423 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 09: Tokenized Asset Opportunity */}
+      {/* PAGE 08B: W3AI Privacy Browser */}
+      {/* ============================================================ */}
+      <div className={p("privacy-browser")}>
+        <section id="privacy-browser">
+          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Privacy Browser</h2>
+          <div className="prose-section">
+            <p>The W3AI Privacy Browser is the central product of the W3AI ecosystem — a purpose-built desktop application that merges privacy-first Web3 browsing, AI-assisted intelligence, and multi-chain wallet management into a single, secure execution environment. Built on Mozilla's Firefox/Gecko engine, the browser represents a deliberate architectural departure from Chromium-based competitors, providing deep customization, proven extension infrastructure, and a privacy model that aligns with Web3's core principles of user sovereignty.</p>
+            <p>This chapter consolidates and expands on browser references throughout this whitepaper, serving as the definitive technical reference for the W3AI Privacy Browser's architecture, Firefox integration, plugin development environment, and the dual Web3 + AI network topology.</p>
+          </div>
+        </section>
+
+        <section id="browser-firefox-framework">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Firefox Framework & Gecko Engine</h2>
+          <div className="prose-section">
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Why Firefox / Gecko</h3>
+            <p>The choice of Mozilla's Gecko rendering engine over Google's Blink/Chromium is a foundational strategic decision that impacts every layer of the browser:</p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b border-border bg-accent/30">
+                    <th className="text-left p-3 text-foreground font-semibold">Dimension</th>
+                    <th className="text-left p-3 text-foreground font-semibold">Gecko (W3AI)</th>
+                    <th className="text-left p-3 text-foreground font-semibold">Chromium (Competitors)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Governance", "Mozilla Public License 2.0 — no corporate telemetry mandates", "Google-controlled codebase with embedded telemetry APIs"],
+                    ["Privacy Model", "Enhanced Tracking Protection (ETP) built into engine core", "Privacy Sandbox — advertising-industry compromise"],
+                    ["Extension API", "WebExtensions API + privileged Gecko-only APIs (XPCOM)", "Manifest V3 — restricted background scripts, limited webRequest"],
+                    ["Process Isolation", "Fission site-isolation with per-origin processes", "Site-isolation but shared renderer across same-site contexts"],
+                    ["Fingerprint Resistance", "Native resistFingerprinting flag in about:config", "Requires third-party extensions with limited effectiveness"],
+                    ["Custom Protocols", "Native protocol handler registration at engine level", "Limited to manifest-declared protocol handlers"],
+                    ["Rendering Engine", "Servo-influenced WebRender GPU compositor", "Skia-based compositor"],
+                    ["Memory Model", "Spidermonkey JS engine — independent optimization path", "V8 engine — shared with Node.js ecosystem"],
+                  ].map(([dim, gecko, chromium], i) => (
+                    <tr key={i} className="border-b border-border/50">
+                      <td className="p-3 font-medium text-foreground">{dim}</td>
+                      <td className="p-3 text-muted-foreground">{gecko}</td>
+                      <td className="p-3 text-muted-foreground">{chromium}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Gecko Integration Architecture</h3>
+            <p>The W3AI Privacy Browser is built as a <strong>Firefox fork</strong> using Mozilla's <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">mozilla-central</code> build system. The fork strategy follows Gecko Embedding principles:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong>Custom Chrome Layer:</strong> The browser's UI chrome (toolbar, sidebar, panels) is entirely replaced with W3AI's React-based interface rendered via Gecko's <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">XUL/XHTML</code> bridge, providing the wallet panel, AI assistant drawer, and chain selector natively in the browser frame.</li>
+              <li><strong>GeckoView Runtime:</strong> For the planned mobile companion app, GeckoView provides the same rendering engine on Android, ensuring feature parity between desktop and mobile browser instances.</li>
+              <li><strong>about:config Overrides:</strong> W3AI ships with 140+ custom <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">about:config</code> preferences pre-configured for maximum privacy — disabling telemetry, enabling <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">privacy.resistFingerprinting</code>, hardening TLS settings, and enforcing HTTPS-only mode by default.</li>
+              <li><strong>SpiderMonkey Extensions:</strong> Custom JavaScript APIs are injected into SpiderMonkey's privileged scope, exposing <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">window.w3ai.*</code> namespace for wallet state, chain context, and AI inference — available only to verified W3AI extensions.</li>
+              <li><strong>WebRender Pipeline:</strong> Gecko's WebRender GPU-accelerated compositor handles the browser's complex UI overlays (transaction previews, gas estimations, risk indicators) without impacting page rendering performance.</li>
+              <li><strong>Rust Components:</strong> Critical security modules (key derivation, transaction signing, address validation) are implemented in Rust and compiled into Gecko's component layer via <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">xpcom</code> bindings, eliminating JavaScript-based attack surfaces for sensitive cryptographic operations.</li>
+            </ul>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Build & Release Pipeline</h3>
+            <p>The W3AI browser follows Mozilla's <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">mach</code> build system with custom additions:</p>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong>Upstream Merge Cadence:</strong> Gecko ESR (Extended Support Release) rebases every 8 weeks, cherry-picking security patches within 48 hours of upstream disclosure.</li>
+              <li><strong>Custom Build Flags:</strong> <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">--enable-w3ai-wallet</code>, <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">--enable-w3ai-ai-layer</code>, <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">--disable-mozilla-telemetry</code> are injected at compile time.</li>
+              <li><strong>Code Signing:</strong> macOS builds are notarized via Apple Developer ID with hardened runtime enabled, ensuring Gatekeeper compatibility and tamper detection.</li>
+              <li><strong>Auto-Update:</strong> Differential updates via Mozilla's MAR (Mozilla ARchive) format, reducing update sizes to ~5MB for incremental patches.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="browser-privacy-architecture">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Privacy Architecture</h2>
+          <div className="prose-section">
+            <p>Privacy is not a feature toggle in the W3AI Privacy Browser — it is the default state. The browser implements a multi-layered privacy stack that operates at the engine, network, and application levels:</p>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Engine-Level Privacy (Gecko Core)</h3>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong>Enhanced Tracking Protection (Strict):</strong> Blocks cross-site tracking cookies, cryptominers, fingerprinters, and social media trackers using Mozilla's Disconnect.me blocklists — active on all browsing by default.</li>
+              <li><strong>Fission Site Isolation:</strong> Each origin runs in a separate OS process with distinct address spaces, preventing Spectre-class side-channel attacks between sites.</li>
+              <li><strong>Total Cookie Protection:</strong> Creates a separate cookie jar for every website, preventing cross-site cookie tracking even for embedded third-party resources.</li>
+              <li><strong>Canvas/WebGL Fingerprint Noise:</strong> Injects controlled noise into canvas and WebGL readback operations, breaking fingerprint consistency without disabling functionality.</li>
+              <li><strong>DNS-over-HTTPS (DoH):</strong> All DNS queries are encrypted by default using Trusted Recursive Resolver (TRR) with configurable provider selection.</li>
+            </ul>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Network-Level Privacy</h3>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong>Encrypted Client Hello (ECH):</strong> TLS 1.3 extension that encrypts the SNI field, preventing ISPs and network observers from seeing which websites are visited.</li>
+              <li><strong>Optional Tor Integration:</strong> One-click Tor circuit routing for maximum anonymity, with automatic exit-node selection optimized for Web3 RPC endpoint latency.</li>
+              <li><strong>RPC Privacy Proxy:</strong> Blockchain RPC calls are routed through W3AI's privacy proxy layer, preventing RPC providers from correlating wallet addresses with IP addresses.</li>
+              <li><strong>Zero-Knowledge Proofs:</strong> ZK-proof based authentication for premium features — proving subscription status without revealing wallet balances or identity.</li>
+            </ul>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Application-Level Privacy</h3>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong>Local-First AI:</strong> Small inference models (classification, risk scoring) run locally via ONNX Runtime within the browser, ensuring sensitive transaction data never leaves the device.</li>
+              <li><strong>Encrypted Sync:</strong> Cross-device synchronization uses end-to-end encryption with keys derived from the user's master password — W3AI servers never hold plaintext sync data.</li>
+              <li><strong>Ephemeral Sessions:</strong> "Ghost Mode" creates fully isolated browser contexts with no persistence — cookies, history, cache, and wallet connections are destroyed on session close.</li>
+              <li><strong>Wallet Compartmentalization:</strong> Each wallet profile operates in a separate Gecko container, preventing dApps from detecting other connected wallets or cross-referencing addresses.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="browser-plugin-environment">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Plugin Environment</h2>
+          <div className="prose-section">
+            <p>The W3AI Privacy Browser exposes a comprehensive plugin architecture built on top of Firefox's WebExtensions API, extended with privileged W3AI-specific APIs for Web3 and AI functionality. This environment enables third-party developers to build powerful browser-native applications without compromising the browser's security model.</p>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Extension API Layers</h3>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b border-border bg-accent/30">
+                    <th className="text-left p-3 text-foreground font-semibold">API Layer</th>
+                    <th className="text-left p-3 text-foreground font-semibold">Access Level</th>
+                    <th className="text-left p-3 text-foreground font-semibold">Capabilities</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Standard WebExtensions", "Public", "DOM access, storage, tabs, messaging, network interception"],
+                    ["W3AI Wallet API", "Permissioned", "Read wallet state, request signatures, subscribe to tx events"],
+                    ["W3AI AI API", "Permissioned", "Invoke LLM inference, access MCP tools, stream AI responses"],
+                    ["W3AI Chain API", "Permissioned", "Read chain state, submit transactions, query token balances"],
+                    ["W3AI Privileged API", "Audited Partners", "Deep Gecko integration, custom protocol handlers, native UI panels"],
+                  ].map(([layer, access, caps], i) => (
+                    <tr key={i} className="border-b border-border/50">
+                      <td className="p-3 font-medium text-foreground">{layer}</td>
+                      <td className="p-3 text-muted-foreground">{access}</td>
+                      <td className="p-3 text-muted-foreground">{caps}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Plugin Manifest Schema</h3>
+            <p>W3AI plugins extend the standard <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">manifest.json</code> with a <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">w3ai</code> namespace:</p>
+            <pre className="bg-accent/20 border border-border rounded-lg p-4 text-sm overflow-x-auto my-4 text-muted-foreground">
+{`{
+  "manifest_version": 3,
+  "name": "My W3AI Plugin",
+  "w3ai": {
+    "permissions": ["wallet:read", "wallet:sign", "ai:inference", "chain:solana"],
+    "panels": [{
+      "id": "my-panel",
+      "title": "Portfolio Tracker",
+      "icon": "panel-icon.svg",
+      "page": "panels/portfolio.html"
+    }],
+    "ai_tools": [{
+      "name": "analyze_token",
+      "description": "Deep analysis of any SPL/ERC-20 token",
+      "handler": "tools/analyze.js"
+    }],
+    "supported_chains": ["solana", "ethereum", "bsc"],
+    "sandbox": "strict"
+  }
+}`}
+            </pre>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Security Sandbox Model</h3>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong>Content Script Isolation:</strong> Plugin content scripts run in isolated worlds with no direct access to page JavaScript contexts, preventing injection attacks.</li>
+              <li><strong>Permission Escalation Prevention:</strong> Wallet signing permissions require explicit user approval via a native Gecko dialog — plugins cannot programmatically bypass the consent layer.</li>
+              <li><strong>Resource Quotas:</strong> Each plugin is allocated CPU time budgets (max 500ms continuous execution), memory limits (128MB heap), and network request caps (100 req/min) to prevent resource abuse.</li>
+              <li><strong>Audit Requirements:</strong> Plugins requesting W3AI Privileged API access must pass a security audit by W3AI's partner (Hacken) before distribution through the W3AI Plugin Store.</li>
+              <li><strong>Runtime Monitoring:</strong> A background watchdog process monitors plugin behavior — flagging suspicious patterns like excessive RPC calls, unusual signing requests, or attempts to access restricted Gecko internals.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="browser-app-development">
+          <h2 className="text-2xl font-bold text-foreground mb-4">App Development SDK</h2>
+          <div className="prose-section">
+            <p>The W3AI Plugin SDK provides a complete development toolkit for building browser-native applications that leverage the full W3AI stack — wallet state, AI inference, cross-chain data, and native UI surfaces.</p>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">SDK Architecture</h3>
+            <pre className="bg-accent/20 border border-border rounded-lg p-4 text-sm overflow-x-auto my-4 text-muted-foreground">
+{`// W3AI Plugin SDK — TypeScript
+import { W3AI } from '@w3ai/plugin-sdk';
+
+// Access wallet state
+const wallet = await W3AI.wallet.getActive();
+console.log(wallet.address, wallet.chain, wallet.balance);
+
+// Invoke AI inference
+const analysis = await W3AI.ai.inference({
+  model: 'auto',  // Routes to optimal model
+  prompt: 'Analyze this contract for risks',
+  context: { contractAddress: '0x...' },
+  tools: ['contract_scanner', 'token_metrics']
+});
+
+// Subscribe to chain events
+W3AI.chain.on('transaction', (tx) => {
+  if (tx.to === wallet.address) {
+    W3AI.ui.notify(\`Received \${tx.value} \${tx.token}\`);
+  }
+});
+
+// Register a custom AI tool
+W3AI.ai.registerTool({
+  name: 'portfolio_rebalance',
+  description: 'Suggests optimal portfolio allocation',
+  parameters: { risk_tolerance: 'number', chains: 'string[]' },
+  handler: async (params) => {
+    // Custom logic here
+    return { allocations: [...] };
+  }
+});`}
+            </pre>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Developer Toolchain</h3>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong>CLI Scaffolding:</strong> <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">npx @w3ai/create-plugin my-plugin</code> generates a complete project with TypeScript, React panel templates, and test harness.</li>
+              <li><strong>Hot Reload:</strong> Development mode with live-reload — edit plugin code and see changes instantly in the browser without restart.</li>
+              <li><strong>DevTools Integration:</strong> A dedicated W3AI DevTools panel shows plugin state, API call logs, wallet interaction history, and AI inference traces.</li>
+              <li><strong>Testnet Simulation:</strong> Built-in testnet environment with faucet tokens across Solana Devnet, Ethereum Sepolia, and BSC Testnet for end-to-end testing.</li>
+              <li><strong>Plugin Store Submission:</strong> CLI-based submission to the W3AI Plugin Store with automated security scanning, manifest validation, and review queue management.</li>
+            </ul>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Example Plugin Categories</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+              {[
+                { name: "DeFi Dashboards", desc: "Real-time yield tracking, impermanent loss calculators, and auto-compound managers across chains." },
+                { name: "NFT Tools", desc: "Collection analytics, rarity scoring, floor price alerts, and batch listing managers." },
+                { name: "Security Scanners", desc: "Real-time contract risk scoring, approval revocation managers, and phishing detection overlays." },
+                { name: "DAO Tooling", desc: "Governance aggregators, proposal simulators, and cross-chain voting dashboards." },
+                { name: "Trading Bots", desc: "Limit orders, DCA schedulers, and MEV-protection wrappers with AI-optimized timing." },
+                { name: "Analytics Overlays", desc: "On-page wallet enrichment, token holder analysis, and whale movement alerts." },
+              ].map((cat, i) => (
+                <div key={i} className="bg-card border border-border rounded-lg p-4">
+                  <h4 className="text-foreground font-semibold text-sm mb-1">{cat.name}</h4>
+                  <p className="text-muted-foreground text-xs">{cat.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="browser-network-architecture">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Network Architecture</h2>
+          <div className="prose-section">
+            <p>The W3AI Privacy Browser operates at the intersection of two fundamental technology domains — Web3 decentralized infrastructure and AI intelligence services. The following architecture diagram illustrates how these domains converge within the browser's execution environment:</p>
+          </div>
+
+          {/* Network Architecture Diagram - Web3 + AI Convergence */}
+          <div className="my-8 flex justify-center">
+            <div className="w-full max-w-3xl">
+              <svg viewBox="0 0 800 620" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Background regions */}
+                <rect x="20" y="20" width="370" height="580" rx="16" className="fill-accent/20 stroke-border" strokeWidth="1" />
+                <text x="205" y="50" textAnchor="middle" className="fill-foreground font-bold" fontSize="14" letterSpacing="0.1em">WEB3 DOMAIN</text>
+
+                <rect x="410" y="20" width="370" height="580" rx="16" className="fill-accent/20 stroke-border" strokeWidth="1" />
+                <text x="595" y="50" textAnchor="middle" className="fill-foreground font-bold" fontSize="14" letterSpacing="0.1em">AI DOMAIN</text>
+
+                {/* Central Browser - the convergence point */}
+                <rect x="280" y="250" width="240" height="100" rx="14" className="fill-card stroke-[hsl(82,85%,55%)]" strokeWidth="2.5" />
+                <text x="400" y="280" textAnchor="middle" className="fill-foreground font-bold" fontSize="15">W3AI Privacy Browser</text>
+                <text x="400" y="300" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Firefox/Gecko · Unified Execution</text>
+                <text x="400" y="316" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Plugin Sandbox · Privacy Layer · Wallet Engine</text>
+
+                {/* Neon glow effect */}
+                <rect x="278" y="248" width="244" height="104" rx="15" fill="none" stroke="hsl(82,85%,55%)" strokeWidth="1" opacity="0.3" />
+
+                {/* === WEB3 SIDE === */}
+                {/* Blockchain Networks */}
+                {[
+                  { name: "Solana", sub: "Hub · SPL Tokens", y: 80 },
+                  { name: "Ethereum", sub: "Spoke · ERC-20", y: 140 },
+                  { name: "BNB Chain", sub: "Spoke · BEP-20", y: 200 },
+                ].map((chain, i) => (
+                  <g key={`chain-${i}`}>
+                    <rect x="50" y={chain.y} width="160" height="42" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                    <text x="130" y={chain.y + 18} textAnchor="middle" className="fill-foreground font-semibold" fontSize="11">{chain.name}</text>
+                    <text x="130" y={chain.y + 32} textAnchor="middle" className="fill-muted-foreground" fontSize="8">{chain.sub}</text>
+                    <line x1="210" y1={chain.y + 21} x2="280" y2="290" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+                  </g>
+                ))}
+
+                {/* DeFi Layer */}
+                <rect x="50" y="280" width="160" height="42" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                <text x="130" y="298" textAnchor="middle" className="fill-foreground font-semibold" fontSize="11">DeFi Protocols</text>
+                <text x="130" y="312" textAnchor="middle" className="fill-muted-foreground" fontSize="8">0x · Changelly · Jupiter</text>
+                <line x1="210" y1="301" x2="280" y2="301" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+
+                {/* Wallet Infrastructure */}
+                <rect x="50" y="350" width="160" height="42" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                <text x="130" y="368" textAnchor="middle" className="fill-foreground font-semibold" fontSize="11">Wallet Engine</text>
+                <text x="130" y="382" textAnchor="middle" className="fill-muted-foreground" fontSize="8">Multi-Chain · HD Derivation</text>
+                <line x1="210" y1="371" x2="280" y2="310" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+
+                {/* Wormhole Bridge */}
+                <rect x="50" y="420" width="160" height="42" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                <text x="130" y="438" textAnchor="middle" className="fill-foreground font-semibold" fontSize="11">Wormhole NTT</text>
+                <text x="130" y="452" textAnchor="middle" className="fill-muted-foreground" fontSize="8">Cross-Chain Bridges</text>
+                <line x1="210" y1="441" x2="280" y2="330" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+
+                {/* Validators */}
+                <rect x="50" y="490" width="160" height="42" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                <text x="130" y="508" textAnchor="middle" className="fill-foreground font-semibold" fontSize="11">Validator Nodes</text>
+                <text x="130" y="522" textAnchor="middle" className="fill-muted-foreground" fontSize="8">ETH · BSC · SOL Staking</text>
+                <line x1="210" y1="511" x2="280" y2="340" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+
+                {/* === AI SIDE === */}
+                {/* LLM Providers */}
+                {[
+                  { name: "OpenAI", sub: "GPT-5 · Reasoning", y: 80 },
+                  { name: "Anthropic", sub: "Claude · Safety", y: 140 },
+                  { name: "Google Gemini", sub: "Multimodal · Speed", y: 200 },
+                ].map((provider, i) => (
+                  <g key={`ai-${i}`}>
+                    <rect x="590" y={provider.y} width="160" height="42" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                    <text x="670" y={provider.y + 18} textAnchor="middle" className="fill-foreground font-semibold" fontSize="11">{provider.name}</text>
+                    <text x="670" y={provider.y + 32} textAnchor="middle" className="fill-muted-foreground" fontSize="8">{provider.sub}</text>
+                    <line x1="590" y1={provider.y + 21} x2="520" y2="290" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+                  </g>
+                ))}
+
+                {/* MCP Servers */}
+                <rect x="590" y="280" width="160" height="42" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                <text x="670" y="298" textAnchor="middle" className="fill-foreground font-semibold" fontSize="11">MCP Servers</text>
+                <text x="670" y="312" textAnchor="middle" className="fill-muted-foreground" fontSize="8">Context · Tools · Resources</text>
+                <line x1="590" y1="301" x2="520" y2="301" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+
+                {/* Local AI / ONNX */}
+                <rect x="590" y="350" width="160" height="42" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                <text x="670" y="368" textAnchor="middle" className="fill-foreground font-semibold" fontSize="11">Local AI (ONNX)</text>
+                <text x="670" y="382" textAnchor="middle" className="fill-muted-foreground" fontSize="8">On-Device · Privacy-First</text>
+                <line x1="590" y1="371" x2="520" y2="310" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+
+                {/* Plugin Ecosystem */}
+                <rect x="590" y="420" width="160" height="42" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                <text x="670" y="438" textAnchor="middle" className="fill-foreground font-semibold" fontSize="11">Plugin Ecosystem</text>
+                <text x="670" y="452" textAnchor="middle" className="fill-muted-foreground" fontSize="8">SDK · Store · DevTools</text>
+                <line x1="590" y1="441" x2="520" y2="330" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+
+                {/* Privacy Layer */}
+                <rect x="590" y="490" width="160" height="42" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                <text x="670" y="508" textAnchor="middle" className="fill-foreground font-semibold" fontSize="11">Privacy Engine</text>
+                <text x="670" y="522" textAnchor="middle" className="fill-muted-foreground" fontSize="8">ETP · DoH · ECH · Tor</text>
+                <line x1="590" y1="511" x2="520" y2="340" className="stroke-muted-foreground" strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+
+                {/* Data flow arrows at bottom */}
+                <text x="400" y="390" textAnchor="middle" className="fill-muted-foreground" fontSize="8">Unified Security Domain</text>
+                <line x1="300" y1="395" x2="500" y2="395" className="stroke-[hsl(82,85%,55%)]" strokeWidth="1.5" opacity="0.5" />
+
+                {/* Bottom: Plugin Sandbox */}
+                <rect x="260" y="420" width="280" height="55" rx="10" className="fill-accent/30 stroke-border" strokeWidth="1.5" />
+                <text x="400" y="442" textAnchor="middle" className="fill-foreground font-semibold" fontSize="11">Plugin Sandbox Environment</text>
+                <text x="400" y="458" textAnchor="middle" className="fill-muted-foreground" fontSize="8">Isolated Processes · Resource Quotas · Permission Gates · Audit Layer</text>
+
+                {/* Connection from browser to plugin sandbox */}
+                <line x1="400" y1="350" x2="400" y2="420" className="stroke-[hsl(82,85%,55%)]" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.6" />
+
+                {/* Bottom: RWA & Tokenized Assets */}
+                <rect x="260" y="500" width="280" height="55" rx="10" className="fill-accent/30 stroke-border" strokeWidth="1.5" />
+                <text x="400" y="522" textAnchor="middle" className="fill-foreground font-semibold" fontSize="11">Tokenized Asset Framework</text>
+                <text x="400" y="538" textAnchor="middle" className="fill-muted-foreground" fontSize="8">RWA Discovery · Verification · Custody · Yield Distribution</text>
+
+                <line x1="400" y1="475" x2="400" y2="500" className="stroke-[hsl(82,85%,55%)]" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.6" />
+
+                {/* Caption */}
+                <text x="400" y="585" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">W3AI Privacy Browser — Web3 × AI Convergence Architecture</text>
+              </svg>
+            </div>
+          </div>
+
+          <div className="prose-section">
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Architecture Layers Explained</h3>
+            <p>The network architecture operates across five distinct but interconnected layers:</p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b border-border bg-accent/30">
+                    <th className="text-left p-3 text-foreground font-semibold">Layer</th>
+                    <th className="text-left p-3 text-foreground font-semibold">Web3 Components</th>
+                    <th className="text-left p-3 text-foreground font-semibold">AI Components</th>
+                    <th className="text-left p-3 text-foreground font-semibold">Integration Point</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Execution", "Transaction signing, smart contract calls", "LLM inference, MCP tool invocation", "Unified permission model"],
+                    ["Data", "On-chain state, token balances, tx history", "Web content, document analysis, market data", "Contextual enrichment pipeline"],
+                    ["Network", "RPC nodes, Wormhole relayers, validators", "API gateways, model endpoints, MCP servers", "Privacy proxy & DoH routing"],
+                    ["Security", "Wallet isolation, key derivation (Rust)", "Sandboxed inference, prompt injection guards", "Unified Security Domain"],
+                    ["Plugin", "dApp connectors, DeFi integrations", "AI tools, analytics overlays, automation", "Plugin Sandbox + SDK"],
+                  ].map(([layer, web3, ai, integration], i) => (
+                    <tr key={i} className="border-b border-border/50">
+                      <td className="p-3 font-medium text-foreground">{layer}</td>
+                      <td className="p-3 text-muted-foreground">{web3}</td>
+                      <td className="p-3 text-muted-foreground">{ai}</td>
+                      <td className="p-3 text-[hsl(82,85%,55%)] text-xs">{integration}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Data Flow: Web3 → AI → Action</h3>
+            <p>A typical transaction flow through the browser demonstrates how both domains converge:</p>
+            <ol className="list-decimal ml-6 space-y-2 text-muted-foreground">
+              <li><strong>User Intent:</strong> User navigates to a DeFi protocol or types a natural language command ("Swap 1 SOL to USDC at the best rate").</li>
+              <li><strong>AI Analysis:</strong> The AI layer parses intent, queries MCP servers for real-time pricing across DEXs (Jupiter, Raydium, Orca), and generates a ranked execution plan.</li>
+              <li><strong>Risk Assessment:</strong> Local ONNX models score the target contract's risk profile. The MCP contract scanner tool checks for known vulnerabilities, rug-pull patterns, and approval traps.</li>
+              <li><strong>Presentation:</strong> The browser presents a clear summary: routes, estimated output, gas costs, slippage, and risk score — all in a native browser panel, not a popup or extension overlay.</li>
+              <li><strong>User Approval:</strong> The user reviews and approves via the Unified Security Domain. The wallet engine constructs and signs the transaction.</li>
+              <li><strong>Execution:</strong> The signed transaction is submitted to the optimal RPC endpoint via the privacy proxy. The browser monitors confirmation and displays real-time status.</li>
+              <li><strong>Audit Log:</strong> Full provenance is recorded — AI model used, MCP tools invoked, routes evaluated, user decision, and on-chain result — available for compliance review.</li>
+            </ol>
+          </div>
+        </section>
+      </div>
+
+
       {/* ============================================================ */}
       <div className={p("tokenized-assets")}>
         <section id="tokenized-assets">
