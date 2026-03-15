@@ -963,7 +963,7 @@ export default function PathTo1B() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SEOHead title="TMRW: Path to $1B+" description="Tomorrow Digital's path to a $1B+ valuation through tokenized real-world asset infrastructure." path="/path-to-1b" <SEOHead title="TMRW: Path to $1B+" description="Tomorrow Digital's path to a $1B+ valuation through tokenized real-world asset infrastructure." path="/path-to-1b" noindex /> />
+      <SEOHead title="TMRW: Path to 1B+" description="Tomorrow Digital path to a 1B+ valuation through tokenized real-world asset infrastructure." path="/path-to-1b" noindex />
       <Navbar />
       <div className="pt-20 lg:pt-24 pb-16 px-4 md:px-8 max-w-6xl mx-auto">
         {slideContent}
