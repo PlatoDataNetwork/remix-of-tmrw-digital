@@ -1278,7 +1278,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
             </div>
 
             <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Gecko Integration Architecture</h3>
-            <p>The W3AI Privacy Browser is built as a <strong>Firefox fork</strong> using Mozilla's <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">mozilla-central</code> build system. The fork strategy follows Gecko Embedding principles:</p>
+            <p>The W3AI Browser is built as a <strong>Firefox fork</strong> using Mozilla's <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">mozilla-central</code> build system. The fork strategy follows Gecko Embedding principles:</p>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
               <li><strong>Custom Chrome Layer:</strong> The browser's UI chrome (toolbar, sidebar, panels) is entirely replaced with W3AI's React-based interface rendered via Gecko's <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">XUL/XHTML</code> bridge, providing the wallet panel, AI assistant drawer, and chain selector natively in the browser frame.</li>
               <li><strong>GeckoView Runtime:</strong> For the planned mobile companion app, GeckoView provides the same rendering engine on Android, ensuring feature parity between desktop and mobile browser instances.</li>
