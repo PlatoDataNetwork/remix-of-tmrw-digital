@@ -195,6 +195,7 @@ const sections: Section[] = [
   { id: "risks", title: "Risks & Disclosures", number: "26" },
   { id: "appendix", title: "Appendix & References", number: "27" },
   { id: "deck-link", title: "Project Deck", number: "28" },
+  { id: "path-to-1b-link", title: "Path to $1B", number: "29" },
 ];
 
 const topLevelIds = sections.map(s => s.id);
