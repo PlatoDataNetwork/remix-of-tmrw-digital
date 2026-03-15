@@ -62,7 +62,7 @@ const sections: Section[] = [
     { id: "protocol-architecture", title: "Architecture" },
     { id: "protocol-economic-model", title: "Economic Model" },
   ]},
-  { id: "privacy-browser", title: "W3AI Privacy Browser", number: "08B", children: [
+  { id: "privacy-browser", title: "W3AI Browser", number: "08B", children: [
     { id: "browser-firefox-framework", title: "Firefox & Gecko Engine" },
     { id: "browser-privacy-architecture", title: "Privacy Architecture" },
     { id: "browser-plugin-environment", title: "Plugin Environment" },
@@ -657,9 +657,9 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       {/* ============================================================ */}
       <div className={p("the-solution")}>
         <section id="the-solution">
-          <h2 className="text-2xl font-bold text-foreground mb-4">The Solution: The W3AI Privacy Browser Platform</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">The Solution: The W3AI Browser Platform</h2>
           <div className="prose-section">
-            <p>The W3AI Privacy Browser is the core product — a macOS desktop Web3 AI browser built on Mozilla's Firefox/Gecko engine with a sidekick mobile app. The browser integrates several capabilities into a single interface:</p>
+            <p>The W3AI Browser is the core product — a macOS desktop Web3 AI browser built on Mozilla's Firefox/Gecko engine with a sidekick mobile app. The browser integrates several capabilities into a single interface:</p>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
               <li>Secure wallet functionality with multi-chain support.</li>
               <li>Cross-chain asset management via hub-and-spoke architecture.</li>
@@ -685,7 +685,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
 
                 {/* Layer 1 - Inner / Core */}
                 <rect x="120" y="102" width="360" height="148" rx="10" className="fill-card stroke-border" strokeWidth="2" />
-                <text x="300" y="130" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">W3AI Privacy Browser</text>
+                <text x="300" y="130" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">W3AI Browser</text>
                 <text x="300" y="150" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Firefox/Gecko · Live Today</text>
 
                 {/* Feature pills inside core */}
@@ -766,9 +766,9 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         </section>
 
         <section id="today-browser">
-          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Privacy Browser</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Browser</h2>
           <div className="prose-section">
-            <p>The W3AI Privacy Browser is a macOS desktop application built on the Firefox/Gecko engine, delivering the core Web3 AI browsing experience with integrated wallet connectivity, AI-assisted transaction explanation, and a unified interface for multi-chain activity. For full technical architecture, Firefox framework details, and plugin development documentation, see <a href="#privacy-browser" className="text-[hsl(82,85%,55%)] hover:underline">Chapter 08B: W3AI Privacy Browser</a>.</p>
+            <p>The W3AI Browser is a macOS desktop application built on the Firefox/Gecko engine, delivering the core Web3 AI browsing experience with integrated wallet connectivity, AI-assisted transaction explanation, and a unified interface for multi-chain activity. For full technical architecture, Firefox framework details, and plugin development documentation, see <a href="#privacy-browser" className="text-[hsl(82,85%,55%)] hover:underline">Chapter 08B: W3AI Browser</a>.</p>
           </div>
         </section>
 
@@ -794,7 +794,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         <section id="platform-capabilities">
           <h2 className="text-2xl font-bold text-foreground mb-4">Platform Capabilities</h2>
           <div className="prose-section">
-            <p>The W3AI Privacy Browser extends its core browsing experience through AI tools, developer integrations, and DeFi functionality — all embedded within the browser rather than offered as separate products. For the full Firefox framework and plugin development documentation, see <a href="#privacy-browser" className="text-[hsl(82,85%,55%)] hover:underline">Chapter 08B: W3AI Privacy Browser</a>.</p>
+            <p>The W3AI Browser extends its core browsing experience through AI tools, developer integrations, and DeFi functionality — all embedded within the browser rather than offered as separate products. For the full Firefox framework and plugin development documentation, see <a href="#privacy-browser" className="text-[hsl(82,85%,55%)] hover:underline">Chapter 08B: W3AI Browser</a>.</p>
           </div>
         </section>
 
@@ -1230,14 +1230,14 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 08B: W3AI Privacy Browser */}
+      {/* PAGE 08B: W3AI Browser */}
       {/* ============================================================ */}
       <div className={p("privacy-browser")}>
         <section id="privacy-browser">
-          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Privacy Browser</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Browser</h2>
           <div className="prose-section">
-            <p>The W3AI Privacy Browser is the central product of the W3AI ecosystem — a purpose-built desktop application that merges privacy-first Web3 browsing, AI-assisted intelligence, and multi-chain wallet management into a single, secure execution environment. Built on Mozilla's Firefox/Gecko engine, the browser represents a deliberate architectural departure from Chromium-based competitors, providing deep customization, proven extension infrastructure, and a privacy model that aligns with Web3's core principles of user sovereignty.</p>
-            <p>This chapter consolidates and expands on browser references throughout this whitepaper, serving as the definitive technical reference for the W3AI Privacy Browser's architecture, Firefox integration, plugin development environment, and the dual Web3 + AI network topology.</p>
+            <p>The W3AI Browser is the central product of the W3AI ecosystem — a purpose-built desktop application that merges privacy-first Web3 browsing, AI-assisted intelligence, and multi-chain wallet management into a single, secure execution environment. Built on Mozilla's Firefox/Gecko engine, the browser represents a deliberate architectural departure from Chromium-based competitors, providing deep customization, proven extension infrastructure, and a privacy model that aligns with Web3's core principles of user sovereignty.</p>
+            <p>This chapter consolidates and expands on browser references throughout this whitepaper, serving as the definitive technical reference for the W3AI Browser's architecture, Firefox integration, plugin development environment, and the dual Web3 + AI network topology.</p>
           </div>
         </section>
 
@@ -1278,7 +1278,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
             </div>
 
             <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Gecko Integration Architecture</h3>
-            <p>The W3AI Privacy Browser is built as a <strong>Firefox fork</strong> using Mozilla's <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">mozilla-central</code> build system. The fork strategy follows Gecko Embedding principles:</p>
+            <p>The W3AI Browser is built as a <strong>Firefox fork</strong> using Mozilla's <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">mozilla-central</code> build system. The fork strategy follows Gecko Embedding principles:</p>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
               <li><strong>Custom Chrome Layer:</strong> The browser's UI chrome (toolbar, sidebar, panels) is entirely replaced with W3AI's React-based interface rendered via Gecko's <code className="text-[hsl(82,85%,55%)] bg-accent/30 px-1 rounded">XUL/XHTML</code> bridge, providing the wallet panel, AI assistant drawer, and chain selector natively in the browser frame.</li>
               <li><strong>GeckoView Runtime:</strong> For the planned mobile companion app, GeckoView provides the same rendering engine on Android, ensuring feature parity between desktop and mobile browser instances.</li>
@@ -1302,7 +1302,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         <section id="browser-privacy-architecture">
           <h2 className="text-2xl font-bold text-foreground mb-4">Privacy Architecture</h2>
           <div className="prose-section">
-            <p>Privacy is not a feature toggle in the W3AI Privacy Browser — it is the default state. The browser implements a multi-layered privacy stack that operates at the engine, network, and application levels:</p>
+            <p>Privacy is not a feature toggle in the W3AI Browser — it is the default state. The browser implements a multi-layered privacy stack that operates at the engine, network, and application levels:</p>
 
             <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Engine-Level Privacy (Gecko Core)</h3>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
@@ -1334,7 +1334,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         <section id="browser-plugin-environment">
           <h2 className="text-2xl font-bold text-foreground mb-4">Plugin Environment</h2>
           <div className="prose-section">
-            <p>The W3AI Privacy Browser exposes a comprehensive plugin architecture built on top of Firefox's WebExtensions API, extended with privileged W3AI-specific APIs for Web3 and AI functionality. This environment enables third-party developers to build powerful browser-native applications without compromising the browser's security model.</p>
+            <p>The W3AI Browser exposes a comprehensive plugin architecture built on top of Firefox's WebExtensions API, extended with privileged W3AI-specific APIs for Web3 and AI functionality. This environment enables third-party developers to build powerful browser-native applications without compromising the browser's security model.</p>
 
             <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Extension API Layers</h3>
             <div className="overflow-x-auto my-6">
@@ -1472,7 +1472,7 @@ W3AI.ai.registerTool({
         <section id="browser-network-architecture">
           <h2 className="text-2xl font-bold text-foreground mb-4">Network Architecture</h2>
           <div className="prose-section">
-            <p>The W3AI Privacy Browser operates at the intersection of two fundamental technology domains — Web3 decentralized infrastructure and AI intelligence services. The following architecture diagram illustrates how these domains converge within the browser's execution environment:</p>
+            <p>The W3AI Browser operates at the intersection of two fundamental technology domains — Web3 decentralized infrastructure and AI intelligence services. The following architecture diagram illustrates how these domains converge within the browser's execution environment:</p>
           </div>
 
           {/* Network Architecture Diagram - Web3 + AI Convergence */}
@@ -1488,7 +1488,7 @@ W3AI.ai.registerTool({
 
                 {/* Central Browser - the convergence point */}
                 <rect x="280" y="250" width="240" height="100" rx="14" className="fill-card stroke-[hsl(82,85%,55%)]" strokeWidth="2.5" />
-                <text x="400" y="280" textAnchor="middle" className="fill-foreground font-bold" fontSize="15">W3AI Privacy Browser</text>
+                <text x="400" y="280" textAnchor="middle" className="fill-foreground font-bold" fontSize="15">W3AI Browser</text>
                 <text x="400" y="300" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Firefox/Gecko · Unified Execution</text>
                 <text x="400" y="316" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Plugin Sandbox · Privacy Layer · Wallet Engine</text>
 
@@ -1593,7 +1593,7 @@ W3AI.ai.registerTool({
                 <line x1="400" y1="475" x2="400" y2="500" className="stroke-[hsl(82,85%,55%)]" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.6" />
 
                 {/* Caption */}
-                <text x="400" y="585" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">W3AI Privacy Browser — Web3 × AI Convergence Architecture</text>
+                <text x="400" y="585" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">W3AI Browser — Web3 × AI Convergence Architecture</text>
               </svg>
             </div>
           </div>
