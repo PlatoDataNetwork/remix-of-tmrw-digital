@@ -29,7 +29,7 @@ function SlideBranding() {
         }}
       />
       <span className="text-[10px] font-light tracking-[0.2em] text-muted-foreground/60 uppercase">
-        TMRW <span className="text-muted-foreground/30">|</span> Path to 1B+
+        TMRW <span className="text-muted-foreground/30">|</span> Path to Immortality
       </span>
     </div>
   );
