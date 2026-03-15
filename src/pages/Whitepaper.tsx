@@ -657,9 +657,9 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       {/* ============================================================ */}
       <div className={p("the-solution")}>
         <section id="the-solution">
-          <h2 className="text-2xl font-bold text-foreground mb-4">The Solution: The W3AI Privacy Browser Platform</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">The Solution: The W3AI Browser Platform</h2>
           <div className="prose-section">
-            <p>The W3AI Privacy Browser is the core product — a macOS desktop Web3 AI browser built on Mozilla's Firefox/Gecko engine with a sidekick mobile app. The browser integrates several capabilities into a single interface:</p>
+            <p>The W3AI Browser is the core product — a macOS desktop Web3 AI browser built on Mozilla's Firefox/Gecko engine with a sidekick mobile app. The browser integrates several capabilities into a single interface:</p>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
               <li>Secure wallet functionality with multi-chain support.</li>
               <li>Cross-chain asset management via hub-and-spoke architecture.</li>
