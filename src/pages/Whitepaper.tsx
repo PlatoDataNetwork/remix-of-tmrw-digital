@@ -794,7 +794,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         <section id="platform-capabilities">
           <h2 className="text-2xl font-bold text-foreground mb-4">Platform Capabilities</h2>
           <div className="prose-section">
-            <p>The W3AI Privacy Browser extends its core browsing experience through AI tools, developer integrations, and DeFi functionality — all embedded within the browser rather than offered as separate products. For the full Firefox framework and plugin development documentation, see <a href="#privacy-browser" className="text-[hsl(82,85%,55%)] hover:underline">Chapter 08B: W3AI Privacy Browser</a>.</p>
+            <p>The W3AI Browser extends its core browsing experience through AI tools, developer integrations, and DeFi functionality — all embedded within the browser rather than offered as separate products. For the full Firefox framework and plugin development documentation, see <a href="#privacy-browser" className="text-[hsl(82,85%,55%)] hover:underline">Chapter 08B: W3AI Browser</a>.</p>
           </div>
         </section>
 
