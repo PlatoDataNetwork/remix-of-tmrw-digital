@@ -1,5 +1,6 @@
 /* whitepaper v3 — restructured */
-import { useState, useEffect, useRef, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
+import { motion } from "framer-motion";
 import { ArrowUp, ChevronRight, ChevronLeft, ChevronDown, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
@@ -63,6 +64,7 @@ const sections: Section[] = [
     { id: "protocol-economic-model", title: "Economic Model" },
   ]},
   { id: "privacy-browser", title: "W3AI Browser", number: "08B", children: [
+    { id: "browser-overview", title: "Overview" },
     { id: "browser-firefox-framework", title: "Firefox & Gecko Engine" },
     { id: "browser-privacy-architecture", title: "Privacy Architecture" },
     { id: "browser-plugin-environment", title: "Plugin Environment" },
@@ -1238,6 +1240,274 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
           <div className="prose-section">
             <p>The W3AI Browser is the central product of the W3AI ecosystem — a purpose-built desktop application that merges privacy-first Web3 browsing, AI-assisted intelligence, and multi-chain wallet management into a single, secure execution environment. Built on Mozilla's Firefox/Gecko engine, the browser represents a deliberate architectural departure from Chromium-based competitors, providing deep customization, proven extension infrastructure, and a privacy model that aligns with Web3's core principles of user sovereignty.</p>
             <p>This chapter consolidates and expands on browser references throughout this whitepaper, serving as the definitive technical reference for the W3AI Browser's architecture, Firefox integration, plugin development environment, and the dual Web3 + AI network topology.</p>
+          </div>
+        </section>
+
+        {/* ---- Browser Overview ---- */}
+        <section id="browser-overview">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Overview</h2>
+
+          {/* — The Complete Web3 Experience — */}
+          <div className="mb-12">
+            <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%)] mb-3 text-center">Crafted for Desktop</p>
+            <h3 className="text-xl md:text-2xl font-bold text-foreground text-center mb-3">The Complete Web3 Experience</h3>
+            <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-8">
+              Instantly connect with thousands of decentralized applications, access real-time intelligence, and explore the Web3 ecosystem — all through one sleek, unified interface.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { icon: "🌐", title: "Seamless dApp Access", desc: "Connect instantly to thousands of decentralized applications without additional plugins or configurations." },
+                { icon: "🔗", title: "Unified Wallet Integration", desc: "Connect and manage multiple crypto wallets in one secure, intuitive interface." },
+                { icon: "⚡", title: "Blazing-Fast Performance", desc: "Optimized with native performance powered by the Gecko engine that outpaces traditional browsers." },
+                { icon: "🛡️", title: "Enhanced Security", desc: "Built-in protection against common Web3 threats, phishing attempts, and malicious smart contracts." },
+                { icon: "🔀", title: "Multi-Chain Support", desc: "Seamlessly interact with all major blockchains and Layer 2 solutions in one browser." },
+                { icon: "🛠️", title: "Developer Tools", desc: "Comprehensive suite of developer tools optimized for blockchain and Web3 development." },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.07 }}
+                  className="bg-card border border-border rounded-xl p-5 hover:border-[hsl(82,85%,55%,0.4)] transition-all duration-300 group"
+                >
+                  <span className="text-2xl mb-3 block">{item.icon}</span>
+                  <h4 className="text-sm font-semibold text-foreground mb-1.5">{item.title}</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* — Native Integration That Feels Like Magic — */}
+          <div className="mb-12">
+            <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%)] mb-3">Built for Desktop</p>
+            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">Native Integration That Feels Like Magic</h3>
+            <p className="text-muted-foreground mb-6 max-w-2xl">
+              The W3AI Browser isn't just a browser that runs on your machine — it's built from the ground up to leverage the Firefox/Gecko engine with system-level integration that makes your Web3 experience truly seamless.
+            </p>
+
+            <div className="grid lg:grid-cols-2 gap-6 items-start">
+              {/* Tabbed Performance / Design / Security Box */}
+              <div className="bg-card border border-border rounded-xl overflow-hidden">
+                {(() => {
+                  const tabs = [
+                    {
+                      label: "Performance",
+                      items: [
+                        { title: "Native Gecko Rendering", desc: "Built on Firefox's Gecko engine with optimized rendering pipeline and parallel layout for lightning-fast page loads." },
+                        { title: "Memory Efficient", desc: "Intelligent memory management via Fission site isolation keeps your system running smoothly even with multiple dApps open." },
+                        { title: "Multi-Thread Optimized", desc: "Leverages Stylo's parallel CSS engine and off-main-thread compositing for smooth 60fps interactions." },
+                      ],
+                    },
+                    {
+                      label: "Design",
+                      items: [
+                        { title: "Unified Web3 Interface", desc: "Cohesive design language that integrates wallet, dApp browser, and AI assistant into a single intuitive workspace." },
+                        { title: "Adaptive Dark Mode", desc: "System-aware theming that respects your OS preferences with optimized contrast for extended browsing sessions." },
+                        { title: "Contextual UI", desc: "Interface elements that adapt based on the dApp you're interacting with, surfacing relevant tools automatically." },
+                      ],
+                    },
+                    {
+                      label: "Security",
+                      items: [
+                        { title: "Fission Site Isolation", desc: "Each site runs in its own process — a compromised page cannot access wallet data or keys from another tab." },
+                        { title: "ECH & DNS-over-HTTPS", desc: "Encrypted Client Hello and secure DNS prevent ISPs and intermediaries from inspecting your browsing activity." },
+                        { title: "RPC Privacy Proxy", desc: "All blockchain RPC calls are routed through privacy-preserving proxies, preventing IP-to-wallet correlation." },
+                      ],
+                    },
+                  ];
+                  // eslint-disable-next-line react-hooks/rules-of-hooks
+                  const [activeTab, setActiveTab] = React.useState(0);
+                  return (
+                    <>
+                      <div className="flex border-b border-border">
+                        {tabs.map((tab, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setActiveTab(i)}
+                            className={`flex-1 py-3 text-sm font-medium transition-all duration-200 ${
+                              activeTab === i
+                                ? "text-[hsl(82,85%,55%)] border-b-2 border-[hsl(82,85%,55%)] bg-accent/20"
+                                : "text-muted-foreground hover:text-foreground"
+                            }`}
+                          >
+                            {tab.label}
+                          </button>
+                        ))}
+                      </div>
+                      <div className="p-5 space-y-4">
+                        {tabs[activeTab].items.map((item, i) => (
+                          <motion.div
+                            key={`${activeTab}-${i}`}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.25, delay: i * 0.08 }}
+                          >
+                            <h4 className="text-sm font-semibold text-foreground mb-1">{item.title}</h4>
+                            <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </>
+                  );
+                })()}
+              </div>
+
+              {/* Right side feature list */}
+              <div className="space-y-5">
+                {[
+                  { title: "Gecko Rendering Engine", desc: "Powered by Mozilla's battle-tested Gecko engine with Stylo (parallel CSS) and WebRender (GPU compositing) for unmatched rendering fidelity." },
+                  { title: "Cross-Platform Continuity", desc: "Sync your wallet connections, bookmarks, and dApp sessions across desktop and the W3AI mobile companion app." },
+                  { title: "Keyboard-First Workflow", desc: "Extensive keyboard shortcut support with customizable bindings for power users who navigate Web3 at speed." },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    className="flex gap-3"
+                  >
+                    <div className="mt-1 w-5 h-5 rounded-full bg-[hsl(82,85%,55%,0.15)] flex items-center justify-center shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-[hsl(82,85%,55%)]" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-semibold text-foreground mb-1">{item.title}</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* — Everything You Need, All In One Place — */}
+          <div className="mb-12">
+            <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%)] mb-3 text-center">Complete Web3 Suite</p>
+            <h3 className="text-xl md:text-2xl font-bold text-foreground text-center mb-3">Everything You Need, All In One Place</h3>
+            <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-8">
+              Whether you're trading, creating, or building, the W3AI Browser empowers you with next-gen UI/UX, blazing-fast performance, and seamless integration across the decentralized web.
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {[
+                {
+                  icon: "📊", title: "Multi-Wallet Dashboard",
+                  desc: "Monitor and manage all your wallets in one place with real-time portfolio tracking, gas optimization, and transaction history.",
+                  features: ["Advanced transaction analysis", "Cross-chain portfolio view", "Gas fee optimization"],
+                },
+                {
+                  icon: "🌐", title: "dApp Connection Hub",
+                  desc: "Discover and connect to thousands of dApps across various blockchains with our curated directory, featuring security ratings and community reviews.",
+                  features: ["One-click dApp connections", "Security verification system", "Personalized recommendations"],
+                },
+                {
+                  icon: "🛡️", title: "Security Guardian",
+                  desc: "Advanced protection against scams, phishing, and malicious smart contracts with real-time threat detection and risk assessment.",
+                  features: ["Smart contract analysis", "Phishing protection", "Transaction simulation"],
+                },
+              ].map((card, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="bg-card border border-border rounded-xl p-5 hover:border-[hsl(82,85%,55%,0.4)] transition-all duration-300"
+                >
+                  <span className="text-2xl mb-3 block">{card.icon}</span>
+                  <h4 className="text-sm font-semibold text-foreground mb-2">{card.title}</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-3">{card.desc}</p>
+                  <ul className="space-y-1">
+                    {card.features.map((f, fi) => (
+                      <li key={fi} className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <span className="w-1 h-1 rounded-full bg-[hsl(82,85%,55%)]" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* — Your Web3 AI Assistant — */}
+          <div className="mb-8">
+            <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%)] mb-3">Real-Time Intelligence</p>
+            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">Your Web3 AI Assistant</h3>
+            <p className="text-muted-foreground mb-6 max-w-2xl">
+              The W3AI Browser comes with a built-in AI assistant that provides context, explanations, and insights to help you navigate Web3 with confidence.
+            </p>
+
+            <div className="grid lg:grid-cols-2 gap-6 items-start">
+              {/* Left: Feature list */}
+              <div className="space-y-5">
+                {[
+                  { icon: "📚", title: "Blockchain Education", desc: "Get instant explanations of complex crypto concepts and blockchain terminology as you browse." },
+                  { icon: "🔍", title: "Transaction Analysis", desc: "AI-powered transaction analysis helps you understand the risks and implications before confirming." },
+                  { icon: "📈", title: "Market Insights", desc: "Get contextual information about tokens, protocols, and market trends as you browse." },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    className="flex gap-3"
+                  >
+                    <span className="text-lg mt-0.5">{item.icon}</span>
+                    <div>
+                      <h4 className="text-sm font-semibold text-foreground mb-1">{item.title}</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Right: AI Chat Mockup */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="bg-card border border-border rounded-xl overflow-hidden"
+              >
+                <div className="bg-[hsl(82,85%,55%)] text-background px-4 py-2.5 text-xs font-semibold">W3AI Assistant</div>
+                <div className="p-4 space-y-3">
+                  {/* User message */}
+                  <div className="flex justify-end">
+                    <div className="bg-[hsl(82,85%,55%,0.15)] border border-[hsl(82,85%,55%,0.3)] text-foreground text-xs rounded-lg rounded-tr-sm px-3 py-2 max-w-[85%]">
+                      What's the difference between ERC-20 and ERC-721 tokens?
+                    </div>
+                  </div>
+                  {/* AI response */}
+                  <div className="flex justify-start">
+                    <div className="bg-secondary text-foreground text-xs rounded-lg rounded-tl-sm px-3 py-2 max-w-[90%] space-y-1.5">
+                      <p><strong>ERC-20:</strong> Fungible tokens — each token is identical. Used for cryptocurrencies, utility tokens, and governance tokens.</p>
+                      <p><strong>ERC-721:</strong> Non-fungible tokens (NFTs) — each token is unique. Used for digital art, collectibles, and unique assets.</p>
+                    </div>
+                  </div>
+                  {/* Smart Contract Analysis */}
+                  <div className="bg-secondary/50 rounded-lg p-3 border border-border">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-[10px] font-mono text-muted-foreground">smart-contract.sol</span>
+                    </div>
+                    <pre className="text-[10px] text-muted-foreground font-mono leading-relaxed overflow-x-auto">
+{`contract W3AIDemo {
+  mapping(address => uint256) public balances;
+  function deposit() public payable {
+    balances[msg.sender] += msg.value;
+  }
+}`}
+                    </pre>
+                    <div className="flex items-center gap-4 mt-2 text-[10px]">
+                      <span className="text-[hsl(82,85%,55%)]">✓ No vulnerabilities detected</span>
+                      <span className="text-muted-foreground">Gas: ~34,500</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
