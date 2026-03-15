@@ -11,6 +11,22 @@ import heroBg from "@/assets/hero-bg.webp";
 import platoIcon from "@/assets/plato-icon.webp";
 import { useChatContext } from "@/components/ChatContext";
 
+import w3aiLivePyth from "@/assets/w3ai-live-pyth.png";
+import w3aiLivePyth2 from "@/assets/w3ai-live-pyth2.png";
+import w3aiLiveLumia from "@/assets/w3ai-live-lumia.png";
+import w3aiLiveMagiceden from "@/assets/w3ai-live-magiceden.png";
+import w3aiLiveMagiceden2 from "@/assets/w3ai-live-magiceden2.png";
+import w3aiLivePyth3 from "@/assets/w3ai-live-pyth3.png";
+import w3aiLivePyth4 from "@/assets/w3ai-live-pyth4.png";
+import w3aiLiveLumia2 from "@/assets/w3ai-live-lumia2.png";
+import w3aiLiveMagiceden3 from "@/assets/w3ai-live-magiceden3.png";
+import w3aiLiveMagiceden4 from "@/assets/w3ai-live-magiceden4.png";
+import w3aiLiveMagiceden5 from "@/assets/w3ai-live-magiceden5.png";
+import w3aiLiveNear from "@/assets/w3ai-live-near.png";
+import w3aiLiveSynthetix from "@/assets/w3ai-live-synthetix.png";
+import w3aiLiveThegraph from "@/assets/w3ai-live-thegraph.png";
+import w3aiLiveSushi from "@/assets/w3ai-live-sushi.png";
+
 const PASSWORD = "W3AI88";
 
 // --- Section structure with children (accordion sub-items) ---
