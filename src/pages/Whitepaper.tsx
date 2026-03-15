@@ -1302,7 +1302,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         <section id="browser-privacy-architecture">
           <h2 className="text-2xl font-bold text-foreground mb-4">Privacy Architecture</h2>
           <div className="prose-section">
-            <p>Privacy is not a feature toggle in the W3AI Privacy Browser — it is the default state. The browser implements a multi-layered privacy stack that operates at the engine, network, and application levels:</p>
+            <p>Privacy is not a feature toggle in the W3AI Browser — it is the default state. The browser implements a multi-layered privacy stack that operates at the engine, network, and application levels:</p>
 
             <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Engine-Level Privacy (Gecko Core)</h3>
             <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
