@@ -685,7 +685,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
 
                 {/* Layer 1 - Inner / Core */}
                 <rect x="120" y="102" width="360" height="148" rx="10" className="fill-card stroke-border" strokeWidth="2" />
-                <text x="300" y="130" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">W3AI Privacy Browser</text>
+                <text x="300" y="130" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">W3AI Browser</text>
                 <text x="300" y="150" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Firefox/Gecko · Live Today</text>
 
                 {/* Feature pills inside core */}
