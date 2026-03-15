@@ -1234,10 +1234,10 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       {/* ============================================================ */}
       <div className={p("privacy-browser")}>
         <section id="privacy-browser">
-          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Privacy Browser</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Browser</h2>
           <div className="prose-section">
-            <p>The W3AI Privacy Browser is the central product of the W3AI ecosystem — a purpose-built desktop application that merges privacy-first Web3 browsing, AI-assisted intelligence, and multi-chain wallet management into a single, secure execution environment. Built on Mozilla's Firefox/Gecko engine, the browser represents a deliberate architectural departure from Chromium-based competitors, providing deep customization, proven extension infrastructure, and a privacy model that aligns with Web3's core principles of user sovereignty.</p>
-            <p>This chapter consolidates and expands on browser references throughout this whitepaper, serving as the definitive technical reference for the W3AI Privacy Browser's architecture, Firefox integration, plugin development environment, and the dual Web3 + AI network topology.</p>
+            <p>The W3AI Browser is the central product of the W3AI ecosystem — a purpose-built desktop application that merges privacy-first Web3 browsing, AI-assisted intelligence, and multi-chain wallet management into a single, secure execution environment. Built on Mozilla's Firefox/Gecko engine, the browser represents a deliberate architectural departure from Chromium-based competitors, providing deep customization, proven extension infrastructure, and a privacy model that aligns with Web3's core principles of user sovereignty.</p>
+            <p>This chapter consolidates and expands on browser references throughout this whitepaper, serving as the definitive technical reference for the W3AI Browser's architecture, Firefox integration, plugin development environment, and the dual Web3 + AI network topology.</p>
           </div>
         </section>
 
