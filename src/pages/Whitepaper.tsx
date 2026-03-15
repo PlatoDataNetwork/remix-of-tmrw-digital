@@ -62,6 +62,13 @@ const sections: Section[] = [
     { id: "protocol-architecture", title: "Architecture" },
     { id: "protocol-economic-model", title: "Economic Model" },
   ]},
+  { id: "privacy-browser", title: "W3AI Privacy Browser", number: "08B", children: [
+    { id: "browser-firefox-framework", title: "Firefox & Gecko Engine" },
+    { id: "browser-privacy-architecture", title: "Privacy Architecture" },
+    { id: "browser-plugin-environment", title: "Plugin Environment" },
+    { id: "browser-app-development", title: "App Development SDK" },
+    { id: "browser-network-architecture", title: "Network Architecture" },
+  ]},
   { id: "tokenized-assets", title: "Tokenized Asset Opportunity", number: "09" },
   { id: "institutional-rails", title: "Institutional-Grade Rails", number: "10", children: [
     { id: "rails-custody", title: "Custody & Safeguarding" },
