@@ -1955,9 +1955,10 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
                 <text x="360" y="24" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">Cross-Chain Validator Architecture</text>
 
                 {/* Central Hub */}
-                <rect x="270" y="45" width="180" height="60" rx="10" className="fill-card stroke-[hsl(82,85%,55%)]" strokeWidth="2" />
-                <text x="360" y="70" textAnchor="middle" className="fill-foreground font-bold" fontSize="12">W3AI Treasury</text>
-                <text x="360" y="88" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Multi-Sig · Yield Aggregation · Auto-Compound</text>
+                <rect x="220" y="40" width="280" height="75" rx="12" className="fill-card stroke-[hsl(82,85%,55%)]" strokeWidth="2" />
+                <text x="360" y="65" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">W3AI Treasury</text>
+                <text x="360" y="82" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Multi-Sig · Yield Aggregation</text>
+                <text x="360" y="96" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Auto-Compound · DAO-Governed</text>
 
                 {/* Three Chain Boxes */}
                 {[
@@ -1967,7 +1968,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
                 ].map((chain, i) => (
                   <g key={i}>
                     {/* Connection line from hub */}
-                    <line x1="360" y1="105" x2={chain.x + 90} y2="160" className="stroke-muted-foreground/40" strokeWidth="1.5" strokeDasharray="4,3" />
+                    <line x1="360" y1="115" x2={chain.x + 90} y2="160" className="stroke-muted-foreground/40" strokeWidth="1.5" strokeDasharray="4,3" />
                     <polygon points={`${chain.x + 90},160 ${chain.x + 85},152 ${chain.x + 95},152`} className="fill-muted-foreground/40" />
 
                     {/* Chain card */}
