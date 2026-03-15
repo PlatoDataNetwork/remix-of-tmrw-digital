@@ -556,7 +556,7 @@ function PrevNextNav({ activePage, onNavigate }: { activePage: string; onNavigat
           </div>
         </button>
       ) : <div className="flex-1" />}
-      {next && next.id !== "deck-link" ? (
+      {next && next.id !== "deck-link" && next.id !== "path-to-1b-link" ? (
         <button
           onClick={() => onNavigate(next.id)}
           className="flex-1 flex items-center justify-end gap-3 px-5 py-4 rounded-lg border border-border bg-card hover:bg-accent hover:border-primary/30 hover:shadow-[0_0_15px_-3px_hsl(82,85%,55%,0.15)] transition-all duration-200 text-right group"
