@@ -382,6 +382,142 @@ function ReadingProgress() {
   );
 }
 
+// --- Live Staking Dashboard Component ---
+function StakingDashboard() {
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    const iv = setInterval(() => setTick(t => t + 1), 3000);
+    return () => clearInterval(iv);
+  }, []);
+
+  const jitter = (base: number, range: number) => +(base + (Math.sin(tick * 1.7 + base) * range)).toFixed(2);
+  const jitterInt = (base: number, range: number) => Math.round(base + Math.sin(tick * 2.1 + base) * range);
+
+  const chains = useMemo(() => [
+    {
+      name: "Ethereum",
+      color: "hsl(220,80%,60%)",
+      bgClass: "from-[hsl(220,80%,60%,0.1)] to-[hsl(220,80%,60%,0.05)]",
+      borderClass: "border-[hsl(220,80%,60%,0.3)]",
+      validators: 8,
+      staked: `${jitter(256, 12)} ETH`,
+      stakedUsd: `$${jitterInt(640000, 30000).toLocaleString()}`,
+      apy: `${jitter(4.1, 0.3)}%`,
+      uptime: `${jitter(99.97, 0.02)}%`,
+      rewards24h: `${jitter(0.028, 0.004)} ETH`,
+      rewards30d: `${jitter(0.84, 0.05)} ETH`,
+      mev: `${jitter(0.012, 0.005)} ETH`,
+      slashing: "0 events",
+      status: "Active",
+    },
+    {
+      name: "BNB Smart Chain",
+      color: "hsl(45,95%,55%)",
+      bgClass: "from-[hsl(45,95%,55%,0.1)] to-[hsl(45,95%,55%,0.05)]",
+      borderClass: "border-[hsl(45,95%,55%,0.3)]",
+      validators: 1,
+      staked: `${jitterInt(2450, 80).toLocaleString()} BNB`,
+      stakedUsd: `$${jitterInt(1470000, 50000).toLocaleString()}`,
+      apy: `${jitter(3.8, 0.5)}%`,
+      uptime: `${jitter(99.95, 0.03)}%`,
+      rewards24h: `${jitter(0.25, 0.06)} BNB`,
+      rewards30d: `${jitter(7.6, 0.8)} BNB`,
+      mev: "N/A",
+      slashing: "0 events",
+      status: "Active Set #38",
+    },
+    {
+      name: "Solana",
+      color: "hsl(280,75%,60%)",
+      bgClass: "from-[hsl(280,75%,60%,0.1)] to-[hsl(280,75%,60%,0.05)]",
+      borderClass: "border-[hsl(280,75%,60%,0.3)]",
+      validators: 2,
+      staked: `${jitterInt(185000, 8000).toLocaleString()} SOL`,
+      stakedUsd: `$${jitterInt(3145000, 140000).toLocaleString()}`,
+      apy: `${jitter(7.2, 0.4)}%`,
+      uptime: `${jitter(99.99, 0.005)}%`,
+      rewards24h: `${jitter(36.5, 4)} SOL`,
+      rewards30d: `${jitterInt(1095, 60).toLocaleString()} SOL`,
+      mev: `${jitter(8.4, 2.1)} SOL (Jito)`,
+      slashing: "0 events",
+      status: "Active · SFDP",
+    },
+  ], [tick]);
+
+  const totalUsd = useMemo(() => {
+    return `$${(jitterInt(640000, 30000) + jitterInt(1470000, 50000) + jitterInt(3145000, 140000)).toLocaleString()}`;
+  }, [tick]);
+
+  const blendedApy = jitter(5.4, 0.25);
+
+  return (
+    <div className="space-y-4">
+      {/* Summary Bar */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {[
+          { label: "Total Staked (USD)", value: totalUsd },
+          { label: "Blended APY", value: `${blendedApy}%` },
+          { label: "Active Validators", value: "11" },
+          { label: "Slashing Events", value: "0" },
+        ].map(item => (
+          <div key={item.label} className="rounded-lg border border-border bg-card p-3 text-center">
+            <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">{item.label}</div>
+            <div className="text-lg font-bold text-foreground">{item.value}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Per-chain cards */}
+      {chains.map(chain => (
+        <div key={chain.name} className={`rounded-xl border ${chain.borderClass} bg-gradient-to-br ${chain.bgClass} p-4 sm:p-5`}>
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: chain.color }} />
+              <h4 className="text-base font-bold text-foreground">{chain.name}</h4>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent/40 text-muted-foreground">{chain.validators} node{chain.validators > 1 ? "s" : ""}</span>
+            </div>
+            <span className="text-xs font-medium px-2 py-1 rounded-full border border-[hsl(82,85%,55%,0.3)] text-[hsl(82,85%,55%)]">{chain.status}</span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+            {[
+              { l: "Staked", v: chain.staked, sub: chain.stakedUsd },
+              { l: "APY", v: chain.apy },
+              { l: "Uptime", v: chain.uptime },
+              { l: "Rewards (24h)", v: chain.rewards24h },
+              { l: "Rewards (30d)", v: chain.rewards30d },
+              { l: "MEV / Tips", v: chain.mev },
+              { l: "Slashing", v: chain.slashing },
+            ].map(metric => (
+              <div key={metric.l}>
+                <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-0.5">{metric.l}</div>
+                <div className="font-semibold text-foreground">{metric.v}</div>
+                {metric.sub && <div className="text-[10px] text-muted-foreground">{metric.sub}</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      {/* Yield allocation bar */}
+      <div className="rounded-lg border border-border bg-card p-4">
+        <div className="text-xs font-semibold text-foreground mb-2">Yield Allocation</div>
+        <div className="flex h-4 rounded-full overflow-hidden">
+          <div className="bg-[hsl(82,85%,55%)]" style={{ width: "60%" }} title="Auto-Compound 60%" />
+          <div className="bg-[hsl(220,80%,60%)]" style={{ width: "25%" }} title="Treasury Reserve 25%" />
+          <div className="bg-[hsl(280,75%,60%)]" style={{ width: "10%" }} title="Community Rewards 10%" />
+          <div className="bg-muted" style={{ width: "5%" }} title="Operations 5%" />
+        </div>
+        <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-[10px] text-muted-foreground">
+          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[hsl(82,85%,55%)]" />Auto-Compound 60%</span>
+          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[hsl(220,80%,60%)]" />Treasury 25%</span>
+          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[hsl(280,75%,60%)]" />Community 10%</span>
+          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-muted" />Ops 5%</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // --- Content (page-based: only active section is visible) ---
 function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onNavigate: (id: string) => void }) {
   const p = (id: string) => activePage !== id ? "wp-page-hidden" : "space-y-10";
@@ -1799,26 +1935,139 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         <section id="validator-yield">
           <h2 className="text-2xl font-bold text-foreground mb-4">Validator Yield & Staking Economics</h2>
           <div className="prose-section">
-            <p>Validator operations generate protocol-native rewards and must be managed with relentless operational discipline.</p>
+            <p>Validator operations generate protocol-native rewards and must be managed with relentless operational discipline. W3AI operates validator infrastructure across Ethereum, BNB Smart Chain, and Solana — three networks with fundamentally different consensus mechanisms, reward structures, and risk profiles.</p>
+            <p>The multi-chain staking strategy serves two critical objectives: (1) generating sustainable treasury yield that funds protocol development, and (2) deepening W3AI's integration with core network infrastructure, giving the protocol direct participation in block production and governance across each chain.</p>
+            <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">Staking Strategy Principles</h4>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong className="text-foreground">Diversified Yield:</strong> Spread validator operations across chains to minimize single-network risk and capture differentiated reward profiles.</li>
+              <li><strong className="text-foreground">Operational Excellence:</strong> Maintain 99.9%+ uptime across all validator nodes with redundant infrastructure and automated failover.</li>
+              <li><strong className="text-foreground">Compounding Returns:</strong> Auto-restake rewards to maximize compounding yield across all validator positions.</li>
+              <li><strong className="text-foreground">Slashing Protection:</strong> Multi-layer safeguards including remote signing, key management, and anti-slashing middleware.</li>
+              <li><strong className="text-foreground">Community Delegation:</strong> W3AI token holders can delegate to W3AI-operated validators, earning proportional rewards while strengthening network security.</li>
+            </ul>
+          </div>
+
+          {/* Cross-Chain Staking Architecture Diagram */}
+          <div className="my-8 flex justify-center">
+            <div className="w-full max-w-3xl">
+              <svg viewBox="0 0 720 420" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Title */}
+                <text x="360" y="24" textAnchor="middle" className="fill-foreground font-bold" fontSize="14">Cross-Chain Validator Architecture</text>
+
+                {/* Central Hub */}
+                <rect x="270" y="45" width="180" height="60" rx="10" className="fill-card stroke-[hsl(82,85%,55%)]" strokeWidth="2" />
+                <text x="360" y="70" textAnchor="middle" className="fill-foreground font-bold" fontSize="12">W3AI Treasury</text>
+                <text x="360" y="88" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Multi-Sig · Yield Aggregation · Auto-Compound</text>
+
+                {/* Three Chain Boxes */}
+                {[
+                  { x: 60, label: "Ethereum", sub: "PoS Beacon Chain", color: "hsl(220,80%,60%)", stake: "32 ETH / node", apy: "3.5–4.5% APY" },
+                  { x: 280, label: "BNB Smart Chain", sub: "PoSA Consensus", color: "hsl(45,95%,55%)", stake: "2,000 BNB min", apy: "2.5–5.0% APY" },
+                  { x: 500, label: "Solana", sub: "PoH + Tower BFT", color: "hsl(280,75%,60%)", stake: "No minimum", apy: "6.5–8.0% APY" },
+                ].map((chain, i) => (
+                  <g key={i}>
+                    {/* Connection line from hub */}
+                    <line x1="360" y1="105" x2={chain.x + 90} y2="160" className="stroke-muted-foreground/40" strokeWidth="1.5" strokeDasharray="4,3" />
+                    <polygon points={`${chain.x + 90},160 ${chain.x + 85},152 ${chain.x + 95},152`} className="fill-muted-foreground/40" />
+
+                    {/* Chain card */}
+                    <rect x={chain.x} y="165" width="180" height="95" rx="8" className="fill-card stroke-border" strokeWidth="1.5" />
+                    <rect x={chain.x} y="165" width="180" height="28" rx="8" fill={chain.color} fillOpacity="0.15" />
+                    <rect x={chain.x} y="185" width="180" height="8" fill="transparent" />
+                    <text x={chain.x + 90} y="183" textAnchor="middle" className="fill-foreground font-bold" fontSize="11">{chain.label}</text>
+                    <text x={chain.x + 90} y="210" textAnchor="middle" className="fill-muted-foreground" fontSize="9">{chain.sub}</text>
+                    <text x={chain.x + 90} y="228" textAnchor="middle" className="fill-foreground" fontSize="10" fontWeight="600">{chain.stake}</text>
+                    <text x={chain.x + 90} y="248" textAnchor="middle" fontSize="10" fill={chain.color} fontWeight="bold">{chain.apy}</text>
+                  </g>
+                ))}
+
+                {/* Reward Flow section */}
+                {[
+                  { x: 60, items: ["Block Rewards", "MEV Tips", "Priority Fees"] },
+                  { x: 280, items: ["Tx Fee Share", "Delegation Comm.", "Cross-Chain Relay"] },
+                  { x: 500, items: ["Inflation Rewards", "Vote Credits", "Jito MEV Tips"] },
+                ].map((col, ci) => (
+                  <g key={ci}>
+                    <line x1={col.x + 90} y1="260" x2={col.x + 90} y2="280" className="stroke-muted-foreground/30" strokeWidth="1" />
+                    <rect x={col.x + 10} y="282" width="160" height="65" rx="6" className="fill-accent/20 stroke-border" strokeWidth="1" />
+                    <text x={col.x + 90} y="298" textAnchor="middle" className="fill-muted-foreground" fontSize="8" fontWeight="bold">REWARD SOURCES</text>
+                    {col.items.map((item, ii) => (
+                      <text key={ii} x={col.x + 90} y={313 + ii * 12} textAnchor="middle" className="fill-muted-foreground" fontSize="8">• {item}</text>
+                    ))}
+                  </g>
+                ))}
+
+                {/* Bottom aggregation bar */}
+                <rect x="60" y="365" width="600" height="35" rx="6" className="fill-card stroke-[hsl(82,85%,55%)]" strokeWidth="1.5" />
+                <text x="360" y="380" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Yield Routing</text>
+                <text x="360" y="393" textAnchor="middle" className="fill-muted-foreground" fontSize="8">60% Auto-Compound · 25% Treasury Reserve · 10% Community Rewards · 5% Operations</text>
+
+                {/* Arrows up to aggregation */}
+                {[150, 370, 590].map((x, i) => (
+                  <g key={i}>
+                    <line x1={x} y1="347" x2={x} y2="365" className="stroke-muted-foreground/30" strokeWidth="1" strokeDasharray="3,2" />
+                  </g>
+                ))}
+              </svg>
+            </div>
           </div>
         </section>
+
         <section id="eth-validators">
           <h2 className="text-2xl font-bold text-foreground mb-4">Ethereum Validators</h2>
           <div className="prose-section">
-            <p>A validator must deposit 32 ETH and run execution, consensus, and validator clients, with potential slashing of some or all staked ETH for dishonest behavior.</p>
+            <p>Ethereum's Proof-of-Stake consensus requires each validator to deposit exactly 32 ETH and run three software clients: execution (Geth/Nethermind), consensus (Prysm/Lighthouse), and validator client. This tri-client architecture ensures network resilience through client diversity.</p>
+            <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">Validator Economics</h4>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong className="text-foreground">Base Yield:</strong> 3.5–4.5% APY from attestation duties, block proposals, and sync committee participation. Yield inversely correlates with total network stake.</li>
+              <li><strong className="text-foreground">MEV Revenue:</strong> Additional 0.5–1.5% yield through MEV-Boost relay integration (Flashbots, bloXroute), capturing priority fee auctions and arbitrage opportunities.</li>
+              <li><strong className="text-foreground">Withdrawal Mechanics:</strong> Post-Shanghai, partial withdrawals (excess over 32 ETH) auto-sweep every ~5 days. Full exits require the validator exit queue.</li>
+              <li><strong className="text-foreground">Slashing Risk:</strong> Double-voting or surround-voting results in immediate slashing (minimum 1/32 of staked ETH) plus correlation penalties. W3AI mitigates this with dedicated signing infrastructure and client diversity.</li>
+            </ul>
+            <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">W3AI Ethereum Validator Setup</h4>
+            <p>W3AI targets operation of 5–10 Ethereum validators (160–320 ETH committed), distributed across multiple cloud regions with bare-metal failover nodes. Remote signing via Web3Signer ensures private keys never reside on validator machines, and anti-slashing databases are replicated across geographies.</p>
           </div>
         </section>
+
         <section id="bsc-validators">
           <h2 className="text-2xl font-bold text-foreground mb-4">BSC Validators</h2>
           <div className="prose-section">
-            <p>Becoming a validator requires minimum self-delegation of 2000 BNB. Validators earn rewards from transaction fees with slashing and jailing rules for downtime, double-signing, and low self-delegation.</p>
+            <p>BNB Smart Chain operates on Proof-of-Staked-Authority (PoSA), a hybrid consensus combining delegated proof-of-stake with proof-of-authority. The active validator set is limited to 45 validators, selected daily based on total delegation — making validator slot competition intense.</p>
+            <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">Validator Economics</h4>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong className="text-foreground">Self-Delegation:</strong> Minimum 2,000 BNB self-delegation required. Higher self-delegation improves ranking for active set selection.</li>
+              <li><strong className="text-foreground">Block Rewards:</strong> Validators earn transaction fees from blocks they produce. BSC's 3-second block time means high transaction throughput translates directly to fee revenue.</li>
+              <li><strong className="text-foreground">Commission Structure:</strong> Validators set a commission rate (typically 5–15%) on delegator rewards. Competitive commission rates attract more delegation, improving active set ranking.</li>
+              <li><strong className="text-foreground">Slashing & Jailing:</strong> Downtime triggers jailing (temporary removal from active set). Double-signing results in 10,000 BNB slashing and permanent jailing. Low self-delegation below 2,000 BNB triggers auto-jailing.</li>
+              <li><strong className="text-foreground">Cross-Chain Revenue:</strong> BSC validators also participate in cross-chain relay operations between BSC and BNB Beacon Chain, earning relay fees.</li>
+            </ul>
+            <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">W3AI BSC Validator Strategy</h4>
+            <p>W3AI aims to secure an active validator slot through competitive self-delegation and community delegation campaigns. The BSC validator doubles as infrastructure for W3AI's DeFi operations on PancakeSwap, enabling deeper protocol integration with BSC's DeFi ecosystem.</p>
           </div>
         </section>
+
         <section id="sol-validators">
           <h2 className="text-2xl font-bold text-foreground mb-4">Solana Validators</h2>
           <div className="prose-section">
-            <p>Validators "form the backbone" of the Solana network with protocol-based rewards from inflation plus staking-related rewards and fee earnings.</p>
+            <p>Solana validators form the backbone of the network, participating in both consensus (Tower BFT) and data availability (Turbine block propagation). Unlike Ethereum and BSC, Solana has no minimum stake requirement — but hardware requirements are substantial, demanding high-performance servers with NVMe storage and high-bandwidth connectivity.</p>
+            <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">Validator Economics</h4>
+            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
+              <li><strong className="text-foreground">Inflation Rewards:</strong> Solana's current inflation rate (~5.5%, decreasing 15% annually toward 1.5% terminal rate) distributes rewards to validators proportional to their stake weight and vote credit performance.</li>
+              <li><strong className="text-foreground">Vote Credits:</strong> Validators earn vote credits by correctly voting on blocks. Higher credit scores attract more delegated stake, creating a positive feedback loop for well-operated validators.</li>
+              <li><strong className="text-foreground">Transaction Fees:</strong> 50% of transaction fees are burned, 50% go to the block producer. During high-activity periods, priority fees can significantly boost validator revenue.</li>
+              <li><strong className="text-foreground">Jito MEV Tips:</strong> Through Jito Labs' MEV infrastructure, validators earn additional tips from searchers submitting transaction bundles. This can add 1–3% additional APY depending on network activity.</li>
+              <li><strong className="text-foreground">Commission:</strong> Validators typically charge 5–10% commission on staking rewards. W3AI targets a competitive 5% commission to maximize delegation attraction.</li>
+            </ul>
+            <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">W3AI Solana Validator Infrastructure</h4>
+            <p>W3AI operates Solana validators on bare-metal servers with 256GB+ RAM, 24-core CPUs, and 10Gbps network connectivity. The validator participates in the Solana Foundation Delegation Program (SFDP) and Jito stake pool to bootstrap initial stake weight. As W3AI's hub chain, Solana validator performance is mission-critical and monitored with sub-second alerting.</p>
           </div>
+        </section>
+
+        {/* Live Simulated Staking Dashboard */}
+        <section className="mt-10">
+          <h3 className="text-xl font-semibold text-foreground mb-2">Live Staking Simulator</h3>
+          <p className="text-sm text-muted-foreground mb-6">Simulated real-time validator metrics across Ethereum, BSC, and Solana. Values update every 3 seconds to model live network conditions.</p>
+          <StakingDashboard />
         </section>
       </div>
 
