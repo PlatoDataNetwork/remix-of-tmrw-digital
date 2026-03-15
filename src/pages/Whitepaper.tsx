@@ -209,6 +209,188 @@ function getParentId(id: string): string {
   return sections[0].id;
 }
 
+// --- W3AI Live Slide Player ---
+const w3aiLiveSlides = [
+  { src: w3aiLivePyth3, label: "Pyth Network — Price Feeds", desc: "Real-time oracle data feeds from institutional sources." },
+  { src: w3aiLivePyth4, label: "Pyth Network — Community", desc: "Pythian World event discovery and community engagement." },
+  { src: w3aiLiveLumia2, label: "Lumia — RWA Access", desc: "Institutional-grade access to real-world assets globally." },
+  { src: w3aiLiveMagiceden3, label: "Magic Eden — NFT Marketplace", desc: "Top pack pulls and trending collections across chains." },
+  { src: w3aiLiveMagiceden4, label: "Magic Eden — Collection View", desc: "Bored Ape Solana Club with floor prices and analytics." },
+  { src: w3aiLiveMagiceden5, label: "Magic Eden — NFT Detail", desc: "Individual NFT pricing, traits, and purchase flow." },
+  { src: w3aiLiveNear, label: "NEAR Protocol", desc: "The blockchain for AI — powering the agentic future." },
+  { src: w3aiLiveSynthetix, label: "Synthetix — Perps", desc: "Onchain custody with offchain performance for perpetuals." },
+  { src: w3aiLiveThegraph, label: "The Graph — Blockchain Data", desc: "Fast, easy access to organized and indexed Web3 data." },
+  { src: w3aiLiveSushi, label: "SushiSwap — DeFi Analytics", desc: "Ethereum TVL, volume charts, and liquidity pool analytics." },
+  { src: w3aiLivePyth, label: "Pyth Network — Discovery", desc: "Browsing Pyth with integrated W3AI sidebar navigation." },
+  { src: w3aiLivePyth2, label: "Pyth Network — Events", desc: "Community events and protocol updates within the browser." },
+  { src: w3aiLiveLumia, label: "Lumia — Globe View", desc: "Global RWA access with protocol-level sidebar integration." },
+  { src: w3aiLiveMagiceden, label: "Magic Eden — Explore", desc: "NFT marketplace browsing with W3AI sidebar protocols." },
+  { src: w3aiLiveMagiceden2, label: "Magic Eden — BASC Detail", desc: "Collection-level analytics and purchase within the browser." },
+];
+
+function W3AILiveSlidePlayer() {
+  const [current, setCurrent] = React.useState(0);
+  const [lightboxOpen, setLightboxOpen] = React.useState(false);
+  const total = w3aiLiveSlides.length;
+
+  const next = () => setCurrent((c) => (c + 1) % total);
+  const prev = () => setCurrent((c) => (c - 1 + total) % total);
+
+  // Keyboard nav
+  React.useEffect(() => {
+    if (!lightboxOpen) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") next();
+      else if (e.key === "ArrowLeft") prev();
+      else if (e.key === "Escape") setLightboxOpen(false);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [lightboxOpen]);
+
+  const slide = w3aiLiveSlides[current];
+
+  return (
+    <>
+      {/* Inline Player */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="rounded-xl border border-border bg-card overflow-hidden"
+      >
+        {/* Main slide */}
+        <div
+          className="relative cursor-pointer group"
+          onClick={() => setLightboxOpen(true)}
+        >
+          <img
+            src={slide.src}
+            alt={slide.label}
+            className="w-full h-auto object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div>
+              <p className="text-sm font-semibold text-foreground">{slide.label}</p>
+              <p className="text-xs text-muted-foreground">{slide.desc}</p>
+            </div>
+            <span className="text-[10px] text-muted-foreground bg-background/60 px-2 py-1 rounded-full backdrop-blur-sm">Click to expand</span>
+          </div>
+        </div>
+
+        {/* Controls */}
+        <div className="flex items-center justify-between px-4 py-3 border-t border-border bg-card">
+          <button onClick={prev} className="p-1.5 rounded-md hover:bg-accent transition-colors">
+            <ChevronLeft className="h-4 w-4 text-muted-foreground" />
+          </button>
+          <div className="flex items-center gap-3">
+            <span className="text-xs text-muted-foreground">{current + 1} / {total}</span>
+            <div className="flex gap-1">
+              {w3aiLiveSlides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  className={cn(
+                    "w-1.5 h-1.5 rounded-full transition-all duration-200",
+                    i === current ? "bg-[hsl(82,85%,55%)] w-4" : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  )}
+                />
+              ))}
+            </div>
+          </div>
+          <button onClick={next} className="p-1.5 rounded-md hover:bg-accent transition-colors">
+            <ChevronRight className="h-4 w-4 text-muted-foreground" />
+          </button>
+        </div>
+
+        {/* Thumbnail strip */}
+        <div className="flex gap-1.5 px-3 pb-3 overflow-x-auto">
+          {w3aiLiveSlides.map((s, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={cn(
+                "flex-shrink-0 rounded-md overflow-hidden border-2 transition-all duration-200",
+                i === current ? "border-[hsl(82,85%,55%)] opacity-100" : "border-transparent opacity-50 hover:opacity-80"
+              )}
+            >
+              <img src={s.src} alt={s.label} className="w-20 h-12 object-cover" loading="lazy" />
+            </button>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Lightbox */}
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-[9999] bg-background/95 backdrop-blur-md flex flex-col items-center justify-center"
+          onClick={() => setLightboxOpen(false)}
+        >
+          <div className="absolute top-4 right-4 z-10">
+            <button
+              onClick={() => setLightboxOpen(false)}
+              className="p-2 rounded-full bg-card border border-border hover:bg-accent transition-colors"
+            >
+              <X className="h-5 w-5 text-foreground" />
+            </button>
+          </div>
+
+          <div
+            className="relative w-full max-w-6xl px-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={slide.src}
+              alt={slide.label}
+              className="w-full h-auto rounded-xl border border-border shadow-2xl"
+            />
+
+            {/* Navigation arrows */}
+            <button
+              onClick={prev}
+              className="absolute left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/80 border border-border backdrop-blur-sm hover:bg-accent transition-colors"
+            >
+              <ChevronLeft className="h-5 w-5 text-foreground" />
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/80 border border-border backdrop-blur-sm hover:bg-accent transition-colors"
+            >
+              <ChevronRight className="h-5 w-5 text-foreground" />
+            </button>
+          </div>
+
+          {/* Caption & counter */}
+          <div className="mt-4 text-center">
+            <p className="text-sm font-semibold text-foreground">{slide.label}</p>
+            <p className="text-xs text-muted-foreground mt-1">{slide.desc}</p>
+            <p className="text-xs text-muted-foreground/50 mt-2">{current + 1} / {total} · Press ← → to navigate · ESC to close</p>
+          </div>
+
+          {/* Thumbnail strip in lightbox */}
+          <div className="flex gap-2 mt-4 px-4 overflow-x-auto max-w-6xl">
+            {w3aiLiveSlides.map((s, i) => (
+              <button
+                key={i}
+                onClick={(e) => { e.stopPropagation(); setCurrent(i); }}
+                className={cn(
+                  "flex-shrink-0 rounded-md overflow-hidden border-2 transition-all duration-200",
+                  i === current ? "border-[hsl(82,85%,55%)] opacity-100" : "border-transparent opacity-40 hover:opacity-70"
+                )}
+              >
+                <img src={s.src} alt={s.label} className="w-24 h-14 object-cover" loading="lazy" />
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
 // --- Sidebar Ask Marvin ---
 function SidebarAskMarvin() {
   const { setOpen } = useChatContext();
