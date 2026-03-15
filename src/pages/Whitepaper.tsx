@@ -766,9 +766,9 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
         </section>
 
         <section id="today-browser">
-          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Privacy Browser</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">W3AI Browser</h2>
           <div className="prose-section">
-            <p>The W3AI Privacy Browser is a macOS desktop application built on the Firefox/Gecko engine, delivering the core Web3 AI browsing experience with integrated wallet connectivity, AI-assisted transaction explanation, and a unified interface for multi-chain activity. For full technical architecture, Firefox framework details, and plugin development documentation, see <a href="#privacy-browser" className="text-[hsl(82,85%,55%)] hover:underline">Chapter 08B: W3AI Privacy Browser</a>.</p>
+            <p>The W3AI Browser is a macOS desktop application built on the Firefox/Gecko engine, delivering the core Web3 AI browsing experience with integrated wallet connectivity, AI-assisted transaction explanation, and a unified interface for multi-chain activity. For full technical architecture, Firefox framework details, and plugin development documentation, see <a href="#privacy-browser" className="text-[hsl(82,85%,55%)] hover:underline">Chapter 08B: W3AI Browser</a>.</p>
           </div>
         </section>
 
