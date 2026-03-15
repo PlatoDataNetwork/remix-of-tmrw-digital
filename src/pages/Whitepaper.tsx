@@ -63,6 +63,7 @@ const sections: Section[] = [
     { id: "protocol-economic-model", title: "Economic Model" },
   ]},
   { id: "privacy-browser", title: "W3AI Browser", number: "08B", children: [
+    { id: "browser-overview", title: "Overview" },
     { id: "browser-firefox-framework", title: "Firefox & Gecko Engine" },
     { id: "browser-privacy-architecture", title: "Privacy Architecture" },
     { id: "browser-plugin-environment", title: "Plugin Environment" },
