@@ -210,6 +210,10 @@ function getParentId(id: string): string {
 
 // --- W3AI Live Slide Player ---
 const w3aiLiveSlides = [
+  { src: w3aiLiveRaydiumSwap, label: "Raydium — Swap", desc: "RAY/SOL trading pair with candlestick charts and swap interface." },
+  { src: w3aiLiveRaydiumPerps, label: "Raydium — Perpetuals", desc: "ETH-PERP trading with order book, charts, and cross-leverage." },
+  { src: w3aiLiveRaydiumPools, label: "Raydium — Liquidity Pools", desc: "Concentrated and standard liquidity pools with TVL and APR data." },
+  { src: w3aiLiveJupiter, label: "Jupiter — Predict", desc: "Prediction markets for politics, sports, crypto, and economics." },
   { src: w3aiLivePyth3, label: "Pyth Network — Price Feeds", desc: "Real-time oracle data feeds from institutional sources." },
   { src: w3aiLivePyth4, label: "Pyth Network — Community", desc: "Pythian World event discovery and community engagement." },
   { src: w3aiLiveLumia2, label: "Lumia — RWA Access", desc: "Institutional-grade access to real-world assets globally." },
@@ -220,11 +224,6 @@ const w3aiLiveSlides = [
   { src: w3aiLiveSynthetix, label: "Synthetix — Perps", desc: "Onchain custody with offchain performance for perpetuals." },
   { src: w3aiLiveThegraph, label: "The Graph — Blockchain Data", desc: "Fast, easy access to organized and indexed Web3 data." },
   { src: w3aiLiveSushi, label: "SushiSwap — DeFi Analytics", desc: "Ethereum TVL, volume charts, and liquidity pool analytics." },
-  { src: w3aiLivePyth, label: "Pyth Network — Discovery", desc: "Browsing Pyth with integrated W3AI sidebar navigation." },
-  { src: w3aiLivePyth2, label: "Pyth Network — Events", desc: "Community events and protocol updates within the browser." },
-  { src: w3aiLiveLumia, label: "Lumia — Globe View", desc: "Global RWA access with protocol-level sidebar integration." },
-  { src: w3aiLiveMagiceden, label: "Magic Eden — Explore", desc: "NFT marketplace browsing with W3AI sidebar protocols." },
-  { src: w3aiLiveMagiceden2, label: "Magic Eden — BASC Detail", desc: "Collection-level analytics and purchase within the browser." },
 ];
 
 function W3AILiveSlidePlayer() {
