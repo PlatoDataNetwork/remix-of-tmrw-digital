@@ -1472,7 +1472,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
                 transition={{ duration: 0.5 }}
                 className="bg-card border border-border rounded-xl overflow-hidden"
               >
-                <div className="bg-[hsl(82,85%,55%)] text-background px-4 py-2.5 text-xs font-semibold">W3AI Assistant</div>
+                <div className="bg-[hsl(82,85%,55%)] text-background px-4 py-2.5 text-xs font-semibold">Marvin — W3AI Assistant</div>
                 <div className="p-4 space-y-3">
                   {/* User message */}
                   <div className="flex justify-end">
