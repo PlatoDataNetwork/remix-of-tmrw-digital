@@ -1230,7 +1230,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
       </div>
 
       {/* ============================================================ */}
-      {/* PAGE 08B: W3AI Privacy Browser */}
+      {/* PAGE 08B: W3AI Browser */}
       {/* ============================================================ */}
       <div className={p("privacy-browser")}>
         <section id="privacy-browser">
