@@ -1593,7 +1593,7 @@ W3AI.ai.registerTool({
                 <line x1="400" y1="475" x2="400" y2="500" className="stroke-[hsl(82,85%,55%)]" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.6" />
 
                 {/* Caption */}
-                <text x="400" y="585" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">W3AI Privacy Browser — Web3 × AI Convergence Architecture</text>
+                <text x="400" y="585" textAnchor="middle" className="fill-muted-foreground" fontSize="9" fontStyle="italic">W3AI Browser — Web3 × AI Convergence Architecture</text>
               </svg>
             </div>
           </div>
