@@ -787,6 +787,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
                 key={s.id}
                 onClick={() => {
                   if (s.id === "deck-link") { window.location.href = "/deck"; return; }
+                  if (s.id === "path-to-1b-link") { window.location.href = "/path-to-1b"; return; }
                   onNavigate(s.id);
                 }}
                 className="flex items-center gap-3 px-4 py-3 rounded-lg border border-border bg-card hover:bg-accent hover:border-primary/30 hover:shadow-[0_0_15px_-3px_hsl(82,85%,55%,0.15)] active:scale-[0.98] transition-all duration-200 text-left group"
