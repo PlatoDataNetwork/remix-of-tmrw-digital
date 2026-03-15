@@ -29,7 +29,7 @@ function SlideBranding() {
         }}
       />
       <span className="text-[10px] font-light tracking-[0.2em] text-muted-foreground/60 uppercase">
-        TMRW <span className="text-muted-foreground/30">|</span> Path to Immortality
+        TMRW <span className="text-muted-foreground/30">|</span> Path to $1B
       </span>
     </div>
   );
@@ -963,7 +963,7 @@ export default function PathTo1B() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SEOHead title="TMRW: Path to Immortality" description="Tomorrow Digital path to immortality through tokenized real-world asset infrastructure." path="/path-to-1b" noindex />
+      <SEOHead title="TMRW: Path to $1B" description="Tomorrow Digital path to $1B through tokenized real-world asset infrastructure." path="/path-to-1b" noindex />
       <Navbar />
       <div className="pt-20 lg:pt-24 pb-16 px-4 md:px-8 max-w-6xl mx-auto">
         {slideContent}
