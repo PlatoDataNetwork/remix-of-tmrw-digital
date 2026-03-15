@@ -195,6 +195,7 @@ const sections: Section[] = [
   { id: "risks", title: "Risks & Disclosures", number: "26" },
   { id: "appendix", title: "Appendix & References", number: "27" },
   { id: "deck-link", title: "Project Deck", number: "28" },
+  { id: "path-to-1b-link", title: "Path to $1B", number: "29" },
 ];
 
 const topLevelIds = sections.map(s => s.id);
@@ -459,6 +460,7 @@ function SidebarNav({ activeId, onNavigate }: { activeId: string; onNavigate: (i
               ref={isActive && !hasChildren ? activeRef : undefined}
               onClick={() => {
                 if (s.id === "deck-link") { window.location.href = "/deck"; return; }
+                if (s.id === "path-to-1b-link") { window.location.href = "/path-to-1b"; return; }
                 onNavigate(s.id);
               }}
               className={cn(
@@ -542,6 +544,7 @@ function PrevNextNav({ activePage, onNavigate }: { activePage: string; onNavigat
         <button
           onClick={() => {
             if (prev.id === "deck-link") { window.location.href = "/deck"; return; }
+            if (prev.id === "path-to-1b-link") { window.location.href = "/path-to-1b"; return; }
             onNavigate(prev.id);
           }}
           className="flex-1 flex items-center gap-3 px-5 py-4 rounded-lg border border-border bg-card hover:bg-accent hover:border-primary/30 hover:shadow-[0_0_15px_-3px_hsl(82,85%,55%,0.15)] transition-all duration-200 text-left group"
@@ -553,7 +556,7 @@ function PrevNextNav({ activePage, onNavigate }: { activePage: string; onNavigat
           </div>
         </button>
       ) : <div className="flex-1" />}
-      {next && next.id !== "deck-link" ? (
+      {next && next.id !== "deck-link" && next.id !== "path-to-1b-link" ? (
         <button
           onClick={() => onNavigate(next.id)}
           className="flex-1 flex items-center justify-end gap-3 px-5 py-4 rounded-lg border border-border bg-card hover:bg-accent hover:border-primary/30 hover:shadow-[0_0_15px_-3px_hsl(82,85%,55%,0.15)] transition-all duration-200 text-right group"
@@ -784,6 +787,7 @@ function WhitepaperContent({ activePage, onNavigate }: { activePage: string; onN
                 key={s.id}
                 onClick={() => {
                   if (s.id === "deck-link") { window.location.href = "/deck"; return; }
+                  if (s.id === "path-to-1b-link") { window.location.href = "/path-to-1b"; return; }
                   onNavigate(s.id);
                 }}
                 className="flex items-center gap-3 px-4 py-3 rounded-lg border border-border bg-card hover:bg-accent hover:border-primary/30 hover:shadow-[0_0_15px_-3px_hsl(82,85%,55%,0.15)] active:scale-[0.98] transition-all duration-200 text-left group"
