@@ -86,6 +86,7 @@ const sections: Section[] = [
     { id: "browser-plugin-environment", title: "Plugin Environment" },
     { id: "browser-app-development", title: "App Development SDK" },
     { id: "browser-network-architecture", title: "Network Architecture" },
+    { id: "browser-w3ai-live", title: "W3AI Live" },
   ]},
   { id: "tokenized-assets", title: "Tokenized Asset Opportunity", number: "09" },
   { id: "institutional-rails", title: "Institutional-Grade Rails", number: "10", children: [
