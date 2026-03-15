@@ -1472,7 +1472,7 @@ W3AI.ai.registerTool({
         <section id="browser-network-architecture">
           <h2 className="text-2xl font-bold text-foreground mb-4">Network Architecture</h2>
           <div className="prose-section">
-            <p>The W3AI Privacy Browser operates at the intersection of two fundamental technology domains — Web3 decentralized infrastructure and AI intelligence services. The following architecture diagram illustrates how these domains converge within the browser's execution environment:</p>
+            <p>The W3AI Browser operates at the intersection of two fundamental technology domains — Web3 decentralized infrastructure and AI intelligence services. The following architecture diagram illustrates how these domains converge within the browser's execution environment:</p>
           </div>
 
           {/* Network Architecture Diagram - Web3 + AI Convergence */}
