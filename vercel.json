@@ -75,6 +75,28 @@
       "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/og-meta"
     },
     {
+      "source": "/:path(intel|rwas|data-feeds|api-documentation|showcase|whitepaper|super-cloud|cut-token|security|rto|investors|deck|corporate-deck|path-to-1b|services/:sub*|web3ai/:sub*|rwas/:sub*|blog/:sub*|legal)",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(WhatsApp|facebookexternalhit|Facebot|Twitterbot|Slackbot|LinkedInBot|LinkedIn|linkedinbot|linkedin|Discordbot|TelegramBot|Telegram|TelegramBotAPI|bot\\.telegram|Googlebot|bingbot|Applebot|Pinterestbot|Redditbot|Tumblr|Viber|Snapchat|Skype|vkShare|W3C_Validator|Embedly|Quora|outbrain|Pinterest|Mastodon|ia_archiver|MJ12bot|Baiduspider|YandexBot|DuckDuckBot|Sogou|Exabot|SemrushBot|AhrefsBot|PetalBot|MegaIndex|DataForSeoBot|ZoominfoBot|SeekportBot|Neevabot|ICC-Crawler).*"
+        }
+      ],
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/og-meta?path=/:path"
+    },
+    {
+      "source": "/:lang(ar|bn|zh-CN|da|nl|et|fi|fr|de|el|iw|hi|hu|id|it|ja|km|ko|ms|no|fa|pl|pt|pa|ro|ru|sl|es|sv|th|tr|uk|ur|vi)/:path(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(WhatsApp|facebookexternalhit|Facebot|Twitterbot|Slackbot|LinkedInBot|LinkedIn|linkedinbot|linkedin|Discordbot|TelegramBot|Telegram|TelegramBotAPI|bot\\.telegram|Googlebot|bingbot|Applebot|Pinterestbot|Redditbot|Tumblr|Viber|Snapchat|Skype|vkShare|W3C_Validator|Embedly|Quora|outbrain|Pinterest|Mastodon|ia_archiver|MJ12bot|Baiduspider|YandexBot|DuckDuckBot|Sogou|Exabot|SemrushBot|AhrefsBot|PetalBot|MegaIndex|DataForSeoBot|ZoominfoBot|SeekportBot|Neevabot|ICC-Crawler).*"
+        }
+      ],
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/og-meta?path=/:path&lang=:lang"
+    },
+    {
       "source": "/api/:vertical",
       "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/data-feed-proxy?vertical=:vertical&format=api"
     },
