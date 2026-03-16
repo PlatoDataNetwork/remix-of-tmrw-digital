@@ -69,6 +69,8 @@ const SuperCloud = lazy(() => import("./pages/SuperCloud"));
 const CUTToken = lazy(() => import("./pages/CUTToken"));
 const Security = lazy(() => import("./pages/Security"));
 const PathTo1B = lazy(() => import("./pages/PathTo1B"));
+const DataFeeds = lazy(() => import("./pages/DataFeeds"));
+const ApiDocumentation = lazy(() => import("./pages/ApiDocumentation"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
