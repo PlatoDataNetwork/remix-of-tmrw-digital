@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { feedCategories } from "@/data/feed-categories";
 import { useCurrentLanguage, langPath } from "@/hooks/useLanguage";
-import { Rss, FileJson, Code2, Newspaper } from "lucide-react";
+import { Rss, FileJson, Code2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const DataFeeds = () => {
@@ -16,45 +16,51 @@ const DataFeeds = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [articleCounts, setArticleCounts] = useState<Record<string, number>>({});
+  const [loadingCounts, setLoadingCounts] = useState(true);
 
   const siteUrl = typeof window !== "undefined" ? window.location.origin : "";
 
   useEffect(() => {
-    // Fetch article counts for all verticals via edge function
     const fetchCounts = async () => {
+      setLoadingCounts(true);
       const counts: Record<string, number> = {};
-      // Fetch in batches of 10 to avoid overwhelming
+
+      // Batch into groups of 10 to avoid overwhelming the edge function
       for (let i = 0; i < feedCategories.length; i += 10) {
         const batch = feedCategories.slice(i, i + 10);
-        const results = await Promise.allSettled(
-          batch.map(async (cat) => {
-            try {
-              const { data, error } = await supabase.functions.invoke("data-feed-proxy", {
-                body: null,
-                headers: {},
-              });
-              // Use fetch directly to get the count
-              const res = await fetch(
-                `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/data-feed-proxy?vertical=${cat.slug}&format=json`,
-                {
-                  headers: {
-                    Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-                  },
-                }
-              );
-              if (res.ok) {
-                const json = await res.json();
-                const count = Array.isArray(json) ? json.length : json?.items?.length || json?.articles?.length || 0;
-                counts[cat.slug] = count;
-              }
-            } catch {
-              // ignore
+        const slugs = batch.map((c) => c.slug).join(",");
+
+        try {
+          const { data, error } = await supabase.functions.invoke("feed-counts", {
+            body: null,
+            headers: {},
+          });
+
+          // Use fetch directly with query params
+          const res = await fetch(
+            `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/feed-counts?slugs=${slugs}`,
+            {
+              headers: {
+                Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+              },
             }
-          })
-        );
+          );
+
+          if (res.ok) {
+            const json = await res.json();
+            if (json.success && json.counts) {
+              Object.assign(counts, json.counts);
+            }
+          }
+        } catch {
+          // ignore batch errors
+        }
       }
+
       setArticleCounts(counts);
+      setLoadingCounts(false);
     };
+
     fetchCounts();
   }, []);
 
@@ -69,7 +75,7 @@ const DataFeeds = () => {
 
       <main className="pt-24 pb-16" ref={ref}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          {/* Header - matches site section style */}
+          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -88,7 +94,7 @@ const DataFeeds = () => {
             </p>
           </motion.div>
 
-          {/* Feed Grid - matches homepage card style */}
+          {/* Feed Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {feedCategories.map((cat, i) => (
               <motion.div
@@ -98,42 +104,50 @@ const DataFeeds = () => {
                 transition={{ duration: 0.5, delay: i * 0.03 }}
                 className="group relative bg-card border border-border rounded-2xl p-8 hover:border-border/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
               >
-                <Newspaper className="h-8 w-8 text-foreground mb-4" />
-                {articleCounts[cat.slug] !== undefined && (
-                  <span className="text-xs font-semibold uppercase tracking-wider text-primary mb-2 block">
-                    {articleCounts[cat.slug].toLocaleString()} Articles
-                  </span>
-                )}
-                <h3 className="text-lg font-medium text-foreground mb-3">{cat.name}</h3>
+                {/* Title row: name left, count right */}
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-medium text-foreground">{cat.name}</h3>
+                  {loadingCounts ? (
+                    <span className="text-xs text-muted-foreground animate-pulse">...</span>
+                  ) : articleCounts[cat.slug] !== undefined ? (
+                    <span className="text-xs font-semibold uppercase tracking-wider text-primary px-2.5 py-1 rounded-full bg-primary/10">
+                      {articleCounts[cat.slug].toLocaleString()} Articles
+                    </span>
+                  ) : null}
+                </div>
+
                 <p className="text-sm text-muted-foreground leading-relaxed font-light flex-1">
                   Latest news and insights from the {cat.name.toLowerCase()} industry, updated in real-time.
                 </p>
+
+                {/* Feed links - bigger text with icons */}
                 <div className="mt-6 flex items-center justify-between">
-                  <div className="flex items-center gap-4 text-xs">
+                  <div className="flex items-center gap-5">
                     <a
                       href={`${siteUrl}/${cat.slug}.json`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+                      className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      <FileJson className="w-3.5 h-3.5" />
+                      <FileJson className="w-4 h-4" />
                       JSON
                     </a>
                     <a
                       href={`${siteUrl}/${cat.slug}.xml`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+                      className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      <Rss className="w-3.5 h-3.5" />
+                      <Rss className="w-4 h-4" />
                       RSS
                     </a>
                   </div>
                   <Link
                     to={lp("/api-documentation")}
-                    className="learn-more-link text-xs uppercase tracking-[0.15em] animated-gradient-neon-text transition-colors duration-300"
+                    className="flex items-center gap-2 text-sm font-medium uppercase tracking-[0.1em] animated-gradient-neon-text transition-colors duration-300"
                   >
-                    API →
+                    <Code2 className="w-4 h-4" />
+                    API
                   </Link>
                 </div>
               </motion.div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -95,6 +95,9 @@ function detectCountry(): string {
   }
 }
 
+const API_KEY_STORAGE_KEY = "tmrw_api_key";
+const API_KEY_EMAIL_KEY = "tmrw_api_email";
+
 const ApiDocumentation = () => {
   const { toast } = useToast();
   const [showForm, setShowForm] = useState(false);
@@ -116,6 +119,27 @@ const ApiDocumentation = () => {
 
   const siteUrl = typeof window !== "undefined" ? window.location.origin : "";
 
+  // Load stored API key from localStorage on mount
+  useEffect(() => {
+    const storedKey = localStorage.getItem(API_KEY_STORAGE_KEY);
+    if (storedKey) {
+      setGeneratedKey(storedKey);
+    }
+  }, []);
+
+  const handleRequestKey = () => {
+    const storedKey = localStorage.getItem(API_KEY_STORAGE_KEY);
+    if (storedKey) {
+      setGeneratedKey(storedKey);
+      toast({
+        title: "API Key Found",
+        description: "You already have an API key. It's displayed above.",
+      });
+      return;
+    }
+    setShowForm(true);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -134,6 +158,9 @@ const ApiDocumentation = () => {
 
       if (data?.success) {
         setGeneratedKey(data.api_key);
+        // Store in localStorage for session persistence
+        localStorage.setItem(API_KEY_STORAGE_KEY, data.api_key);
+        localStorage.setItem(API_KEY_EMAIL_KEY, formData.email);
         setShowForm(false);
         toast({ title: "Success", description: data.message });
       } else {
@@ -219,7 +246,7 @@ const ApiDocumentation = () => {
               <p className="text-muted-foreground font-light">
                 To access or obtain an API key, please{" "}
                 <button
-                  onClick={() => setShowForm(true)}
+                  onClick={handleRequestKey}
                   className="animated-gradient-neon-text hover:opacity-80 underline underline-offset-2 font-medium transition-opacity"
                 >
                   click here
@@ -244,7 +271,7 @@ const ApiDocumentation = () => {
             </div>
           </section>
 
-          {/* Query Parameters */}
+          {/* Endpoints */}
           <section className="mb-10">
             <div className="flex items-center gap-2 mb-4">
               <Code2 className="w-5 h-5 text-foreground" />
@@ -291,7 +318,6 @@ const ApiDocumentation = () => {
               <h2 className="text-xl font-medium text-foreground">Examples</h2>
             </div>
             <div className="space-y-6">
-              {/* cURL */}
               <div className="rounded-2xl border border-border bg-card p-8">
                 <h3 className="font-medium text-foreground mb-2">cURL</h3>
                 <p className="text-sm text-muted-foreground mb-3 font-light">Fetch the latest blockchain articles:</p>
@@ -306,7 +332,6 @@ curl -X GET "${siteUrl}/api/blockchain" \\
                 </div>
               </div>
 
-              {/* JavaScript */}
               <div className="rounded-2xl border border-border bg-card p-8">
                 <h3 className="font-medium text-foreground mb-2">JavaScript / TypeScript</h3>
                 <div className="bg-muted rounded-xl p-4 overflow-x-auto">
@@ -324,7 +349,6 @@ const apiData = await apiResponse.json();`}
                 </div>
               </div>
 
-              {/* Python */}
               <div className="rounded-2xl border border-border bg-card p-8">
                 <h3 className="font-medium text-foreground mb-2">Python</h3>
                 <div className="bg-muted rounded-xl p-4 overflow-x-auto">
