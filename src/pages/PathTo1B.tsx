@@ -528,7 +528,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={14} />
+        <SlideNumber n={13} />
       </div>
     ),
   },
@@ -563,7 +563,7 @@ const slides: Slide[] = [
             ]} />
           </GreenCard>
         </div>
-        <SlideNumber n={15} />
+        <SlideNumber n={14} />
       </div>
     ),
   },
@@ -587,7 +587,7 @@ const slides: Slide[] = [
             <div key={e} className="text-xs font-light text-muted-foreground border border-border/30 rounded-lg p-3 text-center">{e}</div>
           ))}
         </div>
-        <SlideNumber n={16} />
+        <SlideNumber n={15} />
       </div>
     ),
   },
@@ -617,7 +617,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Tokenize funds, not single properties. Much larger volumes, broader investor appeal.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={17} />
+        <SlideNumber n={16} />
       </div>
     ),
   },
@@ -651,7 +651,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Partnerships with Fireblocks & Anchorage Digital enable institutions to hold assets safely.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={18} />
+        <SlideNumber n={17} />
       </div>
     ),
   },
@@ -677,7 +677,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={19} />
+        <SlideNumber n={18} />
       </div>
     ),
   },
@@ -706,7 +706,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={20} />
+        <SlideNumber n={19} />
       </div>
     ),
   },
@@ -735,7 +735,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={21} />
+        <SlideNumber n={20} />
       </div>
     ),
   },
@@ -754,7 +754,7 @@ const slides: Slide[] = [
           <SectionLabel>Potential Valuation</SectionLabel>
           <div className="text-5xl font-extralight text-[hsl(82,85%,55%)] mt-3">$10B+</div>
         </GreenCard>
-        <SlideNumber n={22} />
+        <SlideNumber n={21} />
       </div>
     ),
   },
@@ -784,7 +784,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Without secondary market liquidity, tokenized assets remain illiquid.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={23} />
+        <SlideNumber n={22} />
       </div>
     ),
   },
@@ -808,7 +808,7 @@ const slides: Slide[] = [
             The Stripe for Payments. The Plaid for Banking. The AWS for Cloud.
           </p>
         </div>
-        <SlideNumber n={24} />
+        <SlideNumber n={23} />
       </div>
     ),
   },
