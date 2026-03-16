@@ -490,38 +490,7 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 13 — Target Clients
-  {
-    id: "target-clients",
-    render: () => (
-      <div className="flex flex-col h-full gap-6 justify-center">
-        <SlideAccent />
-        <SectionLabel>Distribution</SectionLabel>
-        <SlideTitle>Who Uses TMRW Infrastructure.</SlideTitle>
-        <div className="grid md:grid-cols-3 gap-5">
-          {[
-            { name: "Wealth Platforms", users: "500K+", assets: "200+" },
-            { name: "Neobanks & Fintechs", users: "200K+", assets: "50+" },
-            { name: "Crypto Exchanges", users: "10M+", assets: "100+" },
-            { name: "Broker Dealers", users: "500K+", assets: "150+" },
-            { name: "DAOs & Protocols", users: "100K+", assets: "75+" },
-            { name: "Investment Marketplaces", users: "300K+", assets: "120+" },
-          ].map(c => (
-            <GreenCard key={c.name} className="space-y-2">
-              <h3 className="text-sm font-medium text-foreground">{c.name}</h3>
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <span>{c.users} users</span>
-                <span>{c.assets} assets</span>
-              </div>
-            </GreenCard>
-          ))}
-        </div>
-        <p className="text-sm font-light text-muted-foreground">Instead of onboarding one issuer at a time, <span className="text-foreground font-medium">you onboard platforms</span>.</p>
-        <SlideNumber n={13} />
-      </div>
-    ),
-  },
-  // 14 — Infrastructure Revenue Model
+  // 13 — Infrastructure Revenue Model
   {
     id: "infra-revenue",
     render: () => (
@@ -559,7 +528,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={14} />
+        <SlideNumber n={13} />
       </div>
     ),
   },
@@ -594,7 +563,7 @@ const slides: Slide[] = [
             ]} />
           </GreenCard>
         </div>
-        <SlideNumber n={15} />
+        <SlideNumber n={14} />
       </div>
     ),
   },
@@ -618,7 +587,7 @@ const slides: Slide[] = [
             <div key={e} className="text-xs font-light text-muted-foreground border border-border/30 rounded-lg p-3 text-center">{e}</div>
           ))}
         </div>
-        <SlideNumber n={16} />
+        <SlideNumber n={15} />
       </div>
     ),
   },
@@ -648,7 +617,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Tokenize funds, not single properties. Much larger volumes, broader investor appeal.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={17} />
+        <SlideNumber n={16} />
       </div>
     ),
   },
@@ -682,7 +651,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Partnerships with Fireblocks & Anchorage Digital enable institutions to hold assets safely.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={18} />
+        <SlideNumber n={17} />
       </div>
     ),
   },
@@ -708,7 +677,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={19} />
+        <SlideNumber n={18} />
       </div>
     ),
   },
@@ -737,7 +706,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={20} />
+        <SlideNumber n={19} />
       </div>
     ),
   },
@@ -766,7 +735,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={21} />
+        <SlideNumber n={20} />
       </div>
     ),
   },
@@ -785,7 +754,7 @@ const slides: Slide[] = [
           <SectionLabel>Potential Valuation</SectionLabel>
           <div className="text-5xl font-extralight text-[hsl(82,85%,55%)] mt-3">$10B+</div>
         </GreenCard>
-        <SlideNumber n={22} />
+        <SlideNumber n={21} />
       </div>
     ),
   },
@@ -815,7 +784,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Without secondary market liquidity, tokenized assets remain illiquid.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={23} />
+        <SlideNumber n={22} />
       </div>
     ),
   },
@@ -839,7 +808,7 @@ const slides: Slide[] = [
             The Stripe for Payments. The Plaid for Banking. The AWS for Cloud.
           </p>
         </div>
-        <SlideNumber n={24} />
+        <SlideNumber n={23} />
       </div>
     ),
   },
