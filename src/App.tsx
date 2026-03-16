@@ -157,6 +157,7 @@ const App = () => (
           <ChatProvider>
             <ScrollToTop />
             <LanguageHandler />
+            <SeoHreflang />
             <Suspense fallback={<LoadingScreen />}>
               <Routes>
                 {/* Default English routes */}
