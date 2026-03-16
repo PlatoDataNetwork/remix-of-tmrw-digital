@@ -132,10 +132,10 @@ const Footer = () => {
             <div className="space-y-2.5 sm:space-y-3">
               {[
               { label: "RTO", href: "/rto" },
+              { label: "Data Feeds", href: "/data-feeds" },
               { label: "Blog", href: "#" },
               { label: "Community", href: "#" },
               { label: "Documentation", href: "#" },
-              { label: "FAQ", href: "/legal#faq" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
                   <Link

@@ -69,6 +69,8 @@ const SuperCloud = lazy(() => import("./pages/SuperCloud"));
 const CUTToken = lazy(() => import("./pages/CUTToken"));
 const Security = lazy(() => import("./pages/Security"));
 const PathTo1B = lazy(() => import("./pages/PathTo1B"));
+const DataFeeds = lazy(() => import("./pages/DataFeeds"));
+const ApiDocumentation = lazy(() => import("./pages/ApiDocumentation"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -139,6 +141,8 @@ function getRoutes() {
     <Route key="corporate-deck" path="corporate-deck" element={<CorporateDeck />} />,
     <Route key="ordior" path="Ordior" element={<OrdiorDeck />} />,
     <Route key="path-to-1b" path="path-to-1b" element={<PathTo1B />} />,
+    <Route key="data-feeds" path="data-feeds" element={<DataFeeds />} />,
+    <Route key="api-docs" path="api-documentation" element={<ApiDocumentation />} />,
   ];
 }
 
