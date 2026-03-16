@@ -1,0 +1,214 @@
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+};
+
+const xslStylesheet = `<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="2.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
+
+  <xsl:template match="/">
+    <html>
+      <head>
+        <title>XML Sitemap — The Tomorrow Company</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+        <style type="text/css">
+          * { box-sizing: border-box; margin: 0; padding: 0; }
+          body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #09090b; color: #fafafa;
+            min-height: 100vh; line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+          }
+          .container { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; }
+          .header {
+            display: flex; align-items: center; gap: 1rem;
+            padding-bottom: 2rem; margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+          }
+          .logo-icon {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, hsl(217,80%,55%) 0%, hsl(260,70%,60%) 100%);
+            border-radius: 12px; display: flex; align-items: center;
+            justify-content: center; font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(59,130,246,0.25);
+          }
+          .header-text h1 { font-size: 1.5rem; font-weight: 700; color: #fafafa; letter-spacing: -0.025em; }
+          .header-text p { color: #71717a; font-size: 0.9rem; }
+          .info-banner {
+            background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2);
+            border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;
+            display: flex; align-items: center; gap: 0.75rem;
+          }
+          .info-banner svg { flex-shrink: 0; color: hsl(217,80%,55%); }
+          .info-banner p { color: hsl(217,80%,70%); font-size: 0.875rem; }
+          .info-banner a { color: hsl(217,80%,65%); font-weight: 500; text-decoration: none; }
+          .info-banner a:hover { text-decoration: underline; }
+          .stats-row { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+          .stat-card {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px; padding: 1.25rem 1.5rem;
+            display: flex; align-items: center; gap: 1rem;
+          }
+          .stat-icon {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, hsl(217,80%,55%) 0%, hsl(260,70%,60%) 100%);
+            border-radius: 10px; display: flex; align-items: center;
+            justify-content: center; color: white; font-size: 1.1rem;
+          }
+          .stat-content .stat-number { font-size: 1.75rem; font-weight: 700; color: #fafafa; line-height: 1; }
+          .stat-content .stat-label { color: #71717a; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+          .table-wrapper {
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px; overflow: hidden;
+          }
+          table { width: 100%; border-collapse: collapse; }
+          th {
+            background: rgba(255,255,255,0.04); color: #a1a1aa; font-weight: 600;
+            text-align: left; padding: 0.875rem 1.25rem; font-size: 0.75rem;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+          }
+          td { padding: 0.875rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 0.875rem; color: #d4d4d8; }
+          tbody tr:hover { background: rgba(255,255,255,0.03); }
+          tbody tr:last-child td { border-bottom: none; }
+          td a { color: hsl(217,80%,65%); text-decoration: none; font-weight: 500; word-break: break-all; transition: color 0.15s; }
+          td a:hover { color: hsl(217,80%,75%); text-decoration: underline; }
+          .badge { display: inline-flex; align-items: center; padding: 0.25rem 0.625rem; border-radius: 6px; font-size: 0.75rem; font-weight: 600; }
+          .badge-high { background: rgba(34,197,94,0.15); color: #4ade80; }
+          .badge-medium { background: rgba(234,179,8,0.15); color: #facc15; }
+          .badge-low { background: rgba(255,255,255,0.06); color: #a1a1aa; }
+          .text-muted { color: #71717a; }
+          .text-sm { font-size: 0.8125rem; }
+          .row-num { color: #52525b; font-weight: 500; font-size: 0.8125rem; }
+          .footer { text-align: center; padding: 2.5rem 0 1rem; color: #52525b; font-size: 0.8125rem; }
+          .footer a { color: hsl(217,80%,65%); font-weight: 500; text-decoration: none; }
+          .footer a:hover { text-decoration: underline; }
+          @media (max-width: 768px) {
+            .container { padding: 1.5rem 1rem; }
+            .header { flex-direction: column; text-align: center; gap: 0.75rem; }
+            th, td { padding: 0.75rem 0.875rem; font-size: 0.8rem; }
+            .stat-card { flex: 1; min-width: 0; }
+            .hide-mobile { display: none; }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <div class="logo-icon">🗺️</div>
+            <div class="header-text">
+              <h1>XML Sitemap</h1>
+              <p>The Tomorrow Company</p>
+            </div>
+          </div>
+
+          <div class="info-banner">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <p>This sitemap helps search engines crawl and index this website. <a href="https://www.sitemaps.org/" target="_blank" rel="noopener">Learn more →</a></p>
+          </div>
+
+          <xsl:choose>
+            <xsl:when test="sitemap:sitemapindex">
+              <div class="stats-row">
+                <div class="stat-card">
+                  <div class="stat-icon">📄</div>
+                  <div class="stat-content">
+                    <div class="stat-number"><xsl:value-of select="count(sitemap:sitemapindex/sitemap:sitemap)"/></div>
+                    <div class="stat-label">Sitemaps</div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-wrapper">
+                <table>
+                  <thead><tr>
+                    <th style="width: 50px">#</th>
+                    <th>Sitemap URL</th>
+                    <th style="width: 140px" class="hide-mobile">Last Modified</th>
+                  </tr></thead>
+                  <tbody>
+                    <xsl:for-each select="sitemap:sitemapindex/sitemap:sitemap">
+                      <tr>
+                        <td class="row-num"><xsl:value-of select="position()"/></td>
+                        <td><a href="{sitemap:loc}"><xsl:value-of select="sitemap:loc"/></a></td>
+                        <td class="text-muted text-sm hide-mobile"><xsl:value-of select="sitemap:lastmod"/></td>
+                      </tr>
+                    </xsl:for-each>
+                  </tbody>
+                </table>
+              </div>
+            </xsl:when>
+            <xsl:otherwise>
+              <div class="stats-row">
+                <div class="stat-card">
+                  <div class="stat-icon">🔗</div>
+                  <div class="stat-content">
+                    <div class="stat-number"><xsl:value-of select="count(sitemap:urlset/sitemap:url)"/></div>
+                    <div class="stat-label">URLs</div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-wrapper">
+                <table>
+                  <thead><tr>
+                    <th style="width: 50px">#</th>
+                    <th>URL</th>
+                    <th style="width: 80px">Priority</th>
+                    <th style="width: 100px" class="hide-mobile">Frequency</th>
+                    <th style="width: 120px" class="hide-mobile">Last Modified</th>
+                  </tr></thead>
+                  <tbody>
+                    <xsl:for-each select="sitemap:urlset/sitemap:url">
+                      <tr>
+                        <td class="row-num"><xsl:value-of select="position()"/></td>
+                        <td><a href="{sitemap:loc}"><xsl:value-of select="sitemap:loc"/></a></td>
+                        <td>
+                          <xsl:choose>
+                            <xsl:when test="sitemap:priority &gt;= 0.8"><span class="badge badge-high"><xsl:value-of select="sitemap:priority"/></span></xsl:when>
+                            <xsl:when test="sitemap:priority &gt;= 0.5"><span class="badge badge-medium"><xsl:value-of select="sitemap:priority"/></span></xsl:when>
+                            <xsl:otherwise><span class="badge badge-low"><xsl:value-of select="sitemap:priority"/></span></xsl:otherwise>
+                          </xsl:choose>
+                        </td>
+                        <td class="text-muted text-sm hide-mobile" style="text-transform: capitalize;"><xsl:value-of select="sitemap:changefreq"/></td>
+                        <td class="text-muted text-sm hide-mobile"><xsl:value-of select="sitemap:lastmod"/></td>
+                      </tr>
+                    </xsl:for-each>
+                  </tbody>
+                </table>
+              </div>
+            </xsl:otherwise>
+          </xsl:choose>
+
+          <div class="footer">
+            <p>Generated by <a href="https://www.tmrw-digital.com" target="_blank">The Tomorrow Company</a></p>
+          </div>
+        </div>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>`;
+
+Deno.serve(async (req) => {
+  if (req.method === "OPTIONS") {
+    return new Response(null, { headers: corsHeaders });
+  }
+
+  return new Response(xslStylesheet, {
+    headers: {
+      ...corsHeaders,
+      "Content-Type": "application/xslt+xml; charset=utf-8",
+      "Cache-Control": "public, max-age=86400",
+    },
+  });
+});
