@@ -291,25 +291,24 @@ const slides: Slide[] = [
         <SlideAccent />
         <SectionLabel>Growth Scenario</SectionLabel>
         <SlideTitle>Year 3–4: Scale.</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-5">
-            <StatBlock value="$3B" label="Assets Tokenized" />
-            <GreenCard className="space-y-3">
-              <SectionLabel>Revenue Estimate</SectionLabel>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Issuance</span><span className="text-foreground">~$30M</span></div>
-                <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Servicing</span><span className="text-foreground">~$7M</span></div>
-                <div className="w-full h-px bg-border/30" />
-                <div className="flex justify-between text-sm font-medium"><span className="text-foreground">Total</span><span className="text-[hsl(82,85%,55%)]">≈ $35–40M</span></div>
-              </div>
-            </GreenCard>
-          </div>
-          <div className="flex flex-col items-center justify-center">
-            <GreenCard className="w-full text-center py-8">
-              <SectionLabel>Implied Valuation</SectionLabel>
-              <div className="text-5xl font-extralight text-[hsl(82,85%,55%)] mt-3">$400M – $800M</div>
-            </GreenCard>
-          </div>
+        <div className="grid grid-cols-3 gap-5">
+          <GreenCard className="text-center py-6 space-y-2">
+            <SectionLabel>Assets Tokenized</SectionLabel>
+            <div className="text-3xl font-extralight text-[hsl(82,85%,55%)]">$3B</div>
+          </GreenCard>
+          <GreenCard className="space-y-3 py-6">
+            <SectionLabel>Revenue Estimate</SectionLabel>
+            <div className="space-y-2">
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Issuance</span><span className="text-foreground">~$30M</span></div>
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Servicing</span><span className="text-foreground">~$7M</span></div>
+              <div className="w-full h-px bg-border/30" />
+              <div className="flex justify-between text-sm font-medium"><span className="text-foreground">Total</span><span className="text-[hsl(82,85%,55%)]">≈ $35–40M</span></div>
+            </div>
+          </GreenCard>
+          <GreenCard className="text-center py-6 space-y-2">
+            <SectionLabel>Implied Valuation</SectionLabel>
+            <div className="text-3xl font-extralight text-[hsl(82,85%,55%)]">$400M – $800M</div>
+          </GreenCard>
         </div>
         <SlideNumber n={6} />
       </div>
