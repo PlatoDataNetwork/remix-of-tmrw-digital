@@ -150,19 +150,7 @@ Deno.serve(async (req) => {
     <loc>${baseUrl}/vertical-sitemap.xml</loc>
     <lastmod>${today}</lastmod>
   </sitemap>
-`;
-      // Root index references all language sitemap indexes
-      if (!lang) {
-        for (const langCode of SUPPORTED_LANGUAGES) {
-          xml += `  <sitemap>
-    <loc>${SITE_URL}/${langCode}/sitemap.xml</loc>
-    <lastmod>${today}</lastmod>
-  </sitemap>
-`;
-        }
-      }
-
-      xml += `</sitemapindex>`;
+</sitemapindex>`;
       return xmlResponse(xml);
     }
 
