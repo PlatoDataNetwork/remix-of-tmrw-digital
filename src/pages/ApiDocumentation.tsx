@@ -101,19 +101,20 @@ const ApiDocumentation = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [generatedKey, setGeneratedKey] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+
+  const detectedCountryName = detectCountry();
+
   const [formData, setFormData] = useState({
     full_name: "",
     email: "",
     phone: "",
-    country_code: (() => {
-      const detected = detectCountry();
-      const c = countries.find((c) => c.name === detected);
-      return c ? c.code : "+1";
-    })(),
+    selected_country: detectedCountryName,
   });
 
-  const baseUrl = window.location.origin;
-  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+  const selectedCountry = countries.find((c) => c.name === formData.selected_country);
+  const countryCode = selectedCountry?.code || "+1";
+
+  const siteUrl = typeof window !== "undefined" ? window.location.origin : "";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -124,8 +125,8 @@ const ApiDocumentation = () => {
         body: {
           full_name: formData.full_name,
           email: formData.email,
-          phone: formData.country_code + formData.phone,
-          country_code: formData.country_code,
+          phone: countryCode + formData.phone,
+          country_code: countryCode,
         },
       });
 
@@ -161,13 +162,14 @@ const ApiDocumentation = () => {
       <Navbar />
 
       <main className="pt-24 pb-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4">
+          <div className="text-center mb-20">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Developer</p>
+            <h1 className="text-3xl md:text-5xl font-light text-foreground mb-6">
               API Documentation
             </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light">
               Access our articles programmatically with our REST API. Get real-time data on
               AI, Web3, and emerging technology news.
             </p>
@@ -175,24 +177,25 @@ const ApiDocumentation = () => {
 
           {/* Generated Key Display */}
           {generatedKey && (
-            <div className="mb-8 p-4 rounded-xl border border-green-500/30 bg-green-500/5">
-              <div className="flex items-center gap-2 mb-2">
-                <Key className="w-5 h-5 text-green-400" />
-                <h3 className="font-semibold text-green-400">Your API Key</h3>
+            <div className="mb-8 p-6 rounded-2xl border border-border bg-card">
+              <div className="flex items-center gap-2 mb-3">
+                <Key className="w-5 h-5 text-foreground" />
+                <h3 className="font-medium text-foreground">Your API Key</h3>
               </div>
               <div className="flex items-center gap-2">
-                <code className="flex-1 bg-muted px-3 py-2 rounded text-sm font-mono text-foreground break-all">
+                <code className="flex-1 bg-muted px-4 py-3 rounded-xl text-sm font-mono text-foreground break-all">
                   {generatedKey}
                 </code>
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => copyToClipboard(generatedKey)}
+                  className="rounded-xl"
                 >
                   {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 </Button>
               </div>
-              <p className="text-xs text-muted-foreground mt-2">
+              <p className="text-xs text-muted-foreground mt-3 font-light">
                 Save this key securely. Include it in the X-API-Key header for all API requests.
               </p>
             </div>
@@ -201,23 +204,23 @@ const ApiDocumentation = () => {
           {/* Authentication */}
           <section className="mb-10">
             <div className="flex items-center gap-2 mb-4">
-              <Key className="w-5 h-5 text-blue-400" />
-              <h2 className="text-xl font-bold text-foreground">Authentication</h2>
+              <Key className="w-5 h-5 text-foreground" />
+              <h2 className="text-xl font-medium text-foreground">Authentication</h2>
             </div>
-            <div className="rounded-xl border border-border bg-card p-6">
-              <p className="text-muted-foreground mb-3">
+            <div className="rounded-2xl border border-border bg-card p-8">
+              <p className="text-muted-foreground mb-4 font-light">
                 All API requests require authentication using an API key. Include your API key in the request headers:
               </p>
-              <div className="bg-muted rounded-lg p-4 mb-4">
+              <div className="bg-muted rounded-xl p-4 mb-4">
                 <code className="text-sm font-mono text-foreground">
                   X-API-Key: your_api_key_here
                 </code>
               </div>
-              <p className="text-muted-foreground">
-                To obtain an API key, please{" "}
+              <p className="text-muted-foreground font-light">
+                To access or obtain an API key, please{" "}
                 <button
                   onClick={() => setShowForm(true)}
-                  className="text-blue-400 hover:text-blue-300 underline underline-offset-2 font-medium transition-colors"
+                  className="animated-gradient-neon-text hover:opacity-80 underline underline-offset-2 font-medium transition-opacity"
                 >
                   click here
                 </button>
@@ -229,13 +232,13 @@ const ApiDocumentation = () => {
           {/* Base URL */}
           <section className="mb-10">
             <div className="flex items-center gap-2 mb-4">
-              <Globe className="w-5 h-5 text-blue-400" />
-              <h2 className="text-xl font-bold text-foreground">Base URL</h2>
+              <Globe className="w-5 h-5 text-foreground" />
+              <h2 className="text-xl font-medium text-foreground">Base URL</h2>
             </div>
-            <div className="rounded-xl border border-border bg-card p-6">
-              <div className="bg-muted rounded-lg p-4">
+            <div className="rounded-2xl border border-border bg-card p-8">
+              <div className="bg-muted rounded-xl p-4">
                 <code className="text-sm font-mono text-foreground break-all">
-                  {supabaseUrl}/functions/v1/data-feed-proxy
+                  {siteUrl}
                 </code>
               </div>
             </div>
@@ -244,37 +247,37 @@ const ApiDocumentation = () => {
           {/* Query Parameters */}
           <section className="mb-10">
             <div className="flex items-center gap-2 mb-4">
-              <Code2 className="w-5 h-5 text-blue-400" />
-              <h2 className="text-xl font-bold text-foreground">Query Parameters</h2>
+              <Code2 className="w-5 h-5 text-foreground" />
+              <h2 className="text-xl font-medium text-foreground">Endpoints</h2>
             </div>
-            <div className="rounded-xl border border-border bg-card p-6 overflow-x-auto">
+            <div className="rounded-2xl border border-border bg-card p-8 overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-border">
-                    <th className="text-left py-2 px-3 text-blue-400 font-medium">Parameter</th>
-                    <th className="text-left py-2 px-3 text-muted-foreground font-medium">Type</th>
-                    <th className="text-left py-2 px-3 text-muted-foreground font-medium">Default</th>
+                    <th className="text-left py-2 px-3 text-foreground font-medium">Endpoint</th>
+                    <th className="text-left py-2 px-3 text-muted-foreground font-medium">Format</th>
+                    <th className="text-left py-2 px-3 text-muted-foreground font-medium">Auth</th>
                     <th className="text-left py-2 px-3 text-muted-foreground font-medium">Description</th>
                   </tr>
                 </thead>
-                <tbody className="text-muted-foreground">
+                <tbody className="text-muted-foreground font-light">
                   <tr className="border-b border-border/50">
-                    <td className="py-2 px-3 text-blue-400">vertical</td>
-                    <td className="py-2 px-3">string</td>
-                    <td className="py-2 px-3">-</td>
-                    <td className="py-2 px-3">Filter articles by vertical slug (e.g., "blockchain")</td>
+                    <td className="py-3 px-3 text-foreground font-mono text-xs">/{`{vertical}`}.json</td>
+                    <td className="py-3 px-3">JSON</td>
+                    <td className="py-3 px-3">No</td>
+                    <td className="py-3 px-3">Get feed data in JSON format</td>
                   </tr>
                   <tr className="border-b border-border/50">
-                    <td className="py-2 px-3 text-blue-400">format</td>
-                    <td className="py-2 px-3">string</td>
-                    <td className="py-2 px-3">json</td>
-                    <td className="py-2 px-3">Response format: json, xml, or api</td>
+                    <td className="py-3 px-3 text-foreground font-mono text-xs">/{`{vertical}`}.xml</td>
+                    <td className="py-3 px-3">RSS/XML</td>
+                    <td className="py-3 px-3">No</td>
+                    <td className="py-3 px-3">Get feed data in RSS XML format</td>
                   </tr>
                   <tr>
-                    <td className="py-2 px-3 text-blue-400">api_key</td>
-                    <td className="py-2 px-3">string</td>
-                    <td className="py-2 px-3">-</td>
-                    <td className="py-2 px-3">Required for format=api. Can also use X-API-Key header.</td>
+                    <td className="py-3 px-3 text-foreground font-mono text-xs">/api/{`{vertical}`}</td>
+                    <td className="py-3 px-3">JSON</td>
+                    <td className="py-3 px-3">API Key</td>
+                    <td className="py-3 px-3">Authenticated API access with full response</td>
                   </tr>
                 </tbody>
               </table>
@@ -284,61 +287,58 @@ const ApiDocumentation = () => {
           {/* Examples */}
           <section className="mb-10">
             <div className="flex items-center gap-2 mb-4">
-              <FileJson className="w-5 h-5 text-blue-400" />
-              <h2 className="text-xl font-bold text-foreground">Examples</h2>
+              <FileJson className="w-5 h-5 text-foreground" />
+              <h2 className="text-xl font-medium text-foreground">Examples</h2>
             </div>
             <div className="space-y-6">
               {/* cURL */}
-              <div className="rounded-xl border border-border bg-card p-6">
-                <h3 className="font-semibold text-foreground mb-2">cURL</h3>
-                <p className="text-sm text-muted-foreground mb-3">Fetch the latest blockchain articles:</p>
-                <div className="bg-muted rounded-lg p-4 overflow-x-auto">
+              <div className="rounded-2xl border border-border bg-card p-8">
+                <h3 className="font-medium text-foreground mb-2">cURL</h3>
+                <p className="text-sm text-muted-foreground mb-3 font-light">Fetch the latest blockchain articles:</p>
+                <div className="bg-muted rounded-xl p-4 overflow-x-auto">
                   <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
-{`curl -X GET "${supabaseUrl}/functions/v1/data-feed-proxy?vertical=blockchain&format=api" \\
-  -H "X-API-Key: your_api_key_here" \\
-  -H "Authorization: Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}"`}
+{`curl -X GET "${siteUrl}/blockchain.json"
+
+# With API authentication:
+curl -X GET "${siteUrl}/api/blockchain" \\
+  -H "X-API-Key: your_api_key_here"`}
                   </pre>
                 </div>
               </div>
 
               {/* JavaScript */}
-              <div className="rounded-xl border border-border bg-card p-6">
-                <h3 className="font-semibold text-foreground mb-2">JavaScript / TypeScript</h3>
-                <div className="bg-muted rounded-lg p-4 overflow-x-auto">
+              <div className="rounded-2xl border border-border bg-card p-8">
+                <h3 className="font-medium text-foreground mb-2">JavaScript / TypeScript</h3>
+                <div className="bg-muted rounded-xl p-4 overflow-x-auto">
                   <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
-{`const response = await fetch(
-  "${supabaseUrl}/functions/v1/data-feed-proxy?vertical=blockchain&format=api",
-  {
-    headers: {
-      "X-API-Key": "your_api_key_here",
-      "Authorization": "Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}"
-    }
-  }
-);
-
+{`// Public feed (no auth required)
+const response = await fetch("${siteUrl}/blockchain.json");
 const data = await response.json();
-console.log(data);`}
+
+// Authenticated API
+const apiResponse = await fetch("${siteUrl}/api/blockchain", {
+  headers: { "X-API-Key": "your_api_key_here" }
+});
+const apiData = await apiResponse.json();`}
                   </pre>
                 </div>
               </div>
 
               {/* Python */}
-              <div className="rounded-xl border border-border bg-card p-6">
-                <h3 className="font-semibold text-foreground mb-2">Python</h3>
-                <div className="bg-muted rounded-lg p-4 overflow-x-auto">
+              <div className="rounded-2xl border border-border bg-card p-8">
+                <h3 className="font-medium text-foreground mb-2">Python</h3>
+                <div className="bg-muted rounded-xl p-4 overflow-x-auto">
                   <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
 {`import requests
 
-url = "${supabaseUrl}/functions/v1/data-feed-proxy"
-headers = {
-    "X-API-Key": "your_api_key_here",
-    "Authorization": "Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}"
-}
-params = {"vertical": "blockchain", "format": "api"}
-
-response = requests.get(url, headers=headers, params=params)
+# Public feed
+response = requests.get("${siteUrl}/blockchain.json")
 data = response.json()
-print(data)`}
+
+# Authenticated API
+headers = {"X-API-Key": "your_api_key_here"}
+response = requests.get("${siteUrl}/api/blockchain", headers=headers)
+data = response.json()`}
                   </pre>
                 </div>
               </div>
@@ -348,32 +348,23 @@ print(data)`}
           {/* Error Responses */}
           <section className="mb-10">
             <div className="flex items-center gap-2 mb-4">
-              <AlertTriangle className="w-5 h-5 text-blue-400" />
-              <h2 className="text-xl font-bold text-foreground">Error Responses</h2>
+              <AlertTriangle className="w-5 h-5 text-foreground" />
+              <h2 className="text-xl font-medium text-foreground">Error Responses</h2>
             </div>
-            <div className="rounded-xl border border-border bg-card p-6 space-y-4">
+            <div className="rounded-2xl border border-border bg-card p-8 space-y-6">
               <div>
-                <h4 className="font-semibold text-foreground text-sm">401 Unauthorized</h4>
-                <p className="text-xs text-muted-foreground mb-1">Invalid or missing API key</p>
-                <div className="bg-muted rounded-lg p-3">
+                <h4 className="font-medium text-foreground text-sm">401 Unauthorized</h4>
+                <p className="text-xs text-muted-foreground mb-2 font-light">Invalid or missing API key</p>
+                <div className="bg-muted rounded-xl p-3">
                   <code className="text-xs font-mono text-foreground">
                     {`{"success": false, "error": "Invalid or missing API key"}`}
                   </code>
                 </div>
               </div>
               <div>
-                <h4 className="font-semibold text-foreground text-sm">400 Bad Request</h4>
-                <p className="text-xs text-muted-foreground mb-1">Missing required parameters</p>
-                <div className="bg-muted rounded-lg p-3">
-                  <code className="text-xs font-mono text-foreground">
-                    {`{"success": false, "error": "vertical parameter is required"}`}
-                  </code>
-                </div>
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground text-sm">404 Not Found</h4>
-                <p className="text-xs text-muted-foreground mb-1">Feed not found for the given vertical</p>
-                <div className="bg-muted rounded-lg p-3">
+                <h4 className="font-medium text-foreground text-sm">404 Not Found</h4>
+                <p className="text-xs text-muted-foreground mb-2 font-light">Feed not found for the given vertical</p>
+                <div className="bg-muted rounded-xl p-3">
                   <code className="text-xs font-mono text-foreground">
                     {`{"success": false, "error": "Feed not found for ..."}`}
                   </code>
@@ -388,8 +379,8 @@ print(data)`}
       <Dialog open={showForm} onOpenChange={setShowForm}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Request API Key</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="font-medium">Request API Key</DialogTitle>
+            <DialogDescription className="font-light">
               Fill in your details to receive your API key instantly.
             </DialogDescription>
           </DialogHeader>
@@ -421,16 +412,16 @@ print(data)`}
               <Label htmlFor="phone">Phone Number</Label>
               <div className="flex gap-2">
                 <Select
-                  value={formData.country_code}
-                  onValueChange={(val) => setFormData({ ...formData, country_code: val })}
+                  value={formData.selected_country}
+                  onValueChange={(val) => setFormData({ ...formData, selected_country: val })}
                 >
-                  <SelectTrigger className="w-[140px]">
+                  <SelectTrigger className="w-[160px]">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="max-h-60">
                     {countries.map((c) => (
-                      <SelectItem key={c.name} value={c.code}>
-                        {c.flag} {c.code}
+                      <SelectItem key={c.name} value={c.name}>
+                        {c.flag} {c.code} ({c.name})
                       </SelectItem>
                     ))}
                   </SelectContent>
