@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Outlet, useParams } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import LanguageHandler from "./components/LanguageHandler";
+import SeoHreflang from "./components/SeoHreflang";
 import LoadingScreen from "./components/LoadingScreen";
 import ChatWidget from "./components/ChatWidget";
 import { ChatProvider } from "./components/ChatContext";
