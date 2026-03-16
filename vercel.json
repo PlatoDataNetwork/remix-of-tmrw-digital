@@ -1,5 +1,8 @@
 {
   "rewrites": [
+    { "source": "/api/:vertical", "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/data-feed-proxy?vertical=:vertical&format=api" },
+    { "source": "/:vertical.json", "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/data-feed-proxy?vertical=:vertical&format=json" },
+    { "source": "/:vertical.xml", "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/data-feed-proxy?vertical=:vertical&format=xml" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
