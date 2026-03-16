@@ -490,38 +490,7 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 13 — Target Clients
-  {
-    id: "target-clients",
-    render: () => (
-      <div className="flex flex-col h-full gap-6 justify-center">
-        <SlideAccent />
-        <SectionLabel>Distribution</SectionLabel>
-        <SlideTitle>Who Uses TMRW Infrastructure.</SlideTitle>
-        <div className="grid md:grid-cols-3 gap-5">
-          {[
-            { name: "Wealth Platforms", users: "500K+", assets: "200+" },
-            { name: "Neobanks & Fintechs", users: "200K+", assets: "50+" },
-            { name: "Crypto Exchanges", users: "10M+", assets: "100+" },
-            { name: "Broker Dealers", users: "500K+", assets: "150+" },
-            { name: "DAOs & Protocols", users: "100K+", assets: "75+" },
-            { name: "Investment Marketplaces", users: "300K+", assets: "120+" },
-          ].map(c => (
-            <GreenCard key={c.name} className="space-y-2">
-              <h3 className="text-sm font-medium text-foreground">{c.name}</h3>
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <span>{c.users} users</span>
-                <span>{c.assets} assets</span>
-              </div>
-            </GreenCard>
-          ))}
-        </div>
-        <p className="text-sm font-light text-muted-foreground">Instead of onboarding one issuer at a time, <span className="text-foreground font-medium">you onboard platforms</span>.</p>
-        <SlideNumber n={13} />
-      </div>
-    ),
-  },
-  // 14 — Infrastructure Revenue Model
+  // 13 — Infrastructure Revenue Model
   {
     id: "infra-revenue",
     render: () => (
