@@ -1,8 +1,94 @@
 {
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Vary",
+          "value": "Accept-Language, Cookie"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/(ar|bn|zh-CN|da|nl|et|fi|fr|de|el|iw|hi|hu|id|it|ja|km|ko|ms|no|fa|pl|pt|pa|ro|ru|sl|es|sv|th|tr|uk|ur|vi)/(ar|bn|zh-CN|da|nl|et|fi|fr|de|el|iw|hi|hu|id|it|ja|km|ko|ms|no|fa|pl|pt|pa|ro|ru|sl|es|sv|th|tr|uk|ur|vi)/(.*)",
+      "destination": "/$1/$3",
+      "permanent": true
+    },
+    {
+      "source": "/(ar|bn|zh-CN|da|nl|et|fi|fr|de|el|iw|hi|hu|id|it|ja|km|ko|ms|no|fa|pl|pt|pa|ro|ru|sl|es|sv|th|tr|uk|ur|vi)$",
+      "destination": "/index.html"
+    }
+  ],
   "rewrites": [
-    { "source": "/api/:vertical", "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/data-feed-proxy?vertical=:vertical&format=api" },
-    { "source": "/:vertical.json", "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/data-feed-proxy?vertical=:vertical&format=json" },
-    { "source": "/:vertical.xml", "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/data-feed-proxy?vertical=:vertical&format=xml" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/robots.txt",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/robots-txt"
+    },
+    {
+      "source": "/sitemap.xsl",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/sitemap-xsl"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/sitemap?path=sitemap.xml"
+    },
+    {
+      "source": "/page-sitemap.xml",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/sitemap?path=page-sitemap.xml"
+    },
+    {
+      "source": "/vertical-sitemap.xml",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/sitemap?path=vertical-sitemap.xml"
+    },
+    {
+      "source": "/:lang(ar|bn|zh-CN|da|nl|et|fi|fr|de|el|iw|hi|hu|id|it|ja|km|ko|ms|no|fa|pl|pt|pa|ro|ru|sl|es|sv|th|tr|uk|ur|vi)/sitemap.xml",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/sitemap?path=sitemap.xml&lang=:lang"
+    },
+    {
+      "source": "/:lang(ar|bn|zh-CN|da|nl|et|fi|fr|de|el|iw|hi|hu|id|it|ja|km|ko|ms|no|fa|pl|pt|pa|ro|ru|sl|es|sv|th|tr|uk|ur|vi)/page-sitemap.xml",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/sitemap?path=page-sitemap.xml&lang=:lang"
+    },
+    {
+      "source": "/:lang(ar|bn|zh-CN|da|nl|et|fi|fr|de|el|iw|hi|hu|id|it|ja|km|ko|ms|no|fa|pl|pt|pa|ro|ru|sl|es|sv|th|tr|uk|ur|vi)/vertical-sitemap.xml",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/sitemap?path=vertical-sitemap.xml&lang=:lang"
+    },
+    {
+      "source": "/feed.xml",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/rss-feed"
+    },
+    {
+      "source": "/feed.json",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/json-feed"
+    },
+    {
+      "source": "/feed/:vertical.xml",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/rss-feed?vertical=:vertical"
+    },
+    {
+      "source": "/feed/:vertical.json",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/json-feed?vertical=:vertical"
+    },
+    {
+      "source": "/api/og-proxy",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/og-meta"
+    },
+    {
+      "source": "/api/:vertical",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/data-feed-proxy?vertical=:vertical&format=api"
+    },
+    {
+      "source": "/:vertical.json",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/data-feed-proxy?vertical=:vertical&format=json"
+    },
+    {
+      "source": "/:vertical.xml",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/data-feed-proxy?vertical=:vertical&format=xml"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
