@@ -396,7 +396,7 @@ const slides: Slide[] = [
         <SectionLabel>The Critical Insight</SectionLabel>
         <SlideTitle>Don't Be the Issuer. Be the Infrastructure.</SlideTitle>
         <p className="text-lg font-light text-muted-foreground max-w-2xl leading-relaxed">
-          The fastest path to $1B+ is not tokenizing assets directly — it's becoming the platform <span className="text-foreground">powering every tokenization platform</span>.
+          The fastest path to $1B+ is not tokenizing assets directly — it's becoming the platform powering every tokenization platform.
         </p>
         <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
         <p className="text-2xl font-extralight text-[hsl(82,85%,55%)]">"Stripe for RWAs."</p>
