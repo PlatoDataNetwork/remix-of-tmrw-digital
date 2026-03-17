@@ -344,14 +344,15 @@ const slides: Slide[] = [
               <tr className="border-b border-[hsl(82,85%,55%,0.15)]">
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Company</th>
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Focus</th>
+                <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Status</th>
                 <th className="py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Implied Valuation</th>
               </tr>
             </thead>
             <tbody>
-              <TableRow cells={["Ondo Finance", "Tokenized Treasuries", "$2B+"]} />
-              <TableRow cells={["Securitize", "Digital Securities", "$1B+"]} highlight />
-              <TableRow cells={["Polymesh", "Regulated Tokenization", "$50M+"]} />
-              <TableRow cells={["Centrifuge", "RWA Lending", "$100M+"]} highlight />
+              <TableRow cells={["Ondo Finance", "Tokenized Treasuries", "Token", "$2B+"]} />
+              <TableRow cells={["Securitize", "Digital Securities", "Private", "$1B+"]} highlight />
+              <TableRow cells={["Polymesh", "Regulated Tokenization", "Token", "$50M+"]} />
+              <TableRow cells={["Centrifuge", "RWA Lending", "Token", "$100M+"]} highlight />
             </tbody>
           </table>
         </div>
