@@ -359,7 +359,7 @@ const slides: Slide[] = [
         </div>
         <GreenCard>
           <p className="text-sm font-light text-muted-foreground leading-relaxed">
-            The issuance platform is the most valuable layer — whoever controls issuance earns fees on every asset and owns issuer relationships.
+            The issuance platform is the most valuable layer — whoever controls issuance earns fees on every asset and owns issuer relationships. In a world where trillions in real-world value move on-chain, the infrastructure layer captures value indefinitely while individual assets come and go.
           </p>
         </GreenCard>
         <SlideNumber n={8} />
