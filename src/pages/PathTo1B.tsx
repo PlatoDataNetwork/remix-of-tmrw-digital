@@ -229,10 +229,7 @@ const slides: Slide[] = [
           </div>
           {/* Right: Servicing Summary */}
           <GreenCard className="flex flex-col min-w-[200px]">
-            <div className="flex items-baseline justify-between mb-4">
-              <h3 className="text-xs uppercase tracking-[0.2em] text-[hsl(82,85%,55%)]">Servicing</h3>
-              <span className="text-xs uppercase tracking-[0.2em] text-[hsl(82,85%,55%)]">.50% / YR</span>
-            </div>
+            <h3 className="text-xs uppercase tracking-[0.2em] text-[hsl(82,85%,55%)] mb-4">AUM to Scale</h3>
             <div className="flex flex-col gap-2">
               {[["$1B AUM", "$5M"], ["$5B AUM", "$25M"], ["$10B AUM", "$50M"], ["$20B AUM", "$100M"], ["$50B AUM", "$250M"]].map(([aum, rev]) => (
                 <div key={aum} className="flex items-baseline justify-between text-xs">
