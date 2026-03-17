@@ -399,12 +399,12 @@ const slides: Slide[] = [
             ]} />
           </GreenCard>
           <GreenCard className="space-y-4 py-6">
-            <SectionLabel>Plato Token</SectionLabel>
+            <SectionLabel>W3AI Token</SectionLabel>
             <BulletList items={[
-              { bold: "Powers", text: "Plato Web3 Browser." },
+              { bold: "Powers", text: "W3AI Browser." },
               { bold: "SecureStake", text: "staking rewards." },
               { bold: "AI compute", text: "network incentives." },
-              { bold: "Solana ecosystem", text: "integration." },
+              { bold: "Cross-chain", text: "integration." },
             ]} />
           </GreenCard>
         </div>
