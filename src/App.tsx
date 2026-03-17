@@ -143,6 +143,7 @@ function getRoutes() {
     <Route key="corporate-deck" path="corporate-deck" element={<CorporateDeck />} />,
     <Route key="ordior" path="Ordior" element={<OrdiorDeck />} />,
     <Route key="path-to-1b" path="path-to-1b" element={<PathTo1B />} />,
+    <Route key="rto-deck" path="rto-deck" element={<RTODeck />} />,
     <Route key="data-feeds" path="data-feeds" element={<DataFeeds />} />,
     <Route key="api-docs" path="api-documentation" element={<ApiDocumentation />} />,
   ];
