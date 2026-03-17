@@ -230,7 +230,7 @@ const slides: Slide[] = [
           {/* Right: Servicing Summary */}
           <GreenCard className="flex flex-col justify-center min-w-[220px]">
             <div className="flex items-baseline justify-between gap-4 mb-3">
-              <SectionLabel className="!mb-0">Servicing</SectionLabel>
+              <h3 className="text-sm uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)] !mb-0">Servicing</h3>
               <span className="text-sm font-extralight text-[hsl(82,85%,55%)] whitespace-nowrap">0.50% / yr</span>
             </div>
             <div className="grid grid-cols-2 gap-x-6 gap-y-2">
