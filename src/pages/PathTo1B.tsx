@@ -594,36 +594,6 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 18 — Three Valuation Accelerators
-  {
-    id: "accelerators",
-    render: () => (
-      <div className="flex flex-col h-full gap-6 justify-center">
-        <SlideAccent />
-        <SectionLabel>Valuation Drivers</SectionLabel>
-        <SlideTitle>What Gets TMRW to $5B.</SlideTitle>
-        <div className="grid md:grid-cols-3 gap-5 items-stretch">
-          <GreenCard className="flex flex-col gap-3">
-            <div className="text-2xl font-extralight text-[hsl(82,85%,55%)]">01</div>
-            <h3 className="text-sm font-medium text-foreground">Major Asset Partnerships</h3>
-            <p className="text-xs font-light text-muted-foreground leading-relaxed">Secure partnerships with mining companies, commodity vaults, infrastructure funds, private equity, and sovereign asset holders.</p>
-          </GreenCard>
-          <GreenCard className="flex flex-col gap-3">
-            <div className="text-2xl font-extralight text-[hsl(82,85%,55%)]">02</div>
-            <h3 className="text-sm font-medium text-foreground">Exchange Partnerships</h3>
-            <p className="text-xs font-light text-muted-foreground leading-relaxed">TMRW-issued assets trade on Kraken, Coinbase, and emerging regulated exchanges.</p>
-            <p className="text-xs font-light text-muted-foreground leading-relaxed">Create partnerships with companies like Fireblocks & Anchorage Digital that enable institutions to hold assets safely.</p>
-          </GreenCard>
-          <GreenCard className="flex flex-col gap-3">
-            <div className="text-2xl font-extralight text-[hsl(82,85%,55%)]">03</div>
-            <h3 className="text-sm font-medium text-foreground">Institutional Custody</h3>
-            <p className="text-xs font-light text-muted-foreground leading-relaxed">Dedicated custody infrastructure ensuring institutional-grade security and compliance for all tokenized assets.</p>
-          </GreenCard>
-        </div>
-        <SlideNumber n={16} />
-      </div>
-    ),
-  },
   // 19 — Accelerated Path: Year 1
   {
     id: "accel-year-1",
