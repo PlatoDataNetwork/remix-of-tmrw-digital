@@ -104,12 +104,21 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function TableRow({ cells, highlight }: { cells: string[]; highlight?: boolean }) {
+function TableRow({ cells, highlight, links }: { cells: string[]; highlight?: boolean; links?: Record<number, string> }) {
   return (
     <tr className={cn("border-b border-border/20", highlight && "bg-[hsl(82,85%,55%,0.04)]")}>
       {cells.map((c, i) => {
         const isLastCell = i === cells.length - 1;
-        const isSecondToLast = i === cells.length - 2;
+
+        const align = cells.length === 6 && i === 3 ? "text-left" :
+          cells.length === 6 && (i === 4 || i === 5) ? "text-right whitespace-nowrap tabular-nums" :
+          cells.length === 5 && i === 2 ? "text-left" :
+          cells.length === 5 && (i === 3 || i === 4) ? "text-right whitespace-nowrap tabular-nums" :
+          isLastCell && cells.length < 5 ? "text-right" : "text-left";
+
+        const content = links?.[i] ? (
+          <a href={links[i]} target="_blank" rel="noopener noreferrer" className="text-[hsl(82,85%,55%)] hover:underline">{c}</a>
+        ) : c;
 
         return (
           <td
@@ -117,12 +126,10 @@ function TableRow({ cells, highlight }: { cells: string[]; highlight?: boolean }
             className={cn(
               "py-2.5 px-3 text-xs font-light",
               i === 0 ? "text-foreground" : "text-muted-foreground",
-              cells.length === 5 && i === 2 ? "text-left" :
-              cells.length === 5 && (i === 3 || i === 4) ? "text-right whitespace-nowrap tabular-nums" :
-              isLastCell && cells.length !== 5 ? "text-right" : "text-left",
+              align,
             )}
           >
-            {c}
+            {content}
           </td>
         );
       })}
@@ -356,6 +363,7 @@ const slides: Slide[] = [
             <thead>
               <tr className="border-b border-[hsl(82,85%,55%,0.15)]">
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Company</th>
+                <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">URL</th>
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Focus</th>
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Status</th>
                 <th className="py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">AUM</th>
@@ -363,10 +371,10 @@ const slides: Slide[] = [
               </tr>
             </thead>
             <tbody>
-              <TableRow cells={["Ondo Finance", "Tokenized Treasuries", "Token", "$1B+", "$2B+"]} />
-              <TableRow cells={["Securitize", "Digital Securities", "Private", "$2B+", "$1B+"]} highlight />
-              <TableRow cells={["Polymesh", "Regulated Tokenization", "Token", "N/A", "$50M+"]} />
-              <TableRow cells={["Centrifuge", "RWA Lending", "Token", "N/A", "$100M+"]} highlight />
+              <TableRow cells={["Ondo Finance", "ondo.finance", "Tokenized Treasuries", "Token", "$1B+", "$2B+"]} links={{ 1: "https://ondo.finance" }} />
+              <TableRow cells={["Securitize", "securitize.io", "Digital Securities", "Private", "$2B+", "$1B+"]} links={{ 1: "https://securitize.io" }} highlight />
+              <TableRow cells={["Polymesh", "polymesh.network", "Regulated Tokenization", "Token", "N/A", "$50M+"]} links={{ 1: "https://polymesh.network" }} />
+              <TableRow cells={["Centrifuge", "centrifuge.io", "RWA Lending", "Token", "N/A", "$100M+"]} links={{ 1: "https://centrifuge.io" }} highlight />
             </tbody>
           </table>
         </div>
