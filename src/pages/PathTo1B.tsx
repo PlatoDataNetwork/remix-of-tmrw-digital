@@ -213,31 +213,28 @@ const slides: Slide[] = [
                 <tr className="border-b border-[hsl(82,85%,55%,0.15)]">
                   <th className="py-1.5 px-2 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Asset</th>
                   <th className="py-1.5 px-2 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Value</th>
-                  <th className="py-1.5 px-2 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Fee</th>
                   <th className="py-1.5 px-2 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Revenue</th>
                 </tr>
               </thead>
               <tbody>
-                <TableRow cells={["Real Estate Portfolio", "$50M", "1%", "$500K"]} />
-                <TableRow cells={["Gold Reserves", "$100M", "1%", "$1M"]} highlight />
-                <TableRow cells={["Infrastructure Fund", "$500M", "0.5%", "$2.5M"]} />
-                <TableRow cells={["Energy Assets", "$200M", "0.75%", "$1.5M"]} />
-                <TableRow cells={["Carbon Credits", "$75M", "1%", "$750K"]} highlight />
-                <TableRow cells={["Tax Credits", "$150M", "0.5%", "$750K"]} />
+                <TableRow cells={["Real Estate Portfolio", "$50M", "$500K"]} />
+                <TableRow cells={["Gold Reserves", "$100M", "$1M"]} highlight />
+                <TableRow cells={["Infrastructure Fund", "$500M", "$2.5M"]} />
+                <TableRow cells={["Energy Assets", "$200M", "$1.5M"]} />
+                <TableRow cells={["Carbon Credits", "$75M", "$750K"]} highlight />
+                <TableRow cells={["Tax Credits", "$150M", "$750K"]} />
               </tbody>
             </table>
           </div>
           {/* Right: Servicing Summary */}
-          <GreenCard className="flex flex-col justify-center min-w-[220px]">
-            <div className="flex items-baseline justify-between gap-4 mb-3">
-              <h3 className="text-sm uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)] !mb-0">Servicing</h3>
-              <span className="text-sm font-extralight text-[hsl(82,85%,55%)] whitespace-nowrap">0.50% / yr</span>
-            </div>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-              {[["$1B", "$5M"], ["$5B", "$25M"], ["$10B", "$50M"], ["$20B", "$100M"], ["$50B", "$250M"]].map(([aum, rev]) => (
+          <GreenCard className="flex flex-col min-w-[200px]">
+            <h3 className="text-xs uppercase tracking-[0.2em] text-[hsl(82,85%,55%)] mb-1">Servicing</h3>
+            <span className="text-lg font-extralight text-[hsl(82,85%,55%)] mb-4">.50% / YR</span>
+            <div className="flex flex-col gap-2">
+              {[["$1B AUM", "$5M"], ["$5B AUM", "$25M"], ["$10B AUM", "$50M"], ["$20B AUM", "$100M"], ["$50B AUM", "$250M"]].map(([aum, rev]) => (
                 <div key={aum} className="flex items-baseline justify-between text-xs">
                   <span className="text-muted-foreground font-light">{aum}</span>
-                  <span className="text-[hsl(82,85%,55%)] font-extralight ml-3">{rev}</span>
+                  <span className="text-[hsl(82,85%,55%)] font-extralight ml-4">{rev}</span>
                 </div>
               ))}
             </div>
