@@ -604,7 +604,7 @@ const slides: Slide[] = [
         <SlideTitle>Year 1: Launch Infrastructure.</SlideTitle>
         <div className="grid md:grid-cols-2 gap-5">
           <GreenCard className="space-y-4 py-6">
-            <SectionLabel>Financials</SectionLabel>
+            <SectionLabel>Forecasted Financials</SectionLabel>
             <div className="space-y-2">
               <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Revenue</span><span className="text-foreground">$10M–$15M</span></div>
               <div className="w-full h-px bg-border/30" />
@@ -612,10 +612,10 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
           <GreenCard className="space-y-4 py-6">
-            <SectionLabel>Key Milestones</SectionLabel>
+            <SectionLabel>Forecasted Milestones</SectionLabel>
             <div className="space-y-2">
-              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Partners Onboarded</span><span className="text-foreground">3–5 Fintechs</span></div>
-              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Assets Tokenized</span><span className="text-foreground">$500M–$1B</span></div>
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Partners Onboarded</span><span className="text-foreground">3–5 Clients</span></div>
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Assets Tokenized</span><span className="text-foreground">$500M+</span></div>
               <div className="w-full h-px bg-border/30" />
               <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Asset Classes</span><span className="text-foreground">3–4 Verticals</span></div>
             </div>
