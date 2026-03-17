@@ -337,7 +337,7 @@ const slides: Slide[] = [
               { bold: "NexusWave Carbon:", text: "Climate data intelligence." },
               { bold: "Plato Media:", text: "Web3 sync licensing." },
               { bold: "Plato RWA:", text: "Real-world asset tokenization." },
-              { bold: "SecureStake:", text: "Solana staking protocol." },
+              { bold: "SecureStake:", text: "Cross-chain staking protocol." },
             ]} />
           </GreenCard>
         </div>
