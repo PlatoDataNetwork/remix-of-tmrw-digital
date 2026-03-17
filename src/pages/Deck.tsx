@@ -704,7 +704,7 @@ const slides: Slide[] = [
           </div>
         </div>
         <div className="w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.2)] via-[hsl(82,85%,55%,0.08)] to-transparent" />
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {/* Left — Allocation Table */}
           <div>
             <div className="overflow-x-auto w-full">
