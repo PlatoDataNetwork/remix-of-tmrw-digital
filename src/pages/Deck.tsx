@@ -460,7 +460,7 @@ const slides: Slide[] = [
           Tokenizing real-world assets across 12 verticals — bridging traditional finance with on-chain 
           liquidity and fractional ownership.
         </SlideSubtitle>
-        <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {[
             "Carbon Credits", "Collectables", "Commodities", "Energy",
             "Infrastructure", "Metals", "Rare Earth", "Real Estate",
