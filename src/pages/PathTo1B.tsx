@@ -359,6 +359,7 @@ const slides: Slide[] = [
               <col className="w-[28%]" />
               <col className="w-[14%]" />
               <col className="w-[24%]" />
+            </colgroup>
             <thead>
               <tr className="border-b border-[hsl(82,85%,55%,0.15)]">
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Company</th>
