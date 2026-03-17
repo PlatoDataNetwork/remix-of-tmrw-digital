@@ -204,7 +204,7 @@ const slides: Slide[] = [
       <div className="flex flex-col h-full gap-3 justify-center">
         <SlideAccent />
         <SectionLabel>Unit Economics</SectionLabel>
-        <SlideTitle className="!text-2xl md:!text-3xl !leading-tight">Issuance Revenue at Scale.</SlideTitle>
+        <h2 className="text-2xl md:text-3xl font-extralight tracking-tight text-foreground leading-tight">Issuance Revenue at Scale.</h2>
         <div className="grid md:grid-cols-[1fr,auto] gap-4">
           {/* Left: Issuance Table */}
           <div className="overflow-x-auto">
