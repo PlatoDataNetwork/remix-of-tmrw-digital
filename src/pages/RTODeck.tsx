@@ -258,7 +258,7 @@ const slides: Slide[] = [
             { title: "Carbon Credits", desc: "Blockchain-verified carbon offsetting infrastructure." },
             { title: "Web3 Browser", desc: "Decentralized access gateway with native blockchain support." },
             { title: "AI Tools", desc: "CodeNexus, NexusWave Carbon, and AI-powered solutions." },
-            { title: "Token Economy", desc: "CUT and Plato tokens powering the ecosystem." },
+            { title: "Token Economy", desc: "CUT and W3AI tokens powering the ecosystem." },
           ].map(p => (
             <GreenCard key={p.title} className="space-y-3 py-6 text-center">
               <h3 className="text-sm font-medium text-foreground">{p.title}</h3>
