@@ -616,7 +616,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={17} />
+        <SlideNumber n={16} />
       </div>
     ),
   },
