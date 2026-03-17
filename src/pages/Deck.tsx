@@ -829,12 +829,15 @@ export default function Deck() {
   const slideContent = (
     <div className={cn(
       "relative w-full bg-background border border-border rounded-2xl overflow-hidden transition-all duration-300",
-      fullscreen ? "fixed inset-0 z-[80] rounded-none border-none" : "aspect-video"
+      fullscreen ? "fixed inset-0 z-[80] rounded-none border-none flex flex-col" : "min-h-[400px] sm:min-h-[500px] flex flex-col"
     )}>
       {/* Slide branding */}
       <SlideBranding />
       {/* Slide content */}
-       <div key={current} className="absolute inset-0 p-8 md:p-16 flex flex-col animate-fade-in">
+       <div key={current} className={cn(
+         "p-6 sm:p-8 md:p-16 flex flex-col animate-fade-in",
+         fullscreen ? "flex-1" : "flex-1"
+       )}>
          {slides[current].render()}
        </div>
 
