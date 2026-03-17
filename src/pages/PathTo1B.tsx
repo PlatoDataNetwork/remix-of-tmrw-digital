@@ -110,7 +110,8 @@ function TableRow({ cells, highlight }: { cells: string[]; highlight?: boolean }
       {cells.map((c, i) => (
         <td key={i} className={cn(
           "py-2.5 px-3 text-xs font-light",
-          i === 0 ? "text-foreground" : "text-muted-foreground text-right"
+          i === 0 ? "text-foreground" : "text-muted-foreground",
+          i === cells.length - 1 ? "text-right" : "text-left"
         )}>{c}</td>
       ))}
     </tr>
