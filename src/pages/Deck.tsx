@@ -596,7 +596,7 @@ const slides: Slide[] = [
         <SlideSubtitle>
           Security as an architectural primitive — embedded at every level from browser runtime to on-chain execution.
         </SlideSubtitle>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {[
             { title: "Network Security", desc: "Validator hardening, node isolation, DDoS mitigation, and Wormhole NTT rate limits" },
             { title: "Blockchain Security", desc: "Hacken audits, formal verification, bug bounties, and multi-sig upgrade governance" },
