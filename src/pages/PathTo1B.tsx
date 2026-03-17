@@ -404,35 +404,32 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 11 — Infrastructure Wins
+  // 11 — Why Infrastructure Wins
   {
     id: "infra-wins",
     render: () => (
       <div className="flex flex-col h-full gap-6 justify-center">
         <SlideAccent />
         <SectionLabel>Why Infrastructure Wins</SectionLabel>
-        <SlideTitle>The Precedent Is Clear.</SlideTitle>
-        <div className="overflow-x-auto">
-          <table className="w-full text-xs">
-            <thead>
-              <tr className="border-b border-[hsl(82,85%,55%,0.15)]">
-                <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Industry</th>
-                <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Marketplace</th>
-                <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Infrastructure Winner</th>
-              </tr>
-            </thead>
-            <tbody>
-              <TableRow cells={["Ecommerce", "Shopify Merchants", "Stripe"]} />
-              <TableRow cells={["Ride Sharing", "Uber", "Stripe / Plaid"]} highlight />
-              <TableRow cells={["Crypto Trading", "Exchanges", "Fireblocks"]} />
-              <TableRow cells={["Cloud", "SaaS Apps", "AWS"]} highlight />
-              <TableRow cells={["RWA Tokenization", "Issuers", "TMRW"]} />
-            </tbody>
-          </table>
+        <SlideTitle>TMRW Doesn't Compete With Issuers. It Powers Them.</SlideTitle>
+        <SlideSubtitle>Every tokenized asset flowing through TMRW infrastructure generates recurring revenue — without owning a single asset.</SlideSubtitle>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+          <GreenCard>
+            <p className="text-sm font-medium text-foreground mb-1">Asset-Agnostic</p>
+            <p className="text-xs font-light text-muted-foreground leading-relaxed">Real estate, credit, treasuries, commodities — TMRW rails handle any asset class without retooling.</p>
+          </GreenCard>
+          <GreenCard>
+            <p className="text-sm font-medium text-foreground mb-1">Network Effects</p>
+            <p className="text-xs font-light text-muted-foreground leading-relaxed">Every new issuer onboarded makes the platform more valuable for every other issuer already on it.</p>
+          </GreenCard>
+          <GreenCard>
+            <p className="text-sm font-medium text-foreground mb-1">Compounding Revenue</p>
+            <p className="text-xs font-light text-muted-foreground leading-relaxed">Servicing fees accrue for the lifetime of every asset — revenue compounds as AUM grows, not just when new deals close.</p>
+          </GreenCard>
         </div>
         <BulletList items={[
-          { bold: "Every platform uses it", text: "— revenue scales automatically with ecosystem growth." },
-          { bold: "Customer acquisition is indirect", text: "— platforms bring their own users and assets." },
+          { bold: "Issuers build on TMRW", text: "— they bring their own assets, users, and capital." },
+          { bold: "TMRW earns on everything", text: "— minting, compliance, settlement, transfers — every transaction, every asset, every chain." },
         ]} />
         <SlideNumber n={10} />
       </div>
