@@ -230,7 +230,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
         <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%,0.6)]">W3AI TMRW Browser</p>
         <SlideTitle>Architecture & Differentiation</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
           <div className="space-y-4">
             <SectionLabel>Inspired by AI. Built by Humans.</SectionLabel>
             <p className="text-sm font-light text-muted-foreground leading-relaxed">
