@@ -548,7 +548,7 @@ const slides: Slide[] = [
 
         <SlideTitle>Network Partners</SlideTitle>
         <SlideSubtitle>Product-integrated partnerships covering security, identity, liquidity, and institutional credibility.</SlideSubtitle>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {[
             { name: "0x", role: "DEX aggregation & routing" },
             { name: "Changelly", role: "Instant exchange & on-ramp" },
