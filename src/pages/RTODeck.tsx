@@ -258,7 +258,7 @@ const slides: Slide[] = [
             { title: "Carbon Credits", desc: "Blockchain-verified carbon offsetting infrastructure." },
             { title: "Web3 Browser", desc: "Decentralized access gateway with native blockchain support." },
             { title: "AI Tools", desc: "CodeNexus, NexusWave Carbon, and AI-powered solutions." },
-            { title: "Token Economy", desc: "CUT and Plato tokens powering the ecosystem." },
+            { title: "Token Economy", desc: "CUT and W3AI tokens powering the ecosystem." },
           ].map(p => (
             <GreenCard key={p.title} className="space-y-3 py-6 text-center">
               <h3 className="text-sm font-medium text-foreground">{p.title}</h3>
@@ -337,7 +337,7 @@ const slides: Slide[] = [
               { bold: "NexusWave Carbon:", text: "Climate data intelligence." },
               { bold: "Plato Media:", text: "Web3 sync licensing." },
               { bold: "Plato RWA:", text: "Real-world asset tokenization." },
-              { bold: "SecureStake:", text: "Solana staking protocol." },
+              { bold: "SecureStake:", text: "Cross-chain staking protocol." },
             ]} />
           </GreenCard>
         </div>
@@ -399,12 +399,12 @@ const slides: Slide[] = [
             ]} />
           </GreenCard>
           <GreenCard className="space-y-4 py-6">
-            <SectionLabel>Plato Token</SectionLabel>
+            <SectionLabel>W3AI Token</SectionLabel>
             <BulletList items={[
-              { bold: "Powers", text: "Plato Web3 Browser." },
+              { bold: "Powers", text: "W3AI Browser." },
               { bold: "SecureStake", text: "staking rewards." },
               { bold: "AI compute", text: "network incentives." },
-              { bold: "Solana ecosystem", text: "integration." },
+              { bold: "Cross-chain", text: "integration." },
             ]} />
           </GreenCard>
         </div>
