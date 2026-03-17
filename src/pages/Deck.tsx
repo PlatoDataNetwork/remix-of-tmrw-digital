@@ -619,7 +619,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
         <SlideTitle>Auditing & Compliance</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12">
           <div className="space-y-4">
             <SectionLabel>Smart Contract Auditing</SectionLabel>
             <BulletList items={[
