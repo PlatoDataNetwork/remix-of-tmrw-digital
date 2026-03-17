@@ -594,32 +594,6 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 19 — Accelerated Path: Year 1
-  {
-    id: "accel-year-1",
-    render: () => (
-      <div className="flex flex-col h-full gap-6 justify-center">
-        <SlideAccent />
-        <SectionLabel>Infrastructure Path</SectionLabel>
-        <SlideTitle>Year 1: Launch Infrastructure.</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <BulletList items={[
-            { bold: "3 fintech partners", text: "onboarded to the API platform." },
-            { bold: "$1B", text: "in assets tokenized through partner platforms." },
-          ]} />
-          <GreenCard className="space-y-4 py-6">
-            <SectionLabel>Financials</SectionLabel>
-            <div className="space-y-2">
-              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Revenue</span><span className="text-foreground">$10M–$15M</span></div>
-              <div className="w-full h-px bg-border/30" />
-              <div className="flex justify-between text-sm font-medium"><span className="text-foreground">Valuation</span><span className="text-[hsl(82,85%,55%)] text-lg">$150M–$250M</span></div>
-            </div>
-          </GreenCard>
-        </div>
-        <SlideNumber n={16} />
-      </div>
-    ),
-  },
   // 20 — Accelerated Path: Year 2
   {
     id: "accel-year-2",
