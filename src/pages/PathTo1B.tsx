@@ -108,8 +108,8 @@ function TableRow({ cells, highlight }: { cells: string[]; highlight?: boolean }
   return (
     <tr className={cn("border-b border-border/20", highlight && "bg-[hsl(82,85%,55%,0.04)]")}>
       {cells.map((c, i) => {
-        const isAumCell = cells.length === 5 && i === 1;
         const isLastCell = i === cells.length - 1;
+        const isSecondToLast = i === cells.length - 2;
 
         return (
           <td
@@ -117,9 +117,8 @@ function TableRow({ cells, highlight }: { cells: string[]; highlight?: boolean }
             className={cn(
               "py-2.5 px-3 text-xs font-light",
               i === 0 ? "text-foreground" : "text-muted-foreground",
-              isAumCell && "w-24 whitespace-nowrap tabular-nums",
-              isLastCell && "whitespace-nowrap tabular-nums",
-              isLastCell || isAumCell ? "text-right" : "text-left",
+              (isLastCell || isSecondToLast) && cells.length === 5 ? "text-right whitespace-nowrap tabular-nums" : "text-left",
+              isLastCell && cells.length !== 5 && "text-right",
             )}
           >
             {c}
