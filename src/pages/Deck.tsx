@@ -360,7 +360,7 @@ const slides: Slide[] = [
         <SlideSubtitle>
           Solana as canonical mint hub. Ethereum and BSC as spoke chains via Wormhole NTT.
         </SlideSubtitle>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             { chain: "Ethereum", req: "32 ETH deposit", detail: "Execution + consensus clients" },
             { chain: "BSC", req: "2,000 BNB minimum", detail: "Self-delegation with slashing rules" },
