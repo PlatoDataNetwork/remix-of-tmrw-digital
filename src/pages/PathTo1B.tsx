@@ -602,14 +602,25 @@ const slides: Slide[] = [
         <SlideAccent />
         <SectionLabel>Infrastructure Path</SectionLabel>
         <SlideTitle>Year 1: Launch Infrastructure.</SlideTitle>
-        <GreenCard className="space-y-4 py-6 max-w-md">
-          <SectionLabel>Financials</SectionLabel>
-          <div className="space-y-2">
-            <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Revenue</span><span className="text-foreground">$10M–$15M</span></div>
-            <div className="w-full h-px bg-border/30" />
-            <div className="flex justify-between text-sm font-medium"><span className="text-foreground">Valuation</span><span className="text-[hsl(82,85%,55%)] text-lg">$150M–$250M</span></div>
-          </div>
-        </GreenCard>
+        <div className="grid md:grid-cols-2 gap-5">
+          <GreenCard className="space-y-4 py-6">
+            <SectionLabel>Financials</SectionLabel>
+            <div className="space-y-2">
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Revenue</span><span className="text-foreground">$10M–$15M</span></div>
+              <div className="w-full h-px bg-border/30" />
+              <div className="flex justify-between text-sm font-medium"><span className="text-foreground">Valuation</span><span className="text-[hsl(82,85%,55%)] text-lg">$150M–$250M</span></div>
+            </div>
+          </GreenCard>
+          <GreenCard className="space-y-4 py-6">
+            <SectionLabel>Key Milestones</SectionLabel>
+            <div className="space-y-2">
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Partners Onboarded</span><span className="text-foreground">3–5 Fintechs</span></div>
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Assets Tokenized</span><span className="text-foreground">$500M–$1B</span></div>
+              <div className="w-full h-px bg-border/30" />
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Asset Classes</span><span className="text-foreground">3–4 Verticals</span></div>
+            </div>
+          </GreenCard>
+        </div>
         <SlideNumber n={16} />
       </div>
     ),
