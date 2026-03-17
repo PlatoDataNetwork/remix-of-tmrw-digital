@@ -843,7 +843,7 @@ export default function Deck() {
 
       {/* Bottom controls */}
       <div className={cn(
-        "absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 py-4",
+        "flex items-center justify-between px-6 py-4",
         "bg-gradient-to-t from-background/80 to-transparent"
       )}>
         <button onClick={prev} disabled={current === 0}
