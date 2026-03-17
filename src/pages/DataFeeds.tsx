@@ -31,12 +31,6 @@ const DataFeeds = () => {
         const slugs = batch.map((c) => c.slug).join(",");
 
         try {
-          const { data, error } = await supabase.functions.invoke("feed-counts", {
-            body: null,
-            headers: {},
-          });
-
-          // Use fetch directly with query params
           const res = await fetch(
             `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/feed-counts?slugs=${slugs}`,
             {
