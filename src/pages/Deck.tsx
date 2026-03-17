@@ -525,7 +525,7 @@ const slides: Slide[] = [
 
         <SlideTitle>Supported Networks</SlideTitle>
         <SlideSubtitle>Multi-chain presence across 12+ foundational blockchain ecosystems.</SlideSubtitle>
-        <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {[
             "Solana", "Ethereum", "BNB Smart Chain", "Polygon",
             "zkSync", "Avalanche", "Arbitrum", "Optimism",
