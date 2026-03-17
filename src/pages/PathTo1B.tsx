@@ -616,12 +616,15 @@ const slides: Slide[] = [
           <GreenCard className="space-y-3">
             <div className="text-2xl font-extralight text-[hsl(82,85%,55%)]">02</div>
             <h3 className="text-sm font-medium text-foreground">Exchange Partnerships</h3>
-            <p className="text-xs font-light text-muted-foreground leading-relaxed">TMRW-issued assets trade on Kraken, Coinbase, and emerging regulated exchanges.</p>
+            <BulletList items={[
+              { bold: "Exchange Listings.", text: "TMRW-issued assets trade on Kraken, Coinbase, and emerging regulated exchanges." },
+              { bold: "Institutional Custody.", text: "Create partnerships with companies like Fireblocks & Anchorage Digital that enable institutions to hold assets safely." },
+            ]} />
           </GreenCard>
           <GreenCard className="space-y-3">
             <div className="text-2xl font-extralight text-[hsl(82,85%,55%)]">03</div>
             <h3 className="text-sm font-medium text-foreground">Institutional Custody</h3>
-            <p className="text-xs font-light text-muted-foreground leading-relaxed">Partnerships with Fireblocks & Anchorage Digital enable institutions to hold assets safely.</p>
+            <p className="text-xs font-light text-muted-foreground leading-relaxed">Dedicated custody infrastructure ensuring institutional-grade security and compliance for all tokenized assets.</p>
           </GreenCard>
         </div>
         <SlideNumber n={16} />
