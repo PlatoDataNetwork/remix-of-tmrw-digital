@@ -205,7 +205,7 @@ const slides: Slide[] = [
         <SlideAccent />
         <SectionLabel>Unit Economics</SectionLabel>
         <h2 className="text-2xl md:text-3xl font-extralight tracking-tight text-foreground leading-tight">Issuance Revenue at Scale.</h2>
-        <div className="grid md:grid-cols-[1fr,auto] gap-4 items-end">
+        <div className="grid md:grid-cols-[1fr,auto] gap-4 items-center">
           {/* Left: Issuance Table */}
           <div className="overflow-x-auto">
             <table className="w-full text-xs">
