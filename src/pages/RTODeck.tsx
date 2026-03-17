@@ -468,8 +468,9 @@ const slides: Slide[] = [
             { title: "Deep Data Integration", desc: "AI OS requires full-funnel data access, far easier within single entity." },
             { title: "Control of Rails & Token", desc: "Stablecoin and token are core financial infrastructure requiring group-level governance." },
             { title: "Aligned Roadmap & Incentives", desc: "One cap table, unified product roadmap, consistent capital markets story." },
-            { title: "IP Ownership", desc: "AI models, risk engines, smart contracts live on Btab balance sheet." },
+            { title: "IP Ownership", desc: "AI models, risk engines, smart contracts live on TMRW balance sheet." },
             { title: "Capital Markets Story", desc: "Public market investors can clearly understand and price a unified, integrated platform." },
+            { title: "Regulatory Alignment", desc: "Single-entity structure simplifies compliance across jurisdictions and accelerates time to market." },
           ].map(w => (
             <GreenCard key={w.title} className="space-y-3 py-6">
               <h3 className="text-sm font-medium text-foreground">{w.title}</h3>
