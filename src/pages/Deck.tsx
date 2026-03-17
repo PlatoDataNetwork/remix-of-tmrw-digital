@@ -434,7 +434,7 @@ const slides: Slide[] = [
           A cross-chain coordination protocol binding AI agent permissions to on-chain wallet permissions 
           as a single security domain.
         </SlideSubtitle>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             { title: "Unified Execution", desc: "Intelligence and capital move together under explicit user control across Solana, Ethereum, and BSC." },
             { title: "Revenue Surfaces", desc: "Open Gateway AI fees, in-browser swap fees, validator yield, and premium feature access." },
