@@ -366,7 +366,7 @@ const slides: Slide[] = [
               <TableRow cells={["Ondo Finance", "$1B+", "Tokenized Treasuries", "Token", "$2B+"]} />
               <TableRow cells={["Securitize", "$2B+", "Digital Securities", "Private", "$1B+"]} highlight />
               <TableRow cells={["Polymesh", "N/A", "Regulated Tokenization", "Token", "$50M+"]} />
-              <TableRow cells={["Centrifuge", "$250M+", "RWA Lending", "Token", "$100M+"]} highlight />
+              <TableRow cells={["Centrifuge", "N/A", "RWA Lending", "Token", "$100M+"]} highlight />
             </tbody>
           </table>
         </div>
