@@ -522,10 +522,10 @@ const slides: Slide[] = [
             <SectionLabel>At $10B Tokenized via Partners</SectionLabel>
             <div className="space-y-2">
               <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Issuance (0.5%)</span><span className="text-foreground">$50M</span></div>
-              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Servicing (0.25%)</span><span className="text-foreground">$25M</span></div>
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Servicing (0.50%)</span><span className="text-foreground">$50M</span></div>
               <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Settlement + Transfers</span><span className="text-foreground">$30M+</span></div>
               <div className="w-full h-px bg-border/30" />
-              <div className="flex justify-between text-sm font-medium"><span className="text-foreground">Total Revenue</span><span className="text-[hsl(82,85%,55%)] text-lg">$100M+</span></div>
+              <div className="flex justify-between text-sm font-medium"><span className="text-foreground">Total Revenue</span><span className="text-[hsl(82,85%,55%)] text-lg">$130M+</span></div>
             </div>
           </GreenCard>
         </div>
