@@ -352,7 +352,14 @@ const slides: Slide[] = [
         <SectionLabel>Market Comparables</SectionLabel>
         <SlideTitle>Companies Already Proving the Model.</SlideTitle>
         <div className="overflow-x-auto">
-          <table className="w-full text-xs">
+          <table className="w-full text-xs table-fixed">
+            <colgroup>
+              <col className="w-[22%]" />
+              <col className="w-[12%]" />
+              <col className="w-[28%]" />
+              <col className="w-[14%]" />
+              <col className="w-[24%]" />
+            </colgroup>
             <thead>
               <tr className="border-b border-[hsl(82,85%,55%,0.15)]">
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Company</th>
@@ -366,7 +373,7 @@ const slides: Slide[] = [
               <TableRow cells={["Ondo Finance", "$1B+", "Tokenized Treasuries", "Token", "$2B+"]} />
               <TableRow cells={["Securitize", "$2B+", "Digital Securities", "Private", "$1B+"]} highlight />
               <TableRow cells={["Polymesh", "N/A", "Regulated Tokenization", "Token", "$50M+"]} />
-              <TableRow cells={["Centrifuge", "$250M+", "RWA Lending", "Token", "$100M+"]} highlight />
+              <TableRow cells={["Centrifuge", "N/A", "RWA Lending", "Token", "$100M+"]} highlight />
             </tbody>
           </table>
         </div>
