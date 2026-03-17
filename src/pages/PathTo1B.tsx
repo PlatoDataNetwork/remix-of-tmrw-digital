@@ -633,20 +633,22 @@ const slides: Slide[] = [
         <SlideAccent />
         <SectionLabel>Infrastructure Path</SectionLabel>
         <SlideTitle>Year 2: Exchange Partnerships.</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-4">
-            <StatBlock value="$5B" label="Assets Tokenized" />
-            <BulletList items={[
-              { bold: "Exchange listings", text: "for TMRW-issued assets on major platforms." },
-              { bold: "Platform adoption", text: "accelerating through network effects." },
-            ]} />
-          </div>
+        <div className="grid md:grid-cols-2 gap-5">
           <GreenCard className="space-y-4 py-6">
-            <SectionLabel>Financials</SectionLabel>
+            <SectionLabel>Forecasted Financials</SectionLabel>
             <div className="space-y-2">
               <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Revenue</span><span className="text-foreground">$40M–$60M</span></div>
               <div className="w-full h-px bg-border/30" />
               <div className="flex justify-between text-sm font-medium"><span className="text-foreground">Valuation</span><span className="text-[hsl(82,85%,55%)] text-lg">$500M–$800M</span></div>
+            </div>
+          </GreenCard>
+          <GreenCard className="space-y-4 py-6">
+            <SectionLabel>Forecasted Milestones</SectionLabel>
+            <div className="space-y-2">
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Exchange Listings</span><span className="text-foreground">2–3 Platforms</span></div>
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Assets Tokenized</span><span className="text-foreground">$5B+</span></div>
+              <div className="w-full h-px bg-border/30" />
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Platform Adoption</span><span className="text-foreground">Network Effects</span></div>
             </div>
           </GreenCard>
         </div>
