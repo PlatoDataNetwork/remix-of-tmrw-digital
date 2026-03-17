@@ -334,7 +334,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
         <SlideTitle>Multi-Chain Community</SlideTitle>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             { chain: "Solana", focus: "DeFi-first execution", detail: "Trading Space + NFT identity + 48K+ builder ecosystem" },
             { chain: "Ethereum", focus: "Composable dApps", detail: "Transaction clarity + contract literacy + ETHGlobal network" },
