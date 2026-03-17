@@ -809,7 +809,9 @@ const slides: Slide[] = [
 // --- Deck viewer ---
 export default function Deck() {
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [fullscreen, setFullscreen] = useState(false);
+  const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const total = slides.length;
 
   const next = useCallback(() => setCurrent(c => Math.min(c + 1, total - 1)), [total]);
