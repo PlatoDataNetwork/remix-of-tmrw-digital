@@ -664,20 +664,22 @@ const slides: Slide[] = [
         <SlideAccent />
         <SectionLabel>Infrastructure Path</SectionLabel>
         <SlideTitle>Year 3: The $1B+ Milestone.</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-4">
-            <StatBlock value="$15B" label="Assets Tokenized" />
-            <BulletList items={[
-              { bold: "Platform adoption", text: "accelerates exponentially." },
-              { bold: "Network effects", text: "compound across partner ecosystem." },
-            ]} />
-          </div>
+        <div className="grid md:grid-cols-2 gap-5">
           <GreenCard className="space-y-4 py-6 border-[hsl(82,85%,55%,0.3)]">
-            <SectionLabel>Financials</SectionLabel>
+            <SectionLabel>Forecasted Financials</SectionLabel>
             <div className="space-y-2">
               <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Revenue</span><span className="text-foreground">$120M+</span></div>
               <div className="w-full h-px bg-border/30" />
               <div className="flex justify-between text-sm font-medium"><span className="text-foreground">Valuation</span><span className="text-[hsl(82,85%,55%)] text-2xl">$1B–$3B</span></div>
+            </div>
+          </GreenCard>
+          <GreenCard className="space-y-4 py-6 border-[hsl(82,85%,55%,0.3)]">
+            <SectionLabel>Forecasted Milestones</SectionLabel>
+            <div className="space-y-2">
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Assets Tokenized</span><span className="text-foreground">$15B+</span></div>
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Platform Adoption</span><span className="text-foreground">Exponential Growth</span></div>
+              <div className="w-full h-px bg-border/30" />
+              <div className="flex justify-between text-sm font-light"><span className="text-muted-foreground">Network Effects</span><span className="text-foreground">Compounding</span></div>
             </div>
           </GreenCard>
         </div>
