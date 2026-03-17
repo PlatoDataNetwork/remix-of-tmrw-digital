@@ -67,6 +67,7 @@ const Footer = () => {
                 { label: "Methodology", href: "/#vision" },
                 { label: "W3AI Deck", href: "/deck" },
                 { label: "TMRW Deck", href: "/corporate-deck" },
+                { label: "RTO Deck", href: "/rto-deck" },
                 { label: "RTO", href: "/rto" },
               ].map((link) => (
                 link.href.startsWith("/#") ? (
