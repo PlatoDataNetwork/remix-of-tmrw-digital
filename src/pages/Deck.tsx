@@ -194,7 +194,7 @@ const slides: Slide[] = [
           Browsers are evolving from passive viewers into agentic, AI-native operating systems. 
           W3AI is building the Web3 AI gateway for this new era.
         </SlideSubtitle>
-        <div className="grid grid-cols-3 gap-8 pt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 pt-4">
           <StatBlock value="741M" label="Global Crypto Owners" />
           <StatBlock value="30M" label="Active Stablecoin Addresses" />
           <StatBlock value="101M" label="Brave MAU Benchmark" />
