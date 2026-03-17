@@ -214,15 +214,16 @@ const slides: Slide[] = [
                   <th className="py-1.5 px-2 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Asset</th>
                   <th className="py-1.5 px-2 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Value</th>
                   <th className="py-1.5 px-2 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Revenue</th>
+                  <th className="py-1.5 px-2 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Margin</th>
                 </tr>
               </thead>
               <tbody>
-                <TableRow cells={["Real Estate Portfolio", "$50M", "$500K"]} />
-                <TableRow cells={["Gold Reserves", "$100M", "$1M"]} highlight />
-                <TableRow cells={["Infrastructure Fund", "$500M", "$2.5M"]} />
-                <TableRow cells={["Energy Assets", "$200M", "$1.5M"]} />
-                <TableRow cells={["Carbon Credits", "$75M", "$750K"]} highlight />
-                <TableRow cells={["Tax Credits", "$150M", "$750K"]} />
+                <TableRow cells={["Real Estate Portfolio", "$100M", "$1M", "82%"]} />
+                <TableRow cells={["Gold Reserves", "$100M", "$1M", "85%"]} highlight />
+                <TableRow cells={["Infrastructure Fund", "$100M", "$1M", "80%"]} />
+                <TableRow cells={["Energy Assets", "$100M", "$1M", "83%"]} />
+                <TableRow cells={["Carbon Credits", "$100M", "$1M", "88%"]} highlight />
+                <TableRow cells={["Tax Credits", "$100M", "$1M", "84%"]} />
               </tbody>
             </table>
           </div>
