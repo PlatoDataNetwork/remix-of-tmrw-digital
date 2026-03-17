@@ -62,8 +62,8 @@ function SlideNumber({ n }: { n: number }) {
 function StatBlock({ value, label }: { value: string; label: string }) {
   return (
     <div className="text-center">
-      <div className="text-4xl md:text-5xl font-extralight tracking-tight text-[hsl(82,85%,55%)]">{value}</div>
-      <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mt-2">{label}</div>
+      <div className="text-2xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-[hsl(82,85%,55%)]">{value}</div>
+      <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground mt-2">{label}</div>
     </div>
   );
 }
@@ -139,7 +139,7 @@ const slides: Slide[] = [
   {
     id: "title",
     render: () => (
-      <div className="relative flex flex-col items-center justify-center h-full text-center gap-6">
+      <div className="relative flex flex-col items-center justify-center min-h-[350px] sm:min-h-[450px] h-full text-center gap-6">
         <div className="absolute inset-0 pointer-events-none">
           <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-contain object-center scale-110" />
           <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
@@ -194,7 +194,7 @@ const slides: Slide[] = [
           Browsers are evolving from passive viewers into agentic, AI-native operating systems. 
           W3AI is building the Web3 AI gateway for this new era.
         </SlideSubtitle>
-        <div className="grid grid-cols-3 gap-8 pt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 pt-4">
           <StatBlock value="741M" label="Global Crypto Owners" />
           <StatBlock value="30M" label="Active Stablecoin Addresses" />
           <StatBlock value="101M" label="Brave MAU Benchmark" />
@@ -230,7 +230,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
         <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%,0.6)]">W3AI TMRW Browser</p>
         <SlideTitle>Architecture & Differentiation</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
           <div className="space-y-4">
             <SectionLabel>Inspired by AI. Built by Humans.</SectionLabel>
             <p className="text-sm font-light text-muted-foreground leading-relaxed">
@@ -260,7 +260,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
         <SlideTitle>User-Selectable AI Layer</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12">
           <GreenCard className="p-6">
             <h3 className="text-base font-medium text-[hsl(82,85%,55%)]">BYOK</h3>
             <p className="text-sm font-light text-muted-foreground leading-relaxed">
@@ -306,7 +306,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
         <SlideTitle>Identity & Institutional Rails</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12">
           <div className="space-y-4">
             <SectionLabel>Anti-Sybil via Dentity</SectionLabel>
             <BulletList items={[
@@ -334,7 +334,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
         <SlideTitle>Multi-Chain Community</SlideTitle>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             { chain: "Solana", focus: "DeFi-first execution", detail: "Trading Space + NFT identity + 48K+ builder ecosystem" },
             { chain: "Ethereum", focus: "Composable dApps", detail: "Transaction clarity + contract literacy + ETHGlobal network" },
@@ -360,7 +360,7 @@ const slides: Slide[] = [
         <SlideSubtitle>
           Solana as canonical mint hub. Ethereum and BSC as spoke chains via Wormhole NTT.
         </SlideSubtitle>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             { chain: "Ethereum", req: "32 ETH deposit", detail: "Execution + consensus clients" },
             { chain: "BSC", req: "2,000 BNB minimum", detail: "Self-delegation with slashing rules" },
@@ -401,7 +401,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
         <SlideTitle>Marketing & Distribution</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
           <div className="space-y-4">
             <SectionLabel>Objectives</SectionLabel>
             <div className="space-y-6">
@@ -434,7 +434,7 @@ const slides: Slide[] = [
           A cross-chain coordination protocol binding AI agent permissions to on-chain wallet permissions 
           as a single security domain.
         </SlideSubtitle>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             { title: "Unified Execution", desc: "Intelligence and capital move together under explicit user control across Solana, Ethereum, and BSC." },
             { title: "Revenue Surfaces", desc: "Open Gateway AI fees, in-browser swap fees, validator yield, and premium feature access." },
@@ -460,7 +460,7 @@ const slides: Slide[] = [
           Tokenizing real-world assets across 12 verticals — bridging traditional finance with on-chain 
           liquidity and fractional ownership.
         </SlideSubtitle>
-        <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {[
             "Carbon Credits", "Collectables", "Commodities", "Energy",
             "Infrastructure", "Metals", "Rare Earth", "Real Estate",
@@ -482,7 +482,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
         <SlideTitle>W3AI Governance</SlideTitle>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             { title: "Governance Framework", desc: "Progressive decentralization from foundation-led to community-governed. Token-weighted voting with anti-sybil protections via Dentity credentials." },
             { title: "Treasury Management", desc: "On-chain treasury with multi-sig controls, transparent allocation reporting, and milestone-based fund releases." },
@@ -525,7 +525,7 @@ const slides: Slide[] = [
 
         <SlideTitle>Supported Networks</SlideTitle>
         <SlideSubtitle>Multi-chain presence across 12+ foundational blockchain ecosystems.</SlideSubtitle>
-        <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {[
             "Solana", "Ethereum", "BNB Smart Chain", "Polygon",
             "zkSync", "Avalanche", "Arbitrum", "Optimism",
@@ -548,7 +548,7 @@ const slides: Slide[] = [
 
         <SlideTitle>Network Partners</SlideTitle>
         <SlideSubtitle>Product-integrated partnerships covering security, identity, liquidity, and institutional credibility.</SlideSubtitle>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {[
             { name: "0x", role: "DEX aggregation & routing" },
             { name: "Changelly", role: "Instant exchange & on-ramp" },
@@ -596,7 +596,7 @@ const slides: Slide[] = [
         <SlideSubtitle>
           Security as an architectural primitive — embedded at every level from browser runtime to on-chain execution.
         </SlideSubtitle>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {[
             { title: "Network Security", desc: "Validator hardening, node isolation, DDoS mitigation, and Wormhole NTT rate limits" },
             { title: "Blockchain Security", desc: "Hacken audits, formal verification, bug bounties, and multi-sig upgrade governance" },
@@ -619,7 +619,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
         <SlideTitle>Auditing & Compliance</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12">
           <div className="space-y-4">
             <SectionLabel>Smart Contract Auditing</SectionLabel>
             <BulletList items={[
@@ -647,7 +647,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
         <SlideTitle>Privacy & Risk Management</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
           <div className="space-y-4">
             <SectionLabel>Privacy Architecture</SectionLabel>
             <BulletList items={[
@@ -675,7 +675,7 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
         <SlideTitle>Token Utility</SlideTitle>
         <SlideSubtitle>Four demand drivers powering the W3AI token economy.</SlideSubtitle>
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {[
             { title: "Browser Access", desc: "Premium features and AI workflows" },
             { title: "AI Gateway", desc: "Token-based credits for inference" },
@@ -704,7 +704,7 @@ const slides: Slide[] = [
           </div>
         </div>
         <div className="w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.2)] via-[hsl(82,85%,55%,0.08)] to-transparent" />
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {/* Left — Allocation Table */}
           <div>
             <div className="overflow-x-auto w-full">
@@ -783,7 +783,7 @@ const slides: Slide[] = [
   {
     id: "closing",
     render: () => (
-      <div className="relative flex flex-col items-center justify-center h-full text-center gap-6">
+      <div className="relative flex flex-col items-center justify-center min-h-[350px] sm:min-h-[450px] h-full text-center gap-6">
         <div className="absolute inset-0 pointer-events-none animate-fade-in">
           <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-cover object-center opacity-80" />
           <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
@@ -829,18 +829,21 @@ export default function Deck() {
   const slideContent = (
     <div className={cn(
       "relative w-full bg-background border border-border rounded-2xl overflow-hidden transition-all duration-300",
-      fullscreen ? "fixed inset-0 z-[80] rounded-none border-none" : "aspect-video"
+      fullscreen ? "fixed inset-0 z-[80] rounded-none border-none flex flex-col" : "min-h-[400px] sm:min-h-[500px] flex flex-col"
     )}>
       {/* Slide branding */}
       <SlideBranding />
       {/* Slide content */}
-       <div key={current} className="absolute inset-0 p-8 md:p-16 flex flex-col animate-fade-in">
+       <div key={current} className={cn(
+         "p-6 sm:p-8 md:p-16 flex flex-col animate-fade-in",
+         fullscreen ? "flex-1" : "flex-1"
+       )}>
          {slides[current].render()}
        </div>
 
       {/* Bottom controls */}
       <div className={cn(
-        "absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 py-4",
+        "flex items-center justify-between px-6 py-4",
         "bg-gradient-to-t from-background/80 to-transparent"
       )}>
         <button onClick={prev} disabled={current === 0}
