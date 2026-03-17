@@ -229,10 +229,10 @@ const slides: Slide[] = [
           <GreenCard>
             <div className="flex items-baseline justify-between">
               <SectionLabel>Annual Servicing</SectionLabel>
-              <span className="text-lg font-extralight text-[hsl(82,85%,55%)]">0.25% / yr</span>
+              <span className="text-lg font-extralight text-[hsl(82,85%,55%)]">0.50% / yr</span>
             </div>
             <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 mt-3">
-              {[["$1B AUM", "$2.5M"], ["$5B AUM", "$12.5M"], ["$10B AUM", "$25M"], ["$20B AUM", "$50M"], ["$50B AUM", "$125M"]].map(([a, r]) => (
+              {[["$1B AUM", "$5M"], ["$5B AUM", "$25M"], ["$10B AUM", "$50M"], ["$20B AUM", "$100M"], ["$50B AUM", "$250M"]].map(([a, r]) => (
                 <div key={a} className="text-center">
                   <div className="text-sm font-light text-muted-foreground">{a}</div>
                   <div className="text-lg font-extralight text-[hsl(82,85%,55%)]">{r}</div>
