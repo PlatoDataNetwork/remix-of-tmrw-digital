@@ -219,6 +219,9 @@ const slides: Slide[] = [
               <TableRow cells={["Real Estate Portfolio", "$50M", "1%", "$500K"]} />
               <TableRow cells={["Gold Reserves", "$100M", "1%", "$1M"]} highlight />
               <TableRow cells={["Infrastructure Fund", "$500M", "0.5%", "$2.5M"]} />
+              <TableRow cells={["Energy Assets", "$200M", "0.75%", "$1.5M"]} />
+              <TableRow cells={["Carbon Credits", "$75M", "1%", "$750K"]} highlight />
+              <TableRow cells={["Tax Credits", "$150M", "0.5%", "$750K"]} />
             </tbody>
           </table>
         </div>
@@ -228,14 +231,13 @@ const slides: Slide[] = [
               <SectionLabel>Annual Servicing</SectionLabel>
               <span className="text-lg font-extralight text-[hsl(82,85%,55%)]">0.25% / yr</span>
             </div>
-            <div className="grid grid-cols-3 gap-4 mt-3">
-              {[["$1B AUM", "$2.5M"], ["$5B AUM", "$12.5M"], ["$10B AUM", "$25M"]].map(([a, r]) => (
+            <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 mt-3">
+              {[["$1B AUM", "$2.5M"], ["$5B AUM", "$12.5M"], ["$10B AUM", "$25M"], ["$20B AUM", "$50M"], ["$50B AUM", "$125M"]].map(([a, r]) => (
                 <div key={a} className="text-center">
                   <div className="text-sm font-light text-muted-foreground">{a}</div>
                   <div className="text-lg font-extralight text-[hsl(82,85%,55%)]">{r}</div>
                 </div>
               ))}
-            </div>
           </GreenCard>
         </div>
         <SlideNumber n={4} />
