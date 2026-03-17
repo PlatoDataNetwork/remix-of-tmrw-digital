@@ -356,7 +356,7 @@ const slides: Slide[] = [
             <thead>
               <tr className="border-b border-[hsl(82,85%,55%,0.15)]">
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Company</th>
-                <th className="py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">AUM</th>
+                <th className="w-24 py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">AUM</th>
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Focus</th>
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Status</th>
                 <th className="py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Implied Valuation</th>
