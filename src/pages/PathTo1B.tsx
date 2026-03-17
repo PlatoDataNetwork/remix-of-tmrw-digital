@@ -351,21 +351,14 @@ const slides: Slide[] = [
         <SectionLabel>Market Comparables</SectionLabel>
         <SlideTitle>Companies Already Proving the Model.</SlideTitle>
         <div className="overflow-x-auto">
-          <table className="w-full text-xs table-fixed">
-            <colgroup>
-              <col className="w-[22%]" />
-              <col className="w-[28%]" />
-              <col className="w-[14%]" />
-              <col className="w-[12%]" />
-              <col className="w-[24%]" />
-            </colgroup>
+          <table className="w-full text-xs">
             <thead>
               <tr className="border-b border-[hsl(82,85%,55%,0.15)]">
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Company</th>
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Focus</th>
-                <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Status</th>
+                <th className="py-2.5 px-3 text-center text-[10px] uppercase tracking-wider font-medium text-foreground">Status</th>
                 <th className="py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">AUM</th>
-                <th className="py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Implied Valuation</th>
+                <th className="py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Valuation</th>
               </tr>
             </thead>
             <tbody>
