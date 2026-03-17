@@ -602,26 +602,19 @@ const slides: Slide[] = [
         <SlideAccent />
         <SectionLabel>Valuation Drivers</SectionLabel>
         <SlideTitle>What Gets TMRW to $5B.</SlideTitle>
-        <div className="grid md:grid-cols-3 gap-5">
-          <GreenCard className="space-y-3">
+        <div className="grid md:grid-cols-3 gap-5 items-stretch">
+          <GreenCard className="flex flex-col gap-3">
             <div className="text-2xl font-extralight text-[hsl(82,85%,55%)]">01</div>
             <h3 className="text-sm font-medium text-foreground">Major Asset Partnerships</h3>
-            <BulletList items={[
-              { bold: "Mining companies.", text: "" },
-              { bold: "Commodity vaults.", text: "" },
-              { bold: "Infrastructure funds.", text: "" },
-              { bold: "Sovereign assets.", text: "" },
-            ]} />
+            <p className="text-xs font-light text-muted-foreground leading-relaxed">Secure partnerships with mining companies, commodity vaults, infrastructure funds, and sovereign asset holders.</p>
           </GreenCard>
-          <GreenCard className="space-y-3">
+          <GreenCard className="flex flex-col gap-3">
             <div className="text-2xl font-extralight text-[hsl(82,85%,55%)]">02</div>
             <h3 className="text-sm font-medium text-foreground">Exchange Partnerships</h3>
-            <BulletList items={[
-              { bold: "Exchange Listings.", text: "TMRW-issued assets trade on Kraken, Coinbase, and emerging regulated exchanges." },
-              { bold: "Institutional Custody.", text: "Create partnerships with companies like Fireblocks & Anchorage Digital that enable institutions to hold assets safely." },
-            ]} />
+            <p className="text-xs font-light text-muted-foreground leading-relaxed">TMRW-issued assets trade on Kraken, Coinbase, and emerging regulated exchanges.</p>
+            <p className="text-xs font-light text-muted-foreground leading-relaxed">Create partnerships with companies like Fireblocks & Anchorage Digital that enable institutions to hold assets safely.</p>
           </GreenCard>
-          <GreenCard className="space-y-3">
+          <GreenCard className="flex flex-col gap-3">
             <div className="text-2xl font-extralight text-[hsl(82,85%,55%)]">03</div>
             <h3 className="text-sm font-medium text-foreground">Institutional Custody</h3>
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Dedicated custody infrastructure ensuring institutional-grade security and compliance for all tokenized assets.</p>
