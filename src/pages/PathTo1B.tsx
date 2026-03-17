@@ -336,7 +336,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col h-full gap-6 justify-center">
         <SlideAccent />
-        <SectionLabel>Market Context</SectionLabel>
+        <SectionLabel>Market Comparables</SectionLabel>
         <SlideTitle>Companies Already Proving the Model.</SlideTitle>
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
@@ -344,20 +344,20 @@ const slides: Slide[] = [
               <tr className="border-b border-[hsl(82,85%,55%,0.15)]">
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Company</th>
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Focus</th>
-                <th className="py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Scale</th>
+                <th className="py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Implied Valuation</th>
               </tr>
             </thead>
             <tbody>
-              <TableRow cells={["Ondo Finance", "Tokenized Treasuries", "$1B+ TVL"]} />
-              <TableRow cells={["Securitize", "Digital Securities", "Multi-billion AUM"]} highlight />
-              <TableRow cells={["Polymesh", "Regulated Tokenization", "Enterprise-grade"]} />
-              <TableRow cells={["Centrifuge", "RWA Lending", "$250M+ originated"]} highlight />
+              <TableRow cells={["Ondo Finance", "Tokenized Treasuries", "$2B+"]} />
+              <TableRow cells={["Securitize", "Digital Securities", "$1B+"]} highlight />
+              <TableRow cells={["Polymesh", "Regulated Tokenization", "$50M+"]} />
+              <TableRow cells={["Centrifuge", "RWA Lending", "$100M+"]} highlight />
             </tbody>
           </table>
         </div>
         <GreenCard>
           <p className="text-sm font-light text-muted-foreground leading-relaxed">
-            These early leaders validate the market. <span className="text-foreground font-medium">The issuance platform</span> is the most valuable layer — whoever controls issuance earns fees on every asset and owns issuer relationships.
+            The issuance platform is the most valuable layer — whoever controls issuance earns fees on every asset and owns issuer relationships.
           </p>
         </GreenCard>
         <SlideNumber n={8} />
