@@ -175,6 +175,7 @@ const slides: Slide[] = [
             <BulletList items={[
               { bold: "$200B+", text: "Web3/AI market projected by 2030." },
               { bold: "$50B+", text: "voluntary carbon market by 2030." },
+              { bold: "$16T+", text: "RWA tokenization market projected by 2030." },
               { bold: "Blockchain-verified", text: "carbon credit infrastructure." },
               { bold: "Public market access", text: "via TSX listing." },
             ]} />
