@@ -108,8 +108,8 @@ function TableRow({ cells, highlight }: { cells: string[]; highlight?: boolean }
   return (
     <tr className={cn("border-b border-border/20", highlight && "bg-[hsl(82,85%,55%,0.04)]")}>
       {cells.map((c, i) => {
-        const isAumCell = cells.length === 5 && i === 1;
         const isLastCell = i === cells.length - 1;
+        const isSecondToLast = i === cells.length - 2;
 
         return (
           <td
@@ -117,9 +117,8 @@ function TableRow({ cells, highlight }: { cells: string[]; highlight?: boolean }
             className={cn(
               "py-2.5 px-3 text-xs font-light",
               i === 0 ? "text-foreground" : "text-muted-foreground",
-              isAumCell && "w-24 whitespace-nowrap tabular-nums",
-              isLastCell && "whitespace-nowrap tabular-nums",
-              isLastCell || isAumCell ? "text-right" : "text-left",
+              (isLastCell || isSecondToLast) && cells.length === 5 ? "text-right whitespace-nowrap tabular-nums" : "text-left",
+              isLastCell && cells.length !== 5 && "text-right",
             )}
           >
             {c}
@@ -355,25 +354,25 @@ const slides: Slide[] = [
           <table className="w-full text-xs table-fixed">
             <colgroup>
               <col className="w-[22%]" />
-              <col className="w-[12%]" />
               <col className="w-[28%]" />
               <col className="w-[14%]" />
+              <col className="w-[12%]" />
               <col className="w-[24%]" />
             </colgroup>
             <thead>
               <tr className="border-b border-[hsl(82,85%,55%,0.15)]">
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Company</th>
-                <th className="w-24 py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">AUM</th>
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Focus</th>
                 <th className="py-2.5 px-3 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Status</th>
+                <th className="py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">AUM</th>
                 <th className="py-2.5 px-3 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Implied Valuation</th>
               </tr>
             </thead>
             <tbody>
-              <TableRow cells={["Ondo Finance", "$1B+", "Tokenized Treasuries", "Token", "$2B+"]} />
-              <TableRow cells={["Securitize", "$2B+", "Digital Securities", "Private", "$1B+"]} highlight />
-              <TableRow cells={["Polymesh", "N/A", "Regulated Tokenization", "Token", "$50M+"]} />
-              <TableRow cells={["Centrifuge", "N/A", "RWA Lending", "Token", "$100M+"]} highlight />
+              <TableRow cells={["Ondo Finance", "Tokenized Treasuries", "Token", "$1B+", "$2B+"]} />
+              <TableRow cells={["Securitize", "Digital Securities", "Private", "$2B+", "$1B+"]} highlight />
+              <TableRow cells={["Polymesh", "Regulated Tokenization", "Token", "N/A", "$50M+"]} />
+              <TableRow cells={["Centrifuge", "RWA Lending", "Token", "N/A", "$100M+"]} highlight />
             </tbody>
           </table>
         </div>
