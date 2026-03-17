@@ -308,7 +308,7 @@ const slides: Slide[] = [
         <SlideAccent />
         <SectionLabel>Distribution</SectionLabel>
         <SlideTitle>Exchange Partnerships as Growth Multipliers.</SlideTitle>
-        <SlideSubtitle>TMRW-issued assets trading on major exchanges creates a compounding flywheel.</SlideSubtitle>
+        <p className="text-base md:text-lg font-light text-muted-foreground leading-relaxed">TMRW-issued assets trading on major exchanges creates a compounding flywheel.</p>
         <div className="grid md:grid-cols-3 gap-5">
           {[
             { name: "Kraken", desc: "Institutional-grade trading infrastructure with deep liquidity pools." },
