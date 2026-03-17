@@ -783,7 +783,7 @@ const slides: Slide[] = [
   {
     id: "closing",
     render: () => (
-      <div className="relative flex flex-col items-center justify-center h-full text-center gap-6">
+      <div className="relative flex flex-col items-center justify-center min-h-[350px] sm:min-h-[450px] h-full text-center gap-6">
         <div className="absolute inset-0 pointer-events-none animate-fade-in">
           <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-cover object-center opacity-80" />
           <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
