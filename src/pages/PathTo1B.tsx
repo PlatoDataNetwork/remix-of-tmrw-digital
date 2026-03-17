@@ -606,7 +606,7 @@ const slides: Slide[] = [
           <GreenCard className="flex flex-col gap-3">
             <div className="text-2xl font-extralight text-[hsl(82,85%,55%)]">01</div>
             <h3 className="text-sm font-medium text-foreground">Major Asset Partnerships</h3>
-            <p className="text-xs font-light text-muted-foreground leading-relaxed">Secure partnerships with mining companies, commodity vaults, infrastructure funds, and sovereign asset holders.</p>
+            <p className="text-xs font-light text-muted-foreground leading-relaxed">Secure partnerships with mining companies, commodity vaults, infrastructure funds, private equity, and sovereign asset holders.</p>
           </GreenCard>
           <GreenCard className="flex flex-col gap-3">
             <div className="text-2xl font-extralight text-[hsl(82,85%,55%)]">02</div>
