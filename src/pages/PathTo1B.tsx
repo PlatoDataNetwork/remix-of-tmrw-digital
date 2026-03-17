@@ -697,7 +697,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Without secondary market liquidity, tokenized assets remain illiquid.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={20} />
+        <SlideNumber n={19} />
       </div>
     ),
   },
