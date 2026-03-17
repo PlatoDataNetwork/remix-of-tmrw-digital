@@ -206,7 +206,7 @@ const slides: Slide[] = [
           </GreenCard>
           <GreenCard className="space-y-3 py-6">
             <h3 className="text-sm font-medium text-foreground">Public Market Access</h3>
-            <p className="text-xs font-light text-muted-foreground leading-relaxed">RTO transaction targeting TSX Venture Exchange listing with experienced management team.</p>
+            <p className="text-xs font-light text-muted-foreground leading-relaxed">RTO transaction targeting TSX listing with experienced management team. Provides investors regulated exposure to Web3, AI, and digital asset growth.</p>
           </GreenCard>
         </div>
         <SlideNumber n={4} />
