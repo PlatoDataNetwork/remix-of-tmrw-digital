@@ -721,7 +721,7 @@ const slides: Slide[] = [
             The Stripe for Payments. The Plaid for Banking. The AWS for Cloud.
           </p>
         </div>
-        <SlideNumber n={21} />
+        <SlideNumber n={20} />
       </div>
     ),
   },
