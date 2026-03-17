@@ -886,7 +886,8 @@ export default function Deck() {
       {slides.map((s, i) => (
         <button
           key={s.id}
-          onClick={() => setCurrent(i)}
+          ref={el => { thumbRefs.current[i] = el; }}
+          onClick={() => { setDirection(i > current ? 'right' : 'left'); setCurrent(i); }}
           className={cn(
             "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all",
             i === current
