@@ -62,8 +62,8 @@ function SlideNumber({ n }: { n: number }) {
 function StatBlock({ value, label }: { value: string; label: string }) {
   return (
     <div className="text-center">
-      <div className="text-4xl md:text-5xl font-extralight tracking-tight text-[hsl(82,85%,55%)]">{value}</div>
-      <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mt-2">{label}</div>
+      <div className="text-2xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-[hsl(82,85%,55%)]">{value}</div>
+      <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground mt-2">{label}</div>
     </div>
   );
 }
