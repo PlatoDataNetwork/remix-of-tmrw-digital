@@ -168,6 +168,7 @@ const slides: Slide[] = [
               { bold: "Lack of transparency", text: "in carbon credit verification." },
               { bold: "Limited enterprise adoption", text: "of blockchain solutions." },
               { bold: "Regulatory uncertainty", text: "in digital assets." },
+              { bold: "Lack of institutional-grade", text: "RWA tokenization infrastructure." },
             ]} />
           </GreenCard>
           <GreenCard className="space-y-4 py-6 border-[hsl(82,85%,55%,0.3)]">
