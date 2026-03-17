@@ -197,12 +197,12 @@ const slides: Slide[] = [
         <SlideSubtitle>Tomorrow Digital Inc. (DBA: The Tomorrow Company) — A diversified Web3 / AI Infrastructure and Digital Asset Company.</SlideSubtitle>
         <div className="grid md:grid-cols-3 gap-5">
           <GreenCard className="space-y-3 py-6">
-            <h3 className="text-sm font-medium text-foreground">Carbon Infrastructure</h3>
-            <p className="text-xs font-light text-muted-foreground leading-relaxed">Blockchain-based carbon offsetting with 500,000 tonnes of ISO-certified credits and CUT utility token.</p>
+            <h3 className="text-sm font-medium text-foreground">RWA Infrastructure</h3>
+            <p className="text-xs font-light text-muted-foreground leading-relaxed">Blockchain-based carbon offsetting with 500,000 tonnes of ISO-certified credits, CUT utility token, and institutional-grade RWA tokenization platform.</p>
           </GreenCard>
           <GreenCard className="space-y-3 py-6">
-            <h3 className="text-sm font-medium text-foreground">Web3 AI Platform</h3>
-            <p className="text-xs font-light text-muted-foreground leading-relaxed">Plato AI Browser, CodeNexus AI development tools, and decentralized data intelligence across 160+ countries.</p>
+            <h3 className="text-sm font-medium text-foreground">W3AI Platform</h3>
+            <p className="text-xs font-light text-muted-foreground leading-relaxed">W3AI Browser with integrated DeFi access, CodeNexus AI development tools, and decentralized data intelligence across 160+ countries.</p>
           </GreenCard>
           <GreenCard className="space-y-3 py-6">
             <h3 className="text-sm font-medium text-foreground">Public Market Access</h3>
