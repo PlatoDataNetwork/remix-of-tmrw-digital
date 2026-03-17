@@ -238,6 +238,7 @@ const slides: Slide[] = [
                   <div className="text-lg font-extralight text-[hsl(82,85%,55%)]">{r}</div>
                 </div>
               ))}
+            </div>
           </GreenCard>
         </div>
         <SlideNumber n={4} />
