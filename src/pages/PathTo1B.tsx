@@ -117,7 +117,7 @@ function TableRow({ cells, highlight }: { cells: string[]; highlight?: boolean }
             className={cn(
               "py-2.5 px-3 text-xs font-light",
               i === 0 ? "text-foreground" : "text-muted-foreground",
-              cells.length === 5 && i === 2 ? "text-center" :
+              cells.length === 5 && i === 2 ? "text-left" :
               cells.length === 5 && (i === 3 || i === 4) ? "text-right whitespace-nowrap tabular-nums" :
               isLastCell && cells.length !== 5 ? "text-right" : "text-left",
             )}
