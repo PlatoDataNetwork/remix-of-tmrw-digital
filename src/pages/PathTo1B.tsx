@@ -104,12 +104,21 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function TableRow({ cells, highlight }: { cells: string[]; highlight?: boolean }) {
+function TableRow({ cells, highlight, links }: { cells: string[]; highlight?: boolean; links?: Record<number, string> }) {
   return (
     <tr className={cn("border-b border-border/20", highlight && "bg-[hsl(82,85%,55%,0.04)]")}>
       {cells.map((c, i) => {
         const isLastCell = i === cells.length - 1;
-        const isSecondToLast = i === cells.length - 2;
+
+        const align = cells.length === 6 && i === 3 ? "text-left" :
+          cells.length === 6 && (i === 4 || i === 5) ? "text-right whitespace-nowrap tabular-nums" :
+          cells.length === 5 && i === 2 ? "text-left" :
+          cells.length === 5 && (i === 3 || i === 4) ? "text-right whitespace-nowrap tabular-nums" :
+          isLastCell && cells.length < 5 ? "text-right" : "text-left";
+
+        const content = links?.[i] ? (
+          <a href={links[i]} target="_blank" rel="noopener noreferrer" className="text-[hsl(82,85%,55%)] hover:underline">{c}</a>
+        ) : c;
 
         return (
           <td
@@ -117,12 +126,10 @@ function TableRow({ cells, highlight }: { cells: string[]; highlight?: boolean }
             className={cn(
               "py-2.5 px-3 text-xs font-light",
               i === 0 ? "text-foreground" : "text-muted-foreground",
-              cells.length === 5 && i === 2 ? "text-left" :
-              cells.length === 5 && (i === 3 || i === 4) ? "text-right whitespace-nowrap tabular-nums" :
-              isLastCell && cells.length !== 5 ? "text-right" : "text-left",
+              align,
             )}
           >
-            {c}
+            {content}
           </td>
         );
       })}
