@@ -197,52 +197,6 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 04 — Issuance Fee Examples
-  {
-    id: "issuance-examples",
-    render: () => (
-      <div className="flex flex-col h-full gap-3 justify-center">
-        <SlideAccent />
-        <SectionLabel>Unit Economics</SectionLabel>
-        <h2 className="text-2xl md:text-3xl font-extralight tracking-tight text-foreground leading-tight">Issuance Revenue at Scale.</h2>
-        <div className="grid md:grid-cols-[1fr,auto] gap-4 items-center">
-          {/* Left: Issuance Table */}
-          <div className="overflow-x-auto">
-            <table className="w-full text-xs">
-              <thead>
-                <tr className="border-b border-[hsl(82,85%,55%,0.15)]">
-                  <th className="py-1.5 px-2 text-left text-[10px] uppercase tracking-wider font-medium text-foreground">Asset</th>
-                  <th className="py-1.5 px-2 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Asset Value</th>
-                  <th className="py-1.5 px-2 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Revenue</th>
-                  <th className="py-1.5 px-2 text-right text-[10px] uppercase tracking-wider font-medium text-foreground">Margin</th>
-                </tr>
-              </thead>
-              <tbody>
-                <TableRow cells={["Real Estate", "$200M", "$1M", "80%+"]} />
-                <TableRow cells={["Infrastructure", "$200M", "$1M", "80%+"]} highlight />
-                <TableRow cells={["Energy", "$200M", "$1M", "80%+"]} />
-                <TableRow cells={["Carbon Credits", "$200M", "$1M", "80%+"]} highlight />
-                <TableRow cells={["Tax Credits", "$200M", "$1M", "80%+"]} />
-              </tbody>
-            </table>
-          </div>
-          {/* Right: Servicing Summary */}
-          <GreenCard className="flex flex-col min-w-[200px]">
-            <h3 className="text-xs uppercase tracking-[0.2em] text-[hsl(82,85%,55%)] mb-2">Servicing AUM @ .5% Per Annum</h3>
-            <div className="flex flex-col gap-1">
-              {[["$1B AUM", "$5M"], ["$5B AUM", "$25M"], ["$10B AUM", "$50M"], ["$20B AUM", "$100M"], ["$50B AUM", "$250M"]].map(([aum, rev]) => (
-                <div key={aum} className="flex items-baseline justify-between text-xs">
-                  <span className="text-muted-foreground font-light">{aum}</span>
-                  <span className="text-[hsl(82,85%,55%)] font-extralight ml-4">{rev}</span>
-                </div>
-              ))}
-            </div>
-          </GreenCard>
-        </div>
-        <SlideNumber n={4} />
-      </div>
-    ),
-  },
   // 05 — Year 1-2 Growth
   {
     id: "year-1-2",
