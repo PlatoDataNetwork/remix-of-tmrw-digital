@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
@@ -809,11 +809,18 @@ const slides: Slide[] = [
 // --- Deck viewer ---
 export default function Deck() {
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [fullscreen, setFullscreen] = useState(false);
+  const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const total = slides.length;
 
-  const next = useCallback(() => setCurrent(c => Math.min(c + 1, total - 1)), [total]);
-  const prev = useCallback(() => setCurrent(c => Math.max(c - 1, 0)), []);
+  const next = useCallback(() => { setDirection('right'); setCurrent(c => Math.min(c + 1, total - 1)); }, [total]);
+  const prev = useCallback(() => { setDirection('left'); setCurrent(c => Math.max(c - 1, 0)); }, []);
+
+  // Auto-scroll active thumbnail into view
+  useEffect(() => {
+    thumbRefs.current[current]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [current]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -835,8 +842,9 @@ export default function Deck() {
       <SlideBranding />
       {/* Slide content */}
        <div key={current} className={cn(
-         "p-6 sm:p-8 md:p-16 flex flex-col animate-fade-in",
-         fullscreen ? "flex-1" : "flex-1"
+         "p-6 sm:p-8 md:p-16 flex flex-col",
+         fullscreen ? "flex-1" : "flex-1",
+         direction === 'right' ? "animate-slide-in-right" : "animate-slide-in-left"
        )}>
          {slides[current].render()}
        </div>
@@ -878,7 +886,8 @@ export default function Deck() {
       {slides.map((s, i) => (
         <button
           key={s.id}
-          onClick={() => setCurrent(i)}
+          ref={el => { thumbRefs.current[i] = el; }}
+          onClick={() => { setDirection(i > current ? 'right' : 'left'); setCurrent(i); }}
           className={cn(
             "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all",
             i === current
