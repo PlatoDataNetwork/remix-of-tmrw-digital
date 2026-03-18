@@ -79,16 +79,42 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Try to parse the key - handle escaped JSON strings
+    // Try to parse the key - handle various encoding issues
     let serviceAccount;
     try {
-      const trimmed = keyJson.trim();
-      // If the value is double-encoded (wrapped in quotes), unwrap first
-      if (trimmed.startsWith('"') && trimmed.endsWith('"')) {
-        serviceAccount = JSON.parse(JSON.parse(trimmed));
-      } else {
-        serviceAccount = JSON.parse(trimmed);
+      let raw = keyJson.trim();
+      
+      // Log first chars for debugging (safe - no sensitive data in first few chars)
+      console.log("Secret starts with:", raw.substring(0, 20), "length:", raw.length);
+      
+      // If double-quoted (string-wrapped JSON), unwrap
+      if (raw.startsWith('"') && raw.endsWith('"')) {
+        raw = JSON.parse(raw); // unwrap the string
       }
+      
+      // If it starts with a dash, it might be just the private key pasted directly
+      if (raw.startsWith('-----')) {
+        return new Response(
+          JSON.stringify({ 
+            error: "GA_SERVICE_ACCOUNT_KEY should contain the full JSON service account file, not just the private key.",
+            hint: "Paste the entire JSON object (starting with {) from your service account file."
+          }),
+          { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+
+      // If it doesn't start with {, it's not valid JSON
+      if (!raw.startsWith('{')) {
+        return new Response(
+          JSON.stringify({ 
+            error: "GA_SERVICE_ACCOUNT_KEY must be a JSON object starting with {",
+            hint: `Current value starts with: ${raw.substring(0, 5)}...`
+          }),
+          { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+      
+      serviceAccount = JSON.parse(raw);
     } catch (parseErr) {
       console.error("Failed to parse GA_SERVICE_ACCOUNT_KEY:", parseErr);
       return new Response(
