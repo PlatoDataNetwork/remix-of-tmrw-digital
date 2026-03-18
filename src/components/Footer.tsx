@@ -165,10 +165,11 @@ const Footer = () => {
             <div className="space-y-2.5 sm:space-y-3">
               {[
                 { label: "LinkedIn", href: "#" },
-                { label: "Reddit", href: "#" },
                 { label: "Twitter / X", href: "#" },
                 { label: "Telegram", href: "#" },
+                { label: "Reddit", href: "#" },
                 { label: "Discord", href: "#" },
+                { label: "RWA SUMMIT", href: "https://www.rwasummit.io/" },
               ].map((link) => (
                 <a
                   key={link.label}
