@@ -197,7 +197,7 @@ const Navbar = () => {
               <div className="flex items-center justify-end px-4 py-3">
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="p-1.5 text-white/60 hover:text-white transition-colors"
+                  className="p-1.5 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <X className="h-5 w-5" />
                 </button>
