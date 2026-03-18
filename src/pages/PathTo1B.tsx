@@ -14,7 +14,7 @@ interface Slide {
 
 function SlideBranding() {
   return (
-    <div className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center gap-2 z-20">
+    <div className="absolute top-4 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-6 md:top-6 flex items-center gap-2 z-20 whitespace-nowrap">
       <div
         className="h-5 w-5 animated-gradient-icon-bright shrink-0"
         style={{
@@ -44,15 +44,6 @@ function SlideAccent() {
   );
 }
 
-function SlideNumber({ n }: { n: number }) {
-  return (
-    <div className="absolute bottom-4 left-6 md:bottom-6 md:left-8 z-20 pointer-events-none">
-      <span className="text-[10px] font-light tracking-[0.2em] text-[hsl(82,85%,55%,0.5)]">
-        {String(n).padStart(2, "0")}
-      </span>
-    </div>
-  );
-}
 
 function StatBlock({ value, label }: { value: string; label: string }) {
   return (
@@ -160,7 +151,7 @@ const slides: Slide[] = [
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
           <p className="text-[10px] font-light text-muted-foreground/40 uppercase tracking-[0.2em]">Confidential · Q1 2026</p>
         </div>
-        <SlideNumber n={1} />
+        
       </div>
     ),
   },
@@ -184,7 +175,7 @@ const slides: Slide[] = [
           </GreenCard>
         </div>
         <SlideSubtitle>Even capturing a tiny share of that market could create large valuations.</SlideSubtitle>
-        <SlideNumber n={2} />
+        
       </div>
     ),
   },
@@ -213,7 +204,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">0.1%–1% per trade on secondary markets. Scales with liquidity.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={3} />
+        
       </div>
     ),
   },
@@ -254,7 +245,7 @@ const slides: Slide[] = [
             </GreenCard>
           </div>
         </div>
-        <SlideNumber n={4} />
+        
       </div>
     ),
   },
@@ -285,7 +276,7 @@ const slides: Slide[] = [
             <div className="text-3xl font-extralight text-[hsl(82,85%,55%)]">$400M – $800M</div>
           </GreenCard>
         </div>
-        <SlideNumber n={5} />
+        
       </div>
     ),
   },
@@ -316,7 +307,7 @@ const slides: Slide[] = [
             <div className="text-3xl font-extralight text-[hsl(82,85%,55%)]">$1B – $3B</div>
           </GreenCard>
         </div>
-        <SlideNumber n={6} />
+        
       </div>
     ),
   },
@@ -346,7 +337,7 @@ const slides: Slide[] = [
           { bold: "Asset demand increases", text: "— more investor access, broader distribution." },
           { bold: "Issuance volume increases", text: "— more issuers attracted by proven liquidity." },
         ]} />
-        <SlideNumber n={7} />
+        
       </div>
     ),
   },
@@ -383,7 +374,7 @@ const slides: Slide[] = [
             The issuance platform is the most valuable layer — whoever controls issuance earns fees on every asset and owns issuer relationships. In a world where trillions in real-world value move on-chain, the infrastructure layer captures value indefinitely while individual assets come and go.
           </p>
         </GreenCard>
-        <SlideNumber n={8} />
+        
       </div>
     ),
   },
@@ -400,7 +391,7 @@ const slides: Slide[] = [
         </p>
         <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
         <p className="text-2xl font-extralight text-[hsl(82,85%,55%)]">"Stripe for RWAs."</p>
-        <SlideNumber n={9} />
+        
       </div>
     ),
   },
@@ -431,7 +422,7 @@ const slides: Slide[] = [
           { bold: "Issuers build on TMRW", text: "— they bring their own assets, users, and capital." },
           { bold: "TMRW earns on everything", text: "— minting, compliance, settlement, transfers — every transaction, every asset, every chain." },
         ]} />
-        <SlideNumber n={10} />
+        
       </div>
     ),
   },
@@ -459,7 +450,7 @@ const slides: Slide[] = [
             </div>
           ))}
         </div>
-        <SlideNumber n={11} />
+        
       </div>
     ),
   },
@@ -501,7 +492,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={12} />
+        
       </div>
     ),
   },
@@ -536,7 +527,7 @@ const slides: Slide[] = [
             ]} />
           </GreenCard>
         </div>
-        <SlideNumber n={13} />
+        
       </div>
     ),
   },
@@ -560,7 +551,7 @@ const slides: Slide[] = [
             <div key={e} className="text-xs font-light text-muted-foreground border border-border/30 rounded-lg p-3 text-center">{e}</div>
           ))}
         </div>
-        <SlideNumber n={14} />
+        
       </div>
     ),
   },
@@ -590,7 +581,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Tokenize funds, not single properties. Much larger volumes, broader investor appeal.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={15} />
+        
       </div>
     ),
   },
@@ -621,7 +612,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={16} />
+        
       </div>
     ),
   },
@@ -652,7 +643,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={17} />
+        
       </div>
     ),
   },
@@ -683,7 +674,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={18} />
+        
       </div>
     ),
   },
@@ -702,7 +693,7 @@ const slides: Slide[] = [
           <SectionLabel>Potential Valuation</SectionLabel>
           <div className="text-5xl font-extralight text-[hsl(82,85%,55%)] mt-3">$10B+</div>
         </GreenCard>
-        <SlideNumber n={19} />
+        
       </div>
     ),
   },
@@ -732,7 +723,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Without secondary market liquidity, tokenized assets remain illiquid.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={20} />
+        
       </div>
     ),
   },
@@ -756,7 +747,7 @@ const slides: Slide[] = [
             The Stripe for Payments. The Plaid for Banking. The AWS for Cloud.
           </p>
         </div>
-        <SlideNumber n={21} />
+        
       </div>
     ),
   },
