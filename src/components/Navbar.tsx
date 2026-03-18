@@ -240,7 +240,7 @@ const Navbar = () => {
                   <Link
                     to={lp("/investors")}
                     onClick={() => setMobileOpen(false)}
-                    className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium mt-6"
+                    className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-primary-foreground text-sm font-medium mt-6"
                   >
                     Investors
                   </Link>

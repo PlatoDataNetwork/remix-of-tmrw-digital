@@ -47,7 +47,7 @@ const ThemeToggle = () => {
           transition={{ duration: 0.25 }}
           className="flex items-center justify-center"
         >
-          <Icon className={`h-4 w-4 ${theme === "colorful" ? "text-purple-400" : "text-white"}`} />
+          <Icon className={`h-4 w-4 ${theme === "colorful" ? "text-purple-400" : "text-foreground"}`} />
         </motion.div>
       </AnimatePresence>
     </button>

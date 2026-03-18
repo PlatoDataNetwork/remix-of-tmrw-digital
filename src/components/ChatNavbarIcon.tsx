@@ -8,7 +8,7 @@ const ChatNavbarIcon = () => {
   return (
     <button
       onClick={toggleOpen}
-      className="relative h-9 w-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+      className="relative h-9 w-9 flex items-center justify-center rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors"
       aria-label="Toggle chat"
     >
       <div
