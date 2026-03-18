@@ -136,6 +136,7 @@ const Footer = () => {
               { label: "W3AI Whitepaper", href: "/whitepaper" },
               { label: "Path to $1B", href: "/path-to-1b" },
               { label: "Intelligence", href: "/intel" },
+              { label: "FAQ", href: "/legal#faq" },
               { label: "Community", href: "#" },
               { label: "Documentation", href: "#" },
               ].map((link) => (
@@ -188,7 +189,7 @@ const Footer = () => {
             <Link to={lp("/legal#privacy")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
             <Link to={lp("/legal#compliance")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">Compliance</Link>
             <Link to={lp("/legal#terms")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
-            <Link to={lp("/legal#faq")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">FAQ</Link>
+            
             <Link to={lp("/legal#data-processing")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">Data Processing</Link>
           </div>
         </div>
