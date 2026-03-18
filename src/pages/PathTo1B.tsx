@@ -14,7 +14,7 @@ interface Slide {
 
 function SlideBranding() {
   return (
-    <div className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center gap-2 z-20">
+    <div className="absolute top-4 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-6 md:top-6 flex items-center gap-2 z-20 whitespace-nowrap">
       <div
         className="h-5 w-5 animated-gradient-icon-bright shrink-0"
         style={{
