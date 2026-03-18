@@ -7,6 +7,7 @@ import { ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import { supabase } from "@/integrations/supabase/client";
 
 const disclaimerText = `IMPORTANT LEGAL DISCLAIMER — PLEASE READ CAREFULLY
 
