@@ -136,9 +136,9 @@ const Footer = () => {
               { label: "W3AI Whitepaper", href: "/whitepaper" },
               { label: "Path to $1B", href: "/path-to-1b" },
               { label: "Intelligence", href: "/intel" },
-              { label: "FAQ", href: "/legal#faq" },
-              { label: "Community", href: "#" },
+              { label: "Protocols", href: "/whitepaper#w3ai-protocol" },
               { label: "Documentation", href: "#" },
+              { label: "FAQ", href: "/legal#faq" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
                   <Link
@@ -165,10 +165,11 @@ const Footer = () => {
             <div className="space-y-2.5 sm:space-y-3">
               {[
                 { label: "LinkedIn", href: "#" },
-                { label: "Reddit", href: "#" },
                 { label: "Twitter / X", href: "#" },
                 { label: "Telegram", href: "#" },
+                { label: "Reddit", href: "#" },
                 { label: "Discord", href: "#" },
+                { label: "RWA SUMMIT", href: "https://www.rwasummit.io/" },
               ].map((link) => (
                 <a
                   key={link.label}
