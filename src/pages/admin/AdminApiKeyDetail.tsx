@@ -125,7 +125,7 @@ const AdminApiKeyDetail = () => {
               variant="ghost"
               size="sm"
               onClick={toggleActive}
-              className="text-white/50 hover:text-white text-xs"
+              className="text-white/50 hover:text-white hover:bg-white/10 text-xs"
             >
               {apiKey.is_active ? "Restrict" : "Activate"}
             </Button>
