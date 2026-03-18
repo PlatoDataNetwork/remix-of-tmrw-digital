@@ -29,6 +29,27 @@ const AdminLayout = () => {
   const { isAuthenticated, logout } = useAdminAuth();
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  useEffect(() => {
+    async function fetchUnread() {
+      const { count } = await supabase
+        .from("contact_submissions")
+        .select("id", { count: "exact", head: true })
+        .eq("is_read", false);
+      setUnreadCount(count || 0);
+    }
+    fetchUnread();
+
+    const channel = supabase
+      .channel("admin-unread-count")
+      .on("postgres_changes", { event: "*", schema: "public", table: "contact_submissions" }, () => {
+        fetchUnread();
+      })
+      .subscribe();
+
+    return () => { supabase.removeChannel(channel); };
+  }, []);
 
   if (!isAuthenticated) {
     return <Navigate to="/tmrw-admin/login" replace />;
