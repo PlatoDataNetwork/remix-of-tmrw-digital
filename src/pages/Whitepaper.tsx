@@ -94,7 +94,7 @@ const sections: Section[] = [
     { id: "rails-tokenization", title: "Tokenization & RWA Access" },
     { id: "rails-reporting", title: "Institutional Reporting" },
   ]},
-  { id: "supported-networks", title: "Supported Networks", number: "11", children: [
+  { id: "supported-networks", title: "Supported Protocols", number: "11", children: [
     { id: "network-solana", title: "Solana" },
     { id: "network-ethereum", title: "Ethereum" },
     { id: "network-bsc", title: "BNB Smart Chain" },
