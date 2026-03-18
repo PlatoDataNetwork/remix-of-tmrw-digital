@@ -292,7 +292,7 @@ const ChatWidget = () => {
                   onClick={() => {
                     setMessages([createWelcomeMessage()]);
                   }}
-                  className="p-1.5 rounded-full hover:bg-white/10 transition-colors"
+                  className="p-1.5 rounded-full hover:bg-foreground/10 transition-colors"
                   title="Clear chat"
                 >
                   <Trash2 className="h-3.5 w-3.5 text-white/50" />
