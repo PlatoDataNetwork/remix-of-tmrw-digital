@@ -814,7 +814,7 @@ export default function PathTo1B() {
     )}>
       <SlideBranding />
       <div key={current} className={cn(
-        "p-6 sm:p-8 md:p-16 flex flex-col",
+        "p-6 pt-14 sm:p-8 sm:pt-16 md:p-16 flex flex-col",
         fullscreen ? "flex-1" : "flex-1",
         direction === 'right' ? "animate-slide-in-right" : "animate-slide-in-left"
       )}>
