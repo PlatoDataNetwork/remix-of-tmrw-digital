@@ -151,7 +151,7 @@ const slides: Slide[] = [
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
           <p className="text-[10px] font-light text-muted-foreground/40 uppercase tracking-[0.2em]">Confidential · Q1 2026</p>
         </div>
-        <SlideNumber n={1} />
+        
       </div>
     ),
   },
