@@ -172,7 +172,7 @@ const slides: Slide[] = [
         <SlideAccent />
         <SectionLabel>The Opportunity</SectionLabel>
         <SlideTitle>The Tokenization Market Is Expected to Explode.</SlideTitle>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <GreenCard>
             <StatBlock value="$16T" label="BCG Projection by 2030" />
           </GreenCard>
