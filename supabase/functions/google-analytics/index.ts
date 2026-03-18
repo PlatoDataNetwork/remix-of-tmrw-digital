@@ -79,18 +79,23 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Try to parse the key - handle escaped JSON strings
+    // Try to parse the key - handle various encoding issues
     let serviceAccount;
     try {
-      const trimmed = keyJson.trim();
-      // If the value is double-encoded (wrapped in quotes), unwrap first
-      if (trimmed.startsWith('"') && trimmed.endsWith('"')) {
-        serviceAccount = JSON.parse(JSON.parse(trimmed));
-      } else {
-        serviceAccount = JSON.parse(trimmed);
+      let raw = keyJson.trim();
+      
+      // If double-quoted (string-wrapped JSON), unwrap
+      if (raw.startsWith('"') && raw.endsWith('"')) {
+        raw = JSON.parse(raw); // unwrap the string
       }
+      
+      // Replace literal \\n sequences with actual newlines (common in env vars)
+      raw = raw.replace(/\\\\n/g, '\\n');
+      
+      serviceAccount = JSON.parse(raw);
     } catch (parseErr) {
       console.error("Failed to parse GA_SERVICE_ACCOUNT_KEY:", parseErr);
+      console.error("First 100 chars:", keyJson.substring(0, 100));
       return new Response(
         JSON.stringify({ 
           error: "GA_SERVICE_ACCOUNT_KEY contains invalid JSON. Please re-enter the service account JSON key.",
