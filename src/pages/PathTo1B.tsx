@@ -276,7 +276,7 @@ const slides: Slide[] = [
             <div className="text-3xl font-extralight text-[hsl(82,85%,55%)]">$400M – $800M</div>
           </GreenCard>
         </div>
-        <SlideNumber n={5} />
+        
       </div>
     ),
   },
