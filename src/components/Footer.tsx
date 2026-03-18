@@ -132,8 +132,9 @@ const Footer = () => {
             <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3 sm:mb-4">Resources</p>
             <div className="space-y-2.5 sm:space-y-3">
               {[
+              { label: "Path to $1B", href: "/path-to-1b" },
               { label: "Data Feeds", href: "/data-feeds" },
-              { label: "Blog", href: "#" },
+              { label: "Intelligence", href: "/intel" },
               { label: "Community", href: "#" },
               { label: "Documentation", href: "#" },
               ].map((link) => (
