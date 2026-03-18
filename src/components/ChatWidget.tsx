@@ -217,8 +217,8 @@ const ChatWidget = () => {
   }, [isLoading, messages, streamChat]);
 
   const panelClasses = maximized
-    ? "fixed top-16 lg:top-20 left-0 right-0 z-[55] w-full rounded-none border-t border-white/10 bg-[hsl(220,20%,6%,0.95)] backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden"
-    : "fixed bottom-6 right-6 z-[60] w-[360px] sm:w-[400px] h-[520px] rounded-2xl border border-white/10 bg-[hsl(220,20%,6%,0.65)] backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden";
+    ? "fixed top-16 lg:top-20 left-0 right-0 z-[55] w-full rounded-none border-t border-border bg-background/95 backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden"
+    : "fixed bottom-6 right-6 z-[60] w-[360px] sm:w-[400px] h-[520px] rounded-2xl border border-border bg-background/95 backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden";
 
   const panelHeight = maximized ? "calc(100vh - 4rem)" : undefined;
   const panelHeightLg = maximized ? "calc(100vh - 5rem)" : undefined;
@@ -233,7 +233,7 @@ const ChatWidget = () => {
           exit={{ scale: 0, opacity: 0 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
           onClick={() => setOpen(true)}
-          className="fixed bottom-6 right-6 z-[70] h-9 w-9 flex items-center justify-center rounded-full bg-[hsl(220,20%,8%)] border border-white/10 hover:bg-[hsl(220,20%,12%)] transition-colors shadow-lg"
+          className="fixed bottom-6 right-6 z-[70] h-9 w-9 flex items-center justify-center rounded-full bg-card border border-border hover:bg-accent transition-colors shadow-lg"
           aria-label="Open chat"
         >
           <div
@@ -269,7 +269,7 @@ const ChatWidget = () => {
             )}
 
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-[hsl(220,20%,8%,0.7)]">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-card/70">
               <div className="flex items-center gap-3">
                 <div
                   className="h-8 w-8 animated-gradient-icon-bright"
@@ -284,7 +284,7 @@ const ChatWidget = () => {
                     maskPosition: "center",
                   }}
                 />
-                <span className="text-sm font-semibold text-white">Marvin</span>
+                <span className="text-sm font-semibold text-foreground">Marvin</span>
                 <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
               </div>
               <div className="flex items-center gap-1">
@@ -292,27 +292,27 @@ const ChatWidget = () => {
                   onClick={() => {
                     setMessages([createWelcomeMessage()]);
                   }}
-                  className="p-1.5 rounded-full hover:bg-white/10 transition-colors"
+                  className="p-1.5 rounded-full hover:bg-foreground/10 transition-colors"
                   title="Clear chat"
                 >
-                  <Trash2 className="h-3.5 w-3.5 text-white/50" />
+                  <Trash2 className="h-3.5 w-3.5 text-muted-foreground" />
                 </button>
                 <button
                   onClick={() => setMaximized(!maximized)}
-                  className="p-1.5 rounded-full hover:bg-white/10 transition-colors"
+                  className="p-1.5 rounded-full hover:bg-foreground/10 transition-colors"
                   title={maximized ? "Minimize" : "Maximize"}
                 >
                   {maximized ? (
-                    <Minimize2 className="h-3.5 w-3.5 text-white/50" />
+                    <Minimize2 className="h-3.5 w-3.5 text-muted-foreground" />
                   ) : (
-                    <Maximize2 className="h-3.5 w-3.5 text-white/50" />
+                    <Maximize2 className="h-3.5 w-3.5 text-muted-foreground" />
                   )}
                 </button>
                 <button
                   onClick={() => { setOpen(false); setMaximized(false); }}
-                  className="p-1.5 rounded-full hover:bg-white/10 transition-colors"
+                  className="p-1.5 rounded-full hover:bg-foreground/10 transition-colors"
                 >
-                  <X className="h-4 w-4 text-white/50" />
+                  <X className="h-4 w-4 text-muted-foreground" />
                 </button>
               </div>
             </div>
@@ -331,11 +331,11 @@ const ChatWidget = () => {
                       className={`rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                         msg.role === "user"
                           ? "bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white rounded-br-md"
-                          : "bg-white/[0.06] text-white/90 border border-white/10 rounded-bl-md"
+                          : "bg-foreground/[0.06] text-foreground/90 border border-border rounded-bl-md"
                       }`}
                     >
                       {msg.role === "assistant" ? (
-                        <div className="prose prose-sm prose-invert max-w-none [&>p]:m-0 [&>p]:mb-2 [&>ul]:my-1.5 [&>ol]:my-1.5 [&>hr]:my-3 [&>hr]:border-white/10 [&_strong]:text-white [&_li]:mb-1">
+                        <div className="prose prose-sm dark:prose-invert max-w-none [&>p]:m-0 [&>p]:mb-2 [&>ul]:my-1.5 [&>ol]:my-1.5 [&>hr]:my-3 [&>hr]:border-border [&_strong]:text-foreground [&_li]:mb-1">
                         <ReactMarkdown
                             components={{
                               a: ({ children }) => <span>{children}</span>,
@@ -363,7 +363,7 @@ const ChatWidget = () => {
                       ) : (
                         <p>{msg.content}</p>
                       )}
-                      <p className={`text-[10px] mt-1.5 ${msg.role === "user" ? "text-white/40" : "text-white/30"}`}>
+                      <p className={`text-[10px] mt-1.5 ${msg.role === "user" ? "text-white/40" : "text-muted-foreground"}`}>
                         {msg.time}
                       </p>
                     </div>
@@ -387,9 +387,9 @@ const ChatWidget = () => {
                               handleFollowUp(`Tell me more about ${ref.label}`);
                               setTimeout(() => navigate(ref.path), 600);
                             }}
-                            className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-[hsl(260,60%,30%,0.4)] to-[hsl(220,70%,30%,0.4)] border border-white/10 text-white/80 hover:text-white hover:border-white/25 hover:from-[hsl(260,60%,35%,0.5)] hover:to-[hsl(220,70%,35%,0.5)] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[hsl(260,80%,55%,0.15)]"
+                            className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-[hsl(260,60%,30%,0.4)] to-[hsl(220,70%,30%,0.4)] border border-border text-foreground/80 hover:text-foreground hover:border-foreground/25 hover:from-[hsl(260,60%,35%,0.5)] hover:to-[hsl(220,70%,35%,0.5)] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[hsl(260,80%,55%,0.15)]"
                           >
-                            <ExternalLink className="h-3 w-3 text-white/40 group-hover:text-[hsl(210,100%,70%)] transition-colors" />
+                            <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-[hsl(210,100%,70%)] transition-colors" />
                             {ref.label}
                           </motion.button>
                         ))}
@@ -400,7 +400,7 @@ const ChatWidget = () => {
                           whileHover={{ scale: 1.05, y: -1 }}
                           whileTap={{ scale: 0.97 }}
                           onClick={() => handleFollowUp("Tell me a joke about AI")}
-                          className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-[hsl(260,60%,30%,0.4)] to-[hsl(220,70%,30%,0.4)] border border-white/10 text-white/80 hover:text-white hover:border-white/25 hover:from-[hsl(260,60%,35%,0.5)] hover:to-[hsl(220,70%,35%,0.5)] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[hsl(260,80%,55%,0.15)]"
+                          className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-[hsl(260,60%,30%,0.4)] to-[hsl(220,70%,30%,0.4)] border border-border text-foreground/80 hover:text-foreground hover:border-foreground/25 hover:from-[hsl(260,60%,35%,0.5)] hover:to-[hsl(220,70%,35%,0.5)] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[hsl(260,80%,55%,0.15)]"
                         >
                           🤖 AI Joke
                         </motion.button>
@@ -411,7 +411,7 @@ const ChatWidget = () => {
                           whileHover={{ scale: 1.05, y: -1 }}
                           whileTap={{ scale: 0.97 }}
                           onClick={() => handleFollowUp("Tell me a blockchain joke")}
-                          className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-[hsl(45,80%,35%,0.4)] to-[hsl(30,70%,30%,0.4)] border border-white/10 text-white/80 hover:text-white hover:border-white/25 hover:from-[hsl(45,80%,40%,0.5)] hover:to-[hsl(30,70%,35%,0.5)] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[hsl(45,80%,55%,0.15)]"
+                          className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-[hsl(45,80%,35%,0.4)] to-[hsl(30,70%,30%,0.4)] border border-border text-foreground/80 hover:text-foreground hover:border-foreground/25 hover:from-[hsl(45,80%,40%,0.5)] hover:to-[hsl(30,70%,35%,0.5)] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[hsl(45,80%,55%,0.15)]"
                         >
                           ⛓️ Blockchain Joke
                         </motion.button>
@@ -423,8 +423,8 @@ const ChatWidget = () => {
               })}
               {isLoading && messages[messages.length - 1]?.role === "user" && (
                 <div className="flex justify-start">
-                  <div className="bg-white/[0.06] border border-white/10 rounded-2xl rounded-bl-md px-4 py-3">
-                    <Loader2 className="h-4 w-4 animate-spin text-white/40" />
+                  <div className="bg-foreground/[0.06] border border-border rounded-2xl rounded-bl-md px-4 py-3">
+                    <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
                   </div>
                 </div>
               )}
@@ -441,7 +441,7 @@ const ChatWidget = () => {
                   <button
                     key={s.label}
                     onClick={() => handleFollowUp(s.text)}
-                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-white/[0.06] border border-white/10 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200"
+                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-foreground/[0.06] border border-border text-muted-foreground hover:text-foreground hover:bg-foreground/10 hover:border-foreground/20 transition-all duration-200"
                   >
                     {s.label}
                   </button>
@@ -450,7 +450,7 @@ const ChatWidget = () => {
             )}
 
             {/* Input */}
-            <div className="px-4 py-3 border-t border-white/10 bg-[hsl(220,20%,8%,0.7)]">
+            <div className="px-4 py-3 border-t border-border bg-card/70">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -464,7 +464,7 @@ const ChatWidget = () => {
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask about our services..."
                   disabled={isLoading}
-                  className="flex-1 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/20 transition-colors disabled:opacity-50"
+                  className="flex-1 bg-foreground/5 border border-border rounded-full px-4 py-2 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-foreground/20 transition-colors disabled:opacity-50"
                 />
                 <button
                   type="submit"
