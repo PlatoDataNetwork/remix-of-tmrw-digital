@@ -40,7 +40,12 @@ async function fetchGA(body: Record<string, unknown>): Promise<GAResponse> {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  return res.json();
+  const data = await res.json();
+  // Normalize error: GA API returns error as object {code, message, status}
+  if (data.error && typeof data.error === "object") {
+    return { ...data, error: data.error.message || JSON.stringify(data.error) };
+  }
+  return data;
 }
 
 function formatNumber(n: number) {
