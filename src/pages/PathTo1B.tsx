@@ -790,11 +790,18 @@ const slides: Slide[] = [
 // --- Deck viewer ---
 export default function PathTo1B() {
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [fullscreen, setFullscreen] = useState(false);
+  const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const total = slides.length;
 
-  const next = useCallback(() => setCurrent(c => Math.min(c + 1, total - 1)), [total]);
-  const prev = useCallback(() => setCurrent(c => Math.max(c - 1, 0)), []);
+  const next = useCallback(() => { setDirection('right'); setCurrent(c => Math.min(c + 1, total - 1)); }, [total]);
+  const prev = useCallback(() => { setDirection('left'); setCurrent(c => Math.max(c - 1, 0)); }, []);
+
+  // Auto-scroll active thumbnail into view
+  useEffect(() => {
+    thumbRefs.current[current]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [current]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -812,15 +819,19 @@ export default function PathTo1B() {
   const slideContent = (
     <div className={cn(
       "relative w-full bg-background border border-border rounded-2xl overflow-hidden transition-all duration-300",
-      fullscreen ? "fixed inset-0 z-[80] rounded-none border-none" : "aspect-video"
+      fullscreen ? "fixed inset-0 z-[80] rounded-none border-none flex flex-col" : "min-h-[400px] sm:min-h-[500px] flex flex-col"
     )}>
       <SlideBranding />
-      <div key={current} className="absolute inset-0 p-8 md:p-16 flex flex-col animate-fade-in">
+      <div key={current} className={cn(
+        "p-6 sm:p-8 md:p-16 flex flex-col",
+        fullscreen ? "flex-1" : "flex-1",
+        direction === 'right' ? "animate-slide-in-right" : "animate-slide-in-left"
+      )}>
         {slides[current].render()}
       </div>
 
       <div className={cn(
-        "absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 py-4",
+        "flex items-center justify-between px-6 py-4",
         "bg-gradient-to-t from-background/80 to-transparent"
       )}>
         <button onClick={prev} disabled={current === 0}
@@ -853,7 +864,8 @@ export default function PathTo1B() {
       {slides.map((s, i) => (
         <button
           key={s.id}
-          onClick={() => setCurrent(i)}
+          ref={el => { thumbRefs.current[i] = el; }}
+          onClick={() => { setDirection(i > current ? 'right' : 'left'); setCurrent(i); }}
           className={cn(
             "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all",
             i === current
