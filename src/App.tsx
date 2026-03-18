@@ -13,7 +13,18 @@ import ChatWidget from "./components/ChatWidget";
 import { ChatProvider } from "./components/ChatContext";
 import { SUPPORTED_LANGUAGES } from "./hooks/useLanguage";
 import Index from "./pages/Index";
+import { AdminAuthProvider } from "./contexts/AdminAuthContext";
 
+// Admin pages (lazy)
+const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
+const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
+const AdminAnalytics = lazy(() => import("./pages/admin/AdminAnalytics"));
+const AdminContacts = lazy(() => import("./pages/admin/AdminContacts"));
+const AdminContactDetail = lazy(() => import("./pages/admin/AdminContactDetail"));
+const AdminApiKeys = lazy(() => import("./pages/admin/AdminApiKeys"));
+const AdminApiKeyDetail = lazy(() => import("./pages/admin/AdminApiKeyDetail"));
+const AdminNotifications = lazy(() => import("./pages/admin/AdminNotifications"));
 // Lazy load secondary pages
 const RWAs = lazy(() => import("./pages/RWAs"));
 const Collectables = lazy(() => import("./pages/rwa/Collectables"));
