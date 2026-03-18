@@ -65,9 +65,6 @@ const Footer = () => {
               {[
                 { label: "About", href: "/#about" },
                 { label: "Methodology", href: "/#vision" },
-                { label: "W3AI Deck", href: "/deck" },
-                { label: "TMRW Deck", href: "/corporate-deck" },
-                { label: "RTO Deck", href: "/rto-deck" },
                 { label: "RTO", href: "/rto" },
               ].map((link) => (
                 link.href.startsWith("/#") ? (
@@ -135,10 +132,11 @@ const Footer = () => {
               {[
               { label: "W3AI Whitepaper", href: "/whitepaper" },
               { label: "Path to $1B", href: "/path-to-1b" },
+              { label: "W3AI Deck", href: "/deck" },
+              { label: "TMRW Deck", href: "/corporate-deck" },
+              { label: "RTO Deck", href: "/rto-deck" },
               { label: "Intelligence", href: "/intel" },
-              { label: "Protocols", href: "/whitepaper#supported-networks" },
               { label: "Real World Assets", href: "/#rwa" },
-              { label: "Frequently Asked", href: "/legal#faq" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
                   <Link
@@ -190,8 +188,8 @@ const Footer = () => {
             <Link to={lp("/legal#privacy")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
             <Link to={lp("/legal#compliance")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">Compliance</Link>
             <Link to={lp("/legal#terms")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
-            
             <Link to={lp("/legal#data-processing")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">Data Processing</Link>
+            <Link to={lp("/legal#faq")} className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors">FAQ</Link>
           </div>
         </div>
       </div>
