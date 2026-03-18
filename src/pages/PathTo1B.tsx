@@ -204,7 +204,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">0.1%–1% per trade on secondary markets. Scales with liquidity.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={3} />
+        
       </div>
     ),
   },
