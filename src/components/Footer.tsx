@@ -106,6 +106,7 @@ const Footer = () => {
                 { label: "Intelligence", href: "/intel" },
                 { label: "W3AI Token", href: "/whitepaper" },
                 { label: "CUT Token", href: "/cut-token" },
+                { label: "Data Feeds", href: "/data-feeds" },
                 { label: "Security", href: "/security" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
@@ -134,7 +135,6 @@ const Footer = () => {
               {[
               { label: "W3AI Whitepaper", href: "/whitepaper" },
               { label: "Path to $1B", href: "/path-to-1b" },
-              { label: "Data Feeds", href: "/data-feeds" },
               { label: "Intelligence", href: "/intel" },
               { label: "Community", href: "#" },
               { label: "Documentation", href: "#" },
