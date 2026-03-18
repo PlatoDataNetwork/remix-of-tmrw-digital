@@ -284,7 +284,7 @@ const ChatWidget = () => {
                     maskPosition: "center",
                   }}
                 />
-                <span className="text-sm font-semibold text-white">Marvin</span>
+                <span className="text-sm font-semibold text-foreground">Marvin</span>
                 <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
               </div>
               <div className="flex items-center gap-1">
