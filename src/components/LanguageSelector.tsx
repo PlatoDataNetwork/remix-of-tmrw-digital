@@ -79,10 +79,10 @@ const LanguageSelector = () => {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="h-9 w-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+        className="h-9 w-9 flex items-center justify-center rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors"
         aria-label="Change language"
       >
-        <Globe className="h-4 w-4 text-white" />
+        <Globe className="h-4 w-4 text-foreground" />
       </button>
       <AnimatePresence>
         {open && (
