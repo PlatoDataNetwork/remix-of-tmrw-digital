@@ -94,7 +94,7 @@ const Navbar = () => {
                 }}
               />
               <span
-                className="notranslate text-lg lg:text-xl font-bold tracking-tight text-white"
+                className="notranslate text-lg lg:text-xl font-bold tracking-tight text-foreground"
                 translate="no"
               >
                 <span className="sm:hidden">Tomorrow</span>
