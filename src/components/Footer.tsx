@@ -136,9 +136,9 @@ const Footer = () => {
               { label: "W3AI Whitepaper", href: "/whitepaper" },
               { label: "Path to $1B", href: "/path-to-1b" },
               { label: "Intelligence", href: "/intel" },
-              { label: "FAQ", href: "/legal#faq" },
-              { label: "Community", href: "#" },
+              { label: "Protocols", href: "/whitepaper#w3ai-protocol" },
               { label: "Documentation", href: "#" },
+              { label: "FAQ", href: "/legal#faq" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
                   <Link
