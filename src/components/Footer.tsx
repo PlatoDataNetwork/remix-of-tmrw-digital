@@ -138,7 +138,7 @@ const Footer = () => {
               { label: "Intelligence", href: "/intel" },
               { label: "Protocols", href: "/whitepaper#w3ai-protocol" },
               { label: "Documentation", href: "#" },
-              { label: "FAQ", href: "/legal#faq" },
+              { label: "Frequently Asked", href: "/legal#faq" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
                   <Link
