@@ -441,7 +441,7 @@ const ChatWidget = () => {
                   <button
                     key={s.label}
                     onClick={() => handleFollowUp(s.text)}
-                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-white/[0.06] border border-white/10 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200"
+                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-foreground/[0.06] border border-border text-muted-foreground hover:text-foreground hover:bg-foreground/10 hover:border-foreground/20 transition-all duration-200"
                   >
                     {s.label}
                   </button>
