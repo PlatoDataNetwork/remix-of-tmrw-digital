@@ -84,7 +84,7 @@ const AdminContactDetail = () => {
               variant="ghost"
               size="sm"
               onClick={toggleRead}
-              className="text-white/50 hover:text-white"
+              className="text-white/50 hover:text-white hover:bg-white/10"
             >
               {contact.is_read ? (
                 <><MailOpen className="h-4 w-4 mr-1" /> Read</>
@@ -96,7 +96,7 @@ const AdminContactDetail = () => {
               variant="ghost"
               size="sm"
               onClick={toggleMarked}
-              className="text-white/50 hover:text-white"
+              className="text-white/50 hover:text-white hover:bg-white/10"
             >
               {contact.is_marked ? (
                 <><BookmarkCheck className="h-4 w-4 mr-1 text-yellow-400" /> Marked</>
