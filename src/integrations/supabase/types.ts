@@ -50,6 +50,83 @@ export type Database = {
         }
         Relationships: []
       }
+      api_usage_logs: {
+        Row: {
+          api_key_id: string | null
+          country_code: string | null
+          created_at: string | null
+          endpoint: string | null
+          id: string
+          ip_address: string | null
+          method: string | null
+          status_code: number | null
+        }
+        Insert: {
+          api_key_id?: string | null
+          country_code?: string | null
+          created_at?: string | null
+          endpoint?: string | null
+          id?: string
+          ip_address?: string | null
+          method?: string | null
+          status_code?: number | null
+        }
+        Update: {
+          api_key_id?: string | null
+          country_code?: string | null
+          created_at?: string | null
+          endpoint?: string | null
+          id?: string
+          ip_address?: string | null
+          method?: string | null
+          status_code?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "api_usage_logs_api_key_id_fkey"
+            columns: ["api_key_id"]
+            isOneToOne: false
+            referencedRelation: "api_keys"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      contact_submissions: {
+        Row: {
+          company: string | null
+          created_at: string | null
+          email: string
+          id: string
+          is_marked: boolean | null
+          is_read: boolean | null
+          message: string
+          name: string
+          updated_at: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string | null
+          email: string
+          id?: string
+          is_marked?: boolean | null
+          is_read?: boolean | null
+          message: string
+          name: string
+          updated_at?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string | null
+          email?: string
+          id?: string
+          is_marked?: boolean | null
+          is_read?: boolean | null
+          message?: string
+          name?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

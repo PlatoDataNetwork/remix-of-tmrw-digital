@@ -13,7 +13,18 @@ import ChatWidget from "./components/ChatWidget";
 import { ChatProvider } from "./components/ChatContext";
 import { SUPPORTED_LANGUAGES } from "./hooks/useLanguage";
 import Index from "./pages/Index";
+import { AdminAuthProvider } from "./contexts/AdminAuthContext";
 
+// Admin pages (lazy)
+const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
+const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
+const AdminAnalytics = lazy(() => import("./pages/admin/AdminAnalytics"));
+const AdminContacts = lazy(() => import("./pages/admin/AdminContacts"));
+const AdminContactDetail = lazy(() => import("./pages/admin/AdminContactDetail"));
+const AdminApiKeys = lazy(() => import("./pages/admin/AdminApiKeys"));
+const AdminApiKeyDetail = lazy(() => import("./pages/admin/AdminApiKeyDetail"));
+const AdminNotifications = lazy(() => import("./pages/admin/AdminNotifications"));
 // Lazy load secondary pages
 const RWAs = lazy(() => import("./pages/RWAs"));
 const Collectables = lazy(() => import("./pages/rwa/Collectables"));
@@ -157,28 +168,42 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ChatProvider>
-            <ScrollToTop />
-            <LanguageHandler />
-            <SeoHreflang />
-            <Suspense fallback={<LoadingScreen />}>
-              <Routes>
-                {/* Default English routes */}
-                <Route path="/" element={<Index />} />
-                {getRoutes().map(r => (
-                  <Route key={r.key} path={`/${r.props.path}`} element={r.props.element} />
-                ))}
+            <AdminAuthProvider>
+              <ScrollToTop />
+              <LanguageHandler />
+              <SeoHreflang />
+              <Suspense fallback={<LoadingScreen />}>
+                <Routes>
+                  {/* Admin routes */}
+                  <Route path="/tmrw-admin/login" element={<AdminLogin />} />
+                  <Route path="/tmrw-admin" element={<AdminLayout />}>
+                    <Route index element={<AdminDashboard />} />
+                    <Route path="analytics" element={<AdminAnalytics />} />
+                    <Route path="contacts" element={<AdminContacts />} />
+                    <Route path="contacts/:id" element={<AdminContactDetail />} />
+                    <Route path="api-keys" element={<AdminApiKeys />} />
+                    <Route path="api-keys/:id" element={<AdminApiKeyDetail />} />
+                    <Route path="notifications" element={<AdminNotifications />} />
+                  </Route>
 
-                {/* Language-prefixed routes */}
-                <Route path="/:lang" element={<LanguageLayout />}>
-                  <Route index element={<Index />} />
-                  {getRoutes()}
+                  {/* Default English routes */}
+                  <Route path="/" element={<Index />} />
+                  {getRoutes().map(r => (
+                    <Route key={r.key} path={`/${r.props.path}`} element={r.props.element} />
+                  ))}
+
+                  {/* Language-prefixed routes */}
+                  <Route path="/:lang" element={<LanguageLayout />}>
+                    <Route index element={<Index />} />
+                    {getRoutes()}
+                    <Route path="*" element={<NotFound />} />
+                  </Route>
+
                   <Route path="*" element={<NotFound />} />
-                </Route>
-
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-            <ChatWidget />
+                </Routes>
+              </Suspense>
+              <ChatWidget />
+            </AdminAuthProvider>
           </ChatProvider>
         </BrowserRouter>
       </TooltipProvider>

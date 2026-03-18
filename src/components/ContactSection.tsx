@@ -1,17 +1,32 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [formData, setFormData] = useState({ name: "", email: "", company: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // placeholder
-    alert("Thank you for your inquiry. We will be in touch shortly.");
-    setFormData({ name: "", email: "", company: "", message: "" });
+    setSubmitting(true);
+    try {
+      await supabase.from("contact_submissions").insert({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company || null,
+        message: formData.message,
+      });
+      alert("Thank you for your inquiry. We will be in touch shortly.");
+      setFormData({ name: "", email: "", company: "", message: "" });
+    } catch {
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -77,9 +92,10 @@ const ContactSection = () => {
             </div>
             <button
               type="submit"
-              className="inline-flex h-12 px-8 items-center gap-2 justify-center rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
+              disabled={submitting}
+              className="inline-flex h-12 px-8 items-center gap-2 justify-center rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
             >
-              Send Message
+              {submitting ? "Sending..." : "Send Message"}
               <Send className="h-4 w-4" />
             </button>
           </motion.form>
