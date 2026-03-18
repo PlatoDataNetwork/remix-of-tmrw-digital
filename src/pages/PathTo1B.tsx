@@ -175,7 +175,7 @@ const slides: Slide[] = [
           </GreenCard>
         </div>
         <SlideSubtitle>Even capturing a tiny share of that market could create large valuations.</SlideSubtitle>
-        <SlideNumber n={2} />
+        
       </div>
     ),
   },
