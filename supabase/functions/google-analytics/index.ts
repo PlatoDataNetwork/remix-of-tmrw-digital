@@ -79,56 +79,39 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Try to parse the key - handle various encoding issues
+    // Parse the service account - support both full JSON and just the private key
     let serviceAccount;
-    try {
-      let raw = keyJson.trim();
-      
-      // Log first chars for debugging (safe - no sensitive data in first few chars)
-      console.log("Secret starts with:", raw.substring(0, 20), "length:", raw.length);
-      
-      // If double-quoted (string-wrapped JSON), unwrap
-      if (raw.startsWith('"') && raw.endsWith('"')) {
-        raw = JSON.parse(raw); // unwrap the string
-      }
-      
-      // If it starts with a dash, it might be just the private key pasted directly
-      if (raw.startsWith('-----')) {
+    const raw = keyJson.trim();
+    
+    if (raw.startsWith('-----') || raw.startsWith('-----BEGIN')) {
+      // User provided just the private key - construct the service account object
+      serviceAccount = {
+        client_email: "tmrwdigital@platodata.iam.gserviceaccount.com",
+        private_key: raw,
+      };
+    } else {
+      // Try to parse as full JSON
+      try {
+        let jsonStr = raw;
+        if (jsonStr.startsWith('"') && jsonStr.endsWith('"')) {
+          jsonStr = JSON.parse(jsonStr);
+        }
+        serviceAccount = JSON.parse(jsonStr);
+      } catch (parseErr) {
+        console.error("Failed to parse GA_SERVICE_ACCOUNT_KEY:", parseErr);
         return new Response(
           JSON.stringify({ 
-            error: "GA_SERVICE_ACCOUNT_KEY should contain the full JSON service account file, not just the private key.",
-            hint: "Paste the entire JSON object (starting with {) from your service account file."
+            error: "GA_SERVICE_ACCOUNT_KEY contains invalid JSON.",
+            hint: "Paste the entire service account JSON file or just the private key."
           }),
           { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
-
-      // If it doesn't start with {, it's not valid JSON
-      if (!raw.startsWith('{')) {
-        return new Response(
-          JSON.stringify({ 
-            error: "GA_SERVICE_ACCOUNT_KEY must be a JSON object starting with {",
-            hint: `Current value starts with: ${raw.substring(0, 5)}...`
-          }),
-          { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
-      
-      serviceAccount = JSON.parse(raw);
-    } catch (parseErr) {
-      console.error("Failed to parse GA_SERVICE_ACCOUNT_KEY:", parseErr);
-      return new Response(
-        JSON.stringify({ 
-          error: "GA_SERVICE_ACCOUNT_KEY contains invalid JSON. Please re-enter the service account JSON key.",
-          hint: "Paste the entire contents of your service account JSON file as the secret value."
-        }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
     }
 
     if (!serviceAccount.client_email || !serviceAccount.private_key) {
       return new Response(
-        JSON.stringify({ error: "Service account JSON is missing client_email or private_key fields." }),
+        JSON.stringify({ error: "Service account is missing client_email or private_key fields." }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
