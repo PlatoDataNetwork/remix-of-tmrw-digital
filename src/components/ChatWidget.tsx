@@ -217,8 +217,8 @@ const ChatWidget = () => {
   }, [isLoading, messages, streamChat]);
 
   const panelClasses = maximized
-    ? "fixed top-16 lg:top-20 left-0 right-0 z-[55] w-full rounded-none border-t border-white/10 bg-[hsl(220,20%,6%,0.95)] backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden"
-    : "fixed bottom-6 right-6 z-[60] w-[360px] sm:w-[400px] h-[520px] rounded-2xl border border-white/10 bg-[hsl(220,20%,6%,0.65)] backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden";
+    ? "fixed top-16 lg:top-20 left-0 right-0 z-[55] w-full rounded-none border-t border-border bg-background/95 backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden"
+    : "fixed bottom-6 right-6 z-[60] w-[360px] sm:w-[400px] h-[520px] rounded-2xl border border-border bg-background/95 backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden";
 
   const panelHeight = maximized ? "calc(100vh - 4rem)" : undefined;
   const panelHeightLg = maximized ? "calc(100vh - 5rem)" : undefined;
