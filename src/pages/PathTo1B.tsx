@@ -450,7 +450,7 @@ const slides: Slide[] = [
             </div>
           ))}
         </div>
-        <SlideNumber n={11} />
+        
       </div>
     ),
   },
