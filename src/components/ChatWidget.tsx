@@ -450,7 +450,7 @@ const ChatWidget = () => {
             )}
 
             {/* Input */}
-            <div className="px-4 py-3 border-t border-white/10 bg-[hsl(220,20%,8%,0.7)]">
+            <div className="px-4 py-3 border-t border-border bg-card/70">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
