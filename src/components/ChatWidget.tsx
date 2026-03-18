@@ -269,7 +269,7 @@ const ChatWidget = () => {
             )}
 
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-[hsl(220,20%,8%,0.7)]">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-card/70">
               <div className="flex items-center gap-3">
                 <div
                   className="h-8 w-8 animated-gradient-icon-bright"
