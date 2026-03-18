@@ -10,10 +10,11 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAdminAuth } from "@/contexts/AdminAuthContext";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 import platoIcon from "@/assets/plato-icon.webp";
 
 const menuItems = [
@@ -28,6 +29,27 @@ const AdminLayout = () => {
   const { isAuthenticated, logout } = useAdminAuth();
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  useEffect(() => {
+    async function fetchUnread() {
+      const { count } = await supabase
+        .from("contact_submissions")
+        .select("id", { count: "exact", head: true })
+        .eq("is_read", false);
+      setUnreadCount(count || 0);
+    }
+    fetchUnread();
+
+    const channel = supabase
+      .channel("admin-unread-count")
+      .on("postgres_changes", { event: "*", schema: "public", table: "contact_submissions" }, () => {
+        fetchUnread();
+      })
+      .subscribe();
+
+    return () => { supabase.removeChannel(channel); };
+  }, []);
 
   if (!isAuthenticated) {
     return <Navigate to="/tmrw-admin/login" replace />;
@@ -133,16 +155,29 @@ const AdminLayout = () => {
         {/* Main Content */}
         <div className="flex-1 lg:ml-60 flex flex-col min-h-screen">
           {/* Top Header */}
-          <header className="sticky top-0 z-30 flex items-center h-14 px-4 border-b border-white/10 bg-[hsl(220,20%,4%,0.95)] backdrop-blur-xl">
-            <button
-              onClick={() => setSidebarOpen(true)}
-              className="lg:hidden p-1.5 text-white/60 hover:text-white mr-3"
+          <header className="sticky top-0 z-30 flex items-center justify-between h-14 px-4 border-b border-white/10 bg-[hsl(220,20%,4%,0.95)] backdrop-blur-xl">
+            <div className="flex items-center">
+              <button
+                onClick={() => setSidebarOpen(true)}
+                className="lg:hidden p-1.5 text-white/60 hover:text-white mr-3"
+              >
+                {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+              <h2 className="text-sm font-medium text-white/80">
+                {menuItems.find((m) => isActive(m.path))?.label || "Admin"}
+              </h2>
+            </div>
+            <Link
+              to="/tmrw-admin/notifications"
+              className="relative p-2 text-white/50 hover:text-white transition-colors"
             >
-              {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
-            <h2 className="text-sm font-medium text-white/80">
-              {menuItems.find((m) => isActive(m.path))?.label || "Admin"}
-            </h2>
+              <Bell className="h-5 w-5" />
+              {unreadCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 h-4 min-w-4 px-1 flex items-center justify-center rounded-full bg-red-500 text-white text-[10px] font-bold">
+                  {unreadCount > 99 ? "99+" : unreadCount}
+                </span>
+              )}
+            </Link>
           </header>
 
           {/* Page Content */}
