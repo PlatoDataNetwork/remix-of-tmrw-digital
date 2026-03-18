@@ -693,7 +693,7 @@ const slides: Slide[] = [
           <SectionLabel>Potential Valuation</SectionLabel>
           <div className="text-5xl font-extralight text-[hsl(82,85%,55%)] mt-3">$10B+</div>
         </GreenCard>
-        <SlideNumber n={19} />
+        
       </div>
     ),
   },
