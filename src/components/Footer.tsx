@@ -158,7 +158,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3 sm:mb-4">Connect</p>
+            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3 sm:mb-4">Community</p>
             <div className="space-y-2.5 sm:space-y-3">
               {[
                 { label: "LinkedIn", href: "#" },
