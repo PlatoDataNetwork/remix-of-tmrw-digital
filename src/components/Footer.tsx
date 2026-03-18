@@ -130,7 +130,7 @@ const Footer = () => {
             <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3 sm:mb-4">Resources</p>
             <div className="space-y-2.5 sm:space-y-3">
               {[
-              { label: "W3AI Whitepaper", href: "/whitepaper" },
+              { label: "Whitepaper", href: "/whitepaper" },
               { label: "Path to $1B", href: "/path-to-1b" },
               { label: "W3AI Deck", href: "/deck" },
               { label: "TMRW Deck", href: "/corporate-deck" },
