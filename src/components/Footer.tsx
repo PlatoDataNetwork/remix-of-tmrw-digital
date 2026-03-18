@@ -69,7 +69,6 @@ const Footer = () => {
                 { label: "TMRW Deck", href: "/corporate-deck" },
                 { label: "RTO Deck", href: "/rto-deck" },
                 { label: "RTO", href: "/rto" },
-                { label: "Contact", href: "/#contact" },
               ].map((link) => (
                 link.href.startsWith("/#") ? (
                   <a
@@ -133,7 +132,6 @@ const Footer = () => {
             <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3 sm:mb-4">Resources</p>
             <div className="space-y-2.5 sm:space-y-3">
               {[
-              { label: "RTO", href: "/rto" },
               { label: "Data Feeds", href: "/data-feeds" },
               { label: "Blog", href: "#" },
               { label: "Community", href: "#" },
@@ -160,7 +158,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3 sm:mb-4">Connect</p>
+            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3 sm:mb-4">Community</p>
             <div className="space-y-2.5 sm:space-y-3">
               {[
                 { label: "LinkedIn", href: "#" },
