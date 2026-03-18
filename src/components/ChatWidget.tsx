@@ -363,7 +363,7 @@ const ChatWidget = () => {
                       ) : (
                         <p>{msg.content}</p>
                       )}
-                      <p className={`text-[10px] mt-1.5 ${msg.role === "user" ? "text-white/40" : "text-white/30"}`}>
+                      <p className={`text-[10px] mt-1.5 ${msg.role === "user" ? "text-white/40" : "text-muted-foreground"}`}>
                         {msg.time}
                       </p>
                     </div>
