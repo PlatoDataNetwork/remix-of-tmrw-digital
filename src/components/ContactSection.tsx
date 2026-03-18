@@ -8,11 +8,25 @@ const ContactSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [formData, setFormData] = useState({ name: "", email: "", company: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // placeholder
-    alert("Thank you for your inquiry. We will be in touch shortly.");
-    setFormData({ name: "", email: "", company: "", message: "" });
+    setSubmitting(true);
+    try {
+      await supabase.from("contact_submissions").insert({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company || null,
+        message: formData.message,
+      });
+      alert("Thank you for your inquiry. We will be in touch shortly.");
+      setFormData({ name: "", email: "", company: "", message: "" });
+    } catch {
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
