@@ -483,7 +483,7 @@ const AdminAnalytics = () => {
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
                   <XAxis type="number" stroke="rgba(255,255,255,0.3)" tick={{ fontSize: 11 }} />
                   <YAxis dataKey="country" type="category" stroke="rgba(255,255,255,0.3)" tick={{ fontSize: 11 }} width={100} />
-                  <Tooltip {...tooltipStyle} />
+                  <Tooltip {...tooltipStyle} cursor={{ fill: "rgba(255,255,255,0.05)" }} />
                   <Bar dataKey="users" fill="#3b82f6" radius={[0, 4, 4, 0]} />
                 </BarChart>
               </ResponsiveContainer>
