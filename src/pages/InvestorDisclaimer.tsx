@@ -93,6 +93,14 @@ const InvestorDisclaimer = () => {
       return;
     }
 
+    // Persist to database
+    supabase.from("investor_submissions").insert({
+      full_name: name.trim(),
+      email: email.trim(),
+      initials: initials.trim().toUpperCase(),
+      user_agent: navigator.userAgent,
+    }).then(() => {});
+
     sessionStorage.setItem("investor_access", JSON.stringify({
       name: name.trim(),
       email: email.trim(),
