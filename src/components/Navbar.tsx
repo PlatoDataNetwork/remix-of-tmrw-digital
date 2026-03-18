@@ -216,7 +216,7 @@ const Navbar = () => {
                       <a
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link.href)}
-                        className="block py-3 text-lg font-light text-white/80 hover:text-white transition-colors border-b border-white/5"
+                        className="block py-3 text-lg font-light text-foreground/80 hover:text-foreground transition-colors border-b border-border/50"
                       >
                         {link.label}
                       </a>
