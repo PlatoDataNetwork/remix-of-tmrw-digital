@@ -422,7 +422,7 @@ const slides: Slide[] = [
           { bold: "Issuers build on TMRW", text: "— they bring their own assets, users, and capital." },
           { bold: "TMRW earns on everything", text: "— minting, compliance, settlement, transfers — every transaction, every asset, every chain." },
         ]} />
-        <SlideNumber n={10} />
+        
       </div>
     ),
   },
