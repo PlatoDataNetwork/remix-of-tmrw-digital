@@ -191,7 +191,7 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed inset-y-0 right-0 z-[70] w-[80vw] max-w-sm bg-[hsl(220,20%,4%)] border-l border-white/10 flex flex-col"
+              className="fixed inset-y-0 right-0 z-[70] w-[80vw] max-w-sm bg-background border-l border-border flex flex-col"
             >
               {/* Drawer header */}
               <div className="flex items-center justify-end px-4 py-3">
