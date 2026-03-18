@@ -136,6 +136,7 @@ const Footer = () => {
               { label: "W3AI Whitepaper", href: "/whitepaper" },
               { label: "Path to $1B", href: "/path-to-1b" },
               { label: "Intelligence", href: "/intel" },
+              { label: "FAQ", href: "/legal#faq" },
               { label: "Community", href: "#" },
               { label: "Documentation", href: "#" },
               ].map((link) => (
