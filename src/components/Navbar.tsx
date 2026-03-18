@@ -73,7 +73,7 @@ const Navbar = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[hsl(220,20%,4%,0.9)] border-b border-white/10"
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/90 border-b border-border"
       >
         <div className="max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6">
         <div className="relative flex items-center justify-between h-16 lg:h-20">
@@ -94,7 +94,7 @@ const Navbar = () => {
                 }}
               />
               <span
-                className="notranslate text-lg lg:text-xl font-bold tracking-tight text-white"
+                className="notranslate text-lg lg:text-xl font-bold tracking-tight text-foreground"
                 translate="no"
               >
                 <span className="sm:hidden">Tomorrow</span>
@@ -110,7 +110,7 @@ const Navbar = () => {
                     key={link.label}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-sm font-medium text-white/60 hover:text-white transition-colors duration-200 whitespace-nowrap"
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 whitespace-nowrap"
                   >
                     {link.label}
                   </a>
@@ -118,7 +118,7 @@ const Navbar = () => {
                   <Link
                     key={link.label}
                     to={lp(link.href)}
-                    className="text-sm font-medium text-white/60 hover:text-white transition-colors duration-200 whitespace-nowrap"
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 whitespace-nowrap"
                   >
                     {link.label}
                   </Link>
@@ -139,7 +139,7 @@ const Navbar = () => {
               </Link>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-1.5 text-white"
+                className="lg:hidden p-1.5 text-foreground"
                 aria-label="Toggle menu"
               >
                 <AnimatePresence mode="wait">
@@ -191,13 +191,13 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed inset-y-0 right-0 z-[70] w-[80vw] max-w-sm bg-[hsl(220,20%,4%)] border-l border-white/10 flex flex-col"
+              className="fixed inset-y-0 right-0 z-[70] w-[80vw] max-w-sm bg-background border-l border-border flex flex-col"
             >
               {/* Drawer header */}
               <div className="flex items-center justify-end px-4 py-3">
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="p-1.5 text-white/60 hover:text-white transition-colors"
+                  className="p-1.5 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -216,7 +216,7 @@ const Navbar = () => {
                       <a
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link.href)}
-                        className="block py-3 text-lg font-light text-white/80 hover:text-white transition-colors border-b border-white/5"
+                        className="block py-3 text-lg font-light text-foreground/80 hover:text-foreground transition-colors border-b border-border/50"
                       >
                         {link.label}
                       </a>
@@ -224,7 +224,7 @@ const Navbar = () => {
                       <Link
                         to={lp(link.href)}
                         onClick={() => setMobileOpen(false)}
-                        className="block py-3 text-lg font-light text-white/80 hover:text-white transition-colors border-b border-white/5"
+                        className="block py-3 text-lg font-light text-foreground/80 hover:text-foreground transition-colors border-b border-border/50"
                       >
                         {link.label}
                       </Link>
@@ -240,7 +240,7 @@ const Navbar = () => {
                   <Link
                     to={lp("/investors")}
                     onClick={() => setMobileOpen(false)}
-                    className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-white text-sm font-medium mt-6"
+                    className="inline-flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-[hsl(260,80%,55%)] to-[hsl(220,90%,55%)] text-primary-foreground text-sm font-medium mt-6"
                   >
                     Investors
                   </Link>

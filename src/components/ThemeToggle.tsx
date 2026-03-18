@@ -35,7 +35,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={cycleTheme}
-      className="relative p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+      className="relative p-2 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors"
       aria-label="Toggle theme"
     >
       <AnimatePresence mode="wait">
@@ -47,7 +47,7 @@ const ThemeToggle = () => {
           transition={{ duration: 0.25 }}
           className="flex items-center justify-center"
         >
-          <Icon className={`h-4 w-4 ${theme === "colorful" ? "text-purple-400" : "text-white"}`} />
+          <Icon className={`h-4 w-4 ${theme === "colorful" ? "text-purple-400" : "text-foreground"}`} />
         </motion.div>
       </AnimatePresence>
     </button>
