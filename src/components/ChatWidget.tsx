@@ -303,9 +303,9 @@ const ChatWidget = () => {
                   title={maximized ? "Minimize" : "Maximize"}
                 >
                   {maximized ? (
-                    <Minimize2 className="h-3.5 w-3.5 text-white/50" />
+                    <Minimize2 className="h-3.5 w-3.5 text-muted-foreground" />
                   ) : (
-                    <Maximize2 className="h-3.5 w-3.5 text-white/50" />
+                    <Maximize2 className="h-3.5 w-3.5 text-muted-foreground" />
                   )}
                 </button>
                 <button
