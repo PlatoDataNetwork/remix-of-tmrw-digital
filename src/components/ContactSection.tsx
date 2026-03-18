@@ -92,9 +92,10 @@ const ContactSection = () => {
             </div>
             <button
               type="submit"
-              className="inline-flex h-12 px-8 items-center gap-2 justify-center rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
+              disabled={submitting}
+              className="inline-flex h-12 px-8 items-center gap-2 justify-center rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
             >
-              Send Message
+              {submitting ? "Sending..." : "Send Message"}
               <Send className="h-4 w-4" />
             </button>
           </motion.form>

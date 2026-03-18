@@ -168,28 +168,42 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ChatProvider>
-            <ScrollToTop />
-            <LanguageHandler />
-            <SeoHreflang />
-            <Suspense fallback={<LoadingScreen />}>
-              <Routes>
-                {/* Default English routes */}
-                <Route path="/" element={<Index />} />
-                {getRoutes().map(r => (
-                  <Route key={r.key} path={`/${r.props.path}`} element={r.props.element} />
-                ))}
+            <AdminAuthProvider>
+              <ScrollToTop />
+              <LanguageHandler />
+              <SeoHreflang />
+              <Suspense fallback={<LoadingScreen />}>
+                <Routes>
+                  {/* Admin routes */}
+                  <Route path="/tmrw-admin/login" element={<AdminLogin />} />
+                  <Route path="/tmrw-admin" element={<AdminLayout />}>
+                    <Route index element={<AdminDashboard />} />
+                    <Route path="analytics" element={<AdminAnalytics />} />
+                    <Route path="contacts" element={<AdminContacts />} />
+                    <Route path="contacts/:id" element={<AdminContactDetail />} />
+                    <Route path="api-keys" element={<AdminApiKeys />} />
+                    <Route path="api-keys/:id" element={<AdminApiKeyDetail />} />
+                    <Route path="notifications" element={<AdminNotifications />} />
+                  </Route>
 
-                {/* Language-prefixed routes */}
-                <Route path="/:lang" element={<LanguageLayout />}>
-                  <Route index element={<Index />} />
-                  {getRoutes()}
+                  {/* Default English routes */}
+                  <Route path="/" element={<Index />} />
+                  {getRoutes().map(r => (
+                    <Route key={r.key} path={`/${r.props.path}`} element={r.props.element} />
+                  ))}
+
+                  {/* Language-prefixed routes */}
+                  <Route path="/:lang" element={<LanguageLayout />}>
+                    <Route index element={<Index />} />
+                    {getRoutes()}
+                    <Route path="*" element={<NotFound />} />
+                  </Route>
+
                   <Route path="*" element={<NotFound />} />
-                </Route>
-
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-            <ChatWidget />
+                </Routes>
+              </Suspense>
+              <ChatWidget />
+            </AdminAuthProvider>
           </ChatProvider>
         </BrowserRouter>
       </TooltipProvider>
