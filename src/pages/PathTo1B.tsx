@@ -581,7 +581,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Tokenize funds, not single properties. Much larger volumes, broader investor appeal.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={15} />
+        
       </div>
     ),
   },
