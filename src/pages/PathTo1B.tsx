@@ -44,15 +44,6 @@ function SlideAccent() {
   );
 }
 
-function SlideNumber({ n }: { n: number }) {
-  return (
-    <div className="absolute bottom-4 left-6 md:bottom-6 md:left-8 z-20 pointer-events-none">
-      <span className="text-[10px] font-light tracking-[0.2em] text-[hsl(82,85%,55%,0.5)]">
-        {String(n).padStart(2, "0")}
-      </span>
-    </div>
-  );
-}
 
 function StatBlock({ value, label }: { value: string; label: string }) {
   return (
