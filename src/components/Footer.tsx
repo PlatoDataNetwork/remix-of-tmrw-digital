@@ -135,7 +135,6 @@ const Footer = () => {
               { label: "W3AI Deck", href: "/deck" },
               { label: "TMRW Deck", href: "/corporate-deck" },
               { label: "RTO Deck", href: "/rto-deck" },
-              { label: "Intelligence", href: "/intel" },
               { label: "Real World Assets", href: "/#rwa" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
