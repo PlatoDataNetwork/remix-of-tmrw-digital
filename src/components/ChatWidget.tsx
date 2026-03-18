@@ -295,7 +295,7 @@ const ChatWidget = () => {
                   className="p-1.5 rounded-full hover:bg-foreground/10 transition-colors"
                   title="Clear chat"
                 >
-                  <Trash2 className="h-3.5 w-3.5 text-white/50" />
+                  <Trash2 className="h-3.5 w-3.5 text-muted-foreground" />
                 </button>
                 <button
                   onClick={() => setMaximized(!maximized)}
