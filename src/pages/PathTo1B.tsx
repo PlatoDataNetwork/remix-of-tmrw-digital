@@ -555,7 +555,7 @@ const slides: Slide[] = [
             "Who Already Controls the Investors?"
           </SlideTitle>
         </div>
-        <div className="grid grid-cols-3 gap-4 max-w-xl">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-xl">
           {["Exchanges", "Broker Platforms", "Neobanks", "Fintech Apps", "Wealth Managers", "Investment Marketplaces"].map(e => (
             <div key={e} className="text-xs font-light text-muted-foreground border border-border/30 rounded-lg p-3 text-center">{e}</div>
           ))}
