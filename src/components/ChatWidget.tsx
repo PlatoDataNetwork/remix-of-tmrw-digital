@@ -299,7 +299,7 @@ const ChatWidget = () => {
                 </button>
                 <button
                   onClick={() => setMaximized(!maximized)}
-                  className="p-1.5 rounded-full hover:bg-white/10 transition-colors"
+                  className="p-1.5 rounded-full hover:bg-foreground/10 transition-colors"
                   title={maximized ? "Minimize" : "Maximize"}
                 >
                   {maximized ? (
