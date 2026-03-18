@@ -139,7 +139,7 @@ const Navbar = () => {
               </Link>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-1.5 text-white"
+                className="lg:hidden p-1.5 text-foreground"
                 aria-label="Toggle menu"
               >
                 <AnimatePresence mode="wait">
