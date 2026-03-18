@@ -411,7 +411,7 @@ const ChatWidget = () => {
                           whileHover={{ scale: 1.05, y: -1 }}
                           whileTap={{ scale: 0.97 }}
                           onClick={() => handleFollowUp("Tell me a blockchain joke")}
-                          className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-[hsl(45,80%,35%,0.4)] to-[hsl(30,70%,30%,0.4)] border border-white/10 text-white/80 hover:text-white hover:border-white/25 hover:from-[hsl(45,80%,40%,0.5)] hover:to-[hsl(30,70%,35%,0.5)] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[hsl(45,80%,55%,0.15)]"
+                          className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-[hsl(45,80%,35%,0.4)] to-[hsl(30,70%,30%,0.4)] border border-border text-foreground/80 hover:text-foreground hover:border-foreground/25 hover:from-[hsl(45,80%,40%,0.5)] hover:to-[hsl(30,70%,35%,0.5)] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[hsl(45,80%,55%,0.15)]"
                         >
                           ⛓️ Blockchain Joke
                         </motion.button>
