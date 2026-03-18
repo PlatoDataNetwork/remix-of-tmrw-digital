@@ -94,7 +94,7 @@ const sections: Section[] = [
     { id: "rails-tokenization", title: "Tokenization & RWA Access" },
     { id: "rails-reporting", title: "Institutional Reporting" },
   ]},
-  { id: "supported-networks", title: "Supported Networks", number: "11", children: [
+  { id: "supported-networks", title: "Supported Protocols", number: "11", children: [
     { id: "network-solana", title: "Solana" },
     { id: "network-ethereum", title: "Ethereum" },
     { id: "network-bsc", title: "BNB Smart Chain" },
@@ -2215,7 +2215,7 @@ W3AI.ai.registerTool({
       {/* ============================================================ */}
       <div className={p("supported-networks")}>
         <section id="supported-networks">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Supported Networks</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">Supported Protocols</h2>
           <div className="prose-section">
             <p>W3AI is built as a multi-chain protocol with native presence across foundational blockchain ecosystems. Each network was selected for its unique strengths in performance, composability, and community reach — together providing comprehensive coverage of the Web3 landscape.</p>
           </div>
