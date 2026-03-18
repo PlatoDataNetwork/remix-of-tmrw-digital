@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
@@ -172,7 +172,7 @@ const slides: Slide[] = [
         <SlideAccent />
         <SectionLabel>The Opportunity</SectionLabel>
         <SlideTitle>The Tokenization Market Is Expected to Explode.</SlideTitle>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <GreenCard>
             <StatBlock value="$16T" label="BCG Projection by 2030" />
           </GreenCard>
@@ -266,7 +266,7 @@ const slides: Slide[] = [
         <SlideAccent />
         <SectionLabel>Growth Scenario</SectionLabel>
         <SlideTitle>Year 3–4: Scale.</SlideTitle>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           <GreenCard className="text-center py-6 space-y-2">
             <SectionLabel>Assets Tokenized</SectionLabel>
             <div className="text-3xl font-extralight text-[hsl(82,85%,55%)]">$3B</div>
@@ -297,7 +297,7 @@ const slides: Slide[] = [
         <SlideAccent />
         <SectionLabel>Growth Scenario</SectionLabel>
         <SlideTitle>Year 5+: Breakout.</SlideTitle>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           <GreenCard className="text-center py-6 space-y-2">
             <SectionLabel>Assets Tokenized</SectionLabel>
             <div className="text-3xl font-extralight text-[hsl(82,85%,55%)]">$10B+</div>
@@ -555,7 +555,7 @@ const slides: Slide[] = [
             "Who Already Controls the Investors?"
           </SlideTitle>
         </div>
-        <div className="grid grid-cols-3 gap-4 max-w-xl">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-xl">
           {["Exchanges", "Broker Platforms", "Neobanks", "Fintech Apps", "Wealth Managers", "Investment Marketplaces"].map(e => (
             <div key={e} className="text-xs font-light text-muted-foreground border border-border/30 rounded-lg p-3 text-center">{e}</div>
           ))}
@@ -790,11 +790,18 @@ const slides: Slide[] = [
 // --- Deck viewer ---
 export default function PathTo1B() {
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [fullscreen, setFullscreen] = useState(false);
+  const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const total = slides.length;
 
-  const next = useCallback(() => setCurrent(c => Math.min(c + 1, total - 1)), [total]);
-  const prev = useCallback(() => setCurrent(c => Math.max(c - 1, 0)), []);
+  const next = useCallback(() => { setDirection('right'); setCurrent(c => Math.min(c + 1, total - 1)); }, [total]);
+  const prev = useCallback(() => { setDirection('left'); setCurrent(c => Math.max(c - 1, 0)); }, []);
+
+  // Auto-scroll active thumbnail into view
+  useEffect(() => {
+    thumbRefs.current[current]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [current]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -812,15 +819,19 @@ export default function PathTo1B() {
   const slideContent = (
     <div className={cn(
       "relative w-full bg-background border border-border rounded-2xl overflow-hidden transition-all duration-300",
-      fullscreen ? "fixed inset-0 z-[80] rounded-none border-none" : "aspect-video"
+      fullscreen ? "fixed inset-0 z-[80] rounded-none border-none flex flex-col" : "min-h-[400px] sm:min-h-[500px] flex flex-col"
     )}>
       <SlideBranding />
-      <div key={current} className="absolute inset-0 p-8 md:p-16 flex flex-col animate-fade-in">
+      <div key={current} className={cn(
+        "p-6 sm:p-8 md:p-16 flex flex-col",
+        fullscreen ? "flex-1" : "flex-1",
+        direction === 'right' ? "animate-slide-in-right" : "animate-slide-in-left"
+      )}>
         {slides[current].render()}
       </div>
 
       <div className={cn(
-        "absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 py-4",
+        "flex items-center justify-between px-6 py-4",
         "bg-gradient-to-t from-background/80 to-transparent"
       )}>
         <button onClick={prev} disabled={current === 0}
@@ -853,7 +864,8 @@ export default function PathTo1B() {
       {slides.map((s, i) => (
         <button
           key={s.id}
-          onClick={() => setCurrent(i)}
+          ref={el => { thumbRefs.current[i] = el; }}
+          onClick={() => { setDirection(i > current ? 'right' : 'left'); setCurrent(i); }}
           className={cn(
             "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all",
             i === current
