@@ -551,7 +551,7 @@ const slides: Slide[] = [
             <div key={e} className="text-xs font-light text-muted-foreground border border-border/30 rounded-lg p-3 text-center">{e}</div>
           ))}
         </div>
-        <SlideNumber n={14} />
+        
       </div>
     ),
   },
