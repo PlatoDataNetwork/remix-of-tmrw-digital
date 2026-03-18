@@ -391,7 +391,7 @@ const slides: Slide[] = [
         </p>
         <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
         <p className="text-2xl font-extralight text-[hsl(82,85%,55%)]">"Stripe for RWAs."</p>
-        <SlideNumber n={9} />
+        
       </div>
     ),
   },
