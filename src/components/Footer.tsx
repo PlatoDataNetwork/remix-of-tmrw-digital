@@ -69,7 +69,6 @@ const Footer = () => {
                 { label: "TMRW Deck", href: "/corporate-deck" },
                 { label: "RTO Deck", href: "/rto-deck" },
                 { label: "RTO", href: "/rto" },
-                { label: "Contact", href: "/#contact" },
               ].map((link) => (
                 link.href.startsWith("/#") ? (
                   <a
