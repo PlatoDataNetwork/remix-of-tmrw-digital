@@ -337,7 +337,7 @@ const slides: Slide[] = [
           { bold: "Asset demand increases", text: "— more investor access, broader distribution." },
           { bold: "Issuance volume increases", text: "— more issuers attracted by proven liquidity." },
         ]} />
-        <SlideNumber n={7} />
+        
       </div>
     ),
   },
