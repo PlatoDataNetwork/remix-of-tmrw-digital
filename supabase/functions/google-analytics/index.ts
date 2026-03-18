@@ -1,6 +1,6 @@
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
 // Create JWT from service account
@@ -26,6 +26,7 @@ async function createJWT(serviceAccount: { client_email: string; private_key: st
   const pemContents = serviceAccount.private_key
     .replace(/-----BEGIN PRIVATE KEY-----/, "")
     .replace(/-----END PRIVATE KEY-----/, "")
+    .replace(/\\n/g, "")
     .replace(/\n/g, "");
 
   const keyData = Uint8Array.from(atob(pemContents), (c) => c.charCodeAt(0));
@@ -78,15 +79,43 @@ Deno.serve(async (req) => {
       );
     }
 
-    const serviceAccount = JSON.parse(keyJson);
+    // Try to parse the key - handle escaped JSON strings
+    let serviceAccount;
+    try {
+      const trimmed = keyJson.trim();
+      // If the value is double-encoded (wrapped in quotes), unwrap first
+      if (trimmed.startsWith('"') && trimmed.endsWith('"')) {
+        serviceAccount = JSON.parse(JSON.parse(trimmed));
+      } else {
+        serviceAccount = JSON.parse(trimmed);
+      }
+    } catch (parseErr) {
+      console.error("Failed to parse GA_SERVICE_ACCOUNT_KEY:", parseErr);
+      return new Response(
+        JSON.stringify({ 
+          error: "GA_SERVICE_ACCOUNT_KEY contains invalid JSON. Please re-enter the service account JSON key.",
+          hint: "Paste the entire contents of your service account JSON file as the secret value."
+        }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    if (!serviceAccount.client_email || !serviceAccount.private_key) {
+      return new Response(
+        JSON.stringify({ error: "Service account JSON is missing client_email or private_key fields." }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
     const accessToken = await getAccessToken(serviceAccount);
 
     const { report, propertyId, startDate, endDate, dimensions, metrics } = await req.json();
 
-    const gaPropertyId = propertyId || serviceAccount.property_id;
+    // Use propertyId from request, then from service account JSON, then env
+    const gaPropertyId = propertyId || serviceAccount.property_id || Deno.env.get("GA_PROPERTY_ID");
     if (!gaPropertyId) {
       return new Response(
-        JSON.stringify({ error: "propertyId is required" }),
+        JSON.stringify({ error: "propertyId is required. Set it in the request body, service account JSON (as property_id), or as GA_PROPERTY_ID secret." }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -147,6 +176,7 @@ Deno.serve(async (req) => {
     });
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : "Unknown error";
+    console.error("GA function error:", msg);
     return new Response(
       JSON.stringify({ error: msg }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
