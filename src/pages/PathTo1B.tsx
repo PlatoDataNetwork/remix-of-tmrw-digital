@@ -266,7 +266,7 @@ const slides: Slide[] = [
         <SlideAccent />
         <SectionLabel>Growth Scenario</SectionLabel>
         <SlideTitle>Year 3–4: Scale.</SlideTitle>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           <GreenCard className="text-center py-6 space-y-2">
             <SectionLabel>Assets Tokenized</SectionLabel>
             <div className="text-3xl font-extralight text-[hsl(82,85%,55%)]">$3B</div>
