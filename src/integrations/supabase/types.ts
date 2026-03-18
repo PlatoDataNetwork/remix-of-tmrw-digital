@@ -127,6 +127,36 @@ export type Database = {
         }
         Relationships: []
       }
+      investor_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          initials: string
+          ip_address: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          initials: string
+          ip_address?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          initials?: string
+          ip_address?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

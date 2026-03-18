@@ -7,6 +7,7 @@ import { ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import { supabase } from "@/integrations/supabase/client";
 
 const disclaimerText = `IMPORTANT LEGAL DISCLAIMER — PLEASE READ CAREFULLY
 
@@ -91,6 +92,14 @@ const InvestorDisclaimer = () => {
       setError("Please enter your initials (2-5 characters).");
       return;
     }
+
+    // Persist to database
+    supabase.from("investor_submissions").insert({
+      full_name: name.trim(),
+      email: email.trim(),
+      initials: initials.trim().toUpperCase(),
+      user_agent: navigator.userAgent,
+    }).then(() => {});
 
     sessionStorage.setItem("investor_access", JSON.stringify({
       name: name.trim(),

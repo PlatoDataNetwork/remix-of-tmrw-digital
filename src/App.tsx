@@ -25,6 +25,7 @@ const AdminContactDetail = lazy(() => import("./pages/admin/AdminContactDetail")
 const AdminApiKeys = lazy(() => import("./pages/admin/AdminApiKeys"));
 const AdminApiKeyDetail = lazy(() => import("./pages/admin/AdminApiKeyDetail"));
 const AdminNotifications = lazy(() => import("./pages/admin/AdminNotifications"));
+const AdminInvestors = lazy(() => import("./pages/admin/AdminInvestors"));
 // Lazy load secondary pages
 const RWAs = lazy(() => import("./pages/RWAs"));
 const Collectables = lazy(() => import("./pages/rwa/Collectables"));
@@ -183,6 +184,7 @@ const App = () => (
                     <Route path="contacts/:id" element={<AdminContactDetail />} />
                     <Route path="api-keys" element={<AdminApiKeys />} />
                     <Route path="api-keys/:id" element={<AdminApiKeyDetail />} />
+                    <Route path="investors" element={<AdminInvestors />} />
                     <Route path="notifications" element={<AdminNotifications />} />
                   </Route>
 
