@@ -11,7 +11,7 @@ const articles = [
   {
     date: "Mar 2026",
     subject: "Press Release",
-    category: "The Tomorrow Company",
+    category: "Launch",
     title: "The Tomorrow Company Launches to Build the Infrastructure Layer of the AI-Native Financial Era",
     excerpt: "Strategic merger forms an integrated Web3 infrastructure platform at the convergence of AI, tokenized real-world assets, and programmable climate markets.",
     slug: "/blog/tmrw-launch",
@@ -26,7 +26,7 @@ const articles = [
   },
   {
     date: "Mar 2026",
-    subject: "Investments",
+    subject: "Alternative Investments",
     category: "Tokenization",
     title: "How Tokenization Can Unlock a $400 Billion Opportunity in Alternative Investments",
     excerpt: "Tokenization is poised to transform how $150 trillion in individual wealth accesses private equity, real estate, and hedge funds — representing a $400B annual revenue opportunity.",
@@ -229,12 +229,9 @@ const Intel = () => {
                           maskPosition: 'center',
                         }}
                       />
-                      <div className="flex items-center gap-2 flex-wrap">
+                      <div className="flex items-center gap-2">
                         <span className="text-[10px] uppercase tracking-wider text-muted-foreground">{article.date}</span>
                         <span className="text-[10px] px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground">{article.subject}</span>
-                        {article.category !== article.subject && (
-                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">{article.category}</span>
-                        )}
                       </div>
                     </div>
                     <h3 className="text-base font-medium text-foreground group-hover:text-foreground/80 transition-colors mb-3 line-clamp-2">
