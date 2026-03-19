@@ -66,7 +66,16 @@ const EndpointCard = ({
   const [copied, setCopied] = useState(false);
 
   const constructUrl = () => {
-    let url = baseUrl + path;
+    // Replace path params like {vertical}, {id} with actual values
+    let resolvedPath = path;
+    parameters
+      .filter((p) => p.in === "path")
+      .forEach((p) => {
+        const val = paramValues[p.name] || `{${p.name}}`;
+        resolvedPath = resolvedPath.replace(`{${p.name}}`, val);
+      });
+
+    let url = baseUrl + resolvedPath;
     const queryParams = parameters
       .filter((p) => p.in === "query" && paramValues[p.name])
       .map((p) => `${p.name}=${encodeURIComponent(paramValues[p.name])}`)
