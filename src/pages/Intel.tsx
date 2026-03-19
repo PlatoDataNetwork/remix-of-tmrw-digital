@@ -144,7 +144,7 @@ const Intel = () => {
             className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
           >
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Intel</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Intelligence</p>
               <h1 className="text-3xl md:text-5xl font-light text-foreground mb-6">
                 Latest Insights
               </h1>
