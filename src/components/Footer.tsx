@@ -169,6 +169,7 @@ const Footer = () => {
                 { label: "Telegram", href: "#" },
                 { label: "Reddit", href: "#" },
                 { label: "Discord", href: "#" },
+                { label: "Web3", href: "https://web3.foundation/" },
               ].map((link) => (
                 <a
                   key={link.label}
