@@ -17,6 +17,14 @@ const articles = [
     slug: "/blog/tmrw-launch",
   },
   {
+    date: "Mar 2026",
+    subject: "Alternative Investments",
+    category: "Tokenization",
+    title: "How Tokenization Can Unlock a $400 Billion Opportunity in Alternative Investments",
+    excerpt: "Tokenization is poised to transform how $150 trillion in individual wealth accesses private equity, real estate, and hedge funds — representing a $400B annual revenue opportunity.",
+    slug: "/blog/tokenization-alternatives",
+  },
+  {
     date: "Feb 2026",
     subject: "Web3",
     category: "Tokenization",
