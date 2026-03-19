@@ -18,7 +18,6 @@ const articles = [
     excerpt: "The SEC has greenlit a landmark Nasdaq pilot for trading tokenized equities on a national exchange.",
     slug: "/blog/sec-nasdaq-tokenized-stocks",
   },
-  },
   {
     date: "Feb 2026",
     category: "Market Insight",
