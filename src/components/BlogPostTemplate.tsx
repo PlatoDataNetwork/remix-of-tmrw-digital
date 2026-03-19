@@ -63,10 +63,12 @@ const BlogPostTemplate = ({ data }: { data: BlogPostData }) => {
               <Tag className="h-3 w-3" />
               {data.category}
             </span>
-            <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-              <Clock className="h-3.5 w-3.5" />
-              {data.readTime}
-            </span>
+            {data.readTime && (
+              <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+                <Clock className="h-3.5 w-3.5" />
+                {data.readTime}
+              </span>
+            )}
           </motion.div>
 
           <motion.h1
