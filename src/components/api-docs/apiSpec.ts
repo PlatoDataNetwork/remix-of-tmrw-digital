@@ -131,7 +131,7 @@ export const API_ENDPOINTS: ApiEndpoint[] = [
     parameters: [
       {
         name: "vertical",
-        in: "query",
+        in: "path",
         required: true,
         type: "string",
         description: "The vertical slug (e.g., blockchain, fintech, real-estate)",
