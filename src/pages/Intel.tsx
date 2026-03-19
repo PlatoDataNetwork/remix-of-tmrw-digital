@@ -125,7 +125,7 @@ const articles = [
 const Intel = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [viewMode, setViewMode] = useState<"list" | "grid">("list");
+  const [viewMode, setViewMode] = useState<"list" | "grid">("grid");
 
   return (
     <div className="min-h-screen bg-background">
