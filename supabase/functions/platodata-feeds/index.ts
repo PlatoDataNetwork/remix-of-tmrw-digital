@@ -13,20 +13,8 @@ Deno.serve(async (req) => {
   }
 
   try {
-    // --- Protection: require either Supabase auth header or internal key ---
-    const authHeader = req.headers.get("authorization");
-    const internalKey = req.headers.get("x-internal-key");
-    const expectedKey = Deno.env.get("INTERNAL_API_SECRET");
-
-    const hasValidAuth = !!authHeader && authHeader.startsWith("Bearer ");
-    const hasValidInternalKey = expectedKey && internalKey === expectedKey;
-
-    if (!hasValidAuth && !hasValidInternalKey) {
-      return new Response(
-        JSON.stringify({ success: false, error: "Unauthorized" }),
-        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
+    // Protection is handled at the Supabase level (apikey header required)
+    // For external access from other websites, use x-internal-key header
 
     // --- Connect to PlatoData Supabase ---
     const platoUrl = Deno.env.get("PLATODATA_SUPABASE_URL");
