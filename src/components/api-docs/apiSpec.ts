@@ -152,15 +152,6 @@ export const API_ENDPOINTS: ApiEndpoint[] = [
         description: "Number of articles per page (1-100)",
         default: "20",
       },
-      {
-        name: "format",
-        in: "query",
-        required: false,
-        type: "string",
-        description: "Response format",
-        default: "api",
-        enum: ["api", "json", "xml"],
-      },
     ],
     responses: [
       {
