@@ -107,6 +107,7 @@ const sections: Section[] = [
     { id: "network-fantom", title: "Fantom" },
     { id: "network-cronos", title: "Cronos" },
     { id: "network-moonbeam", title: "Moonbeam" },
+    { id: "network-polkadot", title: "Polkadot" },
   ]},
   { id: "foundations", title: "Foundations", number: "12", children: [
     { id: "fi-ethereum", title: "Ethereum" },
