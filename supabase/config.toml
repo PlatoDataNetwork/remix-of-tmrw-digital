@@ -35,3 +35,6 @@ verify_jwt = false
 
 [functions.google-analytics]
 verify_jwt = false
+
+[functions.platodata-feeds]
+verify_jwt = false
