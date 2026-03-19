@@ -69,6 +69,7 @@ const StablecoinsTokenization = lazy(() => import("./pages/blog/StablecoinsToken
 const UtilitiesTokenization = lazy(() => import("./pages/blog/UtilitiesTokenization"));
 const TMRWLaunch = lazy(() => import("./pages/blog/TMRWLaunch"));
 const TokenizationAlternatives = lazy(() => import("./pages/blog/TokenizationAlternatives"));
+const SECNasdaqTokenizedStocks = lazy(() => import("./pages/blog/SECNasdaqTokenizedStocks"));
 const Intel = lazy(() => import("./pages/Intel"));
 const InvestorDisclaimer = lazy(() => import("./pages/InvestorDisclaimer"));
 const InvestorPresentation = lazy(() => import("./pages/InvestorPresentation"));
@@ -148,6 +149,7 @@ function getRoutes() {
     <Route key="blog-util" path="blog/utilities-tokenization" element={<UtilitiesTokenization />} />,
     <Route key="blog-tmrw" path="blog/tmrw-launch" element={<TMRWLaunch />} />,
     <Route key="blog-token-alts" path="blog/tokenization-alternatives" element={<TokenizationAlternatives />} />,
+    <Route key="blog-sec-nasdaq" path="blog/sec-nasdaq-tokenized-stocks" element={<SECNasdaqTokenizedStocks />} />,
     <Route key="intel" path="intel" element={<Intel />} />,
     <Route key="showcase" path="showcase" element={<Showcase />} />,
     <Route key="rto" path="rto" element={<RTO />} />,

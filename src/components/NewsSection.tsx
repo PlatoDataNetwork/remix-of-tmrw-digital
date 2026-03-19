@@ -12,6 +12,13 @@ const articles = [
     slug: "/blog/tmrw-launch",
   },
   {
+    date: "Mar 2026",
+    category: "Regulation",
+    title: "SEC Approves Nasdaq Pilot Enabling Investors to Trade Tokenized Stocks",
+    excerpt: "The SEC has greenlit a landmark Nasdaq pilot for trading tokenized equities on a national exchange.",
+    slug: "/blog/sec-nasdaq-tokenized-stocks",
+  },
+  {
     date: "Feb 2026",
     category: "Market Insight",
     title: "The Future of RWA Tokenization in Web3 Markets",
