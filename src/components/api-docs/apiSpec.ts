@@ -131,7 +131,7 @@ export const API_ENDPOINTS: ApiEndpoint[] = [
     parameters: [
       {
         name: "vertical",
-        in: "query",
+        in: "path",
         required: true,
         type: "string",
         description: "The vertical slug (e.g., blockchain, fintech, real-estate)",
@@ -151,15 +151,6 @@ export const API_ENDPOINTS: ApiEndpoint[] = [
         type: "integer",
         description: "Number of articles per page (1-100)",
         default: "20",
-      },
-      {
-        name: "format",
-        in: "query",
-        required: false,
-        type: "string",
-        description: "Response format",
-        default: "api",
-        enum: ["api", "json", "xml"],
       },
     ],
     responses: [
