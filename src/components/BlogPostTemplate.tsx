@@ -9,7 +9,7 @@ import blogHero from "@/assets/blog-hero.webp";
 export interface BlogPostData {
   date: string;
   category: string;
-  readTime: string;
+  readTime?: string;
   title: string;
   subtitle: string;
   heroImage?: string;
