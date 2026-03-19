@@ -229,9 +229,12 @@ const Intel = () => {
                           maskPosition: 'center',
                         }}
                       />
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-[10px] uppercase tracking-wider text-muted-foreground">{article.date}</span>
                         <span className="text-[10px] px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground">{article.subject}</span>
+                        {article.category !== article.subject && (
+                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">{article.category}</span>
+                        )}
                       </div>
                     </div>
                     <h3 className="text-base font-medium text-foreground group-hover:text-foreground/80 transition-colors mb-3 line-clamp-2">
