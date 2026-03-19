@@ -17,9 +17,8 @@ Deno.serve(async (req) => {
     const authHeader = req.headers.get("authorization");
     const internalKey = req.headers.get("x-internal-key");
     const expectedKey = Deno.env.get("INTERNAL_API_SECRET");
-    const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
 
-    const hasValidAuth = authHeader && anonKey && authHeader.includes(anonKey);
+    const hasValidAuth = !!authHeader && authHeader.startsWith("Bearer ");
     const hasValidInternalKey = expectedKey && internalKey === expectedKey;
 
     if (!hasValidAuth && !hasValidInternalKey) {
