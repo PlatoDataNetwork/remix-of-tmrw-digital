@@ -149,6 +149,7 @@ function getRoutes() {
     <Route key="blog-util" path="blog/utilities-tokenization" element={<UtilitiesTokenization />} />,
     <Route key="blog-tmrw" path="blog/tmrw-launch" element={<TMRWLaunch />} />,
     <Route key="blog-token-alts" path="blog/tokenization-alternatives" element={<TokenizationAlternatives />} />,
+    <Route key="blog-sec-nasdaq" path="blog/sec-nasdaq-tokenized-stocks" element={<SECNasdaqTokenizedStocks />} />,
     <Route key="intel" path="intel" element={<Intel />} />,
     <Route key="showcase" path="showcase" element={<Showcase />} />,
     <Route key="rto" path="rto" element={<RTO />} />,
