@@ -9,7 +9,7 @@ import platoIcon from "@/assets/plato-icon.webp";
 
 const articles = [
   {
-    date: "Feb 2026",
+    date: "Mar 2026",
     subject: "Press Release",
     category: "Launch",
     title: "The Tomorrow Company Launches to Build the Infrastructure Layer of the AI-Native Financial Era",
@@ -33,7 +33,7 @@ const articles = [
     slug: "/blog/tokenization-alternatives",
   },
   {
-    date: "Feb 2026",
+    date: "Mar 2026",
     subject: "Web3",
     category: "Tokenization",
     title: "The Future of RWA Tokenization in Web3 Markets",
@@ -41,7 +41,7 @@ const articles = [
     slug: "/blog/rwa-tokenization",
   },
   {
-    date: "Feb 2026",
+    date: "Mar 2026",
     subject: "Carbon Credits",
     category: "Tokenization",
     title: "Tokenized Carbon Credits: Building Trust in Climate Finance",
@@ -49,7 +49,7 @@ const articles = [
     slug: "/blog/carbon-credits-tokenization",
   },
   {
-    date: "Feb 2026",
+    date: "Mar 2026",
     subject: "Commodities",
     category: "Tokenization",
     title: "Commodity Tokenization: Democratizing Access to Global Markets",
@@ -57,7 +57,7 @@ const articles = [
     slug: "/blog/commodities-tokenization",
   },
   {
-    date: "Feb 2026",
+    date: "Mar 2026",
     subject: "Real Estate",
     category: "Tokenization",
     title: "Real Estate Tokenization: From Bricks to Blocks",
@@ -65,7 +65,7 @@ const articles = [
     slug: "/blog/real-estate-tokenization",
   },
   {
-    date: "Feb 2026",
+    date: "Mar 2026",
     subject: "Sovereign Wealth",
     category: "Tokenization",
     title: "Sovereign Wealth Funds & Tokenization: A Strategic Alliance",
@@ -73,7 +73,7 @@ const articles = [
     slug: "/blog/sovereign-wealth-tokenization",
   },
   {
-    date: "Feb 2026",
+    date: "Mar 2026",
     subject: "Artificial Intelligence",
     category: "Tokenization",
     title: "AI-Driven Investor Engagement: A New Paradigm",
@@ -81,7 +81,7 @@ const articles = [
     slug: "/blog/ai-investor-engagement",
   },
   {
-    date: "Feb 2026",
+    date: "Mar 2026",
     subject: "Energy",
     category: "Tokenization",
     title: "Energy Assets on Chain: Powering the Next Generation of Investment",
@@ -89,7 +89,7 @@ const articles = [
     slug: "/blog/energy-tokenization",
   },
   {
-    date: "Feb 2026",
+    date: "Mar 2026",
     subject: "Infrastructure",
     category: "Tokenization",
     title: "Infrastructure Tokenization: Funding the World's Backbone",
@@ -97,7 +97,7 @@ const articles = [
     slug: "/blog/infrastructure-tokenization",
   },
   {
-    date: "Feb 2026",
+    date: "Mar 2026",
     subject: "Markets",
     category: "Tokenization",
     title: "Navigating Pre-IPO Markets in a Volatile Landscape",
@@ -105,7 +105,7 @@ const articles = [
     slug: "/blog/pre-ipo-markets",
   },
   {
-    date: "Feb 2026",
+    date: "Mar 2026",
     subject: "Metals",
     category: "Tokenization",
     title: "Precious & Industrial Metals: The Digital Gold Rush",
@@ -113,7 +113,7 @@ const articles = [
     slug: "/blog/metals-tokenization",
   },
   {
-    date: "Feb 2026",
+    date: "Mar 2026",
     subject: "Rare Earth Minerals",
     category: "Tokenization",
     title: "Rare Earth Minerals: Securing Critical Supply Chains on Chain",
