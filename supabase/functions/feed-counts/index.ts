@@ -1,3 +1,5 @@
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
@@ -9,6 +11,16 @@ Deno.serve(async (req) => {
   }
 
   try {
+    const platoUrl = Deno.env.get("PLATODATA_SUPABASE_URL");
+    const platoKey = Deno.env.get("PLATODATA_ANON_KEY");
+
+    if (!platoUrl || !platoKey) {
+      return new Response(
+        JSON.stringify({ success: false, error: "PlatoData credentials not configured" }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
     const url = new URL(req.url);
     const slugsParam = url.searchParams.get("slugs");
 
@@ -19,31 +31,35 @@ Deno.serve(async (req) => {
       );
     }
 
-    const slugs = slugsParam.split(",").slice(0, 15); // max 15 per request
+    const slugs = slugsParam.split(",").slice(0, 15);
+    const plato = createClient(platoUrl, platoKey);
     const counts: Record<string, number> = {};
 
     const results = await Promise.allSettled(
       slugs.map(async (slug) => {
+        const trimmed = slug.trim();
         try {
-          const res = await fetch(`https://www.platodata.io/feed/${slug.trim()}.json`);
-          if (res.ok) {
-            const json = await res.json();
-            const count = Array.isArray(json)
-              ? json.length
-              : json?.items?.length || json?.articles?.length || json?.channel?.item?.length || 0;
-            counts[slug.trim()] = count;
-          } else {
-            counts[slug.trim()] = 0;
-          }
+          const { count, error } = await plato
+            .from("articles")
+            .select("id", { count: "exact", head: true })
+            .eq("vertical_slug", trimmed);
+
+          counts[trimmed] = error ? 0 : (count || 0);
         } catch {
-          counts[slug.trim()] = 0;
+          counts[trimmed] = 0;
         }
       })
     );
 
     return new Response(
       JSON.stringify({ success: true, counts }),
-      { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      {
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "application/json",
+          "Cache-Control": "public, max-age=1800",
+        },
+      }
     );
   } catch (error) {
     console.error("Error fetching feed counts:", error);
