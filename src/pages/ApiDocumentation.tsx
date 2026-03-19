@@ -1,471 +1,269 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import { supabase } from "@/integrations/supabase/client";
+import ApiKeySection from "@/components/api-docs/ApiKeySection";
+import EndpointCard from "@/components/api-docs/EndpointCard";
+import { API_TAGS, API_ENDPOINTS, AVAILABLE_VERTICALS } from "@/components/api-docs/apiSpec";
+import { Book, Server, Database, Globe, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
-import { Key, Globe, Code2, FileJson, AlertTriangle, Copy, Check } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
-const countries = [
-  { code: "+1", name: "United States", flag: "🇺🇸" },
-  { code: "+1", name: "Canada", flag: "🇨🇦" },
-  { code: "+44", name: "United Kingdom", flag: "🇬🇧" },
-  { code: "+91", name: "India", flag: "🇮🇳" },
-  { code: "+61", name: "Australia", flag: "🇦🇺" },
-  { code: "+49", name: "Germany", flag: "🇩🇪" },
-  { code: "+33", name: "France", flag: "🇫🇷" },
-  { code: "+81", name: "Japan", flag: "🇯🇵" },
-  { code: "+86", name: "China", flag: "🇨🇳" },
-  { code: "+82", name: "South Korea", flag: "🇰🇷" },
-  { code: "+971", name: "UAE", flag: "🇦🇪" },
-  { code: "+966", name: "Saudi Arabia", flag: "🇸🇦" },
-  { code: "+65", name: "Singapore", flag: "🇸🇬" },
-  { code: "+41", name: "Switzerland", flag: "🇨🇭" },
-  { code: "+31", name: "Netherlands", flag: "🇳🇱" },
-  { code: "+46", name: "Sweden", flag: "🇸🇪" },
-  { code: "+47", name: "Norway", flag: "🇳🇴" },
-  { code: "+55", name: "Brazil", flag: "🇧🇷" },
-  { code: "+52", name: "Mexico", flag: "🇲🇽" },
-  { code: "+234", name: "Nigeria", flag: "🇳🇬" },
-  { code: "+27", name: "South Africa", flag: "🇿🇦" },
-  { code: "+254", name: "Kenya", flag: "🇰🇪" },
-  { code: "+62", name: "Indonesia", flag: "🇮🇩" },
-  { code: "+60", name: "Malaysia", flag: "🇲🇾" },
-  { code: "+63", name: "Philippines", flag: "🇵🇭" },
-  { code: "+66", name: "Thailand", flag: "🇹🇭" },
-  { code: "+84", name: "Vietnam", flag: "🇻🇳" },
-  { code: "+48", name: "Poland", flag: "🇵🇱" },
-  { code: "+39", name: "Italy", flag: "🇮🇹" },
-  { code: "+34", name: "Spain", flag: "🇪🇸" },
-  { code: "+351", name: "Portugal", flag: "🇵🇹" },
-  { code: "+7", name: "Russia", flag: "🇷🇺" },
-  { code: "+90", name: "Turkey", flag: "🇹🇷" },
-  { code: "+20", name: "Egypt", flag: "🇪🇬" },
-  { code: "+972", name: "Israel", flag: "🇮🇱" },
-  { code: "+92", name: "Pakistan", flag: "🇵🇰" },
-  { code: "+880", name: "Bangladesh", flag: "🇧🇩" },
-  { code: "+54", name: "Argentina", flag: "🇦🇷" },
-  { code: "+56", name: "Chile", flag: "🇨🇱" },
-  { code: "+57", name: "Colombia", flag: "🇨🇴" },
-];
-
-function detectCountry(): string {
-  try {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const tzCountryMap: Record<string, string> = {
-      "America/New_York": "United States",
-      "America/Chicago": "United States",
-      "America/Denver": "United States",
-      "America/Los_Angeles": "United States",
-      "America/Toronto": "Canada",
-      "America/Vancouver": "Canada",
-      "Europe/London": "United Kingdom",
-      "Asia/Kolkata": "India",
-      "Asia/Calcutta": "India",
-      "Australia/Sydney": "Australia",
-      "Europe/Berlin": "Germany",
-      "Europe/Paris": "France",
-      "Asia/Tokyo": "Japan",
-      "Asia/Shanghai": "China",
-      "Asia/Seoul": "South Korea",
-      "Asia/Dubai": "UAE",
-      "Asia/Riyadh": "Saudi Arabia",
-      "Asia/Singapore": "Singapore",
-    };
-    return tzCountryMap[tz] || "United States";
-  } catch {
-    return "United States";
-  }
-}
-
-const API_KEY_STORAGE_KEY = "tmrw_api_key";
-const API_KEY_EMAIL_KEY = "tmrw_api_email";
 
 const ApiDocumentation = () => {
-  const { toast } = useToast();
-  const [showForm, setShowForm] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [generatedKey, setGeneratedKey] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
-
-  const detectedCountryName = detectCountry();
-
-  const [formData, setFormData] = useState({
-    full_name: "",
-    email: "",
-    phone: "",
-    selected_country: detectedCountryName,
-  });
-
-  const selectedCountry = countries.find((c) => c.name === formData.selected_country);
-  const countryCode = selectedCountry?.code || "+1";
+  const [copiedBaseUrl, setCopiedBaseUrl] = useState(false);
 
   const siteUrl = typeof window !== "undefined" ? window.location.origin : "";
+  const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 
-  // Load stored API key from localStorage on mount
-  useEffect(() => {
-    const storedKey = localStorage.getItem(API_KEY_STORAGE_KEY);
-    if (storedKey) {
-      setGeneratedKey(storedKey);
+  // Build actual try-it base URLs for each endpoint type
+  const getBaseUrl = (endpoint: typeof API_ENDPOINTS[0]) => {
+    if (endpoint.path.endsWith(".json")) {
+      return `${SUPABASE_URL}/functions/v1/json-feed`;
     }
-  }, []);
-
-  const handleRequestKey = () => {
-    const storedKey = localStorage.getItem(API_KEY_STORAGE_KEY);
-    if (storedKey) {
-      setGeneratedKey(storedKey);
-      toast({
-        title: "API Key Found",
-        description: "You already have an API key. It's displayed above.",
-      });
-      return;
+    if (endpoint.path.endsWith(".xml")) {
+      return `${SUPABASE_URL}/functions/v1/rss-feed`;
     }
-    setShowForm(true);
+    if (endpoint.path === "/api/verticals") {
+      return `${SUPABASE_URL}/functions/v1/platodata-feeds`;
+    }
+    if (endpoint.path.startsWith("/api/article")) {
+      return `${SUPABASE_URL}/functions/v1/platodata-feeds`;
+    }
+    // Authenticated paginated API
+    return `${SUPABASE_URL}/functions/v1/data-feed-proxy`;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // Transform endpoint path params to query params for try-it functionality
+  const getEndpointParams = (endpoint: typeof API_ENDPOINTS[0]) => {
+    const params = [...endpoint.parameters];
 
-    try {
-      const { data, error } = await supabase.functions.invoke("request-api-key", {
-        body: {
-          full_name: formData.full_name,
-          email: formData.email,
-          phone: countryCode + formData.phone,
-          country_code: countryCode,
-        },
-      });
-
-      if (error) throw error;
-
-      if (data?.success) {
-        setGeneratedKey(data.api_key);
-        // Store in localStorage for session persistence
-        localStorage.setItem(API_KEY_STORAGE_KEY, data.api_key);
-        localStorage.setItem(API_KEY_EMAIL_KEY, formData.email);
-        setShowForm(false);
-        toast({ title: "Success", description: data.message });
-      } else {
-        toast({ title: "Error", description: data?.error || "Something went wrong", variant: "destructive" });
-      }
-    } catch (err: any) {
-      toast({ title: "Error", description: err.message || "Failed to request API key", variant: "destructive" });
-    } finally {
-      setIsSubmitting(false);
+    // For the platodata-feeds endpoints, add `action` param
+    if (endpoint.path === "/api/verticals") {
+      return [{ name: "action", in: "query" as const, required: true, type: "string", description: "API action", default: "verticals" }];
     }
+    if (endpoint.path.startsWith("/api/article")) {
+      return [
+        { name: "action", in: "query" as const, required: true, type: "string", description: "API action", default: "article" },
+        ...params,
+      ];
+    }
+    if (endpoint.path.endsWith(".json") || endpoint.path.endsWith(".xml")) {
+      // Convert path param to query param
+      return params.map((p) =>
+        p.in === "path" ? { ...p, in: "query" as const, name: "vertical" } : p
+      );
+    }
+    return params;
   };
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const copyBaseUrl = () => {
+    navigator.clipboard.writeText(siteUrl);
+    setCopiedBaseUrl(true);
+    setTimeout(() => setCopiedBaseUrl(false), 2000);
   };
 
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
         title="API Documentation | The Tomorrow Company"
-        description="Access our articles programmatically with our REST API. Get real-time data on AI, Web3, and emerging technology news."
+        description="Interactive API documentation for accessing 600K+ articles across 55+ verticals. Try endpoints live, get your API key, and integrate in minutes."
         path="/api-documentation"
       />
       <Navbar />
 
       <main className="pt-24 pb-16">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-20">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          {/* Hero Header */}
+          <div className="text-center mb-16">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Developer</p>
             <h1 className="text-3xl md:text-5xl font-light text-foreground mb-6">
               API Documentation
             </h1>
             <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-              Access our articles programmatically with our REST API. Get real-time data on
-              AI, Web3, and emerging technology news.
+              Access 600K+ articles across 55+ verticals via REST API.
+              Real-time data on AI, Web3, Fintech, and emerging technology.
             </p>
           </div>
 
-          {/* Generated Key Display */}
-          {generatedKey && (
-            <div className="mb-8 p-6 rounded-2xl border border-border bg-card">
-              <div className="flex items-center gap-2 mb-3">
-                <Key className="w-5 h-5 text-foreground" />
-                <h3 className="font-medium text-foreground">Your API Key</h3>
-              </div>
+          {/* Quick Info Bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+            <div className="rounded-2xl border border-border bg-card p-5 text-center">
+              <Server className="w-5 h-5 text-muted-foreground mx-auto mb-2" />
+              <p className="text-xs text-muted-foreground font-light">Base URL</p>
+              <p className="text-sm font-mono text-foreground mt-1 truncate">{siteUrl}</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-5 text-center">
+              <Database className="w-5 h-5 text-muted-foreground mx-auto mb-2" />
+              <p className="text-xs text-muted-foreground font-light">Articles</p>
+              <p className="text-sm font-medium text-foreground mt-1">600,000+</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-5 text-center">
+              <Globe className="w-5 h-5 text-muted-foreground mx-auto mb-2" />
+              <p className="text-xs text-muted-foreground font-light">Verticals</p>
+              <p className="text-sm font-medium text-foreground mt-1">55+</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-5 text-center">
+              <Book className="w-5 h-5 text-muted-foreground mx-auto mb-2" />
+              <p className="text-xs text-muted-foreground font-light">Formats</p>
+              <p className="text-sm font-medium text-foreground mt-1">JSON, XML, RSS</p>
+            </div>
+          </div>
+
+          {/* API Key Section */}
+          <ApiKeySection generatedKey={generatedKey} setGeneratedKey={setGeneratedKey} />
+
+          {/* Base URL */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-light text-foreground mb-6">Base URL</h2>
+            <div className="rounded-2xl border border-border bg-card p-6">
               <div className="flex items-center gap-2">
                 <code className="flex-1 bg-muted px-4 py-3 rounded-xl text-sm font-mono text-foreground break-all">
-                  {generatedKey}
+                  {siteUrl}
                 </code>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => copyToClipboard(generatedKey)}
-                  className="rounded-xl"
-                >
-                  {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                <Button variant="outline" size="sm" onClick={copyBaseUrl} className="rounded-xl flex-shrink-0">
+                  {copiedBaseUrl ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground mt-3 font-light">
-                Save this key securely. Include it in the X-API-Key header for all API requests.
+                All endpoint paths are relative to this base URL. Public feeds can be accessed directly; authenticated endpoints require the <code className="bg-muted px-1 py-0.5 rounded text-xs">X-API-Key</code> header.
               </p>
             </div>
-          )}
+          </section>
 
-          {/* Authentication */}
-          <section className="mb-10">
-            <div className="flex items-center gap-2 mb-4">
-              <Key className="w-5 h-5 text-foreground" />
-              <h2 className="text-xl font-medium text-foreground">Authentication</h2>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-8">
-              <p className="text-muted-foreground mb-4 font-light">
-                All API requests require authentication using an API key. Include your API key in the request headers:
+          {/* Endpoints by Tag */}
+          {API_TAGS.map((tag) => {
+            const endpoints = API_ENDPOINTS.filter((e) => e.tag === tag.name);
+            if (endpoints.length === 0) return null;
+            return (
+              <section key={tag.name} className="mb-16">
+                <div className="mb-6">
+                  <h2 className="text-2xl md:text-3xl font-light text-foreground mb-2">{tag.name}</h2>
+                  <p className="text-sm text-muted-foreground font-light">{tag.description}</p>
+                </div>
+                <div className="space-y-4">
+                  {endpoints.map((endpoint, i) => (
+                    <EndpointCard
+                      key={i}
+                      {...endpoint}
+                      parameters={getEndpointParams(endpoint)}
+                      baseUrl={getBaseUrl(endpoint)}
+                      apiKey={generatedKey}
+                    />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+
+          {/* Available Verticals */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-light text-foreground mb-6">Available Verticals</h2>
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <p className="text-sm text-muted-foreground font-light mb-4">
+                Use any of these vertical slugs as the <code className="bg-muted px-1.5 py-0.5 rounded text-xs">vertical</code> parameter in your API requests:
               </p>
-              <div className="bg-muted rounded-xl p-4 mb-4">
-                <code className="text-sm font-mono text-foreground">
-                  X-API-Key: your_api_key_here
-                </code>
+              <div className="flex flex-wrap gap-2">
+                {AVAILABLE_VERTICALS.map((v) => (
+                  <code
+                    key={v}
+                    className="text-xs font-mono bg-muted text-foreground px-2.5 py-1.5 rounded-lg hover:bg-muted/80 cursor-default transition-colors"
+                  >
+                    {v}
+                  </code>
+                ))}
               </div>
-              <p className="text-muted-foreground font-light">
-                To access or obtain an API key, please{" "}
-                <button
-                  onClick={handleRequestKey}
-                  className="animated-gradient-neon-text hover:opacity-80 underline underline-offset-2 font-medium transition-opacity"
-                >
-                  click here
-                </button>
-                .
-              </p>
             </div>
           </section>
 
-          {/* Base URL */}
-          <section className="mb-10">
-            <div className="flex items-center gap-2 mb-4">
-              <Globe className="w-5 h-5 text-foreground" />
-              <h2 className="text-xl font-medium text-foreground">Base URL</h2>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="bg-muted rounded-xl p-4">
-                <code className="text-sm font-mono text-foreground break-all">
-                  {siteUrl}
-                </code>
-              </div>
-            </div>
-          </section>
-
-          {/* Endpoints */}
-          <section className="mb-10">
-            <div className="flex items-center gap-2 mb-4">
-              <Code2 className="w-5 h-5 text-foreground" />
-              <h2 className="text-xl font-medium text-foreground">Endpoints</h2>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-8 overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="text-left py-2 px-3 text-foreground font-medium">Endpoint</th>
-                    <th className="text-left py-2 px-3 text-muted-foreground font-medium">Format</th>
-                    <th className="text-left py-2 px-3 text-muted-foreground font-medium">Auth</th>
-                    <th className="text-left py-2 px-3 text-muted-foreground font-medium">Description</th>
-                  </tr>
-                </thead>
-                <tbody className="text-muted-foreground font-light">
-                  <tr className="border-b border-border/50">
-                    <td className="py-3 px-3 text-foreground font-mono text-xs">/{`{vertical}`}.json</td>
-                    <td className="py-3 px-3">JSON</td>
-                    <td className="py-3 px-3">No</td>
-                    <td className="py-3 px-3">Get feed data in JSON format</td>
-                  </tr>
-                  <tr className="border-b border-border/50">
-                    <td className="py-3 px-3 text-foreground font-mono text-xs">/{`{vertical}`}.xml</td>
-                    <td className="py-3 px-3">RSS/XML</td>
-                    <td className="py-3 px-3">No</td>
-                    <td className="py-3 px-3">Get feed data in RSS XML format</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-3 text-foreground font-mono text-xs">/api/{`{vertical}`}</td>
-                    <td className="py-3 px-3">JSON</td>
-                    <td className="py-3 px-3">API Key</td>
-                    <td className="py-3 px-3">Authenticated API access with full response</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          {/* Examples */}
-          <section className="mb-10">
-            <div className="flex items-center gap-2 mb-4">
-              <FileJson className="w-5 h-5 text-foreground" />
-              <h2 className="text-xl font-medium text-foreground">Examples</h2>
-            </div>
+          {/* Code Examples */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-light text-foreground mb-6">Quick Start Examples</h2>
             <div className="space-y-6">
-              <div className="rounded-2xl border border-border bg-card p-8">
-                <h3 className="font-medium text-foreground mb-2">cURL</h3>
-                <p className="text-sm text-muted-foreground mb-3 font-light">Fetch the latest blockchain articles:</p>
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="font-medium text-foreground mb-3">cURL</h3>
                 <div className="bg-muted rounded-xl p-4 overflow-x-auto">
                   <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
-{`curl -X GET "${siteUrl}/blockchain.json"
+{`# Public feed (no auth)
+curl "${siteUrl}/blockchain.json"
 
-# With API authentication:
-curl -X GET "${siteUrl}/api/blockchain" \\
-  -H "X-API-Key: your_api_key_here"`}
+# Authenticated API with pagination
+curl -H "X-API-Key: your_api_key" \\
+  "${siteUrl}/api/blockchain?page=1&limit=20"`}
                   </pre>
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-border bg-card p-8">
-                <h3 className="font-medium text-foreground mb-2">JavaScript / TypeScript</h3>
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="font-medium text-foreground mb-3">JavaScript / TypeScript</h3>
                 <div className="bg-muted rounded-xl p-4 overflow-x-auto">
                   <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
-{`// Public feed (no auth required)
-const response = await fetch("${siteUrl}/blockchain.json");
-const data = await response.json();
+{`// Public feed
+const feed = await fetch("${siteUrl}/blockchain.json");
+const data = await feed.json();
+console.log(data.items); // Array of articles
 
-// Authenticated API
-const apiResponse = await fetch("${siteUrl}/api/blockchain", {
-  headers: { "X-API-Key": "your_api_key_here" }
+// Authenticated API with pagination
+const res = await fetch("${siteUrl}/api/blockchain?page=2&limit=50", {
+  headers: { "X-API-Key": "your_api_key" }
 });
-const apiData = await apiResponse.json();`}
+const { articles, total, total_pages } = await res.json();`}
                   </pre>
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-border bg-card p-8">
-                <h3 className="font-medium text-foreground mb-2">Python</h3>
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="font-medium text-foreground mb-3">Python</h3>
                 <div className="bg-muted rounded-xl p-4 overflow-x-auto">
                   <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
 {`import requests
 
 # Public feed
 response = requests.get("${siteUrl}/blockchain.json")
-data = response.json()
+articles = response.json()["items"]
 
-# Authenticated API
-headers = {"X-API-Key": "your_api_key_here"}
-response = requests.get("${siteUrl}/api/blockchain", headers=headers)
-data = response.json()`}
+# Authenticated API with pagination
+headers = {"X-API-Key": "your_api_key"}
+response = requests.get(
+    "${siteUrl}/api/blockchain",
+    params={"page": 1, "limit": 20},
+    headers=headers
+)
+data = response.json()
+print(f"Page {data['page']} of {data['total_pages']}")`}
                   </pre>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Error Responses */}
-          <section className="mb-10">
-            <div className="flex items-center gap-2 mb-4">
-              <AlertTriangle className="w-5 h-5 text-foreground" />
-              <h2 className="text-xl font-medium text-foreground">Error Responses</h2>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-8 space-y-6">
-              <div>
-                <h4 className="font-medium text-foreground text-sm">401 Unauthorized</h4>
-                <p className="text-xs text-muted-foreground mb-2 font-light">Invalid or missing API key</p>
-                <div className="bg-muted rounded-xl p-3">
-                  <code className="text-xs font-mono text-foreground">
-                    {`{"success": false, "error": "Invalid or missing API key"}`}
-                  </code>
+          {/* Rate Limits & Caching */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-light text-foreground mb-6">Rate Limits & Caching</h2>
+            <div className="rounded-2xl border border-border bg-card p-6 space-y-4">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-medium text-foreground text-sm mb-2">Caching</h4>
+                  <ul className="text-sm text-muted-foreground font-light space-y-1">
+                    <li>• Public feeds: 30 minutes cache</li>
+                    <li>• Paginated API: 5 minutes cache</li>
+                    <li>• Single article: 10 minutes cache</li>
+                    <li>• Vertical list: 30 minutes cache</li>
+                  </ul>
                 </div>
-              </div>
-              <div>
-                <h4 className="font-medium text-foreground text-sm">404 Not Found</h4>
-                <p className="text-xs text-muted-foreground mb-2 font-light">Feed not found for the given vertical</p>
-                <div className="bg-muted rounded-xl p-3">
-                  <code className="text-xs font-mono text-foreground">
-                    {`{"success": false, "error": "Feed not found for ..."}`}
-                  </code>
+                <div>
+                  <h4 className="font-medium text-foreground text-sm mb-2">Pagination</h4>
+                  <ul className="text-sm text-muted-foreground font-light space-y-1">
+                    <li>• Default page size: 20 articles</li>
+                    <li>• Maximum page size: 100 articles</li>
+                    <li>• Response includes <code className="bg-muted px-1 rounded text-xs">total</code> and <code className="bg-muted px-1 rounded text-xs">total_pages</code></li>
+                    <li>• Sorted by publication date (newest first)</li>
+                  </ul>
                 </div>
               </div>
             </div>
           </section>
         </div>
       </main>
-
-      {/* API Key Request Dialog */}
-      <Dialog open={showForm} onOpenChange={setShowForm}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="font-medium">Request API Key</DialogTitle>
-            <DialogDescription className="font-light">
-              Fill in your details to receive your API key instantly.
-            </DialogDescription>
-          </DialogHeader>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <Label htmlFor="full_name">Full Name *</Label>
-              <Input
-                id="full_name"
-                required
-                maxLength={200}
-                value={formData.full_name}
-                onChange={(e) => setFormData({ ...formData, full_name: e.target.value })}
-                placeholder="John Doe"
-              />
-            </div>
-            <div>
-              <Label htmlFor="email">Email *</Label>
-              <Input
-                id="email"
-                type="email"
-                required
-                maxLength={255}
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="john@example.com"
-              />
-            </div>
-            <div>
-              <Label htmlFor="phone">Phone Number</Label>
-              <div className="flex gap-2">
-                <Select
-                  value={formData.selected_country}
-                  onValueChange={(val) => setFormData({ ...formData, selected_country: val })}
-                >
-                  <SelectTrigger className="w-[160px]">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent className="max-h-60">
-                    {countries.map((c) => (
-                      <SelectItem key={c.name} value={c.name}>
-                        {c.flag} {c.code} ({c.name})
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <Input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="Phone number"
-                  className="flex-1"
-                />
-              </div>
-            </div>
-            <Button type="submit" disabled={isSubmitting} className="w-full">
-              {isSubmitting ? "Generating..." : "Get API Key"}
-            </Button>
-          </form>
-        </DialogContent>
-      </Dialog>
 
       <Footer />
     </div>
