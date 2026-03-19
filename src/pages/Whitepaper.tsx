@@ -121,6 +121,7 @@ const sections: Section[] = [
     { id: "fi-tezos", title: "Tezos" },
     { id: "fi-icp", title: "Internet Computer" },
     { id: "fi-web3-foundation", title: "Web3 Foundation" },
+    { id: "fi-polkadot", title: "Polkadot" },
   ]},
   { id: "community-integrations", title: "Community Integrations", number: "13", children: [
     { id: "solana-community", title: "Solana" },
