@@ -13,12 +13,16 @@ Deno.serve(async (req) => {
   }
 
   try {
-    // --- Internal key protection ---
+    // --- Protection: require either Supabase auth header or internal key ---
+    const authHeader = req.headers.get("authorization");
     const internalKey = req.headers.get("x-internal-key");
     const expectedKey = Deno.env.get("INTERNAL_API_SECRET");
+    const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
 
-    // If INTERNAL_API_SECRET is set, enforce it
-    if (expectedKey && internalKey !== expectedKey) {
+    const hasValidAuth = authHeader && anonKey && authHeader.includes(anonKey);
+    const hasValidInternalKey = expectedKey && internalKey === expectedKey;
+
+    if (!hasValidAuth && !hasValidInternalKey) {
       return new Response(
         JSON.stringify({ success: false, error: "Unauthorized" }),
         { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
