@@ -1,11 +1,13 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import ApiKeySection from "@/components/api-docs/ApiKeySection";
 import EndpointCard from "@/components/api-docs/EndpointCard";
+import CodeBlock from "@/components/api-docs/CodeBlock";
+import { downloadPostmanCollection } from "@/components/api-docs/postmanCollection";
 import { API_TAGS, API_ENDPOINTS, AVAILABLE_VERTICALS } from "@/components/api-docs/apiSpec";
-import { Book, Server, Database, Globe, Copy, Check } from "lucide-react";
+import { Book, Server, Database, Globe, Copy, Check, Download, Terminal, FileCode2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ApiDocumentation = () => {
