@@ -3,7 +3,7 @@ import BlogPostTemplate, { BlogPostData } from "@/components/BlogPostTemplate";
 const data: BlogPostData = {
   date: "March 2026",
   category: "Market Insight",
-  readTime: "12 min read",
+  
   title: "How Tokenization Can Unlock a $400 Billion Opportunity in Alternative Investments",
   subtitle: "The alternative asset management industry stands at an inflection point — tokenization is poised to transform how $150 trillion in individual wealth accesses private equity, real estate, and hedge funds.",
   sections: [
