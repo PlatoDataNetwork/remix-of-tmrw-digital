@@ -26,7 +26,7 @@ const articles = [
   },
   {
     date: "Mar 2026",
-    subject: "Alternative Investments",
+    subject: "Investments",
     category: "Tokenization",
     title: "How Tokenization Can Unlock a $400 Billion Opportunity in Alternative Investments",
     excerpt: "Tokenization is poised to transform how $150 trillion in individual wealth accesses private equity, real estate, and hedge funds — representing a $400B annual revenue opportunity.",
