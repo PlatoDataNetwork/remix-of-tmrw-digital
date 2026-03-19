@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { useRef, useState } from "react";
+import { ArrowUpRight, List, LayoutGrid } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
