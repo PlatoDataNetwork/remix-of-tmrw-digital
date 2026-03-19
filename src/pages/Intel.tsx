@@ -18,6 +18,14 @@ const articles = [
   },
   {
     date: "Mar 2026",
+    subject: "Regulation",
+    category: "Tokenization",
+    title: "SEC Approves Nasdaq Pilot Enabling Investors to Trade Tokenized Stocks",
+    excerpt: "The SEC has greenlit a landmark Nasdaq pilot program allowing investors to trade tokenized equities — marking one of the most significant regulatory endorsements of blockchain-based capital markets.",
+    slug: "/blog/sec-nasdaq-tokenized-stocks",
+  },
+  {
+    date: "Mar 2026",
     subject: "Alternative Investments",
     category: "Tokenization",
     title: "How Tokenization Can Unlock a $400 Billion Opportunity in Alternative Investments",
