@@ -177,64 +177,150 @@ const ApiDocumentation = () => {
             </div>
           </section>
 
+          {/* Postman Collection */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-light text-foreground mb-6">Postman Collection</h2>
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+                <div className="flex-1">
+                  <h3 className="font-medium text-foreground mb-1">Import to Postman</h3>
+                  <p className="text-sm text-muted-foreground font-light">
+                    Download our pre-configured Postman collection with all endpoints, examples, and vertical presets.
+                    {generatedKey && (
+                      <span className="block mt-1 text-xs text-primary">
+                        ✓ Your API key will be auto-populated in the collection variables.
+                      </span>
+                    )}
+                  </p>
+                </div>
+                <Button
+                  onClick={() => downloadPostmanCollection(generatedKey)}
+                  className="rounded-xl px-6"
+                  variant="outline"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Collection
+                </Button>
+              </div>
+              <div className="mt-4 pt-4 border-t border-border">
+                <p className="text-xs text-muted-foreground font-light">
+                  <strong className="text-foreground">How to import:</strong> Open Postman → File → Import → Select the downloaded JSON file. The collection includes pre-set variables for <code className="bg-muted px-1 py-0.5 rounded">base_url</code>, <code className="bg-muted px-1 py-0.5 rounded">api_key</code>, and <code className="bg-muted px-1 py-0.5 rounded">vertical</code>.
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* Code Examples */}
           <section className="mb-16">
             <h2 className="text-2xl md:text-3xl font-light text-foreground mb-6">Quick Start Examples</h2>
             <div className="space-y-6">
-              <div className="rounded-2xl border border-border bg-card p-6">
-                <h3 className="font-medium text-foreground mb-3">cURL</h3>
-                <div className="bg-muted rounded-xl p-4 overflow-x-auto">
-                  <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
-{`# Public feed (no auth)
-curl "${siteUrl}/blockchain.json"
+              <CodeBlock
+                language="curl"
+                title="cURL"
+                icon={<Terminal className="w-4 h-4 text-muted-foreground" />}
+                code={`# Public JSON feed (no authentication required)
+curl -X GET "${siteUrl}/blockchain.json"
 
-# Authenticated API with pagination
-curl -H "X-API-Key: your_api_key" \\
-  "${siteUrl}/api/blockchain?page=1&limit=20"`}
-                  </pre>
-                </div>
-              </div>
+# Public RSS feed
+curl -X GET "${siteUrl}/blockchain.xml"
 
-              <div className="rounded-2xl border border-border bg-card p-6">
-                <h3 className="font-medium text-foreground mb-3">JavaScript / TypeScript</h3>
-                <div className="bg-muted rounded-xl p-4 overflow-x-auto">
-                  <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
-{`// Public feed
-const feed = await fetch("${siteUrl}/blockchain.json");
-const data = await feed.json();
-console.log(data.items); // Array of articles
+# Authenticated API — paginated articles
+curl -X GET "${siteUrl}/api/blockchain?page=1&limit=20" \\
+  -H "X-API-Key: ${generatedKey || "your_api_key_here"}"
 
-// Authenticated API with pagination
-const res = await fetch("${siteUrl}/api/blockchain?page=2&limit=50", {
-  headers: { "X-API-Key": "your_api_key" }
-});
-const { articles, total, total_pages } = await res.json();`}
-                  </pre>
-                </div>
-              </div>
+# List all available verticals
+curl -X GET "${siteUrl}/api/verticals" \\
+  -H "X-API-Key: ${generatedKey || "your_api_key_here"}"
 
-              <div className="rounded-2xl border border-border bg-card p-6">
-                <h3 className="font-medium text-foreground mb-3">Python</h3>
-                <div className="bg-muted rounded-xl p-4 overflow-x-auto">
-                  <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
-{`import requests
+# Fetch a specific article by ID
+curl -X GET "${siteUrl}/api/article?id=ARTICLE_UUID&format=json" \\
+  -H "X-API-Key: ${generatedKey || "your_api_key_here"}"`}
+              />
 
-# Public feed
-response = requests.get("${siteUrl}/blockchain.json")
-articles = response.json()["items"]
+              <CodeBlock
+                language="javascript"
+                title="JavaScript / TypeScript"
+                icon={<FileCode2 className="w-4 h-4 text-muted-foreground" />}
+                code={`// ── Public Feed (no auth required) ──────────────────
+const feedResponse = await fetch("${siteUrl}/blockchain.json");
+const feed = await feedResponse.json();
 
-# Authenticated API with pagination
-headers = {"X-API-Key": "your_api_key"}
-response = requests.get(
-    "${siteUrl}/api/blockchain",
-    params={"page": 1, "limit": 20},
-    headers=headers
-)
-data = response.json()
-print(f"Page {data['page']} of {data['total_pages']}")`}
-                  </pre>
-                </div>
-              </div>
+// Access articles from the JSON Feed
+const articles = feed.items;
+console.log("Total articles:", articles.length);
+console.log("Latest:", articles[0].title);
+
+// ── Authenticated API with Pagination ──────────────
+const API_KEY = "${generatedKey || "your_api_key_here"}";
+const BASE_URL = "${siteUrl}";
+
+async function getArticles(vertical, page = 1, limit = 20) {
+  const url = \`\${BASE_URL}/api/\${vertical}?page=\${page}&limit=\${limit}\`;
+  const response = await fetch(url, {
+    headers: { "X-API-Key": API_KEY }
+  });
+
+  if (!response.ok) {
+    throw new Error(\`API error: \${response.status}\`);
+  }
+
+  return response.json();
+}
+
+// Fetch first page of blockchain articles
+const data = await getArticles("blockchain", 1, 50);
+console.log(\`Page \${data.page} of \${data.total_pages}\`);
+console.log(\`Total articles: \${data.total}\`);
+
+// Iterate through all pages
+for (let page = 1; page <= data.total_pages; page++) {
+  const pageData = await getArticles("blockchain", page, 100);
+  console.log(\`Processing page \${page}: \${pageData.articles.length} articles\`);
+}`}
+              />
+
+              <CodeBlock
+                language="python"
+                title="Python"
+                icon={<FileCode2 className="w-4 h-4 text-muted-foreground" />}
+                code={`import requests
+import json
+
+BASE_URL = "${siteUrl}"
+API_KEY = "${generatedKey || "your_api_key_here"}"
+
+# ── Public Feed (no auth required) ──────────────────
+response = requests.get(f"{BASE_URL}/blockchain.json")
+feed = response.json()
+articles = feed["items"]
+print(f"Found {len(articles)} articles in feed")
+
+# ── Authenticated API with Pagination ──────────────
+def get_articles(vertical, page=1, limit=20):
+    headers = {"X-API-Key": API_KEY}
+    params = {"page": page, "limit": limit}
+    response = requests.get(
+        f"{BASE_URL}/api/{vertical}",
+        headers=headers,
+        params=params
+    )
+    response.raise_for_status()
+    return response.json()
+
+# Fetch first page
+data = get_articles("blockchain", page=1, limit=50)
+print(f"Page {data['page']} of {data['total_pages']}")
+print(f"Total: {data['total']} articles")
+
+# Iterate all pages and collect articles
+all_articles = []
+for page in range(1, data["total_pages"] + 1):
+    page_data = get_articles("blockchain", page=page, limit=100)
+    all_articles.extend(page_data["articles"])
+    print(f"Fetched page {page}: {len(page_data['articles'])} articles")
+
+print(f"Collected {len(all_articles)} total articles")`}
+              />
             </div>
           </section>
 
