@@ -10,56 +10,41 @@ import { API_TAGS, API_ENDPOINTS, AVAILABLE_VERTICALS } from "@/components/api-d
 import { Book, Server, Database, Globe, Copy, Check, Download, Terminal, FileCode2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const DOMAIN = "https://www.tmrw-digital.com";
+
 const ApiDocumentation = () => {
   const [generatedKey, setGeneratedKey] = useState<string | null>(null);
   const [copiedBaseUrl, setCopiedBaseUrl] = useState(false);
 
-  const siteUrl = typeof window !== "undefined" ? window.location.origin : "";
-  const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+  // All URLs use the production domain
+  const siteUrl = DOMAIN;
 
-  // Build actual try-it base URLs for each endpoint type
+  // Try-it-out base URL always goes through our domain
   const getBaseUrl = (endpoint: typeof API_ENDPOINTS[0]) => {
     if (endpoint.path.endsWith(".json")) {
-      return `${SUPABASE_URL}/functions/v1/json-feed`;
+      // /{vertical}.json → domain/{vertical}.json (Vercel rewrites to data-feed-proxy)
+      return DOMAIN;
     }
     if (endpoint.path.endsWith(".xml")) {
-      return `${SUPABASE_URL}/functions/v1/rss-feed`;
+      return DOMAIN;
     }
     if (endpoint.path === "/api/verticals") {
-      return `${SUPABASE_URL}/functions/v1/platodata-feeds`;
+      return DOMAIN;
     }
     if (endpoint.path.startsWith("/api/article")) {
-      return `${SUPABASE_URL}/functions/v1/platodata-feeds`;
+      return DOMAIN;
     }
-    // Authenticated paginated API
-    return `${SUPABASE_URL}/functions/v1/data-feed-proxy`;
+    // /api/{vertical}
+    return DOMAIN;
   };
 
-  // Transform endpoint path params to query params for try-it functionality
+  // For try-it, we construct the URL using the documented path structure
   const getEndpointParams = (endpoint: typeof API_ENDPOINTS[0]) => {
-    const params = [...endpoint.parameters];
-
-    // For the platodata-feeds endpoints, add `action` param
-    if (endpoint.path === "/api/verticals") {
-      return [{ name: "action", in: "query" as const, required: true, type: "string", description: "API action", default: "verticals" }];
-    }
-    if (endpoint.path.startsWith("/api/article")) {
-      return [
-        { name: "action", in: "query" as const, required: true, type: "string", description: "API action", default: "article" },
-        ...params,
-      ];
-    }
-    if (endpoint.path.endsWith(".json") || endpoint.path.endsWith(".xml")) {
-      // Convert path param to query param
-      return params.map((p) =>
-        p.in === "path" ? { ...p, in: "query" as const, name: "vertical" } : p
-      );
-    }
-    return params;
+    return [...endpoint.parameters];
   };
 
   const copyBaseUrl = () => {
-    navigator.clipboard.writeText(siteUrl);
+    navigator.clipboard.writeText(DOMAIN);
     setCopiedBaseUrl(true);
     setTimeout(() => setCopiedBaseUrl(false), 2000);
   };

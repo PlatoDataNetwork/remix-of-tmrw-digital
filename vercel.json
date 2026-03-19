@@ -97,6 +97,14 @@
       "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/og-meta?path=/:path&lang=:lang"
     },
     {
+      "source": "/api/verticals",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/platodata-feeds?action=verticals"
+    },
+    {
+      "source": "/api/article",
+      "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/platodata-feeds?action=article"
+    },
+    {
       "source": "/api/:vertical",
       "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/data-feed-proxy?vertical=:vertical&format=api"
     },
