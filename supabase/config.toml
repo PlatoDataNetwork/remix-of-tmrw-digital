@@ -44,3 +44,6 @@ verify_jwt = false
 
 [functions.pagespeed]
 verify_jwt = false
+
+[functions.site-security-audit]
+verify_jwt = false
