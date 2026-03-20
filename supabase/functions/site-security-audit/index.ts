@@ -141,14 +141,16 @@ function checkHeaders(headers: Headers, url: string, body: string): HeaderCheck[
   });
 
   const server = headers.get("server");
+  const knownCDNs = ["cloudflare", "vercel", "fastly", "netlify", "aws", "gcore"];
+  const isKnownCDN = server ? knownCDNs.some(cdn => server.toLowerCase().includes(cdn)) : true;
   checks.push({
     id: "server-header",
     name: "Server Header Hidden",
     category: "headers",
     description: "Server header should not reveal technology stack details",
     severity: "low",
-    passed: !server || server.toLowerCase() === "cloudflare",
-    value: server || "Not exposed",
+    passed: !server || isKnownCDN,
+    value: server ? (isKnownCDN ? `${server} (known CDN)` : server) : "Not exposed",
     recommendation: "Remove or minimize the Server header to avoid revealing your technology stack.",
   });
 
