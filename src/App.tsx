@@ -190,6 +190,7 @@ const App = () => (
                     <Route path="api-keys" element={<AdminApiKeys />} />
                     <Route path="api-keys/:id" element={<AdminApiKeyDetail />} />
                     <Route path="investors" element={<AdminInvestors />} />
+                    <Route path="pagespeed" element={<AdminPageSpeed />} />
                     <Route path="notifications" element={<AdminNotifications />} />
                   </Route>
 
