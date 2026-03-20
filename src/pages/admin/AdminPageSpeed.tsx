@@ -34,7 +34,7 @@ interface PSIResult {
 }
 
 const SITE_URL = "https://www.tmrw-digital.com";
-const PSI_API = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed";
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 
 const categoryLabels: Record<CategoryKey, { label: string; icon: typeof Gauge }> = {
   performance: { label: "Performance", icon: Zap },
