@@ -98,20 +98,19 @@ const AdminPageSpeed = () => {
     setError(null);
     setResult(null);
     try {
-      const params = new URLSearchParams({
-        url: url,
-        strategy: strategy,
-        category: "PERFORMANCE",
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/pagespeed`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url, strategy }),
       });
-      // Run all categories
-      ["ACCESSIBILITY", "BEST_PRACTICES", "SEO"].forEach(c => params.append("category", c));
-
-      const res = await fetch(`${PSI_API}?${params}`);
       if (!res.ok) {
         const err = await res.json().catch(() => null);
         throw new Error(err?.error?.message || `API returned ${res.status}`);
       }
       const data = await res.json();
+      if (data.error) {
+        throw new Error(typeof data.error === "object" ? data.error.message : data.error);
+      }
       setResult(data);
     } catch (e: any) {
       setError(e.message || "Failed to run analysis");
