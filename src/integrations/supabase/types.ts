@@ -157,6 +157,99 @@ export type Database = {
         }
         Relationships: []
       }
+      psi_alert_config: {
+        Row: {
+          accessibility_threshold: number
+          best_practices_threshold: number
+          id: number
+          is_enabled: boolean
+          performance_threshold: number
+          seo_threshold: number
+          strategy: string
+          target_url: string
+          updated_at: string
+        }
+        Insert: {
+          accessibility_threshold?: number
+          best_practices_threshold?: number
+          id?: number
+          is_enabled?: boolean
+          performance_threshold?: number
+          seo_threshold?: number
+          strategy?: string
+          target_url?: string
+          updated_at?: string
+        }
+        Update: {
+          accessibility_threshold?: number
+          best_practices_threshold?: number
+          id?: number
+          is_enabled?: boolean
+          performance_threshold?: number
+          seo_threshold?: number
+          strategy?: string
+          target_url?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      psi_audit_history: {
+        Row: {
+          accessibility_score: number | null
+          alerts: Json | null
+          best_practices_score: number | null
+          cls: number | null
+          created_at: string
+          fcp_ms: number | null
+          id: string
+          is_scheduled: boolean
+          lcp_ms: number | null
+          performance_score: number | null
+          seo_score: number | null
+          speed_index_ms: number | null
+          strategy: string
+          tbt_ms: number | null
+          tti_ms: number | null
+          url: string
+        }
+        Insert: {
+          accessibility_score?: number | null
+          alerts?: Json | null
+          best_practices_score?: number | null
+          cls?: number | null
+          created_at?: string
+          fcp_ms?: number | null
+          id?: string
+          is_scheduled?: boolean
+          lcp_ms?: number | null
+          performance_score?: number | null
+          seo_score?: number | null
+          speed_index_ms?: number | null
+          strategy?: string
+          tbt_ms?: number | null
+          tti_ms?: number | null
+          url: string
+        }
+        Update: {
+          accessibility_score?: number | null
+          alerts?: Json | null
+          best_practices_score?: number | null
+          cls?: number | null
+          created_at?: string
+          fcp_ms?: number | null
+          id?: string
+          is_scheduled?: boolean
+          lcp_ms?: number | null
+          performance_score?: number | null
+          seo_score?: number | null
+          speed_index_ms?: number | null
+          strategy?: string
+          tbt_ms?: number | null
+          tti_ms?: number | null
+          url?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
