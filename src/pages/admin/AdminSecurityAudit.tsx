@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import {
   Shield, RefreshCw, AlertTriangle, CheckCircle2, XCircle,
   Lock, FileWarning, Globe, ShieldCheck, ShieldAlert, ChevronDown, ChevronUp,
+  Wrench, Sparkles, Copy, Check,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ScoreRing, scoreColor, scoreBg } from "@/components/admin/PSIScoreRing";
@@ -53,6 +54,37 @@ const severityColors: Record<string, string> = {
   info: "text-white/40 bg-white/5",
 };
 
+// Mapping of check IDs to the Vercel header that fixes them
+const AUTOFIX_HEADERS: Record<string, { key: string; value: string }> = {
+  hsts: { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+  "hsts-duration": { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+  "hsts-subdomains": { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+  csp: {
+    key: "Content-Security-Policy",
+    value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.supabase.co https://*.google-analytics.com https://*.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https: http:; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://*.supabase.co https://*.google-analytics.com https://*.googleapis.com wss://*.supabase.co; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'",
+  },
+  "x-frame-options": { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  "x-content-type": { key: "X-Content-Type-Options", value: "nosniff" },
+  "x-xss-protection": { key: "X-XSS-Protection", value: "1; mode=block" },
+  "referrer-policy": { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  "permissions-policy": { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
+  coop: { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+  coep: { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
+  corp: { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
+};
+
+function generateVercelHeadersJson(failedChecks: HeaderCheck[]): string {
+  const headersMap = new Map<string, string>();
+  for (const check of failedChecks) {
+    const fix = AUTOFIX_HEADERS[check.id];
+    if (fix && !headersMap.has(fix.key)) {
+      headersMap.set(fix.key, fix.value);
+    }
+  }
+  const headers = Array.from(headersMap.entries()).map(([key, value]) => ({ key, value }));
+  return JSON.stringify({ source: "/(.*)", headers }, null, 2);
+}
+
 const AdminSecurityAudit = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -60,11 +92,14 @@ const AdminSecurityAudit = () => {
   const [url, setUrl] = useState(SITE_URL);
   const [expandedCategory, setExpandedCategory] = useState<CategoryKey | null>(null);
   const [showAllHeaders, setShowAllHeaders] = useState(false);
+  const [showAutoFix, setShowAutoFix] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const runAudit = useCallback(async () => {
     setLoading(true);
     setError(null);
     setResult(null);
+    setShowAutoFix(false);
     try {
       const res = await fetch(`${SUPABASE_URL}/functions/v1/site-security-audit`, {
         method: "POST",
@@ -88,6 +123,17 @@ const AdminSecurityAudit = () => {
   const getCategoryChecks = (cat: CategoryKey): HeaderCheck[] => {
     if (!result) return [];
     return result.checks.filter(c => c.category === cat || (cat === "content" && c.category === "cookies"));
+  };
+
+  const failedChecks = result?.checks.filter(c => !c.passed) || [];
+  const fixableChecks = failedChecks.filter(c => AUTOFIX_HEADERS[c.id]);
+  const unfixableChecks = failedChecks.filter(c => !AUTOFIX_HEADERS[c.id]);
+
+  const handleCopyConfig = () => {
+    const config = generateVercelHeadersJson(fixableChecks);
+    navigator.clipboard.writeText(config);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -183,6 +229,105 @@ const AdminSecurityAudit = () => {
             </div>
           </div>
 
+          {/* Auto-Fix Panel */}
+          {fixableChecks.length > 0 && (
+            <div className="rounded-xl border border-emerald-400/20 bg-emerald-400/5 p-5">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-sm font-medium text-emerald-400 flex items-center gap-2">
+                  <Wrench className="h-4 w-4" />
+                  Auto-Fix Available — {fixableChecks.length} issue{fixableChecks.length !== 1 ? "s" : ""} fixable via Vercel headers
+                </h3>
+                <button
+                  onClick={() => setShowAutoFix(!showAutoFix)}
+                  className="flex items-center gap-1.5 px-3 h-8 rounded-lg text-xs font-medium bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 active:scale-[0.97] transition-colors"
+                >
+                  <Sparkles className="h-3.5 w-3.5" />
+                  {showAutoFix ? "Hide Details" : "View Fixes"}
+                </button>
+              </div>
+
+              {showAutoFix && (
+                <div className="space-y-4 mt-4">
+                  {/* Applied headers status */}
+                  <div className="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <p className="text-xs text-white/50 font-medium">Security headers configured in vercel.json</p>
+                      <button
+                        onClick={handleCopyConfig}
+                        className="flex items-center gap-1.5 px-2.5 h-7 rounded-md text-[11px] font-medium bg-white/5 text-white/50 hover:text-white hover:bg-white/10 transition-colors"
+                      >
+                        {copied ? <Check className="h-3 w-3 text-emerald-400" /> : <Copy className="h-3 w-3" />}
+                        {copied ? "Copied" : "Copy Config"}
+                      </button>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      {fixableChecks.map(check => {
+                        const fix = AUTOFIX_HEADERS[check.id];
+                        if (!fix) return null;
+                        return (
+                          <div key={check.id} className="flex items-start gap-2.5 px-3 py-2 rounded-md bg-white/[0.02]">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2">
+                                <span className="text-xs text-white/70 font-medium">{check.name}</span>
+                                <span className={cn("text-[10px] px-1.5 py-0.5 rounded-full font-medium uppercase tracking-wider", severityColors[check.severity])}>
+                                  {check.severity}
+                                </span>
+                              </div>
+                              <p className="text-[11px] text-white/30 mt-0.5 font-mono break-all">
+                                {fix.key}: {fix.value.length > 80 ? fix.value.substring(0, 80) + "…" : fix.value}
+                              </p>
+                            </div>
+                            <span className="text-[10px] text-emerald-400/60 bg-emerald-400/10 px-1.5 py-0.5 rounded shrink-0">
+                              APPLIED
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Unfixable items */}
+                  {unfixableChecks.length > 0 && (
+                    <div className="rounded-lg border border-amber-400/10 bg-amber-400/5 p-4">
+                      <p className="text-xs text-amber-400/70 font-medium mb-2">
+                        {unfixableChecks.length} issue{unfixableChecks.length !== 1 ? "s" : ""} require manual attention
+                      </p>
+                      <div className="space-y-1.5">
+                        {unfixableChecks.map(check => (
+                          <div key={check.id} className="flex items-start gap-2.5 px-3 py-2 rounded-md bg-white/[0.02]">
+                            <AlertTriangle className="h-3.5 w-3.5 text-amber-400 shrink-0 mt-0.5" />
+                            <div className="flex-1 min-w-0">
+                              <span className="text-xs text-white/70 font-medium">{check.name}</span>
+                              <p className="text-[11px] text-white/30 mt-0.5">{check.recommendation}</p>
+                            </div>
+                            <span className="text-[10px] text-amber-400/60 bg-amber-400/10 px-1.5 py-0.5 rounded shrink-0">
+                              MANUAL
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <p className="text-[11px] text-white/20">
+                    Headers are configured in <span className="font-mono text-white/30">vercel.json</span> and will take effect on next deployment. Re-run the audit after publishing to verify.
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* All passed */}
+          {failedChecks.length === 0 && (
+            <div className="rounded-xl border border-emerald-400/20 bg-emerald-400/5 p-5 text-center">
+              <ShieldCheck className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
+              <p className="text-sm text-emerald-400 font-medium">All security checks passed!</p>
+              <p className="text-xs text-white/30 mt-1">Your site has a strong security posture.</p>
+            </div>
+          )}
+
           {/* Category Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {(Object.keys(categoryMeta) as CategoryKey[]).map(key => {
@@ -224,41 +369,55 @@ const AdminSecurityAudit = () => {
                 {categoryMeta[expandedCategory].label} — Detailed Results
               </h3>
               <div className="space-y-2">
-                {getCategoryChecks(expandedCategory).map(check => (
-                  <div
-                    key={check.id}
-                    className="flex items-start gap-3 px-4 py-3 rounded-lg bg-white/[0.02] border border-white/5"
-                  >
-                    <div className="mt-0.5 shrink-0">
-                      {check.passed ? (
-                        <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-                      ) : (
-                        <XCircle className="h-4 w-4 text-red-400" />
-                      )}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <p className="text-sm text-white/80 font-medium">{check.name}</p>
-                        <span className={cn("text-[10px] px-1.5 py-0.5 rounded-full font-medium uppercase tracking-wider", severityColors[check.severity])}>
-                          {check.severity}
-                        </span>
-                      </div>
-                      <p className="text-xs text-white/40 mt-1">{check.description}</p>
-                      <div className="mt-2 flex flex-col gap-1">
-                        <div className="flex items-start gap-2">
-                          <span className="text-[11px] text-white/25 shrink-0 w-12">Value:</span>
-                          <span className="text-xs text-white/50 font-mono break-all">{check.value}</span>
-                        </div>
-                        {!check.passed && (
-                          <div className="flex items-start gap-2">
-                            <span className="text-[11px] text-amber-400/60 shrink-0 w-12">Fix:</span>
-                            <span className="text-xs text-amber-400/80">{check.recommendation}</span>
-                          </div>
+                {getCategoryChecks(expandedCategory).map(check => {
+                  const fix = !check.passed ? AUTOFIX_HEADERS[check.id] : null;
+                  return (
+                    <div
+                      key={check.id}
+                      className="flex items-start gap-3 px-4 py-3 rounded-lg bg-white/[0.02] border border-white/5"
+                    >
+                      <div className="mt-0.5 shrink-0">
+                        {check.passed ? (
+                          <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                        ) : (
+                          <XCircle className="h-4 w-4 text-red-400" />
                         )}
                       </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <p className="text-sm text-white/80 font-medium">{check.name}</p>
+                          <span className={cn("text-[10px] px-1.5 py-0.5 rounded-full font-medium uppercase tracking-wider", severityColors[check.severity])}>
+                            {check.severity}
+                          </span>
+                          {fix && (
+                            <span className="text-[10px] px-1.5 py-0.5 rounded-full font-medium bg-emerald-400/10 text-emerald-400">
+                              AUTO-FIXED
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs text-white/40 mt-1">{check.description}</p>
+                        <div className="mt-2 flex flex-col gap-1">
+                          <div className="flex items-start gap-2">
+                            <span className="text-[11px] text-white/25 shrink-0 w-12">Value:</span>
+                            <span className="text-xs text-white/50 font-mono break-all">{check.value}</span>
+                          </div>
+                          {!check.passed && fix && (
+                            <div className="flex items-start gap-2">
+                              <span className="text-[11px] text-emerald-400/60 shrink-0 w-12">Fix:</span>
+                              <span className="text-xs text-emerald-400/80 font-mono break-all">{fix.key}: {fix.value.length > 100 ? fix.value.substring(0, 100) + "…" : fix.value}</span>
+                            </div>
+                          )}
+                          {!check.passed && !fix && (
+                            <div className="flex items-start gap-2">
+                              <span className="text-[11px] text-amber-400/60 shrink-0 w-12">Fix:</span>
+                              <span className="text-xs text-amber-400/80">{check.recommendation}</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
@@ -294,6 +453,11 @@ const AdminSecurityAudit = () => {
                         <XCircle className="h-3.5 w-3.5 text-red-400 shrink-0" />
                       )}
                       <span className="text-xs text-white/60 flex-1">{check.name}</span>
+                      {!check.passed && AUTOFIX_HEADERS[check.id] && (
+                        <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-400/10 text-emerald-400 shrink-0">
+                          FIXED
+                        </span>
+                      )}
                       <span className={cn("text-[10px] px-1.5 py-0.5 rounded-full font-medium uppercase tracking-wider", severityColors[check.severity])}>
                         {check.severity}
                       </span>
