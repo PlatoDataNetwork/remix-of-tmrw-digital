@@ -38,3 +38,9 @@ verify_jwt = false
 
 [functions.platodata-feeds]
 verify_jwt = false
+
+[functions.scheduled-psi-audit]
+verify_jwt = false
+
+[functions.pagespeed]
+verify_jwt = false
