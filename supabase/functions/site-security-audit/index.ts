@@ -180,18 +180,35 @@ function checkHeaders(headers: Headers, url: string, body: string): HeaderCheck[
     recommendation: "Ensure all resources (scripts, styles, images) are loaded over HTTPS.",
   });
 
-  // Inline scripts: module scripts from Vite are expected and safe
+  // Inline scripts: ignore non-executable script types (e.g. JSON-LD)
   const inlineScripts = body.match(/<script(?![^>]*\bsrc\b)[^>]*>/gi) || [];
-  const nonModuleInline = inlineScripts.filter(tag => !tag.includes('type="module"') && !tag.includes("type='module'"));
+  const executableInline = inlineScripts.filter((tag) => {
+    const typeMatch = tag.match(/type\s*=\s*["']([^"']+)["']/i);
+    const type = (typeMatch?.[1] || "").toLowerCase().trim();
+
+    // Safe/non-executable inline script blocks
+    if (["application/ld+json", "application/json", "text/plain", "importmap"].includes(type)) {
+      return false;
+    }
+
+    // Module scripts are expected in modern SPA bootstraps
+    if (type === "module") {
+      return false;
+    }
+
+    // No type or JS-like type => executable
+    return type === "" || type.includes("javascript") || type === "text/ecmascript";
+  });
+
   checks.push({
     id: "inline-scripts",
     name: "Minimal Inline Scripts",
     category: "content",
-    description: "Inline scripts increase XSS risk; prefer external files",
+    description: "Inline executable scripts increase XSS risk; prefer external files",
     severity: "medium",
-    passed: nonModuleInline.length === 0,
-    value: nonModuleInline.length > 0 ? `${nonModuleInline.length} non-module inline script(s)` : "Clean (module scripts only)",
-    recommendation: "Move inline JavaScript to external files and use CSP nonces or hashes.",
+    passed: executableInline.length === 0,
+    value: executableInline.length > 0 ? `${executableInline.length} executable inline script(s)` : "Clean (no executable inline scripts)",
+    recommendation: "Move executable inline JavaScript to external files and use CSP nonces or hashes.",
   });
 
   const coop = headers.get("cross-origin-opener-policy");
