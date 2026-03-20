@@ -4,6 +4,10 @@ import {
   Smartphone, Monitor, Clock, Eye, Zap, LayoutDashboard,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
+import { ScoreRing, scoreColor, scoreBg } from "@/components/admin/PSIScoreRing";
+import PSIHistoryChart from "@/components/admin/PSIHistoryChart";
+import PSIAlertConfig from "@/components/admin/PSIAlertConfig";
 
 type Strategy = "mobile" | "desktop";
 type CategoryKey = "performance" | "accessibility" | "best-practices" | "seo";
@@ -43,48 +47,6 @@ const categoryLabels: Record<CategoryKey, { label: string; icon: typeof Gauge }>
   seo: { label: "SEO", icon: LayoutDashboard },
 };
 
-function scoreColor(score: number | null): string {
-  if (score === null) return "text-white/30";
-  if (score >= 0.9) return "text-emerald-400";
-  if (score >= 0.5) return "text-amber-400";
-  return "text-red-400";
-}
-
-function scoreBg(score: number | null): string {
-  if (score === null) return "border-white/10";
-  if (score >= 0.9) return "border-emerald-400/30 bg-emerald-400/5";
-  if (score >= 0.5) return "border-amber-400/30 bg-amber-400/5";
-  return "border-red-400/30 bg-red-400/5";
-}
-
-function ringColor(score: number | null): string {
-  if (score === null) return "stroke-white/20";
-  if (score >= 0.9) return "stroke-emerald-400";
-  if (score >= 0.5) return "stroke-amber-400";
-  return "stroke-red-400";
-}
-
-function ScoreRing({ score, size = 80 }: { score: number | null; size?: number }) {
-  const r = (size - 8) / 2;
-  const c = 2 * Math.PI * r;
-  const pct = score !== null ? score : 0;
-  return (
-    <svg width={size} height={size} className="transform -rotate-90">
-      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="currentColor"
-        strokeWidth={4} className="text-white/5" />
-      <circle cx={size / 2} cy={size / 2} r={r} fill="none"
-        strokeWidth={4} strokeLinecap="round" strokeDasharray={c}
-        strokeDashoffset={c * (1 - pct)}
-        className={cn("transition-all duration-700", ringColor(score))} />
-      <text x={size / 2} y={size / 2} textAnchor="middle" dy="0.35em"
-        className={cn("fill-current text-lg font-bold transform rotate-90 origin-center", scoreColor(score))}
-        style={{ fontSize: size * 0.28 }}>
-        {score !== null ? Math.round(score * 100) : "?"}
-      </text>
-    </svg>
-  );
-}
-
 const AdminPageSpeed = () => {
   const [strategy, setStrategy] = useState<Strategy>("desktop");
   const [loading, setLoading] = useState(false);
@@ -92,6 +54,7 @@ const AdminPageSpeed = () => {
   const [result, setResult] = useState<PSIResult | null>(null);
   const [url, setUrl] = useState(SITE_URL);
   const [expandedCategory, setExpandedCategory] = useState<CategoryKey | null>(null);
+  const [historyKey, setHistoryKey] = useState(0);
 
   const runAnalysis = useCallback(async () => {
     setLoading(true);
@@ -112,6 +75,29 @@ const AdminPageSpeed = () => {
         throw new Error(typeof data.error === "object" ? data.error.message : data.error);
       }
       setResult(data);
+
+      // Save to history
+      const cats = data.lighthouseResult?.categories;
+      const audits = data.lighthouseResult?.audits;
+      if (cats) {
+        await supabase.from("psi_audit_history").insert({
+          url,
+          strategy,
+          performance_score: cats.performance?.score ?? null,
+          accessibility_score: cats.accessibility?.score ?? null,
+          best_practices_score: cats["best-practices"]?.score ?? null,
+          seo_score: cats.seo?.score ?? null,
+          fcp_ms: audits?.["first-contentful-paint"]?.numericValue ?? null,
+          lcp_ms: audits?.["largest-contentful-paint"]?.numericValue ?? null,
+          tbt_ms: audits?.["total-blocking-time"]?.numericValue ?? null,
+          cls: audits?.["cumulative-layout-shift"]?.numericValue ?? null,
+          speed_index_ms: audits?.["speed-index"]?.numericValue ?? null,
+          tti_ms: audits?.["interactive"]?.numericValue ?? null,
+          is_scheduled: false,
+          alerts: [],
+        });
+        setHistoryKey(k => k + 1);
+      }
     } catch (e: any) {
       setError(e.message || "Failed to run analysis");
     } finally {
@@ -143,9 +129,7 @@ const AdminPageSpeed = () => {
       "speed-index",
       "interactive",
     ];
-    return metricIds
-      .map(id => audits[id])
-      .filter(Boolean);
+    return metricIds.map(id => audits[id]).filter(Boolean);
   };
 
   return (
@@ -153,7 +137,7 @@ const AdminPageSpeed = () => {
       <div>
         <h1 className="text-2xl font-semibold text-white">PageSpeed Insights</h1>
         <p className="text-sm text-white/50 mt-1">
-          Run Google Lighthouse audits on your live site
+          Run Google Lighthouse audits &amp; track performance over time
         </p>
       </div>
 
@@ -171,15 +155,12 @@ const AdminPageSpeed = () => {
             />
           </div>
           <div className="flex items-end gap-2">
-            {/* Strategy toggle */}
             <div className="flex rounded-lg border border-white/10 overflow-hidden">
               <button
                 onClick={() => setStrategy("mobile")}
                 className={cn(
                   "flex items-center gap-1.5 px-3 h-10 text-sm transition-colors",
-                  strategy === "mobile"
-                    ? "bg-white/10 text-white"
-                    : "text-white/40 hover:text-white/60"
+                  strategy === "mobile" ? "bg-white/10 text-white" : "text-white/40 hover:text-white/60"
                 )}
               >
                 <Smartphone className="h-4 w-4" />
@@ -189,9 +170,7 @@ const AdminPageSpeed = () => {
                 onClick={() => setStrategy("desktop")}
                 className={cn(
                   "flex items-center gap-1.5 px-3 h-10 text-sm transition-colors",
-                  strategy === "desktop"
-                    ? "bg-white/10 text-white"
-                    : "text-white/40 hover:text-white/60"
+                  strategy === "desktop" ? "bg-white/10 text-white" : "text-white/40 hover:text-white/60"
                 )}
               >
                 <Monitor className="h-4 w-4" />
@@ -208,16 +187,11 @@ const AdminPageSpeed = () => {
                   : "bg-blue-500 text-white hover:bg-blue-600 active:scale-[0.97]"
               )}
             >
-              {loading ? (
-                <RefreshCw className="h-4 w-4 animate-spin" />
-              ) : (
-                <Gauge className="h-4 w-4" />
-              )}
+              {loading ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Gauge className="h-4 w-4" />}
               {loading ? "Analyzing…" : "Run Audit"}
             </button>
           </div>
         </div>
-
         {loading && (
           <div className="flex items-center gap-3 text-white/40 text-sm">
             <div className="h-1 flex-1 rounded-full bg-white/5 overflow-hidden">
@@ -242,7 +216,6 @@ const AdminPageSpeed = () => {
       {/* Results */}
       {result && categories && (
         <>
-          {/* Meta info */}
           <div className="flex items-center gap-4 text-xs text-white/30">
             <span className="flex items-center gap-1">
               <Clock className="h-3 w-3" />
@@ -254,8 +227,7 @@ const AdminPageSpeed = () => {
             </span>
             <a
               href={`https://pagespeed.web.dev/analysis?url=${encodeURIComponent(url)}&form_factor=${strategy}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-1 text-blue-400/60 hover:text-blue-400 transition-colors"
             >
               <ExternalLink className="h-3 w-3" />
@@ -263,7 +235,6 @@ const AdminPageSpeed = () => {
             </a>
           </div>
 
-          {/* Score Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {(Object.keys(categoryLabels) as CategoryKey[]).map(key => {
               const cat = categories[key];
@@ -295,18 +266,11 @@ const AdminPageSpeed = () => {
             })}
           </div>
 
-          {/* Core Web Vitals / Metrics */}
           <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
             <h3 className="text-sm font-medium text-white mb-4">Core Web Vitals & Metrics</h3>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
               {getMetrics().map(metric => (
-                <div
-                  key={metric.id}
-                  className={cn(
-                    "rounded-lg border p-4",
-                    scoreBg(metric.score)
-                  )}
-                >
+                <div key={metric.id} className={cn("rounded-lg border p-4", scoreBg(metric.score))}>
                   <p className="text-xs text-white/40 mb-1">{metric.title}</p>
                   <p className={cn("text-xl font-bold tabular-nums", scoreColor(metric.score))}>
                     {metric.displayValue || "—"}
@@ -316,7 +280,6 @@ const AdminPageSpeed = () => {
             </div>
           </div>
 
-          {/* Expanded Category Audits */}
           {expandedCategory && (
             <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
               <h3 className="text-sm font-medium text-white mb-4">
@@ -324,15 +287,10 @@ const AdminPageSpeed = () => {
               </h3>
               <div className="space-y-2">
                 {getFailedAudits(expandedCategory).length === 0 ? (
-                  <div className="text-sm text-white/30 py-4 text-center">
-                    All audits passed! 🎉
-                  </div>
+                  <div className="text-sm text-white/30 py-4 text-center">All audits passed! 🎉</div>
                 ) : (
                   getFailedAudits(expandedCategory).map(audit => (
-                    <div
-                      key={audit.id}
-                      className="flex items-start gap-3 px-4 py-3 rounded-lg bg-white/[0.02] border border-white/5"
-                    >
+                    <div key={audit.id} className="flex items-start gap-3 px-4 py-3 rounded-lg bg-white/[0.02] border border-white/5">
                       <div className={cn(
                         "h-5 w-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold",
                         audit.score !== null && audit.score >= 0.5
@@ -365,9 +323,15 @@ const AdminPageSpeed = () => {
         <div className="rounded-xl border border-white/10 bg-white/[0.03] py-20 text-center">
           <Gauge className="h-12 w-12 text-white/10 mx-auto mb-4" />
           <p className="text-white/40 text-sm">Click "Run Audit" to analyze your site's performance</p>
-          <p className="text-white/20 text-xs mt-2">Uses the public Google PageSpeed Insights API</p>
+          <p className="text-white/20 text-xs mt-2">Uses the Google PageSpeed Insights API via your API key</p>
         </div>
       )}
+
+      {/* History Chart */}
+      <PSIHistoryChart key={historyKey} />
+
+      {/* Alert Configuration */}
+      <PSIAlertConfig />
     </div>
   );
 };
