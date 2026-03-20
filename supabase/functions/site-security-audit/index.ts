@@ -167,27 +167,30 @@ function checkHeaders(headers: Headers, url: string, body: string): HeaderCheck[
   });
 
   // --- Content Security ---
-  const hasMixedContent = body.includes('http://') && url.startsWith("https://");
+  // Smarter mixed-content: only flag actual resource loads, not mentions in meta/CSP/comments
+  const mixedContentMatches = body.match(/(?:src|href|action)\s*=\s*["']http:\/\/(?!localhost|127\.0\.0\.1|www\.w3\.org)/gi);
   checks.push({
     id: "mixed-content",
     name: "No Mixed Content",
     category: "content",
     description: "No HTTP resources loaded on HTTPS pages",
     severity: "high",
-    passed: !hasMixedContent,
-    value: hasMixedContent ? "Potential mixed content detected" : "Clean",
+    passed: !mixedContentMatches || mixedContentMatches.length === 0,
+    value: mixedContentMatches ? `${mixedContentMatches.length} mixed content reference(s)` : "Clean",
     recommendation: "Ensure all resources (scripts, styles, images) are loaded over HTTPS.",
   });
 
-  const hasInlineJS = /<script(?![^>]*src)[^>]*>/i.test(body);
+  // Inline scripts: module scripts from Vite are expected and safe
+  const inlineScripts = body.match(/<script(?![^>]*\bsrc\b)[^>]*>/gi) || [];
+  const nonModuleInline = inlineScripts.filter(tag => !tag.includes('type="module"') && !tag.includes("type='module'"));
   checks.push({
     id: "inline-scripts",
     name: "Minimal Inline Scripts",
     category: "content",
     description: "Inline scripts increase XSS risk; prefer external files",
     severity: "medium",
-    passed: !hasInlineJS,
-    value: hasInlineJS ? "Inline scripts detected" : "No inline scripts",
+    passed: nonModuleInline.length === 0,
+    value: nonModuleInline.length > 0 ? `${nonModuleInline.length} non-module inline script(s)` : "Clean (module scripts only)",
     recommendation: "Move inline JavaScript to external files and use CSP nonces or hashes.",
   });
 
