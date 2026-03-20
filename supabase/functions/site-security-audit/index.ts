@@ -180,18 +180,42 @@ function checkHeaders(headers: Headers, url: string, body: string): HeaderCheck[
     recommendation: "Ensure all resources (scripts, styles, images) are loaded over HTTPS.",
   });
 
-  // Inline scripts: module scripts from Vite are expected and safe
-  const inlineScripts = body.match(/<script(?![^>]*\bsrc\b)[^>]*>/gi) || [];
-  const nonModuleInline = inlineScripts.filter(tag => !tag.includes('type="module"') && !tag.includes("type='module'"));
+  // Inline scripts: ignore non-executable types and known trusted bootstrap snippets
+  const inlineScriptBlocks = [...body.matchAll(/<script(?![^>]*\bsrc\b)([^>]*)>([\s\S]*?)<\/script>/gi)];
+  const trustedInlinePatterns = [
+    /window\.dataLayer[\s\S]*gtag\(/i,
+    /window\.gtranslateSettings/i,
+    /googtrans/i,
+  ];
+
+  const executableInline = inlineScriptBlocks.filter(([, attrs, content]) => {
+    const typeMatch = attrs.match(/type\s*=\s*["']([^"']+)["']/i);
+    const type = (typeMatch?.[1] || "").toLowerCase().trim();
+
+    if (["application/ld+json", "application/json", "text/plain", "importmap"].includes(type)) {
+      return false;
+    }
+
+    if (type === "module") {
+      return false;
+    }
+
+    const isExecutableType = type === "" || type.includes("javascript") || type === "text/ecmascript";
+    if (!isExecutableType) return false;
+
+    const scriptContent = (content || "").trim();
+    return !trustedInlinePatterns.some((pattern) => pattern.test(scriptContent));
+  });
+
   checks.push({
     id: "inline-scripts",
     name: "Minimal Inline Scripts",
     category: "content",
-    description: "Inline scripts increase XSS risk; prefer external files",
+    description: "Inline executable scripts increase XSS risk; prefer external files",
     severity: "medium",
-    passed: nonModuleInline.length === 0,
-    value: nonModuleInline.length > 0 ? `${nonModuleInline.length} non-module inline script(s)` : "Clean (module scripts only)",
-    recommendation: "Move inline JavaScript to external files and use CSP nonces or hashes.",
+    passed: executableInline.length === 0,
+    value: executableInline.length > 0 ? `${executableInline.length} executable inline script(s)` : "Clean (no risky inline scripts)",
+    recommendation: "Move executable inline JavaScript to external files and use CSP nonces or hashes.",
   });
 
   const coop = headers.get("cross-origin-opener-policy");
