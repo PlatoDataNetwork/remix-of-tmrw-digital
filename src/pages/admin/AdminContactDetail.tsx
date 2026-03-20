@@ -67,7 +67,7 @@ const AdminContactDetail = () => {
         to="/tmrw-admin/contacts"
         className="inline-flex items-center gap-1 text-sm text-white/50 hover:text-white transition-colors"
       >
-        <ArrowLeft className="h-4 w-4" /> Back to submissions
+        <ArrowLeft className="h-4 w-4" /> Back to inquiries
       </Link>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-6 space-y-6">

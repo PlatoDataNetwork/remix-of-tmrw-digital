@@ -38,7 +38,7 @@ const menuItems = [
   { label: "PageSpeed", icon: Gauge, path: "/tmrw-admin/pagespeed" },
   { label: "Security Audit", icon: Shield, path: "/tmrw-admin/security-audit" },
   { label: "Investors", icon: Users, path: "/tmrw-admin/investors" },
-  { label: "Contact Submissions", icon: MessageSquare, path: "/tmrw-admin/contacts" },
+  { label: "Inquiries", icon: MessageSquare, path: "/tmrw-admin/contacts" },
   { label: "API Keys", icon: Key, path: "/tmrw-admin/api-keys" },
   { label: "Notifications", icon: Bell, path: "/tmrw-admin/notifications" },
 ];

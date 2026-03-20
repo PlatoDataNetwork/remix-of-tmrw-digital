@@ -109,7 +109,7 @@ const AdminNotifications = () => {
             <p className="text-white/40 text-sm">
               {filter === "unread" ? "No unread notifications" : filter === "read" ? "No read notifications" : "No notifications yet"}
             </p>
-            <p className="text-white/25 text-xs mt-1">Notifications will appear here when new contact submissions arrive</p>
+            <p className="text-white/25 text-xs mt-1">Notifications will appear here when new inquiries arrive</p>
           </div>
         ) : (
           notifications.map((n) => {

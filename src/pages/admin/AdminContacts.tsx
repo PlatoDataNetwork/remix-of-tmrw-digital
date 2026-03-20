@@ -94,7 +94,7 @@ const AdminContacts = () => {
                 </tr>
               ) : contacts.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="px-4 py-8 text-center text-white/30">No submissions found</td>
+                  <td colSpan={5} className="px-4 py-8 text-center text-white/30">No inquiries found</td>
                 </tr>
               ) : (
                 contacts.map((c) => (
