@@ -66,7 +66,7 @@ const AdminNotifications = () => {
   function getModuleInfo(n: ContactSubmission) {
     // All contact submissions link to the contacts module
     return {
-      label: "Contact Submission",
+      label: "Inquiry",
       icon: MessageSquare,
       path: `/tmrw-admin/contacts/${n.id}`,
       color: "text-blue-400",
