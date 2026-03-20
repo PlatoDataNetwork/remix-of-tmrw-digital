@@ -13,6 +13,7 @@ import {
   Clock,
   Inbox,
   Users,
+  Gauge,
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -33,6 +34,7 @@ interface ContactSubmission {
 const menuItems = [
   { label: "Dashboard", icon: LayoutDashboard, path: "/tmrw-admin" },
   { label: "Analytics", icon: BarChart3, path: "/tmrw-admin/analytics" },
+  { label: "PageSpeed", icon: Gauge, path: "/tmrw-admin/pagespeed" },
   { label: "Investors", icon: Users, path: "/tmrw-admin/investors" },
   { label: "Contact Submissions", icon: MessageSquare, path: "/tmrw-admin/contacts" },
   { label: "API Keys", icon: Key, path: "/tmrw-admin/api-keys" },

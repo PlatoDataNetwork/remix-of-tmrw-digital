@@ -26,6 +26,7 @@ const AdminApiKeys = lazy(() => import("./pages/admin/AdminApiKeys"));
 const AdminApiKeyDetail = lazy(() => import("./pages/admin/AdminApiKeyDetail"));
 const AdminNotifications = lazy(() => import("./pages/admin/AdminNotifications"));
 const AdminInvestors = lazy(() => import("./pages/admin/AdminInvestors"));
+const AdminPageSpeed = lazy(() => import("./pages/admin/AdminPageSpeed"));
 // Lazy load secondary pages
 const RWAs = lazy(() => import("./pages/RWAs"));
 const Collectables = lazy(() => import("./pages/rwa/Collectables"));
@@ -189,6 +190,7 @@ const App = () => (
                     <Route path="api-keys" element={<AdminApiKeys />} />
                     <Route path="api-keys/:id" element={<AdminApiKeyDetail />} />
                     <Route path="investors" element={<AdminInvestors />} />
+                    <Route path="pagespeed" element={<AdminPageSpeed />} />
                     <Route path="notifications" element={<AdminNotifications />} />
                   </Route>
 
