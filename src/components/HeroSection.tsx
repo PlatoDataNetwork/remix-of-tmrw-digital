@@ -25,6 +25,9 @@ const HeroSection = () => {
         <img
           src={heroBg}
           alt=""
+          fetchPriority="high"
+          width={1920}
+          height={1080}
           className="absolute inset-0 w-full h-full object-contain object-center translate-y-8 dark:translate-y-8 scale-100 dark:scale-110"
         />
         {/* Animated Gradient Overlay - tints the image */}

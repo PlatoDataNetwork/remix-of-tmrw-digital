@@ -59,6 +59,8 @@ const TeamSection = () => {
               alt="Futuristic astronauts representing forward-thinking leadership" 
               className="w-full h-auto object-cover rounded-2xl"
               loading="lazy"
+              width={896}
+              height={504}
             />
             <div 
               className="absolute inset-0 rounded-2xl animated-gradient-icon-bright mix-blend-color opacity-70"

@@ -233,6 +233,22 @@ html {
   100% { background-position: 0% 50%; }
 }
 
+/* Reduce animation jank — promote gradient layers to GPU */
+[class*="animated-gradient"],
+[class*="gradient-"]::after {
+  will-change: background-position;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  [class*="animated-gradient"],
+  [class*="gradient-"]::after {
+    animation: none !important;
+  }
+}
+
 .animated-gradient-hero-bg {
   position: relative;
 }
