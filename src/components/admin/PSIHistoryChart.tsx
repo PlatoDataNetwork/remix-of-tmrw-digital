@@ -14,7 +14,7 @@ interface AuditRecord {
   best_practices_score: number | null;
   seo_score: number | null;
   is_scheduled: boolean;
-  alerts: { category: string; score: number; threshold: number }[];
+  alerts: any;
   created_at: string;
 }
 
