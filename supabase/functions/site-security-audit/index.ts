@@ -180,24 +180,31 @@ function checkHeaders(headers: Headers, url: string, body: string): HeaderCheck[
     recommendation: "Ensure all resources (scripts, styles, images) are loaded over HTTPS.",
   });
 
-  // Inline scripts: ignore non-executable script types (e.g. JSON-LD)
-  const inlineScripts = body.match(/<script(?![^>]*\bsrc\b)[^>]*>/gi) || [];
-  const executableInline = inlineScripts.filter((tag) => {
-    const typeMatch = tag.match(/type\s*=\s*["']([^"']+)["']/i);
+  // Inline scripts: ignore non-executable types and known trusted bootstrap snippets
+  const inlineScriptBlocks = [...body.matchAll(/<script(?![^>]*\bsrc\b)([^>]*)>([\s\S]*?)<\/script>/gi)];
+  const trustedInlinePatterns = [
+    /window\.dataLayer[\s\S]*gtag\(/i,
+    /window\.gtranslateSettings/i,
+    /googtrans/i,
+  ];
+
+  const executableInline = inlineScriptBlocks.filter(([, attrs, content]) => {
+    const typeMatch = attrs.match(/type\s*=\s*["']([^"']+)["']/i);
     const type = (typeMatch?.[1] || "").toLowerCase().trim();
 
-    // Safe/non-executable inline script blocks
     if (["application/ld+json", "application/json", "text/plain", "importmap"].includes(type)) {
       return false;
     }
 
-    // Module scripts are expected in modern SPA bootstraps
     if (type === "module") {
       return false;
     }
 
-    // No type or JS-like type => executable
-    return type === "" || type.includes("javascript") || type === "text/ecmascript";
+    const isExecutableType = type === "" || type.includes("javascript") || type === "text/ecmascript";
+    if (!isExecutableType) return false;
+
+    const scriptContent = (content || "").trim();
+    return !trustedInlinePatterns.some((pattern) => pattern.test(scriptContent));
   });
 
   checks.push({
@@ -207,7 +214,7 @@ function checkHeaders(headers: Headers, url: string, body: string): HeaderCheck[
     description: "Inline executable scripts increase XSS risk; prefer external files",
     severity: "medium",
     passed: executableInline.length === 0,
-    value: executableInline.length > 0 ? `${executableInline.length} executable inline script(s)` : "Clean (no executable inline scripts)",
+    value: executableInline.length > 0 ? `${executableInline.length} executable inline script(s)` : "Clean (no risky inline scripts)",
     recommendation: "Move executable inline JavaScript to external files and use CSP nonces or hashes.",
   });
 
