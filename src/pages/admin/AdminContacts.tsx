@@ -51,8 +51,8 @@ const AdminContacts = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-white">Contact Submissions</h1>
-          <p className="text-sm text-white/50 mt-1">{total} total submissions</p>
+          <h1 className="text-2xl font-semibold text-white">Inquiries</h1>
+          <p className="text-sm text-white/50 mt-1">{total} total inquiries</p>
         </div>
       </div>
 
