@@ -14,6 +14,7 @@ import {
   Inbox,
   Users,
   Gauge,
+  Shield,
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
