@@ -73,6 +73,7 @@ const TMRWLaunch = lazy(() => import("./pages/blog/TMRWLaunch"));
 const TokenizationAlternatives = lazy(() => import("./pages/blog/TokenizationAlternatives"));
 const SECNasdaqTokenizedStocks = lazy(() => import("./pages/blog/SECNasdaqTokenizedStocks"));
 const Intel = lazy(() => import("./pages/Intel"));
+const News = lazy(() => import("./pages/News"));
 const InvestorDisclaimer = lazy(() => import("./pages/InvestorDisclaimer"));
 const InvestorPresentation = lazy(() => import("./pages/InvestorPresentation"));
 const Legal = lazy(() => import("./pages/Legal"));
