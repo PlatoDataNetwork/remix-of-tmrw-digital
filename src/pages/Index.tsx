@@ -3,7 +3,9 @@ import { useLocation } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
+
+// Lazy load below-fold sections (AboutSection is below fold on mobile)
+const AboutSection = lazy(() => import("@/components/AboutSection"));
 
 // Lazy load below-fold sections
 const VisionSection = lazy(() => import("@/components/VisionSection"));
@@ -37,7 +39,9 @@ const Index = () => {
       <SEOHead path="/" />
       <Navbar />
       <HeroSection />
-      <AboutSection />
+      <Suspense fallback={<SectionFallback />}>
+        <AboutSection />
+      </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <VisionSection />
         <MethodologySection />
