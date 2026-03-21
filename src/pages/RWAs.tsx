@@ -46,7 +46,7 @@ const RWAs = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground mb-6"
           >
-            Investing in the <span className="font-semibold">Real World of Asset Tokenization</span>
+            Investing in the Real World of Asset Tokenization
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
