@@ -39,7 +39,9 @@ const Index = () => {
       <SEOHead path="/" />
       <Navbar />
       <HeroSection />
-      <AboutSection />
+      <Suspense fallback={<SectionFallback />}>
+        <AboutSection />
+      </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <VisionSection />
         <MethodologySection />
