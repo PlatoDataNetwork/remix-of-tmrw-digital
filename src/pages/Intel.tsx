@@ -10,14 +10,6 @@ import platoIcon from "@/assets/plato-icon.webp";
 const articles = [
   {
     date: "Mar 2026",
-    subject: "Press Release",
-    category: "Launch",
-    title: "The Tomorrow Company Launches to Build the Infrastructure Layer of the AI-Native Financial Era",
-    excerpt: "Strategic merger forms an integrated Web3 infrastructure platform at the convergence of AI, tokenized real-world assets, and programmable climate markets.",
-    slug: "/blog/tmrw-launch",
-  },
-  {
-    date: "Mar 2026",
     subject: "Regulation",
     category: "Tokenization",
     title: "SEC Approves Nasdaq Pilot Enabling Investors to Trade Tokenized Stocks",
