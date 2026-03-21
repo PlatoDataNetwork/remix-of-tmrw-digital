@@ -72,6 +72,18 @@ const UtilitiesTokenization = lazy(() => import("./pages/blog/UtilitiesTokenizat
 const TMRWLaunch = lazy(() => import("./pages/blog/TMRWLaunch"));
 const TokenizationAlternatives = lazy(() => import("./pages/blog/TokenizationAlternatives"));
 const SECNasdaqTokenizedStocks = lazy(() => import("./pages/blog/SECNasdaqTokenizedStocks"));
+const Web3AIConvergence = lazy(() => import("./pages/blog/Web3AIConvergence"));
+const AITokenizationCapitalMarkets = lazy(() => import("./pages/blog/AITokenizationCapitalMarkets"));
+const RWASecurityAttackSurface = lazy(() => import("./pages/blog/RWASecurityAttackSurface"));
+const FutureProofingRWA = lazy(() => import("./pages/blog/FutureProofingRWA"));
+const ProgrammableYieldRWA = lazy(() => import("./pages/blog/ProgrammableYieldRWA"));
+const AutonomousCapitalMarkets = lazy(() => import("./pages/blog/AutonomousCapitalMarkets"));
+const WhyRWAProjectsFail = lazy(() => import("./pages/blog/WhyRWAProjectsFail"));
+const WallStreetToWallets = lazy(() => import("./pages/blog/WallStreetToWallets"));
+const VibeCodingStartup = lazy(() => import("./pages/blog/VibeCodingStartup"));
+const ComplianceParadoxRWA = lazy(() => import("./pages/blog/ComplianceParadoxRWA"));
+const LiquidityTwoPointZero = lazy(() => import("./pages/blog/LiquidityTwoPointZero"));
+const ProtocolLayerEvolution = lazy(() => import("./pages/blog/ProtocolLayerEvolution"));
 const Intel = lazy(() => import("./pages/Intel"));
 const News = lazy(() => import("./pages/News"));
 const InvestorDisclaimer = lazy(() => import("./pages/InvestorDisclaimer"));
@@ -153,6 +165,18 @@ function getRoutes() {
     <Route key="blog-tmrw" path="blog/tmrw-launch" element={<TMRWLaunch />} />,
     <Route key="blog-token-alts" path="blog/tokenization-alternatives" element={<TokenizationAlternatives />} />,
     <Route key="blog-sec-nasdaq" path="blog/sec-nasdaq-tokenized-stocks" element={<SECNasdaqTokenizedStocks />} />,
+    <Route key="blog-web3ai-conv" path="blog/web3-ai-convergence" element={<Web3AIConvergence />} />,
+    <Route key="blog-ai-token-cap" path="blog/ai-tokenization-capital-markets" element={<AITokenizationCapitalMarkets />} />,
+    <Route key="blog-rwa-security" path="blog/rwa-security-attack-surface" element={<RWASecurityAttackSurface />} />,
+    <Route key="blog-future-rwa" path="blog/future-proofing-rwa" element={<FutureProofingRWA />} />,
+    <Route key="blog-prog-yield" path="blog/programmable-yield-rwa" element={<ProgrammableYieldRWA />} />,
+    <Route key="blog-auto-cap" path="blog/autonomous-capital-markets" element={<AutonomousCapitalMarkets />} />,
+    <Route key="blog-rwa-fail" path="blog/why-rwa-projects-fail" element={<WhyRWAProjectsFail />} />,
+    <Route key="blog-ws-wallets" path="blog/wall-street-to-wallets" element={<WallStreetToWallets />} />,
+    <Route key="blog-vibe-code" path="blog/vibe-coding-startup" element={<VibeCodingStartup />} />,
+    <Route key="blog-compliance" path="blog/compliance-paradox-rwa" element={<ComplianceParadoxRWA />} />,
+    <Route key="blog-liquidity2" path="blog/liquidity-2-tokenization-ai" element={<LiquidityTwoPointZero />} />,
+    <Route key="blog-protocol" path="blog/protocol-layer-evolution" element={<ProtocolLayerEvolution />} />,
     <Route key="intel" path="intel" element={<Intel />} />,
     <Route key="news" path="news" element={<News />} />,
     <Route key="showcase" path="showcase" element={<Showcase />} />,
