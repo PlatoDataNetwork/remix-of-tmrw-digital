@@ -1,14 +1,29 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) — deferred to reduce TBT -->
+    <!-- Google tag (gtag.js) — deferred until first user interaction to reduce TBT -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RJT0J6Y6EZ');
+      (function(){
+        var loaded = false;
+        function loadGtag(){
+          if(loaded) return;
+          loaded = true;
+          gtag('js', new Date());
+          gtag('config', 'G-RJT0J6Y6EZ');
+          var s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-RJT0J6Y6EZ';
+          s.async = true;
+          document.head.appendChild(s);
+        }
+        ['scroll','click','touchstart','keydown'].forEach(function(e){
+          window.addEventListener(e, loadGtag, {once:true, passive:true});
+        });
+        // Fallback: load after 5s idle
+        setTimeout(loadGtag, 5000);
+      })();
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJT0J6Y6EZ" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
