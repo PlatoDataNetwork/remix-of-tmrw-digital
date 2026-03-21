@@ -186,6 +186,9 @@ function checkHeaders(headers: Headers, url: string, body: string): HeaderCheck[
     /window\.dataLayer[\s\S]*gtag\(/i,
     /window\.gtranslateSettings/i,
     /googtrans/i,
+    /googletagmanager\.com\/gtag/i,
+    /gtranslate\.net\/widgets/i,
+    /addEventListener\(.+\{once:\s*true/i,
   ];
 
   const executableInline = inlineScriptBlocks.filter(([, attrs, content]) => {
