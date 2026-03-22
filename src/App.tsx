@@ -84,6 +84,10 @@ const VibeCodingStartup = lazy(() => import("./pages/blog/VibeCodingStartup"));
 const ComplianceParadoxRWA = lazy(() => import("./pages/blog/ComplianceParadoxRWA"));
 const LiquidityTwoPointZero = lazy(() => import("./pages/blog/LiquidityTwoPointZero"));
 const ProtocolLayerEvolution = lazy(() => import("./pages/blog/ProtocolLayerEvolution"));
+const CarbonMarketTokenizationPivot = lazy(() => import("./pages/blog/CarbonMarketTokenizationPivot"));
+const AICarbonVerification = lazy(() => import("./pages/blog/AICarbonVerification"));
+const CarbonCreditDeFi = lazy(() => import("./pages/blog/CarbonCreditDeFi"));
+const ComplianceCarbonBlockchain = lazy(() => import("./pages/blog/ComplianceCarbonBlockchain"));
 const Intel = lazy(() => import("./pages/Intel"));
 const News = lazy(() => import("./pages/News"));
 const InvestorDisclaimer = lazy(() => import("./pages/InvestorDisclaimer"));
@@ -177,6 +181,10 @@ function getRoutes() {
     <Route key="blog-compliance" path="blog/compliance-paradox-rwa" element={<ComplianceParadoxRWA />} />,
     <Route key="blog-liquidity2" path="blog/liquidity-2-tokenization-ai" element={<LiquidityTwoPointZero />} />,
     <Route key="blog-protocol" path="blog/protocol-layer-evolution" element={<ProtocolLayerEvolution />} />,
+    <Route key="blog-carbon-pivot" path="blog/carbon-market-tokenization-pivot" element={<CarbonMarketTokenizationPivot />} />,
+    <Route key="blog-ai-carbon" path="blog/ai-carbon-verification" element={<AICarbonVerification />} />,
+    <Route key="blog-carbon-defi" path="blog/carbon-credit-defi" element={<CarbonCreditDeFi />} />,
+    <Route key="blog-compliance-carbon" path="blog/compliance-carbon-blockchain" element={<ComplianceCarbonBlockchain />} />,
     <Route key="intel" path="intel" element={<Intel />} />,
     <Route key="news" path="news" element={<News />} />,
     <Route key="showcase" path="showcase" element={<Showcase />} />,

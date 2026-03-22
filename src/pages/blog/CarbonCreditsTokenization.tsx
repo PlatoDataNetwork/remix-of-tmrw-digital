@@ -10,8 +10,8 @@ const data: BlogPostData = {
     {
       heading: "The Carbon Market at a Crossroads",
       content: [
-        "The voluntary carbon market surpassed $2 billion in annual value in 2025, yet it remains plagued by systemic issues that undermine investor confidence and environmental impact. Double-counting, where the same emission reduction is claimed by multiple parties, has been estimated to affect up to 30% of credits in certain registries. Verification delays of 12–18 months between project completion and credit issuance create bottlenecks that stifle market growth.",
-        "Traditional carbon registries operate as siloed databases with limited interoperability. When a credit is issued on one registry and retired on another, reconciliation is manual, error-prone, and opaque. For institutional investors allocating billions toward ESG mandates, this lack of transparency is unacceptable. The result is a market trading far below its potential, with the Taskforce on Scaling Voluntary Carbon Markets estimating a 15x growth opportunity by 2030 if trust can be established.",
+        "The voluntary carbon market surpassed $16 billion in annual value in 2025, yet it remains plagued by systemic issues that undermine investor confidence and environmental impact. Double-counting, where the same emission reduction is claimed by multiple parties, has been estimated to affect up to 30% of credits in certain registries. Verification delays of 12–18 months between project completion and credit issuance create bottlenecks that stifle market growth.",
+        "Traditional carbon registries operate as siloed databases with limited interoperability. When a credit is issued on one registry and retired on another, reconciliation is manual, error-prone, and opaque. For institutional investors allocating billions toward ESG mandates, this lack of transparency is unacceptable. The result is a market trading far below its potential, with the voluntary carbon credit market projected to reach $23.99 billion by 2030 at a CAGR of 35.1% (Grand View Research).",
         "Tokenization offers a structural solution to these challenges. By representing each carbon credit as a unique digital token on a public blockchain, every issuance, transfer, and retirement is recorded immutably. This creates a single source of truth that eliminates double-counting by design and provides real-time auditability to regulators, investors, and the public alike.",
       ],
     },
@@ -27,10 +27,10 @@ const data: BlogPostData = {
     {
       heading: "Institutional Adoption and Regulatory Momentum",
       content: [
-        "The institutional appetite for high-quality carbon credits is accelerating. Over 4,000 companies have set Science Based Targets, and regulatory frameworks like the EU Carbon Border Adjustment Mechanism (CBAM) and the SEC's climate disclosure rules are creating compliance-driven demand for verifiable offsets.",
+        "The institutional appetite for high-quality carbon credits is accelerating. Over 6,000 companies have set Science Based Targets, and regulatory frameworks like the EU Carbon Border Adjustment Mechanism (CBAM) and the SEC's climate disclosure rules are creating compliance-driven demand for verifiable offsets.",
         "Major financial institutions are building carbon trading desks specifically for tokenized credits. JPMorgan's Onyx platform, Singapore's Climate Impact X, and the World Bank's blockchain-based carbon registry demonstrate that the infrastructure for institutional-grade tokenized carbon markets is being built at scale.",
         "Sovereign entities are also entering the space. The UAE launched a national carbon credit tokenization initiative at COP28, while Singapore's Monetary Authority has developed regulatory sandboxes specifically for tokenized environmental assets. These government-backed programs provide the regulatory certainty that pension funds, insurance companies, and sovereign wealth funds require before committing capital.",
-        "The convergence of regulatory mandates, institutional infrastructure, and digital MRV technology creates a flywheel effect. As more high-quality credits are tokenized, liquidity deepens; as liquidity deepens, pricing becomes more efficient; as pricing improves, more project developers are incentivized to tokenize. The World Economic Forum projects that tokenized carbon markets could reach $50 billion by 2030.",
+        "The convergence of regulatory mandates, institutional infrastructure, and digital MRV technology creates a flywheel effect. As more high-quality credits are tokenized, liquidity deepens; as liquidity deepens, pricing becomes more efficient; as pricing improves, more project developers are incentivized to tokenize. Industry projections suggest tokenized carbon markets could reach $89 billion by 2030.",
       ],
     },
     {
@@ -47,7 +47,7 @@ const data: BlogPostData = {
     "Digital MRV systems integrating IoT, satellite, and AI reduce verification costs by up to 60% and timelines from months to days.",
     "Institutional and sovereign adoption is accelerating, with major financial platforms and government initiatives building tokenized carbon infrastructure.",
     "Programmable carbon finance enables new products like carbon-backed loans, automated insurance, and composable DeFi instruments.",
-    "The tokenized carbon market is projected to reach $50 billion by 2030, driven by regulatory mandates and institutional demand.",
+    "The tokenized carbon market is projected to reach $89 billion by 2030, driven by regulatory mandates and institutional demand.",
   ],
 };
 
