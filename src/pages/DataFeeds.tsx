@@ -82,7 +82,7 @@ const DataFeeds = () => {
               Training Data
             </h1>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-light">
-              Subscribe to our RSS and JSON feeds to get real-time updates on all {verticals.length || "54"} Technology / Capital Markets verticals we support. Access via direct feeds or our authenticated API. Free to Use.
+              Get real-time updates on all {verticals.length || "54"} Technology / Capital Markets verticals we support. Access via direct feeds or our authenticated API. Free to Use.
               {totalArticles > 0 && (
                 <span className="block mt-2 text-sm text-primary">
                   {totalArticles.toLocaleString()} articles across all verticals
