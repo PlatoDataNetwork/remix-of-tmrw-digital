@@ -10,7 +10,7 @@ const data: BlogPostData = {
     {
       heading: "Tokenization Is Table Stakes",
       content: [
-        "Tokenized treasuries alone surpassed $1 billion in 2024 and are growing rapidly. But simply putting an asset on-chain and issuing tokens is no longer differentiated. The next competitive frontier is programmability — the ability to create dynamic, responsive financial instruments that couldn't exist in traditional markets.",
+        "Tokenized treasuries surpassed $3 billion in 2025 and are growing rapidly. But simply putting an asset on-chain and issuing tokens is no longer differentiated. The next competitive frontier is programmability — the ability to create dynamic, responsive financial instruments that couldn't exist in traditional markets.",
         "Static tokenization gives you fractional ownership. Programmable yield gives you an entirely new asset class."
       ]
     },
