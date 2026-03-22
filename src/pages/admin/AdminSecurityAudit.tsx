@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import {
   Shield, RefreshCw, AlertTriangle, CheckCircle2, XCircle,
   Lock, FileWarning, Globe, ShieldCheck, ShieldAlert, ChevronDown, ChevronUp,
@@ -6,6 +6,23 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ScoreRing, scoreColor, scoreBg } from "@/components/admin/PSIScoreRing";
+
+const SCAN_DURATION = 45_000; // 45 seconds
+
+const SCAN_PHASES = [
+  { at: 0, label: "Initializing scanner…", detail: "Preparing security modules" },
+  { at: 3, label: "Resolving DNS…", detail: "Checking DNS records and resolution" },
+  { at: 6, label: "Testing TLS/SSL handshake…", detail: "Verifying certificate chain" },
+  { at: 10, label: "Checking HTTPS redirect…", detail: "Testing HTTP → HTTPS enforcement" },
+  { at: 14, label: "Analyzing HSTS policy…", detail: "Validating Strict-Transport-Security" },
+  { at: 18, label: "Scanning security headers…", detail: "X-Frame-Options, CSP, X-Content-Type" },
+  { at: 23, label: "Evaluating Content-Security-Policy…", detail: "Parsing directives and sources" },
+  { at: 28, label: "Checking cross-origin policies…", detail: "COOP, COEP, CORP headers" },
+  { at: 33, label: "Scanning for mixed content…", detail: "Detecting insecure resource loads" },
+  { at: 37, label: "Analyzing inline scripts…", detail: "Identifying unsafe patterns" },
+  { at: 41, label: "Compiling results…", detail: "Generating security score" },
+  { at: 44, label: "Finalizing report…", detail: "Preparing recommendations" },
+];
 
 const SITE_URL = "https://www.tmrw-digital.com";
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
