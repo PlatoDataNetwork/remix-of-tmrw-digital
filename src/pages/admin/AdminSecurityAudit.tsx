@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import {
   Shield, RefreshCw, AlertTriangle, CheckCircle2, XCircle,
   Lock, FileWarning, Globe, ShieldCheck, ShieldAlert, ChevronDown, ChevronUp,
@@ -6,6 +6,23 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ScoreRing, scoreColor, scoreBg } from "@/components/admin/PSIScoreRing";
+
+const SCAN_DURATION = 45_000; // 45 seconds
+
+const SCAN_PHASES = [
+  { at: 0, label: "Initializing scanner…", detail: "Preparing security modules" },
+  { at: 3, label: "Resolving DNS…", detail: "Checking DNS records and resolution" },
+  { at: 6, label: "Testing TLS/SSL handshake…", detail: "Verifying certificate chain" },
+  { at: 10, label: "Checking HTTPS redirect…", detail: "Testing HTTP → HTTPS enforcement" },
+  { at: 14, label: "Analyzing HSTS policy…", detail: "Validating Strict-Transport-Security" },
+  { at: 18, label: "Scanning security headers…", detail: "X-Frame-Options, CSP, X-Content-Type" },
+  { at: 23, label: "Evaluating Content-Security-Policy…", detail: "Parsing directives and sources" },
+  { at: 28, label: "Checking cross-origin policies…", detail: "COOP, COEP, CORP headers" },
+  { at: 33, label: "Scanning for mixed content…", detail: "Detecting insecure resource loads" },
+  { at: 37, label: "Analyzing inline scripts…", detail: "Identifying unsafe patterns" },
+  { at: 41, label: "Compiling results…", detail: "Generating security score" },
+  { at: 44, label: "Finalizing report…", detail: "Preparing recommendations" },
+];
 
 const SITE_URL = "https://www.tmrw-digital.com";
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
@@ -95,11 +112,53 @@ const AdminSecurityAudit = () => {
   const [showAutoFix, setShowAutoFix] = useState(false);
   const [copied, setCopied] = useState(false);
 
+  const [scanProgress, setScanProgress] = useState(0);
+  const [scanPhase, setScanPhase] = useState(SCAN_PHASES[0]);
+  const scanStartRef = useRef<number>(0);
+  const animFrameRef = useRef<number>(0);
+  const pendingResultRef = useRef<AuditResult | null>(null);
+
+  // Animated progress ticker
+  useEffect(() => {
+    if (!loading) return;
+    scanStartRef.current = Date.now();
+    pendingResultRef.current = null;
+
+    const tick = () => {
+      const elapsed = Date.now() - scanStartRef.current;
+      const raw = Math.min(elapsed / SCAN_DURATION, 1);
+      // Ease-out for natural feel
+      const progress = raw < 0.9 ? raw : 0.9 + (raw - 0.9) * 0.5;
+      setScanProgress(progress);
+
+      // Determine phase
+      const elapsedSec = elapsed / 1000;
+      const currentPhase = [...SCAN_PHASES].reverse().find(p => elapsedSec >= p.at) || SCAN_PHASES[0];
+      setScanPhase(currentPhase);
+
+      if (elapsed < SCAN_DURATION && !pendingResultRef.current) {
+        animFrameRef.current = requestAnimationFrame(tick);
+      } else if (pendingResultRef.current) {
+        // API finished and timer exceeded — complete
+        setScanProgress(1);
+        setScanPhase({ at: 45, label: "Scan complete", detail: "Results ready" });
+      } else {
+        animFrameRef.current = requestAnimationFrame(tick);
+      }
+    };
+    animFrameRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animFrameRef.current);
+  }, [loading]);
+
   const runAudit = useCallback(async () => {
     setLoading(true);
     setError(null);
     setResult(null);
     setShowAutoFix(false);
+    setScanProgress(0);
+    setScanPhase(SCAN_PHASES[0]);
+    const startTime = Date.now();
+
     try {
       const res = await fetch(`${SUPABASE_URL}/functions/v1/site-security-audit`, {
         method: "POST",
@@ -112,11 +171,24 @@ const AdminSecurityAudit = () => {
       }
       const data = await res.json();
       if (data.error) throw new Error(data.error);
+
+      // Ensure minimum scan duration
+      const elapsed = Date.now() - startTime;
+      const remaining = SCAN_DURATION - elapsed;
+      if (remaining > 0) {
+        pendingResultRef.current = data;
+        await new Promise(resolve => setTimeout(resolve, remaining));
+      }
+      // Final animation
+      setScanProgress(1);
+      setScanPhase({ at: 45, label: "Scan complete", detail: "Results ready" });
+      await new Promise(resolve => setTimeout(resolve, 500));
       setResult(data);
     } catch (e: any) {
       setError(e.message || "Failed to run audit");
     } finally {
       setLoading(false);
+      pendingResultRef.current = null;
     }
   }, [url]);
 
@@ -175,11 +247,53 @@ const AdminSecurityAudit = () => {
           </div>
         </div>
         {loading && (
-          <div className="flex items-center gap-3 text-white/40 text-sm">
-            <div className="h-1 flex-1 rounded-full bg-white/5 overflow-hidden">
-              <div className="h-full bg-blue-500/50 rounded-full animate-pulse" style={{ width: "45%" }} />
+          <div className="space-y-4 pt-2">
+            {/* Progress bar */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-white/60 font-medium">{scanPhase.label}</span>
+                <span className="text-white/30 tabular-nums">{Math.round(scanProgress * 100)}%</span>
+              </div>
+              <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-300 ease-out"
+                  style={{
+                    width: `${scanProgress * 100}%`,
+                    background: "linear-gradient(90deg, #3b82f6, #06b6d4, #3b82f6)",
+                    backgroundSize: "200% 100%",
+                    animation: "shimmer 2s linear infinite",
+                  }}
+                />
+              </div>
+              <p className="text-[11px] text-white/25">{scanPhase.detail}</p>
             </div>
-            <span>Analyzing security posture…</span>
+
+            {/* Scan activity log */}
+            <div className="rounded-lg border border-white/5 bg-white/[0.02] p-4 max-h-48 overflow-hidden">
+              <div className="space-y-1.5">
+                {SCAN_PHASES.filter(p => (Date.now() - scanStartRef.current) / 1000 >= p.at).map((p, i, arr) => (
+                  <div key={p.at} className="flex items-center gap-2.5">
+                    {i === arr.length - 1 ? (
+                      <RefreshCw className="h-3 w-3 text-blue-400 animate-spin shrink-0" />
+                    ) : (
+                      <CheckCircle2 className="h-3 w-3 text-emerald-400/60 shrink-0" />
+                    )}
+                    <span className={cn(
+                      "text-[11px] font-mono",
+                      i === arr.length - 1 ? "text-white/60" : "text-white/25"
+                    )}>
+                      {p.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Elapsed timer */}
+            <div className="flex items-center justify-center gap-2 text-xs text-white/20">
+              <Shield className="h-3 w-3 animate-pulse" />
+              <span>Deep security analysis in progress — estimated 45 seconds</span>
+            </div>
           </div>
         )}
       </div>
