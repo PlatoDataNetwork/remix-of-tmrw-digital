@@ -48,7 +48,7 @@ const data: BlogPostData = {
     "Static tokenization is table stakes — programmable yield is the competitive frontier.",
     "AI-managed tokenized portfolios offer continuous rebalancing with full on-chain transparency.",
     "Dynamic yield products tied to real-world performance data are impossible in traditional finance.",
-    "Tokenized treasuries surpassed $1B in 2024, proving institutional appetite for on-chain yield.",
+    "Tokenized treasuries surpassed $3B in 2025, proving institutional appetite for on-chain yield.",
     "The future investor evaluates programmability, not just underlying asset value."
   ]
 };
