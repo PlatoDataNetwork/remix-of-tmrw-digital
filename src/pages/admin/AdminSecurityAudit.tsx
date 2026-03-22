@@ -136,14 +136,13 @@ const AdminSecurityAudit = () => {
       const currentPhase = [...SCAN_PHASES].reverse().find(p => elapsedSec >= p.at) || SCAN_PHASES[0];
       setScanPhase(currentPhase);
 
-      if (elapsed < SCAN_DURATION && !pendingResultRef.current) {
+      // Keep animating until full duration elapses, even if API already returned
+      if (elapsed < SCAN_DURATION) {
         animFrameRef.current = requestAnimationFrame(tick);
-      } else if (pendingResultRef.current) {
-        // API finished and timer exceeded — complete
+      } else {
+        // Duration complete — show final state
         setScanProgress(1);
         setScanPhase({ at: 45, label: "Scan complete", detail: "Results ready" });
-      } else {
-        animFrameRef.current = requestAnimationFrame(tick);
       }
     };
     animFrameRef.current = requestAnimationFrame(tick);
