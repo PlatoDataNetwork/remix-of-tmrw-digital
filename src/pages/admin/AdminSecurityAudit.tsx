@@ -248,6 +248,40 @@ const AdminSecurityAudit = () => {
         </div>
         {loading && (
           <div className="space-y-4 pt-2">
+            {/* Radar shield animation */}
+            <div className="flex justify-center py-6">
+              <div className="relative w-32 h-32">
+                {/* Outer radar rings */}
+                <div className="absolute inset-0 rounded-full border border-blue-500/20 animate-ping" style={{ animationDuration: '3s' }} />
+                <div className="absolute inset-3 rounded-full border border-cyan-500/20 animate-ping" style={{ animationDuration: '3s', animationDelay: '0.5s' }} />
+                <div className="absolute inset-6 rounded-full border border-blue-400/25 animate-ping" style={{ animationDuration: '3s', animationDelay: '1s' }} />
+                {/* Static rings */}
+                <div className="absolute inset-0 rounded-full border border-blue-500/10" />
+                <div className="absolute inset-3 rounded-full border border-blue-500/8" />
+                <div className="absolute inset-6 rounded-full border border-blue-500/6" />
+                {/* Radar sweep */}
+                <div className="absolute inset-0 rounded-full overflow-hidden">
+                  <div
+                    className="absolute inset-0 origin-center"
+                    style={{
+                      background: 'conic-gradient(from 0deg, transparent 0deg, transparent 330deg, rgba(59,130,246,0.15) 345deg, rgba(6,182,212,0.3) 360deg)',
+                      animation: 'spin 3s linear infinite',
+                    }}
+                  />
+                </div>
+                {/* Center shield icon */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center backdrop-blur-sm">
+                    <Shield className="h-6 w-6 text-blue-400 animate-pulse" />
+                  </div>
+                </div>
+                {/* Scanning dots */}
+                <div className="absolute top-2 right-6 w-1.5 h-1.5 rounded-full bg-cyan-400/60 animate-ping" style={{ animationDuration: '2s' }} />
+                <div className="absolute bottom-8 left-3 w-1 h-1 rounded-full bg-blue-400/50 animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.8s' }} />
+                <div className="absolute top-10 left-1 w-1 h-1 rounded-full bg-cyan-300/40 animate-ping" style={{ animationDuration: '2s', animationDelay: '1.5s' }} />
+              </div>
+            </div>
+
             {/* Progress bar */}
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs">
@@ -291,7 +325,6 @@ const AdminSecurityAudit = () => {
 
             {/* Elapsed timer */}
             <div className="flex items-center justify-center gap-2 text-xs text-white/20">
-              <Shield className="h-3 w-3 animate-pulse" />
               <span>Deep security analysis in progress — estimated 45 seconds</span>
             </div>
           </div>
