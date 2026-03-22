@@ -561,3 +561,8 @@ body {
   transform: scale(1.2);
   filter: drop-shadow(0 0 8px hsl(275, 85%, 55%));
 }
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
