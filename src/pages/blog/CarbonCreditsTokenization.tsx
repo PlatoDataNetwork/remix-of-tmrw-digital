@@ -47,7 +47,7 @@ const data: BlogPostData = {
     "Digital MRV systems integrating IoT, satellite, and AI reduce verification costs by up to 60% and timelines from months to days.",
     "Institutional and sovereign adoption is accelerating, with major financial platforms and government initiatives building tokenized carbon infrastructure.",
     "Programmable carbon finance enables new products like carbon-backed loans, automated insurance, and composable DeFi instruments.",
-    "The tokenized carbon market is projected to reach $50 billion by 2030, driven by regulatory mandates and institutional demand.",
+    "The tokenized carbon market is projected to reach $89 billion by 2030, driven by regulatory mandates and institutional demand.",
   ],
 };
 
