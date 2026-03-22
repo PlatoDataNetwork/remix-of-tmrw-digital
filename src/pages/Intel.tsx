@@ -353,9 +353,12 @@ const Intel = () => {
                     <p className="text-xs text-muted-foreground font-light line-clamp-3 flex-1">
                       {article.excerpt}
                     </p>
-                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/30">
+                    <div className="flex items-center flex-wrap gap-1.5 mt-4 pt-4 border-t border-border/30">
                       <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent/50 text-accent-foreground">{article.category}</span>
-                      <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      {article.tags.map((tag) => (
+                        <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-secondary/60 text-secondary-foreground">{tag}</span>
+                      ))}
+                      <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors ml-auto" />
                     </div>
                   </motion.article>
                 </Link>
