@@ -131,6 +131,92 @@ const DataFeeds = () => {
             </p>
           </motion.div>
 
+          {/* Featured Blockchain Articles */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-20"
+          >
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2">Live Feed</p>
+                <h2 className="text-2xl md:text-3xl font-light text-foreground">Blockchain</h2>
+              </div>
+              <div className="flex items-center gap-3">
+                <a
+                  href={`${siteUrl}/blockchain.json`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <FileJson className="w-3.5 h-3.5" />
+                  JSON
+                </a>
+                <a
+                  href={`${siteUrl}/blockchain.xml`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Rss className="w-3.5 h-3.5" />
+                  RSS
+                </a>
+              </div>
+            </div>
+
+            {feedLoading ? (
+              <div className="space-y-0 divide-y divide-border/40">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div key={i} className="py-8 animate-pulse">
+                    <div className="h-5 bg-muted rounded w-3/4 mb-3" />
+                    <div className="h-4 bg-muted rounded w-full mb-1" />
+                    <div className="h-4 bg-muted rounded w-2/3" />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="space-y-0 divide-y divide-border/40">
+                {feedArticles.map((article, i) => (
+                  <motion.article
+                    key={article.guid}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.3 + i * 0.05 }}
+                    className="group py-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-8 hover:bg-accent/30 -mx-6 px-6 transition-colors rounded-lg"
+                  >
+                    <div
+                      className="h-7 w-7 animated-gradient-icon-bright shrink-0 hidden md:block"
+                      style={{
+                        WebkitMaskImage: `url(${platoIcon})`,
+                        maskImage: `url(${platoIcon})`,
+                        WebkitMaskSize: 'contain',
+                        maskSize: 'contain',
+                        WebkitMaskRepeat: 'no-repeat',
+                        maskRepeat: 'no-repeat',
+                        WebkitMaskPosition: 'center',
+                        maskPosition: 'center',
+                      }}
+                    />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-3 mb-1">
+                        <span className="text-[10px] uppercase tracking-wider text-muted-foreground shrink-0">
+                          {new Date(article.pubDate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                        </span>
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground shrink-0">Blockchain</span>
+                      </div>
+                      <h3 className="text-base md:text-lg font-medium text-foreground group-hover:text-foreground/80 transition-colors mb-1 line-clamp-1">
+                        {article.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground font-light line-clamp-2">{article.description}</p>
+                    </div>
+                    <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors shrink-0 hidden md:block" />
+                  </motion.article>
+                ))}
+              </div>
+            )}
+          </motion.div>
+
           {/* Feed Grid */}
           {loading ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
