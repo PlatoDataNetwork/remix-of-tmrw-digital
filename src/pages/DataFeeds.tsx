@@ -50,6 +50,8 @@ const DataFeeds = () => {
   const [verticals, setVerticals] = useState<Vertical[]>([]);
   const [loading, setLoading] = useState(true);
   const [totalArticles, setTotalArticles] = useState(0);
+  const [feedArticles, setFeedArticles] = useState<FeedArticle[]>([]);
+  const [feedLoading, setFeedLoading] = useState(true);
 
   const siteUrl = typeof window !== "undefined" ? window.location.origin : "";
 
@@ -59,13 +61,8 @@ const DataFeeds = () => {
       try {
         const res = await fetch(
           `${SUPABASE_URL}/functions/v1/platodata-feeds?action=verticals`,
-          {
-            headers: {
-              Authorization: `Bearer ${SUPABASE_KEY}`,
-            },
-          }
+          { headers: { Authorization: `Bearer ${SUPABASE_KEY}` } }
         );
-
         if (res.ok) {
           const json = await res.json();
           if (json.success && json.verticals) {
@@ -79,7 +76,25 @@ const DataFeeds = () => {
       setLoading(false);
     };
 
+    const fetchFeed = async () => {
+      setFeedLoading(true);
+      try {
+        const res = await fetch(
+          `${SUPABASE_URL}/functions/v1/rss-feed?vertical=blockchain`,
+          { headers: { Authorization: `Bearer ${SUPABASE_KEY}` } }
+        );
+        if (res.ok) {
+          const xml = await res.text();
+          setFeedArticles(parseFeedArticles(xml));
+        }
+      } catch (err) {
+        console.error("Failed to fetch blockchain feed:", err);
+      }
+      setFeedLoading(false);
+    };
+
     fetchVerticals();
+    fetchFeed();
   }, []);
 
   return (
