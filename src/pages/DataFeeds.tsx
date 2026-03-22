@@ -77,13 +77,12 @@ const DataFeeds = () => {
           >
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Data Feeds</p>
             <h1 className="text-3xl md:text-5xl font-light text-foreground mb-6">
-              Real-Time Intelligence
+              OpenSource Real-Time
               <br />
-              Across {verticals.length || "55"}+ Verticals
+              Training Data
             </h1>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-light">
-              Subscribe to our RSS and JSON feeds to get real-time updates on AI, Web3,
-              and emerging technology news. Access via direct feeds or our authenticated API.
+              Subscribe to our RSS and JSON feeds to get real-time updates on all {verticals.length || "54"} Technology / Capital Markets verticals we support. Access via direct feeds or our authenticated API. Free to Use.
               {totalArticles > 0 && (
                 <span className="block mt-2 text-sm text-primary">
                   {totalArticles.toLocaleString()} articles across all verticals
