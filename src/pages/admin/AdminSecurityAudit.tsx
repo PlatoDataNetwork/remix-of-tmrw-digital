@@ -112,11 +112,53 @@ const AdminSecurityAudit = () => {
   const [showAutoFix, setShowAutoFix] = useState(false);
   const [copied, setCopied] = useState(false);
 
+  const [scanProgress, setScanProgress] = useState(0);
+  const [scanPhase, setScanPhase] = useState(SCAN_PHASES[0]);
+  const scanStartRef = useRef<number>(0);
+  const animFrameRef = useRef<number>(0);
+  const pendingResultRef = useRef<AuditResult | null>(null);
+
+  // Animated progress ticker
+  useEffect(() => {
+    if (!loading) return;
+    scanStartRef.current = Date.now();
+    pendingResultRef.current = null;
+
+    const tick = () => {
+      const elapsed = Date.now() - scanStartRef.current;
+      const raw = Math.min(elapsed / SCAN_DURATION, 1);
+      // Ease-out for natural feel
+      const progress = raw < 0.9 ? raw : 0.9 + (raw - 0.9) * 0.5;
+      setScanProgress(progress);
+
+      // Determine phase
+      const elapsedSec = elapsed / 1000;
+      const currentPhase = [...SCAN_PHASES].reverse().find(p => elapsedSec >= p.at) || SCAN_PHASES[0];
+      setScanPhase(currentPhase);
+
+      if (elapsed < SCAN_DURATION && !pendingResultRef.current) {
+        animFrameRef.current = requestAnimationFrame(tick);
+      } else if (pendingResultRef.current) {
+        // API finished and timer exceeded — complete
+        setScanProgress(1);
+        setScanPhase({ at: 45, label: "Scan complete", detail: "Results ready" });
+      } else {
+        animFrameRef.current = requestAnimationFrame(tick);
+      }
+    };
+    animFrameRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animFrameRef.current);
+  }, [loading]);
+
   const runAudit = useCallback(async () => {
     setLoading(true);
     setError(null);
     setResult(null);
     setShowAutoFix(false);
+    setScanProgress(0);
+    setScanPhase(SCAN_PHASES[0]);
+    const startTime = Date.now();
+
     try {
       const res = await fetch(`${SUPABASE_URL}/functions/v1/site-security-audit`, {
         method: "POST",
@@ -129,11 +171,24 @@ const AdminSecurityAudit = () => {
       }
       const data = await res.json();
       if (data.error) throw new Error(data.error);
+
+      // Ensure minimum scan duration
+      const elapsed = Date.now() - startTime;
+      const remaining = SCAN_DURATION - elapsed;
+      if (remaining > 0) {
+        pendingResultRef.current = data;
+        await new Promise(resolve => setTimeout(resolve, remaining));
+      }
+      // Final animation
+      setScanProgress(1);
+      setScanPhase({ at: 45, label: "Scan complete", detail: "Results ready" });
+      await new Promise(resolve => setTimeout(resolve, 500));
       setResult(data);
     } catch (e: any) {
       setError(e.message || "Failed to run audit");
     } finally {
       setLoading(false);
+      pendingResultRef.current = null;
     }
   }, [url]);
 
