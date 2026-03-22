@@ -459,11 +459,14 @@ Deno.serve(async (req) => {
       pagePath,
     });
 
-    const headers = new Headers(corsHeaders);
-    headers.set("Content-Type", "text/html; charset=utf-8");
-    headers.set("Cache-Control", "public, max-age=300");
-
-    return new Response(isHead ? null : html, { status: 200, headers });
+    return new Response(isHead ? null : html, {
+      status: 200,
+      headers: {
+        ...corsHeaders,
+        "Content-Type": "text/html; charset=utf-8",
+        "Cache-Control": "public, max-age=300",
+      },
+    });
   } catch (err) {
     console.error("og-meta error:", err);
     return new Response(
