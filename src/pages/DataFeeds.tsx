@@ -6,7 +6,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { useCurrentLanguage, langPath } from "@/hooks/useLanguage";
-import { Rss, FileJson, Code2 } from "lucide-react";
+import { Rss, FileJson, Code2, ArrowUpRight } from "lucide-react";
+import platoIcon from "@/assets/plato-icon.webp";
 
 interface Vertical {
   slug: string;
@@ -14,8 +15,32 @@ interface Vertical {
   count: number;
 }
 
+interface FeedArticle {
+  title: string;
+  description: string;
+  pubDate: string;
+  guid: string;
+}
+
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+
+const parseFeedArticles = (xml: string): FeedArticle[] => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(xml, "text/xml");
+  const items = doc.querySelectorAll("item");
+  const articles: FeedArticle[] = [];
+  items.forEach((item, i) => {
+    if (i >= 10) return;
+    articles.push({
+      title: item.querySelector("title")?.textContent || "",
+      description: item.querySelector("description")?.textContent || "",
+      pubDate: item.querySelector("pubDate")?.textContent || "",
+      guid: item.querySelector("guid")?.textContent || String(i),
+    });
+  });
+  return articles;
+};
 
 const DataFeeds = () => {
   const currentLang = useCurrentLanguage();
