@@ -247,11 +247,53 @@ const AdminSecurityAudit = () => {
           </div>
         </div>
         {loading && (
-          <div className="flex items-center gap-3 text-white/40 text-sm">
-            <div className="h-1 flex-1 rounded-full bg-white/5 overflow-hidden">
-              <div className="h-full bg-blue-500/50 rounded-full animate-pulse" style={{ width: "45%" }} />
+          <div className="space-y-4 pt-2">
+            {/* Progress bar */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-white/60 font-medium">{scanPhase.label}</span>
+                <span className="text-white/30 tabular-nums">{Math.round(scanProgress * 100)}%</span>
+              </div>
+              <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-300 ease-out"
+                  style={{
+                    width: `${scanProgress * 100}%`,
+                    background: "linear-gradient(90deg, #3b82f6, #06b6d4, #3b82f6)",
+                    backgroundSize: "200% 100%",
+                    animation: "shimmer 2s linear infinite",
+                  }}
+                />
+              </div>
+              <p className="text-[11px] text-white/25">{scanPhase.detail}</p>
             </div>
-            <span>Analyzing security posture…</span>
+
+            {/* Scan activity log */}
+            <div className="rounded-lg border border-white/5 bg-white/[0.02] p-4 max-h-48 overflow-hidden">
+              <div className="space-y-1.5">
+                {SCAN_PHASES.filter(p => (Date.now() - scanStartRef.current) / 1000 >= p.at).map((p, i, arr) => (
+                  <div key={p.at} className="flex items-center gap-2.5">
+                    {i === arr.length - 1 ? (
+                      <RefreshCw className="h-3 w-3 text-blue-400 animate-spin shrink-0" />
+                    ) : (
+                      <CheckCircle2 className="h-3 w-3 text-emerald-400/60 shrink-0" />
+                    )}
+                    <span className={cn(
+                      "text-[11px] font-mono",
+                      i === arr.length - 1 ? "text-white/60" : "text-white/25"
+                    )}>
+                      {p.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Elapsed timer */}
+            <div className="flex items-center justify-center gap-2 text-xs text-white/20">
+              <Shield className="h-3 w-3 animate-pulse" />
+              <span>Deep security analysis in progress — estimated 45 seconds</span>
+            </div>
           </div>
         )}
       </div>
