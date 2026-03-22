@@ -16,6 +16,7 @@ const navLinks = [
   { label: "Whitepaper", href: "/whitepaper" },
   { label: "Team", href: "/#team" },
   { label: "News", href: "/news" },
+  { label: "Data Feeds", href: "/data-feeds" },
 ];
 
 const Navbar = () => {
