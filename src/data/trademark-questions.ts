@@ -59,14 +59,14 @@ const BEGINNER_QUESTIONS: TrademarkQuestion[] = [
   {
     id: 7, module: "beginner",
     question: "Which of these CANNOT be trademarked?",
-    options: ["A color (e.g., Tiffany blue)", "A sound (e.g., NBC chimes)", "A scent (e.g., Play-Doh smell)", "A generic word for the product it describes."],
+    options: ["A color (e.g., Tiffany blue).", "A sound (e.g., NBC chimes).", "A scent (e.g., Play-Doh smell).", "A generic word for the product it describes."],
     correctIndex: 3,
     insight: "You can't trademark \"Computer\" for computers, but colors, sounds, and even scents can be protected.",
   },
   {
     id: 8, module: "beginner",
     question: "Where do you register a trademark in the United States?",
-    options: ["The Library of Congress.", "Your state's Secretary of State office only.", "The Federal Trade Commission (FTC)", "The U.S. Patent and Trademark Office (USPTO)"],
+    options: ["The Library of Congress.", "Your state's Secretary of State office only.", "The Federal Trade Commission (FTC).", "The U.S. Patent and Trademark Office (USPTO)."],
     correctIndex: 3,
     insight: "The USPTO handles federal trademark registration. State registration is possible but offers less protection.",
   },
@@ -192,7 +192,7 @@ const INTERMEDIATE_QUESTIONS: TrademarkQuestion[] = [
   {
     id: 105, module: "intermediate",
     question: "How many classes does the Nice Classification system have?",
-    options: ["10 classes.", "25 classes.", "45 classes (34 goods + 11 services)", "100 classes."],
+    options: ["10 classes.", "25 classes.", "45 classes (34 goods + 11 services).", "100 classes."],
     correctIndex: 2,
     insight: "The Nice Classification has 34 goods classes and 11 service classes. You register in specific classes relevant to your business.",
   },
@@ -332,7 +332,7 @@ const EXPERT_QUESTIONS: TrademarkQuestion[] = [
   {
     id: 204, module: "expert",
     question: "What is the 'Lanham Act'?",
-    options: ["A state-level trademark law in California.", "An international treaty on counterfeiting.", "A law governing domain name disputes.", "The primary federal trademark statute in the United States (15 U.S.C. §§ 1051–1141)"],
+    options: ["A state-level trademark law in California.", "An international treaty on counterfeiting.", "A law governing domain name disputes.", "The primary federal trademark statute in the United States (15 U.S.C. §§ 1051–1141)."],
     correctIndex: 3,
     insight: "Enacted in 1946, the Lanham Act is the backbone of US trademark law covering registration, infringement, dilution, and unfair competition.",
   },
