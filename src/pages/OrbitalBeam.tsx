@@ -243,11 +243,10 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
 
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-2xl">{meta.icon}</span>
-                {!unlocked && <Lock size={14} style={{ color: "hsl(0,0%,30%)" }} />}
                 {result?.passed && <CheckCircle2 size={14} style={{ color }} />}
               </div>
 
-              <span className="text-xs font-bold tracking-[0.15em] block mb-1 transition-colors duration-300" style={{ color: unlocked ? color : "hsl(0,0%,30%)" }}>
+              <span className="text-xs font-bold tracking-[0.15em] block mb-1 transition-colors duration-300" style={{ color }}>
                 {meta.label}
               </span>
               <span className="text-xs block mb-3" style={{ color: "hsl(0,0%,50%)" }}>{meta.desc}</span>
@@ -259,14 +258,8 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
               )}
 
               <span className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "hsl(0,0%,35%)" }}>
-                {meta.questions} QUESTIONS · {available} IN POOL
+                {meta.questions} QUESTIONS
               </span>
-
-              {!unlocked && (
-                <div className="mt-3 text-[10px] tracking-[0.1em]" style={{ color: "hsl(0,0%,30%)" }}>
-                  🔒 Pass {m === "operator" ? "Module 1" : "Module 2"} with 70%+ to unlock
-                </div>
-              )}
             </motion.button>
           );
         })}
