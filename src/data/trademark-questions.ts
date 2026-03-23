@@ -164,14 +164,14 @@ const INTERMEDIATE_QUESTIONS: TrademarkQuestion[] = [
   {
     id: 101, module: "intermediate",
     question: "Taylor Swift has hundreds of registered trademarks. Which of these has she trademarked?",
-    options: ["\."This Sick Beat\"",."\"Shake It Off\."",."\"Bad Blood\."",."All of the above"],
+    options: ["\"This Sick Beat.\"", "\"Shake It Off.\"", "\"Bad Blood.\"", "All of the above."],
     correctIndex: 3,
     insight: "Taylor Swift has aggressively trademarked song titles, album names, and even phrases — a masterclass in brand protection.",
   },
   {
     id: 102, module: "intermediate",
     question: "Marvel and DC Comics once fought over which trademark?",
-    options: ["\."Comic Book\"",."\"Action Figure\."",."\"Superhero\."",."\"Graphic Novel\.""],
+    options: ["\"Comic Book.\"", "\"Action Figure.\"", "\"Superhero.\"", "\"Graphic Novel.\""],
     correctIndex: 2,
     insight: "Marvel and DC jointly trademarked \"Super Hero\" in the 1970s. They co-owned and enforced it for decades.",
   },
@@ -508,12 +508,12 @@ const TM_JOKES: TMJoke[] = [
   { setup: "How many trademark lawyers does it take to change a lightbulb?", punchline: "Three — one to change it, one to file a cease-and-desist against the old bulb, and one to trademark the new one." },
   { setup: "Why was the ® symbol so arrogant?", punchline: "Because it had federal registration and wouldn't let anyone forget it." },
   { setup: "What did the trademark say to the patent?", punchline: "\"You expire in 20 years. I'm forever.\"" },
-  { setup: "Why did the startup founder trademark their morning coffee order?", punchline: "Because their lawyer said \'anything distinctive can be protected.\'" },
+  { setup: "Why did the startup founder trademark their morning coffee order?", punchline: "Because their lawyer said 'anything distinctive can be protected.'" },
   { setup: "What's a trademark squatter's favorite hobby?", punchline: "Filing and chilling." },
   { setup: "Why don't trademarks ever get lost?", punchline: "Because they always have a distinctive mark." },
   { setup: "What did the TTAB judge say after a 200-page opposition filing?", punchline: "\"I'll allow it... after lunch.\"" },
   { setup: "Why did the brand owner break up with their trademark?", punchline: "They said it lost its distinctiveness." },
-  { setup: "What's a trademark's favorite song?", punchline: "\"Don't Stop Believin\'\" — because abandonment kills." },
+  { setup: "What's a trademark's favorite song?", punchline: "\"Don't Stop Believin'\" — because abandonment kills." },
 ];
 
 export function getRandomTMJoke(): TMJoke {
