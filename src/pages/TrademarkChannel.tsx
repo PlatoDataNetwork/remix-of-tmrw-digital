@@ -1,9 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Copy, Check, Shield, Scale, Sparkles, Target, Crown, BookOpen, Lock, CheckCircle2, XCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowLeft, Copy, Check, Shield, Scale, Sparkles, Target, Crown, BookOpen, CheckCircle2, XCircle, ChevronDown, ChevronUp, Zap, Laugh } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import platoIcon from "@/assets/plato-icon.webp";
-import { type TrademarkModule, type TrademarkQuestion, pickTrademarkQuestions, TM_MODULE_META, TM_QUESTION_BANK } from "@/data/trademark-questions";
+import { type TrademarkModule, type TrademarkQuestion, pickTrademarkQuestions, TM_MODULE_META, TM_QUESTION_BANK, getRandomTMJoke } from "@/data/trademark-questions";
 
 const PAGE_BG = "hsl(220, 20%, 4%)";
 const NEON = "hsl(82, 85%, 55%)";
@@ -51,7 +53,7 @@ function getProfile(score: number, total: number, mod: TrademarkModule): Profile
   return profiles[2];
 }
 
-type Step = "landing" | "identify" | "modules" | "assessment" | "analyzing" | "results" | "review" | "contact";
+type Step = "landing" | "identify" | "modules" | "assessment" | "joke" | "analyzing" | "results" | "review" | "contact";
 
 /* ------------------------------------------------------------------ */
 /*  SHARED UI                                                          */
@@ -66,7 +68,7 @@ function TMRWBranding() {
         maskImage: `url(${platoIcon})`, maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center",
       }} />
       <span className="text-[10px] font-light tracking-[0.2em] uppercase" style={{ color: "hsl(0,0%,50%)" }}>
-        TMRW <span style={{ color: "hsl(0,0%,30%)" }}>|</span> W3AI
+        TMRW <span style={{ color: "hsl(0,0%,30%)" }}>|</span> TRADEMARK
       </span>
     </div>
   );
@@ -102,25 +104,27 @@ function LandingStep({ onEnter }: { onEnter: () => void }) {
       </motion.div>
 
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
-        className="mt-6 text-sm md:text-base tracking-[0.3em] uppercase font-light" style={{ color: "hsl(0,0%,50%)" }}>
-        Trademark Intelligence Assessment
+        className="mt-6 text-sm md:text-base tracking-[0.3em] uppercase font-light italic" style={{ color: "hsl(0,0%,50%)" }}>
+        "Protect Your Brand Before Someone Else Does"
       </motion.p>
 
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.0 }}
         className="mt-2 text-xs tracking-[0.15em] uppercase" style={{ color: "hsl(0,0%,35%)" }}>
-        3 Modules · 60 Questions · Prove Your Knowledge
+        3 Modules · 60 Questions · Jokes Included · Your Brand Depends on It
       </motion.p>
 
-      <motion.button initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }}
-        onClick={onEnter}
-        className="mt-12 px-10 py-4 text-sm font-bold tracking-[0.4em] uppercase border-2 transition-all duration-300 hover:scale-105"
-        style={{ color: PAGE_BG, background: NEON, borderColor: NEON }}>
-        ENTER
-      </motion.button>
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }}
+        className="flex flex-wrap gap-4 mt-12">
+        <button onClick={onEnter}
+          className="px-10 py-4 text-sm font-bold tracking-[0.4em] uppercase border-2 transition-all duration-300 hover:scale-105"
+          style={{ color: PAGE_BG, background: NEON, borderColor: NEON, boxShadow: `0 0 24px ${NEON}33` }}>
+          ENTER
+        </button>
+      </motion.div>
 
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-8 md:left-16 text-[10px] tracking-[0.2em] uppercase" style={{ color: "hsl(0,0%,40%)" }}>
-        Powered by The Trademark Channel &amp; TMRW Digital
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.7 }} transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-8 md:left-16 text-xs tracking-[0.15em] uppercase text-white">
+        Powered by The Tomorrow Company &amp; TMRW Digital
       </motion.p>
     </motion.div>
   );
@@ -131,10 +135,10 @@ function LandingStep({ onEnter }: { onEnter: () => void }) {
 /* ------------------------------------------------------------------ */
 
 const IDENTITIES = [
-  { label: "BRAND OWNER", desc: "I need to protect my brand and IP" },
-  { label: "STARTUP FOUNDER", desc: "Building something — need to know my rights" },
-  { label: "ATTORNEY / IP PRO", desc: "Let's see how sharp I really am" },
-  { label: "JUST CURIOUS", desc: "I want to learn about trademarks" },
+  { label: "BRAND OWNER", desc: "I need to protect my brand and IP — yesterday" },
+  { label: "STARTUP FOUNDER", desc: "Building something — need to know my rights before someone steals them" },
+  { label: "ATTORNEY / IP PRO", desc: "Let's see how sharp I really am (spoiler: very)" },
+  { label: "JUST CURIOUS", desc: "I want to learn about trademarks — and maybe laugh a little" },
 ];
 
 function IdentifyStep({ onSelect, onBack }: { onSelect: (identity: string) => void; onBack: () => void }) {
@@ -145,18 +149,18 @@ function IdentifyStep({ onSelect, onBack }: { onSelect: (identity: string) => vo
       <BackButton onClick={onBack} />
       <motion.h2 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}
         className="text-2xl md:text-4xl font-black tracking-tight mb-2" style={{ color: "hsl(0,0%,95%)" }}>
-        IDENTIFY YOURSELF
+        IDENTIFY YOURSELF ™
       </motion.h2>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
         className="text-xs md:text-sm tracking-[0.2em] uppercase mb-12" style={{ color: "hsl(0,0%,50%)" }}>
-        A comprehensive trademark intelligence assessment
+        Choose wisely — your brand reputation is at stake
       </motion.p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-xl">
         {IDENTITIES.map((id, i) => (
           <motion.button key={id.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 + i * 0.1 }} onClick={() => onSelect(id.label)}
             className="text-left p-6 border transition-all duration-300 hover:scale-[1.02] group"
-            style={{ borderColor: "hsl(0,0%,15%)", background: "hsl(220,20%,6%)" }}>
+            style={{ borderColor: "hsl(0,0%,15%)", background: "hsl(220,25%,5%)" }}>
             <span className="text-sm font-bold tracking-[0.15em] block mb-1 transition-colors duration-300 group-hover:text-[hsl(82,85%,55%)]" style={{ color: "hsl(0,0%,90%)" }}>
               {id.label}
             </span>
@@ -169,7 +173,7 @@ function IdentifyStep({ onSelect, onBack }: { onSelect: (identity: string) => vo
 }
 
 /* ------------------------------------------------------------------ */
-/*  MODULE SELECTOR (with progression)                                 */
+/*  MODULE SELECTOR (all unlocked)                                     */
 /* ------------------------------------------------------------------ */
 
 function ModulesStep({ onSelect, onBack, completedModules }: {
@@ -179,12 +183,7 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
 }) {
   const modules: TrademarkModule[] = ["beginner", "intermediate", "expert"];
 
-  const isUnlocked = (m: TrademarkModule): boolean => {
-    if (m === "beginner") return true;
-    if (m === "intermediate") return !!completedModules.beginner?.passed;
-    if (m === "expert") return !!completedModules.intermediate?.passed;
-    return false;
-  };
+  const isUnlocked = (_m: TrademarkModule): boolean => true;
 
   return (
     <motion.div initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -60 }}
@@ -194,14 +193,14 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
 
       <motion.h2 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}
         className="text-2xl md:text-4xl font-black tracking-tight mb-2" style={{ color: "hsl(0,0%,95%)" }}>
-        SELECT YOUR MODULE
+        SELECT YOUR MODULE ™
       </motion.h2>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
         className="text-xs md:text-sm tracking-[0.2em] uppercase mb-4" style={{ color: "hsl(0,0%,50%)" }}>
-        Score 70% or above to graduate and unlock the next level
+        Score 70%+ to graduate — jokes won't save you (but they'll soften the blow)
       </motion.p>
 
-      {/* Progress indicator */}
+      {/* Progress dots */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
         className="flex items-center gap-2 mb-12">
         {modules.map((m, i) => {
@@ -235,7 +234,7 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
               className="text-left p-6 border transition-all duration-300 group relative overflow-hidden"
               style={{
                 borderColor: unlocked ? "hsl(0,0%,15%)" : "hsl(0,0%,10%)",
-                background: "hsl(220,20%,6%)",
+                background: "hsl(220,25%,5%)",
                 opacity: unlocked ? 1 : 0.5,
                 cursor: unlocked ? "pointer" : "not-allowed",
               }}>
@@ -243,11 +242,10 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
 
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-2xl">{meta.icon}</span>
-                {!unlocked && <Lock size={14} style={{ color: "hsl(0,0%,30%)" }} />}
                 {result?.passed && <CheckCircle2 size={14} style={{ color }} />}
               </div>
 
-              <span className="text-xs font-bold tracking-[0.15em] block mb-1 transition-colors duration-300" style={{ color: unlocked ? color : "hsl(0,0%,30%)" }}>
+              <span className="text-xs font-bold tracking-[0.15em] block mb-1 transition-colors duration-300" style={{ color }}>
                 {meta.label}
               </span>
               <span className="text-xs block mb-3" style={{ color: "hsl(0,0%,50%)" }}>{meta.desc}</span>
@@ -261,12 +259,6 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
               <span className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "hsl(0,0%,35%)" }}>
                 {meta.questions} QUESTIONS · {available} IN POOL
               </span>
-
-              {!unlocked && (
-                <div className="mt-3 text-[10px] tracking-[0.1em]" style={{ color: "hsl(0,0%,30%)" }}>
-                  🔒 Pass {m === "intermediate" ? "Module 1" : "Module 2"} with 70%+ to unlock
-                </div>
-              )}
             </motion.button>
           );
         })}
@@ -276,17 +268,58 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
 }
 
 /* ------------------------------------------------------------------ */
-/*  ASSESSMENT                                                         */
+/*  ASSESSMENT (with immediate feedback)                               */
 /* ------------------------------------------------------------------ */
 
-function AssessmentStep({ questions, questionIndex, answers, onAnswer, onBack, currentModule }: {
+function AssessmentStep({ questions, questionIndex, answers, onAnswer, onBack, currentModule, onJoke }: {
   questions: TrademarkQuestion[]; questionIndex: number; answers: (number | null)[];
-  onAnswer: (idx: number) => void; onBack: () => void; currentModule: TrademarkModule;
+  onAnswer: (idx: number) => void; onBack: () => void; currentModule: TrademarkModule; onJoke: () => void;
 }) {
   const q = questions[questionIndex];
   const total = questions.length;
   const progress = ((questionIndex + 1) / total) * 100;
   const color = MODULE_COLORS[currentModule];
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+
+  useEffect(() => {
+    setSelectedOption(null);
+    setShowFeedback(false);
+    setIsCorrect(false);
+  }, [questionIndex]);
+
+  const handleOptionClick = (idx: number) => {
+    if (showFeedback && isCorrect) return;
+    setSelectedOption(idx);
+    const correct = idx === q.correctIndex;
+    setIsCorrect(correct);
+    setShowFeedback(true);
+
+    if (correct) {
+      setTimeout(() => onAnswer(idx), 1200);
+    }
+  };
+
+  const getOptionStyle = (i: number) => {
+    if (!showFeedback || selectedOption === null) {
+      return { borderColor: "hsl(0,0%,15%)", background: "hsl(220,25%,5%)" };
+    }
+    if (i === q.correctIndex && showFeedback) {
+      return { borderColor: "hsl(142, 71%, 45%)", background: "hsl(142, 71%, 45%, 0.12)" };
+    }
+    if (i === selectedOption && !isCorrect) {
+      return { borderColor: "hsl(0, 70%, 55%)", background: "hsl(0, 70%, 55%, 0.12)" };
+    }
+    return { borderColor: "hsl(0,0%,15%)", background: "hsl(220,25%,5%)" };
+  };
+
+  const getOptionTextColor = (i: number) => {
+    if (!showFeedback) return "hsl(0,0%,80%)";
+    if (i === q.correctIndex) return "hsl(142, 71%, 45%)";
+    if (i === selectedOption && !isCorrect) return "hsl(0, 70%, 55%)";
+    return "hsl(0,0%,40%)";
+  };
 
   return (
     <motion.div key={`q-${questionIndex}`} initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -60 }}
@@ -315,23 +348,115 @@ function AssessmentStep({ questions, questionIndex, answers, onAnswer, onBack, c
 
         <div className="space-y-3">
           {q.options.map((opt, i) => {
-            const selected = answers[questionIndex] === i;
+            const style = getOptionStyle(i);
             return (
               <motion.button key={i} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 + i * 0.08 }} onClick={() => onAnswer(i)}
+                transition={{ delay: 0.2 + i * 0.08 }} onClick={() => handleOptionClick(i)}
+                disabled={showFeedback && isCorrect}
                 className="w-full text-left p-5 border transition-all duration-200 hover:scale-[1.01] flex items-start gap-4"
-                style={{ borderColor: selected ? color : "hsl(0,0%,15%)", background: selected ? `${color}14` : "hsl(220,20%,6%)" }}>
-                <span className="text-[10px] font-mono tracking-wider mt-0.5 shrink-0" style={{ color: selected ? color : "hsl(0,0%,40%)" }}>
+                style={style}>
+                <span className="text-[10px] font-mono tracking-wider mt-0.5 shrink-0 flex items-center gap-1" style={{ color: getOptionTextColor(i) }}>
+                  {showFeedback && i === q.correctIndex && <CheckCircle2 size={12} />}
+                  {showFeedback && i === selectedOption && !isCorrect && i !== q.correctIndex && <XCircle size={12} />}
                   {String.fromCharCode(65 + i)}
                 </span>
-                <span className="text-sm md:text-base transition-colors duration-200" style={{ color: selected ? color : "hsl(0,0%,80%)" }}>
+                <span className="text-sm md:text-base transition-colors duration-200" style={{ color: getOptionTextColor(i) }}>
                   {opt}
                 </span>
               </motion.button>
             );
           })}
         </div>
+
+        {/* Wrong answer feedback */}
+        <AnimatePresence>
+          {showFeedback && !isCorrect && (
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+              className="mt-6 p-5 border rounded-sm" style={{ borderColor: "hsl(0, 70%, 55%, 0.3)", background: "hsl(0, 70%, 55%, 0.06)" }}>
+              <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "hsl(0, 70%, 55%)" }}>
+                ✗ INCORRECT — TRY AGAIN
+              </p>
+              <p className="text-sm" style={{ color: "hsl(0,0%,60%)" }}>
+                That's not right. Read the options carefully and select another answer.
+              </p>
+            </motion.div>
+          )}
+          {showFeedback && isCorrect && (
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+              className="mt-6 p-5 border rounded-sm" style={{ borderColor: "hsl(142, 71%, 45%, 0.3)", background: "hsl(142, 71%, 45%, 0.06)" }}>
+              <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "hsl(142, 71%, 45%)" }}>
+                ✓ CORRECT
+              </p>
+              <p className="text-sm" style={{ color: "hsl(0,0%,70%)" }}>
+                ™ <strong>INSIGHT:</strong> {q.insight}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Tell Me a Joke button */}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
+          className="mt-8 flex justify-center">
+          <button onClick={onJoke}
+            className="flex items-center gap-2 px-5 py-2.5 text-[10px] tracking-[0.2em] uppercase border rounded-full transition-all hover:scale-105"
+            style={{ borderColor: "hsl(82, 85%, 55%, 0.4)", color: "hsl(82, 85%, 55%)", background: "hsl(82, 85%, 55%, 0.06)" }}>
+            <Laugh size={14} /> TELL ME A JOKE
+          </button>
+        </motion.div>
       </div>
+    </motion.div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  JOKE INTERLUDE                                                     */
+/* ------------------------------------------------------------------ */
+
+function JokeStep({ onBack }: { onBack: () => void }) {
+  const [joke] = useState(() => getRandomTMJoke());
+  const [showPunchline, setShowPunchline] = useState(false);
+
+  return (
+    <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
+      className="min-h-screen flex flex-col items-center justify-center px-6 md:px-16 relative" style={{ background: PAGE_BG }}>
+      <TMRWBranding />
+
+      <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}
+        className="text-6xl mb-8">
+        😄
+      </motion.div>
+
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
+        className="text-xl md:text-2xl font-bold text-center max-w-lg leading-relaxed mb-8"
+        style={{ color: "hsl(0,0%,90%)" }}>
+        {joke.setup}
+      </motion.p>
+
+      {!showPunchline ? (
+        <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
+          onClick={() => setShowPunchline(true)}
+          className="px-8 py-3 text-sm font-bold tracking-[0.3em] uppercase border-2 transition-all hover:scale-105 rounded-full"
+          style={{ borderColor: "hsl(40, 95%, 55%)", color: "hsl(40, 95%, 55%)" }}>
+          😂 REVEAL PUNCHLINE
+        </motion.button>
+      ) : (
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+          className="text-center">
+          <p className="text-lg md:text-xl font-bold mb-8 max-w-lg" style={{ color: "hsl(40, 95%, 55%)" }}>
+            {joke.punchline}
+          </p>
+          <button onClick={onBack}
+            className="px-8 py-3 text-sm font-bold tracking-[0.3em] uppercase transition-all hover:scale-105"
+            style={{ background: NEON, color: PAGE_BG }}>
+            BACK TO ASSESSMENT →
+          </button>
+        </motion.div>
+      )}
+
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.3 }} transition={{ delay: 1 }}
+        className="absolute bottom-8 text-[10px] tracking-[0.15em] uppercase" style={{ color: "hsl(0,0%,40%)" }}>
+        Your assessment progress is saved — we wouldn't joke about that
+      </motion.p>
     </motion.div>
   );
 }
@@ -397,7 +522,7 @@ function ResultsStep({ score, questions, answers, currentModule, onReview, onRet
   const pct = Math.round((score / total) * 100);
   const color = MODULE_COLORS[currentModule];
 
-  const shareText = `I scored ${pct}% on The Trademark Channel — ${TM_MODULE_META[currentModule].label}. I'm a "${profile.title}." Think you can beat me?`;
+  const shareText = `I scored ${pct}% on The Trademark Channel — ${TM_MODULE_META[currentModule].label}. I'm a "${profile.title}." Think you can beat me? ™`;
   const shareUrl = "https://tmrw-digital.com/trademark-channel";
 
   const handleCopy = useCallback(() => {
@@ -422,7 +547,6 @@ function ResultsStep({ score, questions, answers, currentModule, onReview, onRet
         YOUR RESULTS ARE READY
       </motion.p>
 
-      {/* Pass / Fail */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
         className="mb-6 px-4 py-2 rounded-sm text-xs font-bold tracking-[0.2em] uppercase"
         style={{ background: passed ? `${NEON}22` : "hsl(0,70%,55%,0.15)", color: passed ? NEON : "hsl(0,70%,55%)" }}>
@@ -455,7 +579,7 @@ function ResultsStep({ score, questions, answers, currentModule, onReview, onRet
         <p className="text-sm leading-relaxed mb-8" style={{ color: "hsl(0,0%,65%)" }}>{profile.description}</p>
       </motion.div>
 
-      {/* Review answers button */}
+      {/* Review */}
       <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
         onClick={onReview}
         className="px-6 py-3 text-xs tracking-[0.2em] uppercase mb-6 border transition-all hover:scale-105 flex items-center gap-2"
@@ -527,7 +651,7 @@ function ReviewStep({ questions, answers, currentModule, onBack }: {
 
       <motion.h2 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
         className="text-2xl md:text-3xl font-black tracking-tight mb-2" style={{ color: "hsl(0,0%,95%)" }}>
-        ANSWER REVIEW
+        ANSWER REVIEW ™
       </motion.h2>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
         className="text-xs tracking-[0.2em] uppercase mb-8" style={{ color }}>
@@ -543,10 +667,10 @@ function ReviewStep({ questions, answers, currentModule, onBack }: {
           return (
             <motion.div key={q.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + i * 0.03 }}
-              className="border overflow-hidden" style={{ borderColor: "hsl(0,0%,12%)", background: "hsl(220,20%,6%)" }}>
+              className="border overflow-hidden" style={{ borderColor: "hsl(0,0%,12%)", background: "hsl(220,25%,5%)" }}>
 
               <button onClick={() => setExpandedIdx(expanded ? null : i)}
-                className="w-full text-left p-4 flex items-start gap-3 transition-colors hover:bg-[hsl(220,20%,8%)]">
+                className="w-full text-left p-4 flex items-start gap-3 transition-colors hover:bg-[hsl(220,25%,7%)]">
                 <span className="mt-0.5 shrink-0">
                   {correct
                     ? <CheckCircle2 size={16} style={{ color: NEON }} />
@@ -567,19 +691,19 @@ function ReviewStep({ questions, answers, currentModule, onBack }: {
                     className="overflow-hidden">
                     <div className="px-4 pb-4 pt-1 space-y-2">
                       {q.options.map((opt, oi) => {
-                        const isCorrect = oi === q.correctIndex;
+                        const isCorrectOpt = oi === q.correctIndex;
                         const isUserChoice = oi === userAnswer;
                         let optColor = "hsl(0,0%,50%)";
                         let optBg = "transparent";
-                        if (isCorrect) { optColor = NEON; optBg = `${NEON}11`; }
-                        else if (isUserChoice && !isCorrect) { optColor = "hsl(0,70%,55%)"; optBg = "hsl(0,70%,55%,0.08)"; }
+                        if (isCorrectOpt) { optColor = NEON; optBg = `${NEON}11`; }
+                        else if (isUserChoice && !isCorrectOpt) { optColor = "hsl(0,70%,55%)"; optBg = "hsl(0,70%,55%,0.08)"; }
 
                         return (
                           <div key={oi} className="flex items-start gap-2 p-2 rounded-sm text-xs" style={{ background: optBg }}>
                             <span className="font-mono shrink-0 mt-px" style={{ color: optColor }}>{String.fromCharCode(65 + oi)}</span>
                             <span style={{ color: optColor }}>{opt}</span>
-                            {isCorrect && <span className="ml-auto shrink-0 text-[10px] font-bold tracking-wider" style={{ color: NEON }}>✓ CORRECT</span>}
-                            {isUserChoice && !isCorrect && <span className="ml-auto shrink-0 text-[10px] font-bold tracking-wider" style={{ color: "hsl(0,70%,55%)" }}>YOUR ANSWER</span>}
+                            {isCorrectOpt && <span className="ml-auto shrink-0 text-[10px] font-bold tracking-wider" style={{ color: NEON }}>✓ CORRECT</span>}
+                            {isUserChoice && !isCorrectOpt && <span className="ml-auto shrink-0 text-[10px] font-bold tracking-wider" style={{ color: "hsl(0,70%,55%)" }}>YOUR ANSWER</span>}
                           </div>
                         );
                       })}
@@ -637,14 +761,14 @@ function ContactStep({ onBack }: { onBack: () => void }) {
               <div key={field.label}>
                 <label className="text-[10px] tracking-[0.2em] uppercase block mb-2" style={{ color: "hsl(0,0%,45%)" }}>{field.label}</label>
                 <input type={field.type} placeholder={field.placeholder} required
-                  className="w-full p-4 text-sm border-b-2 bg-transparent outline-none transition-colors focus:border-[hsl(82,85%,55%)]"
+                  className="w-full p-4 text-sm border-b-2 bg-transparent outline-none transition-colors"
                   style={{ borderColor: "hsl(0,0%,15%)", color: "hsl(0,0%,90%)" }} />
               </div>
             ))}
             <div>
               <label className="text-[10px] tracking-[0.2em] uppercase block mb-2" style={{ color: "hsl(0,0%,45%)" }}>WHAT DO YOU NEED?</label>
               <textarea placeholder="Tell us about your brand protection needs..." rows={3}
-                className="w-full p-4 text-sm border-b-2 bg-transparent outline-none resize-none transition-colors focus:border-[hsl(82,85%,55%)]"
+                className="w-full p-4 text-sm border-b-2 bg-transparent outline-none resize-none transition-colors"
                 style={{ borderColor: "hsl(0,0%,15%)", color: "hsl(0,0%,90%)" }} />
             </div>
             <button type="submit" className="w-full py-4 text-sm font-bold tracking-[0.3em] uppercase transition-all hover:scale-[1.02]"
@@ -656,7 +780,7 @@ function ContactStep({ onBack }: { onBack: () => void }) {
       ) : (
         <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="text-center">
           <Sparkles size={48} style={{ color: NEON }} className="mx-auto mb-6" />
-          <h2 className="text-3xl font-black tracking-tight mb-3" style={{ color: "hsl(0,0%,95%)" }}>MESSAGE SENT</h2>
+          <h2 className="text-3xl font-black tracking-tight mb-3" style={{ color: "hsl(0,0%,95%)" }}>MESSAGE SENT ™</h2>
           <p className="text-sm" style={{ color: "hsl(0,0%,50%)" }}>We'll be in touch. Your brand is in good hands.</p>
         </motion.div>
       )}
@@ -726,7 +850,8 @@ const TrademarkChannel = () => {
         description="Test your trademark knowledge across 3 progressive modules. From Trademark Student to Trademark Titan — prove your expertise with The Trademark Channel."
         path="/trademark-channel"
       />
-      <div className="overflow-hidden" style={{ background: PAGE_BG }}>
+      <Navbar />
+      <div className="overflow-hidden pt-16 lg:pt-20" style={{ background: PAGE_BG }}>
         <AnimatePresence mode="wait">
           {step === "landing" && <LandingStep key="landing" onEnter={() => setStep("identify")} />}
           {step === "identify" && (
@@ -737,8 +862,10 @@ const TrademarkChannel = () => {
           )}
           {step === "assessment" && questions.length > 0 && (
             <AssessmentStep key={`assess-${questionIndex}`} questions={questions} questionIndex={questionIndex}
-              answers={answers} onAnswer={handleAnswer} onBack={handleAssessmentBack} currentModule={currentModule} />
+              answers={answers} onAnswer={handleAnswer} onBack={handleAssessmentBack} currentModule={currentModule}
+              onJoke={() => setStep("joke")} />
           )}
+          {step === "joke" && <JokeStep key="joke" onBack={() => setStep("assessment")} />}
           {step === "analyzing" && <AnalyzingStep key="analyzing" currentModule={currentModule} />}
           {step === "results" && (
             <ResultsStep key="results" score={score} questions={questions} answers={answers}
@@ -755,6 +882,7 @@ const TrademarkChannel = () => {
           {step === "contact" && <ContactStep key="contact" onBack={() => setStep("results")} />}
         </AnimatePresence>
       </div>
+      <Footer />
     </>
   );
 };
