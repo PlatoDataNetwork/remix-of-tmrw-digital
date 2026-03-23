@@ -98,10 +98,6 @@ function LandingStep({ onEnter }: { onEnter: () => void }) {
         </h1>
       </motion.div>
 
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
-        className="mt-3 text-sm md:text-lg font-semibold tracking-[0.15em] uppercase" style={{ color: "hsl(0,0%,70%)" }}>
-        The Tomorrow Company × Orbital Beam
-      </motion.p>
 
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
         className="mt-4 text-sm md:text-base tracking-[0.3em] uppercase font-light italic" style={{ color: "hsl(0,0%,50%)" }}>
