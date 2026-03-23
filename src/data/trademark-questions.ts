@@ -491,3 +491,31 @@ export const TM_MODULE_META: Record<TrademarkModule, { label: string; desc: stri
     icon: "📕",
   },
 };
+
+/* ------------------------------------------------------------------ */
+/*  TRADEMARK JOKES                                                    */
+/* ------------------------------------------------------------------ */
+
+interface TMJoke {
+  setup: string;
+  punchline: string;
+}
+
+const TM_JOKES: TMJoke[] = [
+  { setup: "Why did the trademark attorney bring a ladder to court?", punchline: "Because the case had too many levels of confusion." },
+  { setup: "What's the difference between a trademark and a copyright?", punchline: "About $500 an hour in legal fees to explain." },
+  { setup: "Why did the generic brand go to therapy?", punchline: "It had an identity crisis — it used to be a trademark." },
+  { setup: "How many trademark lawyers does it take to change a lightbulb?", punchline: "Three — one to change it, one to file a cease-and-desist against the old bulb, and one to trademark the new one." },
+  { setup: "Why was the ® symbol so arrogant?", punchline: "Because it had federal registration and wouldn't let anyone forget it." },
+  { setup: "What did the trademark say to the patent?", punchline: "\"You expire in 20 years. I'm forever.\"" },
+  { setup: "Why did the startup founder trademark their morning coffee order?", punchline: "Because their lawyer said \'anything distinctive can be protected.\'" },
+  { setup: "What's a trademark squatter's favorite hobby?", punchline: "Filing and chilling." },
+  { setup: "Why don't trademarks ever get lost?", punchline: "Because they always have a distinctive mark." },
+  { setup: "What did the TTAB judge say after a 200-page opposition filing?", punchline: "\"I'll allow it... after lunch.\"" },
+  { setup: "Why did the brand owner break up with their trademark?", punchline: "They said it lost its distinctiveness." },
+  { setup: "What's a trademark's favorite song?", punchline: "\"Don't Stop Believin\'\" — because abandonment kills." },
+];
+
+export function getRandomTMJoke(): TMJoke {
+  return TM_JOKES[Math.floor(Math.random() * TM_JOKES.length)];
+}
