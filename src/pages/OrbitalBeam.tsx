@@ -4,6 +4,7 @@ import { ArrowLeft, Copy, Check, Shield, Sparkles, BookOpen, Target, Crown, Lock
 import SEOHead from "@/components/SEOHead";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import platoIcon from "@/assets/plato-icon.webp";
 import { type OrbitalModule, type OrbitalQuestion, pickOrbitalQuestions, ORBITAL_MODULE_META, ORBITAL_QUESTION_BANK, getRandomJoke } from "@/data/orbital-beam-questions";
 
 /* ------------------------------------------------------------------ */
