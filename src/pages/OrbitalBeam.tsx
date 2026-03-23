@@ -31,7 +31,7 @@ const PROFILES: Record<OrbitalModule, ProfileResult[]> = {
   cadet: [
     { title: "GROUND CONTROL", icon: BookOpen, description: "The signal is faint — you're just tuning in. Review the fundamentals and launch again.", color: "hsl(0, 70%, 55%)" },
     { title: "SIGNAL RECEIVER", icon: Target, description: "You're picking up the signal but not decoding it all yet. A few more passes and you'll lock on.", color: "hsl(40, 95%, 55%)" },
-    { title: "SIGNAL CADET", icon: Shield, description: "Transmission received loud and clear. You've proven your foundational knowledge — Module 2 is now online.", color: "hsl(180, 100%, 50%)" },
+    { title: "SIGNAL CADET", icon: Shield, description: "Transmission received loud and clear. You've proven your foundational knowledge — Module 2 is now online.", color: "hsl(82, 85%, 55%)" },
   ],
   operator: [
     { title: "FREQUENCY DRIFTER", icon: BookOpen, description: "You're in the atmosphere but losing signal. Recalibrate your knowledge of VC mechanics and tokenomics.", color: "hsl(0, 70%, 55%)" },
