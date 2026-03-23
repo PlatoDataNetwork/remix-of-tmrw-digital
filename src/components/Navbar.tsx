@@ -14,7 +14,7 @@ const navLinks = [
   { label: "RWAs", href: "/#rwas" },
   { label: "Intelligence", href: "/intel" },
   { label: "Team", href: "/#team" },
-  { label: "Data Feeds", href: "/data-feeds" },
+  { label: "Whitepaper", href: "/whitepaper" },
 ];
 
 const Navbar = () => {
