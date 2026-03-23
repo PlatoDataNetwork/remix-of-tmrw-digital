@@ -62,9 +62,13 @@ type Step = "landing" | "identify" | "modules" | "assessment" | "joke" | "analyz
 function OBBranding() {
   return (
     <div className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center gap-2 z-30">
-      <div className="h-5 w-5 rounded-full shrink-0" style={{ background: CYAN, boxShadow: `0 0 12px ${CYAN}66` }} />
+      <div className="h-5 w-5 shrink-0" style={{
+        background: NEON,
+        WebkitMaskImage: `url(${platoIcon})`, WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center",
+        maskImage: `url(${platoIcon})`, maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center",
+      }} />
       <span className="text-[10px] font-light tracking-[0.2em] uppercase" style={{ color: "hsl(0,0%,50%)" }}>
-        ORBITAL BEAM <span style={{ color: "hsl(0,0%,25%)" }}>×</span> TMRW
+        TMRW <span style={{ color: "hsl(0,0%,30%)" }}>|</span> ORBITAL BEAM
       </span>
     </div>
   );
