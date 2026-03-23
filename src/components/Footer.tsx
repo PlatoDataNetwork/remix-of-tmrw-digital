@@ -91,6 +91,7 @@ const Footer = () => {
                   <a
                     key={link.label}
                     href={link.href}
+                    {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="block text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
@@ -123,6 +124,7 @@ const Footer = () => {
                   <a
                     key={link.label}
                     href={link.href}
+                    {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="block text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
@@ -155,6 +157,7 @@ const Footer = () => {
                   <a
                     key={link.label}
                     href={link.href}
+                    {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="block text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
@@ -178,6 +181,7 @@ const Footer = () => {
                 <a
                   key={link.label}
                   href={link.href}
+                  {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="block text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link.label}
