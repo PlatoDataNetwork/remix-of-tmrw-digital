@@ -140,7 +140,7 @@ const Footer = () => {
               { label: "RTO Deck", href: "/rto-deck" },
               { label: "Path to $1B", href: "/path-to-1b" },
               { label: "Whitepaper", href: "/whitepaper" },
-              { label: "Orbital Beam", href: "/orbital-beam" },
+              { label: "Orbital Beam", href: "https://orbitalbeam.com/" },
               { label: "RWA Summit", href: "https://www.rwasummit.io/" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
@@ -172,6 +172,7 @@ const Footer = () => {
                 { label: "Telegram", href: "#" },
                 { label: "Reddit", href: "#" },
                 { label: "Discord", href: "#" },
+                { label: "0xLabs", href: "https://www.0xlabs.tech/" },
                 { label: "Web3", href: "https://web3.foundation/" },
               ].map((link) => (
                 <a
