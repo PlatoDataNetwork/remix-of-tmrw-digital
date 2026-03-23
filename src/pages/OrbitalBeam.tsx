@@ -15,7 +15,7 @@ const NEON = "hsl(82, 85%, 55%)";
 const SECONDARY = "hsl(200, 80%, 60%)";
 
 const MODULE_COLORS: Record<OrbitalModule, string> = {
-  cadet: "hsl(180, 100%, 50%)",
+  cadet: "hsl(82, 85%, 55%)",
   operator: "hsl(40, 95%, 55%)",
   commander: "hsl(280, 80%, 65%)",
 };
