@@ -99,6 +99,17 @@ export const RWA_QUESTION_BANK: Record<RWAModule, RWAQuestion[]> = {
   ],
 };
 
+function shuffleOptions<T extends { options: string[]; correctIndex: number }>(q: T): T {
+  const correctOption = q.options[q.correctIndex];
+  const indices = q.options.map((_, i) => i);
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  const shuffled = indices.map(i => q.options[i]);
+  return { ...q, options: shuffled, correctIndex: shuffled.indexOf(correctOption) };
+}
+
 export function pickRWAQuestions(module: RWAModule, count: number = 10): RWAQuestion[] {
   const pool = [...RWA_QUESTION_BANK[module]];
   const selected: RWAQuestion[] = [];
@@ -107,7 +118,7 @@ export function pickRWAQuestions(module: RWAModule, count: number = 10): RWAQues
     const idx = Math.floor(Math.random() * pool.length);
     selected.push(pool.splice(idx, 1)[0]);
   }
-  return selected;
+  return selected.map(shuffleOptions);
 }
 
 /* ------------------------------------------------------------------ */
