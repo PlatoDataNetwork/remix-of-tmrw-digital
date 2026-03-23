@@ -104,11 +104,11 @@ const Footer = () => {
             <div className="space-y-2.5 sm:space-y-3">
               {[
                 { label: "Showcase", href: "/showcase" },
+                { label: "CUT Token", href: "/cut-token" },
+                { label: "RWA Channel", href: "/rwa-channel" },
+                { label: "CyberSecurity", href: "/security" },
                 { label: "Intelligence", href: "/intel" },
                 { label: "W3AI Token", href: "/whitepaper" },
-                { label: "CUT Token", href: "/cut-token" },
-                { label: "CyberSecurity", href: "/security" },
-                { label: "RWA Channel", href: "/rwa-channel" },
                 { label: "Data Feeds", href: "/data-feeds" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
