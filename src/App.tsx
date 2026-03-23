@@ -106,6 +106,7 @@ const PathTo1B = lazy(() => import("./pages/PathTo1B"));
 const RTODeck = lazy(() => import("./pages/RTODeck"));
 const DataFeeds = lazy(() => import("./pages/DataFeeds"));
 const ApiDocumentation = lazy(() => import("./pages/ApiDocumentation"));
+const TrademarkChannel = lazy(() => import("./pages/TrademarkChannel"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
