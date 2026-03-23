@@ -283,55 +283,48 @@ function AssessmentStep({ questions, questionIndex, answers, onAnswer, onBack, c
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [failedAttempts, setFailedAttempts] = useState(0);
 
   // Reset state when question changes
   useEffect(() => {
     setSelectedOption(null);
     setShowFeedback(false);
     setIsCorrect(false);
+    setFailedAttempts(0);
   }, [questionIndex]);
 
   const handleOptionClick = (idx: number) => {
-    if (showFeedback && isCorrect) return; // Already answered correctly
+    if (showFeedback && isCorrect) return;
     setSelectedOption(idx);
     const correct = idx === q.correctIndex;
     setIsCorrect(correct);
     setShowFeedback(true);
 
     if (correct) {
-      // Move to next after a brief delay
       setTimeout(() => onAnswer(idx), 1200);
+    } else {
+      setFailedAttempts(prev => prev + 1);
     }
   };
 
+  const revealCorrect = failedAttempts >= 2;
+
   const getOptionStyle = (i: number) => {
     if (!showFeedback || selectedOption === null) {
-      return {
-        borderColor: "hsl(0,0%,15%)",
-        background: "hsl(220,25%,5%)",
-      };
+      return { borderColor: "hsl(0,0%,15%)", background: "hsl(220,25%,5%)" };
     }
-    if (i === q.correctIndex && showFeedback) {
-      return {
-        borderColor: "hsl(142, 71%, 45%)",
-        background: "hsl(142, 71%, 45%, 0.12)",
-      };
+    if (i === q.correctIndex && showFeedback && revealCorrect) {
+      return { borderColor: "hsl(142, 71%, 45%)", background: "hsl(142, 71%, 45%, 0.12)" };
     }
     if (i === selectedOption && !isCorrect) {
-      return {
-        borderColor: "hsl(0, 70%, 55%)",
-        background: "hsl(0, 70%, 55%, 0.12)",
-      };
+      return { borderColor: "hsl(0, 70%, 55%)", background: "hsl(0, 70%, 55%, 0.12)" };
     }
-    return {
-      borderColor: "hsl(0,0%,15%)",
-      background: "hsl(220,25%,5%)",
-    };
+    return { borderColor: "hsl(0,0%,15%)", background: "hsl(220,25%,5%)" };
   };
 
   const getOptionTextColor = (i: number) => {
     if (!showFeedback) return "hsl(0,0%,80%)";
-    if (i === q.correctIndex) return "hsl(142, 71%, 45%)";
+    if (i === q.correctIndex && revealCorrect) return "hsl(142, 71%, 45%)";
     if (i === selectedOption && !isCorrect) return "hsl(0, 70%, 55%)";
     return "hsl(0,0%,40%)";
   };
