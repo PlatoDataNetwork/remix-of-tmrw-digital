@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Copy, Check, Shield, Sparkles, BookOpen, Target, Crown, Lock, CheckCircle2, XCircle, ChevronDown, ChevronUp } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import platoIcon from "@/assets/plato-icon.webp";
 import { type RWAModule, type RWAQuestion, pickRWAQuestions, MODULE_META, RWA_QUESTION_BANK } from "@/data/rwa-questions";
 
