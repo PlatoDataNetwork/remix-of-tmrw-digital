@@ -201,6 +201,7 @@ function getRoutes() {
     <Route key="data-feeds" path="data-feeds" element={<DataFeeds />} />,
     <Route key="api-docs" path="api-documentation" element={<ApiDocumentation />} />,
     <Route key="trademark-channel" path="trademark-channel" element={<TrademarkChannel />} />,
+    <Route key="rwa-channel" path="rwa-channel" element={<RWAChannel />} />,
   ];
 }
 
