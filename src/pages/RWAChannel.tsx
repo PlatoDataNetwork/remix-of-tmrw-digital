@@ -729,7 +729,8 @@ const RWAChannel = () => {
         description="Test your knowledge of real-world asset tokenization across 3 progressive modules. From RWA Student to RWA Titan — prove your expertise with The Tomorrow Company."
         path="/rwa-channel"
       />
-      <div className="overflow-hidden" style={{ background: PAGE_BG }}>
+      <Navbar />
+      <div className="overflow-hidden pt-16 lg:pt-20" style={{ background: PAGE_BG }}>
         <AnimatePresence mode="wait">
           {step === "landing" && <LandingStep key="landing" onEnter={() => setStep("identify")} />}
           {step === "identify" && (
@@ -758,6 +759,7 @@ const RWAChannel = () => {
           {step === "contact" && <ContactStep key="contact" onBack={() => setStep("results")} />}
         </AnimatePresence>
       </div>
+      <Footer />
     </>
   );
 };
