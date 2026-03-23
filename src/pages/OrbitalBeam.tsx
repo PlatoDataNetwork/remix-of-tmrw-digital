@@ -184,12 +184,7 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
 }) {
   const modules: OrbitalModule[] = ["cadet", "operator", "commander"];
 
-  const isUnlocked = (m: OrbitalModule): boolean => {
-    if (m === "cadet") return true;
-    if (m === "operator") return !!completedModules.cadet?.passed;
-    if (m === "commander") return !!completedModules.operator?.passed;
-    return false;
-  };
+  const isUnlocked = (_m: OrbitalModule): boolean => true;
 
   return (
     <motion.div initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -60 }}
