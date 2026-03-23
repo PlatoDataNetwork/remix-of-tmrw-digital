@@ -128,5 +128,5 @@ const RWA_JOKES = [
 ];
 
 export function getRandomRWAJoke() {
-  return RWA_JOKES[Math.floor(Math.random() * RWA_JOKES.length)];
+  return RWA_JOKES[0];
 }

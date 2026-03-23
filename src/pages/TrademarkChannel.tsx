@@ -362,7 +362,7 @@ function AssessmentStep({ questions, questionIndex, answers, onAnswer, onBack, c
                 className="w-full text-left p-5 border transition-all duration-200 hover:scale-[1.01] flex items-start gap-4"
                 style={style}>
                 <span className="text-[10px] font-mono tracking-wider mt-0.5 shrink-0 flex items-center gap-1" style={{ color: getOptionTextColor(i) }}>
-                  {showFeedback && i === q.correctIndex && <CheckCircle2 size={12} />}
+                  {showFeedback && i === q.correctIndex && revealCorrect && <CheckCircle2 size={12} />}
                   {showFeedback && i === selectedOption && !isCorrect && i !== q.correctIndex && <XCircle size={12} />}
                   {String.fromCharCode(65 + i)}
                 </span>
