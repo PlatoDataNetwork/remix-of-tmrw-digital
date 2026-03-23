@@ -123,9 +123,9 @@ function LandingStep({ onEnter }: { onEnter: () => void }) {
         </button>
       </motion.div>
 
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-8 md:left-16 text-[10px] tracking-[0.2em] uppercase" style={{ color: "hsl(0,0%,40%)" }}>
-        Powered by Orbital Beam Consortium &amp; TMRW Digital
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.7 }} transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-8 md:left-16 text-xs tracking-[0.15em] uppercase text-white">
+        Powered by The Tomorrow Company &amp; TMRW Digital
       </motion.p>
     </motion.div>
   );
