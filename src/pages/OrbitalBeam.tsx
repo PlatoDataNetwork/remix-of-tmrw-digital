@@ -566,6 +566,7 @@ function ResultsStep({ score, questions, answers, currentModule, onReview, onRet
           style={{ borderColor: `${NEON}40`, color: NEON }}>
           CONTACT
         </a>
+      </motion.div>
 
       {/* CTAs */}
       <div className="flex flex-col sm:flex-row gap-4">
