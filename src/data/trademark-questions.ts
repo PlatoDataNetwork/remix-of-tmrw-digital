@@ -517,5 +517,5 @@ const TM_JOKES: TMJoke[] = [
 ];
 
 export function getRandomTMJoke(): TMJoke {
-  return TM_JOKES[Math.floor(Math.random() * TM_JOKES.length)];
+  return TM_JOKES[0];
 }

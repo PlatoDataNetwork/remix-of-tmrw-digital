@@ -114,5 +114,5 @@ export const JOKE_BANK = [
 ];
 
 export function getRandomJoke(): { setup: string; punchline: string } {
-  return JOKE_BANK[Math.floor(Math.random() * JOKE_BANK.length)];
+  return JOKE_BANK[0];
 }
