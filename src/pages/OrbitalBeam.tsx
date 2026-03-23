@@ -93,12 +93,12 @@ function LandingStep({ onEnter }: { onEnter: () => void }) {
       <OBBranding />
       {/* Corner accent */}
       <div className="absolute top-0 left-0 z-10 pointer-events-none">
-        <div className="w-px h-16" style={{ backgroundImage: `linear-gradient(to bottom, ${CYAN}99, transparent)` }} />
-        <div className="absolute top-0 left-0 w-16 h-px" style={{ backgroundImage: `linear-gradient(to right, ${CYAN}99, transparent)` }} />
+        <div className="w-px h-16" style={{ backgroundImage: `linear-gradient(to bottom, ${NEON}99, transparent)` }} />
+        <div className="absolute top-0 left-0 w-16 h-px" style={{ backgroundImage: `linear-gradient(to right, ${NEON}99, transparent)` }} />
       </div>
 
       <motion.div initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3, duration: 0.8 }}>
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter whitespace-nowrap" style={{ color: CYAN, textShadow: `0 0 40px ${CYAN}33` }}>
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter whitespace-nowrap" style={{ color: NEON, textShadow: `0 0 40px ${NEON}33` }}>
           ORBITAL BEAM
         </h1>
       </motion.div>
@@ -118,7 +118,7 @@ function LandingStep({ onEnter }: { onEnter: () => void }) {
         className="flex flex-wrap gap-4 mt-12">
         <button onClick={onEnter}
           className="px-10 py-4 text-sm font-bold tracking-[0.4em] uppercase border-2 transition-all duration-300 hover:scale-105"
-          style={{ color: PAGE_BG, background: CYAN, borderColor: CYAN, boxShadow: `0 0 24px ${CYAN}33` }}>
+          style={{ color: PAGE_BG, background: NEON, borderColor: NEON, boxShadow: `0 0 24px ${NEON}33` }}>
           LIGHT THE BEAM
         </button>
       </motion.div>
@@ -390,7 +390,7 @@ function JokeStep({ onBack }: { onBack: () => void }) {
           </p>
           <button onClick={onBack}
             className="px-8 py-3 text-sm font-bold tracking-[0.3em] uppercase transition-all hover:scale-105"
-            style={{ background: CYAN, color: PAGE_BG }}>
+            style={{ background: NEON, color: PAGE_BG }}>
             BACK TO ASSESSMENT →
           </button>
         </motion.div>
@@ -492,7 +492,7 @@ function ResultsStep({ score, questions, answers, currentModule, onReview, onRet
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
         className="mb-6 px-4 py-2 rounded-sm text-xs font-bold tracking-[0.2em] uppercase"
-        style={{ background: passed ? `${CYAN}22` : "hsl(0,70%,55%,0.15)", color: passed ? CYAN : "hsl(0,70%,55%)" }}>
+        style={{ background: passed ? `${NEON}22` : "hsl(0,70%,55%,0.15)", color: passed ? NEON : "hsl(0,70%,55%)" }}>
         {passed ? "✓ MODULE PASSED — BEAM LOCKED" : "✗ 70% REQUIRED TO LOCK THE BEAM"}
       </motion.div>
 
@@ -568,7 +568,7 @@ function ResultsStep({ score, questions, answers, currentModule, onReview, onRet
         </button>
         <button onClick={onContact}
           className="px-10 py-4 text-sm font-bold tracking-[0.3em] uppercase transition-all hover:scale-105"
-          style={{ background: CYAN, color: PAGE_BG }}>
+          style={{ background: NEON, color: PAGE_BG }}>
           REQUEST ACCESS
         </button>
       </div>
@@ -616,7 +616,7 @@ function ReviewStep({ questions, answers, currentModule, onBack }: {
                 className="w-full text-left p-4 flex items-start gap-3 transition-colors hover:bg-[hsl(220,25%,7%)]">
                 <span className="mt-0.5 shrink-0">
                   {correct
-                    ? <CheckCircle2 size={16} style={{ color: CYAN }} />
+                    ? <CheckCircle2 size={16} style={{ color: NEON }} />
                     : <XCircle size={16} style={{ color: "hsl(0,70%,55%)" }} />}
                 </span>
                 <div className="flex-1 min-w-0">
@@ -638,14 +638,14 @@ function ReviewStep({ questions, answers, currentModule, onBack }: {
                         const isUserChoice = oi === userAnswer;
                         let optColor = "hsl(0,0%,50%)";
                         let optBg = "transparent";
-                        if (isCorrect) { optColor = CYAN; optBg = `${CYAN}11`; }
+                        if (isCorrect) { optColor = NEON; optBg = `${NEON}11`; }
                         else if (isUserChoice && !isCorrect) { optColor = "hsl(0,70%,55%)"; optBg = "hsl(0,70%,55%,0.08)"; }
 
                         return (
                           <div key={oi} className="flex items-start gap-2 p-2 rounded-sm text-xs" style={{ background: optBg }}>
                             <span className="font-mono shrink-0 mt-px" style={{ color: optColor }}>{String.fromCharCode(65 + oi)}</span>
                             <span style={{ color: optColor }}>{opt}</span>
-                            {isCorrect && <span className="ml-auto shrink-0 text-[10px] font-bold tracking-wider" style={{ color: CYAN }}>✓ CORRECT</span>}
+                            {isCorrect && <span className="ml-auto shrink-0 text-[10px] font-bold tracking-wider" style={{ color: NEON }}>✓ CORRECT</span>}
                             {isUserChoice && !isCorrect && <span className="ml-auto shrink-0 text-[10px] font-bold tracking-wider" style={{ color: "hsl(0,70%,55%)" }}>YOUR ANSWER</span>}
                           </div>
                         );
@@ -690,7 +690,7 @@ function ContactStep({ onBack }: { onBack: () => void }) {
       {!submitted ? (
         <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="w-full max-w-md">
           <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-2" style={{ color: "hsl(0,0%,95%)" }}>
-            READY TO<br /><span style={{ color: CYAN }}>JOIN THE BEAM?</span>
+            READY TO<br /><span style={{ color: NEON }}>JOIN THE BEAM?</span>
           </h2>
           <p className="text-xs tracking-[0.2em] uppercase mb-10" style={{ color: "hsl(0,0%,50%)" }}>
             Request access to the Orbital Beam consortium.
@@ -715,14 +715,14 @@ function ContactStep({ onBack }: { onBack: () => void }) {
                 style={{ borderColor: "hsl(0,0%,15%)", color: "hsl(0,0%,90%)" }} />
             </div>
             <button type="submit" className="w-full py-4 text-sm font-bold tracking-[0.3em] uppercase transition-all hover:scale-[1.02]"
-              style={{ background: CYAN, color: PAGE_BG }}>
+              style={{ background: NEON, color: PAGE_BG }}>
               REQUEST ACCESS
             </button>
           </form>
         </motion.div>
       ) : (
         <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="text-center">
-          <Sparkles size={48} style={{ color: CYAN }} className="mx-auto mb-6" />
+          <Sparkles size={48} style={{ color: NEON }} className="mx-auto mb-6" />
           <h2 className="text-3xl font-black tracking-tight mb-3" style={{ color: "hsl(0,0%,95%)" }}>BEAM RECEIVED 🛰️</h2>
           <p className="text-sm" style={{ color: "hsl(0,0%,50%)" }}>We'll be in touch — the network moves fast.</p>
         </motion.div>
