@@ -93,8 +93,8 @@ function LandingStep({ onEnter }: { onEnter: () => void }) {
       </div>
 
       <motion.div initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3, duration: 0.8 }}>
-        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter" style={{ color: NEON }}>
-          THE<br />RWA<br />CHANNEL
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter whitespace-nowrap" style={{ color: NEON }}>
+          THE RWA CHANNEL
         </h1>
       </motion.div>
 
