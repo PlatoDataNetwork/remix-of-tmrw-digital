@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Copy, Check, Shield, Sparkles, BookOpen, Target, Crown, Lock, CheckCircle2, XCircle, ChevronDown, ChevronUp } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import platoIcon from "@/assets/plato-icon.webp";
 import { type RWAModule, type RWAQuestion, pickRWAQuestions, MODULE_META, RWA_QUESTION_BANK } from "@/data/rwa-questions";
 
@@ -91,8 +93,8 @@ function LandingStep({ onEnter }: { onEnter: () => void }) {
       </div>
 
       <motion.div initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3, duration: 0.8 }}>
-        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter" style={{ color: NEON }}>
-          THE<br />RWA<br />CHANNEL
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter whitespace-nowrap" style={{ color: NEON }}>
+          THE RWA CHANNEL
         </h1>
       </motion.div>
 
@@ -727,7 +729,8 @@ const RWAChannel = () => {
         description="Test your knowledge of real-world asset tokenization across 3 progressive modules. From RWA Student to RWA Titan — prove your expertise with The Tomorrow Company."
         path="/rwa-channel"
       />
-      <div className="overflow-hidden" style={{ background: PAGE_BG }}>
+      <Navbar />
+      <div className="overflow-hidden pt-16 lg:pt-20" style={{ background: PAGE_BG }}>
         <AnimatePresence mode="wait">
           {step === "landing" && <LandingStep key="landing" onEnter={() => setStep("identify")} />}
           {step === "identify" && (
@@ -756,6 +759,7 @@ const RWAChannel = () => {
           {step === "contact" && <ContactStep key="contact" onBack={() => setStep("results")} />}
         </AnimatePresence>
       </div>
+      <Footer />
     </>
   );
 };
