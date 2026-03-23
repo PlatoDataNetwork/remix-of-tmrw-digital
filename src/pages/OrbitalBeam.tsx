@@ -10,8 +10,8 @@ import { type OrbitalModule, type OrbitalQuestion, pickOrbitalQuestions, ORBITAL
 /* ------------------------------------------------------------------ */
 /*  BRANDING CONSTANTS — Orbital Beam cyan / dark                      */
 /* ------------------------------------------------------------------ */
-const PAGE_BG = "hsl(220, 25%, 3%)";
-const CYAN = "hsl(180, 100%, 50%)";  // Orbital Beam signature cyan
+const PAGE_BG = "hsl(220, 20%, 4%)";
+const NEON = "hsl(82, 85%, 55%)";
 const SECONDARY = "hsl(200, 80%, 60%)";
 
 const MODULE_COLORS: Record<OrbitalModule, string> = {
