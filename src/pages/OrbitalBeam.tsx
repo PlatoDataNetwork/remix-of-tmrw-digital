@@ -342,7 +342,7 @@ function AssessmentStep({ questions, questionIndex, answers, onAnswer, onBack, c
           className="mt-8 flex justify-center">
           <button onClick={onJoke}
             className="flex items-center gap-2 px-5 py-2.5 text-[10px] tracking-[0.2em] uppercase border rounded-full transition-all hover:scale-105"
-            style={{ borderColor: "hsl(40, 95%, 55%, 0.4)", color: "hsl(40, 95%, 55%)", background: "hsl(40, 95%, 55%, 0.06)" }}>
+            style={{ borderColor: "hsl(82, 85%, 55%, 0.4)", color: "hsl(82, 85%, 55%)", background: "hsl(82, 85%, 55%, 0.06)" }}>
             <Laugh size={14} /> TELL ME A JOKE
           </button>
         </motion.div>
