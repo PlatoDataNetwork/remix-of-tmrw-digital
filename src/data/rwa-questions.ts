@@ -14,9 +14,9 @@ export interface RWAQuestion {
 }
 
 export const MODULE_META: Record<RWAModule, { label: string; icon: string; desc: string; questions: number; passingPct: number }> = {
-  student: { label: "MODULE 1 — RWA STUDENT", icon: "📘", desc: "Foundations of real-world asset tokenization", questions: 15, passingPct: 70 },
-  expert: { label: "MODULE 2 — RWA EXPERT", icon: "🔬", desc: "Deep-dive into markets, compliance & architecture", questions: 15, passingPct: 70 },
-  titan: { label: "MODULE 3 — RWA TITAN", icon: "👑", desc: "Elite-level strategy, DeFi integration & edge cases", questions: 15, passingPct: 70 },
+  student: { label: "MODULE 1 — RWA STUDENT", icon: "📘", desc: "Foundations of real-world asset tokenization", questions: 10, passingPct: 70 },
+  expert: { label: "MODULE 2 — RWA EXPERT", icon: "🔬", desc: "Deep-dive into markets, compliance & architecture", questions: 10, passingPct: 70 },
+  titan: { label: "MODULE 3 — RWA TITAN", icon: "👑", desc: "Elite-level strategy, DeFi integration & edge cases", questions: 10, passingPct: 70 },
 };
 
 export const RWA_QUESTION_BANK: Record<RWAModule, RWAQuestion[]> = {
