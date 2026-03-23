@@ -17,7 +17,6 @@ const navLinks = [
   { label: "Team", href: "/#team" },
   { label: "News", href: "/news" },
   { label: "Data Feeds", href: "/data-feeds" },
-  { label: "RWA Channel", href: "/rwa-channel" },
 ];
 
 const Navbar = () => {
