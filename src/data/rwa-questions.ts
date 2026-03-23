@@ -14,9 +14,9 @@ export interface RWAQuestion {
 }
 
 export const MODULE_META: Record<RWAModule, { label: string; icon: string; desc: string; questions: number; passingPct: number }> = {
-  student: { label: "MODULE 1 — RWA STUDENT", icon: "📘", desc: "Foundations of real-world asset tokenization", questions: 15, passingPct: 70 },
-  expert: { label: "MODULE 2 — RWA EXPERT", icon: "🔬", desc: "Deep-dive into markets, compliance & architecture", questions: 15, passingPct: 70 },
-  titan: { label: "MODULE 3 — RWA TITAN", icon: "👑", desc: "Elite-level strategy, DeFi integration & edge cases", questions: 15, passingPct: 70 },
+  student: { label: "MODULE 1 — RWA STUDENT", icon: "📘", desc: "Foundations of real-world asset tokenization", questions: 10, passingPct: 70 },
+  expert: { label: "MODULE 2 — RWA EXPERT", icon: "🔬", desc: "Deep-dive into markets, compliance & architecture", questions: 10, passingPct: 70 },
+  titan: { label: "MODULE 3 — RWA TITAN", icon: "👑", desc: "Elite-level strategy, DeFi integration & edge cases", questions: 10, passingPct: 70 },
 };
 
 export const RWA_QUESTION_BANK: Record<RWAModule, RWAQuestion[]> = {
@@ -99,7 +99,7 @@ export const RWA_QUESTION_BANK: Record<RWAModule, RWAQuestion[]> = {
   ],
 };
 
-export function pickRWAQuestions(module: RWAModule, count: number = 15): RWAQuestion[] {
+export function pickRWAQuestions(module: RWAModule, count: number = 10): RWAQuestion[] {
   const pool = [...RWA_QUESTION_BANK[module]];
   const selected: RWAQuestion[] = [];
   const n = Math.min(count, pool.length);
@@ -108,4 +108,25 @@ export function pickRWAQuestions(module: RWAModule, count: number = 15): RWAQues
     selected.push(pool.splice(idx, 1)[0]);
   }
   return selected;
+}
+
+/* ------------------------------------------------------------------ */
+/*  JOKES                                                              */
+/* ------------------------------------------------------------------ */
+
+const RWA_JOKES = [
+  { setup: "Why did the real estate token go to therapy?", punchline: "It had too many fractional issues." },
+  { setup: "What did the smart contract say to the real-world asset?", punchline: "\"You complete me... on-chain.\"" },
+  { setup: "Why don't tokenized assets ever get lost?", punchline: "Because they're always on the ledger." },
+  { setup: "What's a tokenized bond's favorite genre of music?", punchline: "Yield wave." },
+  { setup: "Why did the RWA investor break up with fiat?", punchline: "Too many trust issues and no transparency." },
+  { setup: "How does a tokenized building greet people?", punchline: "\"Welcome to my block... chain.\"" },
+  { setup: "Why was the compliance officer invited to every DeFi party?", punchline: "Because without them, nothing gets approved." },
+  { setup: "What did the oracle say to the off-chain data?", punchline: "\"I'll bring you on-chain whether you like it or not.\"" },
+  { setup: "Why did the security token fail its driving test?", punchline: "It couldn't pass the Howey Test either." },
+  { setup: "What's the difference between a tokenized asset and a meme coin?", punchline: "One is backed by real value. The other is backed by vibes." },
+];
+
+export function getRandomRWAJoke() {
+  return RWA_JOKES[Math.floor(Math.random() * RWA_JOKES.length)];
 }
