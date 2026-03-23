@@ -1,12 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Copy, Check, Shield, Sparkles, BookOpen, Target, Crown, Lock, CheckCircle2, XCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowLeft, Copy, Check, Shield, Sparkles, BookOpen, Target, Crown, Lock, CheckCircle2, XCircle, ChevronDown, ChevronUp, Zap, Laugh } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import platoIcon from "@/assets/plato-icon.webp";
-import { type RWAModule, type RWAQuestion, pickRWAQuestions, MODULE_META, RWA_QUESTION_BANK } from "@/data/rwa-questions";
+import { type RWAModule, type RWAQuestion, pickRWAQuestions, MODULE_META, RWA_QUESTION_BANK, getRandomRWAJoke } from "@/data/rwa-questions";
 
+/* ------------------------------------------------------------------ */
+/*  BRANDING CONSTANTS                                                 */
+/* ------------------------------------------------------------------ */
 const PAGE_BG = "hsl(220, 20%, 4%)";
 const NEON = "hsl(82, 85%, 55%)";
 
@@ -27,12 +30,12 @@ const PROFILES: Record<RWAModule, ProfileResult[]> = {
   student: [
     { title: "RWA NOVICE", icon: BookOpen, description: "You're just beginning your journey into the world of real-world asset tokenization. The foundations are critical — review and return stronger.", color: "hsl(0, 70%, 55%)" },
     { title: "RWA LEARNER", icon: Target, description: "You have a basic grasp of RWA concepts but gaps remain. With a bit more study, you'll be ready to graduate.", color: "hsl(35, 90%, 55%)" },
-    { title: "RWA STUDENT", icon: Shield, description: "Solid understanding of RWA foundations. You've earned your place. Module 2 is now unlocked — are you ready to go deeper?", color: "hsl(82, 85%, 55%)" },
+    { title: "RWA STUDENT", icon: Shield, description: "Solid understanding of RWA foundations. You've earned your place — are you ready to go deeper?", color: "hsl(82, 85%, 55%)" },
   ],
   expert: [
     { title: "RWA PRACTITIONER", icon: BookOpen, description: "You know the landscape but the deeper technical and regulatory nuances need work. Review the expert material and try again.", color: "hsl(0, 70%, 55%)" },
     { title: "RWA ANALYST", icon: Target, description: "Strong knowledge of markets and compliance. Just a few more concepts to master before reaching expert status.", color: "hsl(35, 90%, 55%)" },
-    { title: "RWA EXPERT", icon: Shield, description: "Impressive depth of knowledge. You understand the architecture, regulation, and market dynamics. Module 3 awaits — the final challenge.", color: "hsl(35, 90%, 55%)" },
+    { title: "RWA EXPERT", icon: Shield, description: "Impressive depth of knowledge. You understand the architecture, regulation, and market dynamics. The final challenge awaits.", color: "hsl(35, 90%, 55%)" },
   ],
   titan: [
     { title: "RWA STRATEGIST", icon: Target, description: "You're thinking at a high level but the elite concepts need more exploration. The titan level demands mastery of every edge case.", color: "hsl(0, 70%, 55%)" },
@@ -49,7 +52,7 @@ function getProfile(score: number, total: number, mod: RWAModule): ProfileResult
   return profiles[2];
 }
 
-type Step = "landing" | "identify" | "modules" | "assessment" | "analyzing" | "results" | "review" | "contact";
+type Step = "landing" | "identify" | "modules" | "assessment" | "joke" | "analyzing" | "results" | "review" | "contact";
 
 /* ------------------------------------------------------------------ */
 /*  SHARED UI                                                          */
@@ -64,7 +67,7 @@ function TMRWBranding() {
         maskImage: `url(${platoIcon})`, maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center",
       }} />
       <span className="text-[10px] font-light tracking-[0.2em] uppercase" style={{ color: "hsl(0,0%,50%)" }}>
-        TMRW <span style={{ color: "hsl(0,0%,30%)" }}>|</span> W3AI
+        TMRW <span style={{ color: "hsl(0,0%,30%)" }}>|</span> RWA CHANNEL
       </span>
     </div>
   );
@@ -87,41 +90,39 @@ function LandingStep({ onEnter }: { onEnter: () => void }) {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
       className="min-h-screen flex flex-col items-start justify-center px-8 md:px-16 lg:px-24 relative" style={{ background: PAGE_BG }}>
       <TMRWBranding />
+      {/* Corner accent */}
       <div className="absolute top-0 left-0 z-10 pointer-events-none">
         <div className="w-px h-16" style={{ backgroundImage: `linear-gradient(to bottom, ${NEON}99, transparent)` }} />
         <div className="absolute top-0 left-0 w-16 h-px" style={{ backgroundImage: `linear-gradient(to right, ${NEON}99, transparent)` }} />
       </div>
 
       <motion.div initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3, duration: 0.8 }}>
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter whitespace-nowrap" style={{ color: NEON }}>
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter whitespace-nowrap" style={{ color: NEON, textShadow: `0 0 40px ${NEON}33` }}>
           THE RWA CHANNEL
         </h1>
       </motion.div>
 
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
-        className="mt-3 text-sm md:text-lg font-semibold tracking-[0.15em] uppercase" style={{ color: "hsl(0,0%,70%)" }}>
-        The Tomorrow Company
-      </motion.p>
-
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
-        className="mt-4 text-sm md:text-base tracking-[0.3em] uppercase font-light" style={{ color: "hsl(0,0%,50%)" }}>
-        Real-World Asset Intelligence Assessment
+        className="mt-4 text-sm md:text-base tracking-[0.3em] uppercase font-light italic" style={{ color: "hsl(0,0%,50%)" }}>
+        "Real-World Asset Intelligence Assessment"
       </motion.p>
 
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.0 }}
         className="mt-2 text-xs tracking-[0.15em] uppercase" style={{ color: "hsl(0,0%,35%)" }}>
-        3 Modules · 60 Questions · Prove Your Knowledge
+        3 Modules · 60 Questions · Jokes Included · No Refunds on Brain Cells
       </motion.p>
 
-      <motion.button initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }}
-        onClick={onEnter}
-        className="mt-12 px-10 py-4 text-sm font-bold tracking-[0.4em] uppercase border-2 transition-all duration-300 hover:scale-105"
-        style={{ color: PAGE_BG, background: NEON, borderColor: NEON }}>
-        ENTER
-      </motion.button>
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }}
+        className="flex flex-wrap gap-4 mt-12">
+        <button onClick={onEnter}
+          className="px-10 py-4 text-sm font-bold tracking-[0.4em] uppercase border-2 transition-all duration-300 hover:scale-105"
+          style={{ color: PAGE_BG, background: NEON, borderColor: NEON, boxShadow: `0 0 24px ${NEON}33` }}>
+          ENTER THE CHANNEL
+        </button>
+      </motion.div>
 
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-8 md:left-16 text-[10px] tracking-[0.2em] uppercase" style={{ color: "hsl(0,0%,40%)" }}>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.7 }} transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-8 md:left-16 text-xs tracking-[0.15em] uppercase text-white">
         Powered by The Tomorrow Company &amp; TMRW Digital
       </motion.p>
     </motion.div>
@@ -133,10 +134,10 @@ function LandingStep({ onEnter }: { onEnter: () => void }) {
 /* ------------------------------------------------------------------ */
 
 const IDENTITIES = [
-  { label: "INVESTOR", desc: "Looking at RWA as an investment opportunity" },
-  { label: "BUILDER / DEVELOPER", desc: "Building in the tokenization space" },
-  { label: "FINANCE PROFESSIONAL", desc: "Traditional finance exploring Web3" },
-  { label: "JUST CURIOUS", desc: "I want to learn about RWA tokenization" },
+  { label: "FOUNDER / BUILDER", desc: "Building tokenization infrastructure or launching an RWA platform" },
+  { label: "INVESTOR / VC", desc: "Looking at RWA tokenization as the next frontier of capital markets" },
+  { label: "FINANCE PROFESSIONAL", desc: "Traditional finance exploring how Web3 transforms asset management" },
+  { label: "CURIOUS EARTHLING", desc: "Just here to learn — and for the jokes, honestly" },
 ];
 
 function IdentifyStep({ onSelect, onBack }: { onSelect: (id: string) => void; onBack: () => void }) {
@@ -147,19 +148,19 @@ function IdentifyStep({ onSelect, onBack }: { onSelect: (id: string) => void; on
       <BackButton onClick={onBack} />
       <motion.h2 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}
         className="text-2xl md:text-4xl font-black tracking-tight mb-2" style={{ color: "hsl(0,0%,95%)" }}>
-        IDENTIFY YOURSELF
+        WHO ARE YOU? 🏛️
       </motion.h2>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
         className="text-xs md:text-sm tracking-[0.2em] uppercase mb-12" style={{ color: "hsl(0,0%,50%)" }}>
-        A comprehensive RWA intelligence assessment
+        Choose wisely — or don't, we're not judging
       </motion.p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-xl">
         {IDENTITIES.map((id, i) => (
           <motion.button key={id.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 + i * 0.1 }} onClick={() => onSelect(id.label)}
             className="text-left p-6 border transition-all duration-300 hover:scale-[1.02] group"
-            style={{ borderColor: "hsl(0,0%,15%)", background: "hsl(220,20%,6%)" }}>
-            <span className="text-sm font-bold tracking-[0.15em] block mb-1 transition-colors duration-300 group-hover:text-[hsl(82,85%,55%)]" style={{ color: "hsl(0,0%,90%)" }}>
+            style={{ borderColor: "hsl(0,0%,15%)", background: "hsl(220,25%,5%)" }}>
+            <span className="text-sm font-bold tracking-[0.15em] block mb-1 transition-colors duration-300" style={{ color: "hsl(0,0%,90%)" }}>
               {id.label}
             </span>
             <span className="text-xs" style={{ color: "hsl(0,0%,45%)" }}>{id.desc}</span>
@@ -171,7 +172,7 @@ function IdentifyStep({ onSelect, onBack }: { onSelect: (id: string) => void; on
 }
 
 /* ------------------------------------------------------------------ */
-/*  MODULE SELECTOR (with progression)                                 */
+/*  MODULE SELECTOR — ALL UNLOCKED                                     */
 /* ------------------------------------------------------------------ */
 
 function ModulesStep({ onSelect, onBack, completedModules }: {
@@ -181,12 +182,7 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
 }) {
   const modules: RWAModule[] = ["student", "expert", "titan"];
 
-  const isUnlocked = (m: RWAModule): boolean => {
-    if (m === "student") return true;
-    if (m === "expert") return !!completedModules.student?.passed;
-    if (m === "titan") return !!completedModules.expert?.passed;
-    return false;
-  };
+  const isUnlocked = (_m: RWAModule): boolean => true;
 
   return (
     <motion.div initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -60 }}
@@ -196,14 +192,14 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
 
       <motion.h2 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}
         className="text-2xl md:text-4xl font-black tracking-tight mb-2" style={{ color: "hsl(0,0%,95%)" }}>
-        SELECT YOUR MODULE
+        SELECT YOUR MODULE 📘
       </motion.h2>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
         className="text-xs md:text-sm tracking-[0.2em] uppercase mb-4" style={{ color: "hsl(0,0%,50%)" }}>
-        Score 70% or above to graduate and unlock the next level
+        Score 70%+ to graduate — jokes won't save you (but they'll soften the blow)
       </motion.p>
 
-      {/* Progress indicator */}
+      {/* Progress dots */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
         className="flex items-center gap-2 mb-12">
         {modules.map((m, i) => {
@@ -237,7 +233,7 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
               className="text-left p-6 border transition-all duration-300 group relative overflow-hidden"
               style={{
                 borderColor: unlocked ? "hsl(0,0%,15%)" : "hsl(0,0%,10%)",
-                background: "hsl(220,20%,6%)",
+                background: "hsl(220,25%,5%)",
                 opacity: unlocked ? 1 : 0.5,
                 cursor: unlocked ? "pointer" : "not-allowed",
               }}>
@@ -245,11 +241,10 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
 
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-2xl">{meta.icon}</span>
-                {!unlocked && <Lock size={14} style={{ color: "hsl(0,0%,30%)" }} />}
                 {result?.passed && <CheckCircle2 size={14} style={{ color }} />}
               </div>
 
-              <span className="text-xs font-bold tracking-[0.15em] block mb-1 transition-colors duration-300" style={{ color: unlocked ? color : "hsl(0,0%,30%)" }}>
+              <span className="text-xs font-bold tracking-[0.15em] block mb-1 transition-colors duration-300" style={{ color }}>
                 {meta.label}
               </span>
               <span className="text-xs block mb-3" style={{ color: "hsl(0,0%,50%)" }}>{meta.desc}</span>
@@ -261,14 +256,8 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
               )}
 
               <span className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "hsl(0,0%,35%)" }}>
-                {meta.questions} QUESTIONS · {available} IN POOL
+                {meta.questions} QUESTIONS
               </span>
-
-              {!unlocked && (
-                <div className="mt-3 text-[10px] tracking-[0.1em]" style={{ color: "hsl(0,0%,30%)" }}>
-                  🔒 Pass {m === "expert" ? "Module 1" : "Module 2"} with 70%+ to unlock
-                </div>
-              )}
             </motion.button>
           );
         })}
@@ -278,17 +267,72 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
 }
 
 /* ------------------------------------------------------------------ */
-/*  ASSESSMENT                                                         */
+/*  ASSESSMENT — WITH IMMEDIATE FEEDBACK                               */
 /* ------------------------------------------------------------------ */
 
-function AssessmentStep({ questions, questionIndex, answers, onAnswer, onBack, currentModule }: {
+function AssessmentStep({ questions, questionIndex, answers, onAnswer, onBack, currentModule, onJoke }: {
   questions: RWAQuestion[]; questionIndex: number; answers: (number | null)[];
-  onAnswer: (idx: number) => void; onBack: () => void; currentModule: RWAModule;
+  onAnswer: (idx: number) => void; onBack: () => void; currentModule: RWAModule; onJoke: () => void;
 }) {
   const q = questions[questionIndex];
   const total = questions.length;
   const progress = ((questionIndex + 1) / total) * 100;
   const color = MODULE_COLORS[currentModule];
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+
+  // Reset state when question changes
+  useEffect(() => {
+    setSelectedOption(null);
+    setShowFeedback(false);
+    setIsCorrect(false);
+  }, [questionIndex]);
+
+  const handleOptionClick = (idx: number) => {
+    if (showFeedback && isCorrect) return; // Already answered correctly
+    setSelectedOption(idx);
+    const correct = idx === q.correctIndex;
+    setIsCorrect(correct);
+    setShowFeedback(true);
+
+    if (correct) {
+      // Move to next after a brief delay
+      setTimeout(() => onAnswer(idx), 1200);
+    }
+  };
+
+  const getOptionStyle = (i: number) => {
+    if (!showFeedback || selectedOption === null) {
+      return {
+        borderColor: "hsl(0,0%,15%)",
+        background: "hsl(220,25%,5%)",
+      };
+    }
+    if (i === q.correctIndex && showFeedback) {
+      return {
+        borderColor: "hsl(142, 71%, 45%)",
+        background: "hsl(142, 71%, 45%, 0.12)",
+      };
+    }
+    if (i === selectedOption && !isCorrect) {
+      return {
+        borderColor: "hsl(0, 70%, 55%)",
+        background: "hsl(0, 70%, 55%, 0.12)",
+      };
+    }
+    return {
+      borderColor: "hsl(0,0%,15%)",
+      background: "hsl(220,25%,5%)",
+    };
+  };
+
+  const getOptionTextColor = (i: number) => {
+    if (!showFeedback) return "hsl(0,0%,80%)";
+    if (i === q.correctIndex) return "hsl(142, 71%, 45%)";
+    if (i === selectedOption && !isCorrect) return "hsl(0, 70%, 55%)";
+    return "hsl(0,0%,40%)";
+  };
 
   return (
     <motion.div key={`q-${questionIndex}`} initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -60 }}
@@ -317,23 +361,115 @@ function AssessmentStep({ questions, questionIndex, answers, onAnswer, onBack, c
 
         <div className="space-y-3">
           {q.options.map((opt, i) => {
-            const selected = answers[questionIndex] === i;
+            const style = getOptionStyle(i);
             return (
               <motion.button key={i} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 + i * 0.08 }} onClick={() => onAnswer(i)}
+                transition={{ delay: 0.2 + i * 0.08 }} onClick={() => handleOptionClick(i)}
+                disabled={showFeedback && isCorrect}
                 className="w-full text-left p-5 border transition-all duration-200 hover:scale-[1.01] flex items-start gap-4"
-                style={{ borderColor: selected ? color : "hsl(0,0%,15%)", background: selected ? `${color}14` : "hsl(220,20%,6%)" }}>
-                <span className="text-[10px] font-mono tracking-wider mt-0.5 shrink-0" style={{ color: selected ? color : "hsl(0,0%,40%)" }}>
+                style={style}>
+                <span className="text-[10px] font-mono tracking-wider mt-0.5 shrink-0 flex items-center gap-1" style={{ color: getOptionTextColor(i) }}>
+                  {showFeedback && i === q.correctIndex && <CheckCircle2 size={12} />}
+                  {showFeedback && i === selectedOption && !isCorrect && i !== q.correctIndex && <XCircle size={12} />}
                   {String.fromCharCode(65 + i)}
                 </span>
-                <span className="text-sm md:text-base transition-colors duration-200" style={{ color: selected ? color : "hsl(0,0%,80%)" }}>
+                <span className="text-sm md:text-base transition-colors duration-200" style={{ color: getOptionTextColor(i) }}>
                   {opt}
                 </span>
               </motion.button>
             );
           })}
         </div>
+
+        {/* Wrong answer feedback */}
+        <AnimatePresence>
+          {showFeedback && !isCorrect && (
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+              className="mt-6 p-5 border rounded-sm" style={{ borderColor: "hsl(0, 70%, 55%, 0.3)", background: "hsl(0, 70%, 55%, 0.06)" }}>
+              <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "hsl(0, 70%, 55%)" }}>
+                ✗ INCORRECT — TRY AGAIN
+              </p>
+              <p className="text-sm" style={{ color: "hsl(0,0%,60%)" }}>
+                That's not right. Read the options carefully and select another answer.
+              </p>
+            </motion.div>
+          )}
+          {showFeedback && isCorrect && (
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+              className="mt-6 p-5 border rounded-sm" style={{ borderColor: "hsl(142, 71%, 45%, 0.3)", background: "hsl(142, 71%, 45%, 0.06)" }}>
+              <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "hsl(142, 71%, 45%)" }}>
+                ✓ CORRECT
+              </p>
+              <p className="text-sm" style={{ color: "hsl(0,0%,70%)" }}>
+                🏛️ <strong>RWA INSIGHT:</strong> {q.insight}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Tell Me a Joke button */}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
+          className="mt-8 flex justify-center">
+          <button onClick={onJoke}
+            className="flex items-center gap-2 px-5 py-2.5 text-[10px] tracking-[0.2em] uppercase border rounded-full transition-all hover:scale-105"
+            style={{ borderColor: "hsl(82, 85%, 55%, 0.4)", color: "hsl(82, 85%, 55%)", background: "hsl(82, 85%, 55%, 0.06)" }}>
+            <Laugh size={14} /> TELL ME A JOKE
+          </button>
+        </motion.div>
       </div>
+    </motion.div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  JOKE INTERLUDE                                                     */
+/* ------------------------------------------------------------------ */
+
+function JokeStep({ onBack }: { onBack: () => void }) {
+  const [joke] = useState(() => getRandomRWAJoke());
+  const [showPunchline, setShowPunchline] = useState(false);
+
+  return (
+    <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
+      className="min-h-screen flex flex-col items-center justify-center px-6 md:px-16 relative" style={{ background: PAGE_BG }}>
+      <TMRWBranding />
+
+      <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}
+        className="text-6xl mb-8">
+        😄
+      </motion.div>
+
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
+        className="text-xl md:text-2xl font-bold text-center max-w-lg leading-relaxed mb-8"
+        style={{ color: "hsl(0,0%,90%)" }}>
+        {joke.setup}
+      </motion.p>
+
+      {!showPunchline ? (
+        <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
+          onClick={() => setShowPunchline(true)}
+          className="px-8 py-3 text-sm font-bold tracking-[0.3em] uppercase border-2 transition-all hover:scale-105 rounded-full"
+          style={{ borderColor: "hsl(40, 95%, 55%)", color: "hsl(40, 95%, 55%)" }}>
+          😂 REVEAL PUNCHLINE
+        </motion.button>
+      ) : (
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+          className="text-center">
+          <p className="text-lg md:text-xl font-bold mb-8 max-w-lg" style={{ color: "hsl(40, 95%, 55%)" }}>
+            {joke.punchline}
+          </p>
+          <button onClick={onBack}
+            className="px-8 py-3 text-sm font-bold tracking-[0.3em] uppercase transition-all hover:scale-105"
+            style={{ background: NEON, color: PAGE_BG }}>
+            BACK TO ASSESSMENT →
+          </button>
+        </motion.div>
+      )}
+
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.3 }} transition={{ delay: 1 }}
+        className="absolute bottom-8 text-[10px] tracking-[0.15em] uppercase" style={{ color: "hsl(0,0%,40%)" }}>
+        Your assessment progress is saved — we wouldn't joke about that
+      </motion.p>
     </motion.div>
   );
 }
@@ -365,7 +501,7 @@ function AnalyzingStep({ currentModule }: { currentModule: RWAModule }) {
         <motion.div animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.08, 0.3] }} transition={{ duration: 2, repeat: Infinity }}
           className="absolute rounded-full" style={{ background: color, width: 120, height: 120, top: -30, left: -30 }} />
         <motion.div animate={{ rotate: 360 }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }} className="relative z-10">
-          <Shield size={60} style={{ color }} />
+          <Zap size={60} style={{ color }} />
         </motion.div>
       </div>
       <AnimatePresence mode="wait">
@@ -399,7 +535,7 @@ function ResultsStep({ score, questions, answers, currentModule, onReview, onRet
   const pct = Math.round((score / total) * 100);
   const color = MODULE_COLORS[currentModule];
 
-  const shareText = `I scored ${pct}% on The Tomorrow Company RWA Channel — ${MODULE_META[currentModule].label}. I'm a "${profile.title}." Think you can beat me?`;
+  const shareText = `I scored ${pct}% on The RWA Channel — ${MODULE_META[currentModule].label}. I'm a "${profile.title}." Think you can beat me? 🏛️`;
   const shareUrl = "https://tmrw-digital.com/rwa-channel";
 
   const handleCopy = useCallback(() => {
@@ -421,10 +557,9 @@ function ResultsStep({ score, questions, answers, currentModule, onReview, onRet
 
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
         className="text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "hsl(0,0%,50%)" }}>
-        YOUR RESULTS ARE READY
+        ASSESSMENT COMPLETE
       </motion.p>
 
-      {/* Pass / Fail indicator */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
         className="mb-6 px-4 py-2 rounded-sm text-xs font-bold tracking-[0.2em] uppercase"
         style={{ background: passed ? `${NEON}22` : "hsl(0,70%,55%,0.15)", color: passed ? NEON : "hsl(0,70%,55%)" }}>
@@ -457,7 +592,7 @@ function ResultsStep({ score, questions, answers, currentModule, onReview, onRet
         <p className="text-sm leading-relaxed mb-8" style={{ color: "hsl(0,0%,65%)" }}>{profile.description}</p>
       </motion.div>
 
-      {/* Review answers button */}
+      {/* Review */}
       <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
         onClick={onReview}
         className="px-6 py-3 text-xs tracking-[0.2em] uppercase mb-6 border transition-all hover:scale-105 flex items-center gap-2"
@@ -529,7 +664,7 @@ function ReviewStep({ questions, answers, currentModule, onBack }: {
 
       <motion.h2 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
         className="text-2xl md:text-3xl font-black tracking-tight mb-2" style={{ color: "hsl(0,0%,95%)" }}>
-        ANSWER REVIEW
+        ANSWER REVIEW 📘
       </motion.h2>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
         className="text-xs tracking-[0.2em] uppercase mb-8" style={{ color }}>
@@ -545,10 +680,10 @@ function ReviewStep({ questions, answers, currentModule, onBack }: {
           return (
             <motion.div key={q.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + i * 0.03 }}
-              className="border overflow-hidden" style={{ borderColor: "hsl(0,0%,12%)", background: "hsl(220,20%,6%)" }}>
+              className="border overflow-hidden" style={{ borderColor: "hsl(0,0%,12%)", background: "hsl(220,25%,5%)" }}>
 
               <button onClick={() => setExpandedIdx(expanded ? null : i)}
-                className="w-full text-left p-4 flex items-start gap-3 transition-colors hover:bg-[hsl(220,20%,8%)]">
+                className="w-full text-left p-4 flex items-start gap-3 transition-colors hover:bg-[hsl(220,25%,7%)]">
                 <span className="mt-0.5 shrink-0">
                   {correct
                     ? <CheckCircle2 size={16} style={{ color: NEON }} />
@@ -586,9 +721,8 @@ function ReviewStep({ questions, answers, currentModule, onBack }: {
                         );
                       })}
 
-                      {/* Insight */}
                       <div className="mt-3 p-3 rounded-sm" style={{ background: `${color}08`, borderLeft: `3px solid ${color}` }}>
-                        <p className="text-[10px] font-bold tracking-[0.15em] uppercase mb-1" style={{ color }}>💡 INSIGHT</p>
+                        <p className="text-[10px] font-bold tracking-[0.15em] uppercase mb-1" style={{ color }}>🏛️ RWA INSIGHT</p>
                         <p className="text-xs leading-relaxed" style={{ color: "hsl(0,0%,65%)" }}>{q.insight}</p>
                       </div>
                     </div>
@@ -659,7 +793,7 @@ function ContactStep({ onBack }: { onBack: () => void }) {
       ) : (
         <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="text-center">
           <Sparkles size={48} style={{ color: NEON }} className="mx-auto mb-6" />
-          <h2 className="text-3xl font-black tracking-tight mb-3" style={{ color: "hsl(0,0%,95%)" }}>MESSAGE SENT</h2>
+          <h2 className="text-3xl font-black tracking-tight mb-3" style={{ color: "hsl(0,0%,95%)" }}>MESSAGE SENT 🏛️</h2>
           <p className="text-sm" style={{ color: "hsl(0,0%,50%)" }}>We'll be in touch about your RWA strategy.</p>
         </motion.div>
       )}
@@ -741,8 +875,10 @@ const RWAChannel = () => {
           )}
           {step === "assessment" && questions.length > 0 && (
             <AssessmentStep key={`assess-${questionIndex}`} questions={questions} questionIndex={questionIndex}
-              answers={answers} onAnswer={handleAnswer} onBack={handleAssessmentBack} currentModule={currentModule} />
+              answers={answers} onAnswer={handleAnswer} onBack={handleAssessmentBack} currentModule={currentModule}
+              onJoke={() => setStep("joke")} />
           )}
+          {step === "joke" && <JokeStep key="joke" onBack={() => setStep("assessment")} />}
           {step === "analyzing" && <AnalyzingStep key="analyzing" currentModule={currentModule} />}
           {step === "results" && (
             <ResultsStep key="results" score={score} questions={questions} answers={answers}
