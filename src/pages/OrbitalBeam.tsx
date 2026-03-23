@@ -552,6 +552,21 @@ function ResultsStep({ score, questions, answers, currentModule, onReview, onRet
         </button>
       </motion.div>
 
+      {/* Orbital Beam Links */}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}
+        className="flex flex-wrap items-center justify-center gap-3 mb-10">
+        <span className="text-[10px] tracking-[0.2em] uppercase mr-2" style={{ color: "hsl(0,0%,40%)" }}>ORBITAL BEAM</span>
+        <a href="https://orbitalbeam.com" target="_blank" rel="noopener noreferrer"
+          className="px-4 py-2 text-[10px] tracking-[0.15em] uppercase border transition-all hover:scale-105"
+          style={{ borderColor: `${NEON}40`, color: NEON }}>
+          WEBSITE
+        </a>
+        <a href="mailto:scott@orbitalbeam.com?subject=Orbital%20Beam%20Assessment"
+          className="px-4 py-2 text-[10px] tracking-[0.15em] uppercase border transition-all hover:scale-105"
+          style={{ borderColor: `${NEON}40`, color: NEON }}>
+          CONTACT
+        </a>
+
       {/* CTAs */}
       <div className="flex flex-col sm:flex-row gap-4">
         {passed && onNextModule && (
