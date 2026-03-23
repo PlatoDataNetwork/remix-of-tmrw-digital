@@ -139,7 +139,7 @@ const Footer = () => {
               { label: "RTO Deck", href: "/rto-deck" },
               { label: "Path to $1B", href: "/path-to-1b" },
               { label: "Whitepaper", href: "/whitepaper" },
-              { label: "Orbital Beam", href: "https://orbitalbeam.com/" },
+              { label: "Orbital Beam", href: "/orbital-beam" },
               { label: "RWA Summit", href: "https://www.rwasummit.io/" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
