@@ -184,12 +184,7 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
 }) {
   const modules: OrbitalModule[] = ["cadet", "operator", "commander"];
 
-  const isUnlocked = (m: OrbitalModule): boolean => {
-    if (m === "cadet") return true;
-    if (m === "operator") return !!completedModules.cadet?.passed;
-    if (m === "commander") return !!completedModules.operator?.passed;
-    return false;
-  };
+  const isUnlocked = (_m: OrbitalModule): boolean => true;
 
   return (
     <motion.div initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -60 }}
@@ -248,11 +243,10 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
 
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-2xl">{meta.icon}</span>
-                {!unlocked && <Lock size={14} style={{ color: "hsl(0,0%,30%)" }} />}
                 {result?.passed && <CheckCircle2 size={14} style={{ color }} />}
               </div>
 
-              <span className="text-xs font-bold tracking-[0.15em] block mb-1 transition-colors duration-300" style={{ color: unlocked ? color : "hsl(0,0%,30%)" }}>
+              <span className="text-xs font-bold tracking-[0.15em] block mb-1 transition-colors duration-300" style={{ color }}>
                 {meta.label}
               </span>
               <span className="text-xs block mb-3" style={{ color: "hsl(0,0%,50%)" }}>{meta.desc}</span>
@@ -264,14 +258,8 @@ function ModulesStep({ onSelect, onBack, completedModules }: {
               )}
 
               <span className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "hsl(0,0%,35%)" }}>
-                {meta.questions} QUESTIONS · {available} IN POOL
+                {meta.questions} QUESTIONS
               </span>
-
-              {!unlocked && (
-                <div className="mt-3 text-[10px] tracking-[0.1em]" style={{ color: "hsl(0,0%,30%)" }}>
-                  🔒 Pass {m === "operator" ? "Module 1" : "Module 2"} with 70%+ to unlock
-                </div>
-              )}
             </motion.button>
           );
         })}
@@ -292,6 +280,61 @@ function AssessmentStep({ questions, questionIndex, answers, onAnswer, onBack, c
   const total = questions.length;
   const progress = ((questionIndex + 1) / total) * 100;
   const color = MODULE_COLORS[currentModule];
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+
+  // Reset state when question changes
+  useEffect(() => {
+    setSelectedOption(null);
+    setShowFeedback(false);
+    setIsCorrect(false);
+  }, [questionIndex]);
+
+  const handleOptionClick = (idx: number) => {
+    if (showFeedback && isCorrect) return; // Already answered correctly
+    setSelectedOption(idx);
+    const correct = idx === q.correctIndex;
+    setIsCorrect(correct);
+    setShowFeedback(true);
+
+    if (correct) {
+      // Move to next after a brief delay
+      setTimeout(() => onAnswer(idx), 1200);
+    }
+  };
+
+  const getOptionStyle = (i: number) => {
+    if (!showFeedback || selectedOption === null) {
+      return {
+        borderColor: "hsl(0,0%,15%)",
+        background: "hsl(220,25%,5%)",
+      };
+    }
+    if (i === q.correctIndex && showFeedback) {
+      return {
+        borderColor: "hsl(142, 71%, 45%)",
+        background: "hsl(142, 71%, 45%, 0.12)",
+      };
+    }
+    if (i === selectedOption && !isCorrect) {
+      return {
+        borderColor: "hsl(0, 70%, 55%)",
+        background: "hsl(0, 70%, 55%, 0.12)",
+      };
+    }
+    return {
+      borderColor: "hsl(0,0%,15%)",
+      background: "hsl(220,25%,5%)",
+    };
+  };
+
+  const getOptionTextColor = (i: number) => {
+    if (!showFeedback) return "hsl(0,0%,80%)";
+    if (i === q.correctIndex) return "hsl(142, 71%, 45%)";
+    if (i === selectedOption && !isCorrect) return "hsl(0, 70%, 55%)";
+    return "hsl(0,0%,40%)";
+  };
 
   return (
     <motion.div key={`q-${questionIndex}`} initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -60 }}
@@ -320,22 +363,51 @@ function AssessmentStep({ questions, questionIndex, answers, onAnswer, onBack, c
 
         <div className="space-y-3">
           {q.options.map((opt, i) => {
-            const selected = answers[questionIndex] === i;
+            const style = getOptionStyle(i);
             return (
               <motion.button key={i} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 + i * 0.08 }} onClick={() => onAnswer(i)}
+                transition={{ delay: 0.2 + i * 0.08 }} onClick={() => handleOptionClick(i)}
+                disabled={showFeedback && isCorrect}
                 className="w-full text-left p-5 border transition-all duration-200 hover:scale-[1.01] flex items-start gap-4"
-                style={{ borderColor: selected ? color : "hsl(0,0%,15%)", background: selected ? `${color}14` : "hsl(220,25%,5%)" }}>
-                <span className="text-[10px] font-mono tracking-wider mt-0.5 shrink-0" style={{ color: selected ? color : "hsl(0,0%,40%)" }}>
+                style={style}>
+                <span className="text-[10px] font-mono tracking-wider mt-0.5 shrink-0 flex items-center gap-1" style={{ color: getOptionTextColor(i) }}>
+                  {showFeedback && i === q.correctIndex && <CheckCircle2 size={12} />}
+                  {showFeedback && i === selectedOption && !isCorrect && i !== q.correctIndex && <XCircle size={12} />}
                   {String.fromCharCode(65 + i)}
                 </span>
-                <span className="text-sm md:text-base transition-colors duration-200" style={{ color: selected ? color : "hsl(0,0%,80%)" }}>
+                <span className="text-sm md:text-base transition-colors duration-200" style={{ color: getOptionTextColor(i) }}>
                   {opt}
                 </span>
               </motion.button>
             );
           })}
         </div>
+
+        {/* Wrong answer feedback */}
+        <AnimatePresence>
+          {showFeedback && !isCorrect && (
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+              className="mt-6 p-5 border rounded-sm" style={{ borderColor: "hsl(0, 70%, 55%, 0.3)", background: "hsl(0, 70%, 55%, 0.06)" }}>
+              <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "hsl(0, 70%, 55%)" }}>
+                ✗ INCORRECT — TRY AGAIN
+              </p>
+              <p className="text-sm" style={{ color: "hsl(0,0%,60%)" }}>
+                That's not right. Read the options carefully and select another answer.
+              </p>
+            </motion.div>
+          )}
+          {showFeedback && isCorrect && (
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+              className="mt-6 p-5 border rounded-sm" style={{ borderColor: "hsl(142, 71%, 45%, 0.3)", background: "hsl(142, 71%, 45%, 0.06)" }}>
+              <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "hsl(142, 71%, 45%)" }}>
+                ✓ CORRECT
+              </p>
+              <p className="text-sm" style={{ color: "hsl(0,0%,70%)" }}>
+                🛰️ <strong>BEAM INSIGHT:</strong> {q.insight}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Tell Me a Joke button */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
