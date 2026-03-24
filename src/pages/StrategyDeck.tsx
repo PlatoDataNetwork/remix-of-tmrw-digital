@@ -12,24 +12,29 @@ interface Slide {
   render: () => React.ReactNode;
 }
 
-function SlideBranding() {
+function SlideBranding({ current, total }: { current: number; total: number }) {
   return (
-    <div className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center gap-2 z-20">
-      <div
-        className="h-5 w-5 animated-gradient-icon-bright shrink-0"
-        style={{
-          WebkitMaskImage: `url(${platoIcon})`,
-          WebkitMaskSize: "contain",
-          WebkitMaskRepeat: "no-repeat",
-          WebkitMaskPosition: "center",
-          maskImage: `url(${platoIcon})`,
-          maskSize: "contain",
-          maskRepeat: "no-repeat",
-          maskPosition: "center",
-        }}
-      />
-      <span className="text-[10px] font-light tracking-[0.2em] text-muted-foreground/60 uppercase">
-        TMRW <span className="text-muted-foreground/30">|</span> Strategy
+    <div className="absolute top-4 right-4 md:top-6 md:right-6 flex flex-col items-end gap-1 z-20">
+      <div className="flex items-center gap-2">
+        <div
+          className="h-5 w-5 animated-gradient-icon-bright shrink-0"
+          style={{
+            WebkitMaskImage: `url(${platoIcon})`,
+            WebkitMaskSize: "contain",
+            WebkitMaskRepeat: "no-repeat",
+            WebkitMaskPosition: "center",
+            maskImage: `url(${platoIcon})`,
+            maskSize: "contain",
+            maskRepeat: "no-repeat",
+            maskPosition: "center",
+          }}
+        />
+        <span className="text-[10px] font-light tracking-[0.2em] text-muted-foreground/60 uppercase">
+          TMRW <span className="text-muted-foreground/30">|</span> Strategy
+        </span>
+      </div>
+      <span className="text-[9px] font-light tracking-wider text-muted-foreground/40">
+        {current + 1} / {total}
       </span>
     </div>
   );
