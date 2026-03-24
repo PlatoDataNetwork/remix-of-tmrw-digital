@@ -307,7 +307,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={5} />
+        <SlideNumber n={6} />
       </div>
     ),
   },
@@ -338,7 +338,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Purpose-built interface for enterprise token burning, offset certification, and ESG reporting with 6M+ kg already retired on-chain.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={6} />
+        <SlideNumber n={7} />
       </div>
     ),
   },
@@ -370,7 +370,7 @@ const slides: Slide[] = [
             ]} />
           </GreenCard>
         </div>
-        <SlideNumber n={7} />
+        <SlideNumber n={8} />
       </div>
     ),
   },
@@ -395,7 +395,7 @@ const slides: Slide[] = [
             </GreenCard>
           ))}
         </div>
-        <SlideNumber n={8} />
+        <SlideNumber n={9} />
       </div>
     ),
   },
@@ -435,7 +435,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={9} />
+        <SlideNumber n={10} />
       </div>
     ),
   },
@@ -466,7 +466,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Integrated marketplace infrastructure for peer-to-peer trading of tokenized assets with real-time valuation and settlement.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={10} />
+        <SlideNumber n={11} />
       </div>
     ),
   },
@@ -498,7 +498,7 @@ const slides: Slide[] = [
             ]} />
           </GreenCard>
         </div>
-        <SlideNumber n={11} />
+        <SlideNumber n={12} />
       </div>
     ),
   },
@@ -523,7 +523,7 @@ const slides: Slide[] = [
             </GreenCard>
           ))}
         </div>
-        <SlideNumber n={12} />
+        <SlideNumber n={13} />
       </div>
     ),
   },
@@ -563,7 +563,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={13} />
+        <SlideNumber n={14} />
       </div>
     ),
   },
@@ -594,7 +594,7 @@ const slides: Slide[] = [
             <p className="text-xs font-light text-muted-foreground leading-relaxed">Automated investor allocations, airdrop campaigns, staking rewards, and vesting unlock notifications across multiple chains.</p>
           </GreenCard>
         </div>
-        <SlideNumber n={14} />
+        <SlideNumber n={15} />
       </div>
     ),
   },
@@ -626,7 +626,7 @@ const slides: Slide[] = [
             ]} />
           </GreenCard>
         </div>
-        <SlideNumber n={15} />
+        <SlideNumber n={16} />
       </div>
     ),
   },
@@ -651,7 +651,7 @@ const slides: Slide[] = [
             </GreenCard>
           ))}
         </div>
-        <SlideNumber n={16} />
+        <SlideNumber n={17} />
       </div>
     ),
   },
@@ -691,7 +691,7 @@ const slides: Slide[] = [
             </div>
           </GreenCard>
         </div>
-        <SlideNumber n={17} />
+        <SlideNumber n={18} />
       </div>
     ),
   },
@@ -728,7 +728,7 @@ const slides: Slide[] = [
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
           <p className="text-sm font-light text-[hsl(82,85%,55%,0.5)] uppercase tracking-[0.3em]">TMRW-DIGITAL.COM</p>
         </div>
-        <SlideNumber n={18} />
+        <SlideNumber n={19} />
       </div>
     ),
   },
