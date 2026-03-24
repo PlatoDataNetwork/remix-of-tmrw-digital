@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useCurrentLanguage, langPath } from "@/hooks/useLanguage";
 import { TrendingUp, Users, Shield, Cpu, BarChart3, Globe, ArrowRight } from "lucide-react";
 import AnimatedImage from "@/components/AnimatedImage";
-import dataCenterImg from "@/assets/data-center.webp";
+import servicesHeroImg from "@/assets/services-hero.jpg";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 24 },
