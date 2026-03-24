@@ -197,7 +197,7 @@ const slides: Slide[] = [
                { bold: "DEX Liquidity:", text: "Automated market-making and liquidity pool deployment." },
                { bold: "Secondary Markets:", text: "OTC desks and institutional trading venues." },
                { bold: "Token to Equity:", text: "Structured conversion pathway from token holdings to equity positions." },
-               { bold: "Market Infrastructure:", text: "Cross-platform trading integrations, price discovery mechanisms, and compliance-ready market access." },
+               
              ]} />
           </GreenCard>
         </div>
