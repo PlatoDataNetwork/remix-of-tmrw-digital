@@ -12,24 +12,29 @@ interface Slide {
   render: () => React.ReactNode;
 }
 
-function SlideBranding() {
+function SlideBranding({ current, total }: { current: number; total: number }) {
   return (
-    <div className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center gap-2 z-20">
-      <div
-        className="h-5 w-5 animated-gradient-icon-bright shrink-0"
-        style={{
-          WebkitMaskImage: `url(${platoIcon})`,
-          WebkitMaskSize: "contain",
-          WebkitMaskRepeat: "no-repeat",
-          WebkitMaskPosition: "center",
-          maskImage: `url(${platoIcon})`,
-          maskSize: "contain",
-          maskRepeat: "no-repeat",
-          maskPosition: "center",
-        }}
-      />
-      <span className="text-[10px] font-light tracking-[0.2em] text-muted-foreground/60 uppercase">
-        TMRW <span className="text-muted-foreground/30">|</span> Strategy
+    <div className="absolute top-4 right-4 md:top-6 md:right-6 flex flex-col items-end gap-1 z-20">
+      <div className="flex items-center gap-2">
+        <div
+          className="h-5 w-5 animated-gradient-icon-bright shrink-0"
+          style={{
+            WebkitMaskImage: `url(${platoIcon})`,
+            WebkitMaskSize: "contain",
+            WebkitMaskRepeat: "no-repeat",
+            WebkitMaskPosition: "center",
+            maskImage: `url(${platoIcon})`,
+            maskSize: "contain",
+            maskRepeat: "no-repeat",
+            maskPosition: "center",
+          }}
+        />
+        <span className="text-[10px] font-light tracking-[0.2em] text-muted-foreground/60 uppercase">
+          TMRW <span className="text-muted-foreground/30">|</span> Strategy
+        </span>
+      </div>
+      <span className="text-[9px] font-light tracking-wider text-muted-foreground/40">
+        {current + 1} / {total}
       </span>
     </div>
   );
@@ -762,7 +767,7 @@ export default function StrategyDeck() {
       "relative w-full bg-background border border-border rounded-2xl overflow-hidden transition-all duration-300",
       fullscreen ? "fixed inset-0 z-[80] rounded-none border-none" : "aspect-video"
     )}>
-      <SlideBranding />
+      <SlideBranding current={current} total={total} />
       <div key={current} className="absolute inset-0 p-8 md:p-16 flex flex-col animate-fade-in">
         {slides[current].render()}
       </div>
@@ -775,9 +780,6 @@ export default function StrategyDeck() {
           className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-[hsl(82,85%,55%)] hover:border-[hsl(82,85%,55%,0.3)] disabled:opacity-30 transition-all">
           <ChevronLeft className="h-4 w-4" />
         </button>
-        <span className="text-xs font-light text-muted-foreground tracking-wider">
-          {current + 1} / {total}
-        </span>
         <div className="flex items-center gap-2">
           <button onClick={() => setFullscreen(f => !f)}
             className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-[hsl(82,85%,55%)] hover:border-[hsl(82,85%,55%,0.3)] transition-all">
