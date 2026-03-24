@@ -209,6 +209,7 @@ function getRoutes() {
     <Route key="rwa-channel" path="rwa-channel" element={<RWAChannel />} />,
     <Route key="orbital-beam" path="orbital-beam" element={<OrbitalBeam />} />,
     <Route key="labs" path="labs" element={<Labs />} />,
+    <Route key="strategy-deck" path="strategy-deck" element={<StrategyDeck />} />,
   ];
 }
 
