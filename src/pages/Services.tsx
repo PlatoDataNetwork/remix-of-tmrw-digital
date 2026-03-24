@@ -90,9 +90,9 @@ const Services = () => {
                 Services
               </motion.p>
               <motion.h1 variants={fadeIn} custom={1} className="text-4xl sm:text-5xl lg:text-7xl font-light text-foreground mb-6">
-                Comprehensive Solutions for
+                Comprehensive Solutions
                 <br />
-                the Digital Economy
+                for the Digital Economy
               </motion.h1>
               <motion.p variants={fadeIn} custom={2} className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
                 From Web3 infrastructure and AI analytics to cyber defense and digital strategy — we deliver end-to-end capabilities that drive growth, security, and competitive advantage.
