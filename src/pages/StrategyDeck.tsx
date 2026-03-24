@@ -91,7 +91,7 @@ function GreenCard({ children, className }: { children: React.ReactNode; classNa
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="text-sm uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)]">{children}</h3>
+    <h3 className="text-xs uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)]">{children}</h3>
   );
 }
 
