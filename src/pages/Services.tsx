@@ -95,7 +95,7 @@ const Services = () => {
                 for the Digital Economy
               </motion.h1>
               <motion.p variants={fadeIn} custom={2} className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
-                From Web3 infrastructure and AI analytics to cyber defense and digital strategy — we deliver end-to-end capabilities that drive growth, security, and competitive advantage.
+                From Web3 infrastructure and AI analytics to cyber defense and digital strategy — we deliver end-to-end capabilities that drive growth, security, and value.
               </motion.p>
             </motion.div>
           </div>
