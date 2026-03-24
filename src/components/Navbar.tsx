@@ -10,10 +10,11 @@ import platoIcon from "@/assets/plato-icon.webp";
 
 const navLinks = [
   { label: "About", href: "/#about" },
+  { label: "Services", href: "/services" },
   { label: "Web3AI", href: "/#web3ai" },
   { label: "RWAs", href: "/#rwas" },
   { label: "Intelligence", href: "/intel" },
-  { label: "Labs", href: "/labs" },
+  { label: "TMRW Labs", href: "/labs" },
   { label: "Team", href: "/#team" },
 ];
 
