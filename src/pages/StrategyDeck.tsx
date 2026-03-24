@@ -183,10 +183,10 @@ const slides: Slide[] = [
           <GreenCard className="space-y-4 py-6">
             <SectionLabel>Marketing Channels</SectionLabel>
             <BulletList items={[
-              { bold: "Surge / LabLab:", text: "200K+ AI community. Launchpad." },
-              { bold: "Ethermail.io:", text: "2.7M community. 500K impressions / month." },
-              { bold: "Lever.io:", text: "Web3 influencer network. 10M+ community." },
-              { bold: "PR / IR:", text: "Web3 community focused." },
+              { bold: "Surge / LabLab:", text: "200K+ AI developer community. Primary launchpad for token awareness, hackathons, and early adopter acquisition." },
+              { bold: "Ethermail.io:", text: "2.7M Web3-native community. 500K impressions/month via targeted email campaigns, newsletter placements, and co-branded announcements." },
+              { bold: "Lever.io:", text: "Web3 influencer network with 10M+ combined reach. KOL activations, sponsored content, and community-driven advocacy programs." },
+              { bold: "PR / IR:", text: "Web3 community-focused press strategy. Investor relations, media placements, AMAs, and thought leadership across crypto-native outlets." },
             ]} />
           </GreenCard>
         </div>
