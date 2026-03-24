@@ -175,8 +175,7 @@ const slides: Slide[] = [
             <SectionLabel>Tier 1 — Community</SectionLabel>
             <BulletList items={[
               { bold: "Marketing:", text: "Brand awareness campaigns and community building." },
-              { bold: "Influencers:", text: "KOL partnerships and advocacy programs." },
-              { bold: "Airdrops:", text: "Targeted token distribution to early adopters." },
+               { bold: "Influencers:", text: "KOL partnerships, advocacy programs, Community Airdrops." },
               { bold: "Staking Rewards:", text: "Incentivized long-term holding and network participation." },
               { bold: "Referral Programs:", text: "Viral growth through community-driven referrals." },
             ]} />
