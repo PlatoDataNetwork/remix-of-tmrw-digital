@@ -780,9 +780,6 @@ export default function StrategyDeck() {
           className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-[hsl(82,85%,55%)] hover:border-[hsl(82,85%,55%,0.3)] disabled:opacity-30 transition-all">
           <ChevronLeft className="h-4 w-4" />
         </button>
-        <span className="text-xs font-light text-muted-foreground tracking-wider">
-          {current + 1} / {total}
-        </span>
         <div className="flex items-center gap-2">
           <button onClick={() => setFullscreen(f => !f)}
             className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-[hsl(82,85%,55%)] hover:border-[hsl(82,85%,55%,0.3)] transition-all">
