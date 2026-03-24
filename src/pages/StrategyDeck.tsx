@@ -194,7 +194,7 @@ const slides: Slide[] = [
              <BulletList items={[
                { bold: "CEX Listings:", text: "Centralized exchange listings for broad retail access." },
                { bold: "DEX Liquidity:", text: "Automated market-making and liquidity pool deployment." },
-               { bold: "Secondary Markets:", text: "OTC desks and institutional trading venues." },
+               { bold: "Secondary Markets:", text: "OTC desks. Institutional & Prosumer trading venues." },
                { bold: "Token to Equity:", text: "Structured conversion pathway from token holdings to equity positions." },
                
              ]} />
