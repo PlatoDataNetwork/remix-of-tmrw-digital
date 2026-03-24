@@ -237,7 +237,7 @@ const slides: Slide[] = [
           <GreenCard className="space-y-4 py-6">
             <SectionLabel>PR / IR</SectionLabel>
             <BulletList items={[
-              { bold: "Strategy:", text: "Web3 community-focused press strategy." },
+              { bold: "Strategy:", text: "Capital Markets & Web3 community-focused press strategy." },
               { bold: "Function:", text: "Investor relations, media placements, AMAs, and thought leadership across crypto-native outlets." },
             ]} />
           </GreenCard>
