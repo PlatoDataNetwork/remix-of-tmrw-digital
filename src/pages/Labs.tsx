@@ -139,29 +139,6 @@ const Labs = () => {
           </div>
         </section>
 
-        {/* Stats */}
-        <section className="py-16 border-y border-border">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((s, i) => (
-                <motion.div
-                  key={s.label}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeIn}
-                  custom={i}
-                  className="text-center"
-                >
-                  <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    {s.value}
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-2">{s.label}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Thesis */}
         <section className="py-20 sm:py-28">
