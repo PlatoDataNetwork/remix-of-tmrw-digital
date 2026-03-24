@@ -60,28 +60,6 @@ const stats = [
   { value: "3", label: "Continents" },
 ];
 
-const process = [
-  {
-    step: "01",
-    title: "Application & Screening",
-    desc: "We review founding teams for domain expertise, technical capability, and alignment with Web3/AI/RWA infrastructure.",
-  },
-  {
-    step: "02",
-    title: "Incubation Sprint",
-    desc: "8–12 week intensive program covering tokenomics design, regulatory strategy, GTM planning, and technical architecture.",
-  },
-  {
-    step: "03",
-    title: "Build & Ship",
-    desc: "Access to TMRW's developer infrastructure, smart contract libraries, data feeds, and deployment pipelines.",
-  },
-  {
-    step: "04",
-    title: "Scale & Capitalize",
-    desc: "Investor introductions, exchange listing support, and integration into the TMRW ecosystem for distribution and liquidity.",
-  },
-];
 
 const Labs = () => {
   const currentLang = useCurrentLanguage();
@@ -232,42 +210,6 @@ const Labs = () => {
           </div>
         </section>
 
-        {/* Process */}
-        <section className="py-20 sm:py-28">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <motion.h2 variants={fadeIn} custom={0} className="text-3xl sm:text-4xl font-bold mb-4">
-                How We Work
-              </motion.h2>
-              <motion.p variants={fadeIn} custom={1} className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                From thesis to traction — a structured path for founders building at the intersection of AI, Web3, and real-world assets.
-              </motion.p>
-            </motion.div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {process.map((p, i) => (
-                <motion.div
-                  key={p.step}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeIn}
-                  custom={i}
-                  className="relative p-6 rounded-2xl border border-border bg-card"
-                >
-                  <span className="text-5xl font-black text-primary/10 absolute top-4 right-5">{p.step}</span>
-                  <h3 className="text-lg font-semibold mb-3 relative z-10">{p.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed relative z-10">{p.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* CTA */}
         <section className="py-20 sm:py-28 bg-muted/30">
