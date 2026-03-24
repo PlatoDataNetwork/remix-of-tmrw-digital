@@ -542,21 +542,21 @@ const AdminSecurityAudit = () => {
                           )}
                         </div>
                         <p className="text-xs text-white/40 mt-1">{check.description}</p>
-                        <div className="mt-2 flex flex-col gap-1">
+                        <div className="mt-2 flex flex-col gap-1.5">
                           <div className="flex items-start gap-2">
-                            <span className="text-[11px] text-white/25 shrink-0 w-12">Value:</span>
-                            <span className="text-xs text-white/50 font-mono break-all">{check.value}</span>
+                            <span className="text-[11px] text-white/40 shrink-0 w-12">Value:</span>
+                            <span className="text-xs text-white/60 font-mono break-all">{check.value || "—"}</span>
                           </div>
                           {!check.passed && fix && (
-                            <div className="flex items-start gap-2">
-                              <span className="text-[11px] text-emerald-400/60 shrink-0 w-12">Fix:</span>
-                              <span className="text-xs text-emerald-400/80 font-mono break-all">{fix.key}: {fix.value.length > 100 ? fix.value.substring(0, 100) + "…" : fix.value}</span>
+                            <div className="flex items-start gap-2 bg-emerald-400/5 rounded-md px-2 py-1.5">
+                              <span className="text-[11px] text-emerald-400 shrink-0 w-12 font-medium">Fix:</span>
+                              <span className="text-xs text-emerald-300 font-mono break-all">{fix.key}: {fix.value.length > 100 ? fix.value.substring(0, 100) + "…" : fix.value}</span>
                             </div>
                           )}
                           {!check.passed && !fix && (
-                            <div className="flex items-start gap-2">
-                              <span className="text-[11px] text-amber-400/60 shrink-0 w-12">Fix:</span>
-                              <span className="text-xs text-amber-400/80">{check.recommendation}</span>
+                            <div className="flex items-start gap-2 bg-amber-400/5 rounded-md px-2 py-1.5">
+                              <span className="text-[11px] text-amber-400 shrink-0 w-12 font-medium">Fix:</span>
+                              <span className="text-xs text-amber-300">{check.recommendation}</span>
                             </div>
                           )}
                         </div>
