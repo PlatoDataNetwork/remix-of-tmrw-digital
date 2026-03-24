@@ -174,7 +174,7 @@ const slides: Slide[] = [
           <GreenCard className="space-y-4 py-6">
             <SectionLabel>Distribution Funnel</SectionLabel>
             <BulletList items={[
-              { bold: "Tier 1 — Community:", text: "Airdrops, staking rewards, and referral programs." },
+              { bold: "Tier 1 — Community:", text: "Marketing, airdrops, staking rewards, and referral programs." },
               { bold: "Tier 2 — Strategic Partners:", text: "Institutional allocations, exchange listings, and LP incentives." },
               { bold: "Tier 3 — Public Markets:", text: "CEX/DEX listings and secondary market liquidity." },
               { bold: "Tier 4 — Developer Ecosystem:", text: "Builder grants, hackathon rewards, and compute credits." },
