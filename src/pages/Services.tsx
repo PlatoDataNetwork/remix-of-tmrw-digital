@@ -112,8 +112,8 @@ const Services = () => {
               className="relative rounded-2xl overflow-hidden"
             >
               <AnimatedImage
-                src={dataCenterImg}
-                alt="Data center infrastructure"
+                src={servicesHeroImg}
+                alt="Digital infrastructure and connectivity"
                 className="w-full h-[260px] md:h-[380px] grayscale brightness-110"
               />
               <div className="absolute inset-0 animated-gradient-datacenter-bg" />
