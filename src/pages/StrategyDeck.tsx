@@ -162,35 +162,86 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 4 — W3AI Token: Model
+  // 4 — W3AI Token: Distribution Funnel
   {
-    id: "w3ai-model",
+    id: "w3ai-distribution",
     render: () => (
       <div className="flex flex-col h-full gap-6 justify-center">
         <SlideAccent />
         <SectionLabel>W3AI Token — Model</SectionLabel>
-        <SlideTitle>Go-To-Market Model.</SlideTitle>
-        <div className="grid md:grid-cols-2 gap-5">
+        <SlideTitle>Token Distribution Funnel.</SlideTitle>
+        <div className="grid md:grid-cols-3 gap-5">
           <GreenCard className="space-y-4 py-6">
-            <SectionLabel>Distribution Funnel</SectionLabel>
+            <SectionLabel>Tier 1 — Community</SectionLabel>
             <BulletList items={[
-              { bold: "Tier 1 — Community:", text: "Marketing, influencers, airdrops, staking rewards, and referral programs." },
-              { bold: "Tier 2 — Strategic Partners:", text: "Institutional allocations, networks, protocols, and foundations." },
-              { bold: "Tier 3 — Public Markets:", text: "CEX/DEX listings and secondary market liquidity." },
-              { bold: "Tier 4 — Developer Ecosystem:", text: "Builder grants, hackathon rewards, and compute credits." },
+              { bold: "Marketing:", text: "Brand awareness campaigns and community building." },
+              { bold: "Influencers:", text: "KOL partnerships and advocacy programs." },
+              { bold: "Airdrops:", text: "Targeted token distribution to early adopters." },
+              { bold: "Staking Rewards:", text: "Incentivized long-term holding and network participation." },
+              { bold: "Referral Programs:", text: "Viral growth through community-driven referrals." },
             ]} />
           </GreenCard>
           <GreenCard className="space-y-4 py-6">
-            <SectionLabel>Marketing Channels</SectionLabel>
+            <SectionLabel>Tier 2 — Strategic Partners</SectionLabel>
             <BulletList items={[
-              { bold: "Surge / LabLab:", text: "200K+ AI developer community. Primary launchpad for token awareness, hackathons, and early adopter acquisition." },
-              { bold: "Ethermail.io:", text: "2.7M Web3-native community. 500K impressions/month via targeted email campaigns, newsletter placements, and co-branded announcements." },
-              { bold: "Lever.io:", text: "Web3 influencer network with 10M+ combined reach. KOL activations, sponsored content, and community-driven advocacy programs." },
-              { bold: "PR / IR:", text: "Web3 community-focused press strategy. Investor relations, media placements, AMAs, and thought leadership across crypto-native outlets." },
+              { bold: "Institutional Allocations:", text: "Reserved tranches for funds, family offices, and strategic investors." },
+              { bold: "Networks:", text: "Cross-chain partnerships and protocol integrations." },
+              { bold: "Protocols:", text: "DeFi and infrastructure protocol collaborations." },
+              { bold: "Foundations:", text: "Ecosystem development grants and long-term alignment." },
+            ]} />
+          </GreenCard>
+          <GreenCard className="space-y-4 py-6">
+            <SectionLabel>Tier 3 — Public Markets</SectionLabel>
+            <BulletList items={[
+              { bold: "CEX Listings:", text: "Centralized exchange listings for broad retail access." },
+              { bold: "DEX Liquidity:", text: "Automated market-making and liquidity pool deployment." },
+              { bold: "Secondary Markets:", text: "OTC desks and institutional trading venues." },
             ]} />
           </GreenCard>
         </div>
         <SlideNumber n={3} />
+      </div>
+    ),
+  },
+  // 5 — W3AI Token: Marketing Channels
+  {
+    id: "w3ai-marketing",
+    render: () => (
+      <div className="flex flex-col h-full gap-6 justify-center">
+        <SlideAccent />
+        <SectionLabel>W3AI Token — Model</SectionLabel>
+        <SlideTitle>Marketing Channels.</SlideTitle>
+        <div className="grid md:grid-cols-2 gap-5">
+          <GreenCard className="space-y-4 py-6">
+            <SectionLabel>Surge / LabLab</SectionLabel>
+            <BulletList items={[
+              { bold: "Community:", text: "200K+ AI developer community." },
+              { bold: "Function:", text: "Primary launchpad for token awareness, hackathons, and early adopter acquisition." },
+            ]} />
+          </GreenCard>
+          <GreenCard className="space-y-4 py-6">
+            <SectionLabel>Ethermail.io</SectionLabel>
+            <BulletList items={[
+              { bold: "Community:", text: "2.7M Web3-native users." },
+              { bold: "Reach:", text: "500K impressions/month via targeted email campaigns, newsletter placements, and co-branded announcements." },
+            ]} />
+          </GreenCard>
+          <GreenCard className="space-y-4 py-6">
+            <SectionLabel>Lever.io</SectionLabel>
+            <BulletList items={[
+              { bold: "Network:", text: "Web3 influencer network with 10M+ combined reach." },
+              { bold: "Function:", text: "KOL activations, sponsored content, and community-driven advocacy programs." },
+            ]} />
+          </GreenCard>
+          <GreenCard className="space-y-4 py-6">
+            <SectionLabel>PR / IR</SectionLabel>
+            <BulletList items={[
+              { bold: "Strategy:", text: "Web3 community-focused press strategy." },
+              { bold: "Function:", text: "Investor relations, media placements, AMAs, and thought leadership across crypto-native outlets." },
+            ]} />
+          </GreenCard>
+        </div>
+        <SlideNumber n={4} />
       </div>
     ),
   },
