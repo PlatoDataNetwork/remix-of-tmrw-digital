@@ -205,6 +205,7 @@ function getRoutes() {
     <Route key="trademark-channel" path="trademark-channel" element={<TrademarkChannel />} />,
     <Route key="rwa-channel" path="rwa-channel" element={<RWAChannel />} />,
     <Route key="orbital-beam" path="orbital-beam" element={<OrbitalBeam />} />,
+    <Route key="labs" path="labs" element={<Labs />} />,
   ];
 }
 
