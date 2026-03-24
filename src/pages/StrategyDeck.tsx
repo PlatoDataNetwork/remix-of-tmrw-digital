@@ -64,11 +64,11 @@ function SlideSubtitle({ children }: { children: React.ReactNode }) {
 
 function BulletList({ items }: { items: { bold: string; text: string }[] }) {
   return (
-    <div className="space-y-3">
+    <div className="space-y-4">
       {items.map((item, i) => (
-        <div key={i} className="flex gap-3 items-start">
-          <div className="w-1 h-1 rounded-full bg-[hsl(82,85%,55%)] mt-2 shrink-0" />
-          <p className="text-xs md:text-sm font-light text-muted-foreground leading-relaxed">
+        <div key={i} className="flex gap-4 items-start">
+          <div className="w-1.5 h-1.5 rounded-full bg-[hsl(82,85%,55%)] mt-2.5 shrink-0" />
+          <p className="text-sm md:text-base font-light text-muted-foreground leading-relaxed">
             <span className="font-medium text-foreground">{item.bold}</span> {item.text}
           </p>
         </div>
@@ -80,7 +80,7 @@ function BulletList({ items }: { items: { bold: string; text: string }[] }) {
 function GreenCard({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <div className={cn(
-      "pt-2.5 pb-4 px-4 rounded-lg border border-[hsl(82,85%,55%,0.15)] bg-card space-y-1.5 relative overflow-hidden",
+      "pt-3 pb-5 px-5 rounded-xl border border-[hsl(82,85%,55%,0.15)] bg-card space-y-2 relative overflow-hidden",
       className
     )}>
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.3)] via-[hsl(82,85%,55%,0.1)] to-transparent" />
@@ -91,7 +91,7 @@ function GreenCard({ children, className }: { children: React.ReactNode; classNa
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="text-xs uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)]">{children}</h3>
+    <h3 className="text-sm uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)]">{children}</h3>
   );
 }
 
