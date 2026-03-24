@@ -109,6 +109,7 @@ const ApiDocumentation = lazy(() => import("./pages/ApiDocumentation"));
 const TrademarkChannel = lazy(() => import("./pages/TrademarkChannel"));
 const RWAChannel = lazy(() => import("./pages/RWAChannel"));
 const OrbitalBeam = lazy(() => import("./pages/OrbitalBeam"));
+const Labs = lazy(() => import("./pages/Labs"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
