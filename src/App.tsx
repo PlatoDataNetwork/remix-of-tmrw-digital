@@ -150,6 +150,7 @@ function getRoutes() {
     <Route key="security" path="security" element={<Security />} />,
     <Route key="svc-cyber" path="services/cyber-defense" element={<CyberDefenseService />} />,
     <Route key="svc-digital" path="services/digital-strategy" element={<DigitalStrategyService />} />,
+    <Route key="services" path="services" element={<ServicesPage />} />,
     <Route key="w3-ai" path="web3ai/ai-automation" element={<AIAutomation />} />,
     <Route key="w3-token" path="web3ai/token-ecosystem" element={<TokenEcosystem />} />,
     <Route key="w3-cross" path="web3ai/cross-border-settlements" element={<CrossBorderSettlements />} />,
