@@ -767,7 +767,7 @@ export default function StrategyDeck() {
       "relative w-full bg-background border border-border rounded-2xl overflow-hidden transition-all duration-300",
       fullscreen ? "fixed inset-0 z-[80] rounded-none border-none" : "aspect-video"
     )}>
-      <SlideBranding />
+      <SlideBranding current={current} total={total} />
       <div key={current} className="absolute inset-0 p-8 md:p-16 flex flex-col animate-fade-in">
         {slides[current].render()}
       </div>
