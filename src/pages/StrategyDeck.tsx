@@ -181,12 +181,12 @@ const slides: Slide[] = [
             ]} />
           </GreenCard>
           <GreenCard className="space-y-4 py-6">
-            <SectionLabel>Token Velocity Controls</SectionLabel>
+            <SectionLabel>Marketing Channels</SectionLabel>
             <BulletList items={[
-              { bold: "Lock-up Periods:", text: "9-month vesting for strategic allocations." },
-              { bold: "Staking Incentives:", text: "Reduced velocity through SecureStake yield." },
-              { bold: "Burn Mechanics:", text: "Protocol fee burns reduce circulating supply." },
-              { bold: "Utility Demand:", text: "Compute, storage, and AI model access require W3AI." },
+              { bold: "Surge / LabLab:", text: "200K+ AI community. Launchpad." },
+              { bold: "Ethermail.io:", text: "2.7M community. 500K impressions / month." },
+              { bold: "Lever.io:", text: "Web3 influencer network. 10M+ community." },
+              { bold: "PR / IR:", text: "Web3 community focused." },
             ]} />
           </GreenCard>
         </div>
