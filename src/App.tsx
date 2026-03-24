@@ -104,6 +104,7 @@ const CUTToken = lazy(() => import("./pages/CUTToken"));
 const Security = lazy(() => import("./pages/Security"));
 const PathTo1B = lazy(() => import("./pages/PathTo1B"));
 const RTODeck = lazy(() => import("./pages/RTODeck"));
+const StrategyDeck = lazy(() => import("./pages/StrategyDeck"));
 const DataFeeds = lazy(() => import("./pages/DataFeeds"));
 const ApiDocumentation = lazy(() => import("./pages/ApiDocumentation"));
 const TrademarkChannel = lazy(() => import("./pages/TrademarkChannel"));
@@ -208,6 +209,7 @@ function getRoutes() {
     <Route key="rwa-channel" path="rwa-channel" element={<RWAChannel />} />,
     <Route key="orbital-beam" path="orbital-beam" element={<OrbitalBeam />} />,
     <Route key="labs" path="labs" element={<Labs />} />,
+    <Route key="strategy-deck" path="strategy-deck" element={<StrategyDeck />} />,
   ];
 }
 
