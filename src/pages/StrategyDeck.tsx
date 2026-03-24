@@ -192,11 +192,13 @@ const slides: Slide[] = [
           </GreenCard>
           <GreenCard className="space-y-4 py-6">
             <SectionLabel>Tier 3 — Public Markets</SectionLabel>
-            <BulletList items={[
-              { bold: "CEX Listings:", text: "Centralized exchange listings for broad retail access." },
-              { bold: "DEX Liquidity:", text: "Automated market-making and liquidity pool deployment." },
-              { bold: "Secondary Markets:", text: "OTC desks and institutional trading venues." },
-            ]} />
+             <BulletList items={[
+               { bold: "CEX Listings:", text: "Centralized exchange listings for broad retail access." },
+               { bold: "DEX Liquidity:", text: "Automated market-making and liquidity pool deployment." },
+               { bold: "Secondary Markets:", text: "OTC desks and institutional trading venues." },
+               { bold: "Token to Equity:", text: "Structured conversion pathway from token holdings to equity positions, enabling institutional-grade exit liquidity and regulatory alignment." },
+               { bold: "Market Infrastructure:", text: "Cross-platform trading integrations, price discovery mechanisms, and compliance-ready market access." },
+             ]} />
           </GreenCard>
         </div>
         <SlideNumber n={3} />
