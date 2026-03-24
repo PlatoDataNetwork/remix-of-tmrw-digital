@@ -60,28 +60,6 @@ const stats = [
   { value: "3", label: "Continents" },
 ];
 
-const process = [
-  {
-    step: "01",
-    title: "Application & Screening",
-    desc: "We review founding teams for domain expertise, technical capability, and alignment with Web3/AI/RWA infrastructure.",
-  },
-  {
-    step: "02",
-    title: "Incubation Sprint",
-    desc: "8–12 week intensive program covering tokenomics design, regulatory strategy, GTM planning, and technical architecture.",
-  },
-  {
-    step: "03",
-    title: "Build & Ship",
-    desc: "Access to TMRW's developer infrastructure, smart contract libraries, data feeds, and deployment pipelines.",
-  },
-  {
-    step: "04",
-    title: "Scale & Capitalize",
-    desc: "Investor introductions, exchange listing support, and integration into the TMRW ecosystem for distribution and liquidity.",
-  },
-];
 
 const Labs = () => {
   const currentLang = useCurrentLanguage();
