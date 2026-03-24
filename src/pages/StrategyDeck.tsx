@@ -132,37 +132,10 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 2 — Disclaimer
-  {
-    id: "disclaimer",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-5 max-w-3xl mx-auto relative">
-        <SlideAccent />
-        <SlideTitle>Important Disclaimer</SlideTitle>
-        <div className="space-y-3 text-left">
-          <p className="text-xs font-light text-muted-foreground leading-relaxed">
-            <span className="font-medium text-[hsl(82,85%,55%)]">Not an Offering.</span> This document does not constitute an offer to sell, or a solicitation of an offer to buy, any digital securities, tokens, or other financial instruments. Any future offering would be conducted solely through a formal prospectus or offering memorandum prepared in compliance with applicable securities laws.
-          </p>
-          <p className="text-xs font-light text-muted-foreground leading-relaxed">
-            <span className="font-medium text-[hsl(82,85%,55%)]">Informational Purposes Only.</span> This presentation is provided strictly for informational and educational purposes. It does not constitute financial, legal, tax, or investment advice. Recipients should consult qualified professional advisors before making any decisions.
-          </p>
-          <p className="text-xs font-light text-muted-foreground leading-relaxed">
-            <span className="font-medium text-[hsl(82,85%,55%)]">No Guarantees.</span> Forward-looking statements reflect current intentions and are not guarantees of future performance or results. Digital assets are inherently risky and volatile — purchasers may lose all invested funds.
-          </p>
-          <p className="text-xs font-light text-muted-foreground leading-relaxed">
-            <span className="font-medium text-[hsl(82,85%,55%)]">No Fiduciary Relationship.</span> No fiduciary, advisory, or agency relationship is created by the distribution or receipt of this document. All intellectual property belongs to respective owners.
-          </p>
-        </div>
-        <div className="w-16 h-px bg-[hsl(82,85%,55%,0.3)] mx-auto mt-2" />
-        <p className="text-xs font-light text-muted-foreground/50 uppercase tracking-[0.3em] text-center">Tomorrow Digital Inc.</p>
-      </div>
-    ),
-  },
-
   // ═══════════════════════════════════════
   // PRODUCT 1 — W3AI TOKEN
   // ═══════════════════════════════════════
-  // 3 — W3AI Token: Product
+  // 2 — W3AI Token: Product
   {
     id: "w3ai-product",
     render: () => (
