@@ -182,7 +182,7 @@ const slides: Slide[] = [
             ]} />
           </GreenCard>
           <GreenCard className="space-y-4 py-6">
-            <SectionLabel>Tier 2 — Strategic Partners</SectionLabel>
+            <SectionLabel>Tier 2 — Partners</SectionLabel>
             <BulletList items={[
               { bold: "Institutional Allocations:", text: "Reserved tranches for funds, family offices, and strategic investors." },
               { bold: "Networks:", text: "Cross-chain partnerships and protocol integrations." },
