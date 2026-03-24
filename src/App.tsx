@@ -104,6 +104,7 @@ const CUTToken = lazy(() => import("./pages/CUTToken"));
 const Security = lazy(() => import("./pages/Security"));
 const PathTo1B = lazy(() => import("./pages/PathTo1B"));
 const RTODeck = lazy(() => import("./pages/RTODeck"));
+const StrategyDeck = lazy(() => import("./pages/StrategyDeck"));
 const DataFeeds = lazy(() => import("./pages/DataFeeds"));
 const ApiDocumentation = lazy(() => import("./pages/ApiDocumentation"));
 const TrademarkChannel = lazy(() => import("./pages/TrademarkChannel"));
