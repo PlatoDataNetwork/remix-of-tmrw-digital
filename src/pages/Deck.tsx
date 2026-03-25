@@ -263,7 +263,7 @@ function BrowserPrototypeSlide() {
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(40,80%,55%)]" />
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(130,60%,45%)]" />
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 mx-auto">
               <span className="text-[10px] text-white font-medium tracking-widest">W3AI</span>
               <div
                 className="h-4 w-4 shrink-0 animated-gradient-icon-bright"
@@ -280,7 +280,7 @@ function BrowserPrototypeSlide() {
               />
               <span className="text-[10px] text-white font-medium tracking-widest">TMRW</span>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 ml-auto">
               {toolbarIcons.map((t) => {
                 const TIcon = t.icon;
                 return (
