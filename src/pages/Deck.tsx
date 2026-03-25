@@ -458,12 +458,40 @@ function BrowserPrototypeSlide() {
                     {section.subtitle}
                   </p>
 
-                  {/* Open button */}
+                  {/* Enter button */}
                   <button
                     onClick={() => loadWireframe()}
                     className="mt-5 px-5 py-1.5 rounded-full text-[10px] font-medium tracking-[0.15em] uppercase text-white/80 border border-white/20 hover:border-white/50 hover:text-white transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10"
                   >
-                    Open
+                    Enter
+                  </button>
+
+                  {/* Branded circle — directly under Enter button */}
+                  <button
+                    onClick={() => loadWireframe()}
+                    className="mt-4 w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-300"
+                    style={{
+                      background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.06)")})`,
+                      border: `1.5px solid rgba(255,255,255,0.5)`,
+                      boxShadow: `0 0 15px rgba(255,255,255,0.25), 0 0 40px rgba(255,255,255,0.1), 0 0 60px ${section.accentHsl.replace(")", ",0.2)")}`,
+                      backdropFilter: "blur(12px)",
+                      transition: "all 0.5s ease",
+                    }}
+                    title="Enter TMRW Digital"
+                  >
+                    <div
+                      className="h-10 w-10 md:h-12 md:w-12 shrink-0 animated-gradient-icon-bright"
+                      style={{
+                        WebkitMaskImage: `url(${platoIcon})`,
+                        WebkitMaskSize: "contain",
+                        WebkitMaskRepeat: "no-repeat",
+                        WebkitMaskPosition: "center",
+                        maskImage: `url(${platoIcon})`,
+                        maskSize: "contain",
+                        maskRepeat: "no-repeat",
+                        maskPosition: "center",
+                      }}
+                    />
                   </button>
                 </>
               )}
@@ -490,35 +518,6 @@ function BrowserPrototypeSlide() {
           </div>
         </div>
 
-        {/* Glowing branded circle — bottom center, overlapping edge */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 flex flex-col items-center gap-2">
-          <button
-            onClick={() => showWireframe ? setShowWireframe(false) : loadWireframe()}
-            className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-300"
-            style={{
-              background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.06)")})`,
-              border: `1.5px solid rgba(255,255,255,0.5)`,
-              boxShadow: `0 0 15px rgba(255,255,255,0.25), 0 0 40px rgba(255,255,255,0.1), 0 0 60px ${section.accentHsl.replace(")", ",0.2)")}`,
-              backdropFilter: "blur(12px)",
-              transition: "all 0.5s ease",
-            }}
-            title="Open TMRW Digital"
-          >
-            <div
-              className="h-10 w-10 md:h-12 md:w-12 shrink-0 animated-gradient-icon-bright"
-              style={{
-                WebkitMaskImage: `url(${platoIcon})`,
-                WebkitMaskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-                maskImage: `url(${platoIcon})`,
-                maskSize: "contain",
-                maskRepeat: "no-repeat",
-                maskPosition: "center",
-              }}
-            />
-          </button>
-        </div>
 
       </div>
     </div>
