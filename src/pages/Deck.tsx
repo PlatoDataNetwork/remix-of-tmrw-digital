@@ -391,8 +391,6 @@ function BrowserPrototypeSlide() {
                   <p className="text-sm md:text-base text-white/50 font-light mt-3 leading-relaxed whitespace-pre-line max-w-md transition-all duration-500">
                     {section.subtitle}
                   </p>
-                </>
-              )}
 
               {/* Brand footer */}
               <div className="absolute bottom-3 right-4 flex items-center gap-1.5">
