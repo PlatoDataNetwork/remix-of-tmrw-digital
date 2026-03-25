@@ -230,6 +230,8 @@ const toolbarIcons = [
   { icon: Network, label: "Protocol" },
   { icon: ArrowLeftRight, label: "Swap" },
   { icon: Brain, label: "Intelligence" },
+  { icon: Wallet, label: "Wallet" },
+  { icon: Lock, label: "Identity" },
 ];
 
 function BrowserPrototypeSlide() {
