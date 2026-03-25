@@ -250,7 +250,7 @@ const browserSections = [
 
 function BrowserPrototypeSlide() {
   const [activeSection, setActiveSection] = useState(0);
-  
+  const [showWireframe, setShowWireframe] = useState(false);
   const section = browserSections[activeSection];
 
   return (
