@@ -63,14 +63,15 @@ serve(async (req: Request) => {
       body = new Uint8Array(await resp.arrayBuffer());
     }
 
+    const responseHeaders: Record<string, string> = {
+      ...corsHeaders,
+      "Content-Type": contentType.includes("text/html") ? "text/html; charset=utf-8" : contentType,
+      "Cache-Control": "public, max-age=300",
+    };
+
     return new Response(body, {
       status: resp.status,
-      headers: {
-        ...corsHeaders,
-        "Content-Type": contentType,
-        "Cache-Control": "public, max-age=300",
-        // Deliberately omit X-Frame-Options and CSP frame-ancestors
-      },
+      headers: responseHeaders,
     });
   } catch (err) {
     console.error("Proxy error:", err);
