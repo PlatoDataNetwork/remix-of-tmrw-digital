@@ -421,13 +421,13 @@ function BrowserPrototypeSlide() {
             style={{
               background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.06)")})`,
               border: `1.5px solid rgba(255,255,255,0.5)`,
-              boxShadow: `0 0 50px ${section.accentHsl.replace(")", ",0.3)")}, 0 0 100px ${section.accentHsl.replace(")", ",0.1)")}`,
+              boxShadow: `0 0 15px rgba(255,255,255,0.25), 0 0 40px rgba(255,255,255,0.1), 0 0 60px ${section.accentHsl.replace(")", ",0.2)")}`,
               backdropFilter: "blur(12px)",
               transition: "all 0.5s ease",
             }}
           >
             <div
-              className="h-7 w-7 md:h-9 md:w-9 shrink-0 animated-gradient-icon-bright"
+              className="h-9 w-9 md:h-11 md:w-11 shrink-0 animated-gradient-icon-bright"
               style={{
                 WebkitMaskImage: `url(${platoIcon})`,
                 WebkitMaskSize: "contain",
@@ -439,13 +439,6 @@ function BrowserPrototypeSlide() {
                 maskPosition: "center",
               }}
             />
-          </div>
-          <div className="flex items-center gap-1.5 mt-1">
-            <span className="text-[10px] text-white font-medium tracking-[0.2em]">TMRW</span>
-            <span className="text-[9px] text-white/40 font-light">by</span>
-            <span className="text-[10px] font-medium tracking-[0.15em]">
-              <span className="animated-gradient-text bg-clip-text text-transparent" style={{ backgroundSize: "200% 200%" }}>W3AI</span>
-            </span>
           </div>
         </div>
 
