@@ -153,7 +153,7 @@ const browserSections = [
     icon: LayoutGrid,
     label: "Applications",
     title: "Applications.",
-    subtitle: "Decentralized apps, DeFi protocols,\nand Web3 tools — all in one place.",
+    subtitle: "Decentralized apps, DeFi protocols,\nand Web3 tools —\nall in one place.",
     cta: "Browse Apps",
     gradient: "from-[hsl(280,50%,22%)] via-[hsl(300,55%,28%)] to-[hsl(320,50%,32%)]",
     accentHsl: "hsl(300,65%,58%)",
