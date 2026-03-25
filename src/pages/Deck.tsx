@@ -203,17 +203,6 @@ const browserSections = [
     heroIcon: Layers,
   },
   {
-    id: "identity",
-    icon: Lock,
-    label: "Identity",
-    title: "Identity.",
-    subtitle: "Anti-Sybil via Dentity. Credentialed wallets.\nGovernance integrity by design.",
-    cta: "Verify",
-    gradient: "from-[hsl(260,40%,20%)] via-[hsl(270,50%,25%)] to-[hsl(280,45%,30%)]",
-    accentHsl: "hsl(270,60%,55%)",
-    heroIcon: Lock,
-  },
-  {
     id: "search",
     icon: Search,
     label: "Search",
