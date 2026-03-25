@@ -416,10 +416,19 @@ function BrowserPrototypeSlide() {
                     {section.subtitle}
                   </p>
 
+                  {/* Open button */}
+                  <button
+                    onClick={() => setShowWireframe(true)}
+                    className="mt-5 px-5 py-1.5 rounded-full text-[10px] font-medium tracking-[0.15em] uppercase text-white/80 border border-white/20 hover:border-white/50 hover:text-white transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10"
+                  >
+                    Open
+                  </button>
+                </>
+              )}
+
               {/* Brand footer */}
-              <div className="absolute bottom-3 right-4 flex items-center gap-1.5">
+              <div className="absolute bottom-3 right-4 flex items-center gap-1.5 z-20">
                 <span className="text-[9px] text-white/80 font-medium tracking-[0.15em]">W3AI</span>
-                <span className="text-[8px] text-white/40 font-light">by</span>
                 <div
                   className="h-3.5 w-3.5 shrink-0 animated-gradient-icon-bright"
                   style={{
