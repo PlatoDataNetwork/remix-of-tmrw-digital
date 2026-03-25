@@ -197,7 +197,7 @@ const browserSections = [
     icon: Layers,
     label: "Layers",
     title: "Multi-Chain.",
-    subtitle: "Seamless cross-chain execution.\nWormhole NTT bridging. One interface.",
+    subtitle: "Seamless cross-chain execution.\nWormhole NTT bridging.\nOne interface.",
     cta: "Switch Chain",
     gradient: "from-[hsl(45,50%,18%)] via-[hsl(40,60%,22%)] to-[hsl(35,55%,28%)]",
     accentHsl: "hsl(45,70%,55%)",
