@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Globe, Shield, Zap, Bot, Wallet, BarChart3, Lock, Search, Layers, Settings } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Globe, Shield, Zap, Bot, Wallet, BarChart3, Lock, Search, Layers, Settings, Network, ArrowLeftRight, Brain, LayoutGrid } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -148,6 +148,17 @@ const browserSections = [
     heroIcon: Globe,
   },
   {
+    id: "applications",
+    icon: LayoutGrid,
+    label: "Applications",
+    title: "Applications.",
+    subtitle: "Decentralized apps, DeFi protocols,\nand Web3 tools — all in one place.",
+    cta: "Browse Apps",
+    gradient: "from-[hsl(280,50%,22%)] via-[hsl(300,55%,28%)] to-[hsl(320,50%,32%)]",
+    accentHsl: "hsl(300,65%,58%)",
+    heroIcon: LayoutGrid,
+  },
+  {
     id: "security",
     icon: Shield,
     label: "Security",
@@ -192,15 +203,15 @@ const browserSections = [
     heroIcon: Wallet,
   },
   {
-    id: "analytics",
-    icon: BarChart3,
-    label: "Analytics",
-    title: "Intelligence.",
-    subtitle: "Real-time data feeds, market analysis,\nand on-chain intelligence — built in.",
-    cta: "Explore",
-    gradient: "from-[hsl(200,50%,18%)] via-[hsl(190,60%,22%)] to-[hsl(180,50%,26%)]",
-    accentHsl: "hsl(190,70%,50%)",
-    heroIcon: BarChart3,
+    id: "layers",
+    icon: Layers,
+    label: "Layers",
+    title: "Multi-Chain.",
+    subtitle: "Seamless cross-chain execution.\nWormhole NTT bridging. One interface.",
+    cta: "Switch Chain",
+    gradient: "from-[hsl(45,50%,18%)] via-[hsl(40,60%,22%)] to-[hsl(35,55%,28%)]",
+    accentHsl: "hsl(45,70%,55%)",
+    heroIcon: Layers,
   },
   {
     id: "identity",
@@ -225,17 +236,6 @@ const browserSections = [
     heroIcon: Search,
   },
   {
-    id: "layers",
-    icon: Layers,
-    label: "Layers",
-    title: "Multi-Chain.",
-    subtitle: "Seamless cross-chain execution.\nWormhole NTT bridging. One interface.",
-    cta: "Switch Chain",
-    gradient: "from-[hsl(45,50%,18%)] via-[hsl(40,60%,22%)] to-[hsl(35,55%,28%)]",
-    accentHsl: "hsl(45,70%,55%)",
-    heroIcon: Layers,
-  },
-  {
     id: "settings",
     icon: Settings,
     label: "Settings",
@@ -246,6 +246,12 @@ const browserSections = [
     accentHsl: "hsl(0,0%,60%)",
     heroIcon: Settings,
   },
+];
+
+const toolbarIcons = [
+  { icon: Network, label: "Protocol" },
+  { icon: ArrowLeftRight, label: "Swap" },
+  { icon: Brain, label: "Intelligence" },
 ];
 
 function BrowserPrototypeSlide() {
@@ -280,6 +286,21 @@ function BrowserPrototypeSlide() {
             <span className="text-[10px] text-white/40 font-light tracking-wider mx-auto">
               W3AI TMRW Browser
             </span>
+            <div className="flex items-center gap-1">
+              {toolbarIcons.map((t) => {
+                const TIcon = t.icon;
+                return (
+                  <div key={t.label} className="relative group">
+                    <button className="w-6 h-6 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors">
+                      <TIcon className="w-3.5 h-3.5 text-white/40 group-hover:text-white transition-colors" />
+                    </button>
+                    <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-black/80 text-[9px] text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+                      {t.label}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           <div className="relative z-10 flex" style={{ minHeight: 300 }}>
@@ -289,25 +310,28 @@ function BrowserPrototypeSlide() {
                 const Icon = s.icon;
                 const isActive = i === activeSection;
                 return (
-                  <button
-                    key={s.id}
-                    onClick={() => setActiveSection(i)}
-                    className={cn(
-                      "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group relative",
-                      isActive
-                        ? "bg-white/15 shadow-lg"
-                        : "hover:bg-white/8"
-                    )}
-                    style={isActive ? { boxShadow: `0 0 20px ${section.accentHsl.replace(")", ",0.3)")}` } : {}}
-                    title={s.label}
-                  >
-                    <Icon
+                  <div key={s.id} className="relative group">
+                    <button
+                      onClick={() => setActiveSection(i)}
                       className={cn(
-                        "w-4 h-4 transition-all duration-300",
-                        isActive ? "text-white" : "text-white/40 group-hover:text-white/70"
+                        "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300",
+                        isActive
+                          ? "bg-white/15 shadow-lg"
+                          : "hover:bg-white/8"
                       )}
-                    />
-                  </button>
+                      style={isActive ? { boxShadow: `0 0 20px ${section.accentHsl.replace(")", ",0.3)")}` } : {}}
+                    >
+                      <Icon
+                        className={cn(
+                          "w-4 h-4 transition-all duration-300",
+                          isActive ? "text-white" : "text-white/40 group-hover:text-white/70"
+                        )}
+                      />
+                    </button>
+                    <div className="absolute left-full ml-2 top-1/2 -translate-y-1/2 px-2 py-1 rounded bg-black/80 text-[9px] text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+                      {s.label}
+                    </div>
+                  </div>
                 );
               })}
             </div>
