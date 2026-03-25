@@ -389,7 +389,7 @@ function BrowserPrototypeSlide() {
         </div>
 
         {/* Glowing branded circle — right side, below toolbar */}
-        <div className="absolute top-14 right-0 translate-x-1/2 z-20">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
           <div className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center" style={{
             background: `linear-gradient(160deg, ${displayAccent.replace(")", ",0.12)")}, ${displayAccent.replace(")", ",0.06)")})`,
             border: `1.5px solid rgba(255,255,255,0.5)`,
