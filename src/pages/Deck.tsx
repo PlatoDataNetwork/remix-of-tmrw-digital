@@ -1063,6 +1063,7 @@ const slides: Slide[] = [
 export default function Deck() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
+  const [hasNavigated, setHasNavigated] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
   const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const total = slides.length;
