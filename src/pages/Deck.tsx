@@ -452,7 +452,7 @@ function BrowserPrototypeSlide() {
 
                   {/* Open button */}
                   <button
-                    onClick={() => setShowWireframe(true)}
+                    onClick={() => loadWireframe()}
                     className="mt-5 px-5 py-1.5 rounded-full text-[10px] font-medium tracking-[0.15em] uppercase text-white/80 border border-white/20 hover:border-white/50 hover:text-white transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10"
                   >
                     Open
