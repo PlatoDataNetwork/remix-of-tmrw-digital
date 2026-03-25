@@ -243,7 +243,7 @@ function BrowserPrototypeSlide() {
       {/* Wrapper for browser + hanging circle */}
       <div className="relative w-full max-w-4xl">
         {/* macOS-style browser window */}
-        <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10" style={{ minHeight: 420 }}>
+        <div className="relative w-full rounded-2xl overflow-hidden shadow-[0_8px_60px_-12px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.08)]" style={{ minHeight: 460 }}>
           {/* Gradient background with transition */}
           <div
             className={`absolute inset-0 bg-gradient-to-br transition-all duration-700 ease-in-out ${section.gradient}`}
@@ -297,7 +297,7 @@ function BrowserPrototypeSlide() {
             </div>
           </div>
 
-          <div className="relative z-10 flex" style={{ minHeight: 380 }}>
+          <div className="relative z-10 flex" style={{ minHeight: 420 }}>
             {/* Sidebar */}
             <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/15 backdrop-blur-sm border-r border-white/5 w-14 shrink-0">
               {browserSections.map((s, i) => {
@@ -414,7 +414,7 @@ function BrowserPrototypeSlide() {
         </div>
 
         {/* Glowing branded circle — bottom center of browser */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
+        <div className="absolute bottom-0 left-[calc(50%+28px)] -translate-x-1/2 translate-y-1/2 z-20">
           <div
             className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center"
             style={{
