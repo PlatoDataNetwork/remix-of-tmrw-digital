@@ -1137,7 +1137,7 @@ export default function Deck() {
         <button
           key={s.id}
           ref={el => { thumbRefs.current[i] = el; }}
-          onClick={() => { setDirection(i > current ? 'right' : 'left'); setCurrent(i); }}
+          onClick={() => { setHasNavigated(true); setDirection(i > current ? 'right' : 'left'); setCurrent(i); }}
           className={cn(
             "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all flex items-center justify-center bg-background",
             i === current
