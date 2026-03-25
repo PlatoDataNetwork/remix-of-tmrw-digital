@@ -416,7 +416,8 @@ const slides: Slide[] = [
           <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-cover object-center scale-105" />
           <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
           <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.25)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent via-60% to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent via-50% to-background" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
         </div>
         <div className="relative z-10 flex flex-col items-center gap-6">
           <div className="space-y-3">
