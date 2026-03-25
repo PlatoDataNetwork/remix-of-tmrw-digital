@@ -413,8 +413,8 @@ function BrowserPrototypeSlide() {
           </div>
         </div>
 
-        {/* Glowing branded circle — bottom center, overlapping edge */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 flex flex-col items-center gap-2">
+        {/* Glowing branded circle — centered vertically with hero icon */}
+        <div className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-1/2 z-20 flex flex-col items-center gap-2">
           <div
             className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center"
             style={{
