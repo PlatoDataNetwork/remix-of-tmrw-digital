@@ -243,7 +243,7 @@ function BrowserPrototypeSlide() {
       {/* Wrapper for browser + hanging circle */}
       <div className="relative w-full max-w-4xl">
         {/* macOS-style browser window */}
-        <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10" style={{ minHeight: 340 }}>
+        <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10" style={{ minHeight: 420 }}>
           {/* Gradient background with transition */}
           <div
             className={`absolute inset-0 bg-gradient-to-br transition-all duration-700 ease-in-out ${section.gradient}`}
