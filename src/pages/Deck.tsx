@@ -315,31 +315,6 @@ function BrowserPrototypeSlide() {
 
             {/* Main content area */}
             <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative">
-              {showSurge ? (
-                /* Wireframe iframe for surge.xyz */
-                <div className="absolute inset-0 z-10 flex flex-col">
-                  <div className="flex items-center h-8 px-3 bg-black/30 backdrop-blur-sm border-b border-white/5">
-                    <div className="flex items-center gap-2 flex-1">
-                      <Globe className="w-3 h-3 text-white/40" />
-                      <span className="text-[10px] text-white/50 font-light">surge.xyz</span>
-                    </div>
-                    <button
-                      onClick={() => setShowSurge(false)}
-                      className="text-[10px] text-white/40 hover:text-white/70 transition-colors px-2"
-                    >
-                      ✕
-                    </button>
-                  </div>
-                  <iframe
-                    src="https://surge.xyz"
-                    className="flex-1 w-full border-0"
-                    style={{ background: "white" }}
-                    title="Surge.xyz"
-                    sandbox="allow-scripts allow-same-origin allow-popups"
-                  />
-                </div>
-              ) : (
-                <>
                   {/* Liquid glass icon badge */}
                   <div className="mb-6 relative transition-all duration-500">
                     {/* Outer glow */}
