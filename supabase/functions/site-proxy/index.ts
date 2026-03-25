@@ -15,63 +15,42 @@ serve(async (req: Request) => {
 
   try {
     const url = new URL(req.url);
-    // The path after the function name becomes the proxied path
     const proxyPath = url.searchParams.get("path") || "/";
     const targetUrl = `${TARGET}${proxyPath}`;
 
     const resp = await fetch(targetUrl, {
       headers: {
         "User-Agent":
-          "Mozilla/5.0 (compatible; LovableProxy/1.0)",
-        Accept:
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept":
           "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
       },
       redirect: "follow",
     });
 
-    const contentType = resp.headers.get("content-type") || "text/html";
-    let body: string | Uint8Array;
+    let html = await resp.text();
 
-    if (contentType.includes("text/html")) {
-      let html = await resp.text();
+    // Make relative asset URLs absolute
+    html = html.replace(/(href|src|action)="\/(?!\/)/g, `$1="${TARGET}/`);
+    html = html.replace(/(href|src|action)='\/(?!\/)/g, `$1='${TARGET}/`);
+    html = html.replace(/url\(["']?\/(?!\/)/g, `url("${TARGET}/`);
 
-      // Rewrite relative URLs to point back through the proxy or to the origin
-      // Make relative asset URLs absolute so they load from the origin
-      html = html.replace(
-        /(href|src|action)="\/(?!\/)/g,
-        `$1="${TARGET}/`
-      );
-      html = html.replace(
-        /(href|src|action)='\/(?!\/)/g,
-        `$1='${TARGET}/`
-      );
+    // Inject <base> tag
+    html = html.replace(/<head([^>]*)>/i, `<head$1><base href="${TARGET}/" />`);
 
-      // Also fix url() in inline styles
-      html = html.replace(
-        /url\(["']?\/(?!\/)/g,
-        `url("${TARGET}/`
-      );
+    // Return with explicit content-type header using Headers object
+    const headers = new Headers();
+    headers.set("Content-Type", "text/html; charset=utf-8");
+    headers.set("Access-Control-Allow-Origin", "*");
+    headers.set("Access-Control-Allow-Headers", "authorization, x-client-info, apikey, content-type");
+    headers.set("Cache-Control", "public, max-age=300");
+    // Remove frame-blocking
+    headers.delete("X-Frame-Options");
+    headers.delete("Content-Security-Policy");
 
-      // Inject a <base> tag so any remaining relative URLs resolve to the origin
-      html = html.replace(
-        /<head([^>]*)>/i,
-        `<head$1><base href="${TARGET}/" />`
-      );
-
-      body = html;
-    } else {
-      body = new Uint8Array(await resp.arrayBuffer());
-    }
-
-    const responseHeaders: Record<string, string> = {
-      ...corsHeaders,
-      "Content-Type": contentType.includes("text/html") ? "text/html; charset=utf-8" : contentType,
-      "Cache-Control": "public, max-age=300",
-    };
-
-    return new Response(body, {
-      status: resp.status,
-      headers: responseHeaders,
+    return new Response(html, {
+      status: 200,
+      headers,
     });
   } catch (err) {
     console.error("Proxy error:", err);
