@@ -286,6 +286,21 @@ function BrowserPrototypeSlide() {
             <span className="text-[10px] text-white/40 font-light tracking-wider mx-auto">
               W3AI TMRW Browser
             </span>
+            <div className="flex items-center gap-1">
+              {toolbarIcons.map((t) => {
+                const TIcon = t.icon;
+                return (
+                  <div key={t.label} className="relative group">
+                    <button className="w-6 h-6 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors">
+                      <TIcon className="w-3.5 h-3.5 text-white/40 group-hover:text-white transition-colors" />
+                    </button>
+                    <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-black/80 text-[9px] text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+                      {t.label}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           <div className="relative z-10 flex" style={{ minHeight: 300 }}>
