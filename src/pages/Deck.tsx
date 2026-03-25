@@ -395,8 +395,8 @@ function BrowserPrototypeSlide() {
                 {section.subtitle}
               </p>
 
-              {/* Brand footer */}
-              <div className="absolute bottom-3 right-4 flex items-center gap-2">
+              {/* Brand — upper right */}
+              <div className="absolute top-3 right-4 flex items-center gap-2">
                 <span className="text-[11px] text-white font-medium tracking-widest">W3AI</span>
                 <div
                   className="h-5 w-5 shrink-0 animated-gradient-icon-bright"
