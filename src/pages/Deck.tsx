@@ -414,6 +414,39 @@ function BrowserPrototypeSlide() {
           </div>
         </div>
 
+        {/* Glowing branded circle — bottom right, overlapping edge */}
+        <div className="absolute bottom-0 right-8 md:right-12 translate-y-1/2 z-20 flex flex-col items-center gap-2">
+          <div
+            className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center animate-[pulse_3s_ease-in-out_infinite]"
+            style={{
+              background: `radial-gradient(circle at 40% 35%, rgba(255,255,255,0.15), transparent 60%), linear-gradient(135deg, ${section.accentHsl.replace(")", ",0.5)")}, ${section.accentHsl.replace(")", ",0.2)")})`,
+              border: `1.5px solid ${section.accentHsl.replace(")", ",0.35)")}`,
+              boxShadow: `0 0 40px ${section.accentHsl.replace(")", ",0.4)")}, 0 0 80px ${section.accentHsl.replace(")", ",0.15)")}, inset 0 1px 2px rgba(255,255,255,0.2)`,
+            }}
+          >
+            <div
+              className="h-8 w-8 md:h-10 md:w-10 shrink-0 animated-gradient-icon-bright"
+              style={{
+                WebkitMaskImage: `url(${platoIcon})`,
+                WebkitMaskSize: "contain",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskPosition: "center",
+                maskImage: `url(${platoIcon})`,
+                maskSize: "contain",
+                maskRepeat: "no-repeat",
+                maskPosition: "center",
+              }}
+            />
+          </div>
+          <div className="flex items-center gap-1.5 mt-1">
+            <span className="text-[10px] text-white font-medium tracking-[0.2em]">TMRW</span>
+            <span className="text-[9px] text-white/40 font-light">by</span>
+            <span className="text-[10px] font-medium tracking-[0.15em]">
+              <span className="animated-gradient-text bg-clip-text text-transparent" style={{ backgroundSize: "200% 200%" }}>W3AI</span>
+            </span>
+          </div>
+        </div>
+
       </div>
     </div>
   );
