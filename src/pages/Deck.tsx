@@ -229,35 +229,10 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 5 — Architecture
+  // 5 — W3AI Browser Prototype
   {
-    id: "architecture",
-    render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <p className="text-xs uppercase tracking-[0.3em] text-[hsl(82,85%,55%,0.6)]">W3AI TMRW Browser</p>
-        <SlideTitle>Architecture & Differentiation</SlideTitle>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-          <div className="space-y-4">
-            <SectionLabel>Inspired by AI. Built by Humans.</SectionLabel>
-            <p className="text-sm font-light text-muted-foreground leading-relaxed">
-              Gecko engine, deep customization, open-source codebase. Strategic differentiation in a Chromium-dominated market.
-            </p>
-            <p className="text-sm font-light text-muted-foreground leading-relaxed">
-              W3AI combines human-centric design with AI-native architecture — ensuring every interaction 
-              is intentional, transparent, and built for trust in a Web3 environment.
-            </p>
-          </div>
-          <div className="space-y-4">
-            <SectionLabel>Competitive Edge</SectionLabel>
-            <BulletList items={[
-              { bold: "vs Brave —", text: "Web3-specific safety beyond privacy" },
-              { bold: "vs Safari —", text: "Web3 AI safety-first, not just privacy-first" },
-              { bold: "vs Comet / Atlas —", text: "Agent safety patterns are Web3-native" },
-            ]} />
-          </div>
-        </div>
-      </div>
-    ),
+    id: "browser-prototype",
+    render: () => <BrowserPrototypeSlide />,
   },
   // 6 — AI Layer
   {
