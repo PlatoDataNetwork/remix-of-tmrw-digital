@@ -148,9 +148,15 @@ const slides: Slide[] = [
         </div>
         <div className="relative z-10 flex flex-col items-center gap-6">
           <div className="space-y-3">
-            <h1 className="text-4xl md:text-6xl font-extralight tracking-tight text-foreground">W3AI</h1>
-            <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide">The Tomorrow Company</p>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white leading-[1.1]">
+              Secure Network Protocol
+              <br />
+              For The Next Web.
+            </h1>
           </div>
+          <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50">
+            RWA's · Web3AI · Cyber · Data · Compliance
+          </p>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[hsl(82,85%,55%,0.6)] to-transparent" />
           <p className="text-sm font-light text-[hsl(82,85%,55%,0.6)] uppercase tracking-[0.3em]">Project Deck — 2026</p>
         </div>
