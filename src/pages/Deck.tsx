@@ -255,7 +255,7 @@ function BrowserPrototypeSlide() {
   return (
     <div className="flex flex-col justify-center items-center h-full w-full relative px-2 sm:px-4">
       {/* macOS-style browser window */}
-      <div className="relative w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl border border-white/10" style={{ minHeight: 340 }}>
+      <div className="relative w-full max-w-4xl rounded-2xl shadow-2xl border border-white/10" style={{ minHeight: 340, overflow: 'clip' }}>
         {/* Gradient background with transition */}
         <div
           className={`absolute inset-0 bg-gradient-to-br transition-all duration-700 ease-in-out ${section.gradient}`}
