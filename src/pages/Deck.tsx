@@ -240,25 +240,25 @@ const toolbarSections = [
 
 function BrowserPrototypeSlide() {
   const [activeSection, setActiveSection] = useState(0);
+  const [activeToolbar, setActiveToolbar] = useState<number | null>(null);
   const section = browserSections[activeSection];
+
+  const isToolbarActive = activeToolbar !== null;
+  const displayGradient = isToolbarActive ? toolbarSections[activeToolbar!].gradient : section.gradient;
+  const displayAccent = isToolbarActive ? toolbarSections[activeToolbar!].accentHsl : section.accentHsl;
+  const displayTitle = isToolbarActive ? toolbarSections[activeToolbar!].title : "Agentic Web3 AI Browser";
+  const displaySubtitle = isToolbarActive ? toolbarSections[activeToolbar!].subtitle : "for the next web.";
+  const HeroIcon = isToolbarActive ? toolbarSections[activeToolbar!].icon : section.heroIcon;
+
+  const handleSidebarClick = (i: number) => { setActiveSection(i); setActiveToolbar(null); };
+  const handleToolbarClick = (i: number) => { setActiveToolbar(i === activeToolbar ? null : i); };
 
   return (
     <div className="flex flex-col justify-center items-center h-full w-full relative px-2 sm:px-4">
-      {/* Wrapper for browser + hanging circle */}
       <div className="relative w-full max-w-4xl">
-        {/* macOS-style browser window */}
         <div className="relative w-full rounded-[2.5rem] overflow-hidden shadow-[0_8px_60px_-12px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.06)]" style={{ minHeight: 460 }}>
-          {/* Gradient background with transition */}
-          <div
-            className={`absolute inset-0 bg-gradient-to-br transition-all duration-700 ease-in-out ${section.gradient}`}
-          />
-          {/* Radial glow */}
-          <div
-            className="absolute inset-0 pointer-events-none transition-all duration-700"
-            style={{
-              background: `radial-gradient(ellipse 60% 50% at 55% 40%, ${section.accentHsl.replace(")", ",0.18)")}, transparent)`,
-            }}
-          />
+          <div className={`absolute inset-0 bg-gradient-to-br transition-all duration-700 ease-in-out ${displayGradient}`} />
+          <div className="absolute inset-0 pointer-events-none transition-all duration-700" style={{ background: `radial-gradient(ellipse 60% 50% at 55% 40%, ${displayAccent.replace(")", ",0.18)")}, transparent)` }} />
 
           {/* Title bar */}
           <div className="relative z-10 flex items-center h-10 px-4 bg-black/30 backdrop-blur-md border-b border-white/5">
@@ -269,16 +269,15 @@ function BrowserPrototypeSlide() {
             </div>
             <div className="flex-1" />
             <div className="flex items-center gap-1 ml-auto">
-              {toolbarIcons.map((t) => {
+              {toolbarSections.map((t, i) => {
                 const TIcon = t.icon;
+                const isActive = activeToolbar === i;
                 return (
                   <div key={t.label} className="relative group">
-                    <button className="w-6 h-6 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors">
-                      <TIcon className="w-3.5 h-3.5 text-white/40 group-hover:text-white transition-colors" />
+                    <button onClick={() => handleToolbarClick(i)} className={cn("w-6 h-6 rounded-md flex items-center justify-center transition-colors", isActive ? "bg-white/20" : "hover:bg-white/10")}>
+                      <TIcon className={cn("w-3.5 h-3.5 transition-colors", isActive ? "text-white" : "text-white/40 group-hover:text-white")} />
                     </button>
-                    <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-black/80 text-[9px] text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
-                      {t.label}
-                    </div>
+                    <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-black/80 text-[9px] text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">{t.label}</div>
                   </div>
                 );
               })}
@@ -290,161 +289,96 @@ function BrowserPrototypeSlide() {
             <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/20 backdrop-blur-md border-r border-white/5 w-14 shrink-0">
               {browserSections.map((s, i) => {
                 const Icon = s.icon;
-                const isActive = i === activeSection;
+                const isActive = i === activeSection && !isToolbarActive;
                 return (
                   <div key={s.id} className="relative group">
-                    <button
-                      onClick={() => setActiveSection(i)}
-                      className={cn(
-                        "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300",
-                        isActive
-                          ? "bg-white/15 shadow-lg"
-                          : "hover:bg-white/8"
-                      )}
-                      style={isActive ? { boxShadow: `0 0 20px ${section.accentHsl.replace(")", ",0.3)")}` } : {}}
-                    >
-                      <Icon
-                        className={cn(
-                          "w-4 h-4 transition-all duration-300",
-                          isActive ? "text-white" : "text-white/40 group-hover:text-white/70"
-                        )}
-                      />
+                    <button onClick={() => handleSidebarClick(i)} className={cn("w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300", isActive ? "bg-white/15 shadow-lg" : "hover:bg-white/8")} style={isActive ? { boxShadow: `0 0 20px ${section.accentHsl.replace(")", ",0.3)")}` } : {}}>
+                      <Icon className={cn("w-4 h-4 transition-all duration-300", isActive ? "text-white" : "text-white/40 group-hover:text-white/70")} />
                     </button>
-                    <div className="absolute left-full ml-2 top-1/2 -translate-y-1/2 px-2 py-1 rounded bg-black/80 text-[9px] text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
-                      {s.label}
-                    </div>
+                    <div className="absolute left-full ml-2 top-1/2 -translate-y-1/2 px-2 py-1 rounded bg-black/80 text-[9px] text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">{s.label}</div>
                   </div>
                 );
               })}
             </div>
 
-            {/* Main content area */}
+            {/* Main content */}
             <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative">
-              {/* Liquid glass icon badge */}
-              <div className="mb-6 relative transition-all duration-500">
-                {/* Outer glow */}
-                <div
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 md:w-36 md:h-36 -z-10 blur-3xl rounded-full transition-all duration-700"
-                  style={{ background: section.accentHsl, opacity: 0.35 }}
-                />
-                {/* Main glass shape — soft organic hexagon via SVG */}
-                <svg
-                  viewBox="0 0 200 200"
-                  className="w-24 h-24 md:w-32 md:h-32 transition-all duration-500"
-                  style={{
-                    filter: `drop-shadow(0 8px 30px ${section.accentHsl.replace(")", ",0.4)")}) drop-shadow(0 2px 8px rgba(0,0,0,0.5))`,
-                  }}
-                >
+              {/* Glass icon */}
+              <div className="mb-4 relative transition-all duration-500">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 -z-10 blur-3xl rounded-full transition-all duration-700" style={{ background: displayAccent, opacity: 0.35 }} />
+                <svg viewBox="0 0 200 200" className="w-20 h-20 md:w-24 md:h-24 transition-all duration-500" style={{ filter: `drop-shadow(0 8px 30px ${displayAccent.replace(")", ",0.4)")}) drop-shadow(0 2px 8px rgba(0,0,0,0.5))` }}>
                   <defs>
-                    <linearGradient id={`glass-bg-${section.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor={section.accentHsl.replace(")", ",0.7)")} />
-                      <stop offset="50%" stopColor={section.accentHsl.replace(")", ",0.4)")} />
-                      <stop offset="100%" stopColor={section.accentHsl.replace(")", ",0.65)")} />
+                    <linearGradient id="glass-bg-active" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor={displayAccent.replace(")", ",0.7)")} />
+                      <stop offset="50%" stopColor={displayAccent.replace(")", ",0.4)")} />
+                      <stop offset="100%" stopColor={displayAccent.replace(")", ",0.65)")} />
                     </linearGradient>
-                    <linearGradient id={`glass-border-${section.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                    <linearGradient id="glass-border-active" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="rgba(255,255,255,0.4)" />
-                      <stop offset="50%" stopColor={section.accentHsl.replace(")", ",0.3)")} />
+                      <stop offset="50%" stopColor={displayAccent.replace(")", ",0.3)")} />
                       <stop offset="100%" stopColor="rgba(255,255,255,0.15)" />
                     </linearGradient>
-                    <radialGradient id={`glass-shine-${section.id}`} cx="50%" cy="25%" r="50%">
+                    <radialGradient id="glass-shine-active" cx="50%" cy="25%" r="50%">
                       <stop offset="0%" stopColor="rgba(255,255,255,0.45)" />
                       <stop offset="100%" stopColor="rgba(255,255,255,0)" />
                     </radialGradient>
-                    <clipPath id="hex-clip">
-                      <path d="M100 8 C108 8, 115 12, 170 45 C180 51, 184 58, 184 72 L184 128 C184 142, 180 149, 170 155 L108 192 C102 196, 98 196, 92 192 L30 155 C20 149, 16 142, 16 128 L16 72 C16 58, 20 51, 30 45 Z" />
-                    </clipPath>
                   </defs>
-                  {/* Outer border shape */}
-                  <path
-                    d="M100 8 C108 8, 115 12, 170 45 C180 51, 184 58, 184 72 L184 128 C184 142, 180 149, 170 155 L108 192 C102 196, 98 196, 92 192 L30 155 C20 149, 16 142, 16 128 L16 72 C16 58, 20 51, 30 45 Z"
-                    fill={`url(#glass-border-${section.id})`}
-                  />
-                  {/* Inner filled shape */}
-                  <path
-                    d="M100 16 C106 16, 112 19, 164 50 C172 55, 176 60, 176 72 L176 128 C176 140, 172 145, 164 150 L106 184 C102 187, 98 187, 94 184 L36 150 C28 145, 24 140, 24 128 L24 72 C24 60, 28 55, 36 50 Z"
-                    fill={`url(#glass-bg-${section.id})`}
-                  />
-                  {/* Glossy top highlight */}
-                  <ellipse
-                    cx="100" cy="60" rx="55" ry="35"
-                    fill={`url(#glass-shine-${section.id})`}
-                  />
+                  <path d="M100 8 C108 8, 115 12, 170 45 C180 51, 184 58, 184 72 L184 128 C184 142, 180 149, 170 155 L108 192 C102 196, 98 196, 92 192 L30 155 C20 149, 16 142, 16 128 L16 72 C16 58, 20 51, 30 45 Z" fill="url(#glass-border-active)" />
+                  <path d="M100 16 C106 16, 112 19, 164 50 C172 55, 176 60, 176 72 L176 128 C176 140, 172 145, 164 150 L106 184 C102 187, 98 187, 94 184 L36 150 C28 145, 24 140, 24 128 L24 72 C24 60, 28 55, 36 50 Z" fill="url(#glass-bg-active)" />
+                  <ellipse cx="100" cy="60" rx="55" ry="35" fill="url(#glass-shine-active)" />
                 </svg>
-                {/* Icon overlay centered on SVG */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  {(() => {
-                    const HeroIcon = section.heroIcon;
-                    return (
-                      <HeroIcon
-                        className="w-9 h-9 md:w-12 md:h-12 text-white transition-all duration-500"
-                        strokeWidth={1.5}
-                        style={{
-                          filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.4))",
-                        }}
-                      />
-                    );
-                  })()}
+                  <HeroIcon className="w-8 h-8 md:w-10 md:h-10 text-white transition-all duration-500" strokeWidth={1.5} style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.4))" }} />
                 </div>
               </div>
 
-              {/* Title */}
-              <h3 className="text-2xl md:text-4xl font-light text-white tracking-tight transition-all duration-500">
-                Agentic Web3 AI Browser
+              {/* Headline */}
+              <h3 className="text-base md:text-xl font-extralight text-white/60 tracking-tight transition-all duration-500 leading-tight">
+                Secure Network Protocol
+                <br />
+                For The Next Web.
               </h3>
 
-              {/* Subtitle */}
-              <p className="text-sm md:text-base text-white/50 font-light mt-3 leading-relaxed max-w-md transition-all duration-500">
-                for the next web.
+              {/* Sub-headline */}
+              <p className="text-xl md:text-3xl font-light text-white tracking-tight mt-2 transition-all duration-500">
+                {displayTitle}
               </p>
 
-              {/* Made for Mac badge — inside browser */}
-              <div className="flex items-center gap-2 mt-6">
-                <span className="text-[11px] text-white/35 font-light tracking-wider">Made Exclusively for</span>
-                <svg viewBox="0 0 384 512" className="h-3.5 w-3.5 animated-gradient-icon-bright" style={{
-                  WebkitMaskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/%3E%3C/svg%3E")`,
-                  maskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/%3E%3C/svg%3E")`,
-                  WebkitMaskSize: "contain",
-                  maskSize: "contain",
-                  WebkitMaskRepeat: "no-repeat",
-                  maskRepeat: "no-repeat",
-                  WebkitMaskPosition: "center",
-                  maskPosition: "center",
-                }} />
-                <span className="text-[11px] text-white/35 font-light tracking-wider">Mac</span>
-              </div>
+              {/* Subtitle */}
+              <p className="text-xs md:text-sm text-white/45 font-light mt-2 leading-relaxed max-w-md transition-all duration-500 whitespace-pre-line">
+                {displaySubtitle}
+              </p>
 
+              {/* Made for Mac — only on welcome slide */}
+              {activeSection === 0 && !isToolbarActive && (
+                <div className="flex items-center gap-2 mt-5">
+                  <span className="text-[11px] text-white/35 font-light tracking-wider">Made Exclusively for</span>
+                  <svg viewBox="0 0 384 512" className="h-3.5 w-3.5 animated-gradient-icon-bright" style={{
+                    WebkitMaskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/%3E%3C/svg%3E")`,
+                    maskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/%3E%3C/svg%3E")`,
+                    WebkitMaskSize: "contain", maskSize: "contain", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", WebkitMaskPosition: "center", maskPosition: "center",
+                  }} />
+                  <span className="text-[11px] text-white/35 font-light tracking-wider">Mac</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Glowing branded circle — right edge of browser */}
-        <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 z-20">
-          <div
-            className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center"
-            style={{
-              background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.06)")})`,
-              border: `1.5px solid rgba(255,255,255,0.5)`,
-              boxShadow: `0 0 15px rgba(255,255,255,0.25), 0 0 40px rgba(255,255,255,0.1), 0 0 60px ${section.accentHsl.replace(")", ",0.2)")}`,
-              backdropFilter: "blur(12px)",
-              transition: "all 0.5s ease",
-            }}
-          >
-            <div
-              className="h-10 w-10 md:h-12 md:w-12 shrink-0 animated-gradient-icon-bright"
-              style={{
-                WebkitMaskImage: `url(${platoIcon})`,
-                WebkitMaskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-                maskImage: `url(${platoIcon})`,
-                maskSize: "contain",
-                maskRepeat: "no-repeat",
-                maskPosition: "center",
-              }}
-            />
+        {/* Glowing branded circle — bottom center */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center" style={{
+            background: `linear-gradient(160deg, ${displayAccent.replace(")", ",0.12)")}, ${displayAccent.replace(")", ",0.06)")})`,
+            border: `1.5px solid rgba(255,255,255,0.5)`,
+            boxShadow: `0 0 15px rgba(255,255,255,0.25), 0 0 40px rgba(255,255,255,0.1), 0 0 60px ${displayAccent.replace(")", ",0.2)")}`,
+            backdropFilter: "blur(12px)", transition: "all 0.5s ease",
+          }}>
+            <div className="h-10 w-10 md:h-12 md:w-12 shrink-0 animated-gradient-icon-bright" style={{
+              WebkitMaskImage: `url(${platoIcon})`, WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center",
+              maskImage: `url(${platoIcon})`, maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center",
+            }} />
           </div>
         </div>
-
       </div>
     </div>
   );
