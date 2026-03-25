@@ -413,10 +413,10 @@ const slides: Slide[] = [
     render: () => (
       <div className="relative flex flex-col items-center justify-center min-h-[350px] sm:min-h-[450px] h-full text-center gap-6">
         <div className="absolute inset-0 pointer-events-none">
-          <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-contain object-center scale-110" />
+          <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-cover object-center scale-105" />
           <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
           <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.25)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent via-60% to-background" />
         </div>
         <div className="relative z-10 flex flex-col items-center gap-6">
           <div className="space-y-3">
