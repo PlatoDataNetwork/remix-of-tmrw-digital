@@ -186,7 +186,7 @@ const browserSections = [
     icon: Zap,
     label: "Performance",
     title: "Performance.",
-    subtitle: "Gecko engine.\nIsolated profiles.\nOptimized for speed and Web3 execution.",
+    subtitle: "Gecko engine. Isolated profiles.\nOptimized for speed and Web3 execution.",
     cta: "View Tasks",
     gradient: "from-[hsl(15,60%,20%)] via-[hsl(20,70%,28%)] to-[hsl(25,60%,32%)]",
     accentHsl: "hsl(25,80%,55%)",
