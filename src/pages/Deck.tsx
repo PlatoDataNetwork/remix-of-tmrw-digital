@@ -412,11 +412,12 @@ const slides: Slide[] = [
     id: "title",
     render: () => (
       <div className="relative flex flex-col items-center justify-center min-h-[350px] sm:min-h-[450px] h-full text-center gap-6">
-        <div className="absolute inset-0 pointer-events-none">
-          <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-contain object-center scale-110" />
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <img src={heroBackground} alt="" className="absolute inset-0 w-full h-full object-cover object-top" />
           <div className="absolute inset-0 pointer-events-none animated-gradient-hero-overlay" />
           <div className="absolute inset-0 bg-[hsl(220,20%,4%,0.25)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent via-40% to-background" />
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/90 to-transparent" />
         </div>
         <div className="relative z-10 flex flex-col items-center gap-6">
           <div className="space-y-3">
@@ -1063,12 +1064,13 @@ const slides: Slide[] = [
 export default function Deck() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
+  const [hasNavigated, setHasNavigated] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
   const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const total = slides.length;
 
-  const next = useCallback(() => { setDirection('right'); setCurrent(c => Math.min(c + 1, total - 1)); }, [total]);
-  const prev = useCallback(() => { setDirection('left'); setCurrent(c => Math.max(c - 1, 0)); }, []);
+  const next = useCallback(() => { setHasNavigated(true); setDirection('right'); setCurrent(c => Math.min(c + 1, total - 1)); }, [total]);
+  const prev = useCallback(() => { setHasNavigated(true); setDirection('left'); setCurrent(c => Math.max(c - 1, 0)); }, []);
 
   // Auto-scroll active thumbnail into view
   useEffect(() => {
@@ -1088,7 +1090,7 @@ export default function Deck() {
 
   const slideContent = (
     <div className={cn(
-      "relative w-full bg-background border border-border border-b-0 rounded-2xl rounded-b-none overflow-hidden transition-all duration-300",
+      "relative w-full bg-background border-x border-t border-border rounded-t-2xl overflow-hidden transition-all duration-300",
       fullscreen ? "fixed inset-0 z-[80] rounded-none border-none flex flex-col" : "min-h-[400px] sm:min-h-[500px] flex flex-col"
     )}>
       {/* Slide branding */}
@@ -1097,16 +1099,13 @@ export default function Deck() {
        <div key={current} className={cn(
          "p-6 sm:p-8 md:p-16 flex flex-col",
          fullscreen ? "flex-1" : "flex-1",
-         direction === 'right' ? "animate-slide-in-right" : "animate-slide-in-left"
+         hasNavigated ? (direction === 'right' ? "animate-slide-in-right" : "animate-slide-in-left") : ""
        )}>
          {slides[current].render()}
        </div>
 
       {/* Bottom controls */}
-      <div className={cn(
-        "flex items-center justify-between px-6 py-4",
-        "bg-gradient-to-t from-background/80 to-transparent"
-      )}>
+      <div className="flex items-center justify-between px-6 py-4">
         <button onClick={prev} disabled={current === 0}
           className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-[hsl(82,85%,55%)] hover:border-[hsl(82,85%,55%,0.3)] disabled:opacity-30 transition-all">
           <ChevronLeft className="h-4 w-4" />
@@ -1129,34 +1128,29 @@ export default function Deck() {
     </div>
   );
 
-  // Thumbnail strip
+  // Thumbnail strip — lightweight text-only to avoid rendering all 25 slides
   const thumbnails = (
     <div className="flex gap-3 overflow-x-auto py-4 px-1 scrollbar-thin">
       {slides.map((s, i) => (
         <button
           key={s.id}
           ref={el => { thumbRefs.current[i] = el; }}
-          onClick={() => { setDirection(i > current ? 'right' : 'left'); setCurrent(i); }}
+          onClick={() => { setHasNavigated(true); setDirection(i > current ? 'right' : 'left'); setCurrent(i); }}
           className={cn(
-            "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all",
+            "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all flex items-center justify-center bg-background",
             i === current
               ? "border-[hsl(82,85%,55%)] shadow-[0_0_12px_hsl(82,85%,55%,0.3)] ring-1 ring-[hsl(82,85%,55%)]"
               : "border-border opacity-60 hover:opacity-100 hover:border-[hsl(82,85%,55%,0.3)]"
           )}
         >
-          <div className="absolute inset-0 bg-background">
-            <div
-              className="origin-top-left pointer-events-none"
-              style={{
-                width: "1280px",
-                height: "720px",
-                transform: "scale(0.1)",
-              }}
-            >
-              <div className="w-full h-full p-8 md:p-16 flex flex-col">
-                {s.render()}
-              </div>
-            </div>
+          <div className="flex flex-col items-center gap-1 px-2">
+            <span className={cn(
+              "text-[9px] font-medium tracking-wider uppercase text-center leading-tight",
+              i === current ? "text-[hsl(82,85%,55%)]" : "text-muted-foreground"
+            )}>
+              {s.id.replace(/-/g, ' ')}
+            </span>
+            <span className="text-[8px] text-muted-foreground/50">{String(i + 1).padStart(2, '0')}</span>
           </div>
         </button>
       ))}
