@@ -1104,10 +1104,7 @@ export default function Deck() {
        </div>
 
       {/* Bottom controls */}
-      <div className={cn(
-        "flex items-center justify-between px-6 py-4",
-        "bg-gradient-to-t from-background/80 to-transparent"
-      )}>
+      <div className="flex items-center justify-between px-6 py-4">
         <button onClick={prev} disabled={current === 0}
           className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-[hsl(82,85%,55%)] hover:border-[hsl(82,85%,55%,0.3)] disabled:opacity-30 transition-all">
           <ChevronLeft className="h-4 w-4" />
