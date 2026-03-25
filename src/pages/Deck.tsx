@@ -192,17 +192,6 @@ const browserSections = [
     heroIcon: Zap,
   },
   {
-    id: "wallet",
-    icon: Wallet,
-    label: "Wallet",
-    title: "Wallet.",
-    subtitle: "Multi-chain native. Solana, Ethereum, BSC.\nNo extensions required.",
-    cta: "Connect",
-    gradient: "from-[hsl(220,50%,20%)] via-[hsl(230,60%,28%)] to-[hsl(240,50%,32%)]",
-    accentHsl: "hsl(230,70%,60%)",
-    heroIcon: Wallet,
-  },
-  {
     id: "layers",
     icon: Layers,
     label: "Layers",
