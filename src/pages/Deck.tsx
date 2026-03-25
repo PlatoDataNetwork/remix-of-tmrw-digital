@@ -1111,7 +1111,7 @@ export default function Deck() {
           className="h-9 w-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-[hsl(82,85%,55%)] hover:border-[hsl(82,85%,55%,0.3)] disabled:opacity-30 transition-all">
           <ChevronLeft className="h-4 w-4" />
         </button>
-        <span className="text-xs font-light text-muted-foreground tracking-wider">
+        <span className="text-xs font-light text-muted-foreground tracking-wider ml-8">
           {current + 1} / {total}
         </span>
         <div className="flex items-center gap-2">
