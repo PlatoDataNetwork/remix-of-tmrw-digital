@@ -311,29 +311,7 @@ function BrowserPrototypeSlide() {
           </div>
 
           {/* Main content area */}
-          <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 relative overflow-hidden">
-            {/* Floating hero icon */}
-            <div
-              className="mb-6 transition-all duration-500"
-              style={{
-                filter: `drop-shadow(0 0 40px ${section.accentHsl.replace(")", ",0.4)")})`,
-              }}
-            >
-              <div
-                className="w-24 h-24 md:w-32 md:h-32 rounded-[28%] flex items-center justify-center transition-all duration-500"
-                style={{
-                  background: `linear-gradient(135deg, ${section.accentHsl.replace(")", ",0.3)")}, ${section.accentHsl.replace(")", ",0.08)")})`,
-                  border: `1px solid ${section.accentHsl.replace(")", ",0.25)")}`,
-                  boxShadow: `inset 0 1px 1px ${section.accentHsl.replace(")", ",0.2)")}, 0 20px 60px -10px ${section.accentHsl.replace(")", ",0.25)")}`,
-                }}
-              >
-                {(() => {
-                  const HeroIcon = section.heroIcon;
-                  return <HeroIcon className="w-10 h-10 md:w-14 md:h-14 text-white/90" strokeWidth={1.2} />;
-                })()}
-              </div>
-            </div>
-
+          <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative overflow-visible">
             {/* Title */}
             <h3 className="text-2xl md:text-4xl font-light text-white tracking-tight transition-all duration-500">
               {section.title}
@@ -343,20 +321,6 @@ function BrowserPrototypeSlide() {
             <p className="text-sm md:text-base text-white/50 font-light mt-3 leading-relaxed whitespace-pre-line max-w-md transition-all duration-500">
               {section.subtitle}
             </p>
-
-            {/* CTA button */}
-            <div className="mt-8">
-              <div
-                className="inline-flex items-center justify-center h-12 w-12 md:h-14 md:w-14 rounded-full text-white text-sm font-light tracking-wider transition-all duration-300 cursor-pointer hover:scale-105"
-                style={{
-                  background: `linear-gradient(135deg, ${section.accentHsl}, ${section.accentHsl.replace(")", ",0.7)")})`,
-                  boxShadow: `0 0 30px ${section.accentHsl.replace(")", ",0.3)")}, inset 0 1px 1px rgba(255,255,255,0.2)`,
-                  border: `1px solid ${section.accentHsl.replace(")", ",0.4)")}`,
-                }}
-              >
-                <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em]">{section.cta}</span>
-              </div>
-            </div>
 
             {/* Brand footer */}
             <div className="absolute bottom-3 right-4 flex items-center gap-1.5">
