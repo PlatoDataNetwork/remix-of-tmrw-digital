@@ -1126,10 +1126,6 @@ export default function Deck() {
         </div>
       </div>
 
-      {/* Progress bar */}
-      <div className="absolute top-0 left-0 right-0 h-0.5 bg-border">
-        <div className="h-full bg-[hsl(82,85%,55%)] transition-all duration-300" style={{ width: `${((current + 1) / total) * 100}%` }} />
-      </div>
     </div>
   );
 
