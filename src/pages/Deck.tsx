@@ -275,7 +275,7 @@ function BrowserPrototypeSlide() {
           <div className="absolute inset-0 pointer-events-none transition-all duration-700" style={{ background: `radial-gradient(ellipse 60% 50% at 55% 40%, ${displayAccent.replace(")", ",0.18)")}, transparent)` }} />
 
           {/* Title bar */}
-          <div className="relative z-10 flex items-center h-10 px-4 bg-black/30 backdrop-blur-md border-b border-white/5">
+          <div className="relative z-10 flex items-center h-10 px-6 bg-black/30 backdrop-blur-md border-b border-white/5 rounded-t-[2.5rem]">
             <div className="flex gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(0,70%,55%)]" />
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(40,80%,55%)]" />
@@ -300,7 +300,7 @@ function BrowserPrototypeSlide() {
 
           <div className="relative z-10 flex" style={{ minHeight: 420 }}>
             {/* Sidebar */}
-            <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/20 backdrop-blur-md border-r border-white/5 w-14 shrink-0">
+            <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/20 backdrop-blur-md border-r border-white/5 w-14 shrink-0 rounded-bl-[2.5rem]">
               {browserSections.map((s, i) => {
                 const Icon = s.icon;
                 const isActive = i === activeSection && !isToolbarActive;
