@@ -316,7 +316,7 @@ function BrowserPrototypeSlide() {
             </div>
 
             {/* Main content */}
-            <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative">
+            <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative -ml-8 md:-ml-16">
               {/* Glass icon — centered */}
               <div className="mb-6 relative transition-all duration-500">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 -z-10 blur-3xl rounded-full transition-all duration-700" style={{ background: displayAccent, opacity: 0.35 }} />
