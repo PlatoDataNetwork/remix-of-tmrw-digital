@@ -239,16 +239,29 @@ const toolbarSections = [
   { icon: Landmark, label: "RWA", title: "Real World Assets.", subtitle: "Tokenized real-world assets\nwith institutional-grade compliance.", gradient: "from-[hsl(160,40%,14%)] via-[hsl(165,50%,19%)] to-[hsl(170,45%,25%)]", accentHsl: "hsl(165,55%,45%)" },
 ];
 
+const heroMessages = [
+  { line1: "Accelerating Growth", line2: "Through Space & Time." },
+  { line1: "Secure Network Protocol", line2: "For the Next Web." },
+];
+
 function BrowserPrototypeSlide() {
   const [activeSection, setActiveSection] = useState(0);
   const [activeToolbar, setActiveToolbar] = useState<number | null>(null);
+  const [heroIndex, setHeroIndex] = useState(0);
   const section = browserSections[activeSection];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % heroMessages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const isToolbarActive = activeToolbar !== null;
   const displayGradient = isToolbarActive ? toolbarSections[activeToolbar!].gradient : section.gradient;
   const displayAccent = isToolbarActive ? toolbarSections[activeToolbar!].accentHsl : section.accentHsl;
-  const displayTitle = isToolbarActive ? toolbarSections[activeToolbar!].title : "Agentic Web3 AI Browser";
-  const displaySubtitle = isToolbarActive ? toolbarSections[activeToolbar!].subtitle : "for the next web.";
+  const displayTitle = isToolbarActive ? toolbarSections[activeToolbar!].title : null;
+  const displaySubtitle = isToolbarActive ? toolbarSections[activeToolbar!].subtitle : null;
   const HeroIcon = isToolbarActive ? toolbarSections[activeToolbar!].icon : section.heroIcon;
 
   const handleSidebarClick = (i: number) => { setActiveSection(i); setActiveToolbar(null); };
