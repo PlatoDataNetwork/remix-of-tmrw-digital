@@ -485,7 +485,7 @@ function BrowserPrototypeSlide() {
         {/* Glowing branded circle — bottom center, overlapping edge */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 flex flex-col items-center gap-2">
           <button
-            onClick={() => setShowWireframe(!showWireframe)}
+            onClick={() => showWireframe ? setShowWireframe(false) : loadWireframe()}
             className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-300"
             style={{
               background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.06)")})`,
