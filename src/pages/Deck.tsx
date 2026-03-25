@@ -250,40 +250,8 @@ const browserSections = [
 
 function BrowserPrototypeSlide() {
   const [activeSection, setActiveSection] = useState(0);
-  const [showWireframe, setShowWireframe] = useState(false);
-  const [wireframeHtml, setWireframeHtml] = useState<string | null>(null);
-  const [wireframeLoading, setWireframeLoading] = useState(false);
+  const [showSurge, setShowSurge] = useState(false);
   const section = browserSections[activeSection];
-
-  const loadWireframe = useCallback(async () => {
-    if (wireframeHtml) {
-      setShowWireframe(true);
-      return;
-    }
-    setWireframeLoading(true);
-    setShowWireframe(true);
-    try {
-      const res = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/site-proxy?path=/&_t=${Date.now()}`
-      );
-      const text = await res.text();
-      try {
-        const data = JSON.parse(text);
-        if (data.html) {
-          setWireframeHtml(data.html);
-        }
-      } catch {
-        // If not JSON, use the raw HTML directly (fallback)
-        if (text.includes('<!doctype') || text.includes('<html')) {
-          setWireframeHtml(text);
-        }
-      }
-    } catch (e) {
-      console.error("Failed to load wireframe:", e);
-    } finally {
-      setWireframeLoading(false);
-    }
-  }, [wireframeHtml]);
 
   return (
     <div className="flex flex-col justify-center items-center h-full w-full relative px-2 sm:px-4">
@@ -347,37 +315,28 @@ function BrowserPrototypeSlide() {
 
             {/* Main content area */}
             <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative">
-              {showWireframe ? (
+              {showSurge ? (
+                /* Wireframe iframe for surge.xyz */
                 <div className="absolute inset-0 z-10 flex flex-col">
                   <div className="flex items-center h-8 px-3 bg-black/30 backdrop-blur-sm border-b border-white/5">
                     <div className="flex items-center gap-2 flex-1">
                       <Globe className="w-3 h-3 text-white/40" />
-                      <span className="text-[10px] text-white/50 font-light">tmrw-digital.com</span>
+                      <span className="text-[10px] text-white/50 font-light">surge.xyz</span>
                     </div>
                     <button
-                      onClick={() => setShowWireframe(false)}
+                      onClick={() => setShowSurge(false)}
                       className="text-[10px] text-white/40 hover:text-white/70 transition-colors px-2"
                     >
                       ✕
                     </button>
                   </div>
-                  {wireframeLoading && !wireframeHtml ? (
-                    <div className="flex-1 w-full flex items-center justify-center bg-white">
-                      <div className="animate-spin w-8 h-8 border-2 border-purple-500 border-t-transparent rounded-full" />
-                    </div>
-                  ) : wireframeHtml ? (
-                    <iframe
-                      srcDoc={wireframeHtml}
-                      className="flex-1 w-full border-0"
-                      style={{ background: "white" }}
-                      title="TMRW Digital"
-                      sandbox="allow-scripts allow-same-origin allow-popups"
-                    />
-                  ) : (
-                    <div className="flex-1 w-full flex items-center justify-center bg-white text-gray-400 text-sm">
-                      Failed to load
-                    </div>
-                  )}
+                  <iframe
+                    src="https://surge.xyz"
+                    className="flex-1 w-full border-0"
+                    style={{ background: "white" }}
+                    title="Surge.xyz"
+                    sandbox="allow-scripts allow-same-origin allow-popups"
+                  />
                 </div>
               ) : (
                 <>
@@ -457,50 +416,14 @@ function BrowserPrototypeSlide() {
                   <p className="text-sm md:text-base text-white/50 font-light mt-3 leading-relaxed whitespace-pre-line max-w-md transition-all duration-500">
                     {section.subtitle}
                   </p>
-
-                  {/* Enter button */}
-                  <button
-                    onClick={() => loadWireframe()}
-                    className="mt-5 px-5 py-1.5 rounded-full text-[10px] font-medium tracking-[0.15em] uppercase text-white/80 border border-white/20 hover:border-white/50 hover:text-white transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10"
-                  >
-                    Enter
-                  </button>
-
-                  {/* Branded circle — directly under Enter button */}
-                  <button
-                    onClick={() => loadWireframe()}
-                    className="mt-4 w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-300"
-                    style={{
-                      background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.06)")})`,
-                      border: `1.5px solid rgba(255,255,255,0.5)`,
-                      boxShadow: `0 0 15px rgba(255,255,255,0.25), 0 0 40px rgba(255,255,255,0.1), 0 0 60px ${section.accentHsl.replace(")", ",0.2)")}`,
-                      backdropFilter: "blur(12px)",
-                      transition: "all 0.5s ease",
-                    }}
-                    title="Enter TMRW Digital"
-                  >
-                    <div
-                      className="h-10 w-10 md:h-12 md:w-12 shrink-0 animated-gradient-icon-bright"
-                      style={{
-                        WebkitMaskImage: `url(${platoIcon})`,
-                        WebkitMaskSize: "contain",
-                        WebkitMaskRepeat: "no-repeat",
-                        WebkitMaskPosition: "center",
-                        maskImage: `url(${platoIcon})`,
-                        maskSize: "contain",
-                        maskRepeat: "no-repeat",
-                        maskPosition: "center",
-                      }}
-                    />
-                  </button>
                 </>
               )}
 
               {/* Brand footer */}
-              <div className="absolute bottom-3 right-4 flex items-center gap-1.5 z-20">
-                <span className="text-[9px] text-white/80 font-medium tracking-[0.15em]">W3AI</span>
+              <div className="absolute bottom-3 right-4 flex items-center gap-1.5">
+                <span className="text-[8px] text-white/20 font-light tracking-wider">by</span>
                 <div
-                  className="h-3.5 w-3.5 shrink-0 animated-gradient-icon-bright"
+                  className="h-3 w-3 shrink-0 opacity-30"
                   style={{
                     WebkitMaskImage: `url(${platoIcon})`,
                     WebkitMaskSize: "contain",
@@ -510,14 +433,44 @@ function BrowserPrototypeSlide() {
                     maskSize: "contain",
                     maskRepeat: "no-repeat",
                     maskPosition: "center",
+                    backgroundColor: "white",
                   }}
                 />
-                <span className="text-[9px] text-white/80 font-medium tracking-[0.15em]">TMRW</span>
+                <span className="text-[8px] text-white/20 font-light tracking-wider">TMRW</span>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Glowing branded circle — bottom center, overlapping edge */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 flex flex-col items-center gap-2">
+          <button
+            onClick={() => setShowSurge(!showSurge)}
+            className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-300"
+            style={{
+              background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.06)")})`,
+              border: `1.5px solid rgba(255,255,255,0.5)`,
+              boxShadow: `0 0 15px rgba(255,255,255,0.25), 0 0 40px rgba(255,255,255,0.1), 0 0 60px ${section.accentHsl.replace(")", ",0.2)")}`,
+              backdropFilter: "blur(12px)",
+              transition: "all 0.5s ease",
+            }}
+            title="Open Surge.xyz"
+          >
+            <div
+              className="h-10 w-10 md:h-12 md:w-12 shrink-0 animated-gradient-icon-bright"
+              style={{
+                WebkitMaskImage: `url(${platoIcon})`,
+                WebkitMaskSize: "contain",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskPosition: "center",
+                maskImage: `url(${platoIcon})`,
+                maskSize: "contain",
+                maskRepeat: "no-repeat",
+                maskPosition: "center",
+              }}
+            />
+          </button>
+        </div>
 
       </div>
     </div>
