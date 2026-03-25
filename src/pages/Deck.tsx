@@ -263,9 +263,23 @@ function BrowserPrototypeSlide() {
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(40,80%,55%)]" />
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(130,60%,45%)]" />
             </div>
-            <span className="text-[10px] text-white/40 font-light tracking-wider mx-auto">
-              W3AI TMRW Browser
-            </span>
+            <div className="flex items-center gap-1.5">
+              <span className="text-[10px] text-white font-medium tracking-widest">W3AI</span>
+              <div
+                className="h-4 w-4 shrink-0 animated-gradient-icon-bright"
+                style={{
+                  WebkitMaskImage: `url(${platoIcon})`,
+                  WebkitMaskSize: "contain",
+                  WebkitMaskRepeat: "no-repeat",
+                  WebkitMaskPosition: "center",
+                  maskImage: `url(${platoIcon})`,
+                  maskSize: "contain",
+                  maskRepeat: "no-repeat",
+                  maskPosition: "center",
+                }}
+              />
+              <span className="text-[10px] text-white font-medium tracking-widest">TMRW</span>
+            </div>
             <div className="flex items-center gap-1">
               {toolbarIcons.map((t) => {
                 const TIcon = t.icon;
@@ -395,30 +409,12 @@ function BrowserPrototypeSlide() {
                 {section.subtitle}
               </p>
 
-              {/* Brand — upper right */}
-              <div className="absolute top-3 right-4 flex items-center gap-2">
-                <span className="text-[11px] text-white font-medium tracking-widest">W3AI</span>
-                <div
-                  className="h-5 w-5 shrink-0 animated-gradient-icon-bright"
-                  style={{
-                    WebkitMaskImage: `url(${platoIcon})`,
-                    WebkitMaskSize: "contain",
-                    WebkitMaskRepeat: "no-repeat",
-                    WebkitMaskPosition: "center",
-                    maskImage: `url(${platoIcon})`,
-                    maskSize: "contain",
-                    maskRepeat: "no-repeat",
-                    maskPosition: "center",
-                  }}
-                />
-                <span className="text-[11px] text-white font-medium tracking-widest">TMRW</span>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Glowing branded circle — bottom center, overlapping edge */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 flex flex-col items-center gap-2">
+        {/* Glowing branded circle — centered vertically with hero icon */}
+        <div className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-1/2 z-20 flex flex-col items-center gap-2">
           <div
             className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center"
             style={{
