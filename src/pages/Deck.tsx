@@ -254,93 +254,118 @@ function BrowserPrototypeSlide() {
 
   return (
     <div className="flex flex-col justify-center items-center h-full w-full relative px-2 sm:px-4">
-      {/* macOS-style browser window */}
-      <div className="relative w-full max-w-4xl rounded-2xl shadow-2xl border border-white/10" style={{ minHeight: 340, overflow: 'clip' }}>
-        {/* Gradient background with transition */}
-        <div
-          className={`absolute inset-0 bg-gradient-to-br transition-all duration-700 ease-in-out ${section.gradient}`}
-        />
-        {/* Radial glow */}
-        <div
-          className="absolute inset-0 pointer-events-none transition-all duration-700"
-          style={{
-            background: `radial-gradient(ellipse 60% 50% at 55% 40%, ${section.accentHsl.replace(")", ",0.18)")}, transparent)`,
-          }}
-        />
+      {/* Wrapper for browser + hanging circle */}
+      <div className="relative w-full max-w-4xl">
+        {/* macOS-style browser window */}
+        <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10" style={{ minHeight: 340 }}>
+          {/* Gradient background with transition */}
+          <div
+            className={`absolute inset-0 bg-gradient-to-br transition-all duration-700 ease-in-out ${section.gradient}`}
+          />
+          {/* Radial glow */}
+          <div
+            className="absolute inset-0 pointer-events-none transition-all duration-700"
+            style={{
+              background: `radial-gradient(ellipse 60% 50% at 55% 40%, ${section.accentHsl.replace(")", ",0.18)")}, transparent)`,
+            }}
+          />
 
-        {/* Title bar */}
-        <div className="relative z-10 flex items-center h-9 px-4 bg-black/20 backdrop-blur-sm">
-          <div className="flex gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-[hsl(0,70%,55%)]" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[hsl(40,80%,55%)]" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[hsl(130,60%,45%)]" />
+          {/* Title bar */}
+          <div className="relative z-10 flex items-center h-9 px-4 bg-black/20 backdrop-blur-sm">
+            <div className="flex gap-1.5">
+              <div className="w-2.5 h-2.5 rounded-full bg-[hsl(0,70%,55%)]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[hsl(40,80%,55%)]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[hsl(130,60%,45%)]" />
+            </div>
+            <span className="text-[10px] text-white/40 font-light tracking-wider mx-auto">
+              W3AI TMRW Browser
+            </span>
           </div>
-          <span className="text-[10px] text-white/40 font-light tracking-wider mx-auto">
-            W3AI TMRW Browser
-          </span>
+
+          <div className="relative z-10 flex" style={{ minHeight: 300 }}>
+            {/* Sidebar */}
+            <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/15 backdrop-blur-sm border-r border-white/5 w-14 shrink-0">
+              {browserSections.map((s, i) => {
+                const Icon = s.icon;
+                const isActive = i === activeSection;
+                return (
+                  <button
+                    key={s.id}
+                    onClick={() => setActiveSection(i)}
+                    className={cn(
+                      "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group relative",
+                      isActive
+                        ? "bg-white/15 shadow-lg"
+                        : "hover:bg-white/8"
+                    )}
+                    style={isActive ? { boxShadow: `0 0 20px ${section.accentHsl.replace(")", ",0.3)")}` } : {}}
+                    title={s.label}
+                  >
+                    <Icon
+                      className={cn(
+                        "w-4 h-4 transition-all duration-300",
+                        isActive ? "text-white" : "text-white/40 group-hover:text-white/70"
+                      )}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Main content area */}
+            <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative">
+              {/* Title */}
+              <h3 className="text-2xl md:text-4xl font-light text-white tracking-tight transition-all duration-500">
+                {section.title}
+              </h3>
+
+              {/* Subtitle */}
+              <p className="text-sm md:text-base text-white/50 font-light mt-3 leading-relaxed whitespace-pre-line max-w-md transition-all duration-500">
+                {section.subtitle}
+              </p>
+
+              {/* Brand footer */}
+              <div className="absolute bottom-3 right-4 flex items-center gap-1.5">
+                <span className="text-[8px] text-white/20 font-light tracking-wider">by</span>
+                <div
+                  className="h-3 w-3 shrink-0 opacity-30"
+                  style={{
+                    WebkitMaskImage: `url(${platoIcon})`,
+                    WebkitMaskSize: "contain",
+                    WebkitMaskRepeat: "no-repeat",
+                    WebkitMaskPosition: "center",
+                    maskImage: `url(${platoIcon})`,
+                    maskSize: "contain",
+                    maskRepeat: "no-repeat",
+                    maskPosition: "center",
+                    backgroundColor: "white",
+                  }}
+                />
+                <span className="text-[8px] text-white/20 font-light tracking-wider">TMRW</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="relative z-10 flex" style={{ minHeight: 300 }}>
-          {/* Sidebar */}
-          <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/15 backdrop-blur-sm border-r border-white/5 w-14 shrink-0">
-            {browserSections.map((s, i) => {
-              const Icon = s.icon;
-              const isActive = i === activeSection;
-              return (
-                <button
-                  key={s.id}
-                  onClick={() => setActiveSection(i)}
-                  className={cn(
-                    "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group relative",
-                    isActive
-                      ? "bg-white/15 shadow-lg"
-                      : "hover:bg-white/8"
-                  )}
-                  style={isActive ? { boxShadow: `0 0 20px ${section.accentHsl.replace(")", ",0.3)")}` } : {}}
-                  title={s.label}
-                >
-                  <Icon
-                    className={cn(
-                      "w-4 h-4 transition-all duration-300",
-                      isActive ? "text-white" : "text-white/40 group-hover:text-white/70"
-                    )}
-                  />
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Main content area */}
-          <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative overflow-visible">
-            {/* Title */}
-            <h3 className="text-2xl md:text-4xl font-light text-white tracking-tight transition-all duration-500">
-              {section.title}
-            </h3>
-
-            {/* Subtitle */}
-            <p className="text-sm md:text-base text-white/50 font-light mt-3 leading-relaxed whitespace-pre-line max-w-md transition-all duration-500">
-              {section.subtitle}
-            </p>
-
-            {/* Brand footer */}
-            <div className="absolute bottom-3 right-4 flex items-center gap-1.5">
-              <span className="text-[8px] text-white/20 font-light tracking-wider">by</span>
-              <div
-                className="h-3 w-3 shrink-0 opacity-30"
-                style={{
-                  WebkitMaskImage: `url(${platoIcon})`,
-                  WebkitMaskSize: "contain",
-                  WebkitMaskRepeat: "no-repeat",
-                  WebkitMaskPosition: "center",
-                  maskImage: `url(${platoIcon})`,
-                  maskSize: "contain",
-                  maskRepeat: "no-repeat",
-                  maskPosition: "center",
-                  backgroundColor: "white",
-                }}
-              />
-              <span className="text-[8px] text-white/20 font-light tracking-wider">TMRW</span>
-            </div>
+        {/* Animated circle hanging over bottom edge */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-20 transition-all duration-500"
+          style={{
+            filter: `drop-shadow(0 0 30px ${section.accentHsl.replace(")", ",0.5)")})`,
+          }}
+        >
+          <div
+            className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center transition-all duration-500 animate-[pulse_3s_ease-in-out_infinite]"
+            style={{
+              background: `linear-gradient(135deg, ${section.accentHsl}, ${section.accentHsl.replace(")", ",0.6)")})`,
+              border: `2px solid ${section.accentHsl.replace(")", ",0.4)")}`,
+              boxShadow: `0 0 40px ${section.accentHsl.replace(")", ",0.35)")}, inset 0 1px 2px rgba(255,255,255,0.25), 0 8px 32px rgba(0,0,0,0.4)`,
+            }}
+          >
+            {(() => {
+              const HeroIcon = section.heroIcon;
+              return <HeroIcon className="w-8 h-8 md:w-10 md:h-10 text-white" strokeWidth={1.5} />;
+            })()}
           </div>
         </div>
       </div>
