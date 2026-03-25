@@ -175,7 +175,7 @@ const browserSections = [
     icon: Bot,
     label: "AI Agent",
     title: "Marvin AI.",
-    subtitle: "Meet your on-device AI copilot.\nBYOK or Open Gateway —\nyou choose.",
+    subtitle: "Meet your on-device AI copilot.\nBYOK or Open Gateway — you choose.",
     cta: "Ask Marvin",
     gradient: "from-[hsl(140,40%,15%)] via-[hsl(150,50%,20%)] to-[hsl(160,40%,25%)]",
     accentHsl: "hsl(150,60%,50%)",
