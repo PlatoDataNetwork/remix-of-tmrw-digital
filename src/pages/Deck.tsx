@@ -148,6 +148,17 @@ const browserSections = [
     heroIcon: Globe,
   },
   {
+    id: "applications",
+    icon: LayoutGrid,
+    label: "Applications",
+    title: "Applications.",
+    subtitle: "Decentralized apps, DeFi protocols,\nand Web3 tools — all in one place.",
+    cta: "Browse Apps",
+    gradient: "from-[hsl(280,50%,22%)] via-[hsl(300,55%,28%)] to-[hsl(320,50%,32%)]",
+    accentHsl: "hsl(300,65%,58%)",
+    heroIcon: LayoutGrid,
+  },
+  {
     id: "security",
     icon: Shield,
     label: "Security",
@@ -192,15 +203,15 @@ const browserSections = [
     heroIcon: Wallet,
   },
   {
-    id: "analytics",
-    icon: BarChart3,
-    label: "Analytics",
-    title: "Intelligence.",
-    subtitle: "Real-time data feeds, market analysis,\nand on-chain intelligence — built in.",
-    cta: "Explore",
-    gradient: "from-[hsl(200,50%,18%)] via-[hsl(190,60%,22%)] to-[hsl(180,50%,26%)]",
-    accentHsl: "hsl(190,70%,50%)",
-    heroIcon: BarChart3,
+    id: "layers",
+    icon: Layers,
+    label: "Layers",
+    title: "Multi-Chain.",
+    subtitle: "Seamless cross-chain execution.\nWormhole NTT bridging. One interface.",
+    cta: "Switch Chain",
+    gradient: "from-[hsl(45,50%,18%)] via-[hsl(40,60%,22%)] to-[hsl(35,55%,28%)]",
+    accentHsl: "hsl(45,70%,55%)",
+    heroIcon: Layers,
   },
   {
     id: "identity",
@@ -225,17 +236,6 @@ const browserSections = [
     heroIcon: Search,
   },
   {
-    id: "layers",
-    icon: Layers,
-    label: "Layers",
-    title: "Multi-Chain.",
-    subtitle: "Seamless cross-chain execution.\nWormhole NTT bridging. One interface.",
-    cta: "Switch Chain",
-    gradient: "from-[hsl(45,50%,18%)] via-[hsl(40,60%,22%)] to-[hsl(35,55%,28%)]",
-    accentHsl: "hsl(45,70%,55%)",
-    heroIcon: Layers,
-  },
-  {
     id: "settings",
     icon: Settings,
     label: "Settings",
@@ -246,6 +246,12 @@ const browserSections = [
     accentHsl: "hsl(0,0%,60%)",
     heroIcon: Settings,
   },
+];
+
+const toolbarIcons = [
+  { icon: Network, label: "Protocol" },
+  { icon: ArrowLeftRight, label: "Swap" },
+  { icon: Brain, label: "Intelligence" },
 ];
 
 function BrowserPrototypeSlide() {
