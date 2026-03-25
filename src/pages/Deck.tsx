@@ -164,7 +164,7 @@ const browserSections = [
     icon: Shield,
     label: "Security",
     title: "Security.",
-    subtitle: "Transaction simulation,\nsmart contract audits,\nand verified proofs — before every commit.",
+    subtitle: "Transaction simulation, smart contract audits,\nand verified proofs — before every commit.",
     cta: "Scan",
     gradient: "from-[hsl(340,50%,30%)] via-[hsl(330,60%,35%)] to-[hsl(320,50%,40%)]",
     accentHsl: "hsl(340,70%,60%)",
