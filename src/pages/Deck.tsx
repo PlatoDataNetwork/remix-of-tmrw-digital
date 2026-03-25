@@ -250,6 +250,7 @@ const browserSections = [
 
 function BrowserPrototypeSlide() {
   const [activeSection, setActiveSection] = useState(0);
+  const [showSurge, setShowSurge] = useState(false);
   const section = browserSections[activeSection];
 
   return (
@@ -314,82 +315,109 @@ function BrowserPrototypeSlide() {
 
             {/* Main content area */}
             <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative">
-              {/* Liquid glass icon badge */}
-              <div className="mb-6 relative transition-all duration-500">
-                {/* Outer glow */}
-                <div
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 md:w-36 md:h-36 -z-10 blur-3xl rounded-full transition-all duration-700"
-                  style={{ background: section.accentHsl, opacity: 0.35 }}
-                />
-                {/* Main glass shape — soft organic hexagon via SVG */}
-                <svg
-                  viewBox="0 0 200 200"
-                  className="w-24 h-24 md:w-32 md:h-32 transition-all duration-500"
-                  style={{
-                    filter: `drop-shadow(0 8px 30px ${section.accentHsl.replace(")", ",0.4)")}) drop-shadow(0 2px 8px rgba(0,0,0,0.5))`,
-                  }}
-                >
-                  <defs>
-                    <linearGradient id={`glass-bg-${section.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor={section.accentHsl.replace(")", ",0.7)")} />
-                      <stop offset="50%" stopColor={section.accentHsl.replace(")", ",0.4)")} />
-                      <stop offset="100%" stopColor={section.accentHsl.replace(")", ",0.65)")} />
-                    </linearGradient>
-                    <linearGradient id={`glass-border-${section.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="rgba(255,255,255,0.4)" />
-                      <stop offset="50%" stopColor={section.accentHsl.replace(")", ",0.3)")} />
-                      <stop offset="100%" stopColor="rgba(255,255,255,0.15)" />
-                    </linearGradient>
-                    <radialGradient id={`glass-shine-${section.id}`} cx="50%" cy="25%" r="50%">
-                      <stop offset="0%" stopColor="rgba(255,255,255,0.45)" />
-                      <stop offset="100%" stopColor="rgba(255,255,255,0)" />
-                    </radialGradient>
-                    <clipPath id="hex-clip">
-                      <path d="M100 8 C108 8, 115 12, 170 45 C180 51, 184 58, 184 72 L184 128 C184 142, 180 149, 170 155 L108 192 C102 196, 98 196, 92 192 L30 155 C20 149, 16 142, 16 128 L16 72 C16 58, 20 51, 30 45 Z" />
-                    </clipPath>
-                  </defs>
-                  {/* Outer border shape */}
-                  <path
-                    d="M100 8 C108 8, 115 12, 170 45 C180 51, 184 58, 184 72 L184 128 C184 142, 180 149, 170 155 L108 192 C102 196, 98 196, 92 192 L30 155 C20 149, 16 142, 16 128 L16 72 C16 58, 20 51, 30 45 Z"
-                    fill={`url(#glass-border-${section.id})`}
+              {showSurge ? (
+                /* Wireframe iframe for surge.xyz */
+                <div className="absolute inset-0 z-10 flex flex-col">
+                  <div className="flex items-center h-8 px-3 bg-black/30 backdrop-blur-sm border-b border-white/5">
+                    <div className="flex items-center gap-2 flex-1">
+                      <Globe className="w-3 h-3 text-white/40" />
+                      <span className="text-[10px] text-white/50 font-light">surge.xyz</span>
+                    </div>
+                    <button
+                      onClick={() => setShowSurge(false)}
+                      className="text-[10px] text-white/40 hover:text-white/70 transition-colors px-2"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                  <iframe
+                    src="https://surge.xyz"
+                    className="flex-1 w-full border-0"
+                    style={{ background: "white" }}
+                    title="Surge.xyz"
+                    sandbox="allow-scripts allow-same-origin allow-popups"
                   />
-                  {/* Inner filled shape */}
-                  <path
-                    d="M100 16 C106 16, 112 19, 164 50 C172 55, 176 60, 176 72 L176 128 C176 140, 172 145, 164 150 L106 184 C102 187, 98 187, 94 184 L36 150 C28 145, 24 140, 24 128 L24 72 C24 60, 28 55, 36 50 Z"
-                    fill={`url(#glass-bg-${section.id})`}
-                  />
-                  {/* Glossy top highlight */}
-                  <ellipse
-                    cx="100" cy="60" rx="55" ry="35"
-                    fill={`url(#glass-shine-${section.id})`}
-                  />
-                </svg>
-                {/* Icon overlay centered on SVG */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {(() => {
-                    const HeroIcon = section.heroIcon;
-                    return (
-                      <HeroIcon
-                        className="w-9 h-9 md:w-12 md:h-12 text-white transition-all duration-500"
-                        strokeWidth={1.5}
-                        style={{
-                          filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.4))",
-                        }}
-                      />
-                    );
-                  })()}
                 </div>
-              </div>
+              ) : (
+                <>
+                  {/* Liquid glass icon badge */}
+                  <div className="mb-6 relative transition-all duration-500">
+                    {/* Outer glow */}
+                    <div
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 md:w-36 md:h-36 -z-10 blur-3xl rounded-full transition-all duration-700"
+                      style={{ background: section.accentHsl, opacity: 0.35 }}
+                    />
+                    {/* Main glass shape — soft organic hexagon via SVG */}
+                    <svg
+                      viewBox="0 0 200 200"
+                      className="w-24 h-24 md:w-32 md:h-32 transition-all duration-500"
+                      style={{
+                        filter: `drop-shadow(0 8px 30px ${section.accentHsl.replace(")", ",0.4)")}) drop-shadow(0 2px 8px rgba(0,0,0,0.5))`,
+                      }}
+                    >
+                      <defs>
+                        <linearGradient id={`glass-bg-${section.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor={section.accentHsl.replace(")", ",0.7)")} />
+                          <stop offset="50%" stopColor={section.accentHsl.replace(")", ",0.4)")} />
+                          <stop offset="100%" stopColor={section.accentHsl.replace(")", ",0.65)")} />
+                        </linearGradient>
+                        <linearGradient id={`glass-border-${section.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="rgba(255,255,255,0.4)" />
+                          <stop offset="50%" stopColor={section.accentHsl.replace(")", ",0.3)")} />
+                          <stop offset="100%" stopColor="rgba(255,255,255,0.15)" />
+                        </linearGradient>
+                        <radialGradient id={`glass-shine-${section.id}`} cx="50%" cy="25%" r="50%">
+                          <stop offset="0%" stopColor="rgba(255,255,255,0.45)" />
+                          <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+                        </radialGradient>
+                        <clipPath id="hex-clip">
+                          <path d="M100 8 C108 8, 115 12, 170 45 C180 51, 184 58, 184 72 L184 128 C184 142, 180 149, 170 155 L108 192 C102 196, 98 196, 92 192 L30 155 C20 149, 16 142, 16 128 L16 72 C16 58, 20 51, 30 45 Z" />
+                        </clipPath>
+                      </defs>
+                      {/* Outer border shape */}
+                      <path
+                        d="M100 8 C108 8, 115 12, 170 45 C180 51, 184 58, 184 72 L184 128 C184 142, 180 149, 170 155 L108 192 C102 196, 98 196, 92 192 L30 155 C20 149, 16 142, 16 128 L16 72 C16 58, 20 51, 30 45 Z"
+                        fill={`url(#glass-border-${section.id})`}
+                      />
+                      {/* Inner filled shape */}
+                      <path
+                        d="M100 16 C106 16, 112 19, 164 50 C172 55, 176 60, 176 72 L176 128 C176 140, 172 145, 164 150 L106 184 C102 187, 98 187, 94 184 L36 150 C28 145, 24 140, 24 128 L24 72 C24 60, 28 55, 36 50 Z"
+                        fill={`url(#glass-bg-${section.id})`}
+                      />
+                      {/* Glossy top highlight */}
+                      <ellipse
+                        cx="100" cy="60" rx="55" ry="35"
+                        fill={`url(#glass-shine-${section.id})`}
+                      />
+                    </svg>
+                    {/* Icon overlay centered on SVG */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      {(() => {
+                        const HeroIcon = section.heroIcon;
+                        return (
+                          <HeroIcon
+                            className="w-9 h-9 md:w-12 md:h-12 text-white transition-all duration-500"
+                            strokeWidth={1.5}
+                            style={{
+                              filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.4))",
+                            }}
+                          />
+                        );
+                      })()}
+                    </div>
+                  </div>
 
-              {/* Title */}
-              <h3 className="text-2xl md:text-4xl font-light text-white tracking-tight transition-all duration-500">
-                {section.title}
-              </h3>
+                  {/* Title */}
+                  <h3 className="text-2xl md:text-4xl font-light text-white tracking-tight transition-all duration-500">
+                    {section.title}
+                  </h3>
 
-              {/* Subtitle */}
-              <p className="text-sm md:text-base text-white/50 font-light mt-3 leading-relaxed whitespace-pre-line max-w-md transition-all duration-500">
-                {section.subtitle}
-              </p>
+                  {/* Subtitle */}
+                  <p className="text-sm md:text-base text-white/50 font-light mt-3 leading-relaxed whitespace-pre-line max-w-md transition-all duration-500">
+                    {section.subtitle}
+                  </p>
+                </>
+              )}
 
               {/* Brand footer */}
               <div className="absolute bottom-3 right-4 flex items-center gap-1.5">
@@ -416,8 +444,9 @@ function BrowserPrototypeSlide() {
 
         {/* Glowing branded circle — bottom center, overlapping edge */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 flex flex-col items-center gap-2">
-          <div
-            className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center"
+          <button
+            onClick={() => setShowSurge(!showSurge)}
+            className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-300"
             style={{
               background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.06)")})`,
               border: `1.5px solid rgba(255,255,255,0.5)`,
@@ -425,6 +454,7 @@ function BrowserPrototypeSlide() {
               backdropFilter: "blur(12px)",
               transition: "all 0.5s ease",
             }}
+            title="Open Surge.xyz"
           >
             <div
               className="h-10 w-10 md:h-12 md:w-12 shrink-0 animated-gradient-icon-bright"
@@ -439,7 +469,7 @@ function BrowserPrototypeSlide() {
                 maskPosition: "center",
               }}
             />
-          </div>
+          </button>
         </div>
 
       </div>
