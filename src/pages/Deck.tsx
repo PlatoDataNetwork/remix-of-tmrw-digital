@@ -260,7 +260,7 @@ function BrowserPrototypeSlide() {
           />
 
           {/* Title bar */}
-          <div className="relative z-10 flex items-center h-9 px-4 bg-black/20 backdrop-blur-sm">
+          <div className="relative z-10 flex items-center h-10 px-4 bg-black/30 backdrop-blur-md border-b border-white/5">
             <div className="flex gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(0,70%,55%)]" />
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(40,80%,55%)]" />
