@@ -208,7 +208,7 @@ const browserSections = [
     icon: Search,
     label: "Search",
     title: "Search.",
-    subtitle: "Context-aware, privacy-first search\nacross Web2 and Web3.",
+    subtitle: "Context-aware,\nprivacy-first search\nacross Web2 and Web3.",
     cta: "Search",
     gradient: "from-[hsl(170,40%,15%)] via-[hsl(180,50%,20%)] to-[hsl(190,45%,25%)]",
     accentHsl: "hsl(180,60%,45%)",
