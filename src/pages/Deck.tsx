@@ -318,7 +318,7 @@ function BrowserPrototypeSlide() {
             {/* Main content */}
             <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative">
               {/* Glass icon */}
-              <div className="mb-4 relative transition-all duration-500 -translate-x-4">
+              <div className="mb-4 relative transition-all duration-500 -translate-x-8">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 -z-10 blur-3xl rounded-full transition-all duration-700" style={{ background: displayAccent, opacity: 0.35 }} />
                 <svg viewBox="0 0 200 200" className="w-20 h-20 md:w-24 md:h-24 transition-all duration-500" style={{ filter: `drop-shadow(0 8px 30px ${displayAccent.replace(")", ",0.4)")}) drop-shadow(0 2px 8px rgba(0,0,0,0.5))` }}>
                   <defs>
