@@ -314,6 +314,55 @@ function BrowserPrototypeSlide() {
 
             {/* Main content area */}
             <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative">
+              {/* Liquid glass icon badge */}
+              <div className="mb-6 transition-all duration-500">
+                <div
+                  className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center transition-all duration-500"
+                  style={{
+                    clipPath: "polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)",
+                  }}
+                >
+                  {/* Glass background */}
+                  <div
+                    className="absolute inset-0 transition-all duration-500"
+                    style={{
+                      background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.35)")}, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.25)")})`,
+                      backdropFilter: "blur(20px)",
+                    }}
+                  />
+                  {/* Inner highlight */}
+                  <div
+                    className="absolute inset-[2px] transition-all duration-500"
+                    style={{
+                      clipPath: "polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)",
+                      background: `linear-gradient(160deg, rgba(255,255,255,0.2) 0%, transparent 40%, ${section.accentHsl.replace(")", ",0.15)")} 70%, rgba(255,255,255,0.08) 100%)`,
+                    }}
+                  />
+                  {/* Glossy top reflection */}
+                  <div
+                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] h-[40%] rounded-full opacity-30"
+                    style={{
+                      background: "radial-gradient(ellipse at center top, rgba(255,255,255,0.5), transparent 70%)",
+                    }}
+                  />
+                  {/* Icon */}
+                  {(() => {
+                    const HeroIcon = section.heroIcon;
+                    return <HeroIcon className="w-8 h-8 md:w-10 md:h-10 text-white relative z-10 drop-shadow-lg" strokeWidth={1.5} />;
+                  })()}
+                </div>
+                {/* Outer glow */}
+                <div
+                  className="absolute inset-0 -z-10 blur-2xl opacity-40 transition-all duration-500 rounded-full"
+                  style={{
+                    background: section.accentHsl,
+                    width: "60%",
+                    height: "60%",
+                    margin: "auto",
+                  }}
+                />
+              </div>
+
               {/* Title */}
               <h3 className="text-2xl md:text-4xl font-light text-white tracking-tight transition-all duration-500">
                 {section.title}
