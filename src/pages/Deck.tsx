@@ -192,17 +192,6 @@ const browserSections = [
     heroIcon: Zap,
   },
   {
-    id: "wallet",
-    icon: Wallet,
-    label: "Wallet",
-    title: "Wallet.",
-    subtitle: "Multi-chain native. Solana, Ethereum, BSC.\nNo extensions required.",
-    cta: "Connect",
-    gradient: "from-[hsl(220,50%,20%)] via-[hsl(230,60%,28%)] to-[hsl(240,50%,32%)]",
-    accentHsl: "hsl(230,70%,60%)",
-    heroIcon: Wallet,
-  },
-  {
     id: "layers",
     icon: Layers,
     label: "Layers",
@@ -212,17 +201,6 @@ const browserSections = [
     gradient: "from-[hsl(45,50%,18%)] via-[hsl(40,60%,22%)] to-[hsl(35,55%,28%)]",
     accentHsl: "hsl(45,70%,55%)",
     heroIcon: Layers,
-  },
-  {
-    id: "identity",
-    icon: Lock,
-    label: "Identity",
-    title: "Identity.",
-    subtitle: "Anti-Sybil via Dentity. Credentialed wallets.\nGovernance integrity by design.",
-    cta: "Verify",
-    gradient: "from-[hsl(260,40%,20%)] via-[hsl(270,50%,25%)] to-[hsl(280,45%,30%)]",
-    accentHsl: "hsl(270,60%,55%)",
-    heroIcon: Lock,
   },
   {
     id: "search",
@@ -252,6 +230,8 @@ const toolbarIcons = [
   { icon: Network, label: "Protocol" },
   { icon: ArrowLeftRight, label: "Swap" },
   { icon: Brain, label: "Intelligence" },
+  { icon: Wallet, label: "Wallet" },
+  { icon: Lock, label: "Identity" },
 ];
 
 function BrowserPrototypeSlide() {
@@ -415,8 +395,8 @@ function BrowserPrototypeSlide() {
                 {section.subtitle}
               </p>
 
-              {/* Brand footer */}
-              <div className="absolute bottom-3 right-4 flex items-center gap-2">
+              {/* Brand — upper right */}
+              <div className="absolute top-3 right-4 flex items-center gap-2">
                 <span className="text-[11px] text-white font-medium tracking-widest">W3AI</span>
                 <div
                   className="h-5 w-5 shrink-0 animated-gradient-icon-bright"
