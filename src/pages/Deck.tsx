@@ -134,6 +134,256 @@ function TableSlide({ headers, rows }: { headers: string[]; rows: string[][] }) 
   );
 }
 
+// --- Browser Prototype Slide ---
+const browserSections = [
+  {
+    id: "welcome",
+    icon: Globe,
+    label: "Browser",
+    title: "Welcome to W3AI.",
+    subtitle: "Your agentic Web3 AI browser for the next web.",
+    cta: "Launch Browser",
+    gradient: "from-[hsl(270,60%,25%)] via-[hsl(290,50%,30%)] to-[hsl(310,60%,35%)]",
+    accentHsl: "hsl(290,70%,60%)",
+    heroIcon: Globe,
+  },
+  {
+    id: "security",
+    icon: Shield,
+    label: "Security",
+    title: "Security.",
+    subtitle: "Transaction simulation, smart contract audits,\nand verified proofs — before every commit.",
+    cta: "Scan",
+    gradient: "from-[hsl(340,50%,30%)] via-[hsl(330,60%,35%)] to-[hsl(320,50%,40%)]",
+    accentHsl: "hsl(340,70%,60%)",
+    heroIcon: Shield,
+  },
+  {
+    id: "ai",
+    icon: Bot,
+    label: "AI Agent",
+    title: "Marvin AI.",
+    subtitle: "Meet your on-device AI copilot.\nBYOK or Open Gateway — you choose.",
+    cta: "Ask Marvin",
+    gradient: "from-[hsl(140,40%,15%)] via-[hsl(150,50%,20%)] to-[hsl(160,40%,25%)]",
+    accentHsl: "hsl(150,60%,50%)",
+    heroIcon: Bot,
+  },
+  {
+    id: "performance",
+    icon: Zap,
+    label: "Performance",
+    title: "Performance.",
+    subtitle: "Gecko engine. Isolated profiles.\nOptimized for speed and Web3 execution.",
+    cta: "View Tasks",
+    gradient: "from-[hsl(15,60%,20%)] via-[hsl(20,70%,28%)] to-[hsl(25,60%,32%)]",
+    accentHsl: "hsl(25,80%,55%)",
+    heroIcon: Zap,
+  },
+  {
+    id: "wallet",
+    icon: Wallet,
+    label: "Wallet",
+    title: "Wallet.",
+    subtitle: "Multi-chain native. Solana, Ethereum, BSC.\nNo extensions required.",
+    cta: "Connect",
+    gradient: "from-[hsl(220,50%,20%)] via-[hsl(230,60%,28%)] to-[hsl(240,50%,32%)]",
+    accentHsl: "hsl(230,70%,60%)",
+    heroIcon: Wallet,
+  },
+  {
+    id: "analytics",
+    icon: BarChart3,
+    label: "Analytics",
+    title: "Intelligence.",
+    subtitle: "Real-time data feeds, market analysis,\nand on-chain intelligence — built in.",
+    cta: "Explore",
+    gradient: "from-[hsl(200,50%,18%)] via-[hsl(190,60%,22%)] to-[hsl(180,50%,26%)]",
+    accentHsl: "hsl(190,70%,50%)",
+    heroIcon: BarChart3,
+  },
+  {
+    id: "identity",
+    icon: Lock,
+    label: "Identity",
+    title: "Identity.",
+    subtitle: "Anti-Sybil via Dentity. Credentialed wallets.\nGovernance integrity by design.",
+    cta: "Verify",
+    gradient: "from-[hsl(260,40%,20%)] via-[hsl(270,50%,25%)] to-[hsl(280,45%,30%)]",
+    accentHsl: "hsl(270,60%,55%)",
+    heroIcon: Lock,
+  },
+  {
+    id: "search",
+    icon: Search,
+    label: "Search",
+    title: "Search.",
+    subtitle: "Context-aware, privacy-first search\nacross Web2 and Web3.",
+    cta: "Search",
+    gradient: "from-[hsl(170,40%,15%)] via-[hsl(180,50%,20%)] to-[hsl(190,45%,25%)]",
+    accentHsl: "hsl(180,60%,45%)",
+    heroIcon: Search,
+  },
+  {
+    id: "layers",
+    icon: Layers,
+    label: "Layers",
+    title: "Multi-Chain.",
+    subtitle: "Seamless cross-chain execution.\nWormhole NTT bridging. One interface.",
+    cta: "Switch Chain",
+    gradient: "from-[hsl(45,50%,18%)] via-[hsl(40,60%,22%)] to-[hsl(35,55%,28%)]",
+    accentHsl: "hsl(45,70%,55%)",
+    heroIcon: Layers,
+  },
+  {
+    id: "settings",
+    icon: Settings,
+    label: "Settings",
+    title: "Settings.",
+    subtitle: "Full control. Privacy levels, AI preferences,\nchain defaults, and spending caps.",
+    cta: "Configure",
+    gradient: "from-[hsl(0,0%,12%)] via-[hsl(0,0%,16%)] to-[hsl(0,0%,20%)]",
+    accentHsl: "hsl(0,0%,60%)",
+    heroIcon: Settings,
+  },
+];
+
+function BrowserPrototypeSlide() {
+  const [activeSection, setActiveSection] = useState(0);
+  const section = browserSections[activeSection];
+
+  return (
+    <div className="flex flex-col justify-center items-center h-full w-full relative px-2 sm:px-4">
+      {/* macOS-style browser window */}
+      <div className="relative w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl border border-white/10" style={{ minHeight: 340 }}>
+        {/* Gradient background with transition */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-br transition-all duration-700 ease-in-out ${section.gradient}`}
+        />
+        {/* Radial glow */}
+        <div
+          className="absolute inset-0 pointer-events-none transition-all duration-700"
+          style={{
+            background: `radial-gradient(ellipse 60% 50% at 55% 40%, ${section.accentHsl.replace(")", ",0.18)")}, transparent)`,
+          }}
+        />
+
+        {/* Title bar */}
+        <div className="relative z-10 flex items-center h-9 px-4 bg-black/20 backdrop-blur-sm">
+          <div className="flex gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-[hsl(0,70%,55%)]" />
+            <div className="w-2.5 h-2.5 rounded-full bg-[hsl(40,80%,55%)]" />
+            <div className="w-2.5 h-2.5 rounded-full bg-[hsl(130,60%,45%)]" />
+          </div>
+          <span className="text-[10px] text-white/40 font-light tracking-wider mx-auto">
+            W3AI TMRW Browser
+          </span>
+        </div>
+
+        <div className="relative z-10 flex" style={{ minHeight: 300 }}>
+          {/* Sidebar */}
+          <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/15 backdrop-blur-sm border-r border-white/5 w-14 shrink-0">
+            {browserSections.map((s, i) => {
+              const Icon = s.icon;
+              const isActive = i === activeSection;
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => setActiveSection(i)}
+                  className={cn(
+                    "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group relative",
+                    isActive
+                      ? "bg-white/15 shadow-lg"
+                      : "hover:bg-white/8"
+                  )}
+                  style={isActive ? { boxShadow: `0 0 20px ${section.accentHsl.replace(")", ",0.3)")}` } : {}}
+                  title={s.label}
+                >
+                  <Icon
+                    className={cn(
+                      "w-4 h-4 transition-all duration-300",
+                      isActive ? "text-white" : "text-white/40 group-hover:text-white/70"
+                    )}
+                  />
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Main content area */}
+          <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 relative overflow-hidden">
+            {/* Floating hero icon */}
+            <div
+              className="mb-6 transition-all duration-500"
+              style={{
+                filter: `drop-shadow(0 0 40px ${section.accentHsl.replace(")", ",0.4)")})`,
+              }}
+            >
+              <div
+                className="w-24 h-24 md:w-32 md:h-32 rounded-[28%] flex items-center justify-center transition-all duration-500"
+                style={{
+                  background: `linear-gradient(135deg, ${section.accentHsl.replace(")", ",0.3)")}, ${section.accentHsl.replace(")", ",0.08)")})`,
+                  border: `1px solid ${section.accentHsl.replace(")", ",0.25)")}`,
+                  boxShadow: `inset 0 1px 1px ${section.accentHsl.replace(")", ",0.2)")}, 0 20px 60px -10px ${section.accentHsl.replace(")", ",0.25)")}`,
+                }}
+              >
+                {(() => {
+                  const HeroIcon = section.heroIcon;
+                  return <HeroIcon className="w-10 h-10 md:w-14 md:h-14 text-white/90" strokeWidth={1.2} />;
+                })()}
+              </div>
+            </div>
+
+            {/* Title */}
+            <h3 className="text-2xl md:text-4xl font-light text-white tracking-tight transition-all duration-500">
+              {section.title}
+            </h3>
+
+            {/* Subtitle */}
+            <p className="text-sm md:text-base text-white/50 font-light mt-3 leading-relaxed whitespace-pre-line max-w-md transition-all duration-500">
+              {section.subtitle}
+            </p>
+
+            {/* CTA button */}
+            <div className="mt-8">
+              <div
+                className="inline-flex items-center justify-center h-12 w-12 md:h-14 md:w-14 rounded-full text-white text-sm font-light tracking-wider transition-all duration-300 cursor-pointer hover:scale-105"
+                style={{
+                  background: `linear-gradient(135deg, ${section.accentHsl}, ${section.accentHsl.replace(")", ",0.7)")})`,
+                  boxShadow: `0 0 30px ${section.accentHsl.replace(")", ",0.3)")}, inset 0 1px 1px rgba(255,255,255,0.2)`,
+                  border: `1px solid ${section.accentHsl.replace(")", ",0.4)")}`,
+                }}
+              >
+                <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em]">{section.cta}</span>
+              </div>
+            </div>
+
+            {/* Brand footer */}
+            <div className="absolute bottom-3 right-4 flex items-center gap-1.5">
+              <span className="text-[8px] text-white/20 font-light tracking-wider">by</span>
+              <div
+                className="h-3 w-3 shrink-0 opacity-30"
+                style={{
+                  WebkitMaskImage: `url(${platoIcon})`,
+                  WebkitMaskSize: "contain",
+                  WebkitMaskRepeat: "no-repeat",
+                  WebkitMaskPosition: "center",
+                  maskImage: `url(${platoIcon})`,
+                  maskSize: "contain",
+                  maskRepeat: "no-repeat",
+                  maskPosition: "center",
+                  backgroundColor: "white",
+                }}
+              />
+              <span className="text-[8px] text-white/20 font-light tracking-wider">TMRW</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const slides: Slide[] = [
   // 1 — Title
   {
