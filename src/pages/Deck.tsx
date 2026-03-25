@@ -392,10 +392,10 @@ function BrowserPrototypeSlide() {
               </p>
 
               {/* Brand footer */}
-              <div className="absolute bottom-3 right-4 flex items-center gap-1.5">
-                <span className="text-[8px] text-white/20 font-light tracking-wider">by</span>
+              <div className="absolute bottom-3 right-4 flex items-center gap-2">
+                <span className="text-[11px] text-white font-medium tracking-widest">W3AI</span>
                 <div
-                  className="h-3 w-3 shrink-0 opacity-30"
+                  className="h-5 w-5 shrink-0 animated-gradient-icon-bright"
                   style={{
                     WebkitMaskImage: `url(${platoIcon})`,
                     WebkitMaskSize: "contain",
@@ -405,10 +405,9 @@ function BrowserPrototypeSlide() {
                     maskSize: "contain",
                     maskRepeat: "no-repeat",
                     maskPosition: "center",
-                    backgroundColor: "white",
                   }}
                 />
-                <span className="text-[8px] text-white/20 font-light tracking-wider">TMRW</span>
+                <span className="text-[11px] text-white font-medium tracking-widest">TMRW</span>
               </div>
             </div>
           </div>
