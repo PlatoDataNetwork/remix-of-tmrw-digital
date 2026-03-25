@@ -251,7 +251,39 @@ const browserSections = [
 function BrowserPrototypeSlide() {
   const [activeSection, setActiveSection] = useState(0);
   const [showWireframe, setShowWireframe] = useState(false);
+  const [wireframeHtml, setWireframeHtml] = useState<string | null>(null);
+  const [wireframeLoading, setWireframeLoading] = useState(false);
   const section = browserSections[activeSection];
+
+  const loadWireframe = useCallback(async () => {
+    if (wireframeHtml) {
+      setShowWireframe(true);
+      return;
+    }
+    setWireframeLoading(true);
+    setShowWireframe(true);
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/site-proxy?path=/&_t=${Date.now()}`
+      );
+      const text = await res.text();
+      try {
+        const data = JSON.parse(text);
+        if (data.html) {
+          setWireframeHtml(data.html);
+        }
+      } catch {
+        // If not JSON, use the raw HTML directly (fallback)
+        if (text.includes('<!doctype') || text.includes('<html')) {
+          setWireframeHtml(text);
+        }
+      }
+    } catch (e) {
+      console.error("Failed to load wireframe:", e);
+    } finally {
+      setWireframeLoading(false);
+    }
+  }, [wireframeHtml]);
 
   return (
     <div className="flex flex-col justify-center items-center h-full w-full relative px-2 sm:px-4">
@@ -329,13 +361,23 @@ function BrowserPrototypeSlide() {
                       ✕
                     </button>
                   </div>
-                  <iframe
-                    src={`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/site-proxy?path=/`}
-                    className="flex-1 w-full border-0"
-                    style={{ background: "white" }}
-                    title="TMRW Digital"
-                    sandbox="allow-scripts allow-same-origin allow-popups"
-                  />
+                  {wireframeLoading && !wireframeHtml ? (
+                    <div className="flex-1 w-full flex items-center justify-center bg-white">
+                      <div className="animate-spin w-8 h-8 border-2 border-purple-500 border-t-transparent rounded-full" />
+                    </div>
+                  ) : wireframeHtml ? (
+                    <iframe
+                      srcDoc={wireframeHtml}
+                      className="flex-1 w-full border-0"
+                      style={{ background: "white" }}
+                      title="TMRW Digital"
+                      sandbox="allow-scripts allow-same-origin allow-popups"
+                    />
+                  ) : (
+                    <div className="flex-1 w-full flex items-center justify-center bg-white text-gray-400 text-sm">
+                      Failed to load
+                    </div>
+                  )}
                 </div>
               ) : (
                 <>
@@ -418,7 +460,7 @@ function BrowserPrototypeSlide() {
 
                   {/* Open button */}
                   <button
-                    onClick={() => setShowWireframe(true)}
+                    onClick={() => loadWireframe()}
                     className="mt-5 px-5 py-1.5 rounded-full text-[10px] font-medium tracking-[0.15em] uppercase text-white/80 border border-white/20 hover:border-white/50 hover:text-white transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10"
                   >
                     Open
@@ -451,7 +493,7 @@ function BrowserPrototypeSlide() {
         {/* Glowing branded circle — bottom center, overlapping edge */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 flex flex-col items-center gap-2">
           <button
-            onClick={() => setShowWireframe(!showWireframe)}
+            onClick={() => showWireframe ? setShowWireframe(false) : loadWireframe()}
             className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-300"
             style={{
               background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.06)")})`,
