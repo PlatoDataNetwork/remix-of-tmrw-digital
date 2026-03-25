@@ -414,18 +414,20 @@ function BrowserPrototypeSlide() {
           </div>
         </div>
 
-        {/* Glowing branded circle — bottom right, overlapping edge */}
-        <div className="absolute bottom-0 right-8 md:right-12 translate-y-1/2 z-20 flex flex-col items-center gap-2">
+        {/* Glowing branded circle — bottom center, overlapping edge */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 flex flex-col items-center gap-2">
           <div
-            className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center animate-[pulse_3s_ease-in-out_infinite]"
+            className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center"
             style={{
-              background: `radial-gradient(circle at 40% 35%, rgba(255,255,255,0.15), transparent 60%), linear-gradient(135deg, ${section.accentHsl.replace(")", ",0.5)")}, ${section.accentHsl.replace(")", ",0.2)")})`,
-              border: `1.5px solid ${section.accentHsl.replace(")", ",0.35)")}`,
-              boxShadow: `0 0 40px ${section.accentHsl.replace(")", ",0.4)")}, 0 0 80px ${section.accentHsl.replace(")", ",0.15)")}, inset 0 1px 2px rgba(255,255,255,0.2)`,
+              background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.06)")})`,
+              border: `1px solid ${section.accentHsl.replace(")", ",0.2)")}`,
+              boxShadow: `0 0 50px ${section.accentHsl.replace(")", ",0.3)")}, 0 0 100px ${section.accentHsl.replace(")", ",0.1)")}`,
+              backdropFilter: "blur(12px)",
+              transition: "all 0.5s ease",
             }}
           >
             <div
-              className="h-8 w-8 md:h-10 md:w-10 shrink-0 animated-gradient-icon-bright"
+              className="h-11 w-11 md:h-14 md:w-14 shrink-0 animated-gradient-icon-bright"
               style={{
                 WebkitMaskImage: `url(${platoIcon})`,
                 WebkitMaskSize: "contain",
