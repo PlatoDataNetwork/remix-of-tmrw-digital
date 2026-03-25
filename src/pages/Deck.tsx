@@ -310,25 +310,28 @@ function BrowserPrototypeSlide() {
                 const Icon = s.icon;
                 const isActive = i === activeSection;
                 return (
-                  <button
-                    key={s.id}
-                    onClick={() => setActiveSection(i)}
-                    className={cn(
-                      "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group relative",
-                      isActive
-                        ? "bg-white/15 shadow-lg"
-                        : "hover:bg-white/8"
-                    )}
-                    style={isActive ? { boxShadow: `0 0 20px ${section.accentHsl.replace(")", ",0.3)")}` } : {}}
-                    title={s.label}
-                  >
-                    <Icon
+                  <div key={s.id} className="relative group">
+                    <button
+                      onClick={() => setActiveSection(i)}
                       className={cn(
-                        "w-4 h-4 transition-all duration-300",
-                        isActive ? "text-white" : "text-white/40 group-hover:text-white/70"
+                        "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300",
+                        isActive
+                          ? "bg-white/15 shadow-lg"
+                          : "hover:bg-white/8"
                       )}
-                    />
-                  </button>
+                      style={isActive ? { boxShadow: `0 0 20px ${section.accentHsl.replace(")", ",0.3)")}` } : {}}
+                    >
+                      <Icon
+                        className={cn(
+                          "w-4 h-4 transition-all duration-300",
+                          isActive ? "text-white" : "text-white/40 group-hover:text-white/70"
+                        )}
+                      />
+                    </button>
+                    <div className="absolute left-full ml-2 top-1/2 -translate-y-1/2 px-2 py-1 rounded bg-black/80 text-[9px] text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+                      {s.label}
+                    </div>
+                  </div>
                 );
               })}
             </div>
