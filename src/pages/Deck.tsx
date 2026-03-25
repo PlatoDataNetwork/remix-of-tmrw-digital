@@ -315,52 +315,70 @@ function BrowserPrototypeSlide() {
             {/* Main content area */}
             <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative">
               {/* Liquid glass icon badge */}
-              <div className="mb-6 transition-all duration-500">
-                <div
-                  className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center transition-all duration-500"
-                  style={{
-                    clipPath: "polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)",
-                  }}
-                >
-                  {/* Glass background */}
-                  <div
-                    className="absolute inset-0 transition-all duration-500"
-                    style={{
-                      background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.35)")}, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.25)")})`,
-                      backdropFilter: "blur(20px)",
-                    }}
-                  />
-                  {/* Inner highlight */}
-                  <div
-                    className="absolute inset-[2px] transition-all duration-500"
-                    style={{
-                      clipPath: "polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)",
-                      background: `linear-gradient(160deg, rgba(255,255,255,0.2) 0%, transparent 40%, ${section.accentHsl.replace(")", ",0.15)")} 70%, rgba(255,255,255,0.08) 100%)`,
-                    }}
-                  />
-                  {/* Glossy top reflection */}
-                  <div
-                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] h-[40%] rounded-full opacity-30"
-                    style={{
-                      background: "radial-gradient(ellipse at center top, rgba(255,255,255,0.5), transparent 70%)",
-                    }}
-                  />
-                  {/* Icon */}
-                  {(() => {
-                    const HeroIcon = section.heroIcon;
-                    return <HeroIcon className="w-8 h-8 md:w-10 md:h-10 text-white relative z-10 drop-shadow-lg" strokeWidth={1.5} />;
-                  })()}
-                </div>
+              <div className="mb-6 relative transition-all duration-500">
                 {/* Outer glow */}
                 <div
-                  className="absolute inset-0 -z-10 blur-2xl opacity-40 transition-all duration-500 rounded-full"
-                  style={{
-                    background: section.accentHsl,
-                    width: "60%",
-                    height: "60%",
-                    margin: "auto",
-                  }}
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 md:w-36 md:h-36 -z-10 blur-3xl rounded-full transition-all duration-700"
+                  style={{ background: section.accentHsl, opacity: 0.35 }}
                 />
+                {/* Main glass shape — soft organic hexagon via SVG */}
+                <svg
+                  viewBox="0 0 200 200"
+                  className="w-24 h-24 md:w-32 md:h-32 transition-all duration-500"
+                  style={{
+                    filter: `drop-shadow(0 8px 30px ${section.accentHsl.replace(")", ",0.4)")}) drop-shadow(0 2px 8px rgba(0,0,0,0.5))`,
+                  }}
+                >
+                  <defs>
+                    <linearGradient id={`glass-bg-${section.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor={section.accentHsl.replace(")", ",0.7)")} />
+                      <stop offset="50%" stopColor={section.accentHsl.replace(")", ",0.4)")} />
+                      <stop offset="100%" stopColor={section.accentHsl.replace(")", ",0.65)")} />
+                    </linearGradient>
+                    <linearGradient id={`glass-border-${section.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="rgba(255,255,255,0.4)" />
+                      <stop offset="50%" stopColor={section.accentHsl.replace(")", ",0.3)")} />
+                      <stop offset="100%" stopColor="rgba(255,255,255,0.15)" />
+                    </linearGradient>
+                    <radialGradient id={`glass-shine-${section.id}`} cx="50%" cy="25%" r="50%">
+                      <stop offset="0%" stopColor="rgba(255,255,255,0.45)" />
+                      <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+                    </radialGradient>
+                    <clipPath id="hex-clip">
+                      <path d="M100 8 C108 8, 115 12, 170 45 C180 51, 184 58, 184 72 L184 128 C184 142, 180 149, 170 155 L108 192 C102 196, 98 196, 92 192 L30 155 C20 149, 16 142, 16 128 L16 72 C16 58, 20 51, 30 45 Z" />
+                    </clipPath>
+                  </defs>
+                  {/* Outer border shape */}
+                  <path
+                    d="M100 8 C108 8, 115 12, 170 45 C180 51, 184 58, 184 72 L184 128 C184 142, 180 149, 170 155 L108 192 C102 196, 98 196, 92 192 L30 155 C20 149, 16 142, 16 128 L16 72 C16 58, 20 51, 30 45 Z"
+                    fill={`url(#glass-border-${section.id})`}
+                  />
+                  {/* Inner filled shape */}
+                  <path
+                    d="M100 16 C106 16, 112 19, 164 50 C172 55, 176 60, 176 72 L176 128 C176 140, 172 145, 164 150 L106 184 C102 187, 98 187, 94 184 L36 150 C28 145, 24 140, 24 128 L24 72 C24 60, 28 55, 36 50 Z"
+                    fill={`url(#glass-bg-${section.id})`}
+                  />
+                  {/* Glossy top highlight */}
+                  <ellipse
+                    cx="100" cy="60" rx="55" ry="35"
+                    fill={`url(#glass-shine-${section.id})`}
+                  />
+                </svg>
+                {/* Icon overlay centered on SVG */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {(() => {
+                    const HeroIcon = section.heroIcon;
+                    return (
+                      <HeroIcon
+                        className="w-9 h-9 md:w-12 md:h-12 text-white transition-all duration-500"
+                        strokeWidth={1.5}
+                        style={{
+                          filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.4))",
+                        }}
+                      />
+                    );
+                  })()}
+                </div>
               </div>
 
               {/* Title */}
