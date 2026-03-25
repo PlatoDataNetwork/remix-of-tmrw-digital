@@ -51,7 +51,7 @@ function SlideAccent() {
 /** Slide number badge — small neon green pill in the bottom-left */
 function SlideNumber({ n }: { n: number }) {
   return (
-    <div className="absolute bottom-4 left-6 md:bottom-6 md:left-8 z-20 pointer-events-none">
+    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 md:bottom-6 z-20 pointer-events-none">
       <span className="text-[10px] font-light tracking-[0.2em] text-[hsl(82,85%,55%,0.5)]">
         {String(n).padStart(2, "0")}
       </span>
@@ -246,7 +246,7 @@ function BrowserPrototypeSlide() {
       {/* Wrapper for browser + hanging circle */}
       <div className="relative w-full max-w-4xl">
         {/* macOS-style browser window */}
-        <div className="relative w-full rounded-2xl overflow-hidden shadow-[0_8px_60px_-12px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.08)]" style={{ minHeight: 460 }}>
+        <div className="relative w-full rounded-3xl overflow-hidden shadow-[0_8px_60px_-12px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.06)]" style={{ minHeight: 460 }}>
           {/* Gradient background with transition */}
           <div
             className={`absolute inset-0 bg-gradient-to-br transition-all duration-700 ease-in-out ${section.gradient}`}
@@ -260,7 +260,7 @@ function BrowserPrototypeSlide() {
           />
 
           {/* Title bar */}
-          <div className="relative z-10 flex items-center h-9 px-4 bg-black/20 backdrop-blur-sm">
+          <div className="relative z-10 flex items-center h-10 px-4 bg-black/30 backdrop-blur-md border-b border-white/5">
             <div className="flex gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(0,70%,55%)]" />
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(40,80%,55%)]" />
@@ -286,7 +286,7 @@ function BrowserPrototypeSlide() {
 
           <div className="relative z-10 flex" style={{ minHeight: 420 }}>
             {/* Sidebar */}
-            <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/15 backdrop-blur-sm border-r border-white/5 w-14 shrink-0">
+            <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/20 backdrop-blur-md border-r border-white/5 w-14 shrink-0">
               {browserSections.map((s, i) => {
                 const Icon = s.icon;
                 const isActive = i === activeSection;
