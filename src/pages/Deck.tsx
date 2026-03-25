@@ -346,27 +346,14 @@ function BrowserPrototypeSlide() {
                 </div>
               </div>
 
-              {/* Rotating hero headline — same as home page */}
+              {/* Hero copy */}
               {!isToolbarActive ? (
                 <>
-                  <div className="relative h-[48px] md:h-[60px] flex items-center justify-center w-full">
-                    <AnimatePresence mode="wait">
-                      <motion.h3
-                        key={heroIndex}
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -16 }}
-                        transition={{ duration: 0.5 }}
-                        className="text-base md:text-xl font-extralight text-white/90 tracking-tight leading-tight absolute whitespace-nowrap"
-                      >
-                        {heroMessages[heroIndex].line1}
-                        <br />
-                        {heroMessages[heroIndex].line2}
-                      </motion.h3>
-                    </AnimatePresence>
-                  </div>
+                  <p className="text-xl md:text-3xl font-light text-white tracking-tight">
+                    Secure Network Protocol for the Next Web.
+                  </p>
 
-                  <p className="text-xl md:text-3xl font-light text-white tracking-tight mt-2">
+                  <p className="text-xl md:text-3xl font-light text-white tracking-tight mt-1">
                     Agentic Web3 AI Browser
                   </p>
 
