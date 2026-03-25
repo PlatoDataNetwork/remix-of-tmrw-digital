@@ -1137,7 +1137,7 @@ export default function Deck() {
 
   // Thumbnail strip — scaled mini slide previews
   const thumbnails = (
-    <div className="flex gap-3 overflow-x-auto py-4 px-1 scrollbar-thin">
+    <div className="flex gap-3 overflow-x-auto pt-6 pb-4 px-1 scrollbar-thin">
       {slides.map((s, i) => (
         <button
           key={s.id}
@@ -1156,13 +1156,13 @@ export default function Deck() {
               {s.render()}
             </div>
           </div>
-          {/* Slide number overlay */}
-          <div className="absolute bottom-1 right-1.5 z-10">
+          {/* Slide name + number overlay */}
+          <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/80 to-transparent px-1.5 pb-1 pt-3">
             <span className={cn(
-              "text-[8px] font-medium",
-              i === current ? "text-[hsl(82,85%,55%)]" : "text-muted-foreground/50"
+              "text-[7px] font-medium uppercase tracking-wider leading-tight block truncate",
+              i === current ? "text-[hsl(82,85%,55%)]" : "text-white/60"
             )}>
-              {String(i + 1).padStart(2, '0')}
+              {s.id.replace(/-/g, ' ')}
             </span>
           </div>
         </button>
