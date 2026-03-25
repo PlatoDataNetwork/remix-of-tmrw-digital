@@ -1088,7 +1088,7 @@ export default function Deck() {
 
   const slideContent = (
     <div className={cn(
-      "relative w-full bg-background border border-border rounded-2xl overflow-hidden transition-all duration-300",
+      "relative w-full bg-background border border-border border-b-0 rounded-2xl rounded-b-none overflow-hidden transition-all duration-300",
       fullscreen ? "fixed inset-0 z-[80] rounded-none border-none flex flex-col" : "min-h-[400px] sm:min-h-[500px] flex flex-col"
     )}>
       {/* Slide branding */}
