@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Globe, Shield, Zap, Bot, Wallet, BarChart3, Lock, Search, Layers, Settings, Network, ArrowLeftRight, Brain, LayoutGrid, Coins, Code, CircleDollarSign } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Globe, Shield, Zap, Bot, Wallet, BarChart3, Lock, Search, Layers, Settings, Network, ArrowLeftRight, Brain, LayoutGrid, Coins, Code, CircleDollarSign, Landmark } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
