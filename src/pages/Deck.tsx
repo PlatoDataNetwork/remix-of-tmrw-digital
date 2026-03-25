@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Globe, Shield, Zap, Bot, Wallet, BarChart3, Lock, Search, Layers, Settings, Network, ArrowLeftRight, Brain, LayoutGrid } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Globe, Shield, Zap, Bot, Wallet, BarChart3, Lock, Search, Layers, Settings, Network, ArrowLeftRight, Brain, LayoutGrid, Coins, Code, CircleDollarSign } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -232,6 +232,9 @@ const toolbarIcons = [
   { icon: Brain, label: "Intelligence" },
   { icon: Wallet, label: "Wallet" },
   { icon: Lock, label: "Identity" },
+  { icon: Coins, label: "Staking" },
+  { icon: Code, label: "Code" },
+  { icon: CircleDollarSign, label: "DeFi" },
 ];
 
 function BrowserPrototypeSlide() {
@@ -263,23 +266,7 @@ function BrowserPrototypeSlide() {
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(40,80%,55%)]" />
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(130,60%,45%)]" />
             </div>
-            <div className="flex items-center gap-1.5 mx-auto">
-              <span className="text-[10px] text-white font-medium tracking-widest">W3AI</span>
-              <div
-                className="h-4 w-4 shrink-0 animated-gradient-icon-bright"
-                style={{
-                  WebkitMaskImage: `url(${platoIcon})`,
-                  WebkitMaskSize: "contain",
-                  WebkitMaskRepeat: "no-repeat",
-                  WebkitMaskPosition: "center",
-                  maskImage: `url(${platoIcon})`,
-                  maskSize: "contain",
-                  maskRepeat: "no-repeat",
-                  maskPosition: "center",
-                }}
-              />
-              <span className="text-[10px] text-white font-medium tracking-widest">TMRW</span>
-            </div>
+            <div className="flex-1" />
             <div className="flex items-center gap-1 ml-auto">
               {toolbarIcons.map((t) => {
                 const TIcon = t.icon;
