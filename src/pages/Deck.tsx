@@ -263,9 +263,23 @@ function BrowserPrototypeSlide() {
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(40,80%,55%)]" />
               <div className="w-2.5 h-2.5 rounded-full bg-[hsl(130,60%,45%)]" />
             </div>
-            <span className="text-[10px] text-white/40 font-light tracking-wider mx-auto">
-              W3AI TMRW Browser
-            </span>
+            <div className="flex items-center gap-1.5">
+              <span className="text-[10px] text-white font-medium tracking-widest">W3AI</span>
+              <div
+                className="h-4 w-4 shrink-0 animated-gradient-icon-bright"
+                style={{
+                  WebkitMaskImage: `url(${platoIcon})`,
+                  WebkitMaskSize: "contain",
+                  WebkitMaskRepeat: "no-repeat",
+                  WebkitMaskPosition: "center",
+                  maskImage: `url(${platoIcon})`,
+                  maskSize: "contain",
+                  maskRepeat: "no-repeat",
+                  maskPosition: "center",
+                }}
+              />
+              <span className="text-[10px] text-white font-medium tracking-widest">TMRW</span>
+            </div>
             <div className="flex items-center gap-1">
               {toolbarIcons.map((t) => {
                 const TIcon = t.icon;
