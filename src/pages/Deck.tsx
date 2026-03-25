@@ -297,7 +297,7 @@ function BrowserPrototypeSlide() {
             </div>
           </div>
 
-          <div className="relative z-10 flex" style={{ minHeight: 300 }}>
+          <div className="relative z-10 flex" style={{ minHeight: 380 }}>
             {/* Sidebar */}
             <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/15 backdrop-blur-sm border-r border-white/5 w-14 shrink-0">
               {browserSections.map((s, i) => {
