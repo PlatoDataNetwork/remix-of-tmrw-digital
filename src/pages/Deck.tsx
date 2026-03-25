@@ -1068,8 +1068,8 @@ export default function Deck() {
   const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const total = slides.length;
 
-  const next = useCallback(() => { setDirection('right'); setCurrent(c => Math.min(c + 1, total - 1)); }, [total]);
-  const prev = useCallback(() => { setDirection('left'); setCurrent(c => Math.max(c - 1, 0)); }, []);
+  const next = useCallback(() => { setHasNavigated(true); setDirection('right'); setCurrent(c => Math.min(c + 1, total - 1)); }, [total]);
+  const prev = useCallback(() => { setHasNavigated(true); setDirection('left'); setCurrent(c => Math.max(c - 1, 0)); }, []);
 
   // Auto-scroll active thumbnail into view
   useEffect(() => {
