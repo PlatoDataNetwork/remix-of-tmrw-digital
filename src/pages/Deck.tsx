@@ -232,6 +232,9 @@ const toolbarIcons = [
   { icon: Brain, label: "Intelligence" },
   { icon: Wallet, label: "Wallet" },
   { icon: Lock, label: "Identity" },
+  { icon: Coins, label: "Staking" },
+  { icon: Code, label: "Code" },
+  { icon: CircleDollarSign, label: "DeFi" },
 ];
 
 function BrowserPrototypeSlide() {
