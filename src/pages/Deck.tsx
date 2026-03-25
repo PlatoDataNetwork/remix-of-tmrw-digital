@@ -246,7 +246,7 @@ function BrowserPrototypeSlide() {
       {/* Wrapper for browser + hanging circle */}
       <div className="relative w-full max-w-4xl">
         {/* macOS-style browser window */}
-        <div className="relative w-full rounded-3xl overflow-hidden shadow-[0_8px_60px_-12px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.06)]" style={{ minHeight: 460 }}>
+        <div className="relative w-full rounded-[2.5rem] overflow-hidden shadow-[0_8px_60px_-12px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.06)]" style={{ minHeight: 460 }}>
           {/* Gradient background with transition */}
           <div
             className={`absolute inset-0 bg-gradient-to-br transition-all duration-700 ease-in-out ${section.gradient}`}
@@ -426,6 +426,28 @@ function BrowserPrototypeSlide() {
               }}
             />
           </div>
+        </div>
+
+        {/* Made for Mac badge */}
+        <div className="flex flex-col items-center gap-2 mt-10">
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-white/40 font-light tracking-wider">Made Exclusively for</span>
+            {/* Apple icon with colorized gradient effect */}
+            <svg viewBox="0 0 384 512" className="h-4 w-4 animated-gradient-icon-bright" style={{
+              WebkitMaskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/%3E%3C/svg%3E")`,
+              maskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/%3E%3C/svg%3E")`,
+              WebkitMaskSize: "contain",
+              maskSize: "contain",
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
+              WebkitMaskPosition: "center",
+              maskPosition: "center",
+            }} />
+            <span className="text-xs text-white/40 font-light tracking-wider">Mac</span>
+          </div>
+          <p className="text-[11px] text-white/25 font-light tracking-wide">
+            Your agentic Web3 AI browser for the next web.
+          </p>
         </div>
 
       </div>
