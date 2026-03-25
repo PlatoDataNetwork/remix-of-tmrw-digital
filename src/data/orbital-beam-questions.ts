@@ -124,6 +124,15 @@ export const JOKE_BANK = [
   { setup: "Why did the startup founder cross the road?", punchline: "To pivot to the other side." },
 ];
 
+let _orbitalJokeQueue: number[] = [];
+
 export function getRandomJoke(): { setup: string; punchline: string } {
-  return JOKE_BANK[0];
+  if (_orbitalJokeQueue.length === 0) {
+    _orbitalJokeQueue = Array.from({ length: JOKE_BANK.length }, (_, i) => i);
+    for (let i = _orbitalJokeQueue.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [_orbitalJokeQueue[i], _orbitalJokeQueue[j]] = [_orbitalJokeQueue[j], _orbitalJokeQueue[i]];
+    }
+  }
+  return JOKE_BANK[_orbitalJokeQueue.pop()!];
 }

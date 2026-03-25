@@ -138,6 +138,15 @@ const RWA_JOKES = [
   { setup: "What's the difference between a tokenized asset and a meme coin?", punchline: "One is backed by real value. The other is backed by vibes." },
 ];
 
+let _rwaJokeQueue: number[] = [];
+
 export function getRandomRWAJoke() {
-  return RWA_JOKES[0];
+  if (_rwaJokeQueue.length === 0) {
+    _rwaJokeQueue = Array.from({ length: RWA_JOKES.length }, (_, i) => i);
+    for (let i = _rwaJokeQueue.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [_rwaJokeQueue[i], _rwaJokeQueue[j]] = [_rwaJokeQueue[j], _rwaJokeQueue[i]];
+    }
+  }
+  return RWA_JOKES[_rwaJokeQueue.pop()!];
 }

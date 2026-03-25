@@ -527,6 +527,15 @@ const TM_JOKES: TMJoke[] = [
   { setup: "What's a trademark's favorite song?", punchline: "\"Don't Stop Believin'\" — because abandonment kills." },
 ];
 
+let _tmJokeQueue: number[] = [];
+
 export function getRandomTMJoke(): TMJoke {
-  return TM_JOKES[0];
+  if (_tmJokeQueue.length === 0) {
+    _tmJokeQueue = Array.from({ length: TM_JOKES.length }, (_, i) => i);
+    for (let i = _tmJokeQueue.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [_tmJokeQueue[i], _tmJokeQueue[j]] = [_tmJokeQueue[j], _tmJokeQueue[i]];
+    }
+  }
+  return TM_JOKES[_tmJokeQueue.pop()!];
 }
