@@ -427,7 +427,7 @@ function BrowserPrototypeSlide() {
             }}
           >
             <div
-              className="h-9 w-9 md:h-11 md:w-11 shrink-0 animated-gradient-icon-bright"
+              className="h-10 w-10 md:h-12 md:w-12 shrink-0 animated-gradient-icon-bright"
               style={{
                 WebkitMaskImage: `url(${platoIcon})`,
                 WebkitMaskSize: "contain",
