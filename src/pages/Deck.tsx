@@ -1129,7 +1129,7 @@ export default function Deck() {
     </div>
   );
 
-  // Thumbnail strip
+  // Thumbnail strip — lightweight text-only to avoid rendering all 25 slides
   const thumbnails = (
     <div className="flex gap-3 overflow-x-auto py-4 px-1 scrollbar-thin">
       {slides.map((s, i) => (
@@ -1138,25 +1138,20 @@ export default function Deck() {
           ref={el => { thumbRefs.current[i] = el; }}
           onClick={() => { setDirection(i > current ? 'right' : 'left'); setCurrent(i); }}
           className={cn(
-            "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all",
+            "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all flex items-center justify-center bg-background",
             i === current
               ? "border-[hsl(82,85%,55%)] shadow-[0_0_12px_hsl(82,85%,55%,0.3)] ring-1 ring-[hsl(82,85%,55%)]"
               : "border-border opacity-60 hover:opacity-100 hover:border-[hsl(82,85%,55%,0.3)]"
           )}
         >
-          <div className="absolute inset-0 bg-background">
-            <div
-              className="origin-top-left pointer-events-none"
-              style={{
-                width: "1280px",
-                height: "720px",
-                transform: "scale(0.1)",
-              }}
-            >
-              <div className="w-full h-full p-8 md:p-16 flex flex-col">
-                {s.render()}
-              </div>
-            </div>
+          <div className="flex flex-col items-center gap-1 px-2">
+            <span className={cn(
+              "text-[9px] font-medium tracking-wider uppercase text-center leading-tight",
+              i === current ? "text-[hsl(82,85%,55%)]" : "text-muted-foreground"
+            )}>
+              {s.id.replace(/-/g, ' ')}
+            </span>
+            <span className="text-[8px] text-muted-foreground/50">{String(i + 1).padStart(2, '0')}</span>
           </div>
         </button>
       ))}
