@@ -264,11 +264,19 @@ function BrowserPrototypeSlide() {
     setShowWireframe(true);
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/site-proxy?path=/`
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/site-proxy?path=/&_t=${Date.now()}`
       );
-      const data = await res.json();
-      if (data.html) {
-        setWireframeHtml(data.html);
+      const text = await res.text();
+      try {
+        const data = JSON.parse(text);
+        if (data.html) {
+          setWireframeHtml(data.html);
+        }
+      } catch {
+        // If not JSON, use the raw HTML directly (fallback)
+        if (text.includes('<!doctype') || text.includes('<html')) {
+          setWireframeHtml(text);
+        }
       }
     } catch (e) {
       console.error("Failed to load wireframe:", e);
