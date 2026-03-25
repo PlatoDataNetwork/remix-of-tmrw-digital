@@ -142,7 +142,7 @@ const browserSections = [
     icon: Globe,
     label: "Browser",
     title: "Welcome to W3AI.",
-    subtitle: "Your agentic Web3 AI browser\nbuilt for the next web.\nSecure. Intelligent. Decentralized.",
+    subtitle: "Your agentic Web3 AI browser built for the next web.\nSecure. Intelligent. Decentralized.",
     cta: "Launch Browser",
     gradient: "from-[hsl(270,60%,25%)] via-[hsl(290,50%,30%)] to-[hsl(310,60%,35%)]",
     accentHsl: "hsl(290,70%,60%)",
@@ -153,7 +153,7 @@ const browserSections = [
     icon: LayoutGrid,
     label: "Applications",
     title: "Applications.",
-    subtitle: "Decentralized apps, DeFi protocols,\nand Web3 tools —\nall in one place.",
+    subtitle: "Decentralized apps, DeFi protocols, and Web3 tools —\nall in one place.",
     cta: "Browse Apps",
     gradient: "from-[hsl(280,50%,22%)] via-[hsl(300,55%,28%)] to-[hsl(320,50%,32%)]",
     accentHsl: "hsl(300,65%,58%)",
@@ -164,7 +164,7 @@ const browserSections = [
     icon: Shield,
     label: "Security",
     title: "Security.",
-    subtitle: "Transaction simulation,\nsmart contract audits,\nand verified proofs — before every commit.",
+    subtitle: "Transaction simulation, smart contract audits,\nand verified proofs — before every commit.",
     cta: "Scan",
     gradient: "from-[hsl(340,50%,30%)] via-[hsl(330,60%,35%)] to-[hsl(320,50%,40%)]",
     accentHsl: "hsl(340,70%,60%)",
@@ -175,7 +175,7 @@ const browserSections = [
     icon: Bot,
     label: "AI Agent",
     title: "Marvin AI.",
-    subtitle: "Meet your on-device AI copilot.\nBYOK or Open Gateway —\nyou choose.",
+    subtitle: "Meet your on-device AI copilot.\nBYOK or Open Gateway — you choose.",
     cta: "Ask Marvin",
     gradient: "from-[hsl(140,40%,15%)] via-[hsl(150,50%,20%)] to-[hsl(160,40%,25%)]",
     accentHsl: "hsl(150,60%,50%)",
@@ -186,7 +186,7 @@ const browserSections = [
     icon: Zap,
     label: "Performance",
     title: "Performance.",
-    subtitle: "Gecko engine.\nIsolated profiles.\nOptimized for speed and Web3 execution.",
+    subtitle: "Gecko engine. Isolated profiles.\nOptimized for speed and Web3 execution.",
     cta: "View Tasks",
     gradient: "from-[hsl(15,60%,20%)] via-[hsl(20,70%,28%)] to-[hsl(25,60%,32%)]",
     accentHsl: "hsl(25,80%,55%)",
@@ -197,7 +197,7 @@ const browserSections = [
     icon: Layers,
     label: "Layers",
     title: "Multi-Chain.",
-    subtitle: "Seamless cross-chain execution.\nWormhole NTT bridging.\nOne interface.",
+    subtitle: "Seamless cross-chain execution.\nWormhole NTT bridging. One interface.",
     cta: "Switch Chain",
     gradient: "from-[hsl(45,50%,18%)] via-[hsl(40,60%,22%)] to-[hsl(35,55%,28%)]",
     accentHsl: "hsl(45,70%,55%)",
@@ -208,7 +208,7 @@ const browserSections = [
     icon: Search,
     label: "Search",
     title: "Search.",
-    subtitle: "Context-aware,\nprivacy-first search\nacross Web2 and Web3.",
+    subtitle: "Context-aware, privacy-first search\nacross Web2 and Web3.",
     cta: "Search",
     gradient: "from-[hsl(170,40%,15%)] via-[hsl(180,50%,20%)] to-[hsl(190,45%,25%)]",
     accentHsl: "hsl(180,60%,45%)",
@@ -219,7 +219,7 @@ const browserSections = [
     icon: Settings,
     label: "Settings",
     title: "Settings.",
-    subtitle: "Full control.\nPrivacy levels, AI preferences,\nchain defaults, and spending caps.",
+    subtitle: "Full control. Privacy levels, AI preferences,\nchain defaults, and spending caps.",
     cta: "Configure",
     gradient: "from-[hsl(0,0%,12%)] via-[hsl(0,0%,16%)] to-[hsl(0,0%,20%)]",
     accentHsl: "hsl(0,0%,60%)",
@@ -228,15 +228,15 @@ const browserSections = [
 ];
 
 const toolbarSections = [
-  { icon: Network, label: "Protocol", title: "Protocol Layer.", subtitle: "Decentralized infrastructure layer\npowering secure,\nverifiable transactions.", gradient: "from-[hsl(200,50%,18%)] via-[hsl(210,55%,24%)] to-[hsl(220,50%,30%)]", accentHsl: "hsl(210,65%,55%)" },
-  { icon: ArrowLeftRight, label: "Swap", title: "Swap.", subtitle: "Instant cross-chain\ntoken swaps\nwith best-rate aggregation.", gradient: "from-[hsl(260,45%,20%)] via-[hsl(270,50%,26%)] to-[hsl(280,45%,32%)]", accentHsl: "hsl(270,60%,58%)" },
-  { icon: Brain, label: "Intelligence", title: "Intelligence.", subtitle: "AI-powered market analysis\nand predictive\nportfolio insights.", gradient: "from-[hsl(190,45%,15%)] via-[hsl(200,50%,20%)] to-[hsl(210,45%,26%)]", accentHsl: "hsl(200,60%,50%)" },
-  { icon: Wallet, label: "Wallet", title: "Wallet.", subtitle: "Multi-chain wallet management\nwith hardware\nsecurity support.", gradient: "from-[hsl(30,50%,18%)] via-[hsl(35,55%,24%)] to-[hsl(40,50%,30%)]", accentHsl: "hsl(35,65%,55%)" },
-  { icon: Lock, label: "Identity", title: "Identity.", subtitle: "Self-sovereign identity\nverification and\ndecentralized credentials.", gradient: "from-[hsl(350,40%,18%)] via-[hsl(355,50%,24%)] to-[hsl(0,45%,30%)]", accentHsl: "hsl(355,55%,55%)" },
-  { icon: Coins, label: "Staking", title: "Staking.", subtitle: "Liquid staking and\nyield optimization\nacross multiple validators.", gradient: "from-[hsl(120,35%,14%)] via-[hsl(130,40%,19%)] to-[hsl(140,35%,24%)]", accentHsl: "hsl(130,50%,45%)" },
-  { icon: Code, label: "Code", title: "Code.", subtitle: "Integrated smart contract IDE\nwith AI-assisted\ndebugging.", gradient: "from-[hsl(60,30%,14%)] via-[hsl(65,35%,18%)] to-[hsl(70,30%,22%)]", accentHsl: "hsl(65,50%,50%)" },
-  { icon: CircleDollarSign, label: "DeFi", title: "DeFi.", subtitle: "Lending, borrowing,\nand liquidity protocols\nin one dashboard.", gradient: "from-[hsl(80,40%,14%)] via-[hsl(82,50%,18%)] to-[hsl(85,45%,24%)]", accentHsl: "hsl(82,60%,50%)" },
-  { icon: Landmark, label: "RWA", title: "Real World Assets.", subtitle: "Tokenized real-world assets\nwith institutional-grade\ncompliance.", gradient: "from-[hsl(160,40%,14%)] via-[hsl(165,50%,19%)] to-[hsl(170,45%,25%)]", accentHsl: "hsl(165,55%,45%)" },
+  { icon: Network, label: "Protocol", title: "Protocol Layer.", subtitle: "Decentralized infrastructure layer powering\nsecure, verifiable transactions.", gradient: "from-[hsl(200,50%,18%)] via-[hsl(210,55%,24%)] to-[hsl(220,50%,30%)]", accentHsl: "hsl(210,65%,55%)" },
+  { icon: ArrowLeftRight, label: "Swap", title: "Swap.", subtitle: "Instant cross-chain token swaps\nwith best-rate aggregation.", gradient: "from-[hsl(260,45%,20%)] via-[hsl(270,50%,26%)] to-[hsl(280,45%,32%)]", accentHsl: "hsl(270,60%,58%)" },
+  { icon: Brain, label: "Intelligence", title: "Intelligence.", subtitle: "AI-powered market analysis\nand predictive portfolio insights.", gradient: "from-[hsl(190,45%,15%)] via-[hsl(200,50%,20%)] to-[hsl(210,45%,26%)]", accentHsl: "hsl(200,60%,50%)" },
+  { icon: Wallet, label: "Wallet", title: "Wallet.", subtitle: "Multi-chain wallet management\nwith hardware security support.", gradient: "from-[hsl(30,50%,18%)] via-[hsl(35,55%,24%)] to-[hsl(40,50%,30%)]", accentHsl: "hsl(35,65%,55%)" },
+  { icon: Lock, label: "Identity", title: "Identity.", subtitle: "Self-sovereign identity verification\nand decentralized credentials.", gradient: "from-[hsl(350,40%,18%)] via-[hsl(355,50%,24%)] to-[hsl(0,45%,30%)]", accentHsl: "hsl(355,55%,55%)" },
+  { icon: Coins, label: "Staking", title: "Staking.", subtitle: "Liquid staking and yield optimization\nacross multiple validators.", gradient: "from-[hsl(120,35%,14%)] via-[hsl(130,40%,19%)] to-[hsl(140,35%,24%)]", accentHsl: "hsl(130,50%,45%)" },
+  { icon: Code, label: "Code", title: "Code.", subtitle: "Integrated smart contract IDE\nwith AI-assisted debugging.", gradient: "from-[hsl(60,30%,14%)] via-[hsl(65,35%,18%)] to-[hsl(70,30%,22%)]", accentHsl: "hsl(65,50%,50%)" },
+  { icon: CircleDollarSign, label: "DeFi", title: "DeFi.", subtitle: "Lending, borrowing, and liquidity protocols\nin one dashboard.", gradient: "from-[hsl(80,40%,14%)] via-[hsl(82,50%,18%)] to-[hsl(85,45%,24%)]", accentHsl: "hsl(82,60%,50%)" },
+  { icon: Landmark, label: "RWA", title: "Real World Assets.", subtitle: "Tokenized real-world assets\nwith institutional-grade compliance.", gradient: "from-[hsl(160,40%,14%)] via-[hsl(165,50%,19%)] to-[hsl(170,45%,25%)]", accentHsl: "hsl(165,55%,45%)" },
 ];
 
 const heroMessages = [
@@ -316,7 +316,7 @@ function BrowserPrototypeSlide() {
             </div>
 
             {/* Main content */}
-            <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative">
+            <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative -ml-8 md:-ml-16">
               {/* Glass icon — centered */}
               <div className="mb-6 relative transition-all duration-500">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 -z-10 blur-3xl rounded-full transition-all duration-700" style={{ background: displayAccent, opacity: 0.35 }} />
