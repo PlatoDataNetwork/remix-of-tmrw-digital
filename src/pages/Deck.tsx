@@ -417,17 +417,17 @@ function BrowserPrototypeSlide() {
         {/* Glowing branded circle — bottom center, overlapping edge */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 flex flex-col items-center gap-2">
           <div
-            className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center"
+            className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center"
             style={{
               background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.06)")})`,
-              border: `1px solid ${section.accentHsl.replace(")", ",0.2)")}`,
+              border: `1.5px solid rgba(255,255,255,0.5)`,
               boxShadow: `0 0 50px ${section.accentHsl.replace(")", ",0.3)")}, 0 0 100px ${section.accentHsl.replace(")", ",0.1)")}`,
               backdropFilter: "blur(12px)",
               transition: "all 0.5s ease",
             }}
           >
             <div
-              className="h-11 w-11 md:h-14 md:w-14 shrink-0 animated-gradient-icon-bright"
+              className="h-7 w-7 md:h-9 md:w-9 shrink-0 animated-gradient-icon-bright"
               style={{
                 WebkitMaskImage: `url(${platoIcon})`,
                 WebkitMaskSize: "contain",
