@@ -317,8 +317,8 @@ function BrowserPrototypeSlide() {
 
             {/* Main content */}
             <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 pb-16 relative">
-              {/* Glass icon */}
-              <div className="mb-4 relative transition-all duration-500 -translate-x-8">
+              {/* Glass icon — centered */}
+              <div className="mb-6 relative transition-all duration-500">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 -z-10 blur-3xl rounded-full transition-all duration-700" style={{ background: displayAccent, opacity: 0.35 }} />
                 <svg viewBox="0 0 200 200" className="w-20 h-20 md:w-24 md:h-24 transition-all duration-500" style={{ filter: `drop-shadow(0 8px 30px ${displayAccent.replace(")", ",0.4)")}) drop-shadow(0 2px 8px rgba(0,0,0,0.5))` }}>
                   <defs>
@@ -346,21 +346,21 @@ function BrowserPrototypeSlide() {
                 </div>
               </div>
 
-              {/* Hero copy */}
+              {/* Hero copy — centered under icon */}
               {!isToolbarActive ? (
                 <>
                   {activeSection === 0 ? (
                     <>
-                      <p className="text-xl md:text-3xl font-light text-white tracking-tight">
+                      <p className="text-xl md:text-3xl font-light text-white tracking-tight text-center">
                         Secure Network Protocol for the Next Web.
                       </p>
-                      <p className="text-xl md:text-3xl font-light text-white tracking-tight mt-1">
+                      <p className="text-xl md:text-3xl font-light text-white tracking-tight mt-1 text-center">
                         Agentic Web3 AI Browser
                       </p>
-                      <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/40 mt-3">
+                      <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/40 mt-3 text-center">
                         RWA's · Web3AI · Cyber · Data · Compliance
                       </p>
-                      <div className="flex items-center gap-1.5 mt-2">
+                      <div className="flex items-center justify-center gap-1.5 mt-2">
                         <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/40">MADE EXCLUSIVELY FOR MAC</span>
                         <svg viewBox="0 0 384 512" className="h-3.5 w-3.5 md:h-4 md:w-4 animated-gradient-icon-bright" style={{
                           WebkitMaskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/%3E%3C/svg%3E")`,
@@ -371,10 +371,10 @@ function BrowserPrototypeSlide() {
                     </>
                   ) : (
                     <>
-                      <p className="text-xl md:text-3xl font-light text-white tracking-tight mt-2 transition-all duration-500">
+                      <p className="text-xl md:text-3xl font-light text-white tracking-tight text-center transition-all duration-500">
                         {section.title}
                       </p>
-                      <p className="text-xs md:text-sm text-white/45 font-light mt-2 leading-relaxed max-w-md transition-all duration-500 whitespace-pre-line">
+                      <p className="text-xl md:text-3xl font-light text-white/45 tracking-tight mt-2 text-center max-w-md transition-all duration-500 whitespace-pre-line">
                         {section.subtitle}
                       </p>
                     </>
@@ -382,10 +382,10 @@ function BrowserPrototypeSlide() {
                 </>
               ) : (
                 <>
-                  <p className="text-xl md:text-3xl font-light text-white tracking-tight mt-2 transition-all duration-500">
+                  <p className="text-xl md:text-3xl font-light text-white tracking-tight text-center transition-all duration-500">
                     {displayTitle}
                   </p>
-                  <p className="text-xs md:text-sm text-white/45 font-light mt-2 leading-relaxed max-w-md transition-all duration-500 whitespace-pre-line">
+                  <p className="text-xl md:text-3xl font-light text-white/45 tracking-tight mt-2 text-center max-w-md transition-all duration-500 whitespace-pre-line">
                     {displaySubtitle}
                   </p>
                 </>
