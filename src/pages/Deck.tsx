@@ -330,7 +330,7 @@ function BrowserPrototypeSlide() {
                     </button>
                   </div>
                   <iframe
-                    src="https://tmrw-digital.com"
+                    src={`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/site-proxy?path=/`}
                     className="flex-1 w-full border-0"
                     style={{ background: "white" }}
                     title="TMRW Digital"
