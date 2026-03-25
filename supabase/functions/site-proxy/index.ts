@@ -38,19 +38,14 @@ serve(async (req: Request) => {
     // Inject <base> tag
     html = html.replace(/<head([^>]*)>/i, `<head$1><base href="${TARGET}/" />`);
 
-    // Return with explicit content-type header using Headers object
-    const headers = new Headers();
-    headers.set("Content-Type", "text/html; charset=utf-8");
-    headers.set("Access-Control-Allow-Origin", "*");
-    headers.set("Access-Control-Allow-Headers", "authorization, x-client-info, apikey, content-type");
-    headers.set("Cache-Control", "public, max-age=300");
-    // Remove frame-blocking
-    headers.delete("X-Frame-Options");
-    headers.delete("Content-Security-Policy");
-
-    return new Response(html, {
+    // Return as JSON so the edge runtime doesn't override content-type
+    return new Response(JSON.stringify({ html }), {
       status: 200,
-      headers,
+      headers: {
+        ...corsHeaders,
+        "Content-Type": "application/json",
+        "Cache-Control": "public, max-age=300",
+      },
     });
   } catch (err) {
     console.error("Proxy error:", err);
