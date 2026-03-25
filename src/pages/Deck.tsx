@@ -413,8 +413,8 @@ function BrowserPrototypeSlide() {
           </div>
         </div>
 
-        {/* Glowing branded circle — bottom edge, centered under sidebar Security icon */}
-        <div className="absolute bottom-0 left-[28px] -translate-x-1/2 translate-y-1/2 z-20">
+        {/* Glowing branded circle — bottom center of browser */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
           <div
             className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center"
             style={{
