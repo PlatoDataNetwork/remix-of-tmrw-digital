@@ -444,8 +444,9 @@ function BrowserPrototypeSlide() {
 
         {/* Glowing branded circle — bottom center, overlapping edge */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 flex flex-col items-center gap-2">
-          <div
-            className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center"
+          <button
+            onClick={() => setShowSurge(!showSurge)}
+            className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-300"
             style={{
               background: `linear-gradient(160deg, ${section.accentHsl.replace(")", ",0.12)")}, ${section.accentHsl.replace(")", ",0.06)")})`,
               border: `1.5px solid rgba(255,255,255,0.5)`,
@@ -453,6 +454,7 @@ function BrowserPrototypeSlide() {
               backdropFilter: "blur(12px)",
               transition: "all 0.5s ease",
             }}
+            title="Open Surge.xyz"
           >
             <div
               className="h-10 w-10 md:h-12 md:w-12 shrink-0 animated-gradient-icon-bright"
@@ -467,7 +469,7 @@ function BrowserPrototypeSlide() {
                 maskPosition: "center",
               }}
             />
-          </div>
+          </button>
         </div>
 
       </div>
