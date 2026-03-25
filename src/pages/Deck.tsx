@@ -409,24 +409,6 @@ function BrowserPrototypeSlide() {
                 {section.subtitle}
               </p>
 
-              {/* Brand — upper right */}
-              <div className="absolute top-3 right-4 flex items-center gap-2">
-                <span className="text-[11px] text-white font-medium tracking-widest">W3AI</span>
-                <div
-                  className="h-5 w-5 shrink-0 animated-gradient-icon-bright"
-                  style={{
-                    WebkitMaskImage: `url(${platoIcon})`,
-                    WebkitMaskSize: "contain",
-                    WebkitMaskRepeat: "no-repeat",
-                    WebkitMaskPosition: "center",
-                    maskImage: `url(${platoIcon})`,
-                    maskSize: "contain",
-                    maskRepeat: "no-repeat",
-                    maskPosition: "center",
-                  }}
-                />
-                <span className="text-[11px] text-white font-medium tracking-widest">TMRW</span>
-              </div>
             </div>
           </div>
         </div>
