@@ -142,7 +142,7 @@ const browserSections = [
     icon: Globe,
     label: "Browser",
     title: "Welcome to W3AI.",
-    subtitle: "Your agentic Web3 AI browser for the next web.",
+    subtitle: "Your agentic Web3 AI browser\nbuilt for the next web.\nSecure. Intelligent. Decentralized.",
     cta: "Launch Browser",
     gradient: "from-[hsl(270,60%,25%)] via-[hsl(290,50%,30%)] to-[hsl(310,60%,35%)]",
     accentHsl: "hsl(290,70%,60%)",
