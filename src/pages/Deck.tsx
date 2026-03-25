@@ -396,27 +396,6 @@ function BrowserPrototypeSlide() {
           </div>
         </div>
 
-        {/* Animated circle hanging over bottom edge */}
-        <div
-          className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-20 transition-all duration-500"
-          style={{
-            filter: `drop-shadow(0 0 30px ${section.accentHsl.replace(")", ",0.5)")})`,
-          }}
-        >
-          <div
-            className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center transition-all duration-500 animate-[pulse_3s_ease-in-out_infinite]"
-            style={{
-              background: `linear-gradient(135deg, ${section.accentHsl}, ${section.accentHsl.replace(")", ",0.6)")})`,
-              border: `2px solid ${section.accentHsl.replace(")", ",0.4)")}`,
-              boxShadow: `0 0 40px ${section.accentHsl.replace(")", ",0.35)")}, inset 0 1px 2px rgba(255,255,255,0.25), 0 8px 32px rgba(0,0,0,0.4)`,
-            }}
-          >
-            {(() => {
-              const HeroIcon = section.heroIcon;
-              return <HeroIcon className="w-8 h-8 md:w-10 md:h-10 text-white" strokeWidth={1.5} />;
-            })()}
-          </div>
-        </div>
       </div>
     </div>
   );
