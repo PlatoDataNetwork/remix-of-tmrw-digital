@@ -353,13 +353,23 @@ function BrowserPrototypeSlide() {
                       ✕
                     </button>
                   </div>
-                  <iframe
-                    src={`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/site-proxy?path=/`}
-                    className="flex-1 w-full border-0"
-                    style={{ background: "white" }}
-                    title="TMRW Digital"
-                    sandbox="allow-scripts allow-same-origin allow-popups"
-                  />
+                  {wireframeLoading && !wireframeHtml ? (
+                    <div className="flex-1 w-full flex items-center justify-center bg-white">
+                      <div className="animate-spin w-8 h-8 border-2 border-purple-500 border-t-transparent rounded-full" />
+                    </div>
+                  ) : wireframeHtml ? (
+                    <iframe
+                      srcDoc={wireframeHtml}
+                      className="flex-1 w-full border-0"
+                      style={{ background: "white" }}
+                      title="TMRW Digital"
+                      sandbox="allow-scripts allow-same-origin allow-popups"
+                    />
+                  ) : (
+                    <div className="flex-1 w-full flex items-center justify-center bg-white text-gray-400 text-sm">
+                      Failed to load
+                    </div>
+                  )}
                 </div>
               ) : (
                 <>
