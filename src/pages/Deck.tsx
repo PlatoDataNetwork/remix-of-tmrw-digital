@@ -251,7 +251,31 @@ const browserSections = [
 function BrowserPrototypeSlide() {
   const [activeSection, setActiveSection] = useState(0);
   const [showWireframe, setShowWireframe] = useState(false);
+  const [wireframeHtml, setWireframeHtml] = useState<string | null>(null);
+  const [wireframeLoading, setWireframeLoading] = useState(false);
   const section = browserSections[activeSection];
+
+  const loadWireframe = useCallback(async () => {
+    if (wireframeHtml) {
+      setShowWireframe(true);
+      return;
+    }
+    setWireframeLoading(true);
+    setShowWireframe(true);
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/site-proxy?path=/`
+      );
+      const data = await res.json();
+      if (data.html) {
+        setWireframeHtml(data.html);
+      }
+    } catch (e) {
+      console.error("Failed to load wireframe:", e);
+    } finally {
+      setWireframeLoading(false);
+    }
+  }, [wireframeHtml]);
 
   return (
     <div className="flex flex-col justify-center items-center h-full w-full relative px-2 sm:px-4">
