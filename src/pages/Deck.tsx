@@ -1098,7 +1098,7 @@ export default function Deck() {
        <div key={current} className={cn(
          "p-6 sm:p-8 md:p-16 flex flex-col",
          fullscreen ? "flex-1" : "flex-1",
-         direction === 'right' ? "animate-slide-in-right" : "animate-slide-in-left"
+         hasNavigated ? (direction === 'right' ? "animate-slide-in-right" : "animate-slide-in-left") : ""
        )}>
          {slides[current].render()}
        </div>
