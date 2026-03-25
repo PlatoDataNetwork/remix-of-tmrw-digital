@@ -1135,7 +1135,7 @@ export default function Deck() {
     </div>
   );
 
-  // Thumbnail strip — lightweight text-only to avoid rendering all 25 slides
+  // Thumbnail strip — scaled mini slide previews
   const thumbnails = (
     <div className="flex gap-3 overflow-x-auto py-4 px-1 scrollbar-thin">
       {slides.map((s, i) => (
@@ -1144,20 +1144,26 @@ export default function Deck() {
           ref={el => { thumbRefs.current[i] = el; }}
           onClick={() => { setHasNavigated(true); setDirection(i > current ? 'right' : 'left'); setCurrent(i); }}
           className={cn(
-            "shrink-0 w-32 h-[72px] rounded-lg border overflow-hidden relative transition-all flex items-center justify-center bg-background",
+            "shrink-0 w-40 h-[90px] rounded-lg border overflow-hidden relative transition-all bg-background",
             i === current
               ? "border-[hsl(82,85%,55%)] shadow-[0_0_12px_hsl(82,85%,55%,0.3)] ring-1 ring-[hsl(82,85%,55%)]"
               : "border-border opacity-60 hover:opacity-100 hover:border-[hsl(82,85%,55%,0.3)]"
           )}
         >
-          <div className="flex flex-col items-center gap-1 px-2">
+          {/* Scaled slide preview */}
+          <div className="absolute inset-0 origin-top-left pointer-events-none" style={{ width: 1280, height: 720, transform: `scale(${160 / 1280})` }}>
+            <div className="w-full h-full bg-background p-6 sm:p-8 md:p-16 flex flex-col">
+              {s.render()}
+            </div>
+          </div>
+          {/* Slide number overlay */}
+          <div className="absolute bottom-1 right-1.5 z-10">
             <span className={cn(
-              "text-[9px] font-medium tracking-wider uppercase text-center leading-tight",
-              i === current ? "text-[hsl(82,85%,55%)]" : "text-muted-foreground"
+              "text-[8px] font-medium",
+              i === current ? "text-[hsl(82,85%,55%)]" : "text-muted-foreground/50"
             )}>
-              {s.id.replace(/-/g, ' ')}
+              {String(i + 1).padStart(2, '0')}
             </span>
-            <span className="text-[8px] text-muted-foreground/50">{String(i + 1).padStart(2, '0')}</span>
           </div>
         </button>
       ))}
