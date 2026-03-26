@@ -66,9 +66,9 @@ function BrowserPrototype() {
   const handleToolbarClick = (i) => { setActiveToolbar(i === activeToolbar ? null : i); };
 
   return (
-    <div className="flex flex-col justify-center items-center h-full w-full relative px-2 sm:px-4">
-      <div className="relative w-full max-w-4xl">
-        <div className="relative w-full rounded-[2.5rem] overflow-hidden shadow-[0_8px_60px_-12px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.06)]" style={{ minHeight: 460 }}>
+    <div className="flex flex-col justify-center items-center h-screen w-screen relative px-2 sm:px-4">
+      <div className="relative w-full max-w-5xl" style={{ height: '80vh', maxHeight: '900px' }}>
+        <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-[0_8px_60px_-12px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.06)]">
           <div className={`absolute inset-0 bg-gradient-to-br transition-all duration-700 ease-in-out ${displayGradient}`} />
           <div className="absolute inset-0 pointer-events-none transition-all duration-700" style={{ background: `radial-gradient(ellipse 60% 50% at 55% 40%, ${displayAccent.replace(")", ",0.18)")}, transparent)` }} />
 
@@ -96,7 +96,7 @@ function BrowserPrototype() {
             </div>
           </div>
 
-          <div className="relative z-10 flex" style={{ minHeight: 420 }}>
+          <div className="relative z-10 flex" style={{ minHeight: 420, height: 'calc(100% - 40px)' }}>
             {/* Sidebar */}
             <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/20 backdrop-blur-md border-r border-white/5 w-14 shrink-0 rounded-bl-[2.5rem] z-20 relative">
               {browserSections.map((s, i) => {
@@ -199,7 +199,12 @@ function BrowserPrototype() {
             boxShadow: `0 0 15px rgba(255,255,255,0.25), 0 0 40px rgba(255,255,255,0.1), 0 0 60px ${displayAccent.replace(")", ",0.2)")}`,
             backdropFilter: "blur(12px)", transition: "all 0.5s ease",
           }}>
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center text-white/80 text-xs font-bold tracking-wider">W3</div>
+            <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 animated-gradient-icon-bright" style={{
+              WebkitMaskImage: 'url("plato-icon.webp")',
+              WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center",
+              maskImage: 'url("plato-icon.webp")',
+              maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center",
+            }} />
           </div>
         </div>
       </div>
