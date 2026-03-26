@@ -68,7 +68,7 @@ function BrowserPrototype() {
   return (
     <div className="flex flex-col justify-center items-center h-screen w-screen relative px-2 sm:px-4">
       <div className="relative w-full max-w-5xl" style={{ height: '80vh', maxHeight: '900px' }}>
-        <div className="relative w-full rounded-[2.5rem] overflow-hidden shadow-[0_8px_60px_-12px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.06)]" style={{ minHeight: 460 }}>
+        <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-[0_8px_60px_-12px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.06)]">
           <div className={`absolute inset-0 bg-gradient-to-br transition-all duration-700 ease-in-out ${displayGradient}`} />
           <div className="absolute inset-0 pointer-events-none transition-all duration-700" style={{ background: `radial-gradient(ellipse 60% 50% at 55% 40%, ${displayAccent.replace(")", ",0.18)")}, transparent)` }} />
 
