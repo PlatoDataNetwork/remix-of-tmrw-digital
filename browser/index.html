@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W3AI Browser Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: 'hsl(220, 20%, 4%)',
+            foreground: 'hsl(0, 0%, 95%)',
+            muted: { DEFAULT: 'hsl(220, 15%, 15%)', foreground: 'hsl(220, 10%, 55%)' },
+            card: 'hsl(220, 18%, 8%)',
+            border: 'hsl(220, 15%, 15%)',
+          }
+        }
+      }
+    }
+  </script>
+  <script type="text/babel" src="browser.jsx"></script>
+</body>
+</html>
