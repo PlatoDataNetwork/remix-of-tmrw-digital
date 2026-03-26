@@ -114,7 +114,7 @@ const Labs = lazy(() => import("./pages/Labs"));
 const ServicesPage = lazy(() => import("./pages/Services"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient(); // route refresh
 
 // Language layout validates lang param
 const LanguageLayout = () => {
