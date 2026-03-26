@@ -96,6 +96,7 @@ const Legal = lazy(() => import("./pages/Legal"));
 const Showcase = lazy(() => import("./pages/Showcase"));
 const RTO = lazy(() => import("./pages/RTO"));
 const Whitepaper = lazy(() => import("./pages/Whitepaper"));
+const CUTWhitepaper = lazy(() => import("./pages/CUTWhitepaper"));
 const Deck = lazy(() => import("./pages/Deck"));
 const CorporateDeck = lazy(() => import("./pages/CorporateDeck"));
 const OrdiorDeck = lazy(() => import("./pages/OrdiorDeck"));
