@@ -106,7 +106,7 @@ const Footer = () => {
               {[
                 { label: "Showcase", href: "/showcase" },
                 { label: "CUT Token", href: "/cut-token" },
-                { label: "CUT Eco", href: "https://cut.eco/" },
+                { label: "CUT ECO", href: "https://cut.eco/" },
                 { label: "RWA Channel", href: "/rwa-channel" },
                 { label: "CyberSecurity", href: "/security" },
                 { label: "W3AI Token", href: "/whitepaper" },
