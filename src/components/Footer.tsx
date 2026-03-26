@@ -141,7 +141,7 @@ const Footer = () => {
               { label: "W3AI Deck", href: "/deck" },
               { label: "RTO Deck", href: "/rto-deck" },
               { label: "Path to $1B", href: "/path-to-1b" },
-              { label: "Whitepaper", href: "/whitepaper" },
+              { label: "W3AI Whitepaper", href: "/whitepaper" },
               { label: "Orbital Beam", href: "https://orbitalbeam.com/" },
               { label: "CUT Whitepaper", href: "/cut-whitepaper" },
               ].map((link) => (
