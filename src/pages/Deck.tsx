@@ -300,7 +300,7 @@ function BrowserPrototypeSlide() {
 
           <div className="relative z-10 flex" style={{ minHeight: 420 }}>
             {/* Sidebar */}
-            <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/20 backdrop-blur-md border-r border-white/5 w-14 shrink-0 rounded-bl-[2.5rem]">
+            <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/20 backdrop-blur-md border-r border-white/5 w-14 shrink-0 rounded-bl-[2.5rem] z-20 relative">
               {browserSections.map((s, i) => {
                 const Icon = s.icon;
                 const isActive = i === activeSection && !isToolbarActive;
