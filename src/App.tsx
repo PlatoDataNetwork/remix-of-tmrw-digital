@@ -96,6 +96,7 @@ const Legal = lazy(() => import("./pages/Legal"));
 const Showcase = lazy(() => import("./pages/Showcase"));
 const RTO = lazy(() => import("./pages/RTO"));
 const Whitepaper = lazy(() => import("./pages/Whitepaper"));
+const CUTWhitepaper = lazy(() => import("./pages/CUTWhitepaper"));
 const Deck = lazy(() => import("./pages/Deck"));
 const CorporateDeck = lazy(() => import("./pages/CorporateDeck"));
 const OrdiorDeck = lazy(() => import("./pages/OrdiorDeck"));
@@ -198,6 +199,7 @@ function getRoutes() {
     <Route key="rto" path="rto" element={<RTO />} />,
     <Route key="legal" path="legal" element={<Legal />} />,
     <Route key="whitepaper" path="whitepaper" element={<Whitepaper />} />,
+    <Route key="cut-whitepaper" path="cut-whitepaper" element={<CUTWhitepaper />} />,
     <Route key="deck" path="deck" element={<Deck />} />,
     <Route key="corporate-deck" path="corporate-deck" element={<CorporateDeck />} />,
     <Route key="ordior" path="Ordior" element={<OrdiorDeck />} />,
