@@ -139,11 +139,12 @@ const Footer = () => {
               {[
               { label: "TMRW Deck", href: "/corporate-deck" },
               { label: "W3AI Deck", href: "/deck" },
+              { label: "CUT Deck", href: "/cut-deck" },
               { label: "RTO Deck", href: "/rto-deck" },
               { label: "Path to $1B", href: "/path-to-1b" },
               { label: "W3AI Whitepaper", href: "/whitepaper" },
-              { label: "Orbital Beam", href: "https://orbitalbeam.com/" },
               { label: "CUT Whitepaper", href: "/cut-whitepaper" },
+              { label: "Orbital Beam", href: "https://orbitalbeam.com/" },
               ].map((link) => (
                 link.href.startsWith("/") ? (
                   <Link
