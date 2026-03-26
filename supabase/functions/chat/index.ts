@@ -38,17 +38,17 @@ ALWAYS structure your responses with clear formatting:
    - [[REF:Carbon Credits|/rwas/carbon-credits]]
    - [[REF:Tokenomics (Ch. 09)|/whitepaper]]
    - [[REF:Contact Us|/#contact]]
-   - [[REF:Intelligence Hub|/intel]]
+   - [[REF:Intelligence Hub|/intelligence]]
    - [[REF:Investor Presentation|/investors/presentation]]
 
 ## Available Reference Paths
 Use these exact paths in REF tags:
 - / (Homepage), /#about, /#team, /#contact
-- /whitepaper, /intel, /investors, /investors/presentation
+- /whitepaper, /intelligence, /investors, /investors/presentation
 - /services/web3-ai, /services/real-world-assets, /services/data-intelligence, /services/ai-analytics, /services/cyber-defense, /services/digital-strategy
 - /web3ai/ai-automation, /web3ai/token-ecosystem, /web3ai/cross-border-settlements, /web3ai/rwa-infrastructure, /web3ai/vertical-intelligence, /web3ai/community-driven
 - /rwas, /rwas/carbon-credits, /rwas/collectables, /rwas/commodities, /rwas/energy, /rwas/infrastructure, /rwas/metals, /rwas/rare-earth, /rwas/real-estate, /rwas/sovereign-wealth, /rwas/stablecoins, /rwas/tax-credits, /rwas/utilities
-- /blog/rwa-tokenization, /blog/ai-investor-engagement, /blog/pre-ipo-markets
+- /intelligence/rwa-tokenization, /intelligence/ai-investor-engagement, /intelligence/pre-ipo-markets
 
 ## Company Knowledge
 

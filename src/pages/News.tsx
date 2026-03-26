@@ -13,7 +13,7 @@ const articles = [
     category: "Press Release",
     title: "The Tomorrow Company Launches With a Bold Mandate to Build the Infrastructure Layer of the AI-Native Financial Era",
     excerpt: "Strategic merger forms an integrated Web3 infrastructure platform at the convergence of AI, tokenized real-world assets, and programmable climate markets.",
-    slug: "/blog/tmrw-launch",
+    slug: "/intelligence/tmrw-launch",
   },
 ];
 
