@@ -385,7 +385,7 @@ function BrowserPrototypeSlide() {
                   <p className="text-xl md:text-3xl font-light text-white tracking-tight text-center transition-all duration-500">
                     {displayTitle}
                   </p>
-                  <p className="text-xl md:text-3xl font-light text-white/45 tracking-tight mt-2 text-center max-w-lg transition-all duration-500 whitespace-pre-line leading-snug line-clamp-2">
+                  <p className="text-xl md:text-3xl font-light text-white/45 tracking-tight mt-2 text-center max-w-2xl transition-all duration-500 whitespace-pre-line leading-snug line-clamp-2">
                     {displaySubtitle}
                   </p>
                 </>
