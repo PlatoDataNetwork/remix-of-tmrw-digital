@@ -67,7 +67,7 @@ const Footer = () => {
                 { label: "Methodology", href: "/#vision" },
                 { label: "Web3AI", href: "/#web3ai" },
                 { label: "RWAs", href: "/#rwa" },
-                { label: "Intelligence", href: "/intel" },
+                { label: "Intelligence", href: "/intelligence" },
                 { label: "RTO", href: "/rto" },
                 { label: "Team", href: "/#team" },
               ].map((link) => (
@@ -108,7 +108,7 @@ const Footer = () => {
                 { label: "CUT Token", href: "/cut-token" },
                 { label: "RWA Channel", href: "/rwa-channel" },
                 { label: "CyberSecurity", href: "/security" },
-                { label: "Intelligence", href: "/intel" },
+                { label: "Intelligence", href: "/intelligence" },
                 { label: "W3AI Token", href: "/whitepaper" },
                 { label: "Data Feeds", href: "/data-feeds" },
               ].map((link) => (

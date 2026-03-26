@@ -15,7 +15,7 @@ const articles = [
     tags: ["Equities", "Blockchain"],
     title: "SEC Approves Nasdaq Pilot Enabling Investors to Trade Tokenized Stocks.",
     excerpt: "The SEC has greenlit a landmark Nasdaq pilot program allowing investors to trade tokenized equities — marking one of the most significant regulatory endorsements of blockchain-based capital markets.",
-    slug: "/blog/sec-nasdaq-tokenized-stocks",
+    slug: "/intelligence/sec-nasdaq-tokenized-stocks",
   },
   {
     date: "Mar 2026",
@@ -24,7 +24,7 @@ const articles = [
     tags: ["Private Equity", "Wealth Management"],
     title: "How Tokenization Can Unlock a $400 Billion Opportunity in Alternative Investments.",
     excerpt: "Tokenization is poised to transform how $150 trillion in individual wealth accesses private equity, real estate, and hedge funds — representing a $400B annual revenue opportunity.",
-    slug: "/blog/tokenization-alternatives",
+    slug: "/intelligence/tokenization-alternatives",
   },
   {
     date: "Mar 2026",
@@ -33,7 +33,7 @@ const articles = [
     tags: ["Smart Contracts", "Autonomous Systems"],
     title: "The Convergence of Web3 & AI: From Hype Cycles to Autonomous Economies.",
     excerpt: "How AI agents and smart contracts are forming self-executing economic systems. AI market projected to exceed $1.8T by 2030, tokenized assets could hit $16T (BCG).",
-    slug: "/blog/web3-ai-convergence",
+    slug: "/intelligence/web3-ai-convergence",
   },
   {
     date: "Mar 2026",
@@ -42,7 +42,7 @@ const articles = [
     tags: ["Liquidity", "Market Making"],
     title: "When AI Meets Tokenization: Rewiring the $400 Trillion Global Capital Markets.",
     excerpt: "How AI is unlocking liquidity in traditionally illiquid assets through tokenization — positioning AI as the 'market maker of illiquidity.'",
-    slug: "/blog/ai-tokenization-capital-markets",
+    slug: "/intelligence/ai-tokenization-capital-markets",
   },
   {
     date: "Mar 2026",
@@ -51,7 +51,7 @@ const articles = [
     tags: ["Smart Contract Risk", "DeFi Exploits"],
     title: "How Secure Is Your RWA? The Hidden Attack Surface of Tokenized Assets.",
     excerpt: "Over $3.8B lost to DeFi hacks in 2022–2023. As real-world assets move on-chain, the stakes — and the attack vectors — are fundamentally different.",
-    slug: "/blog/rwa-security-attack-surface",
+    slug: "/intelligence/rwa-security-attack-surface",
   },
   {
     date: "Mar 2026",
@@ -60,7 +60,7 @@ const articles = [
     tags: ["Compliance-as-Code", "Trust Stack"],
     title: "Future-Proofing the RWA Market: Infrastructure, Compliance, and Trust Layers.",
     excerpt: "The 3-layer architecture needed for scalable RWA platforms — and why 'Compliance-as-Code' is the key to institutional adoption.",
-    slug: "/blog/future-proofing-rwa",
+    slug: "/intelligence/future-proofing-rwa",
   },
   {
     date: "Mar 2026",
@@ -69,7 +69,7 @@ const articles = [
     tags: ["Dynamic Yields", "AI Portfolios"],
     title: "The Next Generation of RWA: From Static Assets to Programmable Yield.",
     excerpt: "Tokenized treasuries surpassed $3B+ in 2025. The next frontier isn't tokenization — it's programmable, AI-managed dynamic yields.",
-    slug: "/blog/programmable-yield-rwa",
+    slug: "/intelligence/programmable-yield-rwa",
   },
   {
     date: "Mar 2026",
@@ -78,7 +78,7 @@ const articles = [
     tags: ["AI Agents", "Portfolio Management"],
     title: "AI + RWA + Web3: The Birth of Autonomous Capital Markets.",
     excerpt: "Humans become LPs, AI becomes the portfolio manager. How autonomous agents are creating a new paradigm for capital allocation.",
-    slug: "/blog/autonomous-capital-markets",
+    slug: "/intelligence/autonomous-capital-markets",
   },
   {
     date: "Mar 2026",
@@ -87,7 +87,7 @@ const articles = [
     tags: ["Liquidity Design", "Market Failure"],
     title: "Tokenization Is Not Enough: Why Most RWA Projects Will Fail by Design.",
     excerpt: "Less than 10% of tokenized assets achieve meaningful secondary market liquidity. The problem isn't technology — it's design.",
-    slug: "/blog/why-rwa-projects-fail",
+    slug: "/intelligence/why-rwa-projects-fail",
   },
   {
     date: "Mar 2026",
@@ -96,7 +96,7 @@ const articles = [
     tags: ["Retail Access", "Fractional Ownership"],
     title: "From Wall Street to Wallets: How Web3 Is Democratizing Access to Real-World Assets.",
     excerpt: "Over 80% of global assets remain inaccessible to retail investors. Tokenization is dismantling the gatekeeping structures of traditional finance.",
-    slug: "/blog/wall-street-to-wallets",
+    slug: "/intelligence/wall-street-to-wallets",
   },
   {
     date: "Mar 2026",
@@ -105,7 +105,7 @@ const articles = [
     tags: ["Vibe-Coding", "Signal-Market Fit"],
     title: "Building a Unicorn with Vibe-Coding: The AI-Driven Startup Playbook No One Talks About.",
     excerpt: "Replace traditional product-market fit with 'signal-market fit.' The new startup playbook combines AI copilots, rapid iteration, and token incentives.",
-    slug: "/blog/vibe-coding-startup",
+    slug: "/intelligence/vibe-coding-startup",
   },
   {
     date: "Mar 2026",
@@ -114,7 +114,7 @@ const articles = [
     tags: ["MiCA", "Programmable Regulation"],
     title: "The Compliance Paradox: Can Decentralized RWA Markets Satisfy Centralized Regulation?",
     excerpt: "Exploring MiCA, SEC pressure, and global regulatory fragmentation — and how 'programmable regulation' via smart contracts could resolve it.",
-    slug: "/blog/compliance-paradox-rwa",
+    slug: "/intelligence/compliance-paradox-rwa",
   },
   {
     date: "Mar 2026",
@@ -123,7 +123,7 @@ const articles = [
     tags: ["Dormant Capital", "Real Estate"],
     title: "Liquidity 2.0: How Tokenization + AI Will Unlock Trillions in Dormant Capital.",
     excerpt: "Global real estate alone is a $300T+ asset class, mostly illiquid. Tokenization and AI are creating the infrastructure to mobilize dormant capital at unprecedented scale.",
-    slug: "/blog/liquidity-2-tokenization-ai",
+    slug: "/intelligence/liquidity-2-tokenization-ai",
   },
   {
     date: "Mar 2026",
@@ -132,7 +132,7 @@ const articles = [
     tags: ["Protocol Finance", "Intermediary Disruption"],
     title: "The Protocol Layer: How Tokenization Is Transforming Brokers, Custodians, and Asset Managers Into Code.",
     excerpt: "The disruption of financial intermediaries isn't elimination — it's evolution into protocol layers in a programmable financial stack.",
-    slug: "/blog/protocol-layer-evolution",
+    slug: "/intelligence/protocol-layer-evolution",
   },
   {
     date: "Mar 2026",
@@ -141,7 +141,7 @@ const articles = [
     tags: ["Institutional Adoption", "Illiquid Markets"],
     title: "The Future of RWA Tokenization in Web3 Markets.",
     excerpt: "How real-world asset tokenization is reshaping investor access to previously illiquid markets.",
-    slug: "/blog/rwa-tokenization",
+    slug: "/intelligence/rwa-tokenization",
   },
   {
     date: "Mar 2026",
@@ -150,7 +150,7 @@ const articles = [
     tags: ["Climate Finance", "ESG"],
     title: "Tokenized Carbon Credits: Building Trust in Climate Finance.",
     excerpt: "How blockchain-verified carbon credits are transforming environmental markets and enabling transparent climate action.",
-    slug: "/blog/carbon-credits-tokenization",
+    slug: "/intelligence/carbon-credits-tokenization",
   },
   {
     date: "Mar 2026",
@@ -159,7 +159,7 @@ const articles = [
     tags: ["Voluntary Markets", "Compliance Markets"],
     title: "The $16 Billion Pivot: How Tokenization Is Reshaping Global Carbon Markets.",
     excerpt: "Carbon markets surged past $16 billion in 2025. Tokenization is bringing transparency, liquidity, and institutional trust to the fastest-growing ESG asset class.",
-    slug: "/blog/carbon-market-tokenization-pivot",
+    slug: "/intelligence/carbon-market-tokenization-pivot",
   },
   {
     date: "Mar 2026",
@@ -168,7 +168,7 @@ const articles = [
     tags: ["Digital MRV", "IoT Verification"],
     title: "AI-Powered Carbon Verification: Why Tokenized MRV Is the Future of Climate Accountability.",
     excerpt: "Digital MRV systems combining AI, satellite imagery, and IoT sensors are cutting verification costs by 60% and making tokenized carbon credits the gold standard for climate finance.",
-    slug: "/blog/ai-carbon-verification",
+    slug: "/intelligence/ai-carbon-verification",
   },
   {
     date: "Mar 2026",
@@ -177,7 +177,7 @@ const articles = [
     tags: ["Carbon DeFi", "Programmable Carbon"],
     title: "Carbon Credit DeFi: How Programmable Carbon Is Creating a New Asset Class.",
     excerpt: "From carbon-backed loans to yield-generating carbon pools, DeFi protocols are transforming tokenized carbon credits into composable financial instruments.",
-    slug: "/blog/carbon-credit-defi",
+    slug: "/intelligence/carbon-credit-defi",
   },
   {
     date: "Mar 2026",
@@ -186,7 +186,7 @@ const articles = [
     tags: ["CBAM", "Article 6"],
     title: "Compliance Carbon Meets Blockchain: How CBAM and Article 6 Are Driving Tokenized Carbon Adoption.",
     excerpt: "The EU Carbon Border Adjustment Mechanism and Paris Agreement Article 6 are creating regulatory tailwinds that make tokenized carbon credits essential infrastructure.",
-    slug: "/blog/compliance-carbon-blockchain",
+    slug: "/intelligence/compliance-carbon-blockchain",
   },
   {
     date: "Mar 2026",
@@ -195,7 +195,7 @@ const articles = [
     tags: ["Agriculture", "Futures"],
     title: "Commodity Tokenization: Democratizing Access to Global Markets.",
     excerpt: "From agricultural products to energy futures, tokenization is unlocking fractional access to commodity investments.",
-    slug: "/blog/commodities-tokenization",
+    slug: "/intelligence/commodities-tokenization",
   },
   {
     date: "Mar 2026",
@@ -204,7 +204,7 @@ const articles = [
     tags: ["Fractional Ownership", "Property Markets"],
     title: "Real Estate Tokenization: From Bricks to Blocks.",
     excerpt: "Fractional real estate ownership is breaking barriers, enabling global investors to access premium property markets.",
-    slug: "/blog/real-estate-tokenization",
+    slug: "/intelligence/real-estate-tokenization",
   },
   {
     date: "Mar 2026",
@@ -213,7 +213,7 @@ const articles = [
     tags: ["Portfolio Diversification", "Transparency"],
     title: "Sovereign Wealth Funds & Tokenization: A Strategic Alliance.",
     excerpt: "How sovereign wealth funds are leveraging tokenized assets to diversify portfolios and enhance transparency.",
-    slug: "/blog/sovereign-wealth-tokenization",
+    slug: "/intelligence/sovereign-wealth-tokenization",
   },
   {
     date: "Mar 2026",
@@ -222,7 +222,7 @@ const articles = [
     tags: ["Machine Learning", "Investor Targeting"],
     title: "AI-Driven Investor Engagement: A New Paradigm.",
     excerpt: "Leveraging machine learning to identify, target, and engage institutional investors at scale.",
-    slug: "/blog/ai-investor-engagement",
+    slug: "/intelligence/ai-investor-engagement",
   },
   {
     date: "Mar 2026",
@@ -231,7 +231,7 @@ const articles = [
     tags: ["Renewables", "Oil & Gas"],
     title: "Energy Assets on Chain: Powering the Next Generation of Investment.",
     excerpt: "Tokenized energy infrastructure is attracting institutional capital to renewables, oil, and gas assets worldwide.",
-    slug: "/blog/energy-tokenization",
+    slug: "/intelligence/energy-tokenization",
   },
   {
     date: "Mar 2026",
@@ -240,7 +240,7 @@ const articles = [
     tags: ["Project Finance", "Stable Returns"],
     title: "Infrastructure Tokenization: Funding the World's Backbone.",
     excerpt: "How tokenized infrastructure projects are delivering stable, long-term returns to a broader investor base.",
-    slug: "/blog/infrastructure-tokenization",
+    slug: "/intelligence/infrastructure-tokenization",
   },
   {
     date: "Mar 2026",
@@ -249,7 +249,7 @@ const articles = [
     tags: ["IPO Strategy", "Public Markets"],
     title: "Navigating Pre-IPO Markets in a Volatile Landscape.",
     excerpt: "Strategic considerations for management teams preparing for public market transitions.",
-    slug: "/blog/pre-ipo-markets",
+    slug: "/intelligence/pre-ipo-markets",
   },
   {
     date: "Mar 2026",
@@ -258,7 +258,7 @@ const articles = [
     tags: ["Gold", "Precious Metals"],
     title: "Precious & Industrial Metals: The Digital Gold Rush.",
     excerpt: "Tokenized metals markets are enabling real-time trading and fractional ownership of gold, silver, and beyond.",
-    slug: "/blog/metals-tokenization",
+    slug: "/intelligence/metals-tokenization",
   },
   {
     date: "Mar 2026",
@@ -267,7 +267,7 @@ const articles = [
     tags: ["Supply Chain", "Clean Energy"],
     title: "Rare Earth Minerals: Securing Critical Supply Chains on Chain.",
     excerpt: "Blockchain-powered rare earth investments are addressing supply chain risks in defense and clean energy sectors.",
-    slug: "/blog/rare-earth-tokenization",
+    slug: "/intelligence/rare-earth-tokenization",
   },
 ];
 
@@ -278,7 +278,7 @@ const Intel = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead title="Intelligence" description="Latest insights, market analysis, and research from The Tomorrow Company on Web3, AI, RWA tokenization, and digital assets." path="/intel" />
+      <SEOHead title="Intelligence" description="Latest insights, market analysis, and research from The Tomorrow Company on Web3, AI, RWA tokenization, and digital assets." path="/intelligence" />
       <Navbar />
       <section className="relative pt-32 pb-16 lg:pt-44 lg:pb-24 bg-background overflow-hidden" ref={ref}>
         <div className="absolute inset-0 pointer-events-none colorful-gradient opacity-0">
