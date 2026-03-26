@@ -673,13 +673,23 @@ const slides: Slide[] = [
           </div>
           <div className="space-y-4">
             <SectionLabel>Partner Distribution</SectionLabel>
-            <BulletList items={[
-              { bold: "Changelly —", text: "2.7M community, instant exchange" },
-              { bold: "Hacken —", text: "security co-marketing" },
-              { bold: "Dentity —", text: "trusted onboarding" },
-              { bold: "Surge —", text: "tokenized launch gateway" },
-              { bold: "G-20 Group —", text: "treasury management" },
-            ]} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                { bold: "Ethermail —", text: "3M+ impressions daily" },
+                { bold: "LabLab —", text: "250K+ AI dev community" },
+                { bold: "Lever —", text: "KOL marketplace, 10M+ followers" },
+                { bold: "Changelly —", text: "2.7M community, instant exchange" },
+                { bold: "Hacken —", text: "security co-marketing" },
+                { bold: "Dentity —", text: "trusted onboarding" },
+                { bold: "Surge —", text: "tokenized launch gateway" },
+                { bold: "G-20 Group —", text: "treasury management" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span className="text-primary mt-1">▸</span>
+                  <span><span className="font-semibold text-foreground">{item.bold}</span> {item.text}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
