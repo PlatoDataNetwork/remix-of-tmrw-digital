@@ -219,7 +219,7 @@ const browserSections = [
     icon: Settings,
     label: "Settings",
     title: "Settings.",
-    subtitle: "Full control. Privacy levels, AI preferences,\nchain defaults, and spending caps.",
+    subtitle: "Full control. Privacy levels,\nAI preferences and chain defaults.",
     cta: "Configure",
     gradient: "from-[hsl(0,0%,12%)] via-[hsl(0,0%,16%)] to-[hsl(0,0%,20%)]",
     accentHsl: "hsl(0,0%,60%)",
