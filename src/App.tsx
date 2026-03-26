@@ -98,6 +98,7 @@ const RTO = lazy(() => import("./pages/RTO"));
 const Whitepaper = lazy(() => import("./pages/Whitepaper"));
 const CUTWhitepaper = lazy(() => import("./pages/CUTWhitepaper"));
 const Deck = lazy(() => import("./pages/Deck"));
+const CUTDeck = lazy(() => import("./pages/CUTDeck"));
 const CorporateDeck = lazy(() => import("./pages/CorporateDeck"));
 const OrdiorDeck = lazy(() => import("./pages/OrdiorDeck"));
 const SuperCloud = lazy(() => import("./pages/SuperCloud"));
@@ -201,6 +202,7 @@ function getRoutes() {
     <Route key="whitepaper" path="whitepaper" element={<Whitepaper />} />,
     <Route key="cut-whitepaper" path="cut-whitepaper" element={<CUTWhitepaper />} />,
     <Route key="deck" path="deck" element={<Deck />} />,
+    <Route key="cut-deck" path="cut-deck" element={<CUTDeck />} />,
     <Route key="corporate-deck" path="corporate-deck" element={<CorporateDeck />} />,
     <Route key="ordior" path="Ordior" element={<OrdiorDeck />} />,
     <Route key="path-to-1b" path="path-to-1b" element={<PathTo1B />} />,
