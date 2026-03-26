@@ -228,7 +228,7 @@ const browserSections = [
 ];
 
 const toolbarSections = [
-  { icon: Network, label: "Protocol", title: "Protocol Layer.", subtitle: "Decentralized infrastructure layer\npowering secure, verifiable transactions", gradient: "from-[hsl(200,50%,18%)] via-[hsl(210,55%,24%)] to-[hsl(220,50%,30%)]", accentHsl: "hsl(210,65%,55%)" },
+  { icon: Network, label: "Protocol", title: "Protocol Layer.", subtitle: "Decentralized infrastructure layer\npowering secure verifiable transactions.", gradient: "from-[hsl(200,50%,18%)] via-[hsl(210,55%,24%)] to-[hsl(220,50%,30%)]", accentHsl: "hsl(210,65%,55%)" },
   { icon: ArrowLeftRight, label: "Swap", title: "Swap.", subtitle: "Instant cross-chain token swaps\nwith best-rate aggregation.", gradient: "from-[hsl(260,45%,20%)] via-[hsl(270,50%,26%)] to-[hsl(280,45%,32%)]", accentHsl: "hsl(270,60%,58%)" },
   { icon: Brain, label: "Intelligence", title: "Intelligence.", subtitle: "AI-powered market analysis\nand predictive portfolio insights.", gradient: "from-[hsl(190,45%,15%)] via-[hsl(200,50%,20%)] to-[hsl(210,45%,26%)]", accentHsl: "hsl(200,60%,50%)" },
   { icon: Wallet, label: "Wallet", title: "Wallet.", subtitle: "Multi-chain wallet management\nwith hardware security support.", gradient: "from-[hsl(30,50%,18%)] via-[hsl(35,55%,24%)] to-[hsl(40,50%,30%)]", accentHsl: "hsl(35,65%,55%)" },
