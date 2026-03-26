@@ -115,7 +115,7 @@
       "destination": "https://hxihntmxawwzeqvwbjfi.supabase.co/functions/v1/og-meta"
     },
     {
-      "source": "/:path(intel|rwas|data-feeds|api-documentation|showcase|whitepaper|super-cloud|cut-token|security|rto|rto-deck|investors|deck|corporate-deck|path-to-1b|news|services/:sub*|web3ai/:sub*|rwas/:sub*|blog/:sub*|legal)",
+      "source": "/:path(intel|rwas|data-feeds|api-documentation|showcase|whitepaper|super-cloud|cut-token|security|rto|rto-deck|investors|deck|corporate-deck|path-to-1b|news|services/:sub*|web3ai/:sub*|rwas/:sub*|intelligence/:sub*|legal)",
       "has": [
         {
           "type": "header",
