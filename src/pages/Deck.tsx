@@ -235,7 +235,7 @@ const toolbarSections = [
   { icon: Lock, label: "Identity", title: "Identity.", subtitle: "Self-sovereign identity verification\nand decentralized credentials.", gradient: "from-[hsl(350,40%,18%)] via-[hsl(355,50%,24%)] to-[hsl(0,45%,30%)]", accentHsl: "hsl(355,55%,55%)" },
   { icon: Coins, label: "Staking", title: "Staking.", subtitle: "Liquid staking and yield optimization\nacross multiple validators.", gradient: "from-[hsl(120,35%,14%)] via-[hsl(130,40%,19%)] to-[hsl(140,35%,24%)]", accentHsl: "hsl(130,50%,45%)" },
   { icon: Code, label: "Code", title: "Code.", subtitle: "Integrated smart contract IDE\nwith AI-assisted debugging.", gradient: "from-[hsl(60,30%,14%)] via-[hsl(65,35%,18%)] to-[hsl(70,30%,22%)]", accentHsl: "hsl(65,50%,50%)" },
-  { icon: CircleDollarSign, label: "DeFi", title: "DeFi.", subtitle: "Lending, borrowing, and liquidity protocols\nin one dashboard.", gradient: "from-[hsl(80,40%,14%)] via-[hsl(82,50%,18%)] to-[hsl(85,45%,24%)]", accentHsl: "hsl(82,60%,50%)" },
+  { icon: CircleDollarSign, label: "DeFi", title: "DeFi.", subtitle: "Lending, borrowing, and liquidity\nprotocols in one dashboard.", gradient: "from-[hsl(80,40%,14%)] via-[hsl(82,50%,18%)] to-[hsl(85,45%,24%)]", accentHsl: "hsl(82,60%,50%)" },
   { icon: Landmark, label: "RWA", title: "Real World Assets.", subtitle: "Tokenized real-world assets\nwith institutional-grade compliance.", gradient: "from-[hsl(160,40%,14%)] via-[hsl(165,50%,19%)] to-[hsl(170,45%,25%)]", accentHsl: "hsl(165,55%,45%)" },
 ];
 
