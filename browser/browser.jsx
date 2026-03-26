@@ -199,7 +199,12 @@ function BrowserPrototype() {
             boxShadow: `0 0 15px rgba(255,255,255,0.25), 0 0 40px rgba(255,255,255,0.1), 0 0 60px ${displayAccent.replace(")", ",0.2)")}`,
             backdropFilter: "blur(12px)", transition: "all 0.5s ease",
           }}>
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center text-white/80 text-xs font-bold tracking-wider">W3</div>
+            <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 animated-gradient-icon-bright" style={{
+              WebkitMaskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Ccircle cx='256' cy='256' r='220' fill='none' stroke='white' stroke-width='24'/%3E%3Ctext x='256' y='290' text-anchor='middle' font-size='220' font-weight='bold' fill='white'%3EW3%3C/text%3E%3C/svg%3E")`,
+              WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center",
+              maskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Ccircle cx='256' cy='256' r='220' fill='none' stroke='white' stroke-width='24'/%3E%3Ctext x='256' y='290' text-anchor='middle' font-size='220' font-weight='bold' fill='white'%3EW3%3C/text%3E%3C/svg%3E")`,
+              maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center",
+            }} />
           </div>
         </div>
       </div>
