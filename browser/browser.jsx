@@ -200,9 +200,9 @@ function BrowserPrototype() {
             backdropFilter: "blur(12px)", transition: "all 0.5s ease",
           }}>
             <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 animated-gradient-icon-bright" style={{
-              WebkitMaskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Ccircle cx='256' cy='256' r='220' fill='none' stroke='white' stroke-width='24'/%3E%3Ctext x='256' y='290' text-anchor='middle' font-size='220' font-weight='bold' fill='white'%3EW3%3C/text%3E%3C/svg%3E")`,
+              WebkitMaskImage: 'url("plato-icon.webp")',
               WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center",
-              maskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Ccircle cx='256' cy='256' r='220' fill='none' stroke='white' stroke-width='24'/%3E%3Ctext x='256' y='290' text-anchor='middle' font-size='220' font-weight='bold' fill='white'%3EW3%3C/text%3E%3C/svg%3E")`,
+              maskImage: 'url("plato-icon.webp")',
               maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center",
             }} />
           </div>
