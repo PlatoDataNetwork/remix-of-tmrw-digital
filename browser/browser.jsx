@@ -96,7 +96,7 @@ function BrowserPrototype() {
             </div>
           </div>
 
-          <div className="relative z-10 flex" style={{ minHeight: 420 }}>
+          <div className="relative z-10 flex" style={{ minHeight: 420, height: 'calc(100% - 40px)' }}>
             {/* Sidebar */}
             <div className="flex flex-col items-center py-4 px-2 gap-1 bg-black/20 backdrop-blur-md border-r border-white/5 w-14 shrink-0 rounded-bl-[2.5rem] z-20 relative">
               {browserSections.map((s, i) => {
