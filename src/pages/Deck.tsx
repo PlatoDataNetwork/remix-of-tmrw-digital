@@ -695,8 +695,9 @@ const slides: Slide[] = [
     id: "capital-strategy",
     render: () => (
       <div className="flex flex-col justify-center items-center h-full gap-6 max-w-3xl mx-auto relative">
-        <div className="text-center w-full">
-          <SlideTitle>Tokenomics &amp; Capital Strategy</SlideTitle>
+        <div className="text-center w-full space-y-2">
+          <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">Capital Strategy</span>
+          <SlideTitle>Tokenomics</SlideTitle>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <GreenCard className="p-6 space-y-4">
@@ -730,7 +731,7 @@ const slides: Slide[] = [
             <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Fundraising Rounds</h3>
             <div className="flex justify-between text-[10px] uppercase tracking-wider mb-[-8px]">
               <span className="text-muted-foreground font-medium">Round</span>
-              <span className="text-muted-foreground font-medium">FDV</span>
+              <span className="text-muted-foreground font-medium text-xs">FDV</span>
             </div>
             <div className="space-y-3 flex-1">
               {[
@@ -743,7 +744,7 @@ const slides: Slide[] = [
                 <div key={i} className="space-y-1">
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground font-light">{a.label}</span>
-                    <span className="text-muted-foreground font-light">{a.fdv}</span>
+                    <span className="text-muted-foreground font-light text-xs">{a.fdv}</span>
                   </div>
                   <div className="w-full h-1 bg-border/30 rounded-full overflow-hidden">
                     <div className={`h-full ${a.color} rounded-full`} style={{ width: a.width }} />
