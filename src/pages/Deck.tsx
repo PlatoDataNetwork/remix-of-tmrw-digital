@@ -738,10 +738,11 @@ const slides: Slide[] = [
               </thead>
               <tbody>
                 {[
-                  ["Private Pre-Sale", "$0.001875", "$3.75M"],
+                  ["Private Pre-Sale", "$0.001875", "$3.7M"],
                   ["Private Pre-Sale", "$0.003750", "$7.5M"],
                   ["SEED Round", "$0.007500", "$15M"],
                   ["IDO / TGE", "$0.015000", "$30M"],
+                  ["Liquidity Pool", "—", "$15M"],
                 ].map(([r, p, f], i) => (
                   <tr key={i} className="border-b border-border/20">
                     <td className="py-2.5 font-medium text-foreground">{r}</td>
