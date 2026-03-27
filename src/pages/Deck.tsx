@@ -831,7 +831,7 @@ const slides: Slide[] = [
           ].map(s => (
             <GreenCard key={s.label} className="p-4 text-center space-y-2">
               <s.icon className="w-5 h-5 text-[hsl(82,85%,55%)] mx-auto" />
-              <p className="text-sm font-bold text-foreground">{s.value}</p>
+              <p className="text-sm font-medium text-foreground">{s.value}</p>
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{s.label}</p>
             </GreenCard>
           ))}
