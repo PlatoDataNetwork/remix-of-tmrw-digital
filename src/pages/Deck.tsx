@@ -618,12 +618,11 @@ const slides: Slide[] = [
   {
     id: "zeus-ide",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
           <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">For Developers</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">The <span className="text-[hsl(210,100%,50%)]">Zeus</span> IDE</h2>
-          <p className="text-sm font-medium text-muted-foreground">The AI-Orchestrated Engine for dApp Development on Solana</p>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">Use natural language, code, and visual tools to generate, test, and deploy smart contracts with unprecedented speed.</p>
+          <SlideTitle>The Zeus IDE</SlideTitle>
+          <SlideSubtitle>The AI-Orchestrated Engine for dApp Development on Solana. Use natural language, code, and visual tools to generate, test, and deploy smart contracts with unprecedented speed.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {[
