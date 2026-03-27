@@ -857,21 +857,21 @@ const slides: Slide[] = [
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
           {[
-            { icon: Brain, label: "AI" },
-            { icon: LayoutGrid, label: "Blockchain" },
-            { icon: CircleDollarSign, label: "DeFi / DeFAI" },
-            { icon: Landmark, label: "Fintech" },
-            { icon: Monitor, label: "Gaming" },
-            { icon: Cpu, label: "Quantum" },
-            { icon: Shield, label: "Cybersecurity" },
-            { icon: Heart, label: "Healthcare" },
-            { icon: Truck, label: "Supply Chain" },
-            { icon: TrendingUp, label: "Venture Capital" },
-            { icon: Leaf, label: "ESG Analytics" },
-            { icon: Cloud, label: "SaaS" },
+            { icon: Brain, label: "AI", color: "text-purple-400" },
+            { icon: LayoutGrid, label: "Blockchain", color: "text-blue-400" },
+            { icon: CircleDollarSign, label: "DeFi / DeFAI", color: "text-emerald-400" },
+            { icon: Landmark, label: "Fintech", color: "text-amber-400" },
+            { icon: Monitor, label: "Gaming", color: "text-pink-400" },
+            { icon: Cpu, label: "Quantum", color: "text-cyan-400" },
+            { icon: Shield, label: "Cybersecurity", color: "text-red-400" },
+            { icon: Heart, label: "Healthcare", color: "text-rose-400" },
+            { icon: Truck, label: "Supply Chain", color: "text-orange-400" },
+            { icon: TrendingUp, label: "Venture Capital", color: "text-indigo-400" },
+            { icon: Leaf, label: "ESG Analytics", color: "text-green-400" },
+            { icon: Cloud, label: "SaaS", color: "text-sky-400" },
           ].map(v => (
-            <GreenCard key={v.label} className="p-3 text-center space-y-2">
-              <v.icon className="w-5 h-5 text-[hsl(82,85%,55%)] mx-auto" />
+            <GreenCard key={v.label} className="p-4 text-center space-y-2">
+              <v.icon className={`w-5 h-5 ${v.color} mx-auto`} />
               <p className="text-[10px] font-medium text-foreground">{v.label}</p>
             </GreenCard>
           ))}
