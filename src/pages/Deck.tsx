@@ -476,10 +476,10 @@ const slides: Slide[] = [
   {
     id: "ai-revolution",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
         <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">The AI Revolution is Here,<br /><span className="text-[hsl(210,100%,50%)]">But Intelligence is Trapped.</span></h2>
-          <p className="text-sm md:text-base font-light text-muted-foreground max-w-2xl mx-auto">Today's AI landscape is dominated by tech monopolies, creating opaque data silos, limiting innovation, and concentrating power.</p>
+          <SlideTitle>The AI Revolution is Here</SlideTitle>
+          <SlideSubtitle>Today's AI landscape is dominated by tech monopolies, creating opaque data silos, limiting innovation, and concentrating power.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <GreenCard className="p-6 space-y-4">
@@ -517,23 +517,23 @@ const slides: Slide[] = [
   {
     id: "decentralized-ecosystem",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-4">
           <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">Our Solution</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">A Decentralized AI Ecosystem</h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">W3AI was founded on the principle that intelligence should be open, decentralized, and self-evolving. We are pioneering a trustless, transparent, and scalable AI ecosystem built on Web3 infrastructure.</p>
+          <SlideTitle>A Decentralized AI Ecosystem</SlideTitle>
+          <SlideSubtitle>W3AI was founded on the principle that intelligence should be open, decentralized, and self-evolving. We are pioneering a trustless, transparent, and scalable AI ecosystem built on Web3 infrastructure.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {[
-            { icon: Lock, title: "Open", desc: "For developers, users, and enterprises to build and access.", color: "text-blue-400" },
-            { icon: Shield, title: "Trustless", desc: "Eliminating bias and ensuring integrity through on-chain validation.", color: "text-purple-400" },
-            { icon: Users, title: "Accessible", desc: "Democratizing AI and removing centralized bottlenecks.", color: "text-cyan-400" },
-            { icon: Zap, title: "Autonomous", desc: "Self-evolving AI agents that learn, adapt, and optimize without intervention.", color: "text-yellow-400" },
-            { icon: Globe, title: "Scalable", desc: "Global infrastructure designed to handle millions of concurrent AI operations.", color: "text-green-400" },
+            { icon: Lock, title: "Open", desc: "For developers, users, and enterprises to build and access." },
+            { icon: Shield, title: "Trustless", desc: "Eliminating bias and ensuring integrity through on-chain validation." },
+            { icon: Users, title: "Accessible", desc: "Democratizing AI and removing centralized bottlenecks." },
+            { icon: Zap, title: "Autonomous", desc: "Self-evolving AI agents that learn, adapt, and optimize without intervention." },
+            { icon: Globe, title: "Scalable", desc: "Global infrastructure designed to handle millions of concurrent AI operations." },
           ].map(c => (
             <GreenCard key={c.title} className="p-4 space-y-2">
-              <c.icon className={`w-5 h-5 ${c.color}`} />
-              <h3 className={`text-sm font-medium ${c.color}`}>{c.title}</h3>
+              <c.icon className="w-5 h-5 text-[hsl(82,85%,55%)]" />
+              <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">{c.title}</h3>
               <p className="text-[11px] font-light text-muted-foreground leading-relaxed">{c.desc}</p>
             </GreenCard>
           ))}
@@ -546,10 +546,10 @@ const slides: Slide[] = [
   {
     id: "built-on-solana",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Built on <span className="text-[hsl(210,100%,50%)]">Solana</span><br />for Uncompromising Performance</h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">Solana's unique architecture provides the high-performance infrastructure necessary for AI-driven applications demanding real-time interactions.</p>
+          <SlideTitle>Built on Solana</SlideTitle>
+          <SlideSubtitle>Solana's unique architecture provides the high-performance infrastructure necessary for AI-driven applications demanding real-time interactions.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
@@ -560,7 +560,7 @@ const slides: Slide[] = [
           ].map(s => (
             <GreenCard key={s.label} className="p-5 text-center space-y-2">
               <s.icon className="w-5 h-5 text-[hsl(82,85%,55%)] mx-auto" />
-              <p className="text-xl font-bold text-foreground">{s.value}</p>
+              <p className="text-xl font-extralight text-foreground">{s.value}</p>
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{s.label}</p>
             </GreenCard>
           ))}
@@ -568,7 +568,7 @@ const slides: Slide[] = [
         <GreenCard className="p-5 space-y-3">
           <div className="flex items-center gap-3">
             <ArrowLeftRight className="w-5 h-5 text-[hsl(82,85%,55%)]" />
-            <h3 className="text-base font-medium text-foreground">Cross-Chain Architecture</h3>
+            <h3 className="text-sm font-medium text-foreground">Cross-Chain Architecture</h3>
           </div>
           <p className="text-xs font-light text-muted-foreground">W3AI extends beyond Solana with full cross-chain interoperability — supporting all EVM and BSC-based dApps for seamless multi-chain AI deployment.</p>
           <div className="grid grid-cols-3 gap-3">
@@ -592,10 +592,10 @@ const slides: Slide[] = [
   {
     id: "anatomy-network",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">The Anatomy of W3AI's<br /><span className="text-[hsl(210,100%,50%)]">Intelligence Network</span></h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">A multi-faceted ecosystem designed to develop, deploy, and commercialize vertically integrated AI applications through autonomous agents.</p>
+          <SlideTitle>The Anatomy of W3AI's Intelligence Network</SlideTitle>
+          <SlideSubtitle>A multi-faceted ecosystem designed to develop, deploy, and commercialize vertically integrated AI applications through autonomous agents.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {[
@@ -605,9 +605,7 @@ const slides: Slide[] = [
             { icon: Network, title: "Decentralized Knowledge Graph", desc: "On-chain AI indexing and validation to ensure intelligence is auditable, transparent, and fair." },
           ].map(c => (
             <GreenCard key={c.title} className="p-6 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[hsl(210,100%,50%,0.1)] border border-[hsl(210,100%,50%,0.2)] flex items-center justify-center">
-                <c.icon className="w-5 h-5 text-[hsl(210,100%,50%)]" />
-              </div>
+              <c.icon className="w-5 h-5 text-[hsl(82,85%,55%)]" />
               <h3 className="text-base font-medium text-foreground">{c.title}</h3>
               <p className="text-sm font-light text-muted-foreground leading-relaxed">{c.desc}</p>
             </GreenCard>
@@ -620,12 +618,11 @@ const slides: Slide[] = [
   {
     id: "zeus-ide",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
           <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">For Developers</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">The <span className="text-[hsl(210,100%,50%)]">Zeus</span> IDE</h2>
-          <p className="text-sm font-medium text-muted-foreground">The AI-Orchestrated Engine for dApp Development on Solana</p>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">Use natural language, code, and visual tools to generate, test, and deploy smart contracts with unprecedented speed.</p>
+          <SlideTitle>The Zeus IDE</SlideTitle>
+          <SlideSubtitle>The AI-Orchestrated Engine for dApp Development on Solana. Use natural language, code, and visual tools to generate, test, and deploy smart contracts with unprecedented speed.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {[
@@ -636,9 +633,7 @@ const slides: Slide[] = [
           ].map(c => (
             <GreenCard key={c.title} className="p-5 space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[hsl(210,100%,50%,0.1)] border border-[hsl(210,100%,50%,0.2)] flex items-center justify-center">
-                  <c.icon className="w-5 h-5 text-[hsl(210,100%,50%)]" />
-                </div>
+                <c.icon className="w-5 h-5 text-[hsl(82,85%,55%)]" />
                 <h3 className="text-sm font-medium text-foreground">{c.title}</h3>
               </div>
               <p className="text-xs font-light text-muted-foreground leading-relaxed">{c.desc}</p>
@@ -652,10 +647,10 @@ const slides: Slide[] = [
   {
     id: "w3ai-token",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">The <span className="text-[hsl(210,100%,50%)]">W3AI</span> Token</h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">Fueling the Intelligence Economy — the core utility and governance token powering W3AI's ecosystem.</p>
+          <SlideTitle>The W3AI Token</SlideTitle>
+          <SlideSubtitle>Fueling the Intelligence Economy — the core utility and governance token powering W3AI's ecosystem.</SlideSubtitle>
         </div>
         <div className="flex justify-center">
           <GreenCard className="px-8 py-3 inline-flex gap-8">
@@ -666,7 +661,7 @@ const slides: Slide[] = [
             ].map(t => (
               <div key={t.label} className="text-center">
                 <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{t.label}</p>
-                <p className="text-lg font-bold text-[hsl(210,100%,50%)]">{t.value}</p>
+                <p className="text-lg font-extralight text-[hsl(82,85%,55%)]">{t.value}</p>
               </div>
             ))}
           </GreenCard>
@@ -679,10 +674,8 @@ const slides: Slide[] = [
             { icon: CheckSquare, title: "Govern", items: ["Vote on protocol upgrades", "AI model integration decisions", "Treasury allocations via DAO"] },
           ].map(c => (
             <GreenCard key={c.title} className="p-5 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[hsl(210,100%,50%,0.1)] border border-[hsl(210,100%,50%,0.2)] flex items-center justify-center">
-                <c.icon className="w-5 h-5 text-[hsl(210,100%,50%)]" />
-              </div>
-              <h3 className="text-sm font-bold text-foreground">{c.title}</h3>
+              <c.icon className="w-5 h-5 text-[hsl(82,85%,55%)]" />
+              <h3 className="text-sm font-medium text-foreground">{c.title}</h3>
               <div className="space-y-1.5">
                 {c.items.map(item => (
                   <div key={item} className="flex gap-2 items-start">
@@ -701,11 +694,11 @@ const slides: Slide[] = [
   {
     id: "capital-strategy",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center">Tokenomics & Capital Strategy</h2>
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
+        <SlideTitle>Tokenomics & Capital Strategy</SlideTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <GreenCard className="p-6 space-y-4">
-            <h3 className="text-base font-bold text-foreground">Token Allocation</h3>
+            <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Token Allocation</h3>
             <div className="space-y-3">
               {[
                 { label: "Treasury / Foundation", pct: "52.5%", color: "bg-blue-500", width: "52.5%" },
@@ -732,7 +725,7 @@ const slides: Slide[] = [
             </GreenCard>
           </GreenCard>
           <GreenCard className="p-6 space-y-4">
-            <h3 className="text-base font-bold text-foreground">Fundraising Rounds</h3>
+            <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Fundraising Rounds</h3>
             <table className="w-full text-xs">
               <thead>
                 <tr className="border-b border-border/30">
@@ -765,11 +758,11 @@ const slides: Slide[] = [
   {
     id: "proven-traction",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
           <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">Market Validated</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Proven Traction and Revenue</h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">After three years of extensive development and beta testing, our platform has demonstrated significant organic growth and commercial viability.</p>
+          <SlideTitle>Proven Traction and Revenue</SlideTitle>
+          <SlideSubtitle>After three years of extensive development and beta testing, our platform has demonstrated significant organic growth and commercial viability.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {[
@@ -778,9 +771,9 @@ const slides: Slide[] = [
             { icon: CircleDollarSign, value: "$1.3M+", label: "Beta Revenue", desc: "Proving the model's ability to generate income before the full commercial launch." },
           ].map(s => (
             <GreenCard key={s.label} className="p-6 text-center space-y-3">
-              <s.icon className="w-6 h-6 text-[hsl(210,100%,50%)] mx-auto" />
-              <p className="text-3xl font-bold text-[hsl(210,100%,50%)]">{s.value}</p>
-              <p className="text-sm font-bold text-foreground">{s.label}</p>
+              <s.icon className="w-5 h-5 text-[hsl(82,85%,55%)] mx-auto" />
+              <p className="text-3xl font-extralight text-[hsl(82,85%,55%)]">{s.value}</p>
+              <p className="text-sm font-medium text-foreground">{s.label}</p>
               <p className="text-[11px] font-light text-muted-foreground leading-relaxed">{s.desc}</p>
             </GreenCard>
           ))}
@@ -788,7 +781,7 @@ const slides: Slide[] = [
         <GreenCard className="p-5 text-center space-y-2">
           <div className="flex items-center justify-center gap-3">
             <Globe className="w-5 h-5 text-muted-foreground" />
-            <span className="text-2xl font-bold text-foreground">2,000+</span>
+            <span className="text-2xl font-extralight text-foreground">2,000+</span>
           </div>
           <p className="text-xs font-light text-muted-foreground">Syndication network of publisher sites where we distribute vertical content and intelligence</p>
         </GreenCard>
@@ -799,18 +792,18 @@ const slides: Slide[] = [
   {
     id: "david-vs-goliath",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-2">
-          <Swords className="w-6 h-6 text-[hsl(210,100%,50%)] mx-auto" />
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">The David vs. Goliath Advantage</h2>
-          <p className="text-sm font-light text-muted-foreground">In the race to build decentralized AI superintelligence, architecture matters.</p>
+          <Swords className="w-6 h-6 text-[hsl(82,85%,55%)] mx-auto" />
+          <SlideTitle>The David vs. Goliath Advantage</SlideTitle>
+          <SlideSubtitle>In the race to build decentralized AI superintelligence, architecture matters.</SlideSubtitle>
         </div>
         <GreenCard className="p-5">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-[hsl(82,85%,55%,0.2)]">
                 <th className="py-2.5 px-3 text-left text-xs text-muted-foreground font-light">Feature</th>
-                <th className="py-2.5 px-3 text-left text-xs text-[hsl(210,100%,50%)] font-medium">● W3AI (Solana)</th>
+                <th className="py-2.5 px-3 text-left text-xs text-[hsl(82,85%,55%)] font-medium">● W3AI (Solana)</th>
                 <th className="py-2.5 px-3 text-left text-xs text-muted-foreground font-light">ASI Alliance (Ethereum)</th>
               </tr>
             </thead>
@@ -823,7 +816,7 @@ const slides: Slide[] = [
               ].map(([f, w, a]) => (
                 <tr key={f} className="border-b border-border/30">
                   <td className="py-2.5 px-3 font-medium text-foreground text-xs">{f}</td>
-                  <td className="py-2.5 px-3 text-[hsl(210,100%,50%)] text-xs font-light">{w}</td>
+                  <td className="py-2.5 px-3 text-[hsl(82,85%,55%)] text-xs font-light">{w}</td>
                   <td className="py-2.5 px-3 text-muted-foreground text-xs font-light">{a}</td>
                 </tr>
               ))}
@@ -838,7 +831,7 @@ const slides: Slide[] = [
           ].map(s => (
             <GreenCard key={s.label} className="p-4 text-center space-y-2">
               <s.icon className="w-5 h-5 text-[hsl(82,85%,55%)] mx-auto" />
-              <p className="text-sm font-bold text-foreground">{s.value}</p>
+              <p className="text-sm font-medium text-foreground">{s.value}</p>
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{s.label}</p>
             </GreenCard>
           ))}
@@ -850,30 +843,30 @@ const slides: Slide[] = [
   {
     id: "universal-intelligence",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">A Universal Intelligence Layer</h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">
-            W3AI delivers curated, real-time intelligence across <span className="font-bold text-foreground">45 market verticals</span> in <span className="font-bold text-foreground">45 languages</span>, empowering data-driven decisions with <span className="font-bold text-foreground">13K+ AI Agents</span>.
-          </p>
+          <SlideTitle>A Universal Intelligence Layer</SlideTitle>
+          <SlideSubtitle>
+            W3AI delivers curated, real-time intelligence across 45 market verticals in 45 languages, empowering data-driven decisions with 13K+ AI Agents.
+          </SlideSubtitle>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
           {[
-            { icon: Brain, label: "AI", color: "text-emerald-400" },
-            { icon: LayoutGrid, label: "Blockchain", color: "text-cyan-400" },
-            { icon: CircleDollarSign, label: "DeFi / DeFAI", color: "text-emerald-400" },
-            { icon: Landmark, label: "Fintech", color: "text-amber-400" },
-            { icon: Monitor, label: "Gaming", color: "text-pink-400" },
-            { icon: Cpu, label: "Quantum", color: "text-indigo-400" },
-            { icon: Shield, label: "Cybersecurity", color: "text-lime-400" },
-            { icon: Heart, label: "Healthcare", color: "text-rose-400" },
-            { icon: Truck, label: "Supply Chain", color: "text-teal-400" },
-            { icon: TrendingUp, label: "Venture Capital", color: "text-orange-400" },
-            { icon: Leaf, label: "ESG Analytics", color: "text-green-400" },
-            { icon: Cloud, label: "SaaS", color: "text-violet-400" },
+            { icon: Brain, label: "AI" },
+            { icon: LayoutGrid, label: "Blockchain" },
+            { icon: CircleDollarSign, label: "DeFi / DeFAI" },
+            { icon: Landmark, label: "Fintech" },
+            { icon: Monitor, label: "Gaming" },
+            { icon: Cpu, label: "Quantum" },
+            { icon: Shield, label: "Cybersecurity" },
+            { icon: Heart, label: "Healthcare" },
+            { icon: Truck, label: "Supply Chain" },
+            { icon: TrendingUp, label: "Venture Capital" },
+            { icon: Leaf, label: "ESG Analytics" },
+            { icon: Cloud, label: "SaaS" },
           ].map(v => (
             <GreenCard key={v.label} className="p-3 text-center space-y-2">
-              <v.icon className={`w-5 h-5 ${v.color} mx-auto`} />
+              <v.icon className="w-5 h-5 text-[hsl(82,85%,55%)] mx-auto" />
               <p className="text-[10px] font-medium text-foreground">{v.label}</p>
             </GreenCard>
           ))}
@@ -885,7 +878,7 @@ const slides: Slide[] = [
             { value: "13K+", label: "AI Agents" },
           ].map(s => (
             <GreenCard key={s.label} className="p-4 text-center space-y-1">
-              <p className="text-2xl font-bold text-[hsl(210,100%,50%)]">{s.value}</p>
+              <p className="text-2xl font-extralight text-[hsl(82,85%,55%)]">{s.value}</p>
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{s.label}</p>
             </GreenCard>
           ))}
@@ -897,12 +890,12 @@ const slides: Slide[] = [
   {
     id: "w3ai-opportunity",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">The W3AI <span className="text-[hsl(82,85%,55%)]">Opportunity</span></h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">
-            We are at the intersection of the two most transformative technology trends: <span className="font-bold text-foreground">AI and Web3</span>. W3AI is uniquely positioned to lead the decentralized intelligence revolution.
-          </p>
+          <SlideTitle>The W3AI Opportunity</SlideTitle>
+          <SlideSubtitle>
+            We are at the intersection of the two most transformative technology trends: AI and Web3. W3AI is uniquely positioned to lead the decentralized intelligence revolution.
+          </SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {[
@@ -911,9 +904,7 @@ const slides: Slide[] = [
             { icon: Coins, title: "Robust Token Utility", desc: "The W3AI token is integral to a growing, decentralized knowledge economy with deflationary mechanics." },
           ].map(c => (
             <GreenCard key={c.title} className="p-6 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[hsl(210,100%,50%,0.1)] border border-[hsl(210,100%,50%,0.2)] flex items-center justify-center">
-                <c.icon className="w-5 h-5 text-[hsl(210,100%,50%)]" />
-              </div>
+              <c.icon className="w-5 h-5 text-[hsl(82,85%,55%)]" />
               <h3 className="text-base font-medium text-foreground">{c.title}</h3>
               <p className="text-sm font-light text-muted-foreground leading-relaxed">{c.desc}</p>
             </GreenCard>
@@ -925,9 +916,7 @@ const slides: Slide[] = [
             { icon: CheckSquare, title: "Transparent Governance", desc: "Community-driven DAO with on-chain treasury management ensures long-term, sustainable growth." },
           ].map(c => (
             <GreenCard key={c.title} className="p-6 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[hsl(210,100%,50%,0.1)] border border-[hsl(210,100%,50%,0.2)] flex items-center justify-center">
-                <c.icon className="w-5 h-5 text-[hsl(210,100%,50%)]" />
-              </div>
+              <c.icon className="w-5 h-5 text-[hsl(82,85%,55%)]" />
               <h3 className="text-base font-medium text-foreground">{c.title}</h3>
               <p className="text-sm font-light text-muted-foreground leading-relaxed">{c.desc}</p>
             </GreenCard>
@@ -943,12 +932,12 @@ const slides: Slide[] = [
       <div className="flex flex-col items-center justify-center h-full gap-8 max-w-3xl mx-auto text-center relative">
         <div className="space-y-6">
           <p className="text-2xl md:text-3xl font-light text-muted-foreground">Web3 decentralizes ownership.</p>
-          <p className="text-2xl md:text-3xl font-medium text-foreground">W3AI decentralizes <span className="text-[hsl(210,100%,50%)]">intelligence</span>.</p>
-          <p className="text-base font-light text-muted-foreground max-w-xl mx-auto">Together, we create an unstoppable force driving the future of AI-powered data intelligence.</p>
+          <p className="text-2xl md:text-3xl font-light text-muted-foreground">W3AI decentralizes <span className="text-[hsl(82,85%,55%)]">intelligence</span>.</p>
+          <SlideSubtitle>Together, we create an unstoppable force driving the future of AI-powered data intelligence.</SlideSubtitle>
         </div>
         <GreenCard className="p-6 max-w-xl text-center">
           <p className="text-sm font-light text-muted-foreground leading-relaxed">
-            We are not just building AI; we are building the foundation for an entirely new <span className="text-[hsl(210,100%,50%)] font-medium">intelligence economy</span>. One where AI is not hoarded by a handful of corporations but is distributed, scalable, and accessible to all.
+            We are not just building AI; we are building the foundation for an entirely new <span className="text-[hsl(82,85%,55%)] font-medium">intelligence economy</span>. One where AI is not hoarded by a handful of corporations but is distributed, scalable, and accessible to all.
           </p>
         </GreenCard>
       </div>
@@ -960,14 +949,14 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col items-center justify-center h-full gap-6 max-w-3xl mx-auto text-center relative">
         <div className="space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground">The Future of AI is Here.<br /><span className="text-[hsl(210,100%,50%)]">Be Part of It.</span></h2>
-          <p className="text-base font-light text-muted-foreground max-w-xl mx-auto">The future is decentralized, autonomous, and community-driven. Join us in creating an AI-powered economy where intelligence is free, trustless, and open to all.</p>
+          <SlideTitle>The Future of AI is Here</SlideTitle>
+          <SlideSubtitle>The future is decentralized, autonomous, and community-driven. Join us in creating an AI-powered economy where intelligence is free, trustless, and open to all.</SlideSubtitle>
         </div>
         <div className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-[hsl(82,85%,55%,0.3)] bg-[hsl(82,85%,55%,0.05)] text-foreground text-sm font-medium">
           Let's explore the future — together <ArrowRight className="w-4 h-4" />
         </div>
         <GreenCard className="p-6 space-y-3 max-w-sm">
-          <h3 className="text-sm font-bold text-foreground">Contact Information</h3>
+          <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Contact Information</h3>
           <p className="text-sm text-foreground">Bryan Feinberg / CTO W3AI</p>
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <Mail className="w-4 h-4" /> bf@tmrw-digital.com
