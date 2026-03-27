@@ -949,8 +949,8 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col items-center justify-center h-full gap-6 max-w-3xl mx-auto text-center relative">
         <div className="space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground">The Future of AI is Here.<br /><span className="text-[hsl(210,100%,50%)]">Be Part of It.</span></h2>
-          <p className="text-base font-light text-muted-foreground max-w-xl mx-auto">The future is decentralized, autonomous, and community-driven. Join us in creating an AI-powered economy where intelligence is free, trustless, and open to all.</p>
+          <SlideTitle>The Future of AI is Here</SlideTitle>
+          <SlideSubtitle>The future is decentralized, autonomous, and community-driven. Join us in creating an AI-powered economy where intelligence is free, trustless, and open to all.</SlideSubtitle>
         </div>
         <div className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-[hsl(82,85%,55%,0.3)] bg-[hsl(82,85%,55%,0.05)] text-foreground text-sm font-medium">
           Let's explore the future — together <ArrowRight className="w-4 h-4" />
