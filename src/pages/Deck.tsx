@@ -725,7 +725,7 @@ const slides: Slide[] = [
             </GreenCard>
           </GreenCard>
           <GreenCard className="p-6 space-y-4">
-            <h3 className="text-base font-bold text-foreground">Fundraising Rounds</h3>
+            <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Fundraising Rounds</h3>
             <table className="w-full text-xs">
               <thead>
                 <tr className="border-b border-border/30">
