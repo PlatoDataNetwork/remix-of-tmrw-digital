@@ -1008,9 +1008,10 @@ const slides: Slide[] = [
           <div className="absolute inset-0 border-2 border-[hsl(82,85%,55%,0.15)] rounded-2xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[hsl(82,85%,55%,0.4)] via-[hsl(82,85%,55%,0.2)] to-transparent" />
         </div>
-        <SlideSubtitle>
-          The browser is no longer a window — it is the execution environment for AI, Identity, Money and Sovereignty.
-        </SlideSubtitle>
+        <div className="flex justify-center gap-8 mt-2">
+          <StatBlock value="740M" label="Global Crypto Owners" />
+          <StatBlock value="30M" label="Active Stablecoin Addresses" />
+        </div>
       </div>
     ),
   },
