@@ -694,8 +694,10 @@ const slides: Slide[] = [
   {
     id: "capital-strategy",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
-        <SlideTitle>Tokenomics & Capital Strategy</SlideTitle>
+      <div className="flex flex-col justify-center items-center h-full gap-6 max-w-3xl mx-auto relative">
+        <div className="text-center w-full">
+          <SlideTitle>Tokenomics &amp; Capital Strategy</SlideTitle>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <GreenCard className="p-6 space-y-4">
             <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Token Allocation</h3>
@@ -736,10 +738,11 @@ const slides: Slide[] = [
               </thead>
               <tbody>
                 {[
-                  ["Private Pre-Sale", "$0.001875", "$3.75M"],
+                  ["Private Pre-Sale", "$0.001875", "$3.7M"],
                   ["Private Pre-Sale", "$0.003750", "$7.5M"],
                   ["SEED Round", "$0.007500", "$15M"],
                   ["IDO / TGE", "$0.015000", "$30M"],
+                  ["Liquidity Pool", "—", "$15M"],
                 ].map(([r, p, f], i) => (
                   <tr key={i} className="border-b border-border/20">
                     <td className="py-2.5 font-medium text-foreground">{r}</td>
@@ -749,6 +752,10 @@ const slides: Slide[] = [
                 ))}
               </tbody>
             </table>
+            <GreenCard className="p-3 space-y-1">
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Capital Target</p>
+              <p className="text-xs font-light text-foreground">Strategic rounds designed to fund development, liquidity, and go-to-market execution</p>
+            </GreenCard>
           </GreenCard>
         </div>
       </div>
