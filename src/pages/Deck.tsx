@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Globe, Shield, Zap, Bot, Wallet, BarChart3, Lock, Search, Layers, Settings, Network, ArrowLeftRight, Brain, LayoutGrid, Coins, Code, CircleDollarSign, Landmark } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Globe, Shield, Zap, Bot, Wallet, BarChart3, Lock, Search, Layers, Settings, Network, ArrowLeftRight, Brain, LayoutGrid, Coins, Code, CircleDollarSign, Landmark, Users, Key, Gift, CheckSquare, Swords, Heart, Truck, TrendingUp, Cloud, Leaf, Monitor, Link2, FileCode, ShieldCheck, Target, Mail, Phone, ArrowRight, Cpu, Database, Activity } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
