@@ -723,7 +723,7 @@ const slides: Slide[] = [
             </div>
             <GreenCard className="p-3 space-y-1">
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Deflationary Measure</p>
-              <p className="text-xs font-light text-foreground">20% of tokens used for platform services will be burned</p>
+              <p className="text-xs font-light text-foreground">20% of tokens used for platform services will be burned with an active for profit treasury</p>
             </GreenCard>
           </GreenCard>
           <GreenCard className="p-6 space-y-4">
