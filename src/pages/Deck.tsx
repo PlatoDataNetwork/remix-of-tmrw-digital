@@ -829,8 +829,8 @@ const slides: Slide[] = [
         </GreenCard>
         <div className="grid grid-cols-3 gap-4">
           {[
-            { icon: Zap, value: "4000x faster", label: "Speed Advantage" },
-            { icon: Target, value: "99.9% lower fees", label: "Cost Efficiency" },
+            { icon: Zap, value: "500K+", label: "Developer Communities", sub: "Innovators" },
+            { icon: Target, value: "80%", label: "Pareto Rule", sub: "Protocol Integration" },
             { icon: Settings, value: "Native integration", label: "AI Optimized" },
           ].map(s => (
             <GreenCard key={s.label} className="p-4 text-center space-y-2">
