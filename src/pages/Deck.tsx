@@ -843,12 +843,12 @@ const slides: Slide[] = [
   {
     id: "universal-intelligence",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">A Universal Intelligence Layer</h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">
-            W3AI delivers curated, real-time intelligence across <span className="font-bold text-foreground">45 market verticals</span> in <span className="font-bold text-foreground">45 languages</span>, empowering data-driven decisions with <span className="font-bold text-foreground">13K+ AI Agents</span>.
-          </p>
+          <SlideTitle>A Universal Intelligence Layer</SlideTitle>
+          <SlideSubtitle>
+            W3AI delivers curated, real-time intelligence across 45 market verticals in 45 languages, empowering data-driven decisions with 13K+ AI Agents.
+          </SlideSubtitle>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
           {[
