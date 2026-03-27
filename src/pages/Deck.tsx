@@ -752,6 +752,10 @@ const slides: Slide[] = [
                 ))}
               </tbody>
             </table>
+            <GreenCard className="p-3 space-y-1">
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Capital Target</p>
+              <p className="text-xs font-light text-foreground">Strategic rounds designed to fund development, liquidity, and go-to-market execution</p>
+            </GreenCard>
           </GreenCard>
         </div>
       </div>
