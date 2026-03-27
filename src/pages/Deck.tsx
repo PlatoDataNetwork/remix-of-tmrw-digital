@@ -674,10 +674,8 @@ const slides: Slide[] = [
             { icon: CheckSquare, title: "Govern", items: ["Vote on protocol upgrades", "AI model integration decisions", "Treasury allocations via DAO"] },
           ].map(c => (
             <GreenCard key={c.title} className="p-5 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[hsl(210,100%,50%,0.1)] border border-[hsl(210,100%,50%,0.2)] flex items-center justify-center">
-                <c.icon className="w-5 h-5 text-[hsl(210,100%,50%)]" />
-              </div>
-              <h3 className="text-sm font-bold text-foreground">{c.title}</h3>
+              <c.icon className="w-5 h-5 text-[hsl(82,85%,55%)]" />
+              <h3 className="text-sm font-medium text-foreground">{c.title}</h3>
               <div className="space-y-1.5">
                 {c.items.map(item => (
                   <div key={item} className="flex gap-2 items-start">
