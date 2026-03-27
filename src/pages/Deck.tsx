@@ -726,9 +726,13 @@ const slides: Slide[] = [
               <p className="text-xs font-light text-foreground">20% of tokens used for platform services will be burned with an active for profit treasury.</p>
             </GreenCard>
           </GreenCard>
-          <GreenCard className="p-6 space-y-4">
+          <GreenCard className="p-6 space-y-4 flex flex-col">
             <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Fundraising Rounds</h3>
-            <div className="space-y-3">
+            <div className="flex justify-between text-[10px] uppercase tracking-wider mb-[-8px]">
+              <span className="text-muted-foreground font-medium">Round</span>
+              <span className="text-muted-foreground font-medium">FDV</span>
+            </div>
+            <div className="space-y-3 flex-1">
               {[
                 { label: "Private Pre-Sale", fdv: "$3.7M", color: "bg-purple-400", width: "12%" },
                 { label: "Private Pre-Sale", fdv: "$7.5M", color: "bg-purple-500", width: "25%" },
@@ -747,9 +751,9 @@ const slides: Slide[] = [
                 </div>
               ))}
             </div>
-            <GreenCard className="p-2 space-y-0.5">
+            <GreenCard className="p-3 space-y-1 mt-auto">
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Capital Target</p>
-              <p className="text-[11px] font-light text-foreground leading-tight">Strategic rounds designed to fund development, liquidity, and go-to-market execution</p>
+              <p className="text-xs font-light text-foreground">Strategic rounds designed to fund development, liquidity, and go-to-market execution.</p>
             </GreenCard>
           </GreenCard>
         </div>
