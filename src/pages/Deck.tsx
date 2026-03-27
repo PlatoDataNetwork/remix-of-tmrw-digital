@@ -937,7 +937,7 @@ const slides: Slide[] = [
         </div>
         <GreenCard className="p-6 max-w-xl text-center">
           <p className="text-sm font-light text-muted-foreground leading-relaxed">
-            We are not just building AI; we are building the foundation for an entirely new <span className="text-[hsl(210,100%,50%)] font-medium">intelligence economy</span>. One where AI is not hoarded by a handful of corporations but is distributed, scalable, and accessible to all.
+            We are not just building AI; we are building the foundation for an entirely new <span className="text-[hsl(82,85%,55%)] font-medium">intelligence economy</span>. One where AI is not hoarded by a handful of corporations but is distributed, scalable, and accessible to all.
           </p>
         </GreenCard>
       </div>
