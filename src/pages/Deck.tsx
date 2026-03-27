@@ -744,7 +744,7 @@ const slides: Slide[] = [
                 <div key={i} className="space-y-1">
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground font-light">{a.label}</span>
-                    <span className="text-muted-foreground font-light">{a.fdv}</span>
+                    <span className="text-muted-foreground font-light text-xs">{a.fdv}</span>
                   </div>
                   <div className="w-full h-1 bg-border/30 rounded-full overflow-hidden">
                     <div className={`h-full ${a.color} rounded-full`} style={{ width: a.width }} />
