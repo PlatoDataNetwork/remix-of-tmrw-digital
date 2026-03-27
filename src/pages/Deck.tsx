@@ -1009,7 +1009,7 @@ const slides: Slide[] = [
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[hsl(82,85%,55%,0.4)] via-[hsl(82,85%,55%,0.2)] to-transparent" />
         </div>
         <SlideSubtitle>
-          A MacOS Web3 AI Browser built on Firefox. The browser is no longer a window — it is the execution environment for AI, identity, and money.
+          A MacOS Web3 AI Browser built on Firefox. The browser is no longer a window — it is the execution environment for AI, Identity, Money and Sovereignty.
         </SlideSubtitle>
       </div>
     ),
