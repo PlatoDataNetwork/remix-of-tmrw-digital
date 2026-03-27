@@ -546,10 +546,10 @@ const slides: Slide[] = [
   {
     id: "built-on-solana",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Built on <span className="text-[hsl(210,100%,50%)]">Solana</span><br />for Uncompromising Performance</h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">Solana's unique architecture provides the high-performance infrastructure necessary for AI-driven applications demanding real-time interactions.</p>
+          <SlideTitle>Built on Solana</SlideTitle>
+          <SlideSubtitle>Solana's unique architecture provides the high-performance infrastructure necessary for AI-driven applications demanding real-time interactions.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
@@ -560,7 +560,7 @@ const slides: Slide[] = [
           ].map(s => (
             <GreenCard key={s.label} className="p-5 text-center space-y-2">
               <s.icon className="w-5 h-5 text-[hsl(82,85%,55%)] mx-auto" />
-              <p className="text-xl font-bold text-foreground">{s.value}</p>
+              <p className="text-xl font-extralight text-foreground">{s.value}</p>
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{s.label}</p>
             </GreenCard>
           ))}
@@ -568,7 +568,7 @@ const slides: Slide[] = [
         <GreenCard className="p-5 space-y-3">
           <div className="flex items-center gap-3">
             <ArrowLeftRight className="w-5 h-5 text-[hsl(82,85%,55%)]" />
-            <h3 className="text-base font-medium text-foreground">Cross-Chain Architecture</h3>
+            <h3 className="text-sm font-medium text-foreground">Cross-Chain Architecture</h3>
           </div>
           <p className="text-xs font-light text-muted-foreground">W3AI extends beyond Solana with full cross-chain interoperability — supporting all EVM and BSC-based dApps for seamless multi-chain AI deployment.</p>
           <div className="grid grid-cols-3 gap-3">
