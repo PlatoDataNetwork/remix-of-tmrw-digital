@@ -731,7 +731,7 @@ const slides: Slide[] = [
             <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Fundraising Rounds</h3>
             <div className="flex justify-between text-[10px] uppercase tracking-wider mb-[-8px]">
               <span className="text-muted-foreground font-medium">Round</span>
-              <span className="text-muted-foreground font-medium">FDV</span>
+              <span className="text-muted-foreground font-medium text-xs">FDV</span>
             </div>
             <div className="space-y-3 flex-1">
               {[
