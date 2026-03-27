@@ -694,11 +694,11 @@ const slides: Slide[] = [
   {
     id: "capital-strategy",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center">Tokenomics & Capital Strategy</h2>
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
+        <SlideTitle>Tokenomics & Capital Strategy</SlideTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <GreenCard className="p-6 space-y-4">
-            <h3 className="text-base font-bold text-foreground">Token Allocation</h3>
+            <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Token Allocation</h3>
             <div className="space-y-3">
               {[
                 { label: "Treasury / Foundation", pct: "52.5%", color: "bg-blue-500", width: "52.5%" },
