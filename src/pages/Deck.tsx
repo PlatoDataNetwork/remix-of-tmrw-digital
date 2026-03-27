@@ -729,22 +729,19 @@ const slides: Slide[] = [
           </GreenCard>
           <GreenCard className="p-6 space-y-4 flex flex-col">
             <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Fundraising Rounds</h3>
-            <div className="flex justify-between text-[10px] uppercase tracking-wider mb-[-8px]">
-              <span className="text-muted-foreground font-medium">Round</span>
-              <span className="text-muted-foreground font-medium text-xs">FDV</span>
-            </div>
             <div className="space-y-3 flex-1">
               {[
-                { label: "Private Pre-Sale", fdv: "$3.7M", color: "bg-purple-400", width: "12%" },
-                { label: "Private Pre-Sale", fdv: "$7.5M", color: "bg-purple-500", width: "25%" },
-                { label: "SEED Round", fdv: "$15M", color: "bg-cyan-400", width: "50%" },
-                { label: "IDO / TGE", fdv: "$30M", color: "bg-blue-500", width: "100%" },
-                { label: "Market Makers", fdv: "$30M", color: "bg-amber-400", width: "100%" },
+                { label: "Foundations", fdv: "$1M FDV", color: "bg-green-400", width: "3%" },
+                { label: "Private Pre-Sale", fdv: "$3.7M FDV", color: "bg-purple-400", width: "12%" },
+                { label: "Private Pre-Sale", fdv: "$7.5M FDV", color: "bg-purple-500", width: "25%" },
+                { label: "SEED Round", fdv: "$15M FDV", color: "bg-cyan-400", width: "50%" },
+                { label: "IDO / TGE", fdv: "$30M FDV", color: "bg-blue-500", width: "100%" },
+                { label: "Market Makers", fdv: "$30M FDV", color: "bg-amber-400", width: "100%" },
               ].map((a, i) => (
                 <div key={i} className="space-y-1">
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground font-light">{a.label}</span>
-                    <span className="text-muted-foreground font-light text-xs">{a.fdv}</span>
+                    <span className="text-muted-foreground font-light">{a.fdv}</span>
                   </div>
                   <div className="w-full h-1 bg-border/30 rounded-full overflow-hidden">
                     <div className={`h-full ${a.color} rounded-full`} style={{ width: a.width }} />
