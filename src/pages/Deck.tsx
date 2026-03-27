@@ -803,7 +803,7 @@ const slides: Slide[] = [
             <thead>
               <tr className="border-b border-[hsl(82,85%,55%,0.2)]">
                 <th className="py-2.5 px-3 text-left text-xs text-muted-foreground font-light">Feature</th>
-                <th className="py-2.5 px-3 text-left text-xs text-[hsl(210,100%,50%)] font-medium">● W3AI (Solana)</th>
+                <th className="py-2.5 px-3 text-left text-xs text-[hsl(82,85%,55%)] font-medium">● W3AI (Solana)</th>
                 <th className="py-2.5 px-3 text-left text-xs text-muted-foreground font-light">ASI Alliance (Ethereum)</th>
               </tr>
             </thead>
