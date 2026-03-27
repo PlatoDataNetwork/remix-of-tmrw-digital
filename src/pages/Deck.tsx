@@ -476,10 +476,10 @@ const slides: Slide[] = [
   {
     id: "ai-revolution",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
         <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">The AI Revolution is Here,<br /><span className="text-[hsl(210,100%,50%)]">But Intelligence is Trapped.</span></h2>
-          <p className="text-sm md:text-base font-light text-muted-foreground max-w-2xl mx-auto">Today's AI landscape is dominated by tech monopolies, creating opaque data silos, limiting innovation, and concentrating power.</p>
+          <SlideTitle>The AI Revolution is Here</SlideTitle>
+          <SlideSubtitle>Today's AI landscape is dominated by tech monopolies, creating opaque data silos, limiting innovation, and concentrating power.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <GreenCard className="p-6 space-y-4">
