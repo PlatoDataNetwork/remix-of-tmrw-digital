@@ -904,9 +904,7 @@ const slides: Slide[] = [
             { icon: Coins, title: "Robust Token Utility", desc: "The W3AI token is integral to a growing, decentralized knowledge economy with deflationary mechanics." },
           ].map(c => (
             <GreenCard key={c.title} className="p-6 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[hsl(210,100%,50%,0.1)] border border-[hsl(210,100%,50%,0.2)] flex items-center justify-center">
-                <c.icon className="w-5 h-5 text-[hsl(210,100%,50%)]" />
-              </div>
+              <c.icon className="w-5 h-5 text-[hsl(82,85%,55%)]" />
               <h3 className="text-base font-medium text-foreground">{c.title}</h3>
               <p className="text-sm font-light text-muted-foreground leading-relaxed">{c.desc}</p>
             </GreenCard>
