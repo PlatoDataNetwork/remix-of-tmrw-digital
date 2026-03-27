@@ -74,7 +74,7 @@ function SlideTitle({ children }: { children: React.ReactNode }) {
 }
 
 function SlideSubtitle({ children }: { children: React.ReactNode }) {
-  return <p className="text-base md:text-lg font-light text-muted-foreground leading-relaxed max-w-2xl">{children}</p>;
+  return <p className="text-base md:text-lg font-light text-muted-foreground leading-relaxed max-w-2xl mx-auto">{children}</p>;
 }
 
 function BulletList({ items }: { items: { bold: string; text: string }[] }) {
