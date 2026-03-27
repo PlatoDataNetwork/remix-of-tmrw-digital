@@ -781,7 +781,7 @@ const slides: Slide[] = [
         <GreenCard className="p-5 text-center space-y-2">
           <div className="flex items-center justify-center gap-3">
             <Globe className="w-5 h-5 text-muted-foreground" />
-            <span className="text-2xl font-bold text-foreground">2,000+</span>
+            <span className="text-2xl font-extralight text-foreground">2,000+</span>
           </div>
           <p className="text-xs font-light text-muted-foreground">Syndication network of publisher sites where we distribute vertical content and intelligence</p>
         </GreenCard>
