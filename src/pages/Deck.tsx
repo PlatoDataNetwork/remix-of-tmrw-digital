@@ -429,7 +429,7 @@ const slides: Slide[] = [
         </div>
         <div className="relative z-10 flex flex-col items-center gap-6">
           <div className="space-y-3">
-            <p className="text-sm md:text-base uppercase tracking-[0.5em] font-bold" style={{ color: "hsl(82, 85%, 55%)" }}>W3AI</p>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white leading-[1.1]">W3AI</h1>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white leading-[1.1]">
               Secure Network Protocol
               <br />
