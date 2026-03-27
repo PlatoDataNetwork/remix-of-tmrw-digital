@@ -837,6 +837,7 @@ const slides: Slide[] = [
               <s.icon className="w-5 h-5 text-[hsl(82,85%,55%)] mx-auto" />
               <p className="text-sm font-medium text-foreground">{s.value}</p>
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{s.label}</p>
+              {s.sub && <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{s.sub}</p>}
             </GreenCard>
           ))}
         </div>
