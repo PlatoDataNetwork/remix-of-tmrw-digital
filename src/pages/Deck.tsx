@@ -878,7 +878,7 @@ const slides: Slide[] = [
             { value: "13K+", label: "AI Agents" },
           ].map(s => (
             <GreenCard key={s.label} className="p-4 text-center space-y-1">
-              <p className="text-2xl font-bold text-[hsl(210,100%,50%)]">{s.value}</p>
+              <p className="text-2xl font-extralight text-[hsl(82,85%,55%)]">{s.value}</p>
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{s.label}</p>
             </GreenCard>
           ))}
