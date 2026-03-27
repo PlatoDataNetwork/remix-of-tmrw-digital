@@ -932,8 +932,8 @@ const slides: Slide[] = [
       <div className="flex flex-col items-center justify-center h-full gap-8 max-w-3xl mx-auto text-center relative">
         <div className="space-y-6">
           <p className="text-2xl md:text-3xl font-light text-muted-foreground">Web3 decentralizes ownership.</p>
-          <p className="text-2xl md:text-3xl font-medium text-foreground">W3AI decentralizes <span className="text-[hsl(210,100%,50%)]">intelligence</span>.</p>
-          <p className="text-base font-light text-muted-foreground max-w-xl mx-auto">Together, we create an unstoppable force driving the future of AI-powered data intelligence.</p>
+          <p className="text-2xl md:text-3xl font-light text-muted-foreground">W3AI decentralizes <span className="text-[hsl(82,85%,55%)]">intelligence</span>.</p>
+          <SlideSubtitle>Together, we create an unstoppable force driving the future of AI-powered data intelligence.</SlideSubtitle>
         </div>
         <GreenCard className="p-6 max-w-xl text-center">
           <p className="text-sm font-light text-muted-foreground leading-relaxed">
