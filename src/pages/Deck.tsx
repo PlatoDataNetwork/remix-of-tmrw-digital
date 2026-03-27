@@ -1000,18 +1000,17 @@ const slides: Slide[] = [
     id: "vision",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
+        <div className="text-center">
+          <SlideTitle>Rise of The Machines</SlideTitle>
+        </div>
         <div className="relative rounded-2xl overflow-hidden">
           <img src={whitepaperHero} alt="W3AI Vision" className="w-full h-[260px] md:h-[340px] object-cover" />
           <div className="absolute inset-0 border-2 border-[hsl(82,85%,55%,0.15)] rounded-2xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[hsl(82,85%,55%,0.4)] via-[hsl(82,85%,55%,0.2)] to-transparent" />
         </div>
-        <div className="space-y-3">
-          <SlideTitle>W3AI TMRW Browser</SlideTitle>
-          <SlideSubtitle>
-            A macOS desktop Web3 AI Browser built on Firefox. The browser is no longer a window — 
-            it is the execution environment for AI, identity, and money.
-          </SlideSubtitle>
-        </div>
+        <SlideSubtitle>
+          A MacOS Web3 AI Browser built on Firefox. The browser is no longer a window — it is the execution environment for AI, identity, and money.
+        </SlideSubtitle>
       </div>
     ),
   },
