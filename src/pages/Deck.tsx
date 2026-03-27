@@ -825,7 +825,7 @@ const slides: Slide[] = [
           {[
             { name: "0x", role: "DEX aggregation & routing" },
             { name: "Changelly", role: "Instant exchange & on-ramp" },
-            { name: "CLS", role: "FX settlement infrastructure" },
+            { name: "CLS", role: "Market Making. Exchange Gateway." },
             { name: "Dentity", role: "Identity & anti-sybil" },
             { name: "G-20 Group", role: "Liquidity & treasury" },
             { name: "Hacken", role: "Security & audits" },
