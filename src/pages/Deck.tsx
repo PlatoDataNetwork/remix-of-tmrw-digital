@@ -723,35 +723,30 @@ const slides: Slide[] = [
             </div>
             <GreenCard className="p-3 space-y-1">
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Deflationary Measure</p>
-              <p className="text-xs font-light text-foreground">20% of tokens used for platform services will be burned with an active for profit treasury</p>
+              <p className="text-xs font-light text-foreground">20% of tokens used for platform services will be burned with an active for profit treasury.</p>
             </GreenCard>
           </GreenCard>
           <GreenCard className="p-6 space-y-4">
             <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Fundraising Rounds</h3>
-            <table className="w-full text-xs">
-              <thead>
-                <tr className="border-b border-border/30">
-                  <th className="py-2 text-left font-medium text-muted-foreground text-[10px] uppercase tracking-wider">Round</th>
-                  <th className="py-2 text-right font-medium text-[hsl(82,85%,55%)] text-[10px] uppercase tracking-wider">Price</th>
-                  <th className="py-2 text-right font-medium text-muted-foreground text-[10px] uppercase tracking-wider">FDV</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  ["Private Pre-Sale", "$0.001875", "$3.7M"],
-                  ["Private Pre-Sale", "$0.003750", "$7.5M"],
-                  ["SEED Round", "$0.007500", "$15M"],
-                  ["IDO / TGE", "$0.015000", "$30M"],
-                  ["Liquidity Pool", "—", "$15M"],
-                ].map(([r, p, f], i) => (
-                  <tr key={i} className="border-b border-border/20">
-                    <td className="py-2.5 font-medium text-foreground">{r}</td>
-                    <td className="py-2.5 text-right text-[hsl(82,85%,55%)]">{p}</td>
-                    <td className="py-2.5 text-right text-muted-foreground">{f}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="space-y-3">
+              {[
+                { label: "Private Pre-Sale", fdv: "$3.7M", color: "bg-purple-400", width: "12%" },
+                { label: "Private Pre-Sale", fdv: "$7.5M", color: "bg-purple-500", width: "25%" },
+                { label: "SEED Round", fdv: "$15M", color: "bg-cyan-400", width: "50%" },
+                { label: "IDO / TGE", fdv: "$30M", color: "bg-blue-500", width: "100%" },
+                { label: "Liquidity Pool", fdv: "$15M", color: "bg-amber-400", width: "50%" },
+              ].map((a, i) => (
+                <div key={i} className="space-y-1">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-muted-foreground font-light">{a.label}</span>
+                    <span className="text-muted-foreground font-light">{a.fdv}</span>
+                  </div>
+                  <div className="w-full h-1 bg-border/30 rounded-full overflow-hidden">
+                    <div className={`h-full ${a.color} rounded-full`} style={{ width: a.width }} />
+                  </div>
+                </div>
+              ))}
+            </div>
             <GreenCard className="p-2 space-y-0.5">
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Capital Target</p>
               <p className="text-[11px] font-light text-foreground leading-tight">Strategic rounds designed to fund development, liquidity, and go-to-market execution</p>
