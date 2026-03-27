@@ -592,10 +592,10 @@ const slides: Slide[] = [
   {
     id: "anatomy-network",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">The Anatomy of W3AI's<br /><span className="text-[hsl(210,100%,50%)]">Intelligence Network</span></h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">A multi-faceted ecosystem designed to develop, deploy, and commercialize vertically integrated AI applications through autonomous agents.</p>
+          <SlideTitle>The Anatomy of W3AI's Intelligence Network</SlideTitle>
+          <SlideSubtitle>A multi-faceted ecosystem designed to develop, deploy, and commercialize vertically integrated AI applications through autonomous agents.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {[
