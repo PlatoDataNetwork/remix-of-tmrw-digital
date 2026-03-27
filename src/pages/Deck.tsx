@@ -451,7 +451,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-5 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Important Disclaimer</SlideTitle>
+        <div className="text-center"><SlideTitle>Important Disclaimer</SlideTitle></div>
         <div className="space-y-3 text-left">
           <p className="text-xs font-light text-muted-foreground leading-relaxed">
             <span className="font-medium text-[hsl(82,85%,55%)]">Not an Offering.</span> This document does not constitute an offer to sell, or a solicitation of an offer to buy, any digital securities, tokens, or other financial instruments. No sale or offering of securities or tokens is being made pursuant to this presentation. Any future offering of digital securities or tokens would be conducted solely through a formal prospectus, offering memorandum, or equivalent disclosure document prepared in compliance with applicable securities laws and regulations.
