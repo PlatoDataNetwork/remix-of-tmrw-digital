@@ -956,7 +956,7 @@ const slides: Slide[] = [
           Let's explore the future — together <ArrowRight className="w-4 h-4" />
         </div>
         <GreenCard className="p-6 space-y-3 max-w-sm">
-          <h3 className="text-sm font-bold text-foreground">Contact Information</h3>
+          <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Contact Information</h3>
           <p className="text-sm text-foreground">Bryan Feinberg / CTO W3AI</p>
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <Mail className="w-4 h-4" /> bf@tmrw-digital.com
