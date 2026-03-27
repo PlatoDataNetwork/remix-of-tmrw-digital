@@ -748,11 +748,6 @@ const slides: Slide[] = [
                   </div>
                 </div>
               ))}
-                  <div className="w-full h-1 bg-border/30 rounded-full overflow-hidden">
-                    <div className={`h-full ${a.color} rounded-full`} style={{ width: a.width }} />
-                  </div>
-                </div>
-              ))}
             </div>
             <GreenCard className="p-3 space-y-1 mt-auto">
               <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Capital Target</p>
