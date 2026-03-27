@@ -517,23 +517,23 @@ const slides: Slide[] = [
   {
     id: "decentralized-ecosystem",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-4">
           <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">Our Solution</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">A Decentralized AI Ecosystem</h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">W3AI was founded on the principle that intelligence should be open, decentralized, and self-evolving. We are pioneering a trustless, transparent, and scalable AI ecosystem built on Web3 infrastructure.</p>
+          <SlideTitle>A Decentralized AI Ecosystem</SlideTitle>
+          <SlideSubtitle>W3AI was founded on the principle that intelligence should be open, decentralized, and self-evolving. We are pioneering a trustless, transparent, and scalable AI ecosystem built on Web3 infrastructure.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {[
-            { icon: Lock, title: "Open", desc: "For developers, users, and enterprises to build and access.", color: "text-blue-400" },
-            { icon: Shield, title: "Trustless", desc: "Eliminating bias and ensuring integrity through on-chain validation.", color: "text-purple-400" },
-            { icon: Users, title: "Accessible", desc: "Democratizing AI and removing centralized bottlenecks.", color: "text-cyan-400" },
-            { icon: Zap, title: "Autonomous", desc: "Self-evolving AI agents that learn, adapt, and optimize without intervention.", color: "text-yellow-400" },
-            { icon: Globe, title: "Scalable", desc: "Global infrastructure designed to handle millions of concurrent AI operations.", color: "text-green-400" },
+            { icon: Lock, title: "Open", desc: "For developers, users, and enterprises to build and access." },
+            { icon: Shield, title: "Trustless", desc: "Eliminating bias and ensuring integrity through on-chain validation." },
+            { icon: Users, title: "Accessible", desc: "Democratizing AI and removing centralized bottlenecks." },
+            { icon: Zap, title: "Autonomous", desc: "Self-evolving AI agents that learn, adapt, and optimize without intervention." },
+            { icon: Globe, title: "Scalable", desc: "Global infrastructure designed to handle millions of concurrent AI operations." },
           ].map(c => (
             <GreenCard key={c.title} className="p-4 space-y-2">
-              <c.icon className={`w-5 h-5 ${c.color}`} />
-              <h3 className={`text-sm font-medium ${c.color}`}>{c.title}</h3>
+              <c.icon className="w-5 h-5 text-[hsl(82,85%,55%)]" />
+              <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">{c.title}</h3>
               <p className="text-[11px] font-light text-muted-foreground leading-relaxed">{c.desc}</p>
             </GreenCard>
           ))}
