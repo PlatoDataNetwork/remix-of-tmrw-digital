@@ -890,12 +890,12 @@ const slides: Slide[] = [
   {
     id: "w3ai-opportunity",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">The W3AI <span className="text-[hsl(82,85%,55%)]">Opportunity</span></h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">
-            We are at the intersection of the two most transformative technology trends: <span className="font-bold text-foreground">AI and Web3</span>. W3AI is uniquely positioned to lead the decentralized intelligence revolution.
-          </p>
+          <SlideTitle>The W3AI Opportunity</SlideTitle>
+          <SlideSubtitle>
+            We are at the intersection of the two most transformative technology trends: AI and Web3. W3AI is uniquely positioned to lead the decentralized intelligence revolution.
+          </SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {[
