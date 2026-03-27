@@ -758,11 +758,11 @@ const slides: Slide[] = [
   {
     id: "proven-traction",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
           <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">Market Validated</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Proven Traction and Revenue</h2>
-          <p className="text-sm font-light text-muted-foreground max-w-2xl mx-auto">After three years of extensive development and beta testing, our platform has demonstrated significant organic growth and commercial viability.</p>
+          <SlideTitle>Proven Traction and Revenue</SlideTitle>
+          <SlideSubtitle>After three years of extensive development and beta testing, our platform has demonstrated significant organic growth and commercial viability.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {[
@@ -771,9 +771,9 @@ const slides: Slide[] = [
             { icon: CircleDollarSign, value: "$1.3M+", label: "Beta Revenue", desc: "Proving the model's ability to generate income before the full commercial launch." },
           ].map(s => (
             <GreenCard key={s.label} className="p-6 text-center space-y-3">
-              <s.icon className="w-6 h-6 text-[hsl(210,100%,50%)] mx-auto" />
-              <p className="text-3xl font-bold text-[hsl(210,100%,50%)]">{s.value}</p>
-              <p className="text-sm font-bold text-foreground">{s.label}</p>
+              <s.icon className="w-5 h-5 text-[hsl(82,85%,55%)] mx-auto" />
+              <p className="text-3xl font-extralight text-[hsl(82,85%,55%)]">{s.value}</p>
+              <p className="text-sm font-medium text-foreground">{s.label}</p>
               <p className="text-[11px] font-light text-muted-foreground leading-relaxed">{s.desc}</p>
             </GreenCard>
           ))}
