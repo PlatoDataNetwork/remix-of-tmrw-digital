@@ -661,7 +661,7 @@ const slides: Slide[] = [
             ].map(t => (
               <div key={t.label} className="text-center">
                 <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{t.label}</p>
-                <p className="text-lg font-bold text-[hsl(210,100%,50%)]">{t.value}</p>
+                <p className="text-lg font-extralight text-[hsl(82,85%,55%)]">{t.value}</p>
               </div>
             ))}
           </GreenCard>
