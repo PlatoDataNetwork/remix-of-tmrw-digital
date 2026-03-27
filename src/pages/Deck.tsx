@@ -704,11 +704,11 @@ const slides: Slide[] = [
             <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">Token Allocation</h3>
             <div className="space-y-3">
               {[
-                { label: "Treasury / Foundation", pct: "52.5%", color: "bg-blue-500", width: "52.5%" },
+                { label: "Treasury", pct: "55%", color: "bg-blue-500", width: "55%" },
                 { label: "Team & Advisors", pct: "10%", color: "bg-blue-400", width: "10%" },
                 { label: "IDO / TGE", pct: "10%", color: "bg-blue-600", width: "10%" },
                 { label: "SEED Round", pct: "10%", color: "bg-cyan-400", width: "10%" },
-                { label: "Private Round", pct: "10%", color: "bg-purple-400", width: "10%" },
+                { label: "Community Grants", pct: "7.5%", color: "bg-purple-400", width: "7.5%" },
                 { label: "Rewards / Incentives", pct: "7.5%", color: "bg-amber-400", width: "7.5%" },
               ].map(a => (
                 <div key={a.label} className="space-y-1">
