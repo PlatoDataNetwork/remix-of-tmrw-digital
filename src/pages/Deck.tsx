@@ -738,7 +738,7 @@ const slides: Slide[] = [
                 { label: "Private Pre-Sale", fdv: "$7.5M", color: "bg-purple-500", width: "25%" },
                 { label: "SEED Round", fdv: "$15M", color: "bg-cyan-400", width: "50%" },
                 { label: "IDO / TGE", fdv: "$30M", color: "bg-blue-500", width: "100%" },
-                { label: "Liquidity Pool", fdv: "$15M", color: "bg-amber-400", width: "50%" },
+                { label: "Market Makers", fdv: "$30M", color: "bg-amber-400", width: "100%" },
               ].map((a, i) => (
                 <div key={i} className="space-y-1">
                   <div className="flex justify-between text-xs">
