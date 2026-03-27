@@ -792,11 +792,11 @@ const slides: Slide[] = [
   {
     id: "david-vs-goliath",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-2">
-          <Swords className="w-6 h-6 text-[hsl(210,100%,50%)] mx-auto" />
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">The David vs. Goliath Advantage</h2>
-          <p className="text-sm font-light text-muted-foreground">In the race to build decentralized AI superintelligence, architecture matters.</p>
+          <Swords className="w-6 h-6 text-[hsl(82,85%,55%)] mx-auto" />
+          <SlideTitle>The David vs. Goliath Advantage</SlideTitle>
+          <SlideSubtitle>In the race to build decentralized AI superintelligence, architecture matters.</SlideSubtitle>
         </div>
         <GreenCard className="p-5">
           <table className="w-full text-sm">
