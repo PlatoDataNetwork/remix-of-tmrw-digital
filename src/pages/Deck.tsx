@@ -629,7 +629,7 @@ const slides: Slide[] = [
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {[
             { icon: Code, title: "AI-Orchestrated Code Generation", desc: "Translates high-level instructions into multichain compatible smart contract code." },
-            { icon: FileCode, title: "Integrated dApp Deployment", desc: "One-click deployment to private testnet with full control token lifecycle management." },
+            { icon: FileCode, title: "Integrated dApp Deployment", desc: "One-click deployment to private testnet with full access control across its lifecycle management." },
             { icon: Shield, title: "AI-Driven Security & Auditing", desc: "Automatically simulates attack scenarios and leverages W3AI's knowledge graph to identify vulnerabilities." },
             { icon: Layers, title: "Deep Solana Integration", desc: "Natively supports key Solana protocols including Anchor, Serum, Metaplex (NFTs), and Realms (DAO)." },
           ].map(c => (
