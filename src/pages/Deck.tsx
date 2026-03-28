@@ -762,7 +762,6 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">Market Validated</span>
           <SlideTitle>Proven Traction and Revenue</SlideTitle>
           <SlideSubtitle>After three years of extensive development and beta testing, our platform has demonstrated significant organic growth and commercial viability.</SlideSubtitle>
         </div>
