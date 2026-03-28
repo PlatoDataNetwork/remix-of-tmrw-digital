@@ -1596,10 +1596,10 @@ const slides: Slide[] = [
           </GreenCard>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-2">
-          <StatBlock value="140+" label="Languages" />
+          <StatBlock value="45+" label="Languages" />
           <StatBlock value="<50ms" label="Latency" />
           <StatBlock value="99.9%" label="Uptime" />
-          <StatBlock value="10M+" label="Pages Indexed" />
+          <StatBlock value="100M+" label="Pages Indexed" />
         </div>
       </div>
     ),
