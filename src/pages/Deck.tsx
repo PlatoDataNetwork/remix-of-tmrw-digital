@@ -1336,7 +1336,7 @@ const slides: Slide[] = [
         <div className="text-center space-y-4">
           <SlideTitle>Network Symmetry</SlideTitle>
           <SlideSubtitle>
-            From Web3 infrastructure and AI analytics to cyber defense and digital strategy — we deliver end-to-end capabilities that drive growth, security, and competitive advantage.
+            We deliver end-to-end capabilities that drive growth, security, and sustainability.
           </SlideSubtitle>
         </div>
         <img src={networkSymmetryBg} alt="Network Symmetry visualization" className="w-full rounded-2xl object-cover max-h-[340px]" />
