@@ -1049,7 +1049,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Security Intelligence</SlideTitle>
+        <div className="text-center"><SlideTitle>Security Intelligence</SlideTitle></div>
         <SlideSubtitle>
           Security posture integrated into every connection, signature, and transaction. 
           An in-browser trust layer with risk flags and verified proofs.
