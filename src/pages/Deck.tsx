@@ -1219,14 +1219,15 @@ const slides: Slide[] = [
           Tokenizing real-world assets across 12 Asset Classes.<br />
           Bridging traditional finance with on-chain liquidity & distribution.
         </SlideSubtitle>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-3">
           {[
             "Carbon Credits", "Collectables", "Commodities", "Energy",
             "Infrastructure", "Metals", "Rare Earth", "Real Estate",
             "Sovereign Wealth", "Stablecoins", "Tax Credits", "Utilities",
+            "Private Equity", "Debt Instruments", "Intellectual Property",
           ].map(v => (
-            <div key={v} className="px-6 py-6 rounded-lg border-2 border-[hsl(82,85%,55%,0.4)] bg-card text-center relative overflow-hidden hover:border-[hsl(82,85%,55%,0.7)] transition-colors">
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[hsl(82,85%,55%,0.4)] to-transparent" />
+            <div key={v} className="px-6 py-6 rounded-lg border-2 border-[hsl(82,85%,55%)] bg-card text-center relative overflow-hidden hover:border-[hsl(82,85%,55%)] hover:shadow-[0_0_12px_hsl(82,85%,55%,0.3)] transition-all">
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[hsl(82,85%,55%,0.6)] to-transparent" />
               <p className="text-sm font-medium text-foreground">{v}</p>
             </div>
           ))}
