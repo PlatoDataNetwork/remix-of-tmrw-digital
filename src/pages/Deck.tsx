@@ -16,6 +16,7 @@ import platoIconYellow from "@/assets/plato-icon-yellow.png";
 import platoIconPurple from "@/assets/plato-icon-purple.png";
 import platoIconBlue from "@/assets/plato-icon-blue.png";
 import w3aiUiuxBg from "@/assets/w3ai-uiux-reference.png";
+import w3aiConvergenceArch from "@/assets/w3ai-convergence-arch.png";
 
 // --- Slide data derived from whitepaper ---
 interface Slide {
@@ -1792,6 +1793,18 @@ const slides: Slide[] = [
         </div>
         <div className="flex justify-center mt-2">
           <img src={w3aiUiuxBg} alt="W3AI UI/UX feature cards" className="w-full max-w-4xl rounded-lg" />
+        </div>
+      </div>
+    ),
+  },
+  // W3AI Convergence Architecture
+  {
+    id: "w3ai-convergence-architecture",
+    render: () => (
+      <div className="flex flex-col justify-center items-center h-full gap-4 max-w-5xl mx-auto relative px-4 text-center">
+        <SlideTitle>W3AI Convergence Architecture</SlideTitle>
+        <div className="flex justify-center">
+          <img src={w3aiConvergenceArch} alt="W3AI Convergence Architecture — Web3 × AI" className="w-full max-w-4xl rounded-lg" />
         </div>
       </div>
     ),
