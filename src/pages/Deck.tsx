@@ -1097,7 +1097,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Multi-Chain Community</SlideTitle>
+        <div className="text-center"><SlideTitle>Multi-Chain Community</SlideTitle></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             { chain: "Solana", focus: "DeFi-first execution", detail: "Trading Space + NFT identity + 48K+ builder ecosystem" },
