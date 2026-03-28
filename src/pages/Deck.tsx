@@ -1581,7 +1581,7 @@ const slides: Slide[] = [
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <GreenCard>
             <Globe className="w-6 h-6 text-[hsl(82,85%,55%)] mx-auto" />
-            <h3 className="text-sm font-medium text-foreground">140+ Languages</h3>
+            <h3 className="text-sm font-medium text-foreground">45+ Languages</h3>
             <p className="text-xs font-light text-muted-foreground">Automated translation and localization at scale.</p>
           </GreenCard>
           <GreenCard>
