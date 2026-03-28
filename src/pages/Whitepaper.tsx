@@ -180,7 +180,7 @@ const sections: Section[] = [
     { id: "partner-changelly", title: "Changelly" },
     { id: "partner-cls", title: "CLS" },
     { id: "partner-dentity", title: "Dentity" },
-    { id: "partner-g20", title: "G-20 Group" },
+    { id: "partner-g20", title: "G20 Group" },
     { id: "partner-hacken", title: "Hacken" },
     { id: "partner-lablab", title: "LabLab" },
     { id: "partner-northern-trust", title: "Northern Trust" },
@@ -3010,7 +3010,7 @@ W3AI.ai.registerTool({
         <section id="partner-mm">
           <h2 className="text-2xl font-bold text-foreground mb-4">Partner-Enabled Market Making</h2>
           <div className="prose-section">
-            <p>G-20 Group provides liquidity solutions and treasury management across exchange-traded and on-chain venues. Within W3AI, this maps to a professional multi-venue liquidity framework, risk-managed treasury yield, and market-depth stability programs tied to milestones.</p>
+            <p>G20 Group provides liquidity solutions and treasury management across exchange-traded and on-chain venues. Within W3AI, this maps to a professional multi-venue liquidity framework, risk-managed treasury yield, and market-depth stability programs tied to milestones.</p>
           </div>
         </section>
       </div>
@@ -3068,7 +3068,7 @@ W3AI.ai.registerTool({
           { id: "partner-changelly", name: "Changelly", desc: "Changelly's exchange API enables W3AI to offer seamless in-browser token swaps with support for 500+ digital assets. The API's 'extra fee' functionality provides the transparent convenience fee mechanism that routes revenue to the W3AI treasury.", visit: "https://changelly.com" },
           { id: "partner-cls", name: "CLS", desc: "CLS is the trusted leader in global FX settlement, processing over $6.5 trillion in daily transactions. CLS brings institutional-grade settlement infrastructure and risk management capabilities that position W3AI for cross-border RWA tokenization and institutional adoption.", visit: "https://cls-group.com" },
           { id: "partner-dentity", name: "Dentity", desc: "Dentity provides privacy-forward digital identity and credential verification. W3AI leverages Dentity for Registry whitelisting, anti-sybil protections, and credentialed wallet attestations that enable compliant access to tokenized assets.", visit: "https://dentity.com" },
-          { id: "partner-g20", name: "G-20 Group", desc: "G-20 Group delivers professional liquidity solutions and treasury management across exchange-traded and on-chain venues. Within W3AI, G-20 provides multi-venue market making, risk-managed treasury yield optimization, and market-depth stability programs.", visit: "https://g20.group" },
+          { id: "partner-g20", name: "G20 Group", desc: "G20 Group delivers professional liquidity solutions and treasury management across exchange-traded and on-chain venues. Within W3AI, G20 provides multi-venue market making, risk-managed treasury yield optimization, and market-depth stability programs.", visit: "https://g20.group" },
           { id: "partner-hacken", name: "Hacken", desc: "Hacken is a leading blockchain security firm providing smart contract audits, penetration testing, tokenomics audits, proof-of-reserves verification, and post-deployment monitoring. Hacken's security framework forms the foundation of W3AI's 'in-browser trust layer.'", visit: "https://hacken.io" },
           { id: "partner-lablab", name: "LabLab", desc: "LabLab connects W3AI with a global community of AI developers through hackathons and builder programs. This partnership drives developer adoption, plugin ecosystem growth, and community-driven innovation within the W3AI browser platform.", visit: "https://lablab.ai" },
           { id: "partner-northern-trust", name: "Northern Trust", desc: "Northern Trust manages $1.7T+ in assets and has pioneered blockchain tokenization through its Matrix Zenith digital assets platform. The partnership positions W3AI at the intersection of institutional asset management and on-chain infrastructure.", visit: "https://northerntrust.com" },

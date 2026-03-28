@@ -1155,7 +1155,7 @@ const slides: Slide[] = [
           { bold: "LPs receive", text: "additional token rewards + 50% of MM rewards in USDC/USDT" },
           { bold: "Uniswap AMM pools", text: "on Ethereum; PancakeSwap Smart Router on BSC" },
           { bold: "CEX readiness —", text: "audited contracts, transparent tokenomics, operational reliability" },
-          { bold: "G-20 Group —", text: "professional multi-venue liquidity framework" },
+          { bold: "G20 Group —", text: "professional multi-venue liquidity framework" },
         ]} />
         <div className="w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.2)] via-[hsl(82,85%,55%,0.1)] to-transparent mt-2" />
       </div>
@@ -1313,7 +1313,7 @@ const slides: Slide[] = [
             { name: "Changelly", role: "Instant exchange & on-ramp" },
             { name: "CLS", role: "Market Making. Exchange Gateway." },
             { name: "Dentity", role: "Identity & anti-sybil" },
-            { name: "G-20 Group", role: "Liquidity & treasury" },
+            { name: "G20 Group", role: "Liquidity & treasury" },
             { name: "Hacken", role: "Security & audits" },
             { name: "LabLab", role: "AI builder community" },
             { name: "Northern Trust", role: "Institutional tokenization" },

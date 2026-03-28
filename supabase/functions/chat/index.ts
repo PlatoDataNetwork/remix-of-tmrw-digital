@@ -127,7 +127,7 @@ Product roadmap phases, community building strategy, marketing channels, partner
 - **Changelly** — Swaps aggregator, 2.7M community, integrated for in-browser DeFi execution.
 - **CLS** — Global FX settlement infrastructure, institutional-grade cross-border payments.
 - **Dentity** — Decentralized identity and verifiable credentials for Web3.
-- **G-20 Group** — Liquidity provision and treasury management partnerships.
+- **G20 Group** — Liquidity provision and treasury management partnerships.
 - **Hacken** — Security audits (1,500+ projects, $200B+ secured), blockchain security intelligence.
 - **LabLab** — AI hackathon platform (251K+ members), developer community pipeline.
 - **Northern Trust** — Institutional tokenization and custody solutions.
