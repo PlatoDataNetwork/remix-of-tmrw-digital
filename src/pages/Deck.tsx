@@ -695,7 +695,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center items-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center w-full space-y-2">
-          <SlideTitle>Tokenomics</SlideTitle>
+          <SlideTitle>W3AI Token Economy</SlideTitle>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <GreenCard className="p-6 space-y-4">
