@@ -1573,10 +1573,13 @@ const slides: Slide[] = [
     id: "translational-indexing",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto text-center px-4">
-        <SlideTitle>Translational Indexing &amp; Delivery</SlideTitle>
-        <SlideSubtitle>
-          Real-time multilingual content processing, indexing, and delivery across 45+ languages — powered by AI translation pipelines.
-        </SlideSubtitle>
+        <div className="space-y-2">
+          <SlideTitle>Translational Indexing &amp; Delivery</SlideTitle>
+          <SlideSubtitle>
+            Real-time multilingual content processing, indexing, and delivery
+            <br />across 45+ languages — powered by AI translation pipelines.
+          </SlideSubtitle>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <GreenCard>
             <Globe className="w-6 h-6 text-[hsl(82,85%,55%)] mx-auto" />
