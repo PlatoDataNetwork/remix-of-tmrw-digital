@@ -619,13 +619,11 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <SlideTitle>The Zeus IDE</SlideTitle>
+          <SlideTitle>The Zeus IDE. Make Vibing Cool Again.</SlideTitle>
           <SlideSubtitle>
-            Make Vibing Great Again.
+            The AI-Orchestrated Engine for Multichain dApp Development.
             <br />
-            The AI-Orchestrated Engine for Multi-Chain dApp Development.
-            <br />
-            Use natural language, code, and visual tools to generate, test, and deploy smart contracts with unprecedented speed.
+            Use natural language, code, and visual tools to generate, test, and deploy smart contracts with unprecedented speed and control.
           </SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
