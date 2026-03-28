@@ -695,7 +695,6 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center items-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center w-full space-y-2">
-          <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">Capital Strategy</span>
           <SlideTitle>Tokenomics</SlideTitle>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
