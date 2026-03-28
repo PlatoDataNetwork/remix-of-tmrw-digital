@@ -803,7 +803,7 @@ const slides: Slide[] = [
               <tr className="border-b border-[hsl(82,85%,55%,0.2)]">
                 <th className="py-2.5 px-3 text-left text-xs text-muted-foreground font-light">Feature</th>
                 <th className="py-2.5 px-3 text-left text-xs text-[hsl(82,85%,55%)] font-medium">W3AI (Solana)</th>
-                <th className="py-2.5 px-3 text-left text-xs text-muted-foreground font-light">ASI Alliance (Ethereum)</th>
+                <th className="py-2.5 px-3 text-left text-xs text-blue-400 font-medium">ASI Alliance (Ethereum)</th>
               </tr>
             </thead>
             <tbody>
@@ -811,13 +811,13 @@ const slides: Slide[] = [
                 ["Blockchain", "High Speed. Low Cost.", "Fair Speed. High Cost."],
                 ["Intelligence", "Open / Transparent.", "Open / Opaque."],
                 ["AI Agents", "Low Cost. High Value.", "Higher Cost. Lower Value."],
-                ["Execution", "Decentralized AI Gateway.", "AI Model Training Focus."],
+                ["Execution", "Decentralized AI.", "AI Model Training Focus."],
                 ["Model", "Open Repositories. Marketplace.", "Open Repositories. Marketplace."],
               ].map(([f, w, a]) => (
                 <tr key={f} className="border-b border-border/30">
                   <td className="py-2.5 px-3 font-medium text-foreground text-xs">{f}</td>
                   <td className="py-2.5 px-3 text-[hsl(82,85%,55%)] text-xs font-light">{w}</td>
-                  <td className="py-2.5 px-3 text-muted-foreground text-xs font-light">{a}</td>
+                  <td className="py-2.5 px-3 text-blue-400 text-xs font-light">{a}</td>
                 </tr>
               ))}
             </tbody>
