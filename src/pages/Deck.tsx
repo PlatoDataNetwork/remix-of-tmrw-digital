@@ -520,7 +520,6 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-4">
-          <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">Our Solution</span>
           <SlideTitle>A Decentralized AI Ecosystem</SlideTitle>
           <SlideSubtitle>W3AI was founded on the principle that intelligence should be open, decentralized, and self-evolving. We are pioneering a trustless, transparent, and scalable AI ecosystem built on Web3 infrastructure.</SlideSubtitle>
         </div>
@@ -621,7 +620,6 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">For Developers</span>
           <SlideTitle>The Zeus IDE</SlideTitle>
           <SlideSubtitle>The AI-Orchestrated Engine for dApp Development on Solana. Use natural language, code, and visual tools to generate, test, and deploy smart contracts with unprecedented speed.</SlideSubtitle>
         </div>
@@ -697,7 +695,6 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center items-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center w-full space-y-2">
-          <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">Capital Strategy</span>
           <SlideTitle>Tokenomics</SlideTitle>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -765,7 +762,6 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">Market Validated</span>
           <SlideTitle>Proven Traction and Revenue</SlideTitle>
           <SlideSubtitle>After three years of extensive development and beta testing, our platform has demonstrated significant organic growth and commercial viability.</SlideSubtitle>
         </div>
@@ -982,7 +978,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Rise of the Machines</SlideTitle>
+        <div className="text-center"><SlideTitle>Rise of the Machines</SlideTitle></div>
         <SlideSubtitle>
           Browsers are evolving from passive viewers into agentic, AI-native operating systems. 
           W3AI is building the Web3 AI gateway for this new era.
@@ -1027,7 +1023,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>User-Selectable AI Layer</SlideTitle>
+        <div className="text-center"><SlideTitle>User-Selectable AI Layer</SlideTitle></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12">
           <GreenCard className="p-6">
             <h3 className="text-base font-medium text-[hsl(82,85%,55%)]">BYOK</h3>
@@ -1053,7 +1049,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Security Intelligence</SlideTitle>
+        <div className="text-center"><SlideTitle>Security Intelligence</SlideTitle></div>
         <SlideSubtitle>
           Security posture integrated into every connection, signature, and transaction. 
           An in-browser trust layer with risk flags and verified proofs.
@@ -1073,7 +1069,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Identity & Institutional Rails</SlideTitle>
+        <div className="text-center"><SlideTitle>Identity & Institutional Rails</SlideTitle></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12">
           <div className="space-y-4">
             <SectionLabel>Anti-Sybil via Dentity</SectionLabel>
@@ -1101,7 +1097,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Multi-Chain Community</SlideTitle>
+        <div className="text-center"><SlideTitle>Multi-Chain Community</SlideTitle></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             { chain: "Solana", focus: "DeFi-first execution", detail: "Trading Space + NFT identity + 48K+ builder ecosystem" },
@@ -1124,7 +1120,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Multi-Chain & Validators</SlideTitle>
+        <div className="text-center"><SlideTitle>Multi-Chain & Validators</SlideTitle></div>
         <SlideSubtitle>
           Solana as canonical mint hub. Ethereum and BSC as spoke chains via Wormhole NTT.
         </SlideSubtitle>
@@ -1150,7 +1146,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Liquidity & Market Making</SlideTitle>
+        <div className="text-center"><SlideTitle>Liquidity & Market Making</SlideTitle></div>
         <BulletList items={[
           { bold: "DEX liquidity locked", text: "for no less than 12 months" },
           { bold: "LPs receive", text: "additional token rewards + 50% of MM rewards in USDC/USDT" },
@@ -1192,7 +1188,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>W3AI Protocol</SlideTitle>
+        <div className="text-center"><SlideTitle>W3AI Protocol</SlideTitle></div>
         <SlideSubtitle>
           A cross-chain coordination protocol binding AI agent permissions to on-chain wallet permissions 
           as a single security domain.
@@ -1244,7 +1240,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>W3AI Governance</SlideTitle>
+        <div className="text-center"><SlideTitle>W3AI Governance</SlideTitle></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             { title: "Governance Framework", desc: "Progressive decentralization from foundation-led to community-governed. Token-weighted voting with anti-sybil protections via Dentity credentials." },
@@ -1356,7 +1352,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Cybersecurity</SlideTitle>
+        <div className="text-center"><SlideTitle>Cybersecurity</SlideTitle></div>
         <SlideSubtitle>
           Security as an architectural primitive — embedded at every level from browser runtime to on-chain execution.
         </SlideSubtitle>
@@ -1382,7 +1378,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Auditing & Compliance</SlideTitle>
+        <div className="text-center"><SlideTitle>Auditing & Compliance</SlideTitle></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12">
           <div className="space-y-4">
             <SectionLabel>Smart Contract Auditing</SectionLabel>
@@ -1410,7 +1406,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Privacy & Risk Management</SlideTitle>
+        <div className="text-center"><SlideTitle>Privacy & Risk Management</SlideTitle></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
           <div className="space-y-4">
             <SectionLabel>Privacy Architecture</SectionLabel>
@@ -1437,7 +1433,7 @@ const slides: Slide[] = [
     id: "token-utility",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Token Utility</SlideTitle>
+        <div className="text-center"><SlideTitle>Token Utility</SlideTitle></div>
         <SlideSubtitle>Four demand drivers powering the W3AI token economy.</SlideSubtitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {[
@@ -1460,12 +1456,12 @@ const slides: Slide[] = [
     id: "tokenomics",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
-        <div className="flex items-baseline justify-between">
+        <div className="text-center space-y-2">
           <SlideTitle>Tokenomics & Supply</SlideTitle>
-          <div className="text-right">
-            <span className="text-3xl font-extralight text-[hsl(82,85%,55%)]">2B</span>
+          <p className="text-sm text-muted-foreground">
+            <span className="text-2xl font-extralight text-[hsl(82,85%,55%)]">2B</span>
             <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground ml-2">Total Supply</span>
-          </div>
+          </p>
         </div>
         <div className="w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.2)] via-[hsl(82,85%,55%,0.08)] to-transparent" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
