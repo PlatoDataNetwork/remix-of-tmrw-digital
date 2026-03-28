@@ -817,7 +817,7 @@ const slides: Slide[] = [
                 <tr key={f} className="border-b border-border/30">
                   <td className="py-2.5 px-3 font-medium text-foreground text-xs">{f}</td>
                   <td className="py-2.5 px-3 text-[hsl(82,85%,55%)] text-xs font-light">{w}</td>
-                  <td className="py-2.5 px-3 text-muted-foreground text-xs font-light">{a}</td>
+                  <td className="py-2.5 px-3 text-blue-400 text-xs font-light">{a}</td>
                 </tr>
               ))}
             </tbody>
