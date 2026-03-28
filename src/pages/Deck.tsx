@@ -1188,7 +1188,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>W3AI Protocol</SlideTitle>
+        <div className="text-center"><SlideTitle>W3AI Protocol</SlideTitle></div>
         <SlideSubtitle>
           A cross-chain coordination protocol binding AI agent permissions to on-chain wallet permissions 
           as a single security domain.
