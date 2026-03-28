@@ -1459,7 +1459,7 @@ const slides: Slide[] = [
           ].map(p => (
             <GreenCard key={p.title}>
               <h3 className="text-sm font-medium text-foreground">{p.title}</h3>
-              <p className="text-xs font-light text-muted-foreground">{p.desc}</p>
+              <p className="text-xs font-light text-muted-foreground whitespace-pre-line">{p.desc}</p>
             </GreenCard>
           ))}
         </div>
