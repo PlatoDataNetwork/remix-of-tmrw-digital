@@ -1456,6 +1456,10 @@ const slides: Slide[] = [
             { title: "Developer Tools", desc: "Open-source tooling and\nshared intelligence infra." },
             { title: "Data Marketplace", desc: "Monetize datasets and\nAI model contributions." },
             { title: "Staking & Yield", desc: "Earn yield through network\nsecurity and liquidity." },
+            { title: "Real World Assets", desc: "Tokenize physical assets\nwith on-chain provenance." },
+            { title: "Compliance", desc: "Automated regulatory checks\nand audit-ready reporting." },
+            { title: "Developer Grants", desc: "Funding programs for\nbuilders and contributors." },
+            { title: "Distribution", desc: "Multi-channel token\nallocation and vesting." },
           ].map(p => (
             <GreenCard key={p.title}>
               <h3 className="text-sm font-medium text-foreground">{p.title}</h3>
