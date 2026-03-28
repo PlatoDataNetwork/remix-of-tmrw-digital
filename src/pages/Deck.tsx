@@ -1440,7 +1440,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-4xl mx-auto relative">
         <div className="text-center">
-          <SlideTitle>W3AI Token Utility</SlideTitle>
+          <SlideTitle>W3AI Network Utility</SlideTitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           {[
