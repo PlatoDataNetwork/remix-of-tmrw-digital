@@ -1338,7 +1338,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Infrastructure</SlideTitle>
+        <div className="text-center"><SlideTitle>Infrastructure</SlideTitle></div>
         <BulletList items={[
           { bold: "Network architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT for supply management" },
           { bold: "Edge computing —", text: "Geo-redundant infrastructure for latency-sensitive AI inference routing" },
