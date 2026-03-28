@@ -1167,36 +1167,21 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Marketing & Distribution</SlideTitle>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-          <div className="space-y-4">
-            <SectionLabel>Objectives</SectionLabel>
-            <div className="space-y-6">
-              <StatBlock value="25K" label="Pre-listing Registry Users" />
-              <StatBlock value="3M+" label="Monthly Users (12-18 mo)" />
-            </div>
-          </div>
-          <div className="space-y-4">
-            <SectionLabel>Partner Distribution</SectionLabel>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                { bold: "Ethermail —", text: "3M+ impressions daily" },
-                { bold: "LabLab —", text: "250K+ AI dev community" },
-                { bold: "Lever —", text: "KOL marketplace, 10M+ followers" },
-                { bold: "Changelly —", text: "2.7M community, instant exchange" },
-                { bold: "Hacken —", text: "security co-marketing" },
-                { bold: "Dentity —", text: "trusted onboarding" },
-                { bold: "Surge —", text: "tokenized launch gateway" },
-                { bold: "G-20 Group —", text: "treasury management" },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <span className="text-primary mt-1">▸</span>
-                  <span><span className="font-semibold text-foreground">{item.bold}</span> {item.text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        <SlideTitle>Marketing & Distribution Center</SlideTitle>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <GreenCard className="p-6 flex flex-col items-center justify-center text-center gap-2">
+            <span className="text-3xl font-extralight text-foreground">25K</span>
+            <span className="text-sm font-light text-muted-foreground">Pre-listing Registry Users</span>
+          </GreenCard>
+          <GreenCard className="p-6 flex flex-col items-center justify-center text-center gap-2">
+            <span className="text-3xl font-extralight text-foreground">3M+</span>
+            <span className="text-sm font-light text-muted-foreground">Monthly Users (12-18 mo)</span>
+          </GreenCard>
         </div>
+        <GreenCard className="p-6 flex flex-col items-center justify-center text-center gap-2">
+          <span className="text-3xl font-extralight text-foreground">Top 300</span>
+          <span className="text-sm font-light text-muted-foreground">Crypto</span>
+        </GreenCard>
       </div>
     ),
   },
