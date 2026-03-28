@@ -1406,7 +1406,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Privacy & Risk Management</SlideTitle>
+        <div className="text-center"><SlideTitle>Privacy & Risk Management</SlideTitle></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
           <div className="space-y-4">
             <SectionLabel>Privacy Architecture</SectionLabel>
