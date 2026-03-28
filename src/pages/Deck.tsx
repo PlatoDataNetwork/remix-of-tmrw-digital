@@ -970,7 +970,17 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 3 — Rise of the Machines
+  // 3 — Democratizing Intelligence
+  {
+    id: "democratizing-intelligence",
+    render: () => (
+      <div className="flex flex-col items-center justify-center h-full max-w-3xl mx-auto text-center">
+        <h1 className="text-4xl md:text-6xl font-extralight tracking-tight text-foreground">Democratizing Intelligence.</h1>
+        <h1 className="text-4xl md:text-6xl font-extralight tracking-tight text-foreground mt-2">Breaking Down the Barriers of Knowledge.</h1>
+      </div>
+    ),
+  },
+  // 4 — Rise of the Machines
   {
     id: "rise",
     render: () => (
