@@ -1352,7 +1352,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Cybersecurity</SlideTitle>
+        <div className="text-center"><SlideTitle>Cybersecurity</SlideTitle></div>
         <SlideSubtitle>
           Security as an architectural primitive — embedded at every level from browser runtime to on-chain execution.
         </SlideSubtitle>
