@@ -1216,7 +1216,7 @@ const slides: Slide[] = [
 
         <SlideTitle>W3AI Tokenized Assets</SlideTitle>
         <SlideSubtitle>
-          Tokenizing real-world assets across 12 Asset Classes.<br />
+          Tokenizing real-world assets across 15 Asset Classes.<br />
           Bridging traditional finance with on-chain liquidity & distribution.
         </SlideSubtitle>
         <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-3">
