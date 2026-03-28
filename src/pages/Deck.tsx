@@ -1164,11 +1164,11 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col items-center justify-center h-full gap-4 max-w-3xl mx-auto relative text-center">
 
-        <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-foreground">W3AI Acquisition Objectives</h2>
+        <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-foreground">W3AI YR1 Objectives</h2>
         <div className="space-y-4">
           <div className="w-16 h-px bg-[hsl(82,85%,55%,0.3)] mx-auto" />
           <div className="flex justify-center gap-12">
-            <StatBlock value="25K" label="Pre-listing Registry Users" />
+            <StatBlock value="25K+" label="Pre-Listing Registry" />
             <StatBlock value="3M+" label="Monthly Users (12-18 mo)" />
           </div>
           <div className="w-16 h-px bg-[hsl(82,85%,55%,0.15)] mx-auto" />
@@ -1176,6 +1176,11 @@ const slides: Slide[] = [
             <StatBlock value="500K+" label="Impressions Per Day" />
             <StatBlock value="200K+" label="Engagements Per Day" />
             <StatBlock value="$50M+" label="Trading Volume" />
+          </div>
+          <div className="w-16 h-px bg-[hsl(82,85%,55%,0.15)] mx-auto" />
+          <div className="flex justify-center gap-12">
+            <StatBlock value="25K+" label="Social Followers" />
+            <StatBlock value="6+" label="Validator Nodes" />
           </div>
           <div className="w-16 h-px bg-[hsl(82,85%,55%,0.15)] mx-auto" />
           <p className="text-lg md:text-xl font-light text-muted-foreground">Marketing Partners: Ethermail, Changelly, Lever, LFG, Oasis.</p>
