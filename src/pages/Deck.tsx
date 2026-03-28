@@ -1165,11 +1165,11 @@ const slides: Slide[] = [
   {
     id: "marketing",
     render: () => (
-      <div className="flex flex-col items-center justify-center h-full gap-8 max-w-3xl mx-auto relative text-center">
+      <div className="flex flex-col items-center justify-center h-full gap-4 max-w-3xl mx-auto relative text-center">
 
         <SlideTitle>Marketing & Distribution</SlideTitle>
-        <div className="space-y-6 mt-1">
-          <SlideTitle>Objectives</SlideTitle>
+        <div className="space-y-6">
+          <h2 className="text-2xl sm:text-3xl font-extralight uppercase tracking-[0.15em] text-[hsl(82,85%,55%)]">OBJECTIVES</h2>
           <div className="flex justify-center gap-12">
             <StatBlock value="25K" label="Pre-listing Registry Users" />
             <StatBlock value="3M+" label="Monthly Users (12-18 mo)" />
