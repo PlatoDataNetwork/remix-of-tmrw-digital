@@ -9,6 +9,7 @@ import whitepaperHero from "@/assets/whitepaper-hero.webp";
 import heroBackground from "@/assets/hero-bg.webp";
 import logoIcon from "@/assets/plato-icon.webp";
 import platoIcon from "@/assets/plato-icon.webp";
+import infrastructureSlideBg from "@/assets/infrastructure-slide-bg.png";
 
 // --- Slide data derived from whitepaper ---
 interface Slide {
@@ -1339,13 +1340,13 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
         <div className="text-center"><SlideTitle>Infrastructure</SlideTitle></div>
+        <img src={infrastructureSlideBg} alt="Infrastructure visualization" className="w-full rounded-2xl object-cover max-h-[340px]" />
         <BulletList items={[
           { bold: "Network architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT for supply management" },
           { bold: "Edge computing —", text: "Geo-redundant infrastructure for latency-sensitive AI inference routing" },
           { bold: "Security layers —", text: "HSMs, MPC key management, browser sandboxing, and isolated agent profiles" },
           { bold: "Monitoring —", text: "Validator health, bridge volumes, treasury dashboards, and public status pages" },
         ]} />
-        <div className="w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.2)] via-[hsl(82,85%,55%,0.1)] to-transparent mt-2" />
       </div>
     ),
   },
