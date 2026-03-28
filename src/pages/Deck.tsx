@@ -1165,36 +1165,14 @@ const slides: Slide[] = [
   {
     id: "marketing",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+      <div className="flex flex-col items-center justify-center h-full gap-8 max-w-3xl mx-auto relative text-center">
 
         <SlideTitle>Marketing & Distribution</SlideTitle>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-          <div className="space-y-4">
-            <SectionLabel>Objectives</SectionLabel>
-            <div className="space-y-6">
-              <StatBlock value="25K" label="Pre-listing Registry Users" />
-              <StatBlock value="3M+" label="Monthly Users (12-18 mo)" />
-            </div>
-          </div>
-          <div className="space-y-4">
-            <SectionLabel>Partner Distribution</SectionLabel>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                { bold: "Ethermail —", text: "3M+ impressions daily" },
-                { bold: "LabLab —", text: "250K+ AI dev community" },
-                { bold: "Lever —", text: "KOL marketplace, 10M+ followers" },
-                { bold: "Changelly —", text: "2.7M community, instant exchange" },
-                { bold: "Hacken —", text: "security co-marketing" },
-                { bold: "Dentity —", text: "trusted onboarding" },
-                { bold: "Surge —", text: "tokenized launch gateway" },
-                { bold: "G-20 Group —", text: "treasury management" },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <span className="text-primary mt-1">▸</span>
-                  <span><span className="font-semibold text-foreground">{item.bold}</span> {item.text}</span>
-                </div>
-              ))}
-            </div>
+        <div className="space-y-4">
+          <SectionLabel>Objectives</SectionLabel>
+          <div className="flex justify-center gap-12">
+            <StatBlock value="25K" label="Pre-listing Registry Users" />
+            <StatBlock value="3M+" label="Monthly Users (12-18 mo)" />
           </div>
         </div>
       </div>
