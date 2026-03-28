@@ -3010,7 +3010,7 @@ W3AI.ai.registerTool({
         <section id="partner-mm">
           <h2 className="text-2xl font-bold text-foreground mb-4">Partner-Enabled Market Making</h2>
           <div className="prose-section">
-            <p>G-20 Group provides liquidity solutions and treasury management across exchange-traded and on-chain venues. Within W3AI, this maps to a professional multi-venue liquidity framework, risk-managed treasury yield, and market-depth stability programs tied to milestones.</p>
+            <p>G20 Group provides liquidity solutions and treasury management across exchange-traded and on-chain venues. Within W3AI, this maps to a professional multi-venue liquidity framework, risk-managed treasury yield, and market-depth stability programs tied to milestones.</p>
           </div>
         </section>
       </div>
