@@ -1380,17 +1380,17 @@ const slides: Slide[] = [
           <div className="space-y-4">
             <SectionLabel>Smart Contract Auditing</SectionLabel>
             <BulletList items={[
-              { bold: "Hacken.io —", text: "comprehensive audit coverage for logic vulnerabilities, reentrancy, and access control" },
-              { bold: "Continuous monitoring —", text: "post-deployment surveillance and anomaly detection" },
-              { bold: "Bug bounties —", text: "community-driven vulnerability discovery with tiered rewards" },
+              { bold: "Hacken —", text: "Comprehensive audit coverage for logic vulnerabilities and realtime Risk monitoring." },
+              { bold: "Continuous monitoring —", text: "Post-deployment surveillance and anomaly detection." },
+              { bold: "Bug bounties —", text: "Community-driven vulnerability discovery with tiered rewards." },
             ]} />
           </div>
           <div className="space-y-4">
             <SectionLabel>Financial Auditing</SectionLabel>
             <BulletList items={[
-              { bold: "Canada —", text: "IFRS standards, FINTRAC compliance, and CPA-governed auditing" },
-              { bold: "Liechtenstein —", text: "TVTG regulatory framework and FMA oversight" },
-              { bold: "Transparency —", text: "quarterly treasury reports and on-chain audit trails" },
+              { bold: "Canada —", text: "IFRS standards, FINTRAC compliance, and CPA-governed auditing." },
+              { bold: "Liechtenstein —", text: "TVTG regulatory framework and FMA oversight." },
+              { bold: "Transparency —", text: "Quarterly treasury reports and on-chain audit trails." },
             ]} />
           </div>
         </div>
