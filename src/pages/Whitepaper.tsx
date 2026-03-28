@@ -180,7 +180,7 @@ const sections: Section[] = [
     { id: "partner-changelly", title: "Changelly" },
     { id: "partner-cls", title: "CLS" },
     { id: "partner-dentity", title: "Dentity" },
-    { id: "partner-g20", title: "G-20 Group" },
+    { id: "partner-g20", title: "G20 Group" },
     { id: "partner-hacken", title: "Hacken" },
     { id: "partner-lablab", title: "LabLab" },
     { id: "partner-northern-trust", title: "Northern Trust" },

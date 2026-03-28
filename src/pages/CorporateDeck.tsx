@@ -427,7 +427,7 @@ const slides: Slide[] = [
             { name: "Changelly", role: "Instant exchange & on-ramp" },
             { name: "CLS", role: "FX settlement infrastructure" },
             { name: "Dentity", role: "Identity & anti-sybil" },
-            { name: "G-20 Group", role: "Liquidity & treasury" },
+            { name: "G20 Group", role: "Liquidity & treasury" },
             { name: "Hacken", role: "Security & audits" },
             { name: "LabLab", role: "AI builder community" },
             { name: "Northern Trust", role: "Institutional tokenization" },
