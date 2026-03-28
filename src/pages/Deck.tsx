@@ -1178,8 +1178,7 @@ const slides: Slide[] = [
             <StatBlock value="$50M+" label="Trading Volume" />
           </div>
           <div className="w-16 h-px bg-[hsl(82,85%,55%,0.15)] mx-auto" />
-          <p className="text-4xl md:text-5xl font-extralight tracking-tight text-white">500K+</p>
-          <p className="text-sm font-light text-muted-foreground">Marketing Partners: Ethermail, Changelly, Lever, LFG, Oasis.</p>
+          <p className="text-lg md:text-xl font-light text-muted-foreground">Marketing Partners: Ethermail, Changelly, Lever, LFG, Oasis.</p>
         </div>
       </div>
     ),
