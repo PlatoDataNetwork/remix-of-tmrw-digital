@@ -1165,7 +1165,7 @@ const slides: Slide[] = [
       <div className="flex flex-col items-center justify-center h-full gap-4 max-w-3xl mx-auto relative text-center">
 
         <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-foreground">W3AI Acquisition Objectives</h2>
-        <div className="space-y-8">
+        <div className="space-y-4">
           <div className="w-16 h-px bg-[hsl(82,85%,55%,0.3)] mx-auto" />
           <div className="flex justify-center gap-12">
             <StatBlock value="25K" label="Pre-listing Registry Users" />
@@ -1177,6 +1177,9 @@ const slides: Slide[] = [
             <StatBlock value="200K+" label="Engagements Per Day" />
             <StatBlock value="$50M+" label="Trading Volume" />
           </div>
+          <div className="w-16 h-px bg-[hsl(82,85%,55%,0.15)] mx-auto" />
+          <p className="text-4xl md:text-5xl font-extralight tracking-tight text-white">500K+</p>
+          <p className="text-sm font-light text-muted-foreground">Marketing Partners: Ethermail, Changelly, Lever, LFG, Oasis.</p>
         </div>
       </div>
     ),
