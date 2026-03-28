@@ -11,7 +11,7 @@ export function TMRWBranding() {
         maskImage: `url(${platoIcon})`, maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center",
       }} />
       <span className="text-[10px] font-light tracking-[0.2em] uppercase" style={{ color: "hsl(0,0%,50%)" }}>
-        W3AI <span style={{ color: "hsl(0,0%,30%)" }}>|</span> W3AI
+        W3AI <span style={{ color: "hsl(0,0%,30%)" }}>|</span> TMRW
       </span>
     </div>
   );
