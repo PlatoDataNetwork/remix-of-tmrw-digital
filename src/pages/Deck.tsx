@@ -809,6 +809,7 @@ const slides: Slide[] = [
             <tbody>
               {[
                 ["Blockchain", "High Speed. Low Cost.", "Fair Speed. High Cost."],
+                ["Intelligence", "Open / Transparent.", "Open / Opaque."],
                 ["AI Agents", "Low Cost. High Value.", "Higher Cost. Lower Value."],
                 ["Execution", "Decentralized AI Gateway.", "AI Model Training Focus."],
                 ["Model", "Open Repositories. Marketplace.", "Open Repositories. Marketplace."],
