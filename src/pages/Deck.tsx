@@ -795,7 +795,7 @@ const slides: Slide[] = [
         <div className="text-center space-y-2">
           <Swords className="w-6 h-6 text-[hsl(82,85%,55%)] mx-auto" />
           <SlideTitle>The David vs. Goliath Advantage</SlideTitle>
-          <SlideSubtitle>In the race to build decentralized AI superintelligence, architecture matters.</SlideSubtitle>
+          <SlideSubtitle>In the race to build decentralized AI Super Intelligence, Community Matters.</SlideSubtitle>
         </div>
         <GreenCard className="p-5">
           <table className="w-full text-sm">
@@ -822,8 +822,8 @@ const slides: Slide[] = [
             </tbody>
           </table>
         </GreenCard>
-        <GreenCard className="p-5 text-center">
-          <p className="text-sm font-medium text-foreground">Innovation Wins. Community Matters.</p>
+        <GreenCard className="p-5">
+          <p className="text-sm font-medium text-foreground">Authentic Connectivity Cross Chain.</p>
         </GreenCard>
       </div>
     ),
