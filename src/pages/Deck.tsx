@@ -1433,14 +1433,16 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-4xl mx-auto relative">
         <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-foreground whitespace-nowrap">User Base Acquisition Objectives</h2>
+          <SlideTitle>W3AI Token Utility</SlideTitle>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           {[
-            { title: "Browser Access", desc: "Premium features and AI workflows" },
-            { title: "AI Gateway", desc: "Token-based credits for inference" },
-            { title: "Network Incentives", desc: "Validator and operator rewards" },
-            { title: "Governance", desc: "Treasury policy and fee parameters" },
+            { title: "Browser Access", desc: "Premium features and AI workflows." },
+            { title: "AI Gateway", desc: "Token-based credits for inference." },
+            { title: "Network Incentives", desc: "Validator and operator rewards." },
+            { title: "Governance", desc: "Treasury policy and fee parameters." },
+            { title: "Community", desc: "Engagement rewards and ecosystem participation." },
+            { title: "Developer & Open Intelligence", desc: "Open-source tooling and shared intelligence infrastructure." },
           ].map(p => (
             <GreenCard key={p.title}>
               <h3 className="text-sm font-medium text-foreground">{p.title}</h3>
