@@ -978,7 +978,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Rise of the Machines</SlideTitle>
+        <div className="text-center"><SlideTitle>Rise of the Machines</SlideTitle></div>
         <SlideSubtitle>
           Browsers are evolving from passive viewers into agentic, AI-native operating systems. 
           W3AI is building the Web3 AI gateway for this new era.
