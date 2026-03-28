@@ -974,9 +974,14 @@ const slides: Slide[] = [
   {
     id: "democratizing-intelligence",
     render: () => (
-      <div className="flex flex-col items-center justify-center h-full max-w-3xl mx-auto text-center gap-2">
-        <SlideTitle>Democratizing Intelligence.</SlideTitle>
-        <SlideTitle>Breaking Down the Barriers of Knowledge.</SlideTitle>
+      <div className="flex flex-col h-full max-w-3xl mx-auto text-center gap-4 pt-6">
+        <div className="flex flex-col gap-1">
+          <SlideTitle>Democratizing Intelligence.</SlideTitle>
+          <SlideTitle>Breaking Down the Barriers of Knowledge.</SlideTitle>
+        </div>
+        <div className="flex-1 min-h-0">
+          <BrowserPrototypeSlide embedded />
+        </div>
       </div>
     ),
   },
