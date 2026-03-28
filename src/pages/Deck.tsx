@@ -11,6 +11,10 @@ import logoIcon from "@/assets/plato-icon.webp";
 import platoIcon from "@/assets/plato-icon.webp";
 import infrastructureSlideBg from "@/assets/infrastructure-slide-bg.png";
 import networkSymmetryBg from "@/assets/network-symmetry-bg.png";
+import platoIconPink from "@/assets/plato-icon-pink.png";
+import platoIconYellow from "@/assets/plato-icon-yellow.png";
+import platoIconPurple from "@/assets/plato-icon-purple.png";
+import platoIconBlue from "@/assets/plato-icon-blue.png";
 
 // --- Slide data derived from whitepaper ---
 interface Slide {
