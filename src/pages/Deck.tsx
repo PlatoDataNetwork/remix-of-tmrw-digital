@@ -822,20 +822,9 @@ const slides: Slide[] = [
             </tbody>
           </table>
         </GreenCard>
-        <div className="grid grid-cols-3 gap-4">
-          {[
-            { icon: Zap, value: "500K+", label: "Developer Communities", sub: "Innovators" },
-            { icon: Target, value: "80%", label: "Pareto Rule", sub: "Protocol Integration" },
-            { icon: Settings, value: "Native integration", label: "AI Optimized" },
-          ].map(s => (
-            <GreenCard key={s.label} className="p-4 text-center space-y-2">
-              <s.icon className="w-5 h-5 text-[hsl(82,85%,55%)] mx-auto" />
-              <p className="text-sm font-medium text-foreground">{s.value}</p>
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{s.label}</p>
-              {s.sub && <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{s.sub}</p>}
-            </GreenCard>
-          ))}
-        </div>
+        <GreenCard className="p-5 text-center">
+          <p className="text-sm font-medium text-foreground">Innovation Wins. Community Matters.</p>
+        </GreenCard>
       </div>
     ),
   },
