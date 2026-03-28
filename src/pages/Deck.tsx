@@ -97,7 +97,7 @@ function BulletList({ items }: { items: { bold: string; text: string }[] }) {
 function GreenCard({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <div className={cn(
-      "p-5 rounded-xl border-2 border-[hsl(82,85%,55%)] bg-card space-y-2 relative overflow-hidden",
+      "p-5 rounded-xl border border-[hsl(82,85%,55%)] bg-card space-y-2 relative overflow-hidden",
       className
     )}>
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.3)] via-[hsl(82,85%,55%,0.1)] to-transparent" />
@@ -1232,7 +1232,7 @@ const slides: Slide[] = [
             "Sovereign", "Stablecoins", "Tax Credits", "Utilities",
             "Equity", "Debt", "IP",
           ].map(v => (
-            <div key={v} className="px-6 py-6 rounded-lg border-2 border-[hsl(82,85%,55%)] bg-card flex items-center justify-center relative overflow-hidden hover:border-[hsl(82,85%,55%)] hover:shadow-[0_0_12px_hsl(82,85%,55%,0.3)] transition-all">
+            <div key={v} className="px-6 py-6 rounded-lg border border-[hsl(82,85%,55%)] bg-card flex items-center justify-center relative overflow-hidden hover:border-[hsl(82,85%,55%)] hover:shadow-[0_0_12px_hsl(82,85%,55%,0.3)] transition-all">
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[hsl(82,85%,55%,0.6)] to-transparent" />
               <p className="text-sm font-medium text-foreground">{v}</p>
             </div>
@@ -1294,7 +1294,7 @@ const slides: Slide[] = [
             "zkSync", "Avalanche", "Arbitrum", "Optimism",
             "Base", "Fantom", "Cronos", "Moonbeam",
           ].map(n => (
-            <div key={n} className="px-6 py-6 rounded-lg border-2 border-[hsl(82,85%,55%,0.4)] bg-card text-center relative overflow-hidden hover:border-[hsl(82,85%,55%,0.7)] transition-colors">
+            <div key={n} className="px-6 py-6 rounded-lg border border-[hsl(82,85%,55%,0.4)] bg-card text-center relative overflow-hidden hover:border-[hsl(82,85%,55%,0.7)] transition-colors">
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[hsl(82,85%,55%,0.4)] to-transparent" />
               <p className="text-sm font-medium text-foreground">{n}</p>
             </div>
