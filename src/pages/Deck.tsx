@@ -245,7 +245,7 @@ const heroMessages = [
   { line1: "Secure Network Protocol", line2: "For the Next Web." },
 ];
 
-function BrowserPrototypeSlide() {
+function BrowserPrototypeSlide({ embedded }: { embedded?: boolean } = {}) {
   const [activeSection, setActiveSection] = useState(0);
   const [activeToolbar, setActiveToolbar] = useState<number | null>(null);
   const [heroIndex, setHeroIndex] = useState(0);
