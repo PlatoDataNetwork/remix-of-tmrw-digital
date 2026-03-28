@@ -666,22 +666,14 @@ const slides: Slide[] = [
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { icon: Key, title: "Access", items: ["Payment for AI workloads", "Premium data subscriptions", "Unlocks 13k+ AI Agents"] },
-            { icon: Gift, title: "Incentivize", items: ["Developer & data rewards", "Community incentives", "Model refinement rewards"] },
-            { icon: Layers, title: "Stake", items: ["Infrastructure rewards", "Long-term engagement", "Network security"] },
-            { icon: CheckSquare, title: "Govern", items: ["Vote on protocol upgrades", "AI model integration decisions", "Treasury allocations via DAO"] },
+            { icon: Key, title: "Access" },
+            { icon: Gift, title: "Incentivize" },
+            { icon: Layers, title: "Stake" },
+            { icon: CheckSquare, title: "Govern" },
           ].map(c => (
-            <GreenCard key={c.title} className="p-5 space-y-3">
-              <c.icon className="w-5 h-5 text-[hsl(82,85%,55%)]" />
+            <GreenCard key={c.title} className="aspect-square flex flex-col items-center justify-center gap-3">
+              <c.icon className="w-6 h-6 text-[hsl(82,85%,55%)]" />
               <h3 className="text-sm font-medium text-foreground">{c.title}</h3>
-              <div className="space-y-1.5">
-                {c.items.map(item => (
-                  <div key={item} className="flex gap-2 items-start">
-                    <div className="w-1 h-1 rounded-full bg-[hsl(82,85%,55%)] mt-1.5 shrink-0" />
-                    <p className="text-[11px] font-light text-muted-foreground">{item}</p>
-                  </div>
-                ))}
-              </div>
             </GreenCard>
           ))}
         </div>
