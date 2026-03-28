@@ -1656,7 +1656,7 @@ const slides: Slide[] = [
               <img src={platoIconBlue} alt="" className="w-6 h-6 flex-shrink-0" />
               <div>
                 <h3 className="text-sm font-medium text-foreground">TMRW Labs</h3>
-                <p className="text-xs font-light text-muted-foreground">Innovation lab for next-gen Web3 and AI experimentation.</p>
+                <p className="text-xs font-light text-muted-foreground">Innovation lab for next-gen Web3 and AI Commercialization.</p>
               </div>
             </div>
           </div>
