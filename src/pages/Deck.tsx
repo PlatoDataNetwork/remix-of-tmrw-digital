@@ -1306,7 +1306,11 @@ const slides: Slide[] = [
       <div className="flex flex-col items-center justify-center h-full gap-8 max-w-3xl mx-auto relative text-center">
 
         <SlideTitle>Network Partners</SlideTitle>
-        <SlideSubtitle>Community driven partnerships covering security, identity, liquidity, institutional credibility and sustainability.</SlideSubtitle>
+        <SlideSubtitle>
+          Community driven partnerships covering security, identity, liquidity,
+          <br />
+          institutional credibility and sustainability.
+        </SlideSubtitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {[
             { name: "0x", role: "DEX aggregation & routing" },
