@@ -1351,7 +1351,7 @@ const slides: Slide[] = [
 
         <div className="text-center"><SlideTitle>Network Security</SlideTitle></div>
         <SlideSubtitle>
-          Security as an architectural primitive — embedded at every level from browser runtime to on-chain execution. Cyber Defense is in our DNA.
+          Security as an architectural primitive is embedded at every level of our thought process. Cyber Defense is in our DNA.
         </SlideSubtitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {[
