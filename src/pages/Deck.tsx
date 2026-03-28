@@ -1217,7 +1217,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col items-center justify-center h-full gap-8 max-w-3xl mx-auto relative text-center">
 
-        <SlideTitle>W3AI RWA's</SlideTitle>
+        <SlideTitle>W3AI Tokenized Assets</SlideTitle>
         <SlideSubtitle>
           Tokenizing real-world assets across 12 Asset Classes.<br />
           Bridging traditional finance with on-chain liquidity & distribution.
