@@ -1175,7 +1175,7 @@ const slides: Slide[] = [
           <div className="flex justify-center gap-12">
             <StatBlock value="500K+" label="Impressions Per Day" />
             <StatBlock value="200K+" label="Engagements Per Day" />
-            <StatBlock value="$50M+" label="Trading Volume" />
+            <StatBlock value="$50M+" label="Daily Trading Volume" />
           </div>
           <div className="w-16 h-px bg-[hsl(82,85%,55%,0.15)] mx-auto" />
           <div className="flex justify-center gap-12">
