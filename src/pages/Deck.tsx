@@ -664,10 +664,11 @@ const slides: Slide[] = [
             ))}
           </GreenCard>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-5 gap-4">
           {[
-            { icon: Key, title: "Access" },
             { icon: Gift, title: "Incentivize" },
+            { icon: Key, title: "Access" },
+            { icon: Heart, title: "Contribute" },
             { icon: Layers, title: "Stake" },
             { icon: CheckSquare, title: "Govern" },
           ].map(c => (
