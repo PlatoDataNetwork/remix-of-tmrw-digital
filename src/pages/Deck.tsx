@@ -1673,63 +1673,63 @@ const slides: Slide[] = [
           <SlideTitle>W3AI Social Gateways</SlideTitle>
           <p className="text-base font-light text-muted-foreground mt-1">Connect with W3AI across all channels.</p>
         </div>
-        <div className="grid grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <div className="flex items-center gap-4">
-            <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Ftmrw-digital.com&bgcolor=0a0a0a&color=b8e636&format=svg"
-              alt="QR code to Website"
-              className="w-28 h-28 rounded-lg flex-shrink-0"
-            />
-            <div className="flex items-center gap-2">
-              <img src={platoIconPink} alt="" className="w-6 h-6 flex-shrink-0" />
-              <div>
+        <div className="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <GreenCard>
+            <div className="flex items-center gap-5">
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Ftmrw-digital.com&bgcolor=0a0a0a&color=b8e636&format=svg"
+                alt="QR code to Website"
+                className="w-24 h-24 rounded-lg flex-shrink-0"
+              />
+              <div className="flex flex-col items-start gap-1">
+                <img src={platoIconPink} alt="" className="w-10 h-10" />
                 <h3 className="text-sm font-medium text-foreground">Website</h3>
                 <p className="text-xs font-light text-muted-foreground">tmrw-digital.com</p>
               </div>
             </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Ftmrwcompany%2F&bgcolor=0a0a0a&color=b8e636&format=svg"
-              alt="QR code to LinkedIn"
-              className="w-28 h-28 rounded-lg flex-shrink-0"
-            />
-            <div className="flex items-center gap-2">
-              <img src={platoIconYellow} alt="" className="w-6 h-6 flex-shrink-0" />
-              <div>
+          </GreenCard>
+          <GreenCard>
+            <div className="flex items-center gap-5">
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Ftmrwcompany%2F&bgcolor=0a0a0a&color=b8e636&format=svg"
+                alt="QR code to LinkedIn"
+                className="w-24 h-24 rounded-lg flex-shrink-0"
+              />
+              <div className="flex flex-col items-start gap-1">
+                <img src={platoIconYellow} alt="" className="w-10 h-10" />
                 <h3 className="text-sm font-medium text-foreground">LinkedIn</h3>
                 <p className="text-xs font-light text-muted-foreground">linkedin.com/company/tmrwcompany</p>
               </div>
             </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fx.com%2Ftmrw_company&bgcolor=0a0a0a&color=b8e636&format=svg"
-              alt="QR code to Twitter"
-              className="w-28 h-28 rounded-lg flex-shrink-0"
-            />
-            <div className="flex items-center gap-2">
-              <img src={platoIconPurple} alt="" className="w-6 h-6 flex-shrink-0" />
-              <div>
+          </GreenCard>
+          <GreenCard>
+            <div className="flex items-center gap-5">
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fx.com%2Ftmrw_company&bgcolor=0a0a0a&color=b8e636&format=svg"
+                alt="QR code to Twitter"
+                className="w-24 h-24 rounded-lg flex-shrink-0"
+              />
+              <div className="flex flex-col items-start gap-1">
+                <img src={platoIconPurple} alt="" className="w-10 h-10" />
                 <h3 className="text-sm font-medium text-foreground">Twitter / X</h3>
                 <p className="text-xs font-light text-muted-foreground">x.com/tmrw_company</p>
               </div>
             </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Ft.me%2Ftmrwcompany&bgcolor=0a0a0a&color=b8e636&format=svg"
-              alt="QR code to Telegram"
-              className="w-28 h-28 rounded-lg flex-shrink-0"
-            />
-            <div className="flex items-center gap-2">
-              <img src={platoIconBlue} alt="" className="w-6 h-6 flex-shrink-0" />
-              <div>
+          </GreenCard>
+          <GreenCard>
+            <div className="flex items-center gap-5">
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Ft.me%2Ftmrwcompany&bgcolor=0a0a0a&color=b8e636&format=svg"
+                alt="QR code to Telegram"
+                className="w-24 h-24 rounded-lg flex-shrink-0"
+              />
+              <div className="flex flex-col items-start gap-1">
+                <img src={platoIconBlue} alt="" className="w-10 h-10" />
                 <h3 className="text-sm font-medium text-foreground">Telegram</h3>
                 <p className="text-xs font-light text-muted-foreground">t.me/tmrwcompany</p>
               </div>
             </div>
-          </div>
+          </GreenCard>
         </div>
       </div>
     ),
