@@ -1120,7 +1120,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Multi-Chain & Validators</SlideTitle>
+        <div className="text-center"><SlideTitle>Multi-Chain & Validators</SlideTitle></div>
         <SlideSubtitle>
           Solana as canonical mint hub. Ethereum and BSC as spoke chains via Wormhole NTT.
         </SlideSubtitle>
