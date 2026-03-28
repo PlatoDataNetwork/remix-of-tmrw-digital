@@ -467,8 +467,6 @@ const slides: Slide[] = [
             <span className="font-medium text-[hsl(82,85%,55%)]">No Fiduciary Relationship.</span> No fiduciary, advisory, or agency relationship is created by the distribution or receipt of this document. Exchange listings are subject to independent approval. Third-party references do not constitute endorsement. All intellectual property belongs to respective owners.
           </p>
         </div>
-        <div className="w-16 h-px bg-[hsl(82,85%,55%,0.3)] mx-auto mt-2" />
-        <p className="text-xs font-light text-muted-foreground/50 uppercase tracking-[0.3em] text-center">W3AI — The Tomorrow Company</p>
       </div>
     ),
   },
