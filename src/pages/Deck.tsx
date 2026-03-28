@@ -15,6 +15,7 @@ import platoIconPink from "@/assets/plato-icon-pink.png";
 import platoIconYellow from "@/assets/plato-icon-yellow.png";
 import platoIconPurple from "@/assets/plato-icon-purple.png";
 import platoIconBlue from "@/assets/plato-icon-blue.png";
+import w3aiUiuxBg from "@/assets/w3ai-uiux-reference.png";
 
 // --- Slide data derived from whitepaper ---
 interface Slide {
@@ -1774,6 +1775,23 @@ const slides: Slide[] = [
           <StatBlock value="<50ms" label="Latency" />
           <StatBlock value="99.9%" label="Uptime" />
           <StatBlock value="100M+" label="Pages Indexed" />
+        </div>
+      </div>
+    ),
+  },
+  // W3AI UI/UX
+  {
+    id: "w3ai-ui-ux",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-6 max-w-5xl mx-auto relative px-4">
+        <div className="text-center space-y-3">
+          <SlideTitle>W3AI UI / UX. Immersive. Secure. Fun. Engaging.</SlideTitle>
+          <p className="text-base font-light text-muted-foreground max-w-3xl mx-auto">
+            Instantly connect with thousands of decentralized applications, access real-time intelligence, and explore the Web3 ecosystem — all through one sleek, unified interface.
+          </p>
+        </div>
+        <div className="flex justify-center mt-2">
+          <img src={w3aiUiuxBg} alt="W3AI UI/UX feature cards" className="w-full max-w-4xl rounded-lg" />
         </div>
       </div>
     ),
