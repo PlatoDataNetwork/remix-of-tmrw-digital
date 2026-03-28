@@ -1388,7 +1388,7 @@ const slides: Slide[] = [
           <div className="space-y-4">
             <SectionLabel>Financial Auditing</SectionLabel>
             <BulletList items={[
-              { bold: "Canada —", text: "IFRS / GAAP standards, FINTRAC compliance, and CPA-governed auditing." },
+              { bold: "Canada —", text: "IFRS, US-GAAP Reporting. FINTRAC, FINCEN and MiCA compliance. CPA governed Auditing." },
               { bold: "Liechtenstein —", text: "TVTG regulatory framework and FMA oversight." },
               { bold: "Transparency —", text: "Quarterly treasury reports and on-chain audit trails." },
             ]} />
