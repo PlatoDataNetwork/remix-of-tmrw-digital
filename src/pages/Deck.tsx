@@ -1146,7 +1146,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <SlideTitle>Liquidity & Market Making</SlideTitle>
+        <div className="text-center"><SlideTitle>Liquidity & Market Making</SlideTitle></div>
         <BulletList items={[
           { bold: "DEX liquidity locked", text: "for no less than 12 months" },
           { bold: "LPs receive", text: "additional token rewards + 50% of MM rewards in USDC/USDT" },
