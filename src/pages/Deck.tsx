@@ -11,6 +11,10 @@ import logoIcon from "@/assets/plato-icon.webp";
 import platoIcon from "@/assets/plato-icon.webp";
 import infrastructureSlideBg from "@/assets/infrastructure-slide-bg.png";
 import networkSymmetryBg from "@/assets/network-symmetry-bg.png";
+import platoIconPink from "@/assets/plato-icon-pink.png";
+import platoIconYellow from "@/assets/plato-icon-yellow.png";
+import platoIconPurple from "@/assets/plato-icon-purple.png";
+import platoIconBlue from "@/assets/plato-icon-blue.png";
 
 // --- Slide data derived from whitepaper ---
 interface Slide {
@@ -1604,6 +1608,55 @@ const slides: Slide[] = [
               <div>
                 <h3 className="text-sm font-medium text-foreground">Documentation</h3>
                 <p className="text-xs font-light text-muted-foreground">Guides, API references, and tutorials.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  // W3AI Network Gateway
+  {
+    id: "network-gateway",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-6 max-w-5xl mx-auto relative px-4">
+        <div className="text-center">
+          <SlideTitle>W3AI Network Gateway.</SlideTitle>
+          <p className="text-sm font-light text-muted-foreground mt-1">Explore the W3AI Ecosystem.</p>
+        </div>
+        <div className="flex items-center gap-10 justify-center">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.tmrw-digital.com%2Fwhitepaper&bgcolor=0a0a0a&color=b8e636&format=svg"
+            alt="QR code to W3AI Ecosystem"
+            className="w-52 h-52 rounded-lg flex-shrink-0"
+          />
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <img src={platoIconPink} alt="" className="w-6 h-6 flex-shrink-0" />
+              <div>
+                <h3 className="text-sm font-medium text-foreground">W3AI RWA's</h3>
+                <p className="text-xs font-light text-muted-foreground">Tokenized real-world asset infrastructure and marketplace.</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <img src={platoIconYellow} alt="" className="w-6 h-6 flex-shrink-0" />
+              <div>
+                <h3 className="text-sm font-medium text-foreground">W3AI Whitepaper</h3>
+                <p className="text-xs font-light text-muted-foreground">Technical architecture and protocol specification.</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <img src={platoIconPurple} alt="" className="w-6 h-6 flex-shrink-0" />
+              <div>
+                <h3 className="text-sm font-medium text-foreground">W3AI Intelligence</h3>
+                <p className="text-xs font-light text-muted-foreground">AI-powered analytics, research, and market insights.</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <img src={platoIconBlue} alt="" className="w-6 h-6 flex-shrink-0" />
+              <div>
+                <h3 className="text-sm font-medium text-foreground">TMRW Labs</h3>
+                <p className="text-xs font-light text-muted-foreground">Innovation lab for next-gen Web3 and AI experimentation.</p>
               </div>
             </div>
           </div>
