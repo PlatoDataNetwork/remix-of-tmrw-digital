@@ -1569,6 +1569,41 @@ const slides: Slide[] = [
       </div>
     ),
   },
+  // Translational Indexing & Delivery
+  {
+    id: "translational-indexing",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto text-center px-4">
+        <SlideTitle>Translational Indexing &amp; Delivery</SlideTitle>
+        <SlideSubtitle>
+          Real-time multilingual content processing, indexing, and delivery across 140+ languages — powered by AI translation pipelines.
+        </SlideSubtitle>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <GreenCard>
+            <Globe className="w-6 h-6 text-[hsl(82,85%,55%)] mx-auto" />
+            <h3 className="text-sm font-medium text-foreground">140+ Languages</h3>
+            <p className="text-xs font-light text-muted-foreground">Automated translation and localization at scale.</p>
+          </GreenCard>
+          <GreenCard>
+            <Database className="w-6 h-6 text-[hsl(82,85%,55%)] mx-auto" />
+            <h3 className="text-sm font-medium text-foreground">Semantic Indexing</h3>
+            <p className="text-xs font-light text-muted-foreground">AI-driven content classification and cross-lingual search.</p>
+          </GreenCard>
+          <GreenCard>
+            <Zap className="w-6 h-6 text-[hsl(82,85%,55%)] mx-auto" />
+            <h3 className="text-sm font-medium text-foreground">Edge Delivery</h3>
+            <p className="text-xs font-light text-muted-foreground">Low-latency content distribution via global CDN nodes.</p>
+          </GreenCard>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-2">
+          <StatBlock value="140+" label="Languages" />
+          <StatBlock value="<50ms" label="Latency" />
+          <StatBlock value="99.9%" label="Uptime" />
+          <StatBlock value="10M+" label="Pages Indexed" />
+        </div>
+      </div>
+    ),
+  },
   // Closing
   {
     id: "closing",
