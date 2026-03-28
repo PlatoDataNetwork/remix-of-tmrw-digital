@@ -1303,10 +1303,10 @@ const slides: Slide[] = [
   {
     id: "partners",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+      <div className="flex flex-col items-center justify-center h-full gap-8 max-w-3xl mx-auto relative text-center">
 
         <SlideTitle>Network Partners</SlideTitle>
-        <SlideSubtitle>Product-integrated partnerships covering security, identity, liquidity, and institutional credibility.</SlideSubtitle>
+        <SlideSubtitle>Community driven partnerships covering security, identity, liquidity, and institutional credibility.</SlideSubtitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {[
             { name: "0x", role: "DEX aggregation & routing" },
