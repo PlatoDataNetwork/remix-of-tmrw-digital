@@ -1342,10 +1342,10 @@ const slides: Slide[] = [
         <div className="text-center"><SlideTitle>Infrastructure</SlideTitle></div>
         <img src={infrastructureSlideBg} alt="Infrastructure visualization" className="w-full rounded-2xl object-cover max-h-[340px]" />
         <BulletList items={[
-          { bold: "Network architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT for supply management" },
-          { bold: "Edge computing —", text: "Geo-redundant infrastructure for latency-sensitive AI inference routing" },
-          { bold: "Security layers —", text: "HSMs, MPC key management, browser sandboxing, and isolated agent profiles" },
-          { bold: "Monitoring —", text: "Validator health, bridge volumes, treasury dashboards, and public status pages" },
+          { bold: "Network architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT for supply management." },
+          { bold: "Edge computing —", text: "Geo-redundant infrastructure for latency-sensitive AI inference routing." },
+          { bold: "Security layers —", text: "HSMs, MPC key management, browser sandboxing, and isolated agent profiles." },
+          { bold: "Monitoring —", text: "Validator health, bridge volumes, treasury dashboards, and public status pages." },
         ]} />
       </div>
     ),
