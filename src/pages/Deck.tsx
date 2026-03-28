@@ -1164,9 +1164,8 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col items-center justify-center h-full gap-4 max-w-3xl mx-auto relative text-center">
 
-        <SlideTitle>Marketing & Distribution</SlideTitle>
+        <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-foreground">User Base Acquisition Objectives</h2>
         <div className="space-y-8">
-          <h2 className="text-2xl sm:text-3xl font-extralight uppercase tracking-[0.15em] text-[hsl(82,85%,55%)]">OBJECTIVES</h2>
           <div className="w-16 h-px bg-[hsl(82,85%,55%,0.3)] mx-auto" />
           <div className="flex justify-center gap-12">
             <StatBlock value="25K" label="Pre-listing Registry Users" />
