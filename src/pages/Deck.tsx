@@ -1446,18 +1446,20 @@ const slides: Slide[] = [
         <div className="text-center">
           <SlideTitle>W3AI Network Utility</SlideTitle>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5">
           {[
-            { title: "Browser Access", desc: "Premium features and AI workflows." },
-            { title: "AI Gateway", desc: "Token-based credits for inference." },
-            { title: "Network Incentives", desc: "Validator and operator rewards." },
-            { title: "Governance", desc: "Treasury policy and fee parameters." },
-            { title: "Community", desc: "Engagement rewards and ecosystem participation." },
-            { title: "Developer & Open Intelligence", desc: "Open-source tooling and shared intelligence infrastructure." },
+            { title: "Browser Access", desc: "Premium features and\nAI-powered workflows." },
+            { title: "AI Gateway", desc: "Token-based credits for\nreal-time inference." },
+            { title: "Network Incentives", desc: "Validator and operator\nrewards distribution." },
+            { title: "Governance", desc: "Treasury policy and\nfee parameter voting." },
+            { title: "Community", desc: "Engagement rewards and\necosystem participation." },
+            { title: "Developer Tools", desc: "Open-source tooling and\nshared intelligence infra." },
+            { title: "Data Marketplace", desc: "Monetize datasets and\nAI model contributions." },
+            { title: "Staking & Yield", desc: "Earn yield through network\nsecurity and liquidity." },
           ].map(p => (
             <GreenCard key={p.title}>
               <h3 className="text-sm font-medium text-foreground">{p.title}</h3>
-              <p className="text-xs font-light text-muted-foreground">{p.desc}</p>
+              <p className="text-xs font-light text-muted-foreground whitespace-pre-line">{p.desc}</p>
             </GreenCard>
           ))}
         </div>
