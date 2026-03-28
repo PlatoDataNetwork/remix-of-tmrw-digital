@@ -593,7 +593,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center items-center h-full gap-8 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3 w-full">
-          <SlideTitle>The Anatomy of W3AI's Intelligence Network</SlideTitle>
+          <SlideTitle>The Anatomy of an Intelligent Network</SlideTitle>
           <SlideSubtitle>A multi-faceted ecosystem designed to develop, deploy, and commercialize vertically integrated AI applications through autonomous agents.</SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
