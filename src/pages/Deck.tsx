@@ -809,8 +809,8 @@ const slides: Slide[] = [
             <tbody>
               {[
                 ["Blockchain", "High Speed. Low Cost.", "Fair Speed. High Cost."],
-                ["AI Agents", "Vertical Use Cases. Low Cost. High Value.", "Higher Cost. Lower Value."],
-                ["Execution", "Decentralized AI Inference & Real-Time.", "AI Model Training Focus."],
+                ["AI Agents", "Low Cost. High Value.", "Higher Cost. Lower Value."],
+                ["Execution", "Decentralized AI Gateway.", "AI Model Training Focus."],
                 ["Model", "Open Repositories. Marketplace.", "Open Repositories. Marketplace."],
               ].map(([f, w, a]) => (
                 <tr key={f} className="border-b border-border/30">
