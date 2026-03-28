@@ -1433,7 +1433,7 @@ const slides: Slide[] = [
     id: "token-utility",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <SlideTitle>Token Utility</SlideTitle>
+        <div className="text-center"><SlideTitle>Token Utility</SlideTitle></div>
         <SlideSubtitle>Four demand drivers powering the W3AI token economy.</SlideSubtitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {[
