@@ -1328,20 +1328,18 @@ const slides: Slide[] = [
       </div>
     ),
   },
-  // 22 — Infrastructure
+  // 22 — Network Symmetry
   {
-    id: "infrastructure",
+    id: "network-symmetry",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-
-        <div className="text-center"><SlideTitle>Infrastructure</SlideTitle></div>
-        <img src={infrastructureSlideBg} alt="Infrastructure visualization" className="w-full rounded-2xl object-cover max-h-[340px]" />
-        <BulletList items={[
-          { bold: "Network architecture —", text: "Hub-and-spoke across Solana, Ethereum, BSC with Wormhole NTT for supply management." },
-          { bold: "Edge computing —", text: "Geo-redundant infrastructure for latency-sensitive AI inference routing." },
-          { bold: "Security layers —", text: "HSMs, MPC key management, browser sandboxing, and isolated agent profiles." },
-          { bold: "Monitoring —", text: "Validator health, bridge volumes, treasury dashboards, and public status pages." },
-        ]} />
+      <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
+        <div className="text-center space-y-4">
+          <SlideTitle>Network Symmetry</SlideTitle>
+          <SlideSubtitle>
+            From Web3 infrastructure and AI analytics to cyber defense and digital strategy — we deliver end-to-end capabilities that drive growth, security, and competitive advantage.
+          </SlideSubtitle>
+        </div>
+        <img src={networkSymmetryBg} alt="Network Symmetry visualization" className="w-full rounded-2xl object-cover max-h-[340px]" />
       </div>
     ),
   },
