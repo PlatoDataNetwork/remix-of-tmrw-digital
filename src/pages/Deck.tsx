@@ -620,7 +620,13 @@ const slides: Slide[] = [
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
           <SlideTitle>The Zeus IDE</SlideTitle>
-          <SlideSubtitle>The AI-Orchestrated Engine for dApp Development on Solana. Use natural language, code, and visual tools to generate, test, and deploy smart contracts with unprecedented speed.</SlideSubtitle>
+          <SlideSubtitle>
+            Make Vibing Great Again.
+            <br />
+            The AI-Orchestrated Engine for Multi-Chain dApp Development.
+            <br />
+            Use natural language, code, and visual tools to generate, test, and deploy smart contracts with unprecedented speed.
+          </SlideSubtitle>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {[
