@@ -1456,12 +1456,12 @@ const slides: Slide[] = [
     id: "tokenomics",
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
-        <div className="flex items-baseline justify-between">
+        <div className="text-center space-y-2">
           <SlideTitle>Tokenomics & Supply</SlideTitle>
-          <div className="text-right">
-            <span className="text-3xl font-extralight text-[hsl(82,85%,55%)]">2B</span>
+          <p className="text-sm text-muted-foreground">
+            <span className="text-2xl font-extralight text-[hsl(82,85%,55%)]">2B</span>
             <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground ml-2">Total Supply</span>
-          </div>
+          </p>
         </div>
         <div className="w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.2)] via-[hsl(82,85%,55%,0.08)] to-transparent" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
