@@ -520,7 +520,6 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-4">
-          <span className="inline-block text-[10px] uppercase tracking-widest text-[hsl(82,85%,55%)] border border-[hsl(82,85%,55%,0.3)] rounded-full px-3 py-0.5">Our Solution</span>
           <SlideTitle>A Decentralized AI Ecosystem</SlideTitle>
           <SlideSubtitle>W3AI was founded on the principle that intelligence should be open, decentralized, and self-evolving. We are pioneering a trustless, transparent, and scalable AI ecosystem built on Web3 infrastructure.</SlideSubtitle>
         </div>
