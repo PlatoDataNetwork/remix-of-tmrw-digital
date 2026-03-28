@@ -822,9 +822,9 @@ const slides: Slide[] = [
             </tbody>
           </table>
         </GreenCard>
-        <GreenCard className="p-5">
-          <p className="text-sm font-medium text-foreground">Authentic Connectivity Cross Chain.</p>
-        </GreenCard>
+        <div className="text-center">
+          <SlideTitle>Authentic Connectivity Cross Chain.</SlideTitle>
+        </div>
       </div>
     ),
   },
