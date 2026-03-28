@@ -1215,7 +1215,7 @@ const slides: Slide[] = [
   {
     id: "rwas",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+      <div className="flex flex-col items-center justify-center h-full gap-8 max-w-3xl mx-auto relative text-center">
 
         <SlideTitle>W3AI RWA's</SlideTitle>
         <SlideSubtitle>
@@ -1228,8 +1228,8 @@ const slides: Slide[] = [
             "Infrastructure", "Metals", "Rare Earth", "Real Estate",
             "Sovereign Wealth", "Stablecoins", "Tax Credits", "Utilities",
           ].map(v => (
-            <div key={v} className="p-3 rounded-lg border border-[hsl(82,85%,55%,0.15)] bg-card text-center relative overflow-hidden hover:border-[hsl(82,85%,55%,0.3)] transition-colors">
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[hsl(82,85%,55%,0.2)] to-transparent" />
+            <div key={v} className="p-3 rounded-lg border border-[hsl(82,85%,55%,0.3)] bg-card text-center relative overflow-hidden hover:border-[hsl(82,85%,55%,0.6)] transition-colors">
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[hsl(82,85%,55%,0.4)] to-transparent" />
               <p className="text-xs font-medium text-foreground">{v}</p>
             </div>
           ))}
