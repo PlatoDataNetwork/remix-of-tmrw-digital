@@ -10,6 +10,7 @@ import heroBackground from "@/assets/hero-bg.webp";
 import logoIcon from "@/assets/plato-icon.webp";
 import platoIcon from "@/assets/plato-icon.webp";
 import infrastructureSlideBg from "@/assets/infrastructure-slide-bg.png";
+import networkSymmetryBg from "@/assets/network-symmetry-bg.png";
 
 // --- Slide data derived from whitepaper ---
 interface Slide {
