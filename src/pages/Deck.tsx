@@ -1457,7 +1457,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-4xl mx-auto relative">
         <div className="text-center space-y-2">
-          <SlideTitle>DAO Based Governance. Community Strategy.</SlideTitle>
+          <SlideTitle>DAO Based Community Strategy</SlideTitle>
           <p className="text-sm text-muted-foreground">
             <span className="text-2xl font-extralight text-[hsl(82,85%,55%)]">2B</span>
             <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground ml-2">Total Supply</span>
