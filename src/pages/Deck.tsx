@@ -16,6 +16,7 @@ import platoIconYellow from "@/assets/plato-icon-yellow.png";
 import platoIconPurple from "@/assets/plato-icon-purple.png";
 import platoIconBlue from "@/assets/plato-icon-blue.png";
 import w3aiUiuxBg from "@/assets/w3ai-uiux-reference.png";
+import w3aiConvergenceArch from "@/assets/w3ai-convergence-arch.png";
 
 // --- Slide data derived from whitepaper ---
 interface Slide {
