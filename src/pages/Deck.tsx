@@ -1164,7 +1164,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col items-center justify-center h-full gap-4 max-w-3xl mx-auto relative text-center">
 
-        <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-foreground">User Base Acquisition Objectives</h2>
+        <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-foreground">W3AI Acquisition Objectives</h2>
         <div className="space-y-8">
           <div className="w-16 h-px bg-[hsl(82,85%,55%,0.3)] mx-auto" />
           <div className="flex justify-center gap-12">
