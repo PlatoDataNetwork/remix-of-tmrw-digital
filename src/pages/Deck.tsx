@@ -671,9 +671,9 @@ const slides: Slide[] = [
             { icon: Layers, title: "Stake" },
             { icon: CheckSquare, title: "Govern" },
           ].map(c => (
-            <GreenCard key={c.title} className="aspect-square flex flex-col items-center justify-center gap-3">
-              <c.icon className="w-6 h-6 text-[hsl(82,85%,55%)]" />
-              <h3 className="text-sm font-medium text-foreground">{c.title}</h3>
+            <GreenCard key={c.title} className="aspect-square flex flex-col items-center justify-center gap-4">
+              <c.icon className="w-10 h-10 text-[hsl(82,85%,55%)]" />
+              <h3 className="text-base font-medium text-foreground">{c.title}</h3>
             </GreenCard>
           ))}
         </div>
