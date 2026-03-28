@@ -1349,16 +1349,16 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <div className="text-center"><SlideTitle>Cybersecurity</SlideTitle></div>
+        <div className="text-center"><SlideTitle>Network Security</SlideTitle></div>
         <SlideSubtitle>
-          Security as an architectural primitive — embedded at every level from browser runtime to on-chain execution.
+          Security as an architectural primitive — embedded at every level from browser runtime to on-chain execution. Cyber Defense is in our DNA.
         </SlideSubtitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {[
-            { title: "Network Security", desc: "Validator hardening, node isolation, DDoS mitigation, and Wormhole NTT rate limits" },
-            { title: "Blockchain Security", desc: "Hacken audits, formal verification, bug bounties, and multi-sig upgrade governance" },
-            { title: "DeFi Security", desc: "Oracle manipulation detection, flash loan monitoring, and MEV protection" },
-            { title: "AI Security", desc: "LLM prompt injection defense, model output validation, and agent permission boundaries" },
+            { title: "Network Security", desc: "Validator hardening, node isolation, DDoS mitigation, and Wormhole NTT rate limits." },
+            { title: "Blockchain Security", desc: "Hacken audits, formal verification, bug bounties, and multi-sig upgrade governance." },
+            { title: "DeFi Security", desc: "Oracle manipulation detection, flash loan monitoring, and MEV protection." },
+            { title: "AI Security", desc: "LLM prompt injection defense, model output validation, and agent permission boundaries." },
           ].map(c => (
             <GreenCard key={c.title} className="p-5">
               <h3 className="text-sm font-medium text-[hsl(82,85%,55%)]">{c.title}</h3>
