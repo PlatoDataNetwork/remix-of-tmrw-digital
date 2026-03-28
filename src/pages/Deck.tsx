@@ -1168,8 +1168,8 @@ const slides: Slide[] = [
       <div className="flex flex-col items-center justify-center h-full gap-8 max-w-3xl mx-auto relative text-center">
 
         <SlideTitle>Marketing & Distribution</SlideTitle>
-        <div className="space-y-6 mt-4">
-          <h3 className="text-lg uppercase tracking-[0.2em] text-[hsl(82,85%,55%,0.7)]">Objectives</h3>
+        <div className="space-y-6 mt-1">
+          <SlideTitle>Objectives</SlideTitle>
           <div className="flex justify-center gap-12">
             <StatBlock value="25K" label="Pre-listing Registry Users" />
             <StatBlock value="3M+" label="Monthly Users (12-18 mo)" />
