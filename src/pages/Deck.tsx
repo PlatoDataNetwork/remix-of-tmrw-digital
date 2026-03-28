@@ -976,11 +976,11 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
 
-        <div className="text-center"><SlideTitle>Rise of the Machines</SlideTitle></div>
-        <SlideSubtitle>
-          Browsers are evolving from passive viewers into agentic, AI-native operating systems. 
-          W3AI is building the Web3 AI gateway for this new era.
-        </SlideSubtitle>
+        <div className="text-center">
+          <SlideTitle>Rise of the Machines</SlideTitle>
+          <h2 className="text-2xl md:text-3xl font-extralight text-foreground/90 mt-4">Democratizing Intelligence.</h2>
+          <h2 className="text-2xl md:text-3xl font-extralight text-foreground/90 mt-1">Breaking Down the Barriers of Knowledge.</h2>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 pt-4">
           <StatBlock value="741M" label="Global Crypto Owners" />
           <StatBlock value="30M" label="Active Stablecoin Addresses" />
