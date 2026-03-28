@@ -619,7 +619,7 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <SlideTitle>The Zeus IDE. Make Vibing Cool Again.</SlideTitle>
+          <SlideTitle>The Zeus IDE. Make Vibe Coding Cool Again.</SlideTitle>
           <SlideSubtitle>
             The AI-Orchestrated Engine for Multichain dApp Development.
             <br />
