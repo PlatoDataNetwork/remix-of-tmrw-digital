@@ -1174,6 +1174,11 @@ const slides: Slide[] = [
             <StatBlock value="25K" label="Pre-listing Registry Users" />
             <StatBlock value="3M+" label="Monthly Users (12-18 mo)" />
           </div>
+          <div className="flex justify-center gap-12 mt-4">
+            <StatBlock value="500K+" label="Impressions Per Day" />
+            <StatBlock value="200K+" label="Engagements Per Day" />
+            <StatBlock value="$50M+" label="Trading Volume" />
+          </div>
         </div>
       </div>
     ),
