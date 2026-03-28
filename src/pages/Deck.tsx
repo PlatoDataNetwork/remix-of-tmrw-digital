@@ -1299,7 +1299,7 @@ const slides: Slide[] = [
   {
     id: "partners",
     render: () => (
-      <div className="flex flex-col items-center justify-center h-full gap-8 max-w-3xl mx-auto relative text-center">
+      <div className="flex flex-col items-center justify-center h-full gap-4 max-w-3xl mx-auto relative text-center">
 
         <SlideTitle>Network Partners</SlideTitle>
         <SlideSubtitle>
