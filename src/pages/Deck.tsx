@@ -34,7 +34,7 @@ function SlideBranding() {
         }}
       />
       <span className="text-[10px] font-light tracking-[0.2em] text-muted-foreground/60 uppercase">
-        W3AI <span className="text-muted-foreground/30">|</span> W3AI
+        W3AI <span className="text-muted-foreground/30">|</span> TMRW
       </span>
     </div>
   );
