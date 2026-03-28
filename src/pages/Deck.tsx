@@ -1779,6 +1779,23 @@ const slides: Slide[] = [
       </div>
     ),
   },
+  // W3AI UI/UX
+  {
+    id: "w3ai-ui-ux",
+    render: () => (
+      <div className="flex flex-col justify-center h-full gap-6 max-w-5xl mx-auto relative px-4">
+        <div className="text-center space-y-3">
+          <SlideTitle>W3AI UI / UX. Immersive. Secure. Fun. Engaging.</SlideTitle>
+          <p className="text-base font-light text-muted-foreground max-w-3xl mx-auto">
+            Instantly connect with thousands of decentralized applications, access real-time intelligence, and explore the Web3 ecosystem — all through one sleek, unified interface.
+          </p>
+        </div>
+        <div className="flex justify-center mt-2">
+          <img src={w3aiUiuxBg} alt="W3AI UI/UX feature cards" className="w-full max-w-4xl rounded-lg" />
+        </div>
+      </div>
+    ),
+  },
   // Closing
   {
     id: "closing",
