@@ -1263,12 +1263,9 @@ const slides: Slide[] = [
   {
     id: "institutional",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
+      <div className="flex flex-col items-center justify-center h-full gap-8 max-w-3xl mx-auto relative text-center">
 
         <SlideTitle>Institutional-Grade Rails</SlideTitle>
-        <SlideSubtitle>
-          Consumer-first mission with institutional-grade infrastructure for professionals and enterprise.
-        </SlideSubtitle>
         <BulletList items={[
           { bold: "Custody —", text: "MPC & HSM key management with insurance-backed partnerships and SOC 2 Type II compliance" },
           { bold: "Compliance —", text: "Automated AML/KYC, Travel Rule compliance, real-time sanctions screening" },
