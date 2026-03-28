@@ -1432,9 +1432,10 @@ const slides: Slide[] = [
   {
     id: "token-utility",
     render: () => (
-      <div className="flex flex-col justify-center h-full gap-8 max-w-3xl mx-auto relative">
-        <div className="text-center"><SlideTitle>User Base Acquisition Objectives</SlideTitle></div>
-        <SlideSubtitle>Four demand drivers powering the W3AI token economy.</SlideSubtitle>
+      <div className="flex flex-col justify-center h-full gap-8 max-w-4xl mx-auto relative">
+        <div className="text-center">
+          <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-foreground whitespace-nowrap">User Base Acquisition Objectives</h2>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {[
             { title: "Browser Access", desc: "Premium features and AI workflows" },
