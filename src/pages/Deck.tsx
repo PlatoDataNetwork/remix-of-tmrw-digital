@@ -1219,8 +1219,8 @@ const slides: Slide[] = [
 
         <SlideTitle>W3AI RWA's</SlideTitle>
         <SlideSubtitle>
-          Tokenizing real-world assets across 12 verticals — bridging traditional finance with on-chain 
-          liquidity and fractional ownership.
+          Tokenizing real-world assets across 12 Asset Classes.<br />
+          Bridging traditional finance with on-chain liquidity & distribution.
         </SlideSubtitle>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {[
