@@ -97,7 +97,7 @@ function BulletList({ items }: { items: { bold: string; text: string }[] }) {
 function GreenCard({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <div className={cn(
-      "p-5 rounded-xl border-2 border-[hsl(82,85%,55%)] bg-card space-y-2 relative overflow-hidden",
+      "p-5 rounded-xl border border-[hsl(82,85%,55%)] bg-card space-y-2 relative overflow-hidden",
       className
     )}>
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-[hsl(82,85%,55%,0.3)] via-[hsl(82,85%,55%,0.1)] to-transparent" />
