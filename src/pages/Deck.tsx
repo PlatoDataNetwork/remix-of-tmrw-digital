@@ -647,8 +647,8 @@ const slides: Slide[] = [
     render: () => (
       <div className="flex flex-col justify-center h-full gap-6 max-w-3xl mx-auto relative">
         <div className="text-center space-y-3">
-          <SlideTitle>The W3AI Token</SlideTitle>
-          <SlideSubtitle>Fueling the Intelligence Economy — the core utility and governance token powering W3AI's ecosystem.</SlideSubtitle>
+          <SlideTitle>W3AI Core Utility</SlideTitle>
+          <SlideSubtitle>Fueling The Intelligence Economy. One Block at a Time.</SlideSubtitle>
         </div>
         <div className="flex justify-center">
           <GreenCard className="px-8 py-3 inline-flex gap-8">
